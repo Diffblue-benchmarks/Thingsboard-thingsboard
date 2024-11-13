@@ -1,0 +1,214 @@
+package org.thingsboard.server.dao.model.sql;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import java.util.UUID;
+import org.junit.Test;
+import org.thingsboard.server.dao.model.ModelConstants;
+
+public class EventEntityDiffblueTest {
+  /**
+   * Test {@link EventEntity#getUuid()}.
+   * <p>
+   * Method under test: {@link EventEntity#getUuid()}
+   */
+  @Test
+  public void testGetUuid() {
+    // Arrange, Act and Assert
+    assertNull((new ErrorEventEntity()).getUuid());
+  }
+
+  /**
+   * Test {@link EventEntity#setUuid(UUID)}.
+   * <p>
+   * Method under test: {@link EventEntity#setUuid(UUID)}
+   */
+  @Test
+  public void testSetUuid() {
+    // Arrange
+    ErrorEventEntity errorEventEntity = new ErrorEventEntity();
+    UUID id = ModelConstants.NULL_UUID;
+
+    // Act
+    errorEventEntity.setUuid(id);
+
+    // Assert
+    assertSame(id, errorEventEntity.getId());
+    assertSame(id, errorEventEntity.getUuid());
+  }
+
+  /**
+   * Test {@link EventEntity#getCreatedTime()}.
+   * <p>
+   * Method under test: {@link EventEntity#getCreatedTime()}
+   */
+  @Test
+  public void testGetCreatedTime() {
+    // Arrange, Act and Assert
+    assertEquals(0L, (new ErrorEventEntity()).getCreatedTime());
+  }
+
+  /**
+   * Test {@link EventEntity#setCreatedTime(long)}.
+   * <p>
+   * Method under test: {@link EventEntity#setCreatedTime(long)}
+   */
+  @Test
+  public void testSetCreatedTime() {
+    // Arrange
+    ErrorEventEntity errorEventEntity = new ErrorEventEntity();
+
+    // Act
+    errorEventEntity.setCreatedTime(1L);
+
+    // Assert
+    assertEquals(1L, errorEventEntity.getCreatedTime());
+    assertEquals(1L, errorEventEntity.getTs());
+  }
+
+  /**
+   * Test {@link EventEntity#getEntityId()}.
+   * <p>
+   * Method under test: {@link EventEntity#getEntityId()}
+   */
+  @Test
+  public void testGetEntityId() {
+    // Arrange, Act and Assert
+    assertNull((new ErrorEventEntity()).getEntityId());
+  }
+
+  /**
+   * Test {@link EventEntity#getId()}.
+   * <p>
+   * Method under test: {@link EventEntity#getId()}
+   */
+  @Test
+  public void testGetId() {
+    // Arrange, Act and Assert
+    assertNull((new ErrorEventEntity()).getId());
+  }
+
+  /**
+   * Test {@link EventEntity#getServiceId()}.
+   * <p>
+   * Method under test: {@link EventEntity#getServiceId()}
+   */
+  @Test
+  public void testGetServiceId() {
+    // Arrange, Act and Assert
+    assertNull((new ErrorEventEntity()).getServiceId());
+  }
+
+  /**
+   * Test {@link EventEntity#getTenantId()}.
+   * <p>
+   * Method under test: {@link EventEntity#getTenantId()}
+   */
+  @Test
+  public void testGetTenantId() {
+    // Arrange, Act and Assert
+    assertNull((new ErrorEventEntity()).getTenantId());
+  }
+
+  /**
+   * Test {@link EventEntity#getTs()}.
+   * <p>
+   * Method under test: {@link EventEntity#getTs()}
+   */
+  @Test
+  public void testGetTs() {
+    // Arrange, Act and Assert
+    assertEquals(0L, (new ErrorEventEntity()).getTs());
+  }
+
+  /**
+   * Test {@link EventEntity#setEntityId(UUID)}.
+   * <p>
+   * Method under test: {@link EventEntity#setEntityId(UUID)}
+   */
+  @Test
+  public void testSetEntityId() {
+    // Arrange
+    ErrorEventEntity errorEventEntity = new ErrorEventEntity();
+    UUID entityId = ModelConstants.NULL_UUID;
+
+    // Act
+    errorEventEntity.setEntityId(entityId);
+
+    // Assert
+    assertSame(entityId, errorEventEntity.getEntityId());
+  }
+
+  /**
+   * Test {@link EventEntity#setId(UUID)}.
+   * <p>
+   * Method under test: {@link EventEntity#setId(UUID)}
+   */
+  @Test
+  public void testSetId() {
+    // Arrange
+    ErrorEventEntity errorEventEntity = new ErrorEventEntity();
+    UUID id = ModelConstants.NULL_UUID;
+
+    // Act
+    errorEventEntity.setId(id);
+
+    // Assert
+    assertSame(id, errorEventEntity.getId());
+    assertSame(id, errorEventEntity.getUuid());
+  }
+
+  /**
+   * Test {@link EventEntity#setServiceId(String)}.
+   * <p>
+   * Method under test: {@link EventEntity#setServiceId(String)}
+   */
+  @Test
+  public void testSetServiceId() {
+    // Arrange
+    ErrorEventEntity errorEventEntity = new ErrorEventEntity();
+
+    // Act
+    errorEventEntity.setServiceId("42");
+
+    // Assert
+    assertEquals("42", errorEventEntity.getServiceId());
+  }
+
+  /**
+   * Test {@link EventEntity#setTenantId(UUID)}.
+   * <p>
+   * Method under test: {@link EventEntity#setTenantId(UUID)}
+   */
+  @Test
+  public void testSetTenantId() {
+    // Arrange
+    ErrorEventEntity errorEventEntity = new ErrorEventEntity();
+    UUID tenantId = ModelConstants.NULL_UUID;
+
+    // Act
+    errorEventEntity.setTenantId(tenantId);
+
+    // Assert
+    assertSame(tenantId, errorEventEntity.getTenantId());
+  }
+
+  /**
+   * Test {@link EventEntity#setTs(long)}.
+   * <p>
+   * Method under test: {@link EventEntity#setTs(long)}
+   */
+  @Test
+  public void testSetTs() {
+    // Arrange
+    ErrorEventEntity errorEventEntity = new ErrorEventEntity();
+
+    // Act
+    errorEventEntity.setTs(1L);
+
+    // Assert
+    assertEquals(1L, errorEventEntity.getCreatedTime());
+    assertEquals(1L, errorEventEntity.getTs());
+  }
+}

@@ -1,0 +1,227 @@
+package org.thingsboard.server.common.data.device.profile;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.thingsboard.server.common.data.DeviceProfileProvisionType;
+
+class AllowCreateNewDevicesDeviceProfileProvisionConfigurationDiffblueTest {
+  /**
+   * Test
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)},
+   * and
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}
+   *   <li>
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    AllowCreateNewDevicesDeviceProfileProvisionConfiguration allowCreateNewDevicesDeviceProfileProvisionConfiguration = new AllowCreateNewDevicesDeviceProfileProvisionConfiguration(
+        "Provision Device Secret");
+    AllowCreateNewDevicesDeviceProfileProvisionConfiguration allowCreateNewDevicesDeviceProfileProvisionConfiguration2 = new AllowCreateNewDevicesDeviceProfileProvisionConfiguration(
+        "Provision Device Secret");
+
+    // Act and Assert
+    assertEquals(allowCreateNewDevicesDeviceProfileProvisionConfiguration,
+        allowCreateNewDevicesDeviceProfileProvisionConfiguration2);
+    int expectedHashCodeResult = allowCreateNewDevicesDeviceProfileProvisionConfiguration.hashCode();
+    assertEquals(expectedHashCodeResult, allowCreateNewDevicesDeviceProfileProvisionConfiguration2.hashCode());
+  }
+
+  /**
+   * Test
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)},
+   * and
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}
+   *   <li>
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    AllowCreateNewDevicesDeviceProfileProvisionConfiguration allowCreateNewDevicesDeviceProfileProvisionConfiguration = new AllowCreateNewDevicesDeviceProfileProvisionConfiguration(
+        null);
+    AllowCreateNewDevicesDeviceProfileProvisionConfiguration allowCreateNewDevicesDeviceProfileProvisionConfiguration2 = new AllowCreateNewDevicesDeviceProfileProvisionConfiguration(
+        null);
+
+    // Act and Assert
+    assertEquals(allowCreateNewDevicesDeviceProfileProvisionConfiguration,
+        allowCreateNewDevicesDeviceProfileProvisionConfiguration2);
+    int expectedHashCodeResult = allowCreateNewDevicesDeviceProfileProvisionConfiguration.hashCode();
+    assertEquals(expectedHashCodeResult, allowCreateNewDevicesDeviceProfileProvisionConfiguration2.hashCode());
+  }
+
+  /**
+   * Test
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)},
+   * and
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#hashCode()}.
+   * <ul>
+   *   <li>When other is same.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}
+   *   <li>
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    AllowCreateNewDevicesDeviceProfileProvisionConfiguration allowCreateNewDevicesDeviceProfileProvisionConfiguration = new AllowCreateNewDevicesDeviceProfileProvisionConfiguration(
+        "Provision Device Secret");
+
+    // Act and Assert
+    assertEquals(allowCreateNewDevicesDeviceProfileProvisionConfiguration,
+        allowCreateNewDevicesDeviceProfileProvisionConfiguration);
+    int expectedHashCodeResult = allowCreateNewDevicesDeviceProfileProvisionConfiguration.hashCode();
+    assertEquals(expectedHashCodeResult, allowCreateNewDevicesDeviceProfileProvisionConfiguration.hashCode());
+  }
+
+  /**
+   * Test
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    AllowCreateNewDevicesDeviceProfileProvisionConfiguration allowCreateNewDevicesDeviceProfileProvisionConfiguration = new AllowCreateNewDevicesDeviceProfileProvisionConfiguration(
+        null);
+
+    // Act and Assert
+    assertNotEquals(allowCreateNewDevicesDeviceProfileProvisionConfiguration,
+        new AllowCreateNewDevicesDeviceProfileProvisionConfiguration("Provision Device Secret"));
+  }
+
+  /**
+   * Test
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    AllowCreateNewDevicesDeviceProfileProvisionConfiguration allowCreateNewDevicesDeviceProfileProvisionConfiguration = new AllowCreateNewDevicesDeviceProfileProvisionConfiguration(
+        "org.thingsboard.server.common.data.device.profile.AllowCreateNewDevicesDeviceProfileProvisionCon"
+            + "figuration");
+
+    // Act and Assert
+    assertNotEquals(allowCreateNewDevicesDeviceProfileProvisionConfiguration,
+        new AllowCreateNewDevicesDeviceProfileProvisionConfiguration("Provision Device Secret"));
+  }
+
+  /**
+   * Test
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}.
+   * <ul>
+   *   <li>When other is {@code null}.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new AllowCreateNewDevicesDeviceProfileProvisionConfiguration("Provision Device Secret"), null);
+  }
+
+  /**
+   * Test
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}.
+   * <ul>
+   *   <li>When other is wrong type.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new AllowCreateNewDevicesDeviceProfileProvisionConfiguration("Provision Device Secret"),
+        "Different type to AllowCreateNewDevicesDeviceProfileProvisionConfiguration");
+  }
+
+  /**
+   * Test getters and setters.
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#AllowCreateNewDevicesDeviceProfileProvisionConfiguration(String)}
+   *   <li>
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#toString()}
+   *   <li>
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#getProvisionDeviceSecret()}
+   *   <li>
+   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#getType()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test getters and setters")
+  void testGettersAndSetters() {
+    // Arrange and Act
+    AllowCreateNewDevicesDeviceProfileProvisionConfiguration actualAllowCreateNewDevicesDeviceProfileProvisionConfiguration = new AllowCreateNewDevicesDeviceProfileProvisionConfiguration(
+        "Provision Device Secret");
+    String actualToStringResult = actualAllowCreateNewDevicesDeviceProfileProvisionConfiguration.toString();
+    String actualProvisionDeviceSecret = actualAllowCreateNewDevicesDeviceProfileProvisionConfiguration
+        .getProvisionDeviceSecret();
+
+    // Assert
+    assertEquals(
+        "AllowCreateNewDevicesDeviceProfileProvisionConfiguration(provisionDeviceSecret=Provision Device" + " Secret)",
+        actualToStringResult);
+    assertEquals("Provision Device Secret", actualProvisionDeviceSecret);
+    assertEquals(DeviceProfileProvisionType.ALLOW_CREATE_NEW_DEVICES,
+        actualAllowCreateNewDevicesDeviceProfileProvisionConfiguration.getType());
+  }
+}

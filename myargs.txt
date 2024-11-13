@@ -1,0 +1,2 @@
+#dont include these modules when running Cover
+--exclude-modules org.thingsboard.msa:web-ui,org.thingsboard.msa:js-executor,org.thingsboard:ui-ngx,org.thingsboard.msa:tb,org.thingsboard.msa:vc-executor-docker,org.thingsboard.msa:tb-node,org.thingsboard.msa.transport:mqtt,org.thingsboard.msa.transport:http,org.thingsboard.msa.transport:coap,org.thingsboard.msa.transport:lwm2m,org.thingsboard.msa.transport:snmp,org.thingsboard.msa:monitoring

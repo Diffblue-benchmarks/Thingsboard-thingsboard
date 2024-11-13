@@ -121,7 +121,7 @@ export class EntityVersionDiffComponent extends PageComponent implements OnInit,
           this.popoverComponent.updatePosition();
         }
         setTimeout(() => {
-          this.differ = new aceDiff(
+          this.differ = new aceDiff.default(
             {
               element: this.diffViewerElmRef.nativeElement,
               mode: 'ace/mode/json',

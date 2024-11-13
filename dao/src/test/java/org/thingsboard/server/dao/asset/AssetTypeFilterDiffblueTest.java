@@ -1,0 +1,245 @@
+package org.thingsboard.server.dao.asset;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.Test;
+
+public class AssetTypeFilterDiffblueTest {
+  /**
+   * Test {@link AssetTypeFilter#equals(Object)}, and
+   * {@link AssetTypeFilter#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link AssetTypeFilter#equals(Object)}
+   *   <li>{@link AssetTypeFilter#hashCode()}
+   * </ul>
+   */
+  @Test
+  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    AssetTypeFilter assetTypeFilter = new AssetTypeFilter();
+    assetTypeFilter.setAssetTypes(new ArrayList<>());
+    assetTypeFilter.setRelationType("Relation Type");
+
+    AssetTypeFilter assetTypeFilter2 = new AssetTypeFilter();
+    assetTypeFilter2.setAssetTypes(new ArrayList<>());
+    assetTypeFilter2.setRelationType("Relation Type");
+
+    // Act and Assert
+    assertEquals(assetTypeFilter, assetTypeFilter2);
+    int expectedHashCodeResult = assetTypeFilter.hashCode();
+    assertEquals(expectedHashCodeResult, assetTypeFilter2.hashCode());
+  }
+
+  /**
+   * Test {@link AssetTypeFilter#equals(Object)}, and
+   * {@link AssetTypeFilter#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link AssetTypeFilter#equals(Object)}
+   *   <li>{@link AssetTypeFilter#hashCode()}
+   * </ul>
+   */
+  @Test
+  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    AssetTypeFilter assetTypeFilter = new AssetTypeFilter();
+    assetTypeFilter.setAssetTypes(new ArrayList<>());
+    assetTypeFilter.setRelationType(null);
+
+    AssetTypeFilter assetTypeFilter2 = new AssetTypeFilter();
+    assetTypeFilter2.setAssetTypes(new ArrayList<>());
+    assetTypeFilter2.setRelationType(null);
+
+    // Act and Assert
+    assertEquals(assetTypeFilter, assetTypeFilter2);
+    int expectedHashCodeResult = assetTypeFilter.hashCode();
+    assertEquals(expectedHashCodeResult, assetTypeFilter2.hashCode());
+  }
+
+  /**
+   * Test {@link AssetTypeFilter#equals(Object)}, and
+   * {@link AssetTypeFilter#hashCode()}.
+   * <ul>
+   *   <li>When other is same.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link AssetTypeFilter#equals(Object)}
+   *   <li>{@link AssetTypeFilter#hashCode()}
+   * </ul>
+   */
+  @Test
+  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    AssetTypeFilter assetTypeFilter = new AssetTypeFilter();
+    assetTypeFilter.setAssetTypes(new ArrayList<>());
+    assetTypeFilter.setRelationType("Relation Type");
+
+    // Act and Assert
+    assertEquals(assetTypeFilter, assetTypeFilter);
+    int expectedHashCodeResult = assetTypeFilter.hashCode();
+    assertEquals(expectedHashCodeResult, assetTypeFilter.hashCode());
+  }
+
+  /**
+   * Test {@link AssetTypeFilter#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link AssetTypeFilter#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    ArrayList<String> assetTypes = new ArrayList<>();
+    assetTypes.add("Relation Type");
+
+    AssetTypeFilter assetTypeFilter = new AssetTypeFilter();
+    assetTypeFilter.setAssetTypes(assetTypes);
+    assetTypeFilter.setRelationType("Relation Type");
+
+    AssetTypeFilter assetTypeFilter2 = new AssetTypeFilter();
+    assetTypeFilter2.setAssetTypes(new ArrayList<>());
+    assetTypeFilter2.setRelationType("Relation Type");
+
+    // Act and Assert
+    assertNotEquals(assetTypeFilter, assetTypeFilter2);
+  }
+
+  /**
+   * Test {@link AssetTypeFilter#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link AssetTypeFilter#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    AssetTypeFilter assetTypeFilter = new AssetTypeFilter();
+    assetTypeFilter.setAssetTypes(new ArrayList<>());
+    assetTypeFilter.setRelationType(null);
+
+    AssetTypeFilter assetTypeFilter2 = new AssetTypeFilter();
+    assetTypeFilter2.setAssetTypes(new ArrayList<>());
+    assetTypeFilter2.setRelationType("Relation Type");
+
+    // Act and Assert
+    assertNotEquals(assetTypeFilter, assetTypeFilter2);
+  }
+
+  /**
+   * Test {@link AssetTypeFilter#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link AssetTypeFilter#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+    // Arrange
+    AssetTypeFilter assetTypeFilter = new AssetTypeFilter();
+    assetTypeFilter.setAssetTypes(new ArrayList<>());
+    assetTypeFilter.setRelationType("org.thingsboard.server.dao.asset.AssetTypeFilter");
+
+    AssetTypeFilter assetTypeFilter2 = new AssetTypeFilter();
+    assetTypeFilter2.setAssetTypes(new ArrayList<>());
+    assetTypeFilter2.setRelationType("Relation Type");
+
+    // Act and Assert
+    assertNotEquals(assetTypeFilter, assetTypeFilter2);
+  }
+
+  /**
+   * Test {@link AssetTypeFilter#equals(Object)}.
+   * <ul>
+   *   <li>When other is {@code null}.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link AssetTypeFilter#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange
+    AssetTypeFilter assetTypeFilter = new AssetTypeFilter();
+    assetTypeFilter.setAssetTypes(new ArrayList<>());
+    assetTypeFilter.setRelationType("Relation Type");
+
+    // Act and Assert
+    assertNotEquals(assetTypeFilter, null);
+  }
+
+  /**
+   * Test {@link AssetTypeFilter#equals(Object)}.
+   * <ul>
+   *   <li>When other is wrong type.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link AssetTypeFilter#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange
+    AssetTypeFilter assetTypeFilter = new AssetTypeFilter();
+    assetTypeFilter.setAssetTypes(new ArrayList<>());
+    assetTypeFilter.setRelationType("Relation Type");
+
+    // Act and Assert
+    assertNotEquals(assetTypeFilter, "Different type to AssetTypeFilter");
+  }
+
+  /**
+   * Test getters and setters.
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>default or parameterless constructor of {@link AssetTypeFilter}
+   *   <li>{@link AssetTypeFilter#setAssetTypes(List)}
+   *   <li>{@link AssetTypeFilter#setRelationType(String)}
+   *   <li>{@link AssetTypeFilter#toString()}
+   *   <li>{@link AssetTypeFilter#getAssetTypes()}
+   *   <li>{@link AssetTypeFilter#getRelationType()}
+   * </ul>
+   */
+  @Test
+  public void testGettersAndSetters() {
+    // Arrange and Act
+    AssetTypeFilter actualAssetTypeFilter = new AssetTypeFilter();
+    ArrayList<String> assetTypes = new ArrayList<>();
+    actualAssetTypeFilter.setAssetTypes(assetTypes);
+    actualAssetTypeFilter.setRelationType("Relation Type");
+    String actualToStringResult = actualAssetTypeFilter.toString();
+    List<String> actualAssetTypes = actualAssetTypeFilter.getAssetTypes();
+
+    // Assert that nothing has changed
+    assertEquals("AssetTypeFilter(relationType=Relation Type, assetTypes=[])", actualToStringResult);
+    assertEquals("Relation Type", actualAssetTypeFilter.getRelationType());
+    assertTrue(actualAssetTypes.isEmpty());
+    assertSame(assetTypes, actualAssetTypes);
+  }
+}

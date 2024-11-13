@@ -1,0 +1,213 @@
+package org.thingsboard.server.common.data;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.UUID;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.thingsboard.server.common.data.id.DashboardId;
+import org.thingsboard.server.common.data.id.DeviceProfileId;
+import org.thingsboard.server.common.data.id.EntityId;
+import org.thingsboard.server.common.data.id.TenantId;
+
+class DeviceProfileInfoDiffblueTest {
+  /**
+   * Test {@link DeviceProfileInfo#DeviceProfileInfo(DeviceProfile)}.
+   * <p>
+   * Method under test: {@link DeviceProfileInfo#DeviceProfileInfo(DeviceProfile)}
+   */
+  @Test
+  @DisplayName("Test new DeviceProfileInfo(DeviceProfile)")
+  void testNewDeviceProfileInfo() {
+    // Arrange and Act
+    DeviceProfileInfo actualDeviceProfileInfo = new DeviceProfileInfo(new DeviceProfile());
+
+    // Assert
+    assertNull(actualDeviceProfileInfo.getImage());
+    assertNull(actualDeviceProfileInfo.getName());
+    assertNull(actualDeviceProfileInfo.getType());
+    assertNull(actualDeviceProfileInfo.getTransportType());
+    assertNull(actualDeviceProfileInfo.getDefaultDashboardId());
+    assertNull(actualDeviceProfileInfo.getId());
+    assertNull(actualDeviceProfileInfo.getTenantId());
+  }
+
+  /**
+   * Test
+   * {@link DeviceProfileInfo#DeviceProfileInfo(UUID, UUID, String, String, UUID, DeviceProfileType, DeviceTransportType)}.
+   * <ul>
+   *   <li>Then return DefaultDashboardId EntityType is {@code DASHBOARD}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link DeviceProfileInfo#DeviceProfileInfo(UUID, UUID, String, String, UUID, DeviceProfileType, DeviceTransportType)}
+   */
+  @Test
+  @DisplayName("Test new DeviceProfileInfo(UUID, UUID, String, String, UUID, DeviceProfileType, DeviceTransportType); then return DefaultDashboardId EntityType is 'DASHBOARD'")
+  void testNewDeviceProfileInfo_thenReturnDefaultDashboardIdEntityTypeIsDashboard() {
+    // Arrange
+    UUID defaultDashboardId = EntityId.NULL_UUID;
+
+    // Act
+    DeviceProfileInfo actualDeviceProfileInfo = new DeviceProfileInfo(EntityId.NULL_UUID, EntityId.NULL_UUID, "Name",
+        "Image", defaultDashboardId, DeviceProfileType.DEFAULT, DeviceTransportType.DEFAULT);
+
+    // Assert
+    EntityId id = actualDeviceProfileInfo.getId();
+    assertTrue(id instanceof DeviceProfileId);
+    DashboardId defaultDashboardId2 = actualDeviceProfileInfo.getDefaultDashboardId();
+    assertEquals(EntityType.DASHBOARD, defaultDashboardId2.getEntityType());
+    assertTrue(defaultDashboardId2.isNullUid());
+    UUID id2 = defaultDashboardId2.getId();
+    assertSame(id2, id.getId());
+    assertSame(id2, actualDeviceProfileInfo.getTenantId().getId());
+    assertSame(defaultDashboardId, id2);
+  }
+
+  /**
+   * Test
+   * {@link DeviceProfileInfo#DeviceProfileInfo(UUID, UUID, String, String, UUID, DeviceProfileType, DeviceTransportType)}.
+   * <ul>
+   *   <li>When {@code null}.</li>
+   *   <li>Then return {@code Image}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link DeviceProfileInfo#DeviceProfileInfo(UUID, UUID, String, String, UUID, DeviceProfileType, DeviceTransportType)}
+   */
+  @Test
+  @DisplayName("Test new DeviceProfileInfo(UUID, UUID, String, String, UUID, DeviceProfileType, DeviceTransportType); when 'null'; then return 'Image'")
+  void testNewDeviceProfileInfo_whenNull_thenReturnImage() {
+    // Arrange
+    UUID tenantId = EntityId.NULL_UUID;
+
+    // Act
+    DeviceProfileInfo actualDeviceProfileInfo = new DeviceProfileInfo(EntityId.NULL_UUID, tenantId, "Name", "Image",
+        null, DeviceProfileType.DEFAULT, DeviceTransportType.DEFAULT);
+
+    // Assert
+    EntityId id = actualDeviceProfileInfo.getId();
+    assertTrue(id instanceof DeviceProfileId);
+    assertEquals("Image", actualDeviceProfileInfo.getImage());
+    assertEquals("Name", actualDeviceProfileInfo.getName());
+    assertNull(actualDeviceProfileInfo.getDefaultDashboardId());
+    assertEquals(DeviceProfileType.DEFAULT, actualDeviceProfileInfo.getType());
+    assertEquals(DeviceTransportType.DEFAULT, actualDeviceProfileInfo.getTransportType());
+    assertEquals(EntityType.DEVICE_PROFILE, id.getEntityType());
+    TenantId tenantId2 = actualDeviceProfileInfo.getTenantId();
+    assertEquals(EntityType.TENANT, tenantId2.getEntityType());
+    assertTrue(tenantId2.isNullUid());
+    assertTrue(id.isNullUid());
+    assertTrue(tenantId2.isSysTenantId());
+    assertSame(tenantId, id.getId());
+    assertSame(tenantId, tenantId2.getId());
+  }
+
+  /**
+   * Test {@link DeviceProfileInfo#equals(Object)}, and
+   * {@link DeviceProfileInfo#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link DeviceProfileInfo#equals(Object)}
+   *   <li>{@link DeviceProfileInfo#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    DeviceProfileInfo deviceProfileInfo = new DeviceProfileInfo(new DeviceProfile());
+    DeviceProfileInfo deviceProfileInfo2 = new DeviceProfileInfo(new DeviceProfile());
+
+    // Act and Assert
+    assertEquals(deviceProfileInfo, deviceProfileInfo2);
+    int expectedHashCodeResult = deviceProfileInfo.hashCode();
+    assertEquals(expectedHashCodeResult, deviceProfileInfo2.hashCode());
+  }
+
+  /**
+   * Test {@link DeviceProfileInfo#equals(Object)}, and
+   * {@link DeviceProfileInfo#hashCode()}.
+   * <ul>
+   *   <li>When other is same.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link DeviceProfileInfo#equals(Object)}
+   *   <li>{@link DeviceProfileInfo#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    DeviceProfileInfo deviceProfileInfo = new DeviceProfileInfo(new DeviceProfile());
+
+    // Act and Assert
+    assertEquals(deviceProfileInfo, deviceProfileInfo);
+    int expectedHashCodeResult = deviceProfileInfo.hashCode();
+    assertEquals(expectedHashCodeResult, deviceProfileInfo.hashCode());
+  }
+
+  /**
+   * Test {@link DeviceProfileInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    DeviceProfileInfo deviceProfileInfo = new DeviceProfileInfo(EntityId.NULL_UUID, EntityId.NULL_UUID, "Name", "Image",
+        EntityId.NULL_UUID, DeviceProfileType.DEFAULT, DeviceTransportType.DEFAULT);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileInfo, new DeviceProfileInfo(new DeviceProfile()));
+  }
+
+  /**
+   * Test {@link DeviceProfileInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is {@code null}.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new DeviceProfileInfo(new DeviceProfile()), null);
+  }
+
+  /**
+   * Test {@link DeviceProfileInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is wrong type.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new DeviceProfileInfo(new DeviceProfile()), "Different type to DeviceProfileInfo");
+  }
+}

@@ -1,0 +1,153 @@
+package org.thingsboard.common.util;
+
+import static org.mockito.ArgumentMatchers.isA;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import com.google.common.util.concurrent.ListenableFuture;
+import com.google.common.util.concurrent.ListenableFutureTask;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Executor;
+import java.util.function.Consumer;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+class DonAsynchronDiffblueTest {
+  /**
+   * Test
+   * {@link DonAsynchron#withCallback(ListenableFuture, Consumer, Consumer, Executor)}
+   * with {@code future}, {@code onSuccess}, {@code onFailure}, {@code executor}.
+   * <ul>
+   *   <li>Then calls
+   * {@link ListenableFutureTask#addListener(Runnable, Executor)}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link DonAsynchron#withCallback(ListenableFuture, Consumer, Consumer, Executor)}
+   */
+  @Test
+  @DisplayName("Test withCallback(ListenableFuture, Consumer, Consumer, Executor) with 'future', 'onSuccess', 'onFailure', 'executor'; then calls addListener(Runnable, Executor)")
+  void testWithCallbackWithFutureOnSuccessOnFailureExecutor_thenCallsAddListener() {
+    // Arrange
+    ListenableFutureTask<Object> future = mock(ListenableFutureTask.class);
+    doNothing().when(future).addListener(Mockito.<Runnable>any(), Mockito.<Executor>any());
+
+    // Act
+    DonAsynchron.withCallback(future, mock(Consumer.class), mock(Consumer.class), mock(Executor.class));
+
+    // Assert
+    verify(future).addListener(isA(Runnable.class), isA(Executor.class));
+  }
+
+  /**
+   * Test {@link DonAsynchron#withCallback(ListenableFuture, Consumer, Consumer)}
+   * with {@code future}, {@code onSuccess}, {@code onFailure}.
+   * <ul>
+   *   <li>Then calls
+   * {@link ListenableFutureTask#addListener(Runnable, Executor)}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link DonAsynchron#withCallback(ListenableFuture, Consumer, Consumer)}
+   */
+  @Test
+  @DisplayName("Test withCallback(ListenableFuture, Consumer, Consumer) with 'future', 'onSuccess', 'onFailure'; then calls addListener(Runnable, Executor)")
+  void testWithCallbackWithFutureOnSuccessOnFailure_thenCallsAddListener() {
+    // Arrange
+    ListenableFutureTask<Object> future = mock(ListenableFutureTask.class);
+    doNothing().when(future).addListener(Mockito.<Runnable>any(), Mockito.<Executor>any());
+
+    // Act
+    DonAsynchron.withCallback(future, mock(Consumer.class), mock(Consumer.class));
+
+    // Assert
+    verify(future).addListener(isA(Runnable.class), isA(Executor.class));
+  }
+
+  /**
+   * Test
+   * {@link DonAsynchron#submit(Callable, Consumer, Consumer, Executor, Executor)}
+   * with {@code task}, {@code onSuccess}, {@code onFailure}, {@code executor},
+   * {@code callbackExecutor}.
+   * <ul>
+   *   <li>Then calls {@link Executor#execute(Runnable)}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link DonAsynchron#submit(Callable, Consumer, Consumer, Executor, Executor)}
+   */
+  @Test
+  @DisplayName("Test submit(Callable, Consumer, Consumer, Executor, Executor) with 'task', 'onSuccess', 'onFailure', 'executor', 'callbackExecutor'; then calls execute(Runnable)")
+  void testSubmitWithTaskOnSuccessOnFailureExecutorCallbackExecutor_thenCallsExecute() {
+    // Arrange
+    Callable<Object> task = mock(Callable.class);
+    Consumer<Object> onSuccess = mock(Consumer.class);
+    Consumer<Throwable> onFailure = mock(Consumer.class);
+    Executor executor = mock(Executor.class);
+    doNothing().when(executor).execute(Mockito.<Runnable>any());
+
+    // Act
+    DonAsynchron.submit(task, onSuccess, onFailure, executor, mock(Executor.class));
+
+    // Assert
+    verify(executor).execute(isA(Runnable.class));
+  }
+
+  /**
+   * Test
+   * {@link DonAsynchron#submit(Callable, Consumer, Consumer, Executor, Executor)}
+   * with {@code task}, {@code onSuccess}, {@code onFailure}, {@code executor},
+   * {@code callbackExecutor}.
+   * <ul>
+   *   <li>Then calls {@link Executor#execute(Runnable)}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link DonAsynchron#submit(Callable, Consumer, Consumer, Executor, Executor)}
+   */
+  @Test
+  @DisplayName("Test submit(Callable, Consumer, Consumer, Executor, Executor) with 'task', 'onSuccess', 'onFailure', 'executor', 'callbackExecutor'; then calls execute(Runnable)")
+  void testSubmitWithTaskOnSuccessOnFailureExecutorCallbackExecutor_thenCallsExecute2() {
+    // Arrange
+    Callable<Object> task = mock(Callable.class);
+    Consumer<Object> onSuccess = mock(Consumer.class);
+    Consumer<Throwable> onFailure = mock(Consumer.class);
+    Executor executor = mock(Executor.class);
+    doNothing().when(executor).execute(Mockito.<Runnable>any());
+
+    // Act
+    DonAsynchron.submit(task, onSuccess, onFailure, executor, null);
+
+    // Assert
+    verify(executor).execute(isA(Runnable.class));
+  }
+
+  /**
+   * Test {@link DonAsynchron#submit(Callable, Consumer, Consumer, Executor)} with
+   * {@code task}, {@code onSuccess}, {@code onFailure}, {@code executor}.
+   * <ul>
+   *   <li>When {@link Callable}.</li>
+   *   <li>Then calls {@link Executor#execute(Runnable)}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link DonAsynchron#submit(Callable, Consumer, Consumer, Executor)}
+   */
+  @Test
+  @DisplayName("Test submit(Callable, Consumer, Consumer, Executor) with 'task', 'onSuccess', 'onFailure', 'executor'; when Callable; then calls execute(Runnable)")
+  void testSubmitWithTaskOnSuccessOnFailureExecutor_whenCallable_thenCallsExecute() {
+    // Arrange
+    Callable<Object> task = mock(Callable.class);
+    Consumer<Object> onSuccess = mock(Consumer.class);
+    Consumer<Throwable> onFailure = mock(Consumer.class);
+    Executor executor = mock(Executor.class);
+    doNothing().when(executor).execute(Mockito.<Runnable>any());
+
+    // Act
+    DonAsynchron.submit(task, onSuccess, onFailure, executor);
+
+    // Assert
+    verify(executor).execute(isA(Runnable.class));
+  }
+}

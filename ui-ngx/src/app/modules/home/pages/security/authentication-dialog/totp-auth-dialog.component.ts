@@ -28,7 +28,6 @@ import {
   TwoFactorAuthProviderType
 } from '@shared/models/two-factor-auth.models';
 import { MatStepper } from '@angular/material/stepper';
-import { unwrapModule } from '@core/utils';
 
 @Component({
   selector: 'tb-totp-auth-dialog',
@@ -57,7 +56,7 @@ export class TotpAuthDialogComponent extends DialogComponent<TotpAuthDialogCompo
       this.totpAuthURL = this.authAccountConfig.authUrl;
       this.authAccountConfig.useByDefault = true;
       import('qrcode').then((QRCode) => {
-        unwrapModule(QRCode).toCanvas(this.canvasRef.nativeElement, this.totpAuthURL);
+        QRCode.toCanvas(this.canvasRef.nativeElement, this.totpAuthURL);
         this.canvasRef.nativeElement.style.width = 'auto';
         this.canvasRef.nativeElement.style.height = 'auto';
       });

@@ -1,0 +1,276 @@
+package org.thingsboard.server.common.data.query;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.thingsboard.server.common.data.id.EntityId;
+import org.thingsboard.server.common.data.id.TenantId;
+import org.thingsboard.server.common.data.relation.EntitySearchDirection;
+
+class EdgeSearchQueryFilterDiffblueTest {
+  /**
+   * Test {@link EdgeSearchQueryFilter#equals(Object)}, and
+   * {@link EdgeSearchQueryFilter#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link EdgeSearchQueryFilter#equals(Object)}
+   *   <li>{@link EdgeSearchQueryFilter#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    EdgeSearchQueryFilter edgeSearchQueryFilter = new EdgeSearchQueryFilter();
+    edgeSearchQueryFilter.setDirection(EntitySearchDirection.FROM);
+    edgeSearchQueryFilter.setEdgeTypes(new ArrayList<>());
+    edgeSearchQueryFilter.setFetchLastLevelOnly(true);
+    edgeSearchQueryFilter.setMaxLevel(3);
+    edgeSearchQueryFilter.setRelationType("Relation Type");
+    edgeSearchQueryFilter.setRootEntity(TenantId.SYS_TENANT_ID);
+
+    EdgeSearchQueryFilter edgeSearchQueryFilter2 = new EdgeSearchQueryFilter();
+    edgeSearchQueryFilter2.setDirection(EntitySearchDirection.FROM);
+    edgeSearchQueryFilter2.setEdgeTypes(new ArrayList<>());
+    edgeSearchQueryFilter2.setFetchLastLevelOnly(true);
+    edgeSearchQueryFilter2.setMaxLevel(3);
+    edgeSearchQueryFilter2.setRelationType("Relation Type");
+    edgeSearchQueryFilter2.setRootEntity(TenantId.SYS_TENANT_ID);
+
+    // Act and Assert
+    assertEquals(edgeSearchQueryFilter, edgeSearchQueryFilter2);
+    int expectedHashCodeResult = edgeSearchQueryFilter.hashCode();
+    assertEquals(expectedHashCodeResult, edgeSearchQueryFilter2.hashCode());
+  }
+
+  /**
+   * Test {@link EdgeSearchQueryFilter#equals(Object)}, and
+   * {@link EdgeSearchQueryFilter#hashCode()}.
+   * <ul>
+   *   <li>When other is same.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link EdgeSearchQueryFilter#equals(Object)}
+   *   <li>{@link EdgeSearchQueryFilter#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    EdgeSearchQueryFilter edgeSearchQueryFilter = new EdgeSearchQueryFilter();
+    edgeSearchQueryFilter.setDirection(EntitySearchDirection.FROM);
+    edgeSearchQueryFilter.setEdgeTypes(new ArrayList<>());
+    edgeSearchQueryFilter.setFetchLastLevelOnly(true);
+    edgeSearchQueryFilter.setMaxLevel(3);
+    edgeSearchQueryFilter.setRelationType("Relation Type");
+    edgeSearchQueryFilter.setRootEntity(TenantId.SYS_TENANT_ID);
+
+    // Act and Assert
+    assertEquals(edgeSearchQueryFilter, edgeSearchQueryFilter);
+    int expectedHashCodeResult = edgeSearchQueryFilter.hashCode();
+    assertEquals(expectedHashCodeResult, edgeSearchQueryFilter.hashCode());
+  }
+
+  /**
+   * Test {@link EdgeSearchQueryFilter#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EdgeSearchQueryFilter#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    EdgeSearchQueryFilter edgeSearchQueryFilter = new EdgeSearchQueryFilter();
+    edgeSearchQueryFilter.setDirection(null);
+    edgeSearchQueryFilter.setEdgeTypes(new ArrayList<>());
+    edgeSearchQueryFilter.setFetchLastLevelOnly(true);
+    edgeSearchQueryFilter.setMaxLevel(3);
+    edgeSearchQueryFilter.setRelationType("Relation Type");
+    edgeSearchQueryFilter.setRootEntity(TenantId.SYS_TENANT_ID);
+
+    EdgeSearchQueryFilter edgeSearchQueryFilter2 = new EdgeSearchQueryFilter();
+    edgeSearchQueryFilter2.setDirection(EntitySearchDirection.FROM);
+    edgeSearchQueryFilter2.setEdgeTypes(new ArrayList<>());
+    edgeSearchQueryFilter2.setFetchLastLevelOnly(true);
+    edgeSearchQueryFilter2.setMaxLevel(3);
+    edgeSearchQueryFilter2.setRelationType("Relation Type");
+    edgeSearchQueryFilter2.setRootEntity(TenantId.SYS_TENANT_ID);
+
+    // Act and Assert
+    assertNotEquals(edgeSearchQueryFilter, edgeSearchQueryFilter2);
+  }
+
+  /**
+   * Test {@link EdgeSearchQueryFilter#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EdgeSearchQueryFilter#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    ArrayList<String> edgeTypes = new ArrayList<>();
+    edgeTypes.add("Relation Type");
+
+    EdgeSearchQueryFilter edgeSearchQueryFilter = new EdgeSearchQueryFilter();
+    edgeSearchQueryFilter.setDirection(EntitySearchDirection.FROM);
+    edgeSearchQueryFilter.setEdgeTypes(edgeTypes);
+    edgeSearchQueryFilter.setFetchLastLevelOnly(true);
+    edgeSearchQueryFilter.setMaxLevel(3);
+    edgeSearchQueryFilter.setRelationType("Relation Type");
+    edgeSearchQueryFilter.setRootEntity(TenantId.SYS_TENANT_ID);
+
+    EdgeSearchQueryFilter edgeSearchQueryFilter2 = new EdgeSearchQueryFilter();
+    edgeSearchQueryFilter2.setDirection(EntitySearchDirection.FROM);
+    edgeSearchQueryFilter2.setEdgeTypes(new ArrayList<>());
+    edgeSearchQueryFilter2.setFetchLastLevelOnly(true);
+    edgeSearchQueryFilter2.setMaxLevel(3);
+    edgeSearchQueryFilter2.setRelationType("Relation Type");
+    edgeSearchQueryFilter2.setRootEntity(TenantId.SYS_TENANT_ID);
+
+    // Act and Assert
+    assertNotEquals(edgeSearchQueryFilter, edgeSearchQueryFilter2);
+  }
+
+  /**
+   * Test {@link EdgeSearchQueryFilter#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EdgeSearchQueryFilter#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+    // Arrange
+    EdgeSearchQueryFilter edgeSearchQueryFilter = new EdgeSearchQueryFilter();
+    edgeSearchQueryFilter.setDirection(EntitySearchDirection.FROM);
+    edgeSearchQueryFilter.setEdgeTypes(new ArrayList<>());
+    edgeSearchQueryFilter.setFetchLastLevelOnly(true);
+    edgeSearchQueryFilter.setMaxLevel(3);
+    edgeSearchQueryFilter.setRelationType("Relation Type");
+    edgeSearchQueryFilter.setRootEntity(mock(EntityId.class));
+
+    EdgeSearchQueryFilter edgeSearchQueryFilter2 = new EdgeSearchQueryFilter();
+    edgeSearchQueryFilter2.setDirection(EntitySearchDirection.FROM);
+    edgeSearchQueryFilter2.setEdgeTypes(new ArrayList<>());
+    edgeSearchQueryFilter2.setFetchLastLevelOnly(true);
+    edgeSearchQueryFilter2.setMaxLevel(3);
+    edgeSearchQueryFilter2.setRelationType("Relation Type");
+    edgeSearchQueryFilter2.setRootEntity(TenantId.SYS_TENANT_ID);
+
+    // Act and Assert
+    assertNotEquals(edgeSearchQueryFilter, edgeSearchQueryFilter2);
+  }
+
+  /**
+   * Test {@link EdgeSearchQueryFilter#equals(Object)}.
+   * <ul>
+   *   <li>When other is {@code null}.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EdgeSearchQueryFilter#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange
+    EdgeSearchQueryFilter edgeSearchQueryFilter = new EdgeSearchQueryFilter();
+    edgeSearchQueryFilter.setDirection(EntitySearchDirection.FROM);
+    edgeSearchQueryFilter.setEdgeTypes(new ArrayList<>());
+    edgeSearchQueryFilter.setFetchLastLevelOnly(true);
+    edgeSearchQueryFilter.setMaxLevel(3);
+    edgeSearchQueryFilter.setRelationType("Relation Type");
+    edgeSearchQueryFilter.setRootEntity(TenantId.SYS_TENANT_ID);
+
+    // Act and Assert
+    assertNotEquals(edgeSearchQueryFilter, null);
+  }
+
+  /**
+   * Test {@link EdgeSearchQueryFilter#equals(Object)}.
+   * <ul>
+   *   <li>When other is wrong type.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EdgeSearchQueryFilter#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange
+    EdgeSearchQueryFilter edgeSearchQueryFilter = new EdgeSearchQueryFilter();
+    edgeSearchQueryFilter.setDirection(EntitySearchDirection.FROM);
+    edgeSearchQueryFilter.setEdgeTypes(new ArrayList<>());
+    edgeSearchQueryFilter.setFetchLastLevelOnly(true);
+    edgeSearchQueryFilter.setMaxLevel(3);
+    edgeSearchQueryFilter.setRelationType("Relation Type");
+    edgeSearchQueryFilter.setRootEntity(TenantId.SYS_TENANT_ID);
+
+    // Act and Assert
+    assertNotEquals(edgeSearchQueryFilter, "Different type to EdgeSearchQueryFilter");
+  }
+
+  /**
+   * Test getters and setters.
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>default or parameterless constructor of {@link EdgeSearchQueryFilter}
+   *   <li>{@link EdgeSearchQueryFilter#setEdgeTypes(List)}
+   *   <li>{@link EdgeSearchQueryFilter#toString()}
+   *   <li>{@link EdgeSearchQueryFilter#getEdgeTypes()}
+   *   <li>{@link EdgeSearchQueryFilter#getType()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test getters and setters")
+  void testGettersAndSetters() {
+    // Arrange and Act
+    EdgeSearchQueryFilter actualEdgeSearchQueryFilter = new EdgeSearchQueryFilter();
+    ArrayList<String> edgeTypes = new ArrayList<>();
+    actualEdgeSearchQueryFilter.setEdgeTypes(edgeTypes);
+    String actualToStringResult = actualEdgeSearchQueryFilter.toString();
+    List<String> actualEdgeTypes = actualEdgeSearchQueryFilter.getEdgeTypes();
+    EntityFilterType actualType = actualEdgeSearchQueryFilter.getType();
+
+    // Assert that nothing has changed
+    assertEquals(
+        "EdgeSearchQueryFilter(super=EntitySearchQueryFilter(rootEntity=null, relationType=null, direction=null,"
+            + " maxLevel=0, fetchLastLevelOnly=false), edgeTypes=[])",
+        actualToStringResult);
+    assertEquals(0, actualEdgeSearchQueryFilter.getMaxLevel());
+    assertEquals(EntityFilterType.EDGE_SEARCH_QUERY, actualType);
+    assertFalse(actualEdgeSearchQueryFilter.isFetchLastLevelOnly());
+    assertTrue(actualEdgeTypes.isEmpty());
+    assertSame(edgeTypes, actualEdgeTypes);
+  }
+}
