@@ -180,6 +180,7 @@
         <module>msa</module>
         <module>rest-client</module>
         <module>monitoring</module>
+		<module>mutation-aggregation-module</module>
     </modules>
 
     <profiles>
@@ -679,7 +680,7 @@
                     <version>${surefire.version}</version>
                     <configuration>
                         <argLine>
-                            @{argLine} -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=20
+                            -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=20
                             --add-opens java.base/java.lang.reflect=ALL-UNNAMED
                         </argLine>
                     </configuration>					
@@ -898,14 +899,30 @@
                     </execution>
                 </executions>
             </plugin>
-			<!--add this back in for mutation tests, but need to also take out "@{argLine}" within the maven-surefire-plugin on line 682 -->
             <!--<plugin>
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
                 <version>1.17.1</version>
                 <configuration>
                     <failWhenNoMutations>false</failWhenNoMutations>
+					<exportLineCoverage>true</exportLineCoverage>
+					<targetTests>
+                        <param>**DiffblueTest*</param>
+                    </targetTests>
+					<outputFormats>
+                        <value>XML</value>
+                        <value>HTML</value>
+                    </outputFormats>
                 </configuration>
+				<executions>
+					<execution>
+                        <id>run-mutation-tests</id>
+						<phase>test</phase>
+                        <goals>
+                            <goal>mutationCoverage</goal>
+                        </goals>
+                    </execution>
+                </executions>
 				<dependencies>
                     <dependency>
                         <groupId>org.pitest</groupId>
@@ -1166,6 +1183,12 @@
                 <artifactId>dao</artifactId>
                 <version>${project.version}</version>
                 <type>test-jar</type>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.thingsboard</groupId>
+                <artifactId>mutation-aggregation-module</artifactId>
+                <version>${project.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
