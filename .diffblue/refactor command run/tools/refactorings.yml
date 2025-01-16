@@ -1,0 +1,43 @@
+name: com.diffblue.cover.refactoring.Recipe
+recipeList:
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.client.tools.migrator.PgCaMigrator,
+    fieldName: LOG_BATCH}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.client.tools.migrator.PgCaMigrator,
+    fieldName: castErrors}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.client.tools.migrator.PgCaMigrator,
+    fieldName: castStringIfPossible}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.client.tools.migrator.PgCaMigrator,
+    fieldName: castedOk}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.client.tools.migrator.PgCaMigrator,
+    fieldName: currentPartitionsWriter}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.client.tools.migrator.PgCaMigrator,
+    fieldName: currentTsLatestWriter}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.client.tools.migrator.PgCaMigrator,
+    fieldName: currentTsWriter}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.client.tools.migrator.PgCaMigrator,
+    fieldName: currentWriterCount}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.client.tools.migrator.PgCaMigrator,
+    fieldName: entityIdsAndTypes}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.client.tools.migrator.PgCaMigrator,
+    fieldName: keyParser}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.client.tools.migrator.PgCaMigrator,
+    fieldName: linesLatestMigrated}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.client.tools.migrator.PgCaMigrator,
+    fieldName: linesTsMigrated}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.client.tools.migrator.PgCaMigrator,
+    fieldName: outTsDir}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.client.tools.migrator.PgCaMigrator,
+    fieldName: outTsLatestDir}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.client.tools.migrator.PgCaMigrator,
+    fieldName: partitions}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.client.tools.migrator.PgCaMigrator,
+    fieldName: rowPerFile}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.client.tools.migrator.PgCaMigrator,
+    fieldName: sourceFile}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.client.tools.migrator.RelatedEntitiesParser,
+    fieldName: allEntityIdsAndTypes}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.client.tools.migrator.RelatedEntitiesParser,
+    fieldName: tableNameAndEntityType}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.client.tools.migrator.DictionaryParser,
+    fieldName: dictionaryParsed}
+type: specs.openrewrite.org/v1beta/recipe

@@ -1,0 +1,15 @@
+name: com.diffblue.cover.refactoring.Recipe
+recipeList:
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.common.util.ThingsBoardThreadFactory,
+    fieldName: group}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.common.util.ThingsBoardThreadFactory,
+    fieldName: namePrefix}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.common.util.ThingsBoardThreadFactory,
+    fieldName: threadNumber}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.common.util.ThingsBoardThreadFactory,
+    fieldName: group}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.common.util.ThingsBoardThreadFactory,
+    fieldName: namePrefix}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.common.util.ThingsBoardThreadFactory,
+    fieldName: threadNumber}
+type: specs.openrewrite.org/v1beta/recipe

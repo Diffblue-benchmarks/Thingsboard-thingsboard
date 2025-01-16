@@ -1,0 +1,39 @@
+package org.thingsboard.server.common.data.sync.vc;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class VcUtilsDiffblueTest {
+  /**
+   * Test {@link VcUtils#checkBranchName(String)}.
+   * <ul>
+   *   <li>When {@code ..}.</li>
+   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link VcUtils#checkBranchName(String)}
+   */
+  @Test
+  @DisplayName("Test checkBranchName(String); when '..'; then throw IllegalArgumentException")
+  void testCheckBranchName_whenDotDot_thenThrowIllegalArgumentException() {
+    // Arrange, Act and Assert
+    assertThrows(IllegalArgumentException.class, () -> VcUtils.checkBranchName(".."));
+  }
+
+  /**
+   * Test {@link VcUtils#checkBranchName(String)}.
+   * <ul>
+   *   <li>When {@code /}.</li>
+   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link VcUtils#checkBranchName(String)}
+   */
+  @Test
+  @DisplayName("Test checkBranchName(String); when '/'; then throw IllegalArgumentException")
+  void testCheckBranchName_whenSlash_thenThrowIllegalArgumentException() {
+    // Arrange, Act and Assert
+    assertThrows(IllegalArgumentException.class, () -> VcUtils.checkBranchName("/"));
+  }
+}

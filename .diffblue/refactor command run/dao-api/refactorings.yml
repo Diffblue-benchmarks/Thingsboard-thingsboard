@@ -1,0 +1,9 @@
+name: com.diffblue.cover.refactoring.Recipe
+recipeList:
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.dao.cassandra.guava.GuavaRequestAsyncProcessor,
+    fieldName: requestClass}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.dao.cassandra.guava.GuavaRequestAsyncProcessor,
+    fieldName: resultType}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.dao.cassandra.guava.GuavaRequestAsyncProcessor,
+    fieldName: subProcessor}
+type: specs.openrewrite.org/v1beta/recipe

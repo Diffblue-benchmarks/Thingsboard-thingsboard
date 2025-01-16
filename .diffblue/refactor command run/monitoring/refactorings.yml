@@ -1,0 +1,65 @@
+name: com.diffblue.cover.refactoring.Recipe
+recipeList:
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.monitoring.ThingsboardMonitoringApplication,
+    fieldName: monitoringRateMs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.monitoring.ThingsboardMonitoringApplication,
+    fieldName: monitoringServices}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.monitoring.client.WsClient,
+    fieldName: lastMsg}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.monitoring.client.WsClient,
+    fieldName: reply}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.monitoring.client.WsClient,
+    fieldName: requestTimeoutMs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.monitoring.client.WsClient,
+    fieldName: update}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.monitoring.client.WsClient,
+    fieldName: updateLock}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.client.WebSocketClient,
+    fieldName: closeLatch}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.client.WebSocketClient,
+    fieldName: connectLatch}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.client.WebSocketClient,
+    fieldName: connectReadThread}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.client.WebSocketClient,
+    fieldName: connectTimeout}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.client.WebSocketClient,
+    fieldName: dnsResolver}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.client.WebSocketClient,
+    fieldName: draft}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.client.WebSocketClient,
+    fieldName: engine}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.client.WebSocketClient,
+    fieldName: headers}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.client.WebSocketClient,
+    fieldName: ostream}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.client.WebSocketClient,
+    fieldName: proxy}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.client.WebSocketClient,
+    fieldName: socket}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.client.WebSocketClient,
+    fieldName: socketFactory}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.client.WebSocketClient,
+    fieldName: uri}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.client.WebSocketClient,
+    fieldName: writeThread}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.AbstractWebSocket,
+    fieldName: connectionLostCheckerFuture}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.AbstractWebSocket,
+    fieldName: connectionLostCheckerService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.AbstractWebSocket,
+    fieldName: connectionLostTimeout}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.AbstractWebSocket,
+    fieldName: daemon}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.AbstractWebSocket,
+    fieldName: log}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.AbstractWebSocket,
+    fieldName: reuseAddr}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.AbstractWebSocket,
+    fieldName: syncConnectionLost}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.AbstractWebSocket,
+    fieldName: tcpNoDelay}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.AbstractWebSocket,
+    fieldName: websocketRunning}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.java_websocket.WebSocketAdapter,
+    fieldName: pingFrame}
+type: specs.openrewrite.org/v1beta/recipe

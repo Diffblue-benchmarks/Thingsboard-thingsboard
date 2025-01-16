@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=windows-1252">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>AlarmCountQuery.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright &#169; 2016-2024 The Thingsboard Authors</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *     http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.thingsboard.server.common.data.query;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.AllArgsConstructor;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.Builder;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.Getter;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.NoArgsConstructor;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.ToString;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.common.data.alarm.AlarmSearchStatus;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.common.data.alarm.AlarmSeverity;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.common.data.id.UserId;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_29'/>
+29
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_29'>11</a>
+<span>
+
+1. build : replaced return value with null for org/thingsboard/server/common/data/query/AlarmCountQuery$AlarmCountQueryBuilder::build &rarr; NO_COVERAGE<br/>
+
+2. toString : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/query/AlarmCountQuery$AlarmCountQueryBuilder::toString &rarr; NO_COVERAGE<br/>
+
+3. typeList : replaced return value with null for org/thingsboard/server/common/data/query/AlarmCountQuery$AlarmCountQueryBuilder::typeList &rarr; NO_COVERAGE<br/>
+
+4. startTs : replaced return value with null for org/thingsboard/server/common/data/query/AlarmCountQuery$AlarmCountQueryBuilder::startTs &rarr; NO_COVERAGE<br/>
+
+5. endTs : replaced return value with null for org/thingsboard/server/common/data/query/AlarmCountQuery$AlarmCountQueryBuilder::endTs &rarr; NO_COVERAGE<br/>
+
+6. assigneeId : replaced return value with null for org/thingsboard/server/common/data/query/AlarmCountQuery$AlarmCountQueryBuilder::assigneeId &rarr; NO_COVERAGE<br/>
+
+7. timeWindow : replaced return value with null for org/thingsboard/server/common/data/query/AlarmCountQuery$AlarmCountQueryBuilder::timeWindow &rarr; NO_COVERAGE<br/>
+
+8. statusList : replaced return value with null for org/thingsboard/server/common/data/query/AlarmCountQuery$AlarmCountQueryBuilder::statusList &rarr; NO_COVERAGE<br/>
+
+9. builder : replaced return value with null for org/thingsboard/server/common/data/query/AlarmCountQuery::builder &rarr; NO_COVERAGE<br/>
+
+10. severityList : replaced return value with null for org/thingsboard/server/common/data/query/AlarmCountQuery$AlarmCountQueryBuilder::severityList &rarr; NO_COVERAGE<br/>
+
+11. searchPropagatedAlarms : replaced return value with null for org/thingsboard/server/common/data/query/AlarmCountQuery$AlarmCountQueryBuilder::searchPropagatedAlarms &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>@Builder</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>@NoArgsConstructor</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>@AllArgsConstructor</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>@Getter</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_33'/>
+33
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_33'>1</a>
+<span>
+
+1. toString : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/query/AlarmCountQuery::toString &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>@ToString</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class AlarmCountQuery extends EntityCountQuery {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_35'/>
+35
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_35'>1</a>
+<span>
+
+1. getStartTs : replaced long return with 0 for org/thingsboard/server/common/data/query/AlarmCountQuery::getStartTs &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private long startTs;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_36'/>
+36
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_36'>1</a>
+<span>
+
+1. getEndTs : replaced long return with 0 for org/thingsboard/server/common/data/query/AlarmCountQuery::getEndTs &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private long endTs;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_37'/>
+37
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_37'>1</a>
+<span>
+
+1. getTimeWindow : replaced long return with 0 for org/thingsboard/server/common/data/query/AlarmCountQuery::getTimeWindow &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private long timeWindow;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_38'/>
+38
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_38'>1</a>
+<span>
+
+1. getTypeList : replaced return value with Collections.emptyList for org/thingsboard/server/common/data/query/AlarmCountQuery::getTypeList &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private List&#60;String&#62; typeList;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_39'/>
+39
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_39'>1</a>
+<span>
+
+1. getStatusList : replaced return value with Collections.emptyList for org/thingsboard/server/common/data/query/AlarmCountQuery::getStatusList &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private List&#60;AlarmSearchStatus&#62; statusList;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_40'>1</a>
+<span>
+
+1. getSeverityList : replaced return value with Collections.emptyList for org/thingsboard/server/common/data/query/AlarmCountQuery::getSeverityList &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private List&#60;AlarmSeverity&#62; severityList;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_41'/>
+41
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_41'>2</a>
+<span>
+
+1. isSearchPropagatedAlarms : replaced boolean return with true for org/thingsboard/server/common/data/query/AlarmCountQuery::isSearchPropagatedAlarms &rarr; KILLED<br/>
+
+2. isSearchPropagatedAlarms : replaced boolean return with false for org/thingsboard/server/common/data/query/AlarmCountQuery::isSearchPropagatedAlarms &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private boolean searchPropagatedAlarms;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_42'/>
+42
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_42'>1</a>
+<span>
+
+1. getAssigneeId : replaced return value with null for org/thingsboard/server/common/data/query/AlarmCountQuery::getAssigneeId &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    private UserId assigneeId;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@530c5d51_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@530c5d51_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_29'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>build<br/><b>Killed by : </b></span></span> replaced return value with null for org/thingsboard/server/common/data/query/AlarmCountQuery$AlarmCountQueryBuilder::build &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toString<br/><b>Killed by : </b></span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/query/AlarmCountQuery$AlarmCountQueryBuilder::toString &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>typeList<br/><b>Killed by : </b></span></span> replaced return value with null for org/thingsboard/server/common/data/query/AlarmCountQuery$AlarmCountQueryBuilder::typeList &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>startTs<br/><b>Killed by : </b></span></span> replaced return value with null for org/thingsboard/server/common/data/query/AlarmCountQuery$AlarmCountQueryBuilder::startTs &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>endTs<br/><b>Killed by : </b></span></span> replaced return value with null for org/thingsboard/server/common/data/query/AlarmCountQuery$AlarmCountQueryBuilder::endTs &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>assigneeId<br/><b>Killed by : </b></span></span> replaced return value with null for org/thingsboard/server/common/data/query/AlarmCountQuery$AlarmCountQueryBuilder::assigneeId &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>timeWindow<br/><b>Killed by : </b></span></span> replaced return value with null for org/thingsboard/server/common/data/query/AlarmCountQuery$AlarmCountQueryBuilder::timeWindow &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>statusList<br/><b>Killed by : </b></span></span> replaced return value with null for org/thingsboard/server/common/data/query/AlarmCountQuery$AlarmCountQueryBuilder::statusList &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>builder<br/><b>Killed by : </b></span></span> replaced return value with null for org/thingsboard/server/common/data/query/AlarmCountQuery::builder &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>severityList<br/><b>Killed by : </b></span></span> replaced return value with null for org/thingsboard/server/common/data/query/AlarmCountQuery$AlarmCountQueryBuilder::severityList &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>searchPropagatedAlarms<br/><b>Killed by : </b></span></span> replaced return value with null for org/thingsboard/server/common/data/query/AlarmCountQuery$AlarmCountQueryBuilder::searchPropagatedAlarms &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@530c5d51_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_33'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>org.thingsboard.server.common.data.query.AlarmCountQueryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.query.AlarmCountQueryDiffblueTest]/[method:testGettersAndSetters()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/query/AlarmCountQuery::toString &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@530c5d51_35'>35</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_35'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getStartTs<br/><b>Killed by : </b>org.thingsboard.server.common.data.query.AlarmCountQueryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.query.AlarmCountQueryDiffblueTest]/[method:testNewAlarmCountQuery_givenActive_thenReturnStatusListIsArrayList()]</span></span> replaced long return with 0 for org/thingsboard/server/common/data/query/AlarmCountQuery::getStartTs &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@530c5d51_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_36'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getEndTs<br/><b>Killed by : </b>org.thingsboard.server.common.data.query.AlarmCountQueryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.query.AlarmCountQueryDiffblueTest]/[method:testNewAlarmCountQuery_givenActive_thenReturnStatusListIsArrayList()]</span></span> replaced long return with 0 for org/thingsboard/server/common/data/query/AlarmCountQuery::getEndTs &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@530c5d51_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_37'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTimeWindow<br/><b>Killed by : </b>org.thingsboard.server.common.data.query.AlarmCountQueryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.query.AlarmCountQueryDiffblueTest]/[method:testNewAlarmCountQuery_givenActive_thenReturnStatusListIsArrayList()]</span></span> replaced long return with 0 for org/thingsboard/server/common/data/query/AlarmCountQuery::getTimeWindow &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@530c5d51_38'>38</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_38'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTypeList<br/><b>Killed by : </b>org.thingsboard.server.common.data.query.AlarmCountQueryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.query.AlarmCountQueryDiffblueTest]/[method:testNewAlarmCountQuery_given42_whenArrayListAdd42_thenReturnTypeListIsArrayList()]</span></span> replaced return value with Collections.emptyList for org/thingsboard/server/common/data/query/AlarmCountQuery::getTypeList &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@530c5d51_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_39'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getStatusList<br/><b>Killed by : </b>org.thingsboard.server.common.data.query.AlarmCountQueryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.query.AlarmCountQueryDiffblueTest]/[method:testNewAlarmCountQuery_givenActive_thenReturnStatusListIsArrayList()]</span></span> replaced return value with Collections.emptyList for org/thingsboard/server/common/data/query/AlarmCountQuery::getStatusList &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@530c5d51_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSeverityList<br/><b>Killed by : </b>org.thingsboard.server.common.data.query.AlarmCountQueryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.query.AlarmCountQueryDiffblueTest]/[method:testNewAlarmCountQuery_givenMajor_thenReturnSeverityListIsArrayList()]</span></span> replaced return value with Collections.emptyList for org/thingsboard/server/common/data/query/AlarmCountQuery::getSeverityList &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@530c5d51_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_41'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSearchPropagatedAlarms<br/><b>Killed by : </b>org.thingsboard.server.common.data.query.AlarmCountQueryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.query.AlarmCountQueryDiffblueTest]/[method:testGettersAndSetters()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/query/AlarmCountQuery::isSearchPropagatedAlarms &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isSearchPropagatedAlarms<br/><b>Killed by : </b>org.thingsboard.server.common.data.query.AlarmCountQueryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.query.AlarmCountQueryDiffblueTest]/[method:testNewAlarmCountQuery_givenActive_thenReturnStatusListIsArrayList()]</span></span> replaced boolean return with false for org/thingsboard/server/common/data/query/AlarmCountQuery::isSearchPropagatedAlarms &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@530c5d51_42'>42</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@530c5d51_42'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAssigneeId<br/><b>Killed by : </b></span></span> replaced return value with null for org/thingsboard/server/common/data/query/AlarmCountQuery::getAssigneeId &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.query.AlarmCountQuery,-method=getAssigneeId,-methodDesc=()Lorg/thingsboard/server/common/data/id/UserId;],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.query.AlarmCountQuery,-method=getAssigneeId,-methodDesc=()Lorg/thingsboard/server/common/data/id/UserId;],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.query.AlarmCountQuery,-method=getAssigneeId,-methodDesc=()Lorg/thingsboard/server/common/data/id/UserId;],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.17.1
+
+</body>
+</html>

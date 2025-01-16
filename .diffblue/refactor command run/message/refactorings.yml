@@ -1,0 +1,57 @@
+name: com.diffblue.cover.refactoring.Recipe
+recipeList:
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: camelCaseNames}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: descriptor}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: fields}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: initialized}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: oneofs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: camelCaseNames}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: descriptor}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: fields}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: initialized}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: oneofs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: camelCaseNames}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: descriptor}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: fields}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: initialized}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: oneofs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: camelCaseNames}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: descriptor}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: fields}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: initialized}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: oneofs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.common.msg.queue.RuleEngineException,
+    fieldName: ts}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: java.lang.Throwable,
+    fieldName: backtrace}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: java.lang.Throwable,
+    fieldName: cause}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: java.lang.Throwable,
+    fieldName: depth}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: java.lang.Throwable,
+    fieldName: detailMessage}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: java.lang.Throwable,
+    fieldName: stackTrace}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: java.lang.Throwable,
+    fieldName: suppressedExceptions}
+type: specs.openrewrite.org/v1beta/recipe

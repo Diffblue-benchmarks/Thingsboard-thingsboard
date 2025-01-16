@@ -1,0 +1,355 @@
+package org.thingsboard.server.common.data.page;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.mockito.Mockito.mock;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class TimePageLinkDiffblueTest {
+  /**
+   * Test {@link TimePageLink#equals(Object)}, and
+   * {@link TimePageLink#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link TimePageLink#equals(Object)}
+   *   <li>{@link TimePageLink#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    TimePageLink timePageLink = new TimePageLink(3);
+    TimePageLink timePageLink2 = new TimePageLink(3);
+
+    // Act and Assert
+    assertEquals(timePageLink, timePageLink2);
+    int expectedHashCodeResult = timePageLink.hashCode();
+    assertEquals(expectedHashCodeResult, timePageLink2.hashCode());
+  }
+
+  /**
+   * Test {@link TimePageLink#equals(Object)}, and
+   * {@link TimePageLink#hashCode()}.
+   * <ul>
+   *   <li>When other is same.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link TimePageLink#equals(Object)}
+   *   <li>{@link TimePageLink#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    TimePageLink timePageLink = new TimePageLink(3);
+
+    // Act and Assert
+    assertEquals(timePageLink, timePageLink);
+    int expectedHashCodeResult = timePageLink.hashCode();
+    assertEquals(expectedHashCodeResult, timePageLink.hashCode());
+  }
+
+  /**
+   * Test {@link TimePageLink#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link TimePageLink#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    TimePageLink timePageLink = new TimePageLink(1);
+
+    // Act and Assert
+    assertNotEquals(timePageLink, new TimePageLink(3));
+  }
+
+  /**
+   * Test {@link TimePageLink#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link TimePageLink#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange, Act and Assert
+    assertNotEquals(new TimePageLink(3), mock(PageLink.class));
+  }
+
+  /**
+   * Test {@link TimePageLink#equals(Object)}.
+   * <ul>
+   *   <li>When other is {@code null}.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link TimePageLink#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new TimePageLink(3), null);
+  }
+
+  /**
+   * Test {@link TimePageLink#equals(Object)}.
+   * <ul>
+   *   <li>When other is wrong type.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link TimePageLink#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new TimePageLink(3), "Different type to TimePageLink");
+  }
+
+  /**
+   * Test getters and setters.
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link TimePageLink#TimePageLink(int, int, String, SortOrder)}
+   *   <li>{@link TimePageLink#toString()}
+   *   <li>{@link TimePageLink#getEndTime()}
+   *   <li>{@link TimePageLink#getStartTime()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test getters and setters")
+  void testGettersAndSetters() {
+    // Arrange
+    SortOrder sortOrder = SortOrder.BY_CREATED_TIME_DESC;
+
+    // Act
+    TimePageLink actualTimePageLink = new TimePageLink(3, 1, "Text Search", sortOrder);
+    String actualToStringResult = actualTimePageLink.toString();
+    Long actualEndTime = actualTimePageLink.getEndTime();
+    Long actualStartTime = actualTimePageLink.getStartTime();
+
+    // Assert
+    assertEquals("Text Search", actualTimePageLink.getTextSearch());
+    assertEquals("TimePageLink(super=PageLink(textSearch=Text Search, pageSize=3, page=1, sortOrder=SortOrder(property"
+        + "=createdTime, direction=DESC)), startTime=null, endTime=null)", actualToStringResult);
+    assertNull(actualEndTime);
+    assertNull(actualStartTime);
+    assertEquals(1, actualTimePageLink.getPage());
+    assertEquals(3, actualTimePageLink.getPageSize());
+    SortOrder expectedSortOrder = sortOrder.BY_CREATED_TIME_DESC;
+    assertSame(expectedSortOrder, actualTimePageLink.getSortOrder());
+  }
+
+  /**
+   * Test getters and setters.
+   * <ul>
+   *   <li>When {@link SortOrder#BY_CREATED_TIME_DESC}.</li>
+   *   <li>Then return EndTime longValue is one.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>
+   * {@link TimePageLink#TimePageLink(int, int, String, SortOrder, Long, Long)}
+   *   <li>{@link TimePageLink#toString()}
+   *   <li>{@link TimePageLink#getEndTime()}
+   *   <li>{@link TimePageLink#getStartTime()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test getters and setters; when BY_CREATED_TIME_DESC; then return EndTime longValue is one")
+  void testGettersAndSetters_whenBy_created_time_desc_thenReturnEndTimeLongValueIsOne() {
+    // Arrange
+    SortOrder sortOrder = SortOrder.BY_CREATED_TIME_DESC;
+
+    // Act
+    TimePageLink actualTimePageLink = new TimePageLink(3, 1, "Text Search", sortOrder, 1L, 1L);
+    String actualToStringResult = actualTimePageLink.toString();
+    Long actualEndTime = actualTimePageLink.getEndTime();
+    Long actualStartTime = actualTimePageLink.getStartTime();
+
+    // Assert
+    assertEquals("Text Search", actualTimePageLink.getTextSearch());
+    assertEquals("TimePageLink(super=PageLink(textSearch=Text Search, pageSize=3, page=1, sortOrder=SortOrder(property"
+        + "=createdTime, direction=DESC)), startTime=1, endTime=1)", actualToStringResult);
+    assertEquals(1, actualTimePageLink.getPage());
+    assertEquals(1L, actualEndTime.longValue());
+    assertEquals(1L, actualStartTime.longValue());
+    assertEquals(3, actualTimePageLink.getPageSize());
+    SortOrder expectedSortOrder = sortOrder.BY_CREATED_TIME_DESC;
+    assertSame(expectedSortOrder, actualTimePageLink.getSortOrder());
+  }
+
+  /**
+   * Test getters and setters.
+   * <ul>
+   *   <li>When one.</li>
+   *   <li>Then return TextSearch is {@code null}.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link TimePageLink#TimePageLink(int, int)}
+   *   <li>{@link TimePageLink#toString()}
+   *   <li>{@link TimePageLink#getEndTime()}
+   *   <li>{@link TimePageLink#getStartTime()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test getters and setters; when one; then return TextSearch is 'null'")
+  void testGettersAndSetters_whenOne_thenReturnTextSearchIsNull() {
+    // Arrange and Act
+    TimePageLink actualTimePageLink = new TimePageLink(3, 1);
+    String actualToStringResult = actualTimePageLink.toString();
+    Long actualEndTime = actualTimePageLink.getEndTime();
+
+    // Assert
+    assertEquals("TimePageLink(super=PageLink(textSearch=null, pageSize=3, page=1, sortOrder=null), startTime=null,"
+        + " endTime=null)", actualToStringResult);
+    assertNull(actualEndTime);
+    assertNull(actualTimePageLink.getStartTime());
+    assertNull(actualTimePageLink.getTextSearch());
+    assertNull(actualTimePageLink.getSortOrder());
+    assertEquals(1, actualTimePageLink.getPage());
+    assertEquals(3, actualTimePageLink.getPageSize());
+  }
+
+  /**
+   * Test getters and setters.
+   * <ul>
+   *   <li>When {@code Text Search}.</li>
+   *   <li>Then return {@code Text Search}.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link TimePageLink#TimePageLink(int, int, String)}
+   *   <li>{@link TimePageLink#toString()}
+   *   <li>{@link TimePageLink#getEndTime()}
+   *   <li>{@link TimePageLink#getStartTime()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test getters and setters; when 'Text Search'; then return 'Text Search'")
+  void testGettersAndSetters_whenTextSearch_thenReturnTextSearch() {
+    // Arrange and Act
+    TimePageLink actualTimePageLink = new TimePageLink(3, 1, "Text Search");
+    String actualToStringResult = actualTimePageLink.toString();
+    Long actualEndTime = actualTimePageLink.getEndTime();
+    Long actualStartTime = actualTimePageLink.getStartTime();
+
+    // Assert
+    assertEquals("Text Search", actualTimePageLink.getTextSearch());
+    assertEquals(
+        "TimePageLink(super=PageLink(textSearch=Text Search, pageSize=3, page=1, sortOrder=null), startTime=null,"
+            + " endTime=null)",
+        actualToStringResult);
+    assertNull(actualEndTime);
+    assertNull(actualStartTime);
+    assertNull(actualTimePageLink.getSortOrder());
+    assertEquals(1, actualTimePageLink.getPage());
+    assertEquals(3, actualTimePageLink.getPageSize());
+  }
+
+  /**
+   * Test getters and setters.
+   * <ul>
+   *   <li>When three.</li>
+   *   <li>Then return Page is zero.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link TimePageLink#TimePageLink(int)}
+   *   <li>{@link TimePageLink#toString()}
+   *   <li>{@link TimePageLink#getEndTime()}
+   *   <li>{@link TimePageLink#getStartTime()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test getters and setters; when three; then return Page is zero")
+  void testGettersAndSetters_whenThree_thenReturnPageIsZero() {
+    // Arrange and Act
+    TimePageLink actualTimePageLink = new TimePageLink(3);
+    String actualToStringResult = actualTimePageLink.toString();
+    Long actualEndTime = actualTimePageLink.getEndTime();
+
+    // Assert
+    assertEquals("TimePageLink(super=PageLink(textSearch=null, pageSize=3, page=0, sortOrder=null), startTime=null,"
+        + " endTime=null)", actualToStringResult);
+    assertNull(actualEndTime);
+    assertNull(actualTimePageLink.getStartTime());
+    assertNull(actualTimePageLink.getTextSearch());
+    assertNull(actualTimePageLink.getSortOrder());
+    assertEquals(0, actualTimePageLink.getPage());
+    assertEquals(3, actualTimePageLink.getPageSize());
+  }
+
+  /**
+   * Test {@link TimePageLink#TimePageLink(PageLink, Long, Long)}.
+   * <ul>
+   *   <li>When {@link PageLink#PageLink(int)} with pageSize is three.</li>
+   *   <li>Then return TextSearch is {@code null}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link TimePageLink#TimePageLink(PageLink, Long, Long)}
+   */
+  @Test
+  @DisplayName("Test new TimePageLink(PageLink, Long, Long); when PageLink(int) with pageSize is three; then return TextSearch is 'null'")
+  void testNewTimePageLink_whenPageLinkWithPageSizeIsThree_thenReturnTextSearchIsNull() {
+    // Arrange and Act
+    TimePageLink actualTimePageLink = new TimePageLink(new PageLink(3), 1L, 1L);
+
+    // Assert
+    assertNull(actualTimePageLink.getTextSearch());
+    assertNull(actualTimePageLink.getSortOrder());
+    assertEquals(0, actualTimePageLink.getPage());
+    assertEquals(1L, actualTimePageLink.getEndTime().longValue());
+    assertEquals(1L, actualTimePageLink.getStartTime().longValue());
+    assertEquals(3, actualTimePageLink.getPageSize());
+  }
+
+  /**
+   * Test {@link TimePageLink#nextPageLink()}.
+   * <p>
+   * Method under test: {@link TimePageLink#nextPageLink()}
+   */
+  @Test
+  @DisplayName("Test nextPageLink()")
+  void testNextPageLink() {
+    // Arrange and Act
+    TimePageLink actualNextPageLinkResult = (new TimePageLink(3)).nextPageLink();
+
+    // Assert
+    assertNull(actualNextPageLinkResult.getEndTime());
+    assertNull(actualNextPageLinkResult.getStartTime());
+    assertNull(actualNextPageLinkResult.getTextSearch());
+    assertNull(actualNextPageLinkResult.getSortOrder());
+    assertEquals(1, actualNextPageLinkResult.getPage());
+    assertEquals(3, actualNextPageLinkResult.getPageSize());
+  }
+}

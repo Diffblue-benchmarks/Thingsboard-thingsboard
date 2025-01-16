@@ -1,0 +1,21 @@
+name: com.diffblue.cover.refactoring.Recipe
+recipeList:
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.common.transport.service.DefaultTransportDeviceProfileCache,
+    fieldName: deviceProfileFetchLock}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.common.transport.service.DefaultTransportDeviceProfileCache,
+    fieldName: deviceProfiles}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.common.transport.service.DefaultTransportDeviceProfileCache,
+    fieldName: transportService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.common.transport.service.DefaultTransportTenantProfileCache,
+    fieldName: profiles}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.common.transport.service.DefaultTransportTenantProfileCache,
+    fieldName: rateLimitService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.common.transport.service.DefaultTransportTenantProfileCache,
+    fieldName: tenantIds}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.common.transport.service.DefaultTransportTenantProfileCache,
+    fieldName: tenantProfileFetchLock}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.common.transport.service.DefaultTransportTenantProfileCache,
+    fieldName: tenantProfileIds}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.common.transport.service.DefaultTransportTenantProfileCache,
+    fieldName: transportService}
+type: specs.openrewrite.org/v1beta/recipe

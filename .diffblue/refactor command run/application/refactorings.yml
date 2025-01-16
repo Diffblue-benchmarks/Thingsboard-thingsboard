@@ -1,0 +1,155 @@
+name: com.diffblue.cover.refactoring.Recipe
+recipeList:
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.ThingsboardServerApplication,
+    fieldName: startTs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.actors.TbEntityTypeActorIdPredicate,
+    fieldName: entityType}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.actors.service.ContextBasedCreator,
+    fieldName: context}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.actors.ruleChain.RuleChainActor$ActorCreator,
+    fieldName: ruleChain}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.actors.ruleChain.RuleChainActor$ActorCreator,
+    fieldName: tenantId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.actors.service.ContextBasedCreator,
+    fieldName: context}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.actors.ruleChain.RuleNodeActor$ActorCreator,
+    fieldName: ruleChainId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.actors.ruleChain.RuleNodeActor$ActorCreator,
+    fieldName: ruleChainName}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.actors.ruleChain.RuleNodeActor$ActorCreator,
+    fieldName: ruleNodeId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.actors.ruleChain.RuleNodeActor$ActorCreator,
+    fieldName: tenantId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.actors.service.ContextBasedCreator,
+    fieldName: context}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.actors.shared.RuleChainErrorActor$ActorCreator,
+    fieldName: error}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.actors.shared.RuleChainErrorActor$ActorCreator,
+    fieldName: ruleChainId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.actors.shared.RuleChainErrorActor$ActorCreator,
+    fieldName: tenantId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.actors.service.ContextBasedCreator,
+    fieldName: context}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.actors.stats.StatsActor$ActorCreator,
+    fieldName: actorId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.actors.service.ContextBasedCreator,
+    fieldName: context}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.actors.tenant.TenantActor$ActorCreator,
+    fieldName: tenantId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.actors.service.ContextBasedCreator,
+    fieldName: context}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.security.ValidationCallback,
+    fieldName: action}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.security.ValidationCallback,
+    fieldName: response}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.edge.rpc.fetch.AdminSettingsEdgeEventFetcher,
+    fieldName: adminSettingsService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.edge.rpc.fetch.AssetProfilesEdgeEventFetcher,
+    fieldName: assetProfileService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.edge.rpc.fetch.AssetsEdgeEventFetcher,
+    fieldName: assetService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.edge.rpc.fetch.CustomerEdgeEventFetcher,
+    fieldName: customerId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.edge.rpc.fetch.DashboardsEdgeEventFetcher,
+    fieldName: dashboardService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.edge.rpc.fetch.DefaultProfilesEdgeEventFetcher,
+    fieldName: assetProfileService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.edge.rpc.fetch.DefaultProfilesEdgeEventFetcher,
+    fieldName: deviceProfileService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.edge.rpc.fetch.DeviceProfilesEdgeEventFetcher,
+    fieldName: deviceProfileService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.edge.rpc.fetch.DevicesEdgeEventFetcher,
+    fieldName: deviceService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.edge.rpc.fetch.EntityViewsEdgeEventFetcher,
+    fieldName: entityViewService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.edge.rpc.fetch.NotificationRuleEdgeEventFetcher,
+    fieldName: notificationRuleService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.edge.rpc.fetch.NotificationTargetEdgeEventFetcher,
+    fieldName: notificationTargetService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.edge.rpc.fetch.NotificationTemplateEdgeEventFetcher,
+    fieldName: notificationTemplateService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.edge.rpc.fetch.OAuth2EdgeEventFetcher,
+    fieldName: domainService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.edge.rpc.fetch.OtaPackagesEdgeEventFetcher,
+    fieldName: otaPackageService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.edge.rpc.fetch.QueuesEdgeEventFetcher,
+    fieldName: queueService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.edge.rpc.fetch.RuleChainsEdgeEventFetcher,
+    fieldName: ruleChainService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.edge.rpc.fetch.TenantEdgeEventFetcher,
+    fieldName: tenantService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.edge.rpc.fetch.TenantResourcesEdgeEventFetcher,
+    fieldName: resourceService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.queue.TbMsgProfilerInfo,
+    fieldName: currentRuleNodeId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.queue.TbMsgProfilerInfo,
+    fieldName: msgId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.queue.TbMsgProfilerInfo,
+    fieldName: stateChangeTime}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.queue.TbMsgProfilerInfo,
+    fieldName: stateLock}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.queue.TbMsgProfilerInfo,
+    fieldName: totalProcessingTime}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.queue.TbPackCallback,
+    fieldName: ctx}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.queue.TbPackCallback,
+    fieldName: id}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.rpc.DefaultTbCoreDeviceRpcService,
+    fieldName: actorContext}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.rpc.DefaultTbCoreDeviceRpcService,
+    fieldName: clusterService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.rpc.DefaultTbCoreDeviceRpcService,
+    fieldName: deviceService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.rpc.DefaultTbCoreDeviceRpcService,
+    fieldName: localToDeviceRpcRequests}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.rpc.DefaultTbCoreDeviceRpcService,
+    fieldName: localToRuleEngineRpcRequests}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.rpc.DefaultTbCoreDeviceRpcService,
+    fieldName: scheduler}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.rpc.DefaultTbCoreDeviceRpcService,
+    fieldName: serviceId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.rpc.DefaultTbCoreDeviceRpcService,
+    fieldName: serviceInfoProvider}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.rpc.DefaultTbCoreDeviceRpcService,
+    fieldName: tbRuleEngineRpcService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.rpc.DefaultTbRuleEngineRpcService,
+    fieldName: clusterService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.rpc.DefaultTbRuleEngineRpcService,
+    fieldName: partitionService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.rpc.DefaultTbRuleEngineRpcService,
+    fieldName: rpcService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.rpc.DefaultTbRuleEngineRpcService,
+    fieldName: scheduler}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.rpc.DefaultTbRuleEngineRpcService,
+    fieldName: serviceId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.rpc.DefaultTbRuleEngineRpcService,
+    fieldName: serviceInfoProvider}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.rpc.DefaultTbRuleEngineRpcService,
+    fieldName: tbCoreRpcService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.rpc.DefaultTbRuleEngineRpcService,
+    fieldName: toDeviceRpcRequests}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.security.ValidationCallback,
+    fieldName: action}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.security.ValidationCallback,
+    fieldName: response}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.sync.ie.importing.impl.BaseEntityImportService$IdProvider,
+    fieldName: ctx}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.sync.ie.importing.impl.BaseEntityImportService$IdProvider,
+    fieldName: importResult}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.sync.ie.importing.impl.BaseEntityImportService$IdProvider,
+    fieldName: this$0}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.sync.vc.data.CommitGitRequest,
+    fieldName: request}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.sync.vc.data.CommitGitRequest,
+    fieldName: txId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.sync.vc.data.PendingGitRequest,
+    fieldName: createdTime}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.sync.vc.data.PendingGitRequest,
+    fieldName: future}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.sync.vc.data.PendingGitRequest,
+    fieldName: requestId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.sync.vc.data.PendingGitRequest,
+    fieldName: tenantId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.service.sync.vc.data.PendingGitRequest,
+    fieldName: timeoutTask}
+type: specs.openrewrite.org/v1beta/recipe

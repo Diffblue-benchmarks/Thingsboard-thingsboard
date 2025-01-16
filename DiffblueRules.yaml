@@ -1,0 +1,5 @@
+java.util.UUID:
+  - factory:
+      method: java.util.UUID.fromString:(Ljava/lang/String;)Ljava/util/UUID;
+      params:
+      - "784f394c-42b6-435a-983c-b7beff2784f9"

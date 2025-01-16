@@ -1,0 +1,188 @@
+package org.thingsboard.server.common.data.security.model.mfa.account;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.mockito.Mockito.mock;
+import java.util.LinkedHashMap;
+import java.util.function.BiFunction;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.thingsboard.server.common.data.security.model.mfa.provider.TwoFaProviderType;
+
+class AccountTwoFaSettingsDiffblueTest {
+  /**
+   * Test {@link AccountTwoFaSettings#equals(Object)}, and
+   * {@link AccountTwoFaSettings#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link AccountTwoFaSettings#equals(Object)}
+   *   <li>{@link AccountTwoFaSettings#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    AccountTwoFaSettings accountTwoFaSettings = new AccountTwoFaSettings();
+    accountTwoFaSettings.setConfigs(new LinkedHashMap<>());
+
+    AccountTwoFaSettings accountTwoFaSettings2 = new AccountTwoFaSettings();
+    accountTwoFaSettings2.setConfigs(new LinkedHashMap<>());
+
+    // Act and Assert
+    assertEquals(accountTwoFaSettings, accountTwoFaSettings2);
+    int expectedHashCodeResult = accountTwoFaSettings.hashCode();
+    assertEquals(expectedHashCodeResult, accountTwoFaSettings2.hashCode());
+  }
+
+  /**
+   * Test {@link AccountTwoFaSettings#equals(Object)}, and
+   * {@link AccountTwoFaSettings#hashCode()}.
+   * <ul>
+   *   <li>When other is same.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link AccountTwoFaSettings#equals(Object)}
+   *   <li>{@link AccountTwoFaSettings#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    AccountTwoFaSettings accountTwoFaSettings = new AccountTwoFaSettings();
+    accountTwoFaSettings.setConfigs(new LinkedHashMap<>());
+
+    // Act and Assert
+    assertEquals(accountTwoFaSettings, accountTwoFaSettings);
+    int expectedHashCodeResult = accountTwoFaSettings.hashCode();
+    assertEquals(expectedHashCodeResult, accountTwoFaSettings.hashCode());
+  }
+
+  /**
+   * Test {@link AccountTwoFaSettings#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link AccountTwoFaSettings#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    LinkedHashMap<TwoFaProviderType, TwoFaAccountConfig> configs = new LinkedHashMap<>();
+    configs.put(TwoFaProviderType.TOTP, new BackupCodeTwoFaAccountConfig());
+
+    AccountTwoFaSettings accountTwoFaSettings = new AccountTwoFaSettings();
+    accountTwoFaSettings.setConfigs(configs);
+
+    AccountTwoFaSettings accountTwoFaSettings2 = new AccountTwoFaSettings();
+    accountTwoFaSettings2.setConfigs(new LinkedHashMap<>());
+
+    // Act and Assert
+    assertNotEquals(accountTwoFaSettings, accountTwoFaSettings2);
+  }
+
+  /**
+   * Test {@link AccountTwoFaSettings#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link AccountTwoFaSettings#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    LinkedHashMap<TwoFaProviderType, TwoFaAccountConfig> configs = new LinkedHashMap<>();
+    configs.replaceAll(mock(BiFunction.class));
+    configs.put(TwoFaProviderType.TOTP, new BackupCodeTwoFaAccountConfig());
+
+    AccountTwoFaSettings accountTwoFaSettings = new AccountTwoFaSettings();
+    accountTwoFaSettings.setConfigs(configs);
+
+    AccountTwoFaSettings accountTwoFaSettings2 = new AccountTwoFaSettings();
+    accountTwoFaSettings2.setConfigs(new LinkedHashMap<>());
+
+    // Act and Assert
+    assertNotEquals(accountTwoFaSettings, accountTwoFaSettings2);
+  }
+
+  /**
+   * Test {@link AccountTwoFaSettings#equals(Object)}.
+   * <ul>
+   *   <li>When other is {@code null}.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link AccountTwoFaSettings#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange
+    AccountTwoFaSettings accountTwoFaSettings = new AccountTwoFaSettings();
+    accountTwoFaSettings.setConfigs(new LinkedHashMap<>());
+
+    // Act and Assert
+    assertNotEquals(accountTwoFaSettings, null);
+  }
+
+  /**
+   * Test {@link AccountTwoFaSettings#equals(Object)}.
+   * <ul>
+   *   <li>When other is wrong type.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link AccountTwoFaSettings#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange
+    AccountTwoFaSettings accountTwoFaSettings = new AccountTwoFaSettings();
+    accountTwoFaSettings.setConfigs(new LinkedHashMap<>());
+
+    // Act and Assert
+    assertNotEquals(accountTwoFaSettings, "Different type to AccountTwoFaSettings");
+  }
+
+  /**
+   * Test getters and setters.
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>default or parameterless constructor of {@link AccountTwoFaSettings}
+   *   <li>{@link AccountTwoFaSettings#setConfigs(LinkedHashMap)}
+   *   <li>{@link AccountTwoFaSettings#toString()}
+   *   <li>{@link AccountTwoFaSettings#getConfigs()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test getters and setters")
+  void testGettersAndSetters() {
+    // Arrange and Act
+    AccountTwoFaSettings actualAccountTwoFaSettings = new AccountTwoFaSettings();
+    LinkedHashMap<TwoFaProviderType, TwoFaAccountConfig> configs = new LinkedHashMap<>();
+    actualAccountTwoFaSettings.setConfigs(configs);
+    String actualToStringResult = actualAccountTwoFaSettings.toString();
+
+    // Assert that nothing has changed
+    assertEquals("AccountTwoFaSettings(configs={})", actualToStringResult);
+    assertSame(configs, actualAccountTwoFaSettings.getConfigs());
+  }
+}

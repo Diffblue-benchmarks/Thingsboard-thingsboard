@@ -1,0 +1,36 @@
+package org.thingsboard.server.common.data.id;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import java.util.UUID;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.thingsboard.server.common.data.EntityType;
+
+class QueueStatsIdDiffblueTest {
+  /**
+   * Test getters and setters.
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link QueueStatsId#QueueStatsId(UUID)}
+   *   <li>{@link QueueStatsId#getEntityType()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test getters and setters")
+  void testGettersAndSetters() {
+    // Arrange
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+
+    // Act
+    QueueStatsId actualQueueStatsId = new QueueStatsId(id);
+    EntityType actualEntityType = actualQueueStatsId.getEntityType();
+
+    // Assert
+    UUID id2 = actualQueueStatsId.getId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id2.toString());
+    assertEquals(EntityType.QUEUE_STATS, actualEntityType);
+    assertSame(id, id2);
+  }
+}

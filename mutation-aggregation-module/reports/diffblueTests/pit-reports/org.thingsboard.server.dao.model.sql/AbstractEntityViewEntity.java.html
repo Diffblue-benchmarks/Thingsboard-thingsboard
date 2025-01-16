@@ -1,0 +1,3372 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=windows-1252">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>AbstractEntityViewEntity.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright &#169; 2016-2024 The Thingsboard Authors</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *     http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.thingsboard.server.dao.model.sql;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.fasterxml.jackson.databind.JsonNode;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import jakarta.persistence.Column;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import jakarta.persistence.Convert;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import jakarta.persistence.EnumType;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import jakarta.persistence.Enumerated;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import jakarta.persistence.MappedSuperclass;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.Data;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.EqualsAndHashCode;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.extern.slf4j.Slf4j;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.common.util.JacksonUtil;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.common.data.EntityType;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.common.data.EntityView;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.common.data.id.CustomerId;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.common.data.id.EntityIdFactory;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.common.data.id.EntityViewId;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.common.data.id.TenantId;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.common.data.objects.TelemetryEntityView;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.dao.model.BaseVersionedEntity;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.dao.model.ModelConstants;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.dao.util.mapping.JsonConverter;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.UUID;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static org.thingsboard.server.dao.model.ModelConstants.ENTITY_TYPE_PROPERTY;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Created by Victor Basanets on 8/30/2017.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_47'/>
+47
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_47'>1</a>
+<span>
+
+1. toString : replaced return value with &#34;&#34; for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::toString &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>@Data</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_48'/>
+48
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_48'>87</a>
+<span>
+
+1. equals : replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE<br/>
+
+2. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+3. hashCode : Replaced Unsigned Shift Right with Shift Left &rarr; SURVIVED<br/>
+
+4. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+5. equals : replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE<br/>
+
+6. canEqual : replaced boolean return with false for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::canEqual &rarr; NO_COVERAGE<br/>
+
+7. equals : replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE<br/>
+
+8. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+9. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+10. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+11. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+12. equals : replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE<br/>
+
+13. equals : replaced boolean return with false for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE<br/>
+
+14. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+15. equals : replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE<br/>
+
+16. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+17. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+18. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+19. hashCode : replaced int return with 0 for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::hashCode &rarr; SURVIVED<br/>
+
+20. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+21. hashCode : Replaced XOR with AND &rarr; SURVIVED<br/>
+
+22. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+23. canEqual : replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::canEqual &rarr; NO_COVERAGE<br/>
+
+24. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+25. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+26. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+27. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+28. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+29. hashCode : Replaced Unsigned Shift Right with Shift Left &rarr; SURVIVED<br/>
+
+30. equals : replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE<br/>
+
+31. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+32. hashCode : Replaced XOR with AND &rarr; SURVIVED<br/>
+
+33. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+34. equals : replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE<br/>
+
+35. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+36. equals : replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE<br/>
+
+37. equals : replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE<br/>
+
+38. equals : replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE<br/>
+
+39. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+40. equals : replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE<br/>
+
+41. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+42. equals : replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; KILLED<br/>
+
+43. hashCode : negated conditional &rarr; KILLED<br/>
+
+44. equals : negated conditional &rarr; KILLED<br/>
+
+45. hashCode : negated conditional &rarr; KILLED<br/>
+
+46. hashCode : negated conditional &rarr; KILLED<br/>
+
+47. hashCode : negated conditional &rarr; KILLED<br/>
+
+48. equals : negated conditional &rarr; KILLED<br/>
+
+49. equals : negated conditional &rarr; KILLED<br/>
+
+50. equals : negated conditional &rarr; KILLED<br/>
+
+51. equals : negated conditional &rarr; KILLED<br/>
+
+52. equals : negated conditional &rarr; KILLED<br/>
+
+53. hashCode : negated conditional &rarr; KILLED<br/>
+
+54. equals : negated conditional &rarr; KILLED<br/>
+
+55. equals : negated conditional &rarr; KILLED<br/>
+
+56. equals : negated conditional &rarr; KILLED<br/>
+
+57. equals : negated conditional &rarr; KILLED<br/>
+
+58. equals : negated conditional &rarr; KILLED<br/>
+
+59. equals : negated conditional &rarr; KILLED<br/>
+
+60. equals : negated conditional &rarr; KILLED<br/>
+
+61. hashCode : negated conditional &rarr; KILLED<br/>
+
+62. equals : negated conditional &rarr; KILLED<br/>
+
+63. equals : replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; KILLED<br/>
+
+64. equals : negated conditional &rarr; KILLED<br/>
+
+65. equals : negated conditional &rarr; KILLED<br/>
+
+66. equals : negated conditional &rarr; KILLED<br/>
+
+67. hashCode : negated conditional &rarr; KILLED<br/>
+
+68. hashCode : negated conditional &rarr; KILLED<br/>
+
+69. equals : negated conditional &rarr; KILLED<br/>
+
+70. equals : negated conditional &rarr; KILLED<br/>
+
+71. equals : negated conditional &rarr; KILLED<br/>
+
+72. equals : negated conditional &rarr; KILLED<br/>
+
+73. equals : negated conditional &rarr; KILLED<br/>
+
+74. equals : replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; KILLED<br/>
+
+75. equals : negated conditional &rarr; KILLED<br/>
+
+76. equals : replaced boolean return with false for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; KILLED<br/>
+
+77. equals : negated conditional &rarr; KILLED<br/>
+
+78. hashCode : negated conditional &rarr; KILLED<br/>
+
+79. equals : negated conditional &rarr; KILLED<br/>
+
+80. equals : negated conditional &rarr; KILLED<br/>
+
+81. equals : negated conditional &rarr; KILLED<br/>
+
+82. equals : negated conditional &rarr; KILLED<br/>
+
+83. equals : negated conditional &rarr; KILLED<br/>
+
+84. equals : negated conditional &rarr; KILLED<br/>
+
+85. equals : negated conditional &rarr; KILLED<br/>
+
+86. equals : negated conditional &rarr; KILLED<br/>
+
+87. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>@EqualsAndHashCode(callSuper = true)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>@MappedSuperclass</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>@Slf4j</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public abstract class AbstractEntityViewEntity&#60;T extends EntityView&#62; extends BaseVersionedEntity&#60;T&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Column(name = ModelConstants.ENTITY_VIEW_ENTITY_ID_PROPERTY)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_54'/>
+54
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_54'>1</a>
+<span>
+
+1. getEntityId : replaced return value with null for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::getEntityId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private UUID entityId;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Enumerated(EnumType.STRING)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Column(name = ENTITY_TYPE_PROPERTY)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_58'/>
+58
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_58'>1</a>
+<span>
+
+1. getEntityType : replaced return value with null for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::getEntityType &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private EntityType entityType;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Column(name = ModelConstants.ENTITY_VIEW_TENANT_ID_PROPERTY)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_61'/>
+61
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_61'>1</a>
+<span>
+
+1. getTenantId : replaced return value with null for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::getTenantId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private UUID tenantId;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Column(name = ModelConstants.ENTITY_VIEW_CUSTOMER_ID_PROPERTY)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_64'/>
+64
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_64'>1</a>
+<span>
+
+1. getCustomerId : replaced return value with null for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::getCustomerId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private UUID customerId;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Column(name = ModelConstants.DEVICE_TYPE_PROPERTY)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_67'/>
+67
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_67'>1</a>
+<span>
+
+1. getType : replaced return value with &#34;&#34; for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::getType &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private String type;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Column(name = ModelConstants.ENTITY_VIEW_NAME_PROPERTY)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_70'/>
+70
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_70'>1</a>
+<span>
+
+1. getName : replaced return value with &#34;&#34; for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::getName &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private String name;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Column(name = ModelConstants.ENTITY_VIEW_KEYS_PROPERTY)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_73'/>
+73
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_73'>1</a>
+<span>
+
+1. getKeys : replaced return value with &#34;&#34; for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::getKeys &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private String keys;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Column(name = ModelConstants.ENTITY_VIEW_START_TS_PROPERTY)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_76'/>
+76
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_76'>1</a>
+<span>
+
+1. getStartTs : replaced long return with 0 for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::getStartTs &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private long startTs;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Column(name = ModelConstants.ENTITY_VIEW_END_TS_PROPERTY)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_79'/>
+79
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_79'>1</a>
+<span>
+
+1. getEndTs : replaced long return with 0 for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::getEndTs &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private long endTs;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Convert(converter = JsonConverter.class)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Column(name = ModelConstants.ENTITY_VIEW_ADDITIONAL_INFO_PROPERTY)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_83'/>
+83
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_83'>1</a>
+<span>
+
+1. getAdditionalInfo : replaced return value with null for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::getAdditionalInfo &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private JsonNode additionalInfo;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Column(name = ModelConstants.EXTERNAL_ID_PROPERTY)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_86'/>
+86
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_86'>1</a>
+<span>
+
+1. getExternalId : replaced return value with null for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::getExternalId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private UUID externalId;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public AbstractEntityViewEntity() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        super();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public AbstractEntityViewEntity(T entityView) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        super(entityView);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_94'/>
+94
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_94'>1</a>
+<span>
+
+1. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (entityView.getEntityId() != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.entityId = entityView.getEntityId().getId();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.entityType = entityView.getEntityId().getEntityType();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_98'/>
+98
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_98'>1</a>
+<span>
+
+1. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (entityView.getTenantId() != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            this.tenantId = entityView.getTenantId().getId();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_101'/>
+101
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_101'>1</a>
+<span>
+
+1. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (entityView.getCustomerId() != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.customerId = entityView.getCustomerId().getId();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_104'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.type = entityView.getType();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.name = entityView.getName();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.keys = JacksonUtil.toString(entityView.getKeys());</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        } catch (IllegalArgumentException e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_109'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            log.error(&#34;Unable to serialize entity view keys!&#34;, e);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.startTs = entityView.getStartTimeMs();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_112'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.endTs = entityView.getEndTimeMs();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_113'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.additionalInfo = entityView.getAdditionalInfo();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_114'/>
+114
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_114'>1</a>
+<span>
+
+1. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (entityView.getExternalId() != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.externalId = entityView.getExternalId().getId();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_116'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_117'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_118'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public AbstractEntityViewEntity(EntityViewEntity entityViewEntity) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_120'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        super(entityViewEntity);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_121'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.entityId = entityViewEntity.getEntityId();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_122'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.entityType = entityViewEntity.getEntityType();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_123'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.tenantId = entityViewEntity.getTenantId();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_124'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.customerId = entityViewEntity.getCustomerId();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_125'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.type = entityViewEntity.getType();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_126'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.name = entityViewEntity.getName();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_127'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.keys = entityViewEntity.getKeys();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_128'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.startTs = entityViewEntity.getStartTs();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_129'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.endTs = entityViewEntity.getEndTs();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_130'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.additionalInfo = entityViewEntity.getAdditionalInfo();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_131'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.externalId = entityViewEntity.getExternalId();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_132'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_133'/>
+133
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_133'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_134'/>
+134
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_134'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    protected EntityView toEntityView() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_135'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        EntityView entityView = new EntityView(new EntityViewId(getUuid()));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_136'/>
+136
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_136'>1</a>
+<span>
+
+1. toEntityView : removed call to org/thingsboard/server/common/data/EntityView::setCreatedTime &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        entityView.setCreatedTime(createdTime);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_137'/>
+137
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_137'>1</a>
+<span>
+
+1. toEntityView : removed call to org/thingsboard/server/common/data/EntityView::setVersion &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        entityView.setVersion(version);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_138'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_139'/>
+139
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_139'>1</a>
+<span>
+
+1. toEntityView : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (entityId != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_140'/>
+140
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_140'>1</a>
+<span>
+
+1. toEntityView : removed call to org/thingsboard/server/common/data/EntityView::setEntityId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            entityView.setEntityId(EntityIdFactory.getByTypeAndUuid(entityType.name(), entityId));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_141'/>
+141
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_141'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_142'/>
+142
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_142'>1</a>
+<span>
+
+1. toEntityView : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (tenantId != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_143'/>
+143
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_143'>1</a>
+<span>
+
+1. toEntityView : removed call to org/thingsboard/server/common/data/EntityView::setTenantId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            entityView.setTenantId(TenantId.fromUUID(tenantId));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_144'/>
+144
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_144'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_145'/>
+145
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_145'>1</a>
+<span>
+
+1. toEntityView : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (customerId != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_146'/>
+146
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_146'>1</a>
+<span>
+
+1. toEntityView : removed call to org/thingsboard/server/common/data/EntityView::setCustomerId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            entityView.setCustomerId(new CustomerId(customerId));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_147'/>
+147
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_147'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_148'/>
+148
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_148'>1</a>
+<span>
+
+1. toEntityView : removed call to org/thingsboard/server/common/data/EntityView::setType &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        entityView.setType(type);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_149'/>
+149
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_149'>1</a>
+<span>
+
+1. toEntityView : removed call to org/thingsboard/server/common/data/EntityView::setName &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        entityView.setName(name);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_150'/>
+150
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_150'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_151'/>
+151
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_151'>1</a>
+<span>
+
+1. toEntityView : removed call to org/thingsboard/server/common/data/EntityView::setKeys &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            entityView.setKeys(JacksonUtil.fromString(keys, TelemetryEntityView.class));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_152'/>
+152
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_152'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        } catch (IllegalArgumentException e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_153'/>
+153
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_153'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            log.error(&#34;Unable to read entity view keys!&#34;, e);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_154'/>
+154
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_154'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_155'/>
+155
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_155'>1</a>
+<span>
+
+1. toEntityView : removed call to org/thingsboard/server/common/data/EntityView::setStartTimeMs &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        entityView.setStartTimeMs(startTs);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_156'/>
+156
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_156'>1</a>
+<span>
+
+1. toEntityView : removed call to org/thingsboard/server/common/data/EntityView::setEndTimeMs &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        entityView.setEndTimeMs(endTs);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_157'/>
+157
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_157'>1</a>
+<span>
+
+1. toEntityView : removed call to org/thingsboard/server/common/data/EntityView::setAdditionalInfo &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        entityView.setAdditionalInfo(additionalInfo);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_158'/>
+158
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_158'>1</a>
+<span>
+
+1. toEntityView : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (externalId != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_159'/>
+159
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_159'>1</a>
+<span>
+
+1. toEntityView : removed call to org/thingsboard/server/common/data/EntityView::setExternalId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            entityView.setExternalId(new EntityViewId(externalId));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_160'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_161'/>
+161
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_161'>1</a>
+<span>
+
+1. toEntityView : replaced return value with null for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::toEntityView &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return entityView;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_162'/>
+162
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_162'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_163'/>
+163
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_163'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1d35a043_164'/>
+164
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_164'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_47'>47</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_47'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b></span></span> replaced return value with &#34;&#34; for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::toString &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_48'>48</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_48'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[141],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[141],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[141],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest]/[test:testEquals_whenOtherIsDifferent_thenReturnNotEqual5(org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest)]</span></span> replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced Unsigned Shift Right with Shift Left &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[34],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[34],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[34],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[133],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[133],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[133],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE</span>
+</div> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>canEqual<br/><b>Killed by : </b></span></span> replaced boolean return with false for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::canEqual &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE</span>
+</div> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[84],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[84],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[84],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[76],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[76],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[76],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[114],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[114],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[114],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>18.<span><b>18</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>19.<span><b>19</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE</span>
+</div> <p class='KILLED'><span class='pop'>20.<span><b>20</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>21.<span><b>21</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>22.<span><b>22</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with false for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE</span>
+</div> <p class='KILLED'><span class='pop'>23.<span><b>23</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>24.<span><b>24</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[65],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[65],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[65],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='NO_COVERAGE'><span class='pop'>25.<span><b>25</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE</span>
+</div> <p class='SURVIVED'><span class='pop'>26.<span><b>26</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[57],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[57],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[57],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>27.<span><b>27</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest]/[test:testEquals_whenOtherIsDifferent_thenReturnNotEqual5(org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>28.<span><b>28</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[16],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[16],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[16],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>29.<span><b>29</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[198],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[198],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[198],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>30.<span><b>30</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> replaced int return with 0 for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::hashCode &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[212],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[212],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[212],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>31.<span><b>31</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[190],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[190],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[190],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>32.<span><b>32</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>33.<span><b>33</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual(org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>34.<span><b>34</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced XOR with AND &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>35.<span><b>35</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>36.<span><b>36</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual(org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>37.<span><b>37</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest]/[test:testEquals_whenOtherIsDifferent_thenReturnNotEqual4(org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>38.<span><b>38</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>39.<span><b>39</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[46],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[46],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[46],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>40.<span><b>40</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest]/[test:testEquals_whenOtherIsDifferent_thenReturnNotEqual4(org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>41.<span><b>41</b><br/><b>Location : </b>canEqual<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::canEqual &rarr; NO_COVERAGE</span>
+</div> <p class='SURVIVED'><span class='pop'>42.<span><b>42</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[38],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[38],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[38],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>43.<span><b>43</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual(org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>44.<span><b>44</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>45.<span><b>45</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest]/[test:testEquals_whenOtherIsDifferent_thenReturnNotEqual4(org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>46.<span><b>46</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEquals_whenOtherIsDifferent_thenReturnNotEqual2(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>47.<span><b>47</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual(org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>48.<span><b>48</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>49.<span><b>49</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[179],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[179],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[179],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>50.<span><b>50</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[171],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[171],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[171],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>51.<span><b>51</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>52.<span><b>52</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>53.<span><b>53</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>54.<span><b>54</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual(org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>55.<span><b>55</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>56.<span><b>56</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[122],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[122],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[122],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>57.<span><b>57</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest]/[test:testEquals_whenOtherIsDifferent_thenReturnNotEqual(org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>58.<span><b>58</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[31],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[31],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[31],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>59.<span><b>59</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>60.<span><b>60</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>61.<span><b>61</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest]/[test:testEquals_whenOtherIsDifferent_thenReturnNotEqual(org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest)]</span></span> replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>62.<span><b>62</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced Unsigned Shift Right with Shift Left &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[19],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[19],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[19],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>63.<span><b>63</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest]/[test:testEquals_whenOtherIsDifferent_thenReturnNotEqual5(org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>64.<span><b>64</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> replaced boolean return with false for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>65.<span><b>65</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE</span>
+</div> <p class='SURVIVED'><span class='pop'>66.<span><b>66</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[209],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[209],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[209],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>67.<span><b>67</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced XOR with AND &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[36],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[36],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[36],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>68.<span><b>68</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>69.<span><b>69</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[160],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[160],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[160],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>70.<span><b>70</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>71.<span><b>71</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual(org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>72.<span><b>72</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE</span>
+</div> <p class='KILLED'><span class='pop'>73.<span><b>73</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest]/[test:testEquals_whenOtherIsDifferent_thenReturnNotEqual4(org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>74.<span><b>74</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[152],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[152],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[152],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>75.<span><b>75</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest]/[test:testEquals_whenOtherIsDifferent_thenReturnNotEqual5(org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>76.<span><b>76</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>77.<span><b>77</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest]/[test:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual(org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>78.<span><b>78</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE</span>
+</div> <p class='KILLED'><span class='pop'>79.<span><b>79</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest]/[test:testEquals_whenOtherIsDifferent_thenReturnNotEqual4(org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>80.<span><b>80</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>81.<span><b>81</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE</span>
+</div> <p class='KILLED'><span class='pop'>82.<span><b>82</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest]/[test:testEquals_whenOtherIsDifferent_thenReturnNotEqual4(org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>83.<span><b>83</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[103],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[103],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[103],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>84.<span><b>84</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest]/[test:testEquals_whenOtherIsDifferent_thenReturnNotEqual4(org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>85.<span><b>85</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::equals &rarr; NO_COVERAGE</span>
+</div> <p class='SURVIVED'><span class='pop'>86.<span><b>86</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[95],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[95],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.dao.model.sql.AbstractEntityViewEntity,-method=hashCode,-methodDesc=()I],-indexes=[95],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>87.<span><b>87</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest]/[test:testEquals_whenOtherIsDifferent_thenReturnNotEqual4(org.thingsboard.server.dao.model.sql.EntityViewInfoEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_54'>54</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_54'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getEntityId<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testSetEntityId(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> replaced return value with null for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::getEntityId &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_58'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getEntityType<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testSetEntityType(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> replaced return value with null for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::getEntityType &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_61'>61</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_61'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTenantId<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testSetTenantId(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> replaced return value with null for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::getTenantId &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_64'>64</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_64'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCustomerId<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testSetCustomerId(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> replaced return value with null for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::getCustomerId &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_67'>67</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_67'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getType<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testGetType(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::getType &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_70'>70</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_70'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getName<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testGetName(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::getName &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_73'>73</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_73'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getKeys<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testSetKeys(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::getKeys &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_76'>76</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_76'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getStartTs<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testSetStartTs(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> replaced long return with 0 for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::getStartTs &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_79'>79</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_79'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getEndTs<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testSetEndTs(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> replaced long return with 0 for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::getEndTs &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_83'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAdditionalInfo<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testSetAdditionalInfo(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> replaced return value with null for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::getAdditionalInfo &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_86'>86</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_86'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getExternalId<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testSetExternalId(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> replaced return value with null for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::getExternalId &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_94'>94</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_94'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest]/[test:testNewEntityViewEntity_whenEntityView_thenReturnKeysIsNull(org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_98'>98</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_98'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest]/[test:testNewEntityViewEntity_whenEntityView_thenReturnKeysIsNull(org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_101'>101</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_101'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest]/[test:testNewEntityViewEntity_whenEntityView_thenReturnKeysIsNull(org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_114'>114</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_114'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest]/[test:testNewEntityViewEntity_whenEntityView_thenReturnKeysIsNull(org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_136'>136</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_136'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toEntityView<br/><b>Killed by : </b>org.thingsboard.server.dao.sql.entityview.JpaEntityViewDaoDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.sql.entityview.JpaEntityViewDaoDiffblueTest]/[test:testFindEntityViewsByTenantIdAndEntityId_thenFirstEntityIdReturnTenantId(org.thingsboard.server.dao.sql.entityview.JpaEntityViewDaoDiffblueTest)]</span></span> removed call to org/thingsboard/server/common/data/EntityView::setCreatedTime &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_137'>137</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_137'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toEntityView<br/><b>Killed by : </b>org.thingsboard.server.dao.sql.entityview.JpaEntityViewDaoDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.sql.entityview.JpaEntityViewDaoDiffblueTest]/[test:testFindEntityViewsByTenantIdAndEntityId_thenFirstEntityIdReturnTenantId(org.thingsboard.server.dao.sql.entityview.JpaEntityViewDaoDiffblueTest)]</span></span> removed call to org/thingsboard/server/common/data/EntityView::setVersion &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_139'>139</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_139'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toEntityView<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testSetName(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_140'>140</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_140'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toEntityView<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testToEntityView_thenEntityIdReturnDashboardId(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> removed call to org/thingsboard/server/common/data/EntityView::setEntityId &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_142'>142</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_142'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toEntityView<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testSetTenantId(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_143'>143</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_143'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toEntityView<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testSetTenantId(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> removed call to org/thingsboard/server/common/data/EntityView::setTenantId &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_145'>145</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_145'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toEntityView<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testSetCustomerId(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_146'>146</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_146'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toEntityView<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testSetCustomerId(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> removed call to org/thingsboard/server/common/data/EntityView::setCustomerId &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_148'>148</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_148'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toEntityView<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testSetType(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> removed call to org/thingsboard/server/common/data/EntityView::setType &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_149'>149</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_149'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toEntityView<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testSetName(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> removed call to org/thingsboard/server/common/data/EntityView::setName &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_151'>151</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_151'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toEntityView<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest]/[test:testToData_thenReturnKeysIsTelemetryEntityView(org.thingsboard.server.dao.model.sql.EntityViewEntityDiffblueTest)]</span></span> removed call to org/thingsboard/server/common/data/EntityView::setKeys &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_155'>155</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_155'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toEntityView<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testSetStartTs(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> removed call to org/thingsboard/server/common/data/EntityView::setStartTimeMs &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_156'>156</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_156'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toEntityView<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testSetEndTs(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> removed call to org/thingsboard/server/common/data/EntityView::setEndTimeMs &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_157'>157</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_157'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toEntityView<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testSetAdditionalInfo(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> removed call to org/thingsboard/server/common/data/EntityView::setAdditionalInfo &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_158'>158</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_158'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toEntityView<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testSetExternalId(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_159'>159</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_159'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toEntityView<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testSetExternalId(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> removed call to org/thingsboard/server/common/data/EntityView::setExternalId &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1d35a043_161'>161</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1d35a043_161'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toEntityView<br/><b>Killed by : </b>org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest.[engine:junit-vintage]/[runner:org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest]/[test:testSetName(org.thingsboard.server.dao.model.sql.AbstractEntityViewEntityDiffblueTest)]</span></span> replaced return value with null for org/thingsboard/server/dao/model/sql/AbstractEntityViewEntity::toEntityView &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.17.1
+
+</body>
+</html>

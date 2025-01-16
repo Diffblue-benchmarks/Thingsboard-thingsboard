@@ -1,0 +1,3137 @@
+package org.thingsboard.server.dao.model.sql;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.MissingNode;
+import java.util.UUID;
+import org.junit.Test;
+import org.thingsboard.server.common.data.DeviceProfile;
+import org.thingsboard.server.common.data.DeviceProfileProvisionType;
+import org.thingsboard.server.common.data.DeviceProfileType;
+import org.thingsboard.server.common.data.DeviceTransportType;
+import org.thingsboard.server.common.data.EntityType;
+import org.thingsboard.server.common.data.id.DashboardId;
+import org.thingsboard.server.common.data.id.DeviceProfileId;
+import org.thingsboard.server.common.data.id.OtaPackageId;
+import org.thingsboard.server.common.data.id.RuleChainId;
+import org.thingsboard.server.common.data.id.TenantId;
+import org.thingsboard.server.dao.customer.CustomerServiceImpl;
+import org.thingsboard.server.dao.model.ModelConstants;
+
+public class DeviceProfileEntityDiffblueTest {
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}, and
+   * {@link DeviceProfileEntity#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link DeviceProfileEntity#equals(Object)}
+   *   <li>{@link DeviceProfileEntity#hashCode()}
+   * </ul>
+   */
+  @Test
+  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertEquals(deviceProfileEntity, deviceProfileEntity2);
+    int expectedHashCodeResult = deviceProfileEntity.hashCode();
+    assertEquals(expectedHashCodeResult, deviceProfileEntity2.hashCode());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}, and
+   * {@link DeviceProfileEntity#hashCode()}.
+   * <ul>
+   *   <li>When other is same.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link DeviceProfileEntity#equals(Object)}
+   *   <li>{@link DeviceProfileEntity#hashCode()}
+   * </ul>
+   */
+  @Test
+  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    // Act and Assert
+    assertEquals(deviceProfileEntity, deviceProfileEntity);
+    int expectedHashCodeResult = deviceProfileEntity.hashCode();
+    assertEquals(expectedHashCodeResult, deviceProfileEntity.hashCode());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(3L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(false);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(UUID.randomUUID());
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(null);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(UUID.randomUUID());
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(null);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName(null);
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(UUID.randomUUID());
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(null);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("Name");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription(null);
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.randomUUID());
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(null);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(UUID.randomUUID());
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(null);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Name");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage(null);
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Image");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName(null);
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(MissingNode.getInstance());
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(null);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(mock(JsonNode.class));
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Name");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey(null);
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(null);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual27() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.ALLOW_CREATE_NEW_DEVICES);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual28() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.randomUUID());
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual29() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(null);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual30() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(UUID.randomUUID());
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual31() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(null);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual32() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(null);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual33() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.MQTT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual34() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(null);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual35() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(null);
+    deviceProfileEntity2.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is {@code null}.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, null);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   * <ul>
+   *   <li>When other is wrong type.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, "Different type to DeviceProfileEntity");
+  }
+
+  /**
+   * Test getters and setters.
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link DeviceProfileEntity#DeviceProfileEntity()}
+   *   <li>{@link DeviceProfileEntity#setDefault(boolean)}
+   *   <li>{@link DeviceProfileEntity#setDefaultDashboardId(UUID)}
+   *   <li>{@link DeviceProfileEntity#setDefaultEdgeRuleChainId(UUID)}
+   *   <li>{@link DeviceProfileEntity#setDefaultQueueName(String)}
+   *   <li>{@link DeviceProfileEntity#setDefaultRuleChainId(UUID)}
+   *   <li>{@link DeviceProfileEntity#setDescription(String)}
+   *   <li>{@link DeviceProfileEntity#setExternalId(UUID)}
+   *   <li>{@link DeviceProfileEntity#setFirmwareId(UUID)}
+   *   <li>{@link DeviceProfileEntity#setImage(String)}
+   *   <li>{@link DeviceProfileEntity#setName(String)}
+   *   <li>{@link DeviceProfileEntity#setProfileData(JsonNode)}
+   *   <li>{@link DeviceProfileEntity#setProvisionDeviceKey(String)}
+   *   <li>{@link DeviceProfileEntity#setProvisionType(DeviceProfileProvisionType)}
+   *   <li>{@link DeviceProfileEntity#setSoftwareId(UUID)}
+   *   <li>{@link DeviceProfileEntity#setTenantId(UUID)}
+   *   <li>{@link DeviceProfileEntity#setTransportType(DeviceTransportType)}
+   *   <li>{@link DeviceProfileEntity#setType(DeviceProfileType)}
+   *   <li>{@link DeviceProfileEntity#toString()}
+   *   <li>{@link DeviceProfileEntity#getDefaultDashboardId()}
+   *   <li>{@link DeviceProfileEntity#getDefaultEdgeRuleChainId()}
+   *   <li>{@link DeviceProfileEntity#getDefaultQueueName()}
+   *   <li>{@link DeviceProfileEntity#getDefaultRuleChainId()}
+   *   <li>{@link DeviceProfileEntity#getDescription()}
+   *   <li>{@link DeviceProfileEntity#getExternalId()}
+   *   <li>{@link DeviceProfileEntity#getFirmwareId()}
+   *   <li>{@link DeviceProfileEntity#getImage()}
+   *   <li>{@link DeviceProfileEntity#getName()}
+   *   <li>{@link DeviceProfileEntity#getProfileData()}
+   *   <li>{@link DeviceProfileEntity#getProvisionDeviceKey()}
+   *   <li>{@link DeviceProfileEntity#getProvisionType()}
+   *   <li>{@link DeviceProfileEntity#getSoftwareId()}
+   *   <li>{@link DeviceProfileEntity#getTenantId()}
+   *   <li>{@link DeviceProfileEntity#getTransportType()}
+   *   <li>{@link DeviceProfileEntity#getType()}
+   *   <li>{@link DeviceProfileEntity#isDefault()}
+   * </ul>
+   */
+  @Test
+  public void testGettersAndSetters() {
+    // Arrange and Act
+    DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity();
+    actualDeviceProfileEntity.setDefault(true);
+    actualDeviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    actualDeviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    actualDeviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    actualDeviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    actualDeviceProfileEntity.setDescription("The characteristics of someone or something");
+    actualDeviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    actualDeviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    actualDeviceProfileEntity.setImage("Image");
+    actualDeviceProfileEntity.setName("Name");
+    JsonNode profileData = CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON;
+    actualDeviceProfileEntity.setProfileData(profileData);
+    actualDeviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    actualDeviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    actualDeviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    UUID tenantId = ModelConstants.NULL_UUID;
+    actualDeviceProfileEntity.setTenantId(tenantId);
+    actualDeviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    actualDeviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    String actualToStringResult = actualDeviceProfileEntity.toString();
+    UUID actualDefaultDashboardId = actualDeviceProfileEntity.getDefaultDashboardId();
+    UUID actualDefaultEdgeRuleChainId = actualDeviceProfileEntity.getDefaultEdgeRuleChainId();
+    String actualDefaultQueueName = actualDeviceProfileEntity.getDefaultQueueName();
+    UUID actualDefaultRuleChainId = actualDeviceProfileEntity.getDefaultRuleChainId();
+    String actualDescription = actualDeviceProfileEntity.getDescription();
+    UUID actualExternalId = actualDeviceProfileEntity.getExternalId();
+    UUID actualFirmwareId = actualDeviceProfileEntity.getFirmwareId();
+    String actualImage = actualDeviceProfileEntity.getImage();
+    String actualName = actualDeviceProfileEntity.getName();
+    JsonNode actualProfileData = actualDeviceProfileEntity.getProfileData();
+    String actualProvisionDeviceKey = actualDeviceProfileEntity.getProvisionDeviceKey();
+    DeviceProfileProvisionType actualProvisionType = actualDeviceProfileEntity.getProvisionType();
+    UUID actualSoftwareId = actualDeviceProfileEntity.getSoftwareId();
+    UUID actualTenantId = actualDeviceProfileEntity.getTenantId();
+    DeviceTransportType actualTransportType = actualDeviceProfileEntity.getTransportType();
+    DeviceProfileType actualType = actualDeviceProfileEntity.getType();
+    boolean actualIsDefaultResult = actualDeviceProfileEntity.isDefault();
+
+    // Assert that nothing has changed
+    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualDefaultDashboardId.toString());
+    assertEquals("Default Queue Name", actualDefaultQueueName);
+    assertEquals(
+        "DeviceProfileEntity(super=BaseVersionedEntity{id=null, createdTime=0, version=null}, tenantId=13814000"
+            + "-1dd2-11b2-8080-808080808080, name=Name, type=DEFAULT, image=Image, transportType=DEFAULT, provisionType"
+            + "=DISABLED, description=The characteristics of someone or something, isDefault=true, defaultRuleChainId"
+            + "=13814000-1dd2-11b2-8080-808080808080, defaultDashboardId=13814000-1dd2-11b2-8080-808080808080,"
+            + " defaultQueueName=Default Queue Name, profileData={\"isPublic\":true}, provisionDeviceKey=Provision"
+            + " Device Key, firmwareId=13814000-1dd2-11b2-8080-808080808080, softwareId=13814000-1dd2-11b2-8080"
+            + "-808080808080, defaultEdgeRuleChainId=13814000-1dd2-11b2-8080-808080808080, externalId=13814000-1dd2"
+            + "-11b2-8080-808080808080)",
+        actualToStringResult);
+    assertEquals("Image", actualImage);
+    assertEquals("Name", actualName);
+    assertEquals("Provision Device Key", actualProvisionDeviceKey);
+    assertEquals("The characteristics of someone or something", actualDescription);
+    assertEquals(0L, actualDeviceProfileEntity.getCreatedTime());
+    assertEquals(DeviceProfileProvisionType.DISABLED, actualProvisionType);
+    assertEquals(DeviceProfileType.DEFAULT, actualType);
+    assertEquals(DeviceTransportType.DEFAULT, actualTransportType);
+    assertTrue(actualIsDefaultResult);
+    assertSame(profileData, actualProfileData);
+    assertSame(tenantId, actualDefaultDashboardId);
+    assertSame(tenantId, actualDefaultEdgeRuleChainId);
+    assertSame(tenantId, actualDefaultRuleChainId);
+    assertSame(tenantId, actualExternalId);
+    assertSame(tenantId, actualFirmwareId);
+    assertSame(tenantId, actualSoftwareId);
+    assertSame(tenantId, actualTenantId);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}.
+   * <p>
+   * Method under test:
+   * {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}
+   */
+  @Test
+  public void testNewDeviceProfileEntity() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    deviceProfile.setTenantId(ModelConstants.SYSTEM_TENANT);
+
+    // Act
+    DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity(deviceProfile);
+
+    // Assert
+    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualDeviceProfileEntity.getTenantId().toString());
+    assertNull(actualDeviceProfileEntity.getDefaultDashboardId());
+    assertNull(actualDeviceProfileEntity.getDefaultEdgeRuleChainId());
+    assertNull(actualDeviceProfileEntity.getDefaultRuleChainId());
+    assertNull(actualDeviceProfileEntity.getExternalId());
+    assertNull(actualDeviceProfileEntity.getFirmwareId());
+    assertNull(actualDeviceProfileEntity.getSoftwareId());
+    assertFalse(actualDeviceProfileEntity.isDefault());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}.
+   * <p>
+   * Method under test:
+   * {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}
+   */
+  @Test
+  public void testNewDeviceProfileEntity2() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    deviceProfile.setDefaultRuleChainId(new RuleChainId(ModelConstants.NULL_UUID));
+
+    // Act
+    DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity(deviceProfile);
+
+    // Assert
+    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualDeviceProfileEntity.getDefaultRuleChainId().toString());
+    assertNull(actualDeviceProfileEntity.getDefaultDashboardId());
+    assertNull(actualDeviceProfileEntity.getDefaultEdgeRuleChainId());
+    assertNull(actualDeviceProfileEntity.getExternalId());
+    assertNull(actualDeviceProfileEntity.getFirmwareId());
+    assertNull(actualDeviceProfileEntity.getSoftwareId());
+    assertNull(actualDeviceProfileEntity.getTenantId());
+    assertFalse(actualDeviceProfileEntity.isDefault());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}.
+   * <p>
+   * Method under test:
+   * {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}
+   */
+  @Test
+  public void testNewDeviceProfileEntity3() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    deviceProfile.setDefaultEdgeRuleChainId(new RuleChainId(ModelConstants.NULL_UUID));
+
+    // Act
+    DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity(deviceProfile);
+
+    // Assert
+    assertEquals("13814000-1dd2-11b2-8080-808080808080",
+        actualDeviceProfileEntity.getDefaultEdgeRuleChainId().toString());
+    assertNull(actualDeviceProfileEntity.getDefaultDashboardId());
+    assertNull(actualDeviceProfileEntity.getDefaultRuleChainId());
+    assertNull(actualDeviceProfileEntity.getExternalId());
+    assertNull(actualDeviceProfileEntity.getFirmwareId());
+    assertNull(actualDeviceProfileEntity.getSoftwareId());
+    assertNull(actualDeviceProfileEntity.getTenantId());
+    assertFalse(actualDeviceProfileEntity.isDefault());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}.
+   * <p>
+   * Method under test:
+   * {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}
+   */
+  @Test
+  public void testNewDeviceProfileEntity4() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    deviceProfile.setDefaultDashboardId(new DashboardId(ModelConstants.NULL_UUID));
+
+    // Act
+    DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity(deviceProfile);
+
+    // Assert
+    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualDeviceProfileEntity.getDefaultDashboardId().toString());
+    assertNull(actualDeviceProfileEntity.getDefaultEdgeRuleChainId());
+    assertNull(actualDeviceProfileEntity.getDefaultRuleChainId());
+    assertNull(actualDeviceProfileEntity.getExternalId());
+    assertNull(actualDeviceProfileEntity.getFirmwareId());
+    assertNull(actualDeviceProfileEntity.getSoftwareId());
+    assertNull(actualDeviceProfileEntity.getTenantId());
+    assertFalse(actualDeviceProfileEntity.isDefault());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}.
+   * <p>
+   * Method under test:
+   * {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}
+   */
+  @Test
+  public void testNewDeviceProfileEntity5() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    deviceProfile.setFirmwareId(new OtaPackageId(ModelConstants.NULL_UUID));
+
+    // Act
+    DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity(deviceProfile);
+
+    // Assert
+    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualDeviceProfileEntity.getFirmwareId().toString());
+    assertNull(actualDeviceProfileEntity.getDefaultDashboardId());
+    assertNull(actualDeviceProfileEntity.getDefaultEdgeRuleChainId());
+    assertNull(actualDeviceProfileEntity.getDefaultRuleChainId());
+    assertNull(actualDeviceProfileEntity.getExternalId());
+    assertNull(actualDeviceProfileEntity.getSoftwareId());
+    assertNull(actualDeviceProfileEntity.getTenantId());
+    assertFalse(actualDeviceProfileEntity.isDefault());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}.
+   * <p>
+   * Method under test:
+   * {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}
+   */
+  @Test
+  public void testNewDeviceProfileEntity6() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    deviceProfile.setSoftwareId(new OtaPackageId(ModelConstants.NULL_UUID));
+
+    // Act
+    DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity(deviceProfile);
+
+    // Assert
+    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualDeviceProfileEntity.getSoftwareId().toString());
+    assertNull(actualDeviceProfileEntity.getDefaultDashboardId());
+    assertNull(actualDeviceProfileEntity.getDefaultEdgeRuleChainId());
+    assertNull(actualDeviceProfileEntity.getDefaultRuleChainId());
+    assertNull(actualDeviceProfileEntity.getExternalId());
+    assertNull(actualDeviceProfileEntity.getFirmwareId());
+    assertNull(actualDeviceProfileEntity.getTenantId());
+    assertFalse(actualDeviceProfileEntity.isDefault());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}.
+   * <p>
+   * Method under test:
+   * {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}
+   */
+  @Test
+  public void testNewDeviceProfileEntity7() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    deviceProfile.setExternalId(new DeviceProfileId(ModelConstants.NULL_UUID));
+
+    // Act
+    DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity(deviceProfile);
+
+    // Assert
+    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualDeviceProfileEntity.getExternalId().toString());
+    assertNull(actualDeviceProfileEntity.getDefaultDashboardId());
+    assertNull(actualDeviceProfileEntity.getDefaultEdgeRuleChainId());
+    assertNull(actualDeviceProfileEntity.getDefaultRuleChainId());
+    assertNull(actualDeviceProfileEntity.getFirmwareId());
+    assertNull(actualDeviceProfileEntity.getSoftwareId());
+    assertNull(actualDeviceProfileEntity.getTenantId());
+    assertFalse(actualDeviceProfileEntity.isDefault());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}.
+   * <ul>
+   *   <li>Given {@code A}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}
+   */
+  @Test
+  public void testNewDeviceProfileEntity_givenA() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    deviceProfile.setProfileDataBytes(new byte[]{'A', 3, 'A', 3, 'A', 3, 'A', 3});
+
+    // Act
+    DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity(deviceProfile);
+
+    // Assert
+    assertNull(actualDeviceProfileEntity.getDefaultDashboardId());
+    assertNull(actualDeviceProfileEntity.getDefaultEdgeRuleChainId());
+    assertNull(actualDeviceProfileEntity.getDefaultRuleChainId());
+    assertNull(actualDeviceProfileEntity.getExternalId());
+    assertNull(actualDeviceProfileEntity.getFirmwareId());
+    assertNull(actualDeviceProfileEntity.getSoftwareId());
+    assertNull(actualDeviceProfileEntity.getTenantId());
+    assertFalse(actualDeviceProfileEntity.isDefault());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}.
+   * <ul>
+   *   <li>Given empty array of {@code byte}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}
+   */
+  @Test
+  public void testNewDeviceProfileEntity_givenEmptyArrayOfByte() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    deviceProfile.setProfileDataBytes(new byte[]{});
+
+    // Act
+    DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity(deviceProfile);
+
+    // Assert
+    assertNull(actualDeviceProfileEntity.getDefaultDashboardId());
+    assertNull(actualDeviceProfileEntity.getDefaultEdgeRuleChainId());
+    assertNull(actualDeviceProfileEntity.getDefaultRuleChainId());
+    assertNull(actualDeviceProfileEntity.getExternalId());
+    assertNull(actualDeviceProfileEntity.getFirmwareId());
+    assertNull(actualDeviceProfileEntity.getSoftwareId());
+    assertNull(actualDeviceProfileEntity.getTenantId());
+    assertFalse(actualDeviceProfileEntity.isDefault());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}.
+   * <ul>
+   *   <li>Given {@code true}.</li>
+   *   <li>Then return Default.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}
+   */
+  @Test
+  public void testNewDeviceProfileEntity_givenTrue_thenReturnDefault() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    deviceProfile.setDefault(true);
+
+    // Act
+    DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity(deviceProfile);
+
+    // Assert
+    assertNull(actualDeviceProfileEntity.getDefaultDashboardId());
+    assertNull(actualDeviceProfileEntity.getDefaultEdgeRuleChainId());
+    assertNull(actualDeviceProfileEntity.getDefaultRuleChainId());
+    assertNull(actualDeviceProfileEntity.getExternalId());
+    assertNull(actualDeviceProfileEntity.getFirmwareId());
+    assertNull(actualDeviceProfileEntity.getSoftwareId());
+    assertNull(actualDeviceProfileEntity.getTenantId());
+    assertTrue(actualDeviceProfileEntity.isDefault());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}.
+   * <ul>
+   *   <li>When {@link DeviceProfile#DeviceProfile()}.</li>
+   *   <li>Then return DefaultDashboardId is {@code null}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}
+   */
+  @Test
+  public void testNewDeviceProfileEntity_whenDeviceProfile_thenReturnDefaultDashboardIdIsNull() {
+    // Arrange and Act
+    DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity(new DeviceProfile());
+
+    // Assert
+    assertNull(actualDeviceProfileEntity.getDefaultDashboardId());
+    assertNull(actualDeviceProfileEntity.getDefaultEdgeRuleChainId());
+    assertNull(actualDeviceProfileEntity.getDefaultRuleChainId());
+    assertNull(actualDeviceProfileEntity.getExternalId());
+    assertNull(actualDeviceProfileEntity.getFirmwareId());
+    assertNull(actualDeviceProfileEntity.getSoftwareId());
+    assertNull(actualDeviceProfileEntity.getTenantId());
+    assertFalse(actualDeviceProfileEntity.isDefault());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#toData()}.
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#toData()}
+   */
+  @Test
+  public void testToData() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+
+    // Act
+    DeviceProfile actualToDataResult = deviceProfileEntity.toData();
+
+    // Assert
+    RuleChainId defaultRuleChainId = actualToDataResult.getDefaultRuleChainId();
+    assertEquals("13814000-1dd2-11b2-8080-808080808080", defaultRuleChainId.getId().toString());
+    assertNull(actualToDataResult.getVersion());
+    assertNull(actualToDataResult.getDefaultQueueName());
+    assertNull(actualToDataResult.getDescription());
+    assertNull(actualToDataResult.getImage());
+    assertNull(actualToDataResult.getName());
+    assertNull(actualToDataResult.getProvisionDeviceKey());
+    assertNull(actualToDataResult.getUuidId());
+    DeviceProfileId id = actualToDataResult.getId();
+    assertNull(id.getId());
+    assertNull(actualToDataResult.getProvisionType());
+    assertNull(actualToDataResult.getType());
+    assertNull(actualToDataResult.getTransportType());
+    assertEquals(0L, actualToDataResult.getCreatedTime());
+    assertEquals(EntityType.RULE_CHAIN, defaultRuleChainId.getEntityType());
+    assertFalse(actualToDataResult.isDefault());
+    assertFalse(id.isNullUid());
+    assertTrue(defaultRuleChainId.isNullUid());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#toData()}.
+   * <ul>
+   *   <li>Given {@link DeviceProfileEntity#DeviceProfileEntity()}.</li>
+   *   <li>Then return Version is {@code null}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#toData()}
+   */
+  @Test
+  public void testToData_givenDeviceProfileEntity_thenReturnVersionIsNull() {
+    // Arrange and Act
+    DeviceProfile actualToDataResult = (new DeviceProfileEntity()).toData();
+
+    // Assert
+    assertNull(actualToDataResult.getVersion());
+    assertNull(actualToDataResult.getDefaultQueueName());
+    assertNull(actualToDataResult.getDescription());
+    assertNull(actualToDataResult.getImage());
+    assertNull(actualToDataResult.getName());
+    assertNull(actualToDataResult.getProvisionDeviceKey());
+    assertNull(actualToDataResult.getUuidId());
+    DeviceProfileId id = actualToDataResult.getId();
+    assertNull(id.getId());
+    assertNull(actualToDataResult.getProvisionType());
+    assertNull(actualToDataResult.getType());
+    assertNull(actualToDataResult.getTransportType());
+    assertEquals(0L, actualToDataResult.getCreatedTime());
+    assertFalse(actualToDataResult.isDefault());
+    assertFalse(id.isNullUid());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#toData()}.
+   * <ul>
+   *   <li>Then return DefaultDashboardId EntityType is {@code DASHBOARD}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#toData()}
+   */
+  @Test
+  public void testToData_thenReturnDefaultDashboardIdEntityTypeIsDashboard() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+    deviceProfileEntity.setTenantId(null);
+    deviceProfileEntity.setDefaultRuleChainId(null);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(null);
+    deviceProfileEntity.setSoftwareId(null);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(null);
+    deviceProfileEntity.setExternalId(null);
+    deviceProfileEntity.setProfileData(null);
+
+    // Act
+    DeviceProfile actualToDataResult = deviceProfileEntity.toData();
+
+    // Assert
+    DashboardId defaultDashboardId = actualToDataResult.getDefaultDashboardId();
+    assertEquals(EntityType.DASHBOARD, defaultDashboardId.getEntityType());
+    assertTrue(defaultDashboardId.isNullUid());
+    assertTrue(actualToDataResult.getId().isNullUid());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#toData()}.
+   * <ul>
+   *   <li>Then return DefaultEdgeRuleChainId EntityType is {@code RULE_CHAIN}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#toData()}
+   */
+  @Test
+  public void testToData_thenReturnDefaultEdgeRuleChainIdEntityTypeIsRuleChain() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+    deviceProfileEntity.setTenantId(null);
+    deviceProfileEntity.setDefaultRuleChainId(null);
+    deviceProfileEntity.setDefaultDashboardId(null);
+    deviceProfileEntity.setFirmwareId(null);
+    deviceProfileEntity.setSoftwareId(null);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setExternalId(null);
+    deviceProfileEntity.setProfileData(null);
+
+    // Act
+    DeviceProfile actualToDataResult = deviceProfileEntity.toData();
+
+    // Assert
+    RuleChainId defaultEdgeRuleChainId = actualToDataResult.getDefaultEdgeRuleChainId();
+    assertEquals(EntityType.RULE_CHAIN, defaultEdgeRuleChainId.getEntityType());
+    assertTrue(defaultEdgeRuleChainId.isNullUid());
+    assertTrue(actualToDataResult.getId().isNullUid());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#toData()}.
+   * <ul>
+   *   <li>Then return ExternalId EntityType is {@code DEVICE_PROFILE}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#toData()}
+   */
+  @Test
+  public void testToData_thenReturnExternalIdEntityTypeIsDeviceProfile() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+    deviceProfileEntity.setTenantId(null);
+    deviceProfileEntity.setDefaultRuleChainId(null);
+    deviceProfileEntity.setDefaultDashboardId(null);
+    deviceProfileEntity.setFirmwareId(null);
+    deviceProfileEntity.setSoftwareId(null);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(null);
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setProfileData(null);
+
+    // Act
+    DeviceProfile actualToDataResult = deviceProfileEntity.toData();
+
+    // Assert
+    DeviceProfileId externalId = actualToDataResult.getExternalId();
+    assertEquals(EntityType.DEVICE_PROFILE, externalId.getEntityType());
+    assertTrue(externalId.isNullUid());
+    assertEquals(externalId, actualToDataResult.getId());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#toData()}.
+   * <ul>
+   *   <li>Then return FirmwareId EntityType is {@code OTA_PACKAGE}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#toData()}
+   */
+  @Test
+  public void testToData_thenReturnFirmwareIdEntityTypeIsOtaPackage() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+    deviceProfileEntity.setTenantId(null);
+    deviceProfileEntity.setDefaultRuleChainId(null);
+    deviceProfileEntity.setDefaultDashboardId(null);
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setSoftwareId(null);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(null);
+    deviceProfileEntity.setExternalId(null);
+    deviceProfileEntity.setProfileData(null);
+
+    // Act
+    DeviceProfile actualToDataResult = deviceProfileEntity.toData();
+
+    // Assert
+    OtaPackageId firmwareId = actualToDataResult.getFirmwareId();
+    assertEquals(EntityType.OTA_PACKAGE, firmwareId.getEntityType());
+    assertTrue(firmwareId.isNullUid());
+    assertTrue(actualToDataResult.getId().isNullUid());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#toData()}.
+   * <ul>
+   *   <li>Then return not TenantId NullUid.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#toData()}
+   */
+  @Test
+  public void testToData_thenReturnNotTenantIdNullUid() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    UUID tenantId = UUID.randomUUID();
+    deviceProfileEntity.setTenantId(tenantId);
+
+    // Act and Assert
+    TenantId tenantId2 = deviceProfileEntity.toData().getTenantId();
+    assertFalse(tenantId2.isNullUid());
+    assertFalse(tenantId2.isSysTenantId());
+    assertSame(tenantId, tenantId2.getId());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#toData()}.
+   * <ul>
+   *   <li>Then return SoftwareId EntityType is {@code OTA_PACKAGE}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#toData()}
+   */
+  @Test
+  public void testToData_thenReturnSoftwareIdEntityTypeIsOtaPackage() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setVersion(1L);
+    deviceProfileEntity.setTenantId(null);
+    deviceProfileEntity.setDefaultRuleChainId(null);
+    deviceProfileEntity.setDefaultDashboardId(null);
+    deviceProfileEntity.setFirmwareId(null);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(null);
+    deviceProfileEntity.setExternalId(null);
+    deviceProfileEntity.setProfileData(null);
+
+    // Act
+    DeviceProfile actualToDataResult = deviceProfileEntity.toData();
+
+    // Assert
+    OtaPackageId softwareId = actualToDataResult.getSoftwareId();
+    assertEquals(EntityType.OTA_PACKAGE, softwareId.getEntityType());
+    assertTrue(actualToDataResult.getId().isNullUid());
+    assertTrue(softwareId.isNullUid());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#toData()}.
+   * <ul>
+   *   <li>Then return TenantId Id toString is
+   * {@code 13814000-1dd2-11b2-8080-808080808080}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileEntity#toData()}
+   */
+  @Test
+  public void testToData_thenReturnTenantIdIdToStringIs138140001dd211b28080808080808080() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+
+    // Act and Assert
+    TenantId tenantId = deviceProfileEntity.toData().getTenantId();
+    assertEquals("13814000-1dd2-11b2-8080-808080808080", tenantId.getId().toString());
+    assertEquals(EntityType.TENANT, tenantId.getEntityType());
+    assertTrue(tenantId.isNullUid());
+    assertTrue(tenantId.isSysTenantId());
+  }
+}

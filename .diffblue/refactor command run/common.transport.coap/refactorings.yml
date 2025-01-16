@@ -1,0 +1,129 @@
+name: com.diffblue.cover.refactoring.Recipe
+recipeList:
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: camelCaseNames}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: descriptor}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: fields}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: initialized}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: oneofs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: camelCaseNames}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: descriptor}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: fields}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: initialized}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: oneofs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: camelCaseNames}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: descriptor}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: fields}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: initialized}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: oneofs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: camelCaseNames}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: descriptor}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: fields}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: initialized}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: oneofs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: camelCaseNames}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: descriptor}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: fields}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: initialized}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: oneofs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: camelCaseNames}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: descriptor}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: fields}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: initialized}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: oneofs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: camelCaseNames}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: descriptor}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: fields}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: initialized}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: oneofs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: camelCaseNames}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: descriptor}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: fields}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: initialized}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: oneofs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: camelCaseNames}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: descriptor}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: fields}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: initialized}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: oneofs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: camelCaseNames}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: descriptor}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: fields}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: initialized}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: oneofs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: camelCaseNames}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: descriptor}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: fields}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: initialized}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: oneofs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: camelCaseNames}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: descriptor}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: fields}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: initialized}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.protobuf.GeneratedMessageV3$FieldAccessorTable,
+    fieldName: oneofs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.coap.callback.CoapDeviceAuthCallback,
+    fieldName: exchange}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.coap.callback.CoapDeviceAuthCallback,
+    fieldName: onSuccess}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.coap.callback.CoapNoOpCallback,
+    fieldName: exchange}
+type: specs.openrewrite.org/v1beta/recipe

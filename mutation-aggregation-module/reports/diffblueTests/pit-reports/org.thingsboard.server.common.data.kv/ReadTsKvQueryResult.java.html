@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=windows-1252">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>ReadTsKvQueryResult.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright &#169; 2016-2024 The Thingsboard Authors</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *     http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.thingsboard.server.common.data.kv;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.Data;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.common.data.query.TsValue;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_24'/>
+24
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_24'>28</a>
+<span>
+
+1. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+2. equals : negated conditional &rarr; NO_COVERAGE<br/>
+
+3. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+4. hashCode : Replaced XOR with AND &rarr; SURVIVED<br/>
+
+5. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+6. hashCode : Replaced Unsigned Shift Right with Shift Left &rarr; SURVIVED<br/>
+
+7. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+8. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+9. canEqual : replaced boolean return with true for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::canEqual &rarr; SURVIVED<br/>
+
+10. hashCode : replaced int return with 0 for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::hashCode &rarr; SURVIVED<br/>
+
+11. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+12. equals : replaced boolean return with true for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::equals &rarr; NO_COVERAGE<br/>
+
+13. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+14. equals : replaced boolean return with true for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::equals &rarr; KILLED<br/>
+
+15. equals : replaced boolean return with true for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::equals &rarr; KILLED<br/>
+
+16. toString : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::toString &rarr; KILLED<br/>
+
+17. equals : negated conditional &rarr; KILLED<br/>
+
+18. equals : replaced boolean return with true for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::equals &rarr; KILLED<br/>
+
+19. equals : replaced boolean return with false for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::equals &rarr; KILLED<br/>
+
+20. equals : negated conditional &rarr; KILLED<br/>
+
+21. equals : replaced boolean return with true for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::equals &rarr; KILLED<br/>
+
+22. equals : negated conditional &rarr; KILLED<br/>
+
+23. canEqual : replaced boolean return with false for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::canEqual &rarr; KILLED<br/>
+
+24. equals : replaced boolean return with false for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::equals &rarr; KILLED<br/>
+
+25. equals : negated conditional &rarr; KILLED<br/>
+
+26. equals : negated conditional &rarr; KILLED<br/>
+
+27. equals : negated conditional &rarr; KILLED<br/>
+
+28. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>@Data</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class ReadTsKvQueryResult {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_27'/>
+27
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_27'>1</a>
+<span>
+
+1. getQueryId : replaced int return with 0 for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::getQueryId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private final int queryId;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // Holds the data list;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_29'/>
+29
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_29'>1</a>
+<span>
+
+1. getData : replaced return value with Collections.emptyList for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::getData &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private final List&#60;TsKvEntry&#62; data;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // Holds the max ts of the records that match aggregation intervals (not the ts of the aggregation window, but the ts of the last record among all the intervals)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_31'/>
+31
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_31'>1</a>
+<span>
+
+1. getLastEntryTs : replaced long return with 0 for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::getLastEntryTs &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private final long lastEntryTs;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public TsValue[] toTsValues() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_34'/>
+34
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_34'>2</a>
+<span>
+
+1. toTsValues : negated conditional &rarr; KILLED<br/>
+
+2. toTsValues : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (data != null &#38;&#38; !data.isEmpty()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            List&#60;TsValue&#62; queryValues = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            for (TsKvEntry v : data) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                queryValues.add(v.toTsValue()); // TODO: add count here.</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_39'/>
+39
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_39'>1</a>
+<span>
+
+1. toTsValues : replaced return value with null for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::toTsValues &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return queryValues.toArray(new TsValue[queryValues.size()]);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_41'/>
+41
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_41'>1</a>
+<span>
+
+1. toTsValues : replaced return value with null for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::toTsValues &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return new TsValue[0];</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public TsValue toTsValue(ReadTsKvQuery query) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_46'/>
+46
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_46'>2</a>
+<span>
+
+1. toTsValue : negated conditional &rarr; KILLED<br/>
+
+2. toTsValue : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (data == null || data.isEmpty()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_47'/>
+47
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_47'>2</a>
+<span>
+
+1. toTsValue : negated conditional &rarr; KILLED<br/>
+
+2. toTsValue : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (Aggregation.SUM.equals(query.getAggregation()) || Aggregation.COUNT.equals(query.getAggregation())) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_48'/>
+48
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_48'>3</a>
+<span>
+
+1. toTsValue : Replaced long division with multiplication &rarr; NO_COVERAGE<br/>
+
+2. toTsValue : Replaced long addition with subtraction &rarr; NO_COVERAGE<br/>
+
+3. toTsValue : Replaced long subtraction with addition &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                long ts = query.getStartTs() + (query.getEndTs() - query.getStartTs()) / 2;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_49'/>
+49
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_49'>1</a>
+<span>
+
+1. toTsValue : replaced return value with null for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::toTsValue &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                return new TsValue(ts, &#34;0&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_51'/>
+51
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_51'>1</a>
+<span>
+
+1. toTsValue : replaced return value with null for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::toTsValue &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return TsValue.EMPTY;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_54'/>
+54
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_54'>2</a>
+<span>
+
+1. toTsValue : changed conditional boundary &rarr; KILLED<br/>
+
+2. toTsValue : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (data.size() &#62; 1) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            throw new RuntimeException(&#34;Query Result has multiple data points!&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_57'/>
+57
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_57'>1</a>
+<span>
+
+1. toTsValue : replaced return value with null for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::toTsValue &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return data.get(0).toTsValue();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3739b798_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3739b798_24'>24</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_24'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[37],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[37],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[37],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testEquals_whenOtherIsWrongType_thenReturnNotEqual()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual3()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testGettersAndSetters()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::toString &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[29],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[29],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[29],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual2()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced XOR with AND &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> replaced boolean return with false for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[39],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[39],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[39],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced Unsigned Shift Right with Shift Left &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[25],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[25],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[25],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testEquals_whenOtherIsWrongType_thenReturnNotEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[48],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[48],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[48],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>18.<span><b>18</b><br/><b>Location : </b>canEqual<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::canEqual &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>19.<span><b>19</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> replaced int return with 0 for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::hashCode &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[51],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[51],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[51],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>20.<span><b>20</b><br/><b>Location : </b>canEqual<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> replaced boolean return with false for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::canEqual &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>21.<span><b>21</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual()]</span></span> replaced boolean return with false for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>22.<span><b>22</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[22],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[22],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[22],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>23.<span><b>23</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>24.<span><b>24</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual2()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>25.<span><b>25</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::equals &rarr; NO_COVERAGE</span>
+</div> <p class='KILLED'><span class='pop'>26.<span><b>26</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual3()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>27.<span><b>27</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testEquals_whenOtherIsWrongType_thenReturnNotEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>28.<span><b>28</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[14],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[14],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.kv.ReadTsKvQueryResult,-method=hashCode,-methodDesc=()I],-indexes=[14],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3739b798_27'>27</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_27'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getQueryId<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual()]</span></span> replaced int return with 0 for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::getQueryId &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3739b798_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_29'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getData<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual2()]</span></span> replaced return value with Collections.emptyList for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::getData &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3739b798_31'>31</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_31'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getLastEntryTs<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual3()]</span></span> replaced long return with 0 for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::getLastEntryTs &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3739b798_34'>34</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_34'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toTsValues<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testToTsValues_thenReturnFirstElementCountLongValueIsThree()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toTsValues<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testToTsValues_thenReturnFirstElementCountLongValueIsThree()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3739b798_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_39'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toTsValues<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testToTsValues_thenReturnFirstElementCountLongValueIsThree()]</span></span> replaced return value with null for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::toTsValues &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3739b798_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_41'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toTsValues<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testToTsValues_thenReturnArrayLengthIsZero()]</span></span> replaced return value with null for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::toTsValues &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3739b798_46'>46</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_46'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toTsValue<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testToTsValue_thenThrowRuntimeException()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toTsValue<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testToTsValue_thenThrowRuntimeException()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3739b798_47'>47</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_47'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toTsValue<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testToTsValue_thenReturnEmpty()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toTsValue<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testToTsValue_thenReturnEmpty()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3739b798_48'>48</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_48'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toTsValue<br/><b>Killed by : </b></span></span> Replaced long division with multiplication &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toTsValue<br/><b>Killed by : </b></span></span> Replaced long addition with subtraction &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>toTsValue<br/><b>Killed by : </b></span></span> Replaced long subtraction with addition &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3739b798_49'>49</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_49'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toTsValue<br/><b>Killed by : </b></span></span> replaced return value with null for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::toTsValue &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3739b798_51'>51</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_51'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toTsValue<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testToTsValue_thenReturnEmpty()]</span></span> replaced return value with null for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::toTsValue &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3739b798_54'>54</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_54'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toTsValue<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testToTsValue_thenReturnCountIsNull()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toTsValue<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testToTsValue_thenThrowRuntimeException()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3739b798_57'>57</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3739b798_57'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toTsValue<br/><b>Killed by : </b>org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.kv.ReadTsKvQueryResultDiffblueTest]/[method:testToTsValue_thenReturnCountIsNull()]</span></span> replaced return value with null for org/thingsboard/server/common/data/kv/ReadTsKvQueryResult::toTsValue &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.17.1
+
+</body>
+</html>

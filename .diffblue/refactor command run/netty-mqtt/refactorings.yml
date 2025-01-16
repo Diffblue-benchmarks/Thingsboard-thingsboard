@@ -1,0 +1,21 @@
+name: com.diffblue.cover.refactoring.Recipe
+recipeList:
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.mqtt.MqttPingHandler,
+    fieldName: keepaliveSeconds}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.mqtt.MqttPingHandler,
+    fieldName: pingRespTimeout}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: io.netty.channel.ChannelHandlerAdapter,
+    fieldName: added}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.mqtt.RetransmissionHandler,
+    fieldName: handler}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.mqtt.RetransmissionHandler,
+    fieldName: originalMessage}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.mqtt.RetransmissionHandler,
+    fieldName: pendingOperation}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.mqtt.RetransmissionHandler,
+    fieldName: stopped}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.mqtt.RetransmissionHandler,
+    fieldName: timeout}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.mqtt.RetransmissionHandler,
+    fieldName: timer}
+type: specs.openrewrite.org/v1beta/recipe

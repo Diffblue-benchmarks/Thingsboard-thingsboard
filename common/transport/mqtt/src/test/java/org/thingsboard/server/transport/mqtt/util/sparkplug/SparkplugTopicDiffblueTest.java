@@ -1,0 +1,241 @@
+package org.thingsboard.server.transport.mqtt.util.sparkplug;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class SparkplugTopicDiffblueTest {
+  /**
+   * Test getters and setters.
+   * <ul>
+   *   <li>Then return DeviceId is {@code 42}.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>
+   * {@link SparkplugTopic#SparkplugTopic(String, String, String, String, SparkplugMessageType)}
+   *   <li>{@link SparkplugTopic#getDeviceId()}
+   *   <li>{@link SparkplugTopic#getEdgeNodeId()}
+   *   <li>{@link SparkplugTopic#getGroupId()}
+   *   <li>{@link SparkplugTopic#getNamespace()}
+   *   <li>{@link SparkplugTopic#getType()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test getters and setters; then return DeviceId is '42'")
+  void testGettersAndSetters_thenReturnDeviceIdIs42() {
+    // Arrange and Act
+    SparkplugTopic actualSparkplugTopic = new SparkplugTopic("Namespace", "42", "42", "42",
+        SparkplugMessageType.NBIRTH);
+    String actualDeviceId = actualSparkplugTopic.getDeviceId();
+    String actualEdgeNodeId = actualSparkplugTopic.getEdgeNodeId();
+    String actualGroupId = actualSparkplugTopic.getGroupId();
+    String actualNamespace = actualSparkplugTopic.getNamespace();
+
+    // Assert
+    assertEquals("42", actualDeviceId);
+    assertEquals("42", actualEdgeNodeId);
+    assertEquals("42", actualGroupId);
+    assertEquals("Namespace", actualNamespace);
+    assertEquals(SparkplugMessageType.NBIRTH, actualSparkplugTopic.getType());
+  }
+
+  /**
+   * Test getters and setters.
+   * <ul>
+   *   <li>Then return DeviceId is {@code null}.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>
+   * {@link SparkplugTopic#SparkplugTopic(String, String, String, SparkplugMessageType)}
+   *   <li>{@link SparkplugTopic#getDeviceId()}
+   *   <li>{@link SparkplugTopic#getEdgeNodeId()}
+   *   <li>{@link SparkplugTopic#getGroupId()}
+   *   <li>{@link SparkplugTopic#getNamespace()}
+   *   <li>{@link SparkplugTopic#getType()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test getters and setters; then return DeviceId is 'null'")
+  void testGettersAndSetters_thenReturnDeviceIdIsNull() {
+    // Arrange and Act
+    SparkplugTopic actualSparkplugTopic = new SparkplugTopic("Namespace", "42", "42", SparkplugMessageType.NBIRTH);
+    String actualDeviceId = actualSparkplugTopic.getDeviceId();
+    String actualEdgeNodeId = actualSparkplugTopic.getEdgeNodeId();
+    String actualGroupId = actualSparkplugTopic.getGroupId();
+    String actualNamespace = actualSparkplugTopic.getNamespace();
+
+    // Assert
+    assertEquals("42", actualEdgeNodeId);
+    assertEquals("42", actualGroupId);
+    assertEquals("Namespace", actualNamespace);
+    assertNull(actualDeviceId);
+    assertEquals(SparkplugMessageType.NBIRTH, actualSparkplugTopic.getType());
+  }
+
+  /**
+   * Test
+   * {@link SparkplugTopic#SparkplugTopic(SparkplugTopic, SparkplugMessageType, String)}.
+   * <ul>
+   *   <li>Then return DeviceId is {@code 42}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link SparkplugTopic#SparkplugTopic(SparkplugTopic, SparkplugMessageType, String)}
+   */
+  @Test
+  @DisplayName("Test new SparkplugTopic(SparkplugTopic, SparkplugMessageType, String); then return DeviceId is '42'")
+  void testNewSparkplugTopic_thenReturnDeviceIdIs42() {
+    // Arrange and Act
+    SparkplugTopic actualSparkplugTopic = new SparkplugTopic(
+        new SparkplugTopic("Namespace", "42", "42", SparkplugMessageType.NBIRTH), SparkplugMessageType.NBIRTH, "42");
+
+    // Assert
+    assertEquals("42", actualSparkplugTopic.getDeviceId());
+    assertEquals("42", actualSparkplugTopic.getEdgeNodeId());
+    assertEquals("42", actualSparkplugTopic.getGroupId());
+    assertEquals("42", actualSparkplugTopic.getNodeDeviceName());
+    assertEquals("Namespace", actualSparkplugTopic.getNamespace());
+    assertEquals(SparkplugMessageType.NBIRTH, actualSparkplugTopic.getType());
+    assertFalse(actualSparkplugTopic.isNode());
+  }
+
+  /**
+   * Test
+   * {@link SparkplugTopic#SparkplugTopic(SparkplugTopic, SparkplugMessageType)}.
+   * <ul>
+   *   <li>Then return EdgeNodeId is {@code 42}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link SparkplugTopic#SparkplugTopic(SparkplugTopic, SparkplugMessageType)}
+   */
+  @Test
+  @DisplayName("Test new SparkplugTopic(SparkplugTopic, SparkplugMessageType); then return EdgeNodeId is '42'")
+  void testNewSparkplugTopic_thenReturnEdgeNodeIdIs42() {
+    // Arrange and Act
+    SparkplugTopic actualSparkplugTopic = new SparkplugTopic(
+        new SparkplugTopic("Namespace", "42", "42", SparkplugMessageType.NBIRTH), SparkplugMessageType.NBIRTH);
+
+    // Assert
+    assertEquals("42", actualSparkplugTopic.getEdgeNodeId());
+    assertEquals("42", actualSparkplugTopic.getGroupId());
+    assertEquals("42", actualSparkplugTopic.getNodeDeviceName());
+    assertEquals("Namespace", actualSparkplugTopic.getNamespace());
+    assertNull(actualSparkplugTopic.getDeviceId());
+    assertEquals(SparkplugMessageType.NBIRTH, actualSparkplugTopic.getType());
+    assertTrue(actualSparkplugTopic.isNode());
+  }
+
+  /**
+   * Test {@link SparkplugTopic#toString()}.
+   * <ul>
+   *   <li>Then return {@code //42/NBIRTH/42/42}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link SparkplugTopic#toString()}
+   */
+  @Test
+  @DisplayName("Test toString(); then return '//42/NBIRTH/42/42'")
+  void testToString_thenReturn42Nbirth4242() {
+    // Arrange, Act and Assert
+    assertEquals("//42/NBIRTH/42/42",
+        (new SparkplugTopic("/", "42", "42", "42", SparkplugMessageType.NBIRTH)).toString());
+  }
+
+  /**
+   * Test {@link SparkplugTopic#toString()}.
+   * <ul>
+   *   <li>Then return {@code Namespace/42/NBIRTH/42}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link SparkplugTopic#toString()}
+   */
+  @Test
+  @DisplayName("Test toString(); then return 'Namespace/42/NBIRTH/42'")
+  void testToString_thenReturnNamespace42Nbirth42() {
+    // Arrange, Act and Assert
+    assertEquals("Namespace/42/NBIRTH/42",
+        (new SparkplugTopic("Namespace", "42", "42", SparkplugMessageType.NBIRTH)).toString());
+  }
+
+  /**
+   * Test {@link SparkplugTopic#isType(SparkplugMessageType)}.
+   * <p>
+   * Method under test: {@link SparkplugTopic#isType(SparkplugMessageType)}
+   */
+  @Test
+  @DisplayName("Test isType(SparkplugMessageType)")
+  void testIsType() {
+    // Arrange, Act and Assert
+    assertFalse((new SparkplugTopic("Namespace", "42", "42", null)).isType(SparkplugMessageType.NBIRTH));
+    assertFalse(
+        (new SparkplugTopic("Namespace", "42", "42", SparkplugMessageType.NDEATH)).isType(SparkplugMessageType.NBIRTH));
+  }
+
+  /**
+   * Test {@link SparkplugTopic#isType(SparkplugMessageType)}.
+   * <ul>
+   *   <li>Then return {@code true}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link SparkplugTopic#isType(SparkplugMessageType)}
+   */
+  @Test
+  @DisplayName("Test isType(SparkplugMessageType); then return 'true'")
+  void testIsType_thenReturnTrue() {
+    // Arrange, Act and Assert
+    assertTrue(
+        (new SparkplugTopic("Namespace", "42", "42", SparkplugMessageType.NBIRTH)).isType(SparkplugMessageType.NBIRTH));
+  }
+
+  /**
+   * Test {@link SparkplugTopic#isNode()}.
+   * <ul>
+   *   <li>Then return {@code false}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link SparkplugTopic#isNode()}
+   */
+  @Test
+  @DisplayName("Test isNode(); then return 'false'")
+  void testIsNode_thenReturnFalse() {
+    // Arrange, Act and Assert
+    assertFalse((new SparkplugTopic("Namespace", "42", "42", "42", SparkplugMessageType.NBIRTH)).isNode());
+  }
+
+  /**
+   * Test {@link SparkplugTopic#isNode()}.
+   * <ul>
+   *   <li>Then return {@code true}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link SparkplugTopic#isNode()}
+   */
+  @Test
+  @DisplayName("Test isNode(); then return 'true'")
+  void testIsNode_thenReturnTrue() {
+    // Arrange, Act and Assert
+    assertTrue((new SparkplugTopic("Namespace", "42", "42", SparkplugMessageType.NBIRTH)).isNode());
+  }
+
+  /**
+   * Test {@link SparkplugTopic#getNodeDeviceName()}.
+   * <p>
+   * Method under test: {@link SparkplugTopic#getNodeDeviceName()}
+   */
+  @Test
+  @DisplayName("Test getNodeDeviceName()")
+  void testGetNodeDeviceName() {
+    // Arrange, Act and Assert
+    assertEquals("42", (new SparkplugTopic("Namespace", "42", "42", SparkplugMessageType.NBIRTH)).getNodeDeviceName());
+    assertEquals("42",
+        (new SparkplugTopic("Namespace", "42", "42", "42", SparkplugMessageType.NBIRTH)).getNodeDeviceName());
+  }
+}

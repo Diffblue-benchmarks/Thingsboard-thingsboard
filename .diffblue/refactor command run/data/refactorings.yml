@@ -1,0 +1,11 @@
+name: com.diffblue.cover.refactoring.Recipe
+recipeList:
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.apache.xerces.jaxp.validation.AbstractXMLSchema,
+    fieldName: fFeatures}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.apache.xerces.jaxp.validation.SimpleXMLSchema,
+    fieldName: fGrammar}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.apache.xerces.jaxp.validation.SimpleXMLSchema,
+    fieldName: fGrammarDescription}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.apache.xerces.jaxp.validation.SimpleXMLSchema,
+    fieldName: fGrammars}
+type: specs.openrewrite.org/v1beta/recipe

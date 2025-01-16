@@ -1,0 +1,35 @@
+name: com.diffblue.cover.refactoring.Recipe
+recipeList:
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.queue.common.MultipleTbQueueCallbackWrapper,
+    fieldName: callback}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.queue.common.MultipleTbQueueCallbackWrapper,
+    fieldName: tbQueueCallbackCount}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.queue.common.TbQueueTbMsgCallbackWrapper,
+    fieldName: tbMsgCallback}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.queue.common.MultipleTbQueueTbMsgCallbackWrapper,
+    fieldName: tbMsgCallback}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.queue.common.MultipleTbQueueTbMsgCallbackWrapper,
+    fieldName: tbQueueCallbackCount}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.queue.common.SimpleTbQueueCallback,
+    fieldName: onFailure}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.queue.common.SimpleTbQueueCallback,
+    fieldName: onSuccess}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.queue.common.TbQueueTbMsgCallbackWrapper,
+    fieldName: tbMsgCallback}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.queue.discovery.event.TbApplicationEvent,
+    fieldName: sequenceNumber}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.springframework.context.ApplicationEvent,
+    fieldName: timestamp}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: java.util.EventObject,
+    fieldName: source}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.queue.kafka.TbKafkaAdmin,
+    fieldName: numPartitions}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.queue.kafka.TbKafkaAdmin,
+    fieldName: replicationFactor}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.queue.kafka.TbKafkaAdmin,
+    fieldName: settings}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.queue.kafka.TbKafkaAdmin,
+    fieldName: topicConfigs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.queue.kafka.TbKafkaAdmin,
+    fieldName: topics}
+type: specs.openrewrite.org/v1beta/recipe

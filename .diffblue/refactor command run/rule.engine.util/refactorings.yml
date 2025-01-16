@@ -1,0 +1,319 @@
+name: com.diffblue.cover.refactoring.Recipe
+recipeList:
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbDeviceStateNode,
+    fieldName: event}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbDeviceStateNode,
+    fieldName: rateLimitConfig}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbDeviceStateNode,
+    fieldName: rateLimits}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbDeviceStateNode,
+    fieldName: event}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbDeviceStateNode,
+    fieldName: rateLimitConfig}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbDeviceStateNode,
+    fieldName: rateLimits}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbLogNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbLogNode,
+    fieldName: scriptEngine}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbLogNode,
+    fieldName: standard}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbLogNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbLogNode,
+    fieldName: scriptEngine}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbLogNode,
+    fieldName: standard}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbSaveToCustomCassandraTableNode,
+    fieldName: cassandraCluster}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbSaveToCustomCassandraTableNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbSaveToCustomCassandraTableNode,
+    fieldName: defaultWriteLevel}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbSaveToCustomCassandraTableNode,
+    fieldName: fieldsMap}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbSaveToCustomCassandraTableNode,
+    fieldName: readResultsProcessingExecutor}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbSaveToCustomCassandraTableNode,
+    fieldName: saveStmt}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbSaveToCustomCassandraTableNode,
+    fieldName: session}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbSaveToCustomCassandraTableNode,
+    fieldName: cassandraCluster}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbSaveToCustomCassandraTableNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbSaveToCustomCassandraTableNode,
+    fieldName: defaultWriteLevel}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbSaveToCustomCassandraTableNode,
+    fieldName: fieldsMap}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbSaveToCustomCassandraTableNode,
+    fieldName: readResultsProcessingExecutor}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbSaveToCustomCassandraTableNode,
+    fieldName: saveStmt}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.action.TbSaveToCustomCassandraTableNode,
+    fieldName: session}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.aws.lambda.TbAwsLambdaNode,
+    fieldName: client}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.aws.lambda.TbAwsLambdaNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.external.TbAbstractExternalNode,
+    fieldName: forceAck}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.aws.sns.TbSnsNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.aws.sns.TbSnsNode,
+    fieldName: snsClient}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.external.TbAbstractExternalNode,
+    fieldName: forceAck}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.aws.sqs.TbSqsNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.aws.sqs.TbSqsNode,
+    fieldName: sqsClient}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.external.TbAbstractExternalNode,
+    fieldName: forceAck}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: currentMsgCount}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: delay}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: initialized}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: lastScheduledTs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: nextTickId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: originatorId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: prevMsg}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: queueName}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: scriptEngine}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: currentMsgCount}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: delay}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: initialized}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: lastScheduledTs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: nextTickId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: originatorId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: prevMsg}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: queueName}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: scriptEngine}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: currentMsgCount}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: delay}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: initialized}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: lastScheduledTs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: nextTickId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: originatorId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: prevMsg}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: queueName}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.debug.TbMsgGeneratorNode,
+    fieldName: scriptEngine}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.deduplication.TbMsgDeduplicationNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.deduplication.TbMsgDeduplicationNode,
+    fieldName: deduplicationInterval}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.deduplication.TbMsgDeduplicationNode,
+    fieldName: deduplicationMap}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.deduplication.TbMsgDeduplicationNode,
+    fieldName: queueName}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.deduplication.TbMsgDeduplicationNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.deduplication.TbMsgDeduplicationNode,
+    fieldName: deduplicationInterval}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.deduplication.TbMsgDeduplicationNode,
+    fieldName: deduplicationMap}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.deduplication.TbMsgDeduplicationNode,
+    fieldName: queueName}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.delay.TbMsgDelayNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.delay.TbMsgDelayNode,
+    fieldName: pendingMsgs}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.filter.TbAbstractTypeSwitchNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.filter.TbCheckAlarmStatusNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.filter.TbCheckMessageNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.filter.TbCheckMessageNode,
+    fieldName: messageNamesList}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.filter.TbCheckMessageNode,
+    fieldName: metadataNamesList}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.filter.TbCheckRelationNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.filter.TbCheckRelationNode,
+    fieldName: singleEntityId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.filter.TbAbstractTypeSwitchNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.filter.TbJsFilterNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.filter.TbJsFilterNode,
+    fieldName: scriptEngine}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.filter.TbJsFilterNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.filter.TbJsFilterNode,
+    fieldName: scriptEngine}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.filter.TbJsSwitchNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.filter.TbJsSwitchNode,
+    fieldName: scriptEngine}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.filter.TbJsSwitchNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.filter.TbJsSwitchNode,
+    fieldName: scriptEngine}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.filter.TbAbstractTypeSwitchNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.flow.TbCheckpointNode,
+    fieldName: queueName}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.flow.TbRuleChainInputNode,
+    fieldName: forwardMsgToDefaultRuleChain}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.flow.TbRuleChainInputNode,
+    fieldName: ruleChainId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.gcp.pubsub.TbPubSubNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.gcp.pubsub.TbPubSubNode,
+    fieldName: pubSubClient}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.external.TbAbstractExternalNode,
+    fieldName: forceAck}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.kafka.TbKafkaNode,
+    fieldName: addMetadataKeyValuesAsKafkaHeaders}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.kafka.TbKafkaNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.kafka.TbKafkaNode,
+    fieldName: initError}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.kafka.TbKafkaNode,
+    fieldName: producer}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.kafka.TbKafkaNode,
+    fieldName: toBytesCharset}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.external.TbAbstractExternalNode,
+    fieldName: forceAck}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.mail.TbMsgToEmailNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.mail.TbMsgToEmailNode,
+    fieldName: dynamicMailBodyType}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.mail.TbSendEmailNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.mail.TbSendEmailNode,
+    fieldName: mailSender}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.external.TbAbstractExternalNode,
+    fieldName: forceAck}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.math.TbMathNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.math.TbMathNode,
+    fieldName: customExpression}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.math.TbMathNode,
+    fieldName: msgBodyToJsonConversionRequired}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.metadata.CalculateDeltaNode,
+    fieldName: cache}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.metadata.CalculateDeltaNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.metadata.CalculateDeltaNode,
+    fieldName: locks}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.metadata.TbGetTelemetryNode,
+    fieldName: aggregation}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.metadata.TbGetTelemetryNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.metadata.TbGetTelemetryNode,
+    fieldName: fetchMode}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.metadata.TbGetTelemetryNode,
+    fieldName: limit}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.metadata.TbGetTelemetryNode,
+    fieldName: orderBy}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.metadata.TbGetTelemetryNode,
+    fieldName: tsKeyNames}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.mqtt.TbMqttNode,
+    fieldName: mqttClient}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.mqtt.TbMqttNode,
+    fieldName: mqttNodeConfiguration}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.external.TbAbstractExternalNode,
+    fieldName: forceAck}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.notification.TbNotificationNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.external.TbAbstractExternalNode,
+    fieldName: forceAck}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.notification.TbSlackNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.external.TbAbstractExternalNode,
+    fieldName: forceAck}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.profile.TbDeviceProfileNode,
+    fieldName: cache}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.profile.TbDeviceProfileNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.profile.TbDeviceProfileNode,
+    fieldName: ctx}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.profile.TbDeviceProfileNode,
+    fieldName: deviceStates}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.profile.TbDeviceProfileNode,
+    fieldName: cache}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.profile.TbDeviceProfileNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.profile.TbDeviceProfileNode,
+    fieldName: ctx}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.profile.TbDeviceProfileNode,
+    fieldName: deviceStates}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.rabbitmq.TbRabbitMqNode,
+    fieldName: channel}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.rabbitmq.TbRabbitMqNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.rabbitmq.TbRabbitMqNode,
+    fieldName: connection}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.external.TbAbstractExternalNode,
+    fieldName: forceAck}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.rest.TbSendRestApiCallReplyNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.rpc.TbSendRPCReplyNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.sms.TbSendSmsNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.sms.TbSendSmsNode,
+    fieldName: smsSender}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.external.TbAbstractExternalNode,
+    fieldName: forceAck}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.telemetry.TbMsgAttributesNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.telemetry.TbMsgDeleteAttributesNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.telemetry.TbMsgDeleteAttributesNode,
+    fieldName: keys}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.telemetry.TbMsgTimeseriesNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.telemetry.TbMsgTimeseriesNode,
+    fieldName: ctx}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.telemetry.TbMsgTimeseriesNode,
+    fieldName: tenantProfileDefaultStorageTtl}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.transform.MultipleTbMsgsCallbackWrapper,
+    fieldName: callback}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.transform.MultipleTbMsgsCallbackWrapper,
+    fieldName: tbMsgsCallbackCount}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.transform.TbJsonPathNode,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.transform.TbJsonPathNode,
+    fieldName: configurationJsonPath}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.transform.TbJsonPathNode,
+    fieldName: jsonPath}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.transform.TbJsonPathNode,
+    fieldName: jsonPathValue}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.rule.engine.transform.TbSplitArrayMsgNode,
+    fieldName: config}
+type: specs.openrewrite.org/v1beta/recipe

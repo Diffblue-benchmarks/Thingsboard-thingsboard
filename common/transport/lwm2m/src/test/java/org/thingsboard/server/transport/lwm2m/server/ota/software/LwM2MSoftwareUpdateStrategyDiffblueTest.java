@@ -1,0 +1,94 @@
+package org.thingsboard.server.transport.lwm2m.server.ota.software;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class LwM2MSoftwareUpdateStrategyDiffblueTest {
+  /**
+   * Test {@link LwM2MSoftwareUpdateStrategy#fromStrategySwByCode(int)}.
+   * <ul>
+   *   <li>When one.</li>
+   *   <li>Then return {@code BINARY}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link LwM2MSoftwareUpdateStrategy#fromStrategySwByCode(int)}
+   */
+  @Test
+  @DisplayName("Test fromStrategySwByCode(int); when one; then return 'BINARY'")
+  void testFromStrategySwByCode_whenOne_thenReturnBinary() {
+    // Arrange, Act and Assert
+    assertEquals(LwM2MSoftwareUpdateStrategy.BINARY, LwM2MSoftwareUpdateStrategy.fromStrategySwByCode(1));
+  }
+
+  /**
+   * Test {@link LwM2MSoftwareUpdateStrategy#fromStrategySwByCode(int)}.
+   * <ul>
+   *   <li>When two.</li>
+   *   <li>Then return {@code TEMP_URL}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link LwM2MSoftwareUpdateStrategy#fromStrategySwByCode(int)}
+   */
+  @Test
+  @DisplayName("Test fromStrategySwByCode(int); when two; then return 'TEMP_URL'")
+  void testFromStrategySwByCode_whenTwo_thenReturnTempUrl() {
+    // Arrange, Act and Assert
+    assertEquals(LwM2MSoftwareUpdateStrategy.TEMP_URL, LwM2MSoftwareUpdateStrategy.fromStrategySwByCode(2));
+  }
+
+  /**
+   * Test {@link LwM2MSoftwareUpdateStrategy#fromStrategySwByCode(int)}.
+   * <ul>
+   *   <li>When zero.</li>
+   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link LwM2MSoftwareUpdateStrategy#fromStrategySwByCode(int)}
+   */
+  @Test
+  @DisplayName("Test fromStrategySwByCode(int); when zero; then throw IllegalArgumentException")
+  void testFromStrategySwByCode_whenZero_thenThrowIllegalArgumentException() {
+    // Arrange, Act and Assert
+    assertThrows(IllegalArgumentException.class, () -> LwM2MSoftwareUpdateStrategy.fromStrategySwByCode(0));
+  }
+
+  /**
+   * Test {@link LwM2MSoftwareUpdateStrategy#fromStrategySwByType(String)}.
+   * <ul>
+   *   <li>When {@code ObjectId 9, Binary}.</li>
+   *   <li>Then return {@code BINARY}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link LwM2MSoftwareUpdateStrategy#fromStrategySwByType(String)}
+   */
+  @Test
+  @DisplayName("Test fromStrategySwByType(String); when 'ObjectId 9, Binary'; then return 'BINARY'")
+  void testFromStrategySwByType_whenObjectId9Binary_thenReturnBinary() {
+    // Arrange, Act and Assert
+    assertEquals(LwM2MSoftwareUpdateStrategy.BINARY,
+        LwM2MSoftwareUpdateStrategy.fromStrategySwByType("ObjectId 9, Binary"));
+  }
+
+  /**
+   * Test {@link LwM2MSoftwareUpdateStrategy#fromStrategySwByType(String)}.
+   * <ul>
+   *   <li>When {@code Type}.</li>
+   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link LwM2MSoftwareUpdateStrategy#fromStrategySwByType(String)}
+   */
+  @Test
+  @DisplayName("Test fromStrategySwByType(String); when 'Type'; then throw IllegalArgumentException")
+  void testFromStrategySwByType_whenType_thenThrowIllegalArgumentException() {
+    // Arrange, Act and Assert
+    assertThrows(IllegalArgumentException.class, () -> LwM2MSoftwareUpdateStrategy.fromStrategySwByType("Type"));
+  }
+}

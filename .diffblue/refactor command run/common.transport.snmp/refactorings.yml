@@ -1,0 +1,9 @@
+name: com.diffblue.cover.refactoring.Recipe
+recipeList:
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.queue.discovery.event.TbApplicationEvent,
+    fieldName: sequenceNumber}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.springframework.context.ApplicationEvent,
+    fieldName: timestamp}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: java.util.EventObject,
+    fieldName: source}
+type: specs.openrewrite.org/v1beta/recipe

@@ -1,0 +1,41 @@
+name: com.diffblue.cover.refactoring.Recipe
+recipeList:
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.dao.service.DataValidator,
+    fieldName: apiLimitService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.dao.service.DataValidator,
+    fieldName: apiLimitService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.dao.service.StringLengthValidator,
+    fieldName: max}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.dao.service.StringLengthValidator,
+    fieldName: min}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.dao.service.DataValidator,
+    fieldName: apiLimitService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.dao.service.validator.EdgeDataValidator,
+    fieldName: customerDao}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.dao.service.validator.EdgeDataValidator,
+    fieldName: edgeDao}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.dao.service.validator.EdgeDataValidator,
+    fieldName: tenantService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.dao.service.DataValidator,
+    fieldName: apiLimitService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.dao.sql.TbSqlBlockingQueue,
+    fieldName: executor}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.dao.sql.TbSqlBlockingQueue,
+    fieldName: params}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.dao.sql.TbSqlBlockingQueue,
+    fieldName: queue}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.dao.sql.TbSqlBlockingQueue,
+    fieldName: stats}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.dao.sql.query.QueryContext$Parameter,
+    fieldName: name}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.dao.sql.query.QueryContext$Parameter,
+    fieldName: type}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.dao.sql.query.QueryContext$Parameter,
+    fieldName: value}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.common.util.concurrent.AbstractFuture,
+    fieldName: listeners}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.common.util.concurrent.AbstractFuture,
+    fieldName: value}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.common.util.concurrent.AbstractFuture,
+    fieldName: waiters}
+type: specs.openrewrite.org/v1beta/recipe

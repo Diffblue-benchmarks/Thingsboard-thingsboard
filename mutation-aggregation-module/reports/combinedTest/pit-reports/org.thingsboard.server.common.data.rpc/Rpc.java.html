@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=windows-1252">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Rpc.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright &#169; 2016-2024 The Thingsboard Authors</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *     http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.thingsboard.server.common.data.rpc;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.fasterxml.jackson.databind.JsonNode;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.swagger.v3.oas.annotations.media.Schema;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.Data;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.EqualsAndHashCode;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.common.data.BaseData;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.common.data.HasTenantId;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.common.data.id.DeviceId;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.common.data.id.RpcId;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.common.data.id.TenantId;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>@Schema</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_29'/>
+29
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_29'>1</a>
+<span>
+
+1. toString : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/rpc/Rpc::toString &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>@Data</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_30'/>
+30
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_30'>60</a>
+<span>
+
+1. hashCode : replaced int return with 0 for org/thingsboard/server/common/data/rpc/Rpc::hashCode &rarr; SURVIVED<br/>
+
+2. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+3. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+4. canEqual : replaced boolean return with true for org/thingsboard/server/common/data/rpc/Rpc::canEqual &rarr; SURVIVED<br/>
+
+5. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+6. hashCode : Replaced XOR with AND &rarr; SURVIVED<br/>
+
+7. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+8. equals : negated conditional &rarr; NO_COVERAGE<br/>
+
+9. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+10. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+11. equals : replaced boolean return with true for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; NO_COVERAGE<br/>
+
+12. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+13. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+14. hashCode : Replaced Unsigned Shift Right with Shift Left &rarr; SURVIVED<br/>
+
+15. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+16. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+17. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+18. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+19. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+20. equals : replaced boolean return with true for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; NO_COVERAGE<br/>
+
+21. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+22. equals : negated conditional &rarr; KILLED<br/>
+
+23. canEqual : replaced boolean return with false for org/thingsboard/server/common/data/rpc/Rpc::canEqual &rarr; KILLED<br/>
+
+24. hashCode : negated conditional &rarr; KILLED<br/>
+
+25. equals : negated conditional &rarr; KILLED<br/>
+
+26. equals : negated conditional &rarr; KILLED<br/>
+
+27. equals : negated conditional &rarr; KILLED<br/>
+
+28. equals : replaced boolean return with true for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; KILLED<br/>
+
+29. equals : negated conditional &rarr; KILLED<br/>
+
+30. equals : negated conditional &rarr; KILLED<br/>
+
+31. hashCode : negated conditional &rarr; KILLED<br/>
+
+32. equals : negated conditional &rarr; KILLED<br/>
+
+33. equals : negated conditional &rarr; KILLED<br/>
+
+34. equals : replaced boolean return with true for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; KILLED<br/>
+
+35. equals : negated conditional &rarr; KILLED<br/>
+
+36. equals : replaced boolean return with false for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; KILLED<br/>
+
+37. equals : negated conditional &rarr; KILLED<br/>
+
+38. hashCode : negated conditional &rarr; KILLED<br/>
+
+39. hashCode : negated conditional &rarr; KILLED<br/>
+
+40. equals : replaced boolean return with true for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; KILLED<br/>
+
+41. equals : negated conditional &rarr; KILLED<br/>
+
+42. equals : negated conditional &rarr; KILLED<br/>
+
+43. equals : negated conditional &rarr; KILLED<br/>
+
+44. equals : replaced boolean return with true for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; KILLED<br/>
+
+45. equals : negated conditional &rarr; KILLED<br/>
+
+46. equals : negated conditional &rarr; KILLED<br/>
+
+47. hashCode : negated conditional &rarr; KILLED<br/>
+
+48. equals : replaced boolean return with false for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; KILLED<br/>
+
+49. equals : negated conditional &rarr; KILLED<br/>
+
+50. equals : replaced boolean return with true for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; KILLED<br/>
+
+51. equals : negated conditional &rarr; KILLED<br/>
+
+52. equals : negated conditional &rarr; KILLED<br/>
+
+53. equals : negated conditional &rarr; KILLED<br/>
+
+54. equals : negated conditional &rarr; KILLED<br/>
+
+55. equals : replaced boolean return with true for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; KILLED<br/>
+
+56. equals : replaced boolean return with true for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; KILLED<br/>
+
+57. equals : negated conditional &rarr; KILLED<br/>
+
+58. equals : negated conditional &rarr; KILLED<br/>
+
+59. hashCode : negated conditional &rarr; KILLED<br/>
+
+60. equals : replaced boolean return with true for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>@EqualsAndHashCode(callSuper = true)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class Rpc extends BaseData&#60;RpcId&#62; implements HasTenantId {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;JSON object with Tenant Id.&#34;, accessMode = Schema.AccessMode.READ_ONLY)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_34'/>
+34
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_34'>1</a>
+<span>
+
+1. getTenantId : replaced return value with null for org/thingsboard/server/common/data/rpc/Rpc::getTenantId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private TenantId tenantId;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;JSON object with Device Id.&#34;, accessMode = Schema.AccessMode.READ_ONLY)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_36'/>
+36
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_36'>1</a>
+<span>
+
+1. getDeviceId : replaced return value with null for org/thingsboard/server/common/data/rpc/Rpc::getDeviceId &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    private DeviceId deviceId;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;Expiration time of the request.&#34;, accessMode = Schema.AccessMode.READ_ONLY)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_38'/>
+38
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_38'>1</a>
+<span>
+
+1. getExpirationTime : replaced long return with 0 for org/thingsboard/server/common/data/rpc/Rpc::getExpirationTime &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private long expirationTime;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;The request body that will be used to send message to device.&#34;, accessMode = Schema.AccessMode.READ_ONLY)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_40'>1</a>
+<span>
+
+1. getRequest : replaced return value with null for org/thingsboard/server/common/data/rpc/Rpc::getRequest &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private JsonNode request;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;The response from the device.&#34;, accessMode = Schema.AccessMode.READ_ONLY)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_42'/>
+42
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_42'>1</a>
+<span>
+
+1. getResponse : replaced return value with null for org/thingsboard/server/common/data/rpc/Rpc::getResponse &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private JsonNode response;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;The current status of the RPC call.&#34;, accessMode = Schema.AccessMode.READ_ONLY)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_44'>1</a>
+<span>
+
+1. getStatus : replaced return value with null for org/thingsboard/server/common/data/rpc/Rpc::getStatus &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private RpcStatus status;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;Additional info used in the rule engine to process the updates to the RPC state.&#34;, accessMode = Schema.AccessMode.READ_ONLY)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_46'/>
+46
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_46'>1</a>
+<span>
+
+1. getAdditionalInfo : replaced return value with null for org/thingsboard/server/common/data/rpc/Rpc::getAdditionalInfo &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private JsonNode additionalInfo;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Rpc() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        super();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Rpc(RpcId id) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        super(id);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Rpc(Rpc rpc) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        super(rpc);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.tenantId = rpc.getTenantId();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.deviceId = rpc.getDeviceId();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.expirationTime = rpc.getExpirationTime();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.request = rpc.getRequest();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.response = rpc.getResponse();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.status = rpc.getStatus();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.additionalInfo = rpc.getAdditionalInfo();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;JSON object with the rpc Id. Referencing non-existing rpc Id will cause error.&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public RpcId getId() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_70'/>
+70
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_70'>1</a>
+<span>
+
+1. getId : replaced return value with null for org/thingsboard/server/common/data/rpc/Rpc::getId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return super.getId();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;Timestamp of the rpc creation, in milliseconds&#34;, example = &#34;1609459200000&#34;, accessMode = Schema.AccessMode.READ_ONLY)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public long getCreatedTime() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_76'/>
+76
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_76'>1</a>
+<span>
+
+1. getCreatedTime : replaced long return with 0 for org/thingsboard/server/common/data/rpc/Rpc::getCreatedTime &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return super.getCreatedTime();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46033693_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46033693_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@46033693_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@46033693_29'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testGettersAndSetters_thenReturnIdIsRpcIdWithIdIsNull_uuid()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/rpc/Rpc::toString &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@46033693_30'>30</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@46033693_30'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual5()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> replaced int return with 0 for org/thingsboard/server/common/data/rpc/Rpc::hashCode &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[140],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[140],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[140],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>canEqual<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testNewRpc()]</span></span> replaced boolean return with false for org/thingsboard/server/common/data/rpc/Rpc::canEqual &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual9()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[42],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[42],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[42],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[137],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[137],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[137],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>canEqual<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/common/data/rpc/Rpc::canEqual &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual3()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[50],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[50],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[50],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual13()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual11()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual5()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced XOR with AND &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[99],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[99],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[99],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>18.<span><b>18</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual13()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>19.<span><b>19</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual5()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>20.<span><b>20</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsWrongType_thenReturnNotEqual()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>21.<span><b>21</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='SURVIVED'><span class='pop'>22.<span><b>22</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[107],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[107],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[107],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>23.<span><b>23</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testNewRpc()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>24.<span><b>24</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testNewRpc()]</span></span> replaced boolean return with false for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>25.<span><b>25</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual7()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>26.<span><b>26</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>27.<span><b>27</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>28.<span><b>28</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>29.<span><b>29</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[16],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[16],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[16],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>30.<span><b>30</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual7()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>31.<span><b>31</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; NO_COVERAGE</span>
+</div> <p class='KILLED'><span class='pop'>32.<span><b>32</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsWrongType_thenReturnNotEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>33.<span><b>33</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual6()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>34.<span><b>34</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual4()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>35.<span><b>35</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testNewRpc()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>36.<span><b>36</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[61],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[61],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[61],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>37.<span><b>37</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual9()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>38.<span><b>38</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>39.<span><b>39</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual()]</span></span> replaced boolean return with false for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>40.<span><b>40</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual8()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>41.<span><b>41</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual9()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>42.<span><b>42</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[69],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[69],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[69],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>43.<span><b>43</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced Unsigned Shift Right with Shift Left &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[19],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[19],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[19],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>44.<span><b>44</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsWrongType_thenReturnNotEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>45.<span><b>45</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual11()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>46.<span><b>46</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual4()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>47.<span><b>47</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>48.<span><b>48</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual10()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>49.<span><b>49</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[118],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[118],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[118],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>50.<span><b>50</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual11()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>51.<span><b>51</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[31],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[31],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[31],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>52.<span><b>52</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[126],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[126],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[126],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>53.<span><b>53</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual7()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>54.<span><b>54</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual13()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>55.<span><b>55</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual12()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>56.<span><b>56</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>57.<span><b>57</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[80],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[80],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[80],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='NO_COVERAGE'><span class='pop'>58.<span><b>58</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; NO_COVERAGE</span>
+</div> <p class='KILLED'><span class='pop'>59.<span><b>59</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual10()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/rpc/Rpc::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>60.<span><b>60</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[88],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[88],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=hashCode,-methodDesc=()I],-indexes=[88],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@46033693_34'>34</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@46033693_34'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTenantId<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual9()]</span></span> replaced return value with null for org/thingsboard/server/common/data/rpc/Rpc::getTenantId &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@46033693_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@46033693_36'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDeviceId<br/><b>Killed by : </b></span></span> replaced return value with null for org/thingsboard/server/common/data/rpc/Rpc::getDeviceId &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=getDeviceId,-methodDesc=()Lorg/thingsboard/server/common/data/id/DeviceId;],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=getDeviceId,-methodDesc=()Lorg/thingsboard/server/common/data/id/DeviceId;],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=getDeviceId,-methodDesc=()Lorg/thingsboard/server/common/data/id/DeviceId;],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@46033693_38'>38</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@46033693_38'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getExpirationTime<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual4()]</span></span> replaced long return with 0 for org/thingsboard/server/common/data/rpc/Rpc::getExpirationTime &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@46033693_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@46033693_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getRequest<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual5()]</span></span> replaced return value with null for org/thingsboard/server/common/data/rpc/Rpc::getRequest &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@46033693_42'>42</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@46033693_42'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getResponse<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual11()]</span></span> replaced return value with null for org/thingsboard/server/common/data/rpc/Rpc::getResponse &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@46033693_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@46033693_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getStatus<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual7()]</span></span> replaced return value with null for org/thingsboard/server/common/data/rpc/Rpc::getStatus &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@46033693_46'>46</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@46033693_46'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAdditionalInfo<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual13()]</span></span> replaced return value with null for org/thingsboard/server/common/data/rpc/Rpc::getAdditionalInfo &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@46033693_70'>70</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@46033693_70'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getId<br/><b>Killed by : </b>org.thingsboard.server.common.data.rpc.RpcDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.rpc.RpcDiffblueTest]/[method:testGettersAndSetters_thenReturnIdIsRpcIdWithIdIsNull_uuid()]</span></span> replaced return value with null for org/thingsboard/server/common/data/rpc/Rpc::getId &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@46033693_76'>76</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@46033693_76'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCreatedTime<br/><b>Killed by : </b></span></span> replaced long return with 0 for org/thingsboard/server/common/data/rpc/Rpc::getCreatedTime &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=getCreatedTime,-methodDesc=()J],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=getCreatedTime,-methodDesc=()J],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.rpc.Rpc,-method=getCreatedTime,-methodDesc=()J],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.17.1
+
+</body>
+</html>

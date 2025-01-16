@@ -1,0 +1,634 @@
+package org.thingsboard.rule.engine.profile;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.thingsboard.server.common.data.kv.DataType;
+
+class EntityKeyValueDiffblueTest {
+  /**
+   * Test {@link EntityKeyValue#getLngValue()}.
+   * <p>
+   * Method under test: {@link EntityKeyValue#getLngValue()}
+   */
+  @Test
+  @DisplayName("Test getLngValue()")
+  void testGetLngValue() {
+    // Arrange, Act and Assert
+    assertNull(EntityKeyValue.fromBool(true).getLngValue());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#setLngValue(Long)}.
+   * <p>
+   * Method under test: {@link EntityKeyValue#setLngValue(Long)}
+   */
+  @Test
+  @DisplayName("Test setLngValue(Long)")
+  void testSetLngValue() {
+    // Arrange
+    EntityKeyValue fromBoolResult = EntityKeyValue.fromBool(true);
+
+    // Act
+    fromBoolResult.setLngValue(42L);
+
+    // Assert
+    assertNull(fromBoolResult.getBoolValue());
+    assertEquals(42L, fromBoolResult.getLngValue().longValue());
+    assertEquals(DataType.LONG, fromBoolResult.getDataType());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#getDblValue()}.
+   * <ul>
+   *   <li>Given fromBool {@code true}.</li>
+   *   <li>Then return {@code null}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EntityKeyValue#getDblValue()}
+   */
+  @Test
+  @DisplayName("Test getDblValue(); given fromBool 'true'; then return 'null'")
+  void testGetDblValue_givenFromBoolTrue_thenReturnNull() {
+    // Arrange, Act and Assert
+    assertNull(EntityKeyValue.fromBool(true).getDblValue());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#getDblValue()}.
+   * <ul>
+   *   <li>Given fromDouble ten.</li>
+   *   <li>Then return doubleValue is ten.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EntityKeyValue#getDblValue()}
+   */
+  @Test
+  @DisplayName("Test getDblValue(); given fromDouble ten; then return doubleValue is ten")
+  void testGetDblValue_givenFromDoubleTen_thenReturnDoubleValueIsTen() {
+    // Arrange, Act and Assert
+    assertEquals(10.0d, EntityKeyValue.fromDouble(10.0d).getDblValue().doubleValue());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#setDblValue(Double)}.
+   * <p>
+   * Method under test: {@link EntityKeyValue#setDblValue(Double)}
+   */
+  @Test
+  @DisplayName("Test setDblValue(Double)")
+  void testSetDblValue() {
+    // Arrange
+    EntityKeyValue fromBoolResult = EntityKeyValue.fromBool(true);
+
+    // Act
+    fromBoolResult.setDblValue(10.0d);
+
+    // Assert
+    assertNull(fromBoolResult.getBoolValue());
+    assertEquals(10.0d, fromBoolResult.getDblValue().doubleValue());
+    assertEquals(DataType.DOUBLE, fromBoolResult.getDataType());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#getBoolValue()}.
+   * <ul>
+   *   <li>Given {@link EntityKeyValue} (default constructor).</li>
+   *   <li>Then return {@code null}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EntityKeyValue#getBoolValue()}
+   */
+  @Test
+  @DisplayName("Test getBoolValue(); given EntityKeyValue (default constructor); then return 'null'")
+  void testGetBoolValue_givenEntityKeyValue_thenReturnNull() {
+    // Arrange, Act and Assert
+    assertNull((new EntityKeyValue()).getBoolValue());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#getBoolValue()}.
+   * <ul>
+   *   <li>Given fromBool {@code false}.</li>
+   *   <li>Then return {@code false}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EntityKeyValue#getBoolValue()}
+   */
+  @Test
+  @DisplayName("Test getBoolValue(); given fromBool 'false'; then return 'false'")
+  void testGetBoolValue_givenFromBoolFalse_thenReturnFalse() {
+    // Arrange, Act and Assert
+    assertFalse(EntityKeyValue.fromBool(false).getBoolValue());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#getBoolValue()}.
+   * <ul>
+   *   <li>Given fromBool {@code true}.</li>
+   *   <li>Then return {@code true}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EntityKeyValue#getBoolValue()}
+   */
+  @Test
+  @DisplayName("Test getBoolValue(); given fromBool 'true'; then return 'true'")
+  void testGetBoolValue_givenFromBoolTrue_thenReturnTrue() {
+    // Arrange, Act and Assert
+    assertTrue(EntityKeyValue.fromBool(true).getBoolValue());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#getStrValue()}.
+   * <p>
+   * Method under test: {@link EntityKeyValue#getStrValue()}
+   */
+  @Test
+  @DisplayName("Test getStrValue()")
+  void testGetStrValue() {
+    // Arrange, Act and Assert
+    assertNull(EntityKeyValue.fromBool(true).getStrValue());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#setStrValue(String)}.
+   * <p>
+   * Method under test: {@link EntityKeyValue#setStrValue(String)}
+   */
+  @Test
+  @DisplayName("Test setStrValue(String)")
+  void testSetStrValue() {
+    // Arrange
+    EntityKeyValue fromBoolResult = EntityKeyValue.fromBool(true);
+
+    // Act
+    fromBoolResult.setStrValue("42");
+
+    // Assert
+    assertEquals("42", fromBoolResult.getStrValue());
+    assertNull(fromBoolResult.getBoolValue());
+    assertEquals(DataType.STRING, fromBoolResult.getDataType());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#setJsonValue(String)}.
+   * <p>
+   * Method under test: {@link EntityKeyValue#setJsonValue(String)}
+   */
+  @Test
+  @DisplayName("Test setJsonValue(String)")
+  void testSetJsonValue() {
+    // Arrange
+    EntityKeyValue fromBoolResult = EntityKeyValue.fromBool(true);
+
+    // Act
+    fromBoolResult.setJsonValue("42");
+
+    // Assert
+    assertEquals("42", fromBoolResult.getJsonValue());
+    assertNull(fromBoolResult.getBoolValue());
+    assertEquals(DataType.JSON, fromBoolResult.getDataType());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#getJsonValue()}.
+   * <ul>
+   *   <li>Given fromBool {@code true}.</li>
+   *   <li>Then return {@code null}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EntityKeyValue#getJsonValue()}
+   */
+  @Test
+  @DisplayName("Test getJsonValue(); given fromBool 'true'; then return 'null'")
+  void testGetJsonValue_givenFromBoolTrue_thenReturnNull() {
+    // Arrange, Act and Assert
+    assertNull(EntityKeyValue.fromBool(true).getJsonValue());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#getJsonValue()}.
+   * <ul>
+   *   <li>Given fromJson {@code foo}.</li>
+   *   <li>Then return {@code foo}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EntityKeyValue#getJsonValue()}
+   */
+  @Test
+  @DisplayName("Test getJsonValue(); given fromJson 'foo'; then return 'foo'")
+  void testGetJsonValue_givenFromJsonFoo_thenReturnFoo() {
+    // Arrange, Act and Assert
+    assertEquals("foo", EntityKeyValue.fromJson("foo").getJsonValue());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#isSet()}.
+   * <ul>
+   *   <li>Given {@link EntityKeyValue} (default constructor).</li>
+   *   <li>Then return {@code false}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EntityKeyValue#isSet()}
+   */
+  @Test
+  @DisplayName("Test isSet(); given EntityKeyValue (default constructor); then return 'false'")
+  void testIsSet_givenEntityKeyValue_thenReturnFalse() {
+    // Arrange, Act and Assert
+    assertFalse((new EntityKeyValue()).isSet());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#isSet()}.
+   * <ul>
+   *   <li>Given fromBool {@code true}.</li>
+   *   <li>Then return {@code true}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EntityKeyValue#isSet()}
+   */
+  @Test
+  @DisplayName("Test isSet(); given fromBool 'true'; then return 'true'")
+  void testIsSet_givenFromBoolTrue_thenReturnTrue() {
+    // Arrange, Act and Assert
+    assertTrue(EntityKeyValue.fromBool(true).isSet());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#fromString(String)}.
+   * <p>
+   * Method under test: {@link EntityKeyValue#fromString(String)}
+   */
+  @Test
+  @DisplayName("Test fromString(String)")
+  void testFromString() {
+    // Arrange and Act
+    EntityKeyValue actualFromStringResult = EntityKeyValue.fromString("foo");
+
+    // Assert
+    assertEquals("foo", actualFromStringResult.getStrValue());
+    assertNull(actualFromStringResult.getBoolValue());
+    assertNull(actualFromStringResult.getDblValue());
+    assertNull(actualFromStringResult.getLngValue());
+    assertNull(actualFromStringResult.getJsonValue());
+    assertEquals(DataType.STRING, actualFromStringResult.getDataType());
+    assertTrue(actualFromStringResult.isSet());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#fromBool(boolean)}.
+   * <p>
+   * Method under test: {@link EntityKeyValue#fromBool(boolean)}
+   */
+  @Test
+  @DisplayName("Test fromBool(boolean)")
+  void testFromBool() {
+    // Arrange and Act
+    EntityKeyValue actualFromBoolResult = EntityKeyValue.fromBool(true);
+
+    // Assert
+    assertNull(actualFromBoolResult.getDblValue());
+    assertNull(actualFromBoolResult.getLngValue());
+    assertNull(actualFromBoolResult.getJsonValue());
+    assertNull(actualFromBoolResult.getStrValue());
+    assertEquals(DataType.BOOLEAN, actualFromBoolResult.getDataType());
+    assertTrue(actualFromBoolResult.getBoolValue());
+    assertTrue(actualFromBoolResult.isSet());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#fromLong(long)}.
+   * <p>
+   * Method under test: {@link EntityKeyValue#fromLong(long)}
+   */
+  @Test
+  @DisplayName("Test fromLong(long)")
+  void testFromLong() {
+    // Arrange and Act
+    EntityKeyValue actualFromLongResult = EntityKeyValue.fromLong(1L);
+
+    // Assert
+    assertNull(actualFromLongResult.getBoolValue());
+    assertNull(actualFromLongResult.getDblValue());
+    assertNull(actualFromLongResult.getJsonValue());
+    assertNull(actualFromLongResult.getStrValue());
+    assertEquals(1L, actualFromLongResult.getLngValue().longValue());
+    assertEquals(DataType.LONG, actualFromLongResult.getDataType());
+    assertTrue(actualFromLongResult.isSet());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#fromDouble(double)}.
+   * <p>
+   * Method under test: {@link EntityKeyValue#fromDouble(double)}
+   */
+  @Test
+  @DisplayName("Test fromDouble(double)")
+  void testFromDouble() {
+    // Arrange and Act
+    EntityKeyValue actualFromDoubleResult = EntityKeyValue.fromDouble(10.0d);
+
+    // Assert
+    assertNull(actualFromDoubleResult.getBoolValue());
+    assertNull(actualFromDoubleResult.getLngValue());
+    assertNull(actualFromDoubleResult.getJsonValue());
+    assertNull(actualFromDoubleResult.getStrValue());
+    assertEquals(10.0d, actualFromDoubleResult.getDblValue().doubleValue());
+    assertEquals(DataType.DOUBLE, actualFromDoubleResult.getDataType());
+    assertTrue(actualFromDoubleResult.isSet());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#fromJson(String)}.
+   * <p>
+   * Method under test: {@link EntityKeyValue#fromJson(String)}
+   */
+  @Test
+  @DisplayName("Test fromJson(String)")
+  void testFromJson() {
+    // Arrange and Act
+    EntityKeyValue actualFromJsonResult = EntityKeyValue.fromJson("foo");
+
+    // Assert
+    assertEquals("foo", actualFromJsonResult.getJsonValue());
+    assertNull(actualFromJsonResult.getBoolValue());
+    assertNull(actualFromJsonResult.getDblValue());
+    assertNull(actualFromJsonResult.getLngValue());
+    assertNull(actualFromJsonResult.getStrValue());
+    assertEquals(DataType.JSON, actualFromJsonResult.getDataType());
+    assertTrue(actualFromJsonResult.isSet());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#equals(Object)}, and
+   * {@link EntityKeyValue#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link EntityKeyValue#equals(Object)}
+   *   <li>{@link EntityKeyValue#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    EntityKeyValue fromBoolResult = EntityKeyValue.fromBool(true);
+    EntityKeyValue fromBoolResult2 = EntityKeyValue.fromBool(true);
+
+    // Act and Assert
+    assertEquals(fromBoolResult, fromBoolResult2);
+    int expectedHashCodeResult = fromBoolResult.hashCode();
+    assertEquals(expectedHashCodeResult, fromBoolResult2.hashCode());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#equals(Object)}, and
+   * {@link EntityKeyValue#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link EntityKeyValue#equals(Object)}
+   *   <li>{@link EntityKeyValue#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    EntityKeyValue entityKeyValue = new EntityKeyValue();
+    EntityKeyValue entityKeyValue2 = new EntityKeyValue();
+
+    // Act and Assert
+    assertEquals(entityKeyValue, entityKeyValue2);
+    int expectedHashCodeResult = entityKeyValue.hashCode();
+    assertEquals(expectedHashCodeResult, entityKeyValue2.hashCode());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#equals(Object)}, and
+   * {@link EntityKeyValue#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link EntityKeyValue#equals(Object)}
+   *   <li>{@link EntityKeyValue#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+    // Arrange
+    EntityKeyValue fromDoubleResult = EntityKeyValue.fromDouble(10.0d);
+    EntityKeyValue fromDoubleResult2 = EntityKeyValue.fromDouble(10.0d);
+
+    // Act and Assert
+    assertEquals(fromDoubleResult, fromDoubleResult2);
+    int expectedHashCodeResult = fromDoubleResult.hashCode();
+    assertEquals(expectedHashCodeResult, fromDoubleResult2.hashCode());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#equals(Object)}, and
+   * {@link EntityKeyValue#hashCode()}.
+   * <ul>
+   *   <li>When other is same.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link EntityKeyValue#equals(Object)}
+   *   <li>{@link EntityKeyValue#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    EntityKeyValue fromBoolResult = EntityKeyValue.fromBool(true);
+
+    // Act and Assert
+    assertEquals(fromBoolResult, fromBoolResult);
+    int expectedHashCodeResult = fromBoolResult.hashCode();
+    assertEquals(expectedHashCodeResult, fromBoolResult.hashCode());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EntityKeyValue#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    EntityKeyValue fromBoolResult = EntityKeyValue.fromBool(false);
+
+    // Act and Assert
+    assertNotEquals(fromBoolResult, EntityKeyValue.fromBool(true));
+  }
+
+  /**
+   * Test {@link EntityKeyValue#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EntityKeyValue#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    EntityKeyValue entityKeyValue = new EntityKeyValue();
+
+    // Act and Assert
+    assertNotEquals(entityKeyValue, EntityKeyValue.fromBool(true));
+  }
+
+  /**
+   * Test {@link EntityKeyValue#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EntityKeyValue#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+    // Arrange
+    EntityKeyValue fromDoubleResult = EntityKeyValue.fromDouble(10.0d);
+
+    // Act and Assert
+    assertNotEquals(fromDoubleResult, EntityKeyValue.fromBool(true));
+  }
+
+  /**
+   * Test {@link EntityKeyValue#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EntityKeyValue#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+    // Arrange
+    EntityKeyValue fromBoolResult = EntityKeyValue.fromBool(true);
+
+    // Act and Assert
+    assertNotEquals(fromBoolResult, EntityKeyValue.fromDouble(10.0d));
+  }
+
+  /**
+   * Test {@link EntityKeyValue#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EntityKeyValue#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+    // Arrange
+    EntityKeyValue entityKeyValue = new EntityKeyValue();
+
+    // Act and Assert
+    assertNotEquals(entityKeyValue, EntityKeyValue.fromJson("foo"));
+  }
+
+  /**
+   * Test {@link EntityKeyValue#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EntityKeyValue#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+    // Arrange
+    EntityKeyValue fromJsonResult = EntityKeyValue.fromJson("foo");
+
+    // Act and Assert
+    assertNotEquals(fromJsonResult, new EntityKeyValue());
+  }
+
+  /**
+   * Test {@link EntityKeyValue#equals(Object)}.
+   * <ul>
+   *   <li>When other is {@code null}.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EntityKeyValue#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(EntityKeyValue.fromBool(true), null);
+  }
+
+  /**
+   * Test {@link EntityKeyValue#equals(Object)}.
+   * <ul>
+   *   <li>When other is wrong type.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EntityKeyValue#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(EntityKeyValue.fromBool(true), "Different type to EntityKeyValue");
+  }
+
+  /**
+   * Test getters and setters.
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>default or parameterless constructor of {@link EntityKeyValue}
+   *   <li>{@link EntityKeyValue#getDataType()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test getters and setters")
+  void testGettersAndSetters() {
+    // Arrange, Act and Assert
+    assertNull((new EntityKeyValue()).getDataType());
+  }
+}

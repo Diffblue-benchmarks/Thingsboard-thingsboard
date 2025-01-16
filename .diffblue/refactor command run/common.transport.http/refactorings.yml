@@ -1,0 +1,23 @@
+name: com.diffblue.cover.refactoring.Recipe
+recipeList:
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.http.DeviceApiController$DeviceAuthCallback,
+    fieldName: onSuccess}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.http.DeviceApiController$DeviceAuthCallback,
+    fieldName: responseWriter}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.http.DeviceApiController$DeviceAuthCallback,
+    fieldName: transportContext}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.http.DeviceApiController$DeviceProvisionCallback,
+    fieldName: responseWriter}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.http.DeviceApiController$GetOtaPackageCallback,
+    fieldName: chunk}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.http.DeviceApiController$GetOtaPackageCallback,
+    fieldName: chunkSize}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.http.DeviceApiController$GetOtaPackageCallback,
+    fieldName: responseWriter}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.http.DeviceApiController$GetOtaPackageCallback,
+    fieldName: title}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.http.DeviceApiController$GetOtaPackageCallback,
+    fieldName: transportContext}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.http.DeviceApiController$GetOtaPackageCallback,
+    fieldName: version}
+type: specs.openrewrite.org/v1beta/recipe

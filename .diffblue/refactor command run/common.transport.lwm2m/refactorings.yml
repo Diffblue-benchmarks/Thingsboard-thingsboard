@@ -1,0 +1,155 @@
+name: com.diffblue.cover.refactoring.Recipe
+recipeList:
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.bootstrap.secure.TbLwM2MDtlsBootstrapCertificateVerifier,
+    fieldName: bsSecurityStore}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.bootstrap.secure.TbLwM2MDtlsBootstrapCertificateVerifier,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.bootstrap.secure.TbLwM2MDtlsBootstrapCertificateVerifier,
+    fieldName: skipValidityCheckForClientCert}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.bootstrap.secure.TbLwM2MDtlsBootstrapCertificateVerifier,
+    fieldName: staticCertificateVerifier}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.bootstrap.store.LwM2MBootstrapConfigStoreTaskProvider,
+    fieldName: lwM2MBootstrapSessionClients}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.bootstrap.store.LwM2MBootstrapConfigStoreTaskProvider,
+    fieldName: readWriteLock}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.bootstrap.store.LwM2MBootstrapConfigStoreTaskProvider,
+    fieldName: store}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.bootstrap.store.LwM2MBootstrapConfigStoreTaskProvider,
+    fieldName: supportedObjects}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.bootstrap.store.LwM2MBootstrapConfigStoreTaskProvider,
+    fieldName: writeLock}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.eclipse.leshan.server.bootstrap.ConfigurationChecker,
+    fieldName: oscoreValidator}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.secure.TbLwM2MDtlsCertificateVerifier,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.secure.TbLwM2MDtlsCertificateVerifier,
+    fieldName: securityInfoValidator}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.secure.TbLwM2MDtlsCertificateVerifier,
+    fieldName: securityStore}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.secure.TbLwM2MDtlsCertificateVerifier,
+    fieldName: sessionStorage}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.secure.TbLwM2MDtlsCertificateVerifier,
+    fieldName: skipValidityCheckForClientCert}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.secure.TbLwM2MDtlsCertificateVerifier,
+    fieldName: staticCertificateVerifier}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.LwM2mTransportCoapResource$CoapResourceObserver,
+    fieldName: this$0}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.downlink.composite.TbLwM2MCancelObserveCompositeCallback,
+    fieldName: versionedIds}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.downlink.AbstractTbLwM2MRequestCallback,
+    fieldName: client}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.downlink.AbstractTbLwM2MRequestCallback,
+    fieldName: logService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.downlink.TbLwM2MUplinkTargetedCallback,
+    fieldName: handler}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.downlink.TbLwM2MTargetedCallback,
+    fieldName: versionedId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.downlink.TbLwM2MTargetedCallback,
+    fieldName: versionedIds}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.downlink.AbstractTbLwM2MRequestCallback,
+    fieldName: client}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.downlink.AbstractTbLwM2MRequestCallback,
+    fieldName: logService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.downlink.TbLwM2MUplinkTargetedCallback,
+    fieldName: handler}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.downlink.TbLwM2MTargetedCallback,
+    fieldName: versionedId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.downlink.TbLwM2MTargetedCallback,
+    fieldName: versionedIds}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.downlink.AbstractTbLwM2MRequestCallback,
+    fieldName: client}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.downlink.AbstractTbLwM2MRequestCallback,
+    fieldName: logService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.downlink.TbLwM2MUplinkTargetedCallback,
+    fieldName: handler}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.downlink.TbLwM2MTargetedCallback,
+    fieldName: versionedId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.downlink.TbLwM2MTargetedCallback,
+    fieldName: versionedIds}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.downlink.AbstractTbLwM2MRequestCallback,
+    fieldName: client}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.downlink.AbstractTbLwM2MRequestCallback,
+    fieldName: logService}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbInMemoryRegistrationStore,
+    fieldName: cleanPeriod}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbInMemoryRegistrationStore,
+    fieldName: cleanerTask}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbInMemoryRegistrationStore,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbInMemoryRegistrationStore,
+    fieldName: expirationListener}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbInMemoryRegistrationStore,
+    fieldName: lock}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbInMemoryRegistrationStore,
+    fieldName: modelProvider}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbInMemoryRegistrationStore,
+    fieldName: obsByToken}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbInMemoryRegistrationStore,
+    fieldName: regsByAddr}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbInMemoryRegistrationStore,
+    fieldName: regsByEp}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbInMemoryRegistrationStore,
+    fieldName: regsByIdentity}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbInMemoryRegistrationStore,
+    fieldName: regsByRegId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbInMemoryRegistrationStore,
+    fieldName: schedExecutor}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbInMemoryRegistrationStore,
+    fieldName: started}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbInMemoryRegistrationStore,
+    fieldName: tokenGenerator}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbInMemoryRegistrationStore,
+    fieldName: tokensByRegId}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbL2M2MDtlsSessionInMemoryStore,
+    fieldName: store}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbLwM2MDtlsSessionRedisStore,
+    fieldName: connectionFactory}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbLwM2mRedisClientOtaInfoStore,
+    fieldName: connectionFactory}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbLwM2mRedisRegistrationStore,
+    fieldName: cleanLimit}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbLwM2mRedisRegistrationStore,
+    fieldName: cleanPeriod}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbLwM2mRedisRegistrationStore,
+    fieldName: cleanerTask}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbLwM2mRedisRegistrationStore,
+    fieldName: config}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbLwM2mRedisRegistrationStore,
+    fieldName: connectionFactory}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbLwM2mRedisRegistrationStore,
+    fieldName: expirationListener}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbLwM2mRedisRegistrationStore,
+    fieldName: gracePeriod}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbLwM2mRedisRegistrationStore,
+    fieldName: modelProvider}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbLwM2mRedisRegistrationStore,
+    fieldName: observationSerDes}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbLwM2mRedisRegistrationStore,
+    fieldName: observationSerDesCoap}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbLwM2mRedisRegistrationStore,
+    fieldName: redisLock}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbLwM2mRedisRegistrationStore,
+    fieldName: registrationSerDes}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbLwM2mRedisRegistrationStore,
+    fieldName: schedExecutor}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbLwM2mRedisRegistrationStore,
+    fieldName: started}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbLwM2mRedisRegistrationStore,
+    fieldName: tokenGenerator}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbLwM2mSecurityStore,
+    fieldName: endpointRegistrations}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbLwM2mSecurityStore,
+    fieldName: securityStore}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbLwM2mSecurityStore,
+    fieldName: validator}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbLwM2mSecurityStore,
+    fieldName: endpointRegistrations}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbLwM2mSecurityStore,
+    fieldName: securityStore}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbLwM2mSecurityStore,
+    fieldName: validator}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbRedisLwM2MClientStore,
+    fieldName: connectionFactory}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.thingsboard.server.transport.lwm2m.server.store.TbRedisLwM2MModelConfigStore,
+    fieldName: connectionFactory}
+type: specs.openrewrite.org/v1beta/recipe

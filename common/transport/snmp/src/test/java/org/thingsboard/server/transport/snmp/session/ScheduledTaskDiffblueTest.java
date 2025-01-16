@@ -1,0 +1,291 @@
+package org.thingsboard.server.transport.snmp.session;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.anyBoolean;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import com.google.api.core.ApiFutureToListenableFuture;
+import com.google.api.core.ForwardingApiFuture;
+import com.google.api.core.ListenableFutureToApiFuture;
+import com.google.common.util.concurrent.ListenableFutureTask;
+import com.google.common.util.concurrent.SettableFuture;
+import java.util.concurrent.Executor;
+import java.util.concurrent.FutureTask;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class ScheduledTaskDiffblueTest {
+  /**
+   * Test {@link ScheduledTask#cancel()}.
+   * <ul>
+   *   <li>Given {@link ListenableFutureTask} {@link FutureTask#cancel(boolean)}
+   * return {@code true}.</li>
+   *   <li>Then calls {@link FutureTask#cancel(boolean)}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ScheduledTask#cancel()}
+   */
+  @Test
+  @DisplayName("Test cancel(); given ListenableFutureTask cancel(boolean) return 'true'; then calls cancel(boolean)")
+  void testCancel_givenListenableFutureTaskCancelReturnTrue_thenCallsCancel() {
+    // Arrange
+    ListenableFutureTask<?> scheduledFuture = mock(ListenableFutureTask.class);
+    when(scheduledFuture.cancel(anyBoolean())).thenReturn(true);
+
+    ScheduledTask scheduledTask = new ScheduledTask();
+    scheduledTask.setScheduledFuture(scheduledFuture);
+
+    // Act
+    scheduledTask.cancel();
+
+    // Assert
+    verify(scheduledFuture).cancel(eq(true));
+    assertTrue(scheduledTask.isStopped());
+  }
+
+  /**
+   * Test {@link ScheduledTask#cancel()}.
+   * <ul>
+   *   <li>Given {@link ScheduledTask} (default constructor).</li>
+   *   <li>Then {@link ScheduledTask} (default constructor) Stopped.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ScheduledTask#cancel()}
+   */
+  @Test
+  @DisplayName("Test cancel(); given ScheduledTask (default constructor); then ScheduledTask (default constructor) Stopped")
+  void testCancel_givenScheduledTask_thenScheduledTaskStopped() {
+    // Arrange
+    ScheduledTask scheduledTask = new ScheduledTask();
+
+    // Act
+    scheduledTask.cancel();
+
+    // Assert
+    assertTrue(scheduledTask.isStopped());
+  }
+
+  /**
+   * Test {@link ScheduledTask#equals(Object)}, and
+   * {@link ScheduledTask#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link ScheduledTask#equals(Object)}
+   *   <li>{@link ScheduledTask#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    ScheduledTask scheduledTask = new ScheduledTask();
+    ScheduledTask scheduledTask2 = new ScheduledTask();
+
+    // Act and Assert
+    assertEquals(scheduledTask, scheduledTask2);
+    int expectedHashCodeResult = scheduledTask.hashCode();
+    assertEquals(expectedHashCodeResult, scheduledTask2.hashCode());
+  }
+
+  /**
+   * Test {@link ScheduledTask#equals(Object)}, and
+   * {@link ScheduledTask#hashCode()}.
+   * <ul>
+   *   <li>When other is same.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link ScheduledTask#equals(Object)}
+   *   <li>{@link ScheduledTask#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    ScheduledTask scheduledTask = new ScheduledTask();
+
+    // Act and Assert
+    assertEquals(scheduledTask, scheduledTask);
+    int expectedHashCodeResult = scheduledTask.hashCode();
+    assertEquals(expectedHashCodeResult, scheduledTask.hashCode());
+  }
+
+  /**
+   * Test {@link ScheduledTask#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ScheduledTask#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new ScheduledTask(), 1);
+  }
+
+  /**
+   * Test {@link ScheduledTask#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ScheduledTask#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    ScheduledTask scheduledTask = new ScheduledTask();
+    scheduledTask.setStopped(true);
+
+    // Act and Assert
+    assertNotEquals(scheduledTask, new ScheduledTask());
+  }
+
+  /**
+   * Test {@link ScheduledTask#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ScheduledTask#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+    // Arrange
+    ScheduledTask scheduledTask = new ScheduledTask();
+    SettableFuture<?> delegate = SettableFuture.create();
+    scheduledTask.setScheduledFuture(
+        new ApiFutureToListenableFuture<>(new ForwardingApiFuture<>(new ListenableFutureToApiFuture<>(delegate))));
+
+    // Act and Assert
+    assertNotEquals(scheduledTask, new ScheduledTask());
+  }
+
+  /**
+   * Test {@link ScheduledTask#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ScheduledTask#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+    // Arrange
+    SettableFuture<?> delegate = SettableFuture.create();
+
+    ListenableFutureToApiFuture<?> delegate2 = new ListenableFutureToApiFuture<>(delegate);
+    delegate2.addListener(mock(Runnable.class), mock(Executor.class));
+    ApiFutureToListenableFuture<?> scheduledFuture = new ApiFutureToListenableFuture<>(
+        new ForwardingApiFuture<>(delegate2));
+
+    ScheduledTask scheduledTask = new ScheduledTask();
+    scheduledTask.setScheduledFuture(scheduledFuture);
+
+    // Act and Assert
+    assertNotEquals(scheduledTask, new ScheduledTask());
+  }
+
+  /**
+   * Test {@link ScheduledTask#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ScheduledTask#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+    // Arrange
+    ScheduledTask scheduledTask = new ScheduledTask();
+
+    ScheduledTask scheduledTask2 = new ScheduledTask();
+    SettableFuture<?> delegate = SettableFuture.create();
+    scheduledTask2.setScheduledFuture(
+        new ApiFutureToListenableFuture<>(new ForwardingApiFuture<>(new ListenableFutureToApiFuture<>(delegate))));
+
+    // Act and Assert
+    assertNotEquals(scheduledTask, scheduledTask2);
+  }
+
+  /**
+   * Test {@link ScheduledTask#equals(Object)}.
+   * <ul>
+   *   <li>When other is {@code null}.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ScheduledTask#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new ScheduledTask(), null);
+  }
+
+  /**
+   * Test {@link ScheduledTask#equals(Object)}.
+   * <ul>
+   *   <li>When other is wrong type.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ScheduledTask#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new ScheduledTask(), "Different type to ScheduledTask");
+  }
+
+  /**
+   * Test getters and setters.
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>default or parameterless constructor of {@link ScheduledTask}
+   *   <li>{@link ScheduledTask#setStopped(boolean)}
+   *   <li>{@link ScheduledTask#toString()}
+   *   <li>{@link ScheduledTask#getScheduledFuture()}
+   *   <li>{@link ScheduledTask#isStopped()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test getters and setters")
+  void testGettersAndSetters() {
+    // Arrange and Act
+    ScheduledTask actualScheduledTask = new ScheduledTask();
+    actualScheduledTask.setStopped(true);
+    String actualToStringResult = actualScheduledTask.toString();
+    actualScheduledTask.getScheduledFuture();
+
+    // Assert that nothing has changed
+    assertEquals("ScheduledTask(scheduledFuture=null, stopped=true)", actualToStringResult);
+    assertTrue(actualScheduledTask.isStopped());
+  }
+}
