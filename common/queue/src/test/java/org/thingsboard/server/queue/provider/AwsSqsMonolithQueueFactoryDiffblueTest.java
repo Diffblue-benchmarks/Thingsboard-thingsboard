@@ -1,5 +1,40 @@
 package org.thingsboard.server.queue.provider;
 
+/*
+//TESTING GETTING VALUE FROM RESOURCE FILE
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.thingsboard.server.queue.sqs.TbAwsSqsSettings;
+
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(classes = {AwsSqsMonolithQueueFactory.class, TbAwsSqsSettings.class})
+@TestPropertySource(locations = "classpath:application.properties")
+//@TestPropertySource(locations = "classpath:application-test.yml")
+
+class AwsSqsMonolithQueueFactoryDiffblueTest {
+
+  @Autowired
+  private Environment environment;
+
+  @Value("${queue.aws_sqs.use_default_credential_provider_chain:true}")
+  private boolean useDefaultCredentialProviderChain;
+
+  @Test
+  void logResolvedProperty() {
+    System.out.println("Resolved Property: " + environment.getProperty("queue.aws_sqs.use_default_credential_provider_chain"));
+    System.out.println(useDefaultCredentialProviderChain);
+  }
+}
+*/
+
+
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -24,15 +59,17 @@ import org.thingsboard.server.queue.settings.TbQueueVersionControlSettings;
 import org.thingsboard.server.queue.sqs.TbAwsSqsQueueAttributes;
 import org.thingsboard.server.queue.sqs.TbAwsSqsSettings;
 
+
 //added as part of attempting to overcome R027 missing bean events ---------
 //@SpringBootTest
-@ActiveProfiles("test")
+//@ActiveProfiles("test")
 @ContextConfiguration(classes = {AwsSqsMonolithQueueFactory.class,TbAwsSqsSettings.class})
-//------
+
 
 @ExtendWith(SpringExtension.class)
 @DisabledInAotMode
 class AwsSqsMonolithQueueFactoryDiffblueTest extends AwsSqsMonolithQueueFactoryDiffblueBase{
+  //------
   @Autowired
   private AwsSqsMonolithQueueFactory awsSqsMonolithQueueFactory;
 
@@ -79,7 +116,7 @@ class AwsSqsMonolithQueueFactoryDiffblueTest extends AwsSqsMonolithQueueFactoryD
    */
   @Test
   @DisplayName("Test createTransportNotificationsMsgProducer()")
-  //@Disabled("TODO: Complete this test")
+    //@Disabled("TODO: Complete this test")
   void testCreateTransportNotificationsMsgProducer() {
     // TODO: Diffblue Cover was only able to create a partial test for this method:
     //   Reason: Missing beans when creating Spring context.
@@ -112,6 +149,7 @@ class AwsSqsMonolithQueueFactoryDiffblueTest extends AwsSqsMonolithQueueFactoryD
 
     // Arrange and Act
     awsSqsMonolithQueueFactory.createTransportNotificationsMsgProducer();
+
   }
 
   /**

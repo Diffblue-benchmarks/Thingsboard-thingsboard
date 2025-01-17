@@ -758,6 +758,7 @@ spring.jpa.properties.hibernate.dialect: "${SPRING_JPA_DIALECT:org.thingsboard.s
 
 # SQL DAO Configuration parameters
 spring:
+  # profiles: test
   data:
     jpa:
       repositories:
@@ -1573,7 +1574,7 @@ queue:
       # Time to wait for the stats-loading requests to Kafka to finish
       kafka-response-timeout-ms: "${TB_QUEUE_KAFKA_CONSUMER_STATS_RESPONSE_TIMEOUT_MS:1000}"
   aws_sqs:
-    # Use the default credentials provider for AWS SQS
+    # Use the default credentials provider for AWS SQS "${TB_QUEUE_AWS_SQS_USE_DEFAULT_CREDENTIAL_PROVIDER_CHAIN:false}"
     use_default_credential_provider_chain: "${TB_QUEUE_AWS_SQS_USE_DEFAULT_CREDENTIAL_PROVIDER_CHAIN:false}"
     # Access key ID from AWS IAM user
     access_key_id: "${TB_QUEUE_AWS_SQS_ACCESS_KEY_ID:YOUR_KEY}"

@@ -19,6 +19,8 @@ import com.google.protobuf.util.JsonFormat;
 import jakarta.annotation.PreDestroy;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 import org.thingsboard.server.common.data.queue.Queue;
 import org.thingsboard.server.common.msg.queue.ServiceType;
