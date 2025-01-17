@@ -7,6 +7,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.aot.DisabledInAotMode;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.queue.Queue;
@@ -23,10 +24,17 @@ import org.thingsboard.server.queue.sqs.TbAwsSqsSettings;
 @ContextConfiguration(classes = {AwsSqsTbRuleEngineQueueFactory.class})
 @ExtendWith(SpringExtension.class)
 @DisabledInAotMode
+
+// testing changes as part of overcoming R027 cases for associating class ------
+@TestPropertySource(properties ={"queue.type=aws-sqs","service.type=tb-rule-engine"})
+//@TestPropertySource(locations = "classpath:application.properties",properties ={"queue.type=aws-sqs","service.type=tb-rule-engine"})
+
+
 class AwsSqsTbRuleEngineQueueFactoryDiffblueTest {
   @Autowired
+  //@MockBean
   private AwsSqsTbRuleEngineQueueFactory awsSqsTbRuleEngineQueueFactory;
-
+//---------
   @MockBean
   private TbAwsSqsQueueAttributes tbAwsSqsQueueAttributes;
 
@@ -63,7 +71,7 @@ class AwsSqsTbRuleEngineQueueFactoryDiffblueTest {
    */
   @Test
   @DisplayName("Test createTransportNotificationsMsgProducer()")
-  @Disabled("TODO: Complete this test")
+  //@Disabled("TODO: Complete this test")
   void testCreateTransportNotificationsMsgProducer() {
     // TODO: Diffblue Cover was only able to create a partial test for this method:
     //   Reason: Missing beans when creating Spring context.

@@ -59,6 +59,7 @@ import org.thingsboard.server.queue.sqs.TbAwsSqsSettings;
 
 import java.nio.charset.StandardCharsets;
 
+
 @Component
 @ConditionalOnExpression("'${queue.type:null}'=='aws-sqs' && '${service.type:null}'=='tb-core'")
 public class AwsSqsTbCoreQueueFactory implements TbCoreQueueFactory {

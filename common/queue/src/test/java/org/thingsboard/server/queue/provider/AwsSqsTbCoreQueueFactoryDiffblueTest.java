@@ -5,8 +5,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.aot.DisabledInAotMode;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.queue.discovery.TbServiceInfoProvider;
@@ -24,10 +26,26 @@ import org.thingsboard.server.queue.sqs.TbAwsSqsSettings;
 @ContextConfiguration(classes = {AwsSqsTbCoreQueueFactory.class})
 @ExtendWith(SpringExtension.class)
 @DisabledInAotMode
+
+// testing changes as part of overcoming R027 cases for associating class ------
+//@TestPropertySource(locations = "classpath:application.properties",properties ={"queue.type=aws-sqs","service.type=tb-core"})
+@TestPropertySource(properties ={"queue.type=aws-sqs","service.type=tb-core"})
+
+
 class AwsSqsTbCoreQueueFactoryDiffblueTest {
   @Autowired
+  //@MockBean
   private AwsSqsTbCoreQueueFactory awsSqsTbCoreQueueFactory;
 
+  //@Mock
+ // private TbAwsSqsAdmin tbAwsSqsAdmin;
+
+  //@Value("${aws.accessKey}")
+  //private String accessKey;
+
+  //@Value("${aws.secretKey}")
+  //private String secretKey;
+//--------
   @MockBean
   private TbAwsSqsQueueAttributes tbAwsSqsQueueAttributes;
 
@@ -68,9 +86,10 @@ class AwsSqsTbCoreQueueFactoryDiffblueTest {
    * Method under test:
    * {@link AwsSqsTbCoreQueueFactory#createTransportNotificationsMsgProducer()}
    */
+
   @Test
   @DisplayName("Test createTransportNotificationsMsgProducer()")
-  @Disabled("TODO: Complete this test")
+  //@Disabled("TODO: Complete this test")
   void testCreateTransportNotificationsMsgProducer() {
     // TODO: Diffblue Cover was only able to create a partial test for this method:
     //   Reason: Missing beans when creating Spring context.

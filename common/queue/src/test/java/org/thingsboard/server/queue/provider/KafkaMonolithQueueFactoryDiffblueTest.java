@@ -12,8 +12,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.aot.DisabledInAotMode;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.queue.Queue;
@@ -35,6 +37,14 @@ import org.thingsboard.server.queue.settings.TbQueueVersionControlSettings;
 @ContextConfiguration(classes = {KafkaMonolithQueueFactory.class, TbKafkaSettings.class})
 @ExtendWith(SpringExtension.class)
 @DisabledInAotMode
+
+// testing changes as part of overcoming R027 cases for associating class ------
+//@TestPropertySource(properties ={"queue.type=kafka","service.type=monolith"})
+//@TestPropertySource(locations = "classpath:application.properties",properties ={"queue.type=kafka","service.type=monolith"})
+@TestPropertySource(locations = {"file:C:/Users/sdodd/Projects/SecondThingsboard/thingsboard/common/queue/src/test/resources/application.properties"},properties ={"queue.type=kafka","service.type=monolith"})
+
+//-------------
+
 class KafkaMonolithQueueFactoryDiffblueTest {
   @Autowired
   private KafkaMonolithQueueFactory kafkaMonolithQueueFactory;
@@ -84,7 +94,7 @@ class KafkaMonolithQueueFactoryDiffblueTest {
    */
   @Test
   @DisplayName("Test createTransportNotificationsMsgProducer()")
-  @Disabled("TODO: Complete this test")
+  //@Disabled("TODO: Complete this test")
   void testCreateTransportNotificationsMsgProducer() {
     // TODO: Diffblue Cover was only able to create a partial test for this method:
     //   Reason: Missing beans when creating Spring context.
@@ -386,13 +396,13 @@ class KafkaMonolithQueueFactoryDiffblueTest {
     TbQueueEdgeSettings edgeSettings = new TbQueueEdgeSettings();
     TbKafkaSettings kafkaSettings2 = new TbKafkaSettings();
     KafkaMonolithQueueFactory kafkaMonolithQueueFactory = new KafkaMonolithQueueFactory(topicService, kafkaSettings,
-        serviceInfoProvider, coreSettings, ruleEngineSettings, transportApiSettings, transportNotificationSettings,
-        jsInvokeSettings, vcSettings, edgeSettings,
-        new TbKafkaConsumerStatsService(kafkaSettings2, new TbKafkaConsumerStatisticConfig()), kafkaTopicConfigs);
+            serviceInfoProvider, coreSettings, ruleEngineSettings, transportApiSettings, transportNotificationSettings,
+            jsInvokeSettings, vcSettings, edgeSettings,
+            new TbKafkaConsumerStatsService(kafkaSettings2, new TbKafkaConsumerStatisticConfig()), kafkaTopicConfigs);
 
     // Act and Assert
     assertThrows(UnsupportedOperationException.class,
-        () -> kafkaMonolithQueueFactory.createToRuleEngineMsgConsumer(new Queue()));
+            () -> kafkaMonolithQueueFactory.createToRuleEngineMsgConsumer(new Queue()));
     verify(kafkaTopicConfigs).getCoreConfigs();
     verify(kafkaTopicConfigs).getEdgeConfigs();
     verify(kafkaTopicConfigs).getFwUpdatesConfigs();
@@ -789,7 +799,7 @@ class KafkaMonolithQueueFactoryDiffblueTest {
     // Arrange
     TopicService topicService = mock(TopicService.class);
     when(topicService.buildTopicName(Mockito.<String>any()))
-        .thenThrow(new UnsupportedOperationException("rule-engine-node-"));
+            .thenThrow(new UnsupportedOperationException("rule-engine-node-"));
 
     TbQueueRemoteJsInvokeSettings jsInvokeSettings = new TbQueueRemoteJsInvokeSettings();
     jsInvokeSettings.setPrefix("Prefix");
@@ -818,10 +828,10 @@ class KafkaMonolithQueueFactoryDiffblueTest {
 
     // Act and Assert
     assertThrows(UnsupportedOperationException.class,
-        () -> (new KafkaMonolithQueueFactory(topicService, kafkaSettings, serviceInfoProvider, coreSettings,
-            ruleEngineSettings, transportApiSettings, transportNotificationSettings, jsInvokeSettings, vcSettings,
-            edgeSettings, new TbKafkaConsumerStatsService(kafkaSettings2, new TbKafkaConsumerStatisticConfig()),
-            kafkaTopicConfigs)).createRemoteJsRequestTemplate());
+            () -> (new KafkaMonolithQueueFactory(topicService, kafkaSettings, serviceInfoProvider, coreSettings,
+                    ruleEngineSettings, transportApiSettings, transportNotificationSettings, jsInvokeSettings, vcSettings,
+                    edgeSettings, new TbKafkaConsumerStatsService(kafkaSettings2, new TbKafkaConsumerStatisticConfig()),
+                    kafkaTopicConfigs)).createRemoteJsRequestTemplate());
     verify(topicService).buildTopicName(eq("rule-engine-node-"));
     verify(kafkaTopicConfigs).getCoreConfigs();
     verify(kafkaTopicConfigs).getEdgeConfigs();
