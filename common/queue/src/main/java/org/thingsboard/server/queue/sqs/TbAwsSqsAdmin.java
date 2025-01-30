@@ -46,8 +46,10 @@ public class TbAwsSqsAdmin implements TbQueueAdmin {
     private final ExecutorService producerExecutor;
 
     public TbAwsSqsAdmin(TbAwsSqsSettings sqsSettings, Map<String, String> attributes) {
-        this.attributes = attributes;
+        this(sqsSettings, attributes, createSqsClient(sqsSettings));
+    }
 
+    private static AmazonSQS createSqsClient(TbAwsSqsSettings sqsSettings) {
         AWSCredentialsProvider credentialsProvider;
         if (sqsSettings.getUseDefaultCredentialProviderChain()) {
             credentialsProvider = new DefaultAWSCredentialsProviderChain();
@@ -55,13 +57,16 @@ public class TbAwsSqsAdmin implements TbQueueAdmin {
             AWSCredentials awsCredentials = new BasicAWSCredentials(sqsSettings.getAccessKeyId(), sqsSettings.getSecretAccessKey());
             credentialsProvider = new AWSStaticCredentialsProvider(awsCredentials);
         }
-        producerExecutor = ThingsBoardExecutors.newWorkStealingPool(sqsSettings.getThreadPoolSize(), "aws-sqs-queue-executor");
-
-        sqsClient = AmazonSQSClientBuilder.standard()
+        return AmazonSQSClientBuilder.standard()
                 .withCredentials(credentialsProvider)
                 .withRegion(sqsSettings.getRegion())
                 .build();
+    }
 
+    TbAwsSqsAdmin(TbAwsSqsSettings sqsSettings, Map<String, String> attributes, AmazonSQS sqsClient) {
+        this.attributes = attributes;
+        this.sqsClient = sqsClient;
+        producerExecutor = ThingsBoardExecutors.newWorkStealingPool(sqsSettings.getThreadPoolSize(), "aws-sqs-queue-executor");
         queues = sqsClient
                 .listQueues()
                 .getQueueUrls()
