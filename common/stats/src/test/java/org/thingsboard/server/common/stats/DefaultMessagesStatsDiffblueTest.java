@@ -1,39 +1,49 @@
 package org.thingsboard.server.common.stats;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.micrometer.core.instrument.Meter;
+import io.micrometer.core.instrument.Meter.Id;
+import io.micrometer.core.instrument.Meter.Type;
 import io.micrometer.core.instrument.Tags;
 import io.micrometer.core.instrument.cumulative.CumulativeCounter;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class DefaultMessagesStatsDiffblueTest {
   /**
-   * Test
-   * {@link DefaultMessagesStats#DefaultMessagesStats(StatsCounter, StatsCounter, StatsCounter)}.
+   * Test {@link DefaultMessagesStats#DefaultMessagesStats(StatsCounter, StatsCounter, StatsCounter)}.
    * <p>
-   * Method under test:
-   * {@link DefaultMessagesStats#DefaultMessagesStats(StatsCounter, StatsCounter, StatsCounter)}
+   * Method under test: {@link DefaultMessagesStats#DefaultMessagesStats(StatsCounter, StatsCounter, StatsCounter)}
    */
   @Test
   @DisplayName("Test new DefaultMessagesStats(StatsCounter, StatsCounter, StatsCounter)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultMessagesStats.<init>(StatsCounter, StatsCounter, StatsCounter)"})
   void testNewDefaultMessagesStats() {
     // Arrange
     AtomicInteger aiCounter = new AtomicInteger(1);
-    StatsCounter totalCounter = new StatsCounter(aiCounter, new CumulativeCounter(new Meter.Id("Name", Tags.empty(),
-        "Base Unit", "The characteristics of someone or something", Meter.Type.COUNTER)), "Name");
+    StatsCounter totalCounter = new StatsCounter(aiCounter,
+        new CumulativeCounter(
+            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+        "Name");
 
     AtomicInteger aiCounter2 = new AtomicInteger(1);
-    StatsCounter successfulCounter = new StatsCounter(aiCounter2, new CumulativeCounter(new Meter.Id("Name",
-        Tags.empty(), "Base Unit", "The characteristics of someone or something", Meter.Type.COUNTER)), "Name");
+    StatsCounter successfulCounter = new StatsCounter(aiCounter2,
+        new CumulativeCounter(
+            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+        "Name");
 
     AtomicInteger aiCounter3 = new AtomicInteger(1);
 
     // Act
     DefaultMessagesStats actualDefaultMessagesStats = new DefaultMessagesStats(totalCounter, successfulCounter,
-        new StatsCounter(aiCounter3, new CumulativeCounter(new Meter.Id("Name", Tags.empty(), "Base Unit",
-            "The characteristics of someone or something", Meter.Type.COUNTER)), "Name"));
+        new StatsCounter(aiCounter3,
+            new CumulativeCounter(
+                new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+            "Name"));
 
     // Assert
     assertEquals(1, actualDefaultMessagesStats.getFailed());
@@ -48,20 +58,28 @@ class DefaultMessagesStatsDiffblueTest {
    */
   @Test
   @DisplayName("Test incrementTotal(int) with 'int'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultMessagesStats.incrementTotal(int)"})
   void testIncrementTotalWithInt() {
     // Arrange
     AtomicInteger aiCounter = new AtomicInteger(1);
-    StatsCounter totalCounter = new StatsCounter(aiCounter, new CumulativeCounter(new Meter.Id("Name", Tags.empty(),
-        "Base Unit", "The characteristics of someone or something", Meter.Type.COUNTER)), "Name");
+    StatsCounter totalCounter = new StatsCounter(aiCounter,
+        new CumulativeCounter(
+            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+        "Name");
 
     AtomicInteger aiCounter2 = new AtomicInteger(1);
-    StatsCounter successfulCounter = new StatsCounter(aiCounter2, new CumulativeCounter(new Meter.Id("Name",
-        Tags.empty(), "Base Unit", "The characteristics of someone or something", Meter.Type.COUNTER)), "Name");
+    StatsCounter successfulCounter = new StatsCounter(aiCounter2,
+        new CumulativeCounter(
+            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+        "Name");
 
     AtomicInteger aiCounter3 = new AtomicInteger(1);
     DefaultMessagesStats defaultMessagesStats = new DefaultMessagesStats(totalCounter, successfulCounter,
-        new StatsCounter(aiCounter3, new CumulativeCounter(new Meter.Id("Name", Tags.empty(), "Base Unit",
-            "The characteristics of someone or something", Meter.Type.COUNTER)), "Name"));
+        new StatsCounter(aiCounter3,
+            new CumulativeCounter(
+                new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+            "Name"));
 
     // Act
     defaultMessagesStats.incrementTotal(10);
@@ -77,20 +95,28 @@ class DefaultMessagesStatsDiffblueTest {
    */
   @Test
   @DisplayName("Test incrementSuccessful(int) with 'int'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultMessagesStats.incrementSuccessful(int)"})
   void testIncrementSuccessfulWithInt() {
     // Arrange
     AtomicInteger aiCounter = new AtomicInteger(1);
-    StatsCounter totalCounter = new StatsCounter(aiCounter, new CumulativeCounter(new Meter.Id("Name", Tags.empty(),
-        "Base Unit", "The characteristics of someone or something", Meter.Type.COUNTER)), "Name");
+    StatsCounter totalCounter = new StatsCounter(aiCounter,
+        new CumulativeCounter(
+            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+        "Name");
 
     AtomicInteger aiCounter2 = new AtomicInteger(1);
-    StatsCounter successfulCounter = new StatsCounter(aiCounter2, new CumulativeCounter(new Meter.Id("Name",
-        Tags.empty(), "Base Unit", "The characteristics of someone or something", Meter.Type.COUNTER)), "Name");
+    StatsCounter successfulCounter = new StatsCounter(aiCounter2,
+        new CumulativeCounter(
+            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+        "Name");
 
     AtomicInteger aiCounter3 = new AtomicInteger(1);
     DefaultMessagesStats defaultMessagesStats = new DefaultMessagesStats(totalCounter, successfulCounter,
-        new StatsCounter(aiCounter3, new CumulativeCounter(new Meter.Id("Name", Tags.empty(), "Base Unit",
-            "The characteristics of someone or something", Meter.Type.COUNTER)), "Name"));
+        new StatsCounter(aiCounter3,
+            new CumulativeCounter(
+                new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+            "Name"));
 
     // Act
     defaultMessagesStats.incrementSuccessful(10);
@@ -106,20 +132,28 @@ class DefaultMessagesStatsDiffblueTest {
    */
   @Test
   @DisplayName("Test incrementFailed(int) with 'int'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultMessagesStats.incrementFailed(int)"})
   void testIncrementFailedWithInt() {
     // Arrange
     AtomicInteger aiCounter = new AtomicInteger(1);
-    StatsCounter totalCounter = new StatsCounter(aiCounter, new CumulativeCounter(new Meter.Id("Name", Tags.empty(),
-        "Base Unit", "The characteristics of someone or something", Meter.Type.COUNTER)), "Name");
+    StatsCounter totalCounter = new StatsCounter(aiCounter,
+        new CumulativeCounter(
+            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+        "Name");
 
     AtomicInteger aiCounter2 = new AtomicInteger(1);
-    StatsCounter successfulCounter = new StatsCounter(aiCounter2, new CumulativeCounter(new Meter.Id("Name",
-        Tags.empty(), "Base Unit", "The characteristics of someone or something", Meter.Type.COUNTER)), "Name");
+    StatsCounter successfulCounter = new StatsCounter(aiCounter2,
+        new CumulativeCounter(
+            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+        "Name");
 
     AtomicInteger aiCounter3 = new AtomicInteger(1);
     DefaultMessagesStats defaultMessagesStats = new DefaultMessagesStats(totalCounter, successfulCounter,
-        new StatsCounter(aiCounter3, new CumulativeCounter(new Meter.Id("Name", Tags.empty(), "Base Unit",
-            "The characteristics of someone or something", Meter.Type.COUNTER)), "Name"));
+        new StatsCounter(aiCounter3,
+            new CumulativeCounter(
+                new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+            "Name"));
 
     // Act
     defaultMessagesStats.incrementFailed(10);
@@ -138,23 +172,30 @@ class DefaultMessagesStatsDiffblueTest {
    */
   @Test
   @DisplayName("Test getTotal(); then return one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int DefaultMessagesStats.getTotal()"})
   void testGetTotal_thenReturnOne() {
     // Arrange
     AtomicInteger aiCounter = new AtomicInteger(1);
-    StatsCounter totalCounter = new StatsCounter(aiCounter, new CumulativeCounter(new Meter.Id("Name", Tags.empty(),
-        "Base Unit", "The characteristics of someone or something", Meter.Type.COUNTER)), "Name");
+    StatsCounter totalCounter = new StatsCounter(aiCounter,
+        new CumulativeCounter(
+            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+        "Name");
 
     AtomicInteger aiCounter2 = new AtomicInteger(1);
-    StatsCounter successfulCounter = new StatsCounter(aiCounter2, new CumulativeCounter(new Meter.Id("Name",
-        Tags.empty(), "Base Unit", "The characteristics of someone or something", Meter.Type.COUNTER)), "Name");
+    StatsCounter successfulCounter = new StatsCounter(aiCounter2,
+        new CumulativeCounter(
+            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+        "Name");
 
     AtomicInteger aiCounter3 = new AtomicInteger(1);
 
     // Act and Assert
     assertEquals(1,
         (new DefaultMessagesStats(totalCounter, successfulCounter,
-            new StatsCounter(aiCounter3, new CumulativeCounter(new Meter.Id("Name", Tags.empty(), "Base Unit",
-                "The characteristics of someone or something", Meter.Type.COUNTER)), "Name")))
+            new StatsCounter(aiCounter3, new CumulativeCounter(
+                new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+                "Name")))
             .getTotal());
   }
 
@@ -168,23 +209,30 @@ class DefaultMessagesStatsDiffblueTest {
    */
   @Test
   @DisplayName("Test getSuccessful(); then return one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int DefaultMessagesStats.getSuccessful()"})
   void testGetSuccessful_thenReturnOne() {
     // Arrange
     AtomicInteger aiCounter = new AtomicInteger(1);
-    StatsCounter totalCounter = new StatsCounter(aiCounter, new CumulativeCounter(new Meter.Id("Name", Tags.empty(),
-        "Base Unit", "The characteristics of someone or something", Meter.Type.COUNTER)), "Name");
+    StatsCounter totalCounter = new StatsCounter(aiCounter,
+        new CumulativeCounter(
+            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+        "Name");
 
     AtomicInteger aiCounter2 = new AtomicInteger(1);
-    StatsCounter successfulCounter = new StatsCounter(aiCounter2, new CumulativeCounter(new Meter.Id("Name",
-        Tags.empty(), "Base Unit", "The characteristics of someone or something", Meter.Type.COUNTER)), "Name");
+    StatsCounter successfulCounter = new StatsCounter(aiCounter2,
+        new CumulativeCounter(
+            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+        "Name");
 
     AtomicInteger aiCounter3 = new AtomicInteger(1);
 
     // Act and Assert
     assertEquals(1,
         (new DefaultMessagesStats(totalCounter, successfulCounter,
-            new StatsCounter(aiCounter3, new CumulativeCounter(new Meter.Id("Name", Tags.empty(), "Base Unit",
-                "The characteristics of someone or something", Meter.Type.COUNTER)), "Name")))
+            new StatsCounter(aiCounter3, new CumulativeCounter(
+                new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+                "Name")))
             .getSuccessful());
   }
 
@@ -198,23 +246,30 @@ class DefaultMessagesStatsDiffblueTest {
    */
   @Test
   @DisplayName("Test getFailed(); then return one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int DefaultMessagesStats.getFailed()"})
   void testGetFailed_thenReturnOne() {
     // Arrange
     AtomicInteger aiCounter = new AtomicInteger(1);
-    StatsCounter totalCounter = new StatsCounter(aiCounter, new CumulativeCounter(new Meter.Id("Name", Tags.empty(),
-        "Base Unit", "The characteristics of someone or something", Meter.Type.COUNTER)), "Name");
+    StatsCounter totalCounter = new StatsCounter(aiCounter,
+        new CumulativeCounter(
+            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+        "Name");
 
     AtomicInteger aiCounter2 = new AtomicInteger(1);
-    StatsCounter successfulCounter = new StatsCounter(aiCounter2, new CumulativeCounter(new Meter.Id("Name",
-        Tags.empty(), "Base Unit", "The characteristics of someone or something", Meter.Type.COUNTER)), "Name");
+    StatsCounter successfulCounter = new StatsCounter(aiCounter2,
+        new CumulativeCounter(
+            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+        "Name");
 
     AtomicInteger aiCounter3 = new AtomicInteger(1);
 
     // Act and Assert
     assertEquals(1,
         (new DefaultMessagesStats(totalCounter, successfulCounter,
-            new StatsCounter(aiCounter3, new CumulativeCounter(new Meter.Id("Name", Tags.empty(), "Base Unit",
-                "The characteristics of someone or something", Meter.Type.COUNTER)), "Name")))
+            new StatsCounter(aiCounter3, new CumulativeCounter(
+                new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+                "Name")))
             .getFailed());
   }
 
@@ -225,20 +280,28 @@ class DefaultMessagesStatsDiffblueTest {
    */
   @Test
   @DisplayName("Test reset()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultMessagesStats.reset()"})
   void testReset() {
     // Arrange
     AtomicInteger aiCounter = new AtomicInteger(1);
-    StatsCounter totalCounter = new StatsCounter(aiCounter, new CumulativeCounter(new Meter.Id("Name", Tags.empty(),
-        "Base Unit", "The characteristics of someone or something", Meter.Type.COUNTER)), "Name");
+    StatsCounter totalCounter = new StatsCounter(aiCounter,
+        new CumulativeCounter(
+            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+        "Name");
 
     AtomicInteger aiCounter2 = new AtomicInteger(1);
-    StatsCounter successfulCounter = new StatsCounter(aiCounter2, new CumulativeCounter(new Meter.Id("Name",
-        Tags.empty(), "Base Unit", "The characteristics of someone or something", Meter.Type.COUNTER)), "Name");
+    StatsCounter successfulCounter = new StatsCounter(aiCounter2,
+        new CumulativeCounter(
+            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+        "Name");
 
     AtomicInteger aiCounter3 = new AtomicInteger(1);
     DefaultMessagesStats defaultMessagesStats = new DefaultMessagesStats(totalCounter, successfulCounter,
-        new StatsCounter(aiCounter3, new CumulativeCounter(new Meter.Id("Name", Tags.empty(), "Base Unit",
-            "The characteristics of someone or something", Meter.Type.COUNTER)), "Name"));
+        new StatsCounter(aiCounter3,
+            new CumulativeCounter(
+                new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+            "Name"));
 
     // Act
     defaultMessagesStats.reset();

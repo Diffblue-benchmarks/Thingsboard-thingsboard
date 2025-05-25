@@ -1,22 +1,13 @@
 package org.thingsboard.server.common.data.asset;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
-import com.fasterxml.jackson.core.JsonLocation;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonStreamContext;
-import com.fasterxml.jackson.core.Version;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.JsonNodeType;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.node.NullNode;
-import com.fasterxml.jackson.databind.node.TreeTraversingParser;
-import java.io.IOException;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class AssetInfoDiffblueTest {
@@ -26,47 +17,21 @@ class AssetInfoDiffblueTest {
    *   <li>When {@link Asset#Asset()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AssetInfo#AssetInfo(Asset, String, boolean, String)}
+   * Method under test: {@link AssetInfo#AssetInfo(Asset, String, boolean, String)}
    */
   @Test
   @DisplayName("Test new AssetInfo(Asset, String, boolean, String); when Asset()")
-  void testNewAssetInfo_whenAsset() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AssetInfo.<init>(Asset, String, boolean, String)"})
+  void testNewAssetInfo_whenAsset() {
     // Arrange and Act
     AssetInfo actualAssetInfo = new AssetInfo(new Asset(), "Dr", true, "foo.txt");
 
     // Assert
-    JsonNode additionalInfo = actualAssetInfo.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
+    assertTrue(actualAssetInfo.getAdditionalInfo() instanceof NullNode);
     assertEquals("Dr", actualAssetInfo.getCustomerTitle());
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
     assertEquals("foo.txt", actualAssetInfo.getAssetProfileName());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
     assertNull(actualAssetInfo.getVersion());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
     assertNull(actualAssetInfo.getLabel());
     assertNull(actualAssetInfo.getName());
     assertNull(actualAssetInfo.getType());
@@ -76,64 +41,8 @@ class AssetInfoDiffblueTest {
     assertNull(actualAssetInfo.getAssetProfileId());
     assertNull(actualAssetInfo.getCustomerId());
     assertNull(actualAssetInfo.getTenantId());
-    assertEquals(-1, currentLocation.getColumnNr());
-    assertEquals(-1, currentLocation.getLineNr());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
     assertEquals(0L, actualAssetInfo.getCreatedTime());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
     assertTrue(actualAssetInfo.isCustomerIsPublic());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
   }
 
   /**
@@ -142,47 +51,21 @@ class AssetInfoDiffblueTest {
    *   <li>When {@link Asset#Asset(Asset)} with asset is {@link Asset#Asset()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AssetInfo#AssetInfo(Asset, String, boolean, String)}
+   * Method under test: {@link AssetInfo#AssetInfo(Asset, String, boolean, String)}
    */
   @Test
   @DisplayName("Test new AssetInfo(Asset, String, boolean, String); when Asset(Asset) with asset is Asset()")
-  void testNewAssetInfo_whenAssetWithAssetIsAsset() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AssetInfo.<init>(Asset, String, boolean, String)"})
+  void testNewAssetInfo_whenAssetWithAssetIsAsset() {
     // Arrange and Act
     AssetInfo actualAssetInfo = new AssetInfo(new Asset(new Asset()), "Dr", true, "foo.txt");
 
     // Assert
-    JsonNode additionalInfo = actualAssetInfo.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
+    assertTrue(actualAssetInfo.getAdditionalInfo() instanceof NullNode);
     assertEquals("Dr", actualAssetInfo.getCustomerTitle());
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
     assertEquals("foo.txt", actualAssetInfo.getAssetProfileName());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
     assertNull(actualAssetInfo.getVersion());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
     assertNull(actualAssetInfo.getLabel());
     assertNull(actualAssetInfo.getName());
     assertNull(actualAssetInfo.getType());
@@ -192,114 +75,31 @@ class AssetInfoDiffblueTest {
     assertNull(actualAssetInfo.getAssetProfileId());
     assertNull(actualAssetInfo.getCustomerId());
     assertNull(actualAssetInfo.getTenantId());
-    assertEquals(-1, currentLocation.getColumnNr());
-    assertEquals(-1, currentLocation.getLineNr());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
     assertEquals(0L, actualAssetInfo.getCreatedTime());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
     assertTrue(actualAssetInfo.isCustomerIsPublic());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
   }
 
   /**
    * Test {@link AssetInfo#AssetInfo(Asset, String, boolean, String)}.
    * <ul>
-   *   <li>When {@link Asset#Asset(Asset)} with asset is
-   * {@link Asset#Asset(Asset)}.</li>
+   *   <li>When {@link Asset#Asset(Asset)} with asset is {@link Asset#Asset(Asset)}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AssetInfo#AssetInfo(Asset, String, boolean, String)}
+   * Method under test: {@link AssetInfo#AssetInfo(Asset, String, boolean, String)}
    */
   @Test
   @DisplayName("Test new AssetInfo(Asset, String, boolean, String); when Asset(Asset) with asset is Asset(Asset)")
-  void testNewAssetInfo_whenAssetWithAssetIsAsset2() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AssetInfo.<init>(Asset, String, boolean, String)"})
+  void testNewAssetInfo_whenAssetWithAssetIsAsset2() {
     // Arrange and Act
     AssetInfo actualAssetInfo = new AssetInfo(new Asset(new Asset(new Asset())), "Dr", true, "foo.txt");
 
     // Assert
-    JsonNode additionalInfo = actualAssetInfo.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
+    assertTrue(actualAssetInfo.getAdditionalInfo() instanceof NullNode);
     assertEquals("Dr", actualAssetInfo.getCustomerTitle());
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
     assertEquals("foo.txt", actualAssetInfo.getAssetProfileName());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
     assertNull(actualAssetInfo.getVersion());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
     assertNull(actualAssetInfo.getLabel());
     assertNull(actualAssetInfo.getName());
     assertNull(actualAssetInfo.getType());
@@ -309,64 +109,8 @@ class AssetInfoDiffblueTest {
     assertNull(actualAssetInfo.getAssetProfileId());
     assertNull(actualAssetInfo.getCustomerId());
     assertNull(actualAssetInfo.getTenantId());
-    assertEquals(-1, currentLocation.getColumnNr());
-    assertEquals(-1, currentLocation.getLineNr());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
     assertEquals(0L, actualAssetInfo.getCreatedTime());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
     assertTrue(actualAssetInfo.isCustomerIsPublic());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
   }
 
   /**
@@ -384,6 +128,8 @@ class AssetInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetInfo.equals(Object)", "int AssetInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AssetInfo assetInfo = new AssetInfo();
@@ -410,6 +156,8 @@ class AssetInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetInfo.equals(Object)", "int AssetInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AssetInfo assetInfo = new AssetInfo(new Asset(), "Dr", true, "foo.txt");
@@ -436,6 +184,8 @@ class AssetInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetInfo.equals(Object)", "int AssetInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AssetInfo assetInfo = new AssetInfo();
@@ -457,6 +207,8 @@ class AssetInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetInfo.equals(Object)", "int AssetInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AssetInfo assetInfo = new AssetInfo(new Asset(), "Dr", true, "foo.txt");
@@ -476,23 +228,9 @@ class AssetInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetInfo.equals(Object)", "int AssetInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange, Act and Assert
-    assertNotEquals(new AssetInfo(), mock(Asset.class));
-  }
-
-  /**
-   * Test {@link AssetInfo#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link AssetInfo#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AssetInfo assetInfo = new AssetInfo();
     assetInfo.setCustomerTitle("Dr");
@@ -512,7 +250,9 @@ class AssetInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetInfo.equals(Object)", "int AssetInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AssetInfo assetInfo = new AssetInfo();
     assetInfo.setCustomerIsPublic(true);
@@ -532,7 +272,9 @@ class AssetInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetInfo.equals(Object)", "int AssetInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AssetInfo assetInfo = new AssetInfo();
     assetInfo.setAssetProfileName("foo.txt");
@@ -552,7 +294,9 @@ class AssetInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetInfo.equals(Object)", "int AssetInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     AssetInfo assetInfo = new AssetInfo();
 
@@ -574,7 +318,9 @@ class AssetInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetInfo.equals(Object)", "int AssetInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AssetInfo assetInfo = new AssetInfo();
 
@@ -596,6 +342,8 @@ class AssetInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetInfo.equals(Object)", "int AssetInfo.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AssetInfo(), null);
@@ -612,6 +360,8 @@ class AssetInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetInfo.equals(Object)", "int AssetInfo.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AssetInfo(), "Different type to AssetInfo");

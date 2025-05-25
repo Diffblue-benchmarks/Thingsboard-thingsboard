@@ -5,20 +5,22 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.common.util.ListeningExecutor;
 
 class MqttClientDiffblueTest {
   /**
-   * Test
-   * {@link MqttClient#create(MqttClientConfig, MqttHandler, ListeningExecutor)}.
+   * Test {@link MqttClient#create(MqttClientConfig, MqttHandler, ListeningExecutor)}.
    * <p>
-   * Method under test:
-   * {@link MqttClient#create(MqttClientConfig, MqttHandler, ListeningExecutor)}
+   * Method under test: {@link MqttClient#create(MqttClientConfig, MqttHandler, ListeningExecutor)}
    */
   @Test
   @DisplayName("Test create(MqttClientConfig, MqttHandler, ListeningExecutor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MqttClient MqttClient.create(MqttClientConfig, MqttHandler, ListeningExecutor)"})
   void testCreate() {
     // Arrange
     MqttClientConfig config = new MqttClientConfig();

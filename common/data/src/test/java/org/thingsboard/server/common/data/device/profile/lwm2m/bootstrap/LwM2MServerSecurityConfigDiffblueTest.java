@@ -7,14 +7,15 @@ import static org.mockito.Mockito.anyBoolean;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 class LwM2MServerSecurityConfigDiffblueTest {
   /**
-   * Test {@link LwM2MServerSecurityConfig#equals(Object)}, and
-   * {@link LwM2MServerSecurityConfig#hashCode()}.
+   * Test {@link LwM2MServerSecurityConfig#equals(Object)}, and {@link LwM2MServerSecurityConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -28,6 +29,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -65,8 +68,7 @@ class LwM2MServerSecurityConfigDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2MServerSecurityConfig#equals(Object)}, and
-   * {@link LwM2MServerSecurityConfig#hashCode()}.
+   * Test {@link LwM2MServerSecurityConfig#equals(Object)}, and {@link LwM2MServerSecurityConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -80,6 +82,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -141,8 +145,7 @@ class LwM2MServerSecurityConfigDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2MServerSecurityConfig#equals(Object)}, and
-   * {@link LwM2MServerSecurityConfig#hashCode()}.
+   * Test {@link LwM2MServerSecurityConfig#equals(Object)}, and {@link LwM2MServerSecurityConfig#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -156,6 +159,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -189,6 +194,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     LwM2MServerSecurityConfigDefault lwM2MServerSecurityConfigDefault = new LwM2MServerSecurityConfigDefault();
@@ -248,6 +255,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -293,6 +302,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -338,6 +349,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -383,6 +396,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -428,6 +443,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -473,6 +490,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -518,6 +537,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -563,6 +584,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -608,6 +631,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -653,6 +678,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -698,6 +725,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -743,6 +772,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -788,6 +819,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -833,6 +866,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -878,6 +913,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -923,6 +960,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -968,6 +1007,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -1013,6 +1054,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -1058,6 +1101,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -1103,6 +1148,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -1148,6 +1195,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -1193,6 +1242,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -1238,6 +1289,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -1297,6 +1350,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -1328,6 +1383,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -1355,8 +1412,7 @@ class LwM2MServerSecurityConfigDiffblueTest {
    * <ul>
    *   <li>default or parameterless constructor of {@link LwM2MServerSecurityConfig}
    *   <li>{@link LwM2MServerSecurityConfig#setBinding(String)}
-   *   <li>
-   * {@link LwM2MServerSecurityConfig#setBootstrapServerAccountTimeout(Integer)}
+   *   <li>{@link LwM2MServerSecurityConfig#setBootstrapServerAccountTimeout(Integer)}
    *   <li>{@link LwM2MServerSecurityConfig#setBootstrapServerIs(boolean)}
    *   <li>{@link LwM2MServerSecurityConfig#setClientHoldOffTime(Integer)}
    *   <li>{@link LwM2MServerSecurityConfig#setDefaultMinPeriod(Integer)}
@@ -1384,6 +1440,25 @@ class LwM2MServerSecurityConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MServerSecurityConfig.<init>()", "String LwM2MServerSecurityConfig.getBinding()",
+      "Integer LwM2MServerSecurityConfig.getBootstrapServerAccountTimeout()",
+      "Integer LwM2MServerSecurityConfig.getClientHoldOffTime()",
+      "Integer LwM2MServerSecurityConfig.getDefaultMinPeriod()", "String LwM2MServerSecurityConfig.getHost()",
+      "Integer LwM2MServerSecurityConfig.getLifetime()", "Integer LwM2MServerSecurityConfig.getPort()",
+      "String LwM2MServerSecurityConfig.getServerCertificate()",
+      "String LwM2MServerSecurityConfig.getServerPublicKey()", "Integer LwM2MServerSecurityConfig.getShortServerId()",
+      "boolean LwM2MServerSecurityConfig.isBootstrapServerIs()",
+      "boolean LwM2MServerSecurityConfig.isNotifIfDisabled()", "void LwM2MServerSecurityConfig.setBinding(String)",
+      "void LwM2MServerSecurityConfig.setBootstrapServerAccountTimeout(Integer)",
+      "void LwM2MServerSecurityConfig.setBootstrapServerIs(boolean)",
+      "void LwM2MServerSecurityConfig.setClientHoldOffTime(Integer)",
+      "void LwM2MServerSecurityConfig.setDefaultMinPeriod(Integer)", "void LwM2MServerSecurityConfig.setHost(String)",
+      "void LwM2MServerSecurityConfig.setLifetime(Integer)",
+      "void LwM2MServerSecurityConfig.setNotifIfDisabled(boolean)", "void LwM2MServerSecurityConfig.setPort(Integer)",
+      "void LwM2MServerSecurityConfig.setServerCertificate(String)",
+      "void LwM2MServerSecurityConfig.setServerPublicKey(String)",
+      "void LwM2MServerSecurityConfig.setShortServerId(Integer)", "String LwM2MServerSecurityConfig.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     LwM2MServerSecurityConfig actualLwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -1413,7 +1488,7 @@ class LwM2MServerSecurityConfigDiffblueTest {
     boolean actualIsBootstrapServerIsResult = actualLwM2MServerSecurityConfig.isBootstrapServerIs();
     boolean actualIsNotifIfDisabledResult = actualLwM2MServerSecurityConfig.isNotifIfDisabled();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Binding", actualBinding);
     assertEquals("LwM2MServerSecurityConfig(shortServerId=1, bootstrapServerIs=true, host=localhost, port=8080,"
         + " clientHoldOffTime=1, serverPublicKey=Server Public Key, serverCertificate=Server Certificate,"

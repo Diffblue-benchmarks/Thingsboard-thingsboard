@@ -7,11 +7,11 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.rule.engine.credentials.AnonymousCredentials;
 import org.thingsboard.rule.engine.credentials.ClientCredentials;
@@ -21,67 +21,20 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbRestApiCallNodeConfiguration#defaultConfiguration()}.
    * <p>
-   * Method under test:
-   * {@link TbRestApiCallNodeConfiguration#defaultConfiguration()}
+   * Method under test: {@link TbRestApiCallNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbRestApiCallNodeConfiguration TbRestApiCallNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
-    // Arrange
-    TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
-    tbRestApiCallNodeConfiguration.setCredentials(mock(ClientCredentials.class));
-
-    // Act
-    TbRestApiCallNodeConfiguration actualDefaultConfigurationResult = tbRestApiCallNodeConfiguration
-        .defaultConfiguration();
-
-    // Assert
-    ClientCredentials credentials = actualDefaultConfigurationResult.getCredentials();
-    assertTrue(credentials instanceof AnonymousCredentials);
-    assertEquals("POST", actualDefaultConfigurationResult.getRequestMethod());
-    Map<String, String> headers = actualDefaultConfigurationResult.getHeaders();
-    assertEquals(1, headers.size());
-    assertEquals("application/json", headers.get("Content-Type"));
-    assertEquals("http://localhost/api", actualDefaultConfigurationResult.getRestEndpointUrlPattern());
-    assertNull(actualDefaultConfigurationResult.getProxyHost());
-    assertNull(actualDefaultConfigurationResult.getProxyPassword());
-    assertNull(actualDefaultConfigurationResult.getProxyScheme());
-    assertNull(actualDefaultConfigurationResult.getProxyUser());
-    assertEquals(0, actualDefaultConfigurationResult.getMaxParallelRequestsCount());
-    assertEquals(0, actualDefaultConfigurationResult.getProxyPort());
-    assertEquals(0, actualDefaultConfigurationResult.getReadTimeoutMs());
-    assertEquals(256, actualDefaultConfigurationResult.getMaxInMemoryBufferSizeInKb());
-    assertEquals(CredentialsType.ANONYMOUS, credentials.getType());
-    assertFalse(actualDefaultConfigurationResult.isEnableProxy());
-    assertFalse(actualDefaultConfigurationResult.isIgnoreRequestBody());
-    assertFalse(actualDefaultConfigurationResult.isParseToPlainText());
-    assertFalse(actualDefaultConfigurationResult.isUseSimpleClientHttpFactory());
-    assertFalse(actualDefaultConfigurationResult.isUseSystemProxyProperties());
-  }
-
-  /**
-   * Test {@link TbRestApiCallNodeConfiguration#defaultConfiguration()}.
-   * <ul>
-   *   <li>Given {@link TbRestApiCallNodeConfiguration} (default constructor).</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TbRestApiCallNodeConfiguration#defaultConfiguration()}
-   */
-  @Test
-  @DisplayName("Test defaultConfiguration(); given TbRestApiCallNodeConfiguration (default constructor)")
-  void testDefaultConfiguration_givenTbRestApiCallNodeConfiguration() {
     // Arrange and Act
     TbRestApiCallNodeConfiguration actualDefaultConfigurationResult = (new TbRestApiCallNodeConfiguration())
         .defaultConfiguration();
 
     // Assert
-    ClientCredentials credentials = actualDefaultConfigurationResult.getCredentials();
-    assertTrue(credentials instanceof AnonymousCredentials);
+    assertTrue(actualDefaultConfigurationResult.getCredentials() instanceof AnonymousCredentials);
     assertEquals("POST", actualDefaultConfigurationResult.getRequestMethod());
-    Map<String, String> headers = actualDefaultConfigurationResult.getHeaders();
-    assertEquals(1, headers.size());
-    assertEquals("application/json", headers.get("Content-Type"));
     assertEquals("http://localhost/api", actualDefaultConfigurationResult.getRestEndpointUrlPattern());
     assertNull(actualDefaultConfigurationResult.getProxyHost());
     assertNull(actualDefaultConfigurationResult.getProxyPassword());
@@ -90,79 +43,61 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
     assertEquals(0, actualDefaultConfigurationResult.getMaxParallelRequestsCount());
     assertEquals(0, actualDefaultConfigurationResult.getProxyPort());
     assertEquals(0, actualDefaultConfigurationResult.getReadTimeoutMs());
+    Map<String, String> headers = actualDefaultConfigurationResult.getHeaders();
+    assertEquals(1, headers.size());
     assertEquals(256, actualDefaultConfigurationResult.getMaxInMemoryBufferSizeInKb());
-    assertEquals(CredentialsType.ANONYMOUS, credentials.getType());
     assertFalse(actualDefaultConfigurationResult.isEnableProxy());
     assertFalse(actualDefaultConfigurationResult.isIgnoreRequestBody());
     assertFalse(actualDefaultConfigurationResult.isParseToPlainText());
     assertFalse(actualDefaultConfigurationResult.isUseSimpleClientHttpFactory());
     assertFalse(actualDefaultConfigurationResult.isUseSystemProxyProperties());
+    assertTrue(headers.containsKey("Content-Type"));
   }
 
   /**
    * Test {@link TbRestApiCallNodeConfiguration#getCredentials()}.
-   * <ul>
-   *   <li>Given {@link ClientCredentials} {@link ClientCredentials#getType()}
-   * return {@code ANONYMOUS}.</li>
-   *   <li>Then calls {@link ClientCredentials#getType()}.</li>
-   * </ul>
    * <p>
    * Method under test: {@link TbRestApiCallNodeConfiguration#getCredentials()}
    */
   @Test
-  @DisplayName("Test getCredentials(); given ClientCredentials getType() return 'ANONYMOUS'; then calls getType()")
-  void testGetCredentials_givenClientCredentialsGetTypeReturnAnonymous_thenCallsGetType() {
+  @DisplayName("Test getCredentials()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ClientCredentials TbRestApiCallNodeConfiguration.getCredentials()"})
+  void testGetCredentials() {
     // Arrange
-    ClientCredentials credentials = mock(ClientCredentials.class);
-    when(credentials.getType()).thenReturn(CredentialsType.ANONYMOUS);
-
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
-    tbRestApiCallNodeConfiguration.setCredentials(credentials);
+    tbRestApiCallNodeConfiguration.setCredentials(mock(ClientCredentials.class));
 
     // Act
-    CredentialsType actualType = tbRestApiCallNodeConfiguration.getCredentials().getType();
+    tbRestApiCallNodeConfiguration.getCredentials();
 
-    // Assert
-    verify(credentials).getType();
-    assertEquals(CredentialsType.ANONYMOUS, actualType);
+    // Assert that nothing has changed
+    assertEquals(0, tbRestApiCallNodeConfiguration.getMaxInMemoryBufferSizeInKb());
+    assertEquals(0, tbRestApiCallNodeConfiguration.getMaxParallelRequestsCount());
+    assertEquals(0, tbRestApiCallNodeConfiguration.getProxyPort());
+    assertEquals(0, tbRestApiCallNodeConfiguration.getReadTimeoutMs());
+    assertFalse(tbRestApiCallNodeConfiguration.isEnableProxy());
+    assertFalse(tbRestApiCallNodeConfiguration.isIgnoreRequestBody());
+    assertFalse(tbRestApiCallNodeConfiguration.isParseToPlainText());
+    assertFalse(tbRestApiCallNodeConfiguration.isUseSimpleClientHttpFactory());
+    assertFalse(tbRestApiCallNodeConfiguration.isUseSystemProxyProperties());
   }
 
   /**
    * Test {@link TbRestApiCallNodeConfiguration#getCredentials()}.
    * <ul>
-   *   <li>Given {@link TbRestApiCallNodeConfiguration} (default constructor).</li>
+   *   <li>Then return {@link AnonymousCredentials}.</li>
    * </ul>
    * <p>
    * Method under test: {@link TbRestApiCallNodeConfiguration#getCredentials()}
    */
   @Test
-  @DisplayName("Test getCredentials(); given TbRestApiCallNodeConfiguration (default constructor)")
-  void testGetCredentials_givenTbRestApiCallNodeConfiguration() {
-    // Arrange and Act
-    ClientCredentials actualCredentials = (new TbRestApiCallNodeConfiguration()).getCredentials();
-    CredentialsType actualType = actualCredentials.getType();
-
-    // Assert
-    assertTrue(actualCredentials instanceof AnonymousCredentials);
-    assertEquals(CredentialsType.ANONYMOUS, actualCredentials.getType());
-    assertEquals(CredentialsType.ANONYMOUS, actualType);
-  }
-
-  /**
-   * Test {@link TbRestApiCallNodeConfiguration#getCredentials()}.
-   * <ul>
-   *   <li>Given {@link TbRestApiCallNodeConfiguration} (default constructor)
-   * Credentials is {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbRestApiCallNodeConfiguration#getCredentials()}
-   */
-  @Test
-  @DisplayName("Test getCredentials(); given TbRestApiCallNodeConfiguration (default constructor) Credentials is 'null'")
-  void testGetCredentials_givenTbRestApiCallNodeConfigurationCredentialsIsNull() {
+  @DisplayName("Test getCredentials(); then return AnonymousCredentials")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ClientCredentials TbRestApiCallNodeConfiguration.getCredentials()"})
+  void testGetCredentials_thenReturnAnonymousCredentials() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
-    tbRestApiCallNodeConfiguration.setCredentials(null);
 
     // Act
     ClientCredentials actualCredentials = tbRestApiCallNodeConfiguration.getCredentials();
@@ -170,13 +105,28 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
 
     // Assert
     assertTrue(actualCredentials instanceof AnonymousCredentials);
+    assertNull(tbRestApiCallNodeConfiguration.getProxyHost());
+    assertNull(tbRestApiCallNodeConfiguration.getProxyPassword());
+    assertNull(tbRestApiCallNodeConfiguration.getProxyScheme());
+    assertNull(tbRestApiCallNodeConfiguration.getProxyUser());
+    assertNull(tbRestApiCallNodeConfiguration.getRequestMethod());
+    assertNull(tbRestApiCallNodeConfiguration.getRestEndpointUrlPattern());
+    assertNull(tbRestApiCallNodeConfiguration.getHeaders());
+    assertEquals(0, tbRestApiCallNodeConfiguration.getMaxInMemoryBufferSizeInKb());
+    assertEquals(0, tbRestApiCallNodeConfiguration.getMaxParallelRequestsCount());
+    assertEquals(0, tbRestApiCallNodeConfiguration.getProxyPort());
+    assertEquals(0, tbRestApiCallNodeConfiguration.getReadTimeoutMs());
     assertEquals(CredentialsType.ANONYMOUS, actualCredentials.getType());
     assertEquals(CredentialsType.ANONYMOUS, actualType);
+    assertFalse(tbRestApiCallNodeConfiguration.isEnableProxy());
+    assertFalse(tbRestApiCallNodeConfiguration.isIgnoreRequestBody());
+    assertFalse(tbRestApiCallNodeConfiguration.isParseToPlainText());
+    assertFalse(tbRestApiCallNodeConfiguration.isUseSimpleClientHttpFactory());
+    assertFalse(tbRestApiCallNodeConfiguration.isUseSystemProxyProperties());
   }
 
   /**
-   * Test {@link TbRestApiCallNodeConfiguration#equals(Object)}, and
-   * {@link TbRestApiCallNodeConfiguration#hashCode()}.
+   * Test {@link TbRestApiCallNodeConfiguration#equals(Object)}, and {@link TbRestApiCallNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -190,6 +140,9 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
@@ -211,6 +164,9 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
@@ -230,27 +186,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange
-    TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
-    tbRestApiCallNodeConfiguration.setCredentials(mock(ClientCredentials.class));
-
-    // Act and Assert
-    assertNotEquals(tbRestApiCallNodeConfiguration, 1);
-  }
-
-  /**
-   * Test {@link TbRestApiCallNodeConfiguration#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbRestApiCallNodeConfiguration#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
     tbRestApiCallNodeConfiguration.setRestEndpointUrlPattern("https://config.us-east-2.amazonaws.com");
@@ -270,7 +209,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
     tbRestApiCallNodeConfiguration.setRequestMethod("Request Method");
@@ -290,7 +232,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     HashMap<String, String> headers = new HashMap<>();
     headers.put("Delivered-To", "alice.liddell@example.org");
@@ -313,7 +258,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
     tbRestApiCallNodeConfiguration.setUseSimpleClientHttpFactory(true);
@@ -333,7 +281,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
     tbRestApiCallNodeConfiguration.setReadTimeoutMs(10);
@@ -353,7 +304,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
     tbRestApiCallNodeConfiguration.setMaxParallelRequestsCount(3);
@@ -373,7 +327,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
     tbRestApiCallNodeConfiguration.setParseToPlainText(true);
@@ -393,7 +350,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
     tbRestApiCallNodeConfiguration.setEnableProxy(true);
@@ -413,7 +373,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
     tbRestApiCallNodeConfiguration.setUseSystemProxyProperties(true);
@@ -433,7 +396,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
     tbRestApiCallNodeConfiguration.setProxyHost("localhost");
@@ -453,7 +419,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
     tbRestApiCallNodeConfiguration.setProxyPort(8080);
@@ -473,7 +442,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
     tbRestApiCallNodeConfiguration.setProxyUser("Proxy User");
@@ -493,7 +465,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
     tbRestApiCallNodeConfiguration.setProxyPassword("iloveyou");
@@ -513,7 +488,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
     tbRestApiCallNodeConfiguration.setProxyScheme("Proxy Scheme");
@@ -533,7 +511,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
     tbRestApiCallNodeConfiguration.setCredentials(mock(ClientCredentials.class));
@@ -553,7 +534,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
     tbRestApiCallNodeConfiguration.setIgnoreRequestBody(true);
@@ -573,7 +557,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
     tbRestApiCallNodeConfiguration.setMaxInMemoryBufferSizeInKb(3);
@@ -593,7 +580,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
 
@@ -615,7 +605,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
 
@@ -637,7 +630,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
 
@@ -662,7 +658,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
 
@@ -684,7 +683,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
 
@@ -706,7 +708,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
 
@@ -728,7 +733,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
 
@@ -750,7 +758,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual27() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
     tbRestApiCallNodeConfiguration.setRestEndpointUrlPattern("https://config.us-east-2.amazonaws.com");
@@ -773,7 +784,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual28() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual27() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
     tbRestApiCallNodeConfiguration.setRequestMethod("Request Method");
@@ -796,7 +810,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual29() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual28() {
     // Arrange
     HashMap<String, String> headers = new HashMap<>();
     headers.put("Delivered-To", "alice.liddell@example.org");
@@ -825,7 +842,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual30() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual29() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
     tbRestApiCallNodeConfiguration.setProxyHost("localhost");
@@ -848,7 +868,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual31() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual30() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
     tbRestApiCallNodeConfiguration.setProxyUser("Proxy User");
@@ -871,7 +894,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual32() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual31() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
     tbRestApiCallNodeConfiguration.setProxyPassword("iloveyou");
@@ -894,7 +920,10 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual33() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual32() {
     // Arrange
     TbRestApiCallNodeConfiguration tbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
     tbRestApiCallNodeConfiguration.setProxyScheme("Proxy Scheme");
@@ -917,6 +946,9 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbRestApiCallNodeConfiguration(), null);
@@ -933,6 +965,9 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRestApiCallNodeConfiguration.equals(Object)",
+      "int TbRestApiCallNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbRestApiCallNodeConfiguration(), "Different type to TbRestApiCallNodeConfiguration");
@@ -943,8 +978,7 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link TbRestApiCallNodeConfiguration}
+   *   <li>default or parameterless constructor of {@link TbRestApiCallNodeConfiguration}
    *   <li>{@link TbRestApiCallNodeConfiguration#setCredentials(ClientCredentials)}
    *   <li>{@link TbRestApiCallNodeConfiguration#setEnableProxy(boolean)}
    *   <li>{@link TbRestApiCallNodeConfiguration#setHeaders(Map)}
@@ -960,10 +994,8 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    *   <li>{@link TbRestApiCallNodeConfiguration#setReadTimeoutMs(int)}
    *   <li>{@link TbRestApiCallNodeConfiguration#setRequestMethod(String)}
    *   <li>{@link TbRestApiCallNodeConfiguration#setRestEndpointUrlPattern(String)}
-   *   <li>
-   * {@link TbRestApiCallNodeConfiguration#setUseSimpleClientHttpFactory(boolean)}
-   *   <li>
-   * {@link TbRestApiCallNodeConfiguration#setUseSystemProxyProperties(boolean)}
+   *   <li>{@link TbRestApiCallNodeConfiguration#setUseSimpleClientHttpFactory(boolean)}
+   *   <li>{@link TbRestApiCallNodeConfiguration#setUseSystemProxyProperties(boolean)}
    *   <li>{@link TbRestApiCallNodeConfiguration#toString()}
    *   <li>{@link TbRestApiCallNodeConfiguration#getHeaders()}
    *   <li>{@link TbRestApiCallNodeConfiguration#getMaxInMemoryBufferSizeInKb()}
@@ -985,6 +1017,39 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbRestApiCallNodeConfiguration.<init>()", "Map TbRestApiCallNodeConfiguration.getHeaders()",
+      "int TbRestApiCallNodeConfiguration.getMaxInMemoryBufferSizeInKb()",
+      "int TbRestApiCallNodeConfiguration.getMaxParallelRequestsCount()",
+      "String TbRestApiCallNodeConfiguration.getProxyHost()",
+      "String TbRestApiCallNodeConfiguration.getProxyPassword()", "int TbRestApiCallNodeConfiguration.getProxyPort()",
+      "String TbRestApiCallNodeConfiguration.getProxyScheme()", "String TbRestApiCallNodeConfiguration.getProxyUser()",
+      "int TbRestApiCallNodeConfiguration.getReadTimeoutMs()",
+      "String TbRestApiCallNodeConfiguration.getRequestMethod()",
+      "String TbRestApiCallNodeConfiguration.getRestEndpointUrlPattern()",
+      "boolean TbRestApiCallNodeConfiguration.isEnableProxy()",
+      "boolean TbRestApiCallNodeConfiguration.isIgnoreRequestBody()",
+      "boolean TbRestApiCallNodeConfiguration.isParseToPlainText()",
+      "boolean TbRestApiCallNodeConfiguration.isUseSimpleClientHttpFactory()",
+      "boolean TbRestApiCallNodeConfiguration.isUseSystemProxyProperties()",
+      "void TbRestApiCallNodeConfiguration.setCredentials(ClientCredentials)",
+      "void TbRestApiCallNodeConfiguration.setEnableProxy(boolean)",
+      "void TbRestApiCallNodeConfiguration.setHeaders(Map)",
+      "void TbRestApiCallNodeConfiguration.setIgnoreRequestBody(boolean)",
+      "void TbRestApiCallNodeConfiguration.setMaxInMemoryBufferSizeInKb(int)",
+      "void TbRestApiCallNodeConfiguration.setMaxParallelRequestsCount(int)",
+      "void TbRestApiCallNodeConfiguration.setParseToPlainText(boolean)",
+      "void TbRestApiCallNodeConfiguration.setProxyHost(String)",
+      "void TbRestApiCallNodeConfiguration.setProxyPassword(String)",
+      "void TbRestApiCallNodeConfiguration.setProxyPort(int)",
+      "void TbRestApiCallNodeConfiguration.setProxyScheme(String)",
+      "void TbRestApiCallNodeConfiguration.setProxyUser(String)",
+      "void TbRestApiCallNodeConfiguration.setReadTimeoutMs(int)",
+      "void TbRestApiCallNodeConfiguration.setRequestMethod(String)",
+      "void TbRestApiCallNodeConfiguration.setRestEndpointUrlPattern(String)",
+      "void TbRestApiCallNodeConfiguration.setUseSimpleClientHttpFactory(boolean)",
+      "void TbRestApiCallNodeConfiguration.setUseSystemProxyProperties(boolean)",
+      "String TbRestApiCallNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbRestApiCallNodeConfiguration actualTbRestApiCallNodeConfiguration = new TbRestApiCallNodeConfiguration();
@@ -1026,7 +1091,7 @@ class TbRestApiCallNodeConfigurationDiffblueTest {
         .isUseSimpleClientHttpFactory();
     boolean actualIsUseSystemProxyPropertiesResult = actualTbRestApiCallNodeConfiguration.isUseSystemProxyProperties();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Proxy Scheme", actualProxyScheme);
     assertEquals("Proxy User", actualProxyUser);
     assertEquals("Request Method", actualRequestMethod);

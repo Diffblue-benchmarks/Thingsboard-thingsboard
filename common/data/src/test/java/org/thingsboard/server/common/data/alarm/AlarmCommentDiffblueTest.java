@@ -1,13 +1,33 @@
 package org.thingsboard.server.common.data.alarm;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.MissingNode;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class AlarmCommentDiffblueTest {
+  /**
+   * Test {@link AlarmComment#getId()}.
+   * <ul>
+   *   <li>Then return {@code null}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link AlarmComment#getId()}
+   */
+  @Test
+  @DisplayName("Test getId(); then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"org.thingsboard.server.common.data.id.AlarmCommentId AlarmComment.getId()"})
+  void testGetId_thenReturnNull() {
+    // Arrange, Act and Assert
+    assertNull((new AlarmComment()).getId());
+  }
+
   /**
    * Test {@link AlarmComment#getCreatedTime()}.
    * <p>
@@ -15,6 +35,8 @@ class AlarmCommentDiffblueTest {
    */
   @Test
   @DisplayName("Test getCreatedTime()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long AlarmComment.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
     assertEquals(0L, (new AlarmComment()).getCreatedTime());
@@ -27,6 +49,8 @@ class AlarmCommentDiffblueTest {
    */
   @Test
   @DisplayName("Test new AlarmComment(AlarmComment)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmComment.<init>(AlarmComment)"})
   void testNewAlarmComment() {
     // Arrange
     AlarmComment alarmComment = new AlarmComment();
@@ -46,6 +70,8 @@ class AlarmCommentDiffblueTest {
    */
   @Test
   @DisplayName("Test getName(); given AlarmComment() Comment is Instance; then return empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String AlarmComment.getName()"})
   void testGetName_givenAlarmCommentCommentIsInstance_thenReturnEmptyString() {
     // Arrange
     AlarmComment alarmComment = new AlarmComment();
@@ -58,6 +84,31 @@ class AlarmCommentDiffblueTest {
   /**
    * Test {@link AlarmComment#getName()}.
    * <ul>
+   *   <li>Then return {@code [2,null]}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link AlarmComment#getName()}
+   */
+  @Test
+  @DisplayName("Test getName(); then return '[2,null]'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String AlarmComment.getName()"})
+  void testGetName_thenReturn2Null() {
+    // Arrange
+    ArrayNode comment = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
+    comment.addPOJO(2);
+    comment.add(MissingNode.getInstance());
+
+    AlarmComment alarmComment = new AlarmComment();
+    alarmComment.setComment(comment);
+
+    // Act and Assert
+    assertEquals("[2,null]", alarmComment.getName());
+  }
+
+  /**
+   * Test {@link AlarmComment#getName()}.
+   * <ul>
    *   <li>Then return {@code []}.</li>
    * </ul>
    * <p>
@@ -65,6 +116,8 @@ class AlarmCommentDiffblueTest {
    */
   @Test
   @DisplayName("Test getName(); then return '[]'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String AlarmComment.getName()"})
   void testGetName_thenReturnLeftSquareBracketRightSquareBracket() {
     // Arrange
     AlarmComment alarmComment = new AlarmComment();
@@ -84,6 +137,8 @@ class AlarmCommentDiffblueTest {
    */
   @Test
   @DisplayName("Test getName(); then return '[null]'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String AlarmComment.getName()"})
   void testGetName_thenReturnNull() {
     // Arrange
     ArrayNode comment = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
@@ -106,6 +161,8 @@ class AlarmCommentDiffblueTest {
    */
   @Test
   @DisplayName("Test getName(); then return '[null,null]'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String AlarmComment.getName()"})
   void testGetName_thenReturnNullNull() {
     // Arrange
     ArrayNode comment = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
@@ -117,28 +174,5 @@ class AlarmCommentDiffblueTest {
 
     // Act and Assert
     assertEquals("[null,null]", alarmComment.getName());
-  }
-
-  /**
-   * Test {@link AlarmComment#getName()}.
-   * <ul>
-   *   <li>Then return {@code ["Pojo",null]}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link AlarmComment#getName()}
-   */
-  @Test
-  @DisplayName("Test getName(); then return '[\"Pojo\",null]'")
-  void testGetName_thenReturnPojoNull() {
-    // Arrange
-    ArrayNode comment = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
-    comment.addPOJO("Pojo");
-    comment.add(MissingNode.getInstance());
-
-    AlarmComment alarmComment = new AlarmComment();
-    alarmComment.setComment(comment);
-
-    // Act and Assert
-    assertEquals("[\"Pojo\",null]", alarmComment.getName());
   }
 }

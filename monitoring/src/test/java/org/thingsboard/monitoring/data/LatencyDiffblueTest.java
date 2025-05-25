@@ -2,7 +2,9 @@ package org.thingsboard.monitoring.data;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class LatencyDiffblueTest {
@@ -13,6 +15,8 @@ class LatencyDiffblueTest {
    */
   @Test
   @DisplayName("Test getFormattedValue()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String Latency.getFormattedValue()"})
   void testGetFormattedValue() {
     // Arrange, Act and Assert
     assertEquals("10.00 ms", Latency.of("Key", 10.0d).getFormattedValue());
@@ -33,6 +37,8 @@ class LatencyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Latency.equals(Object)", "int Latency.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     Latency ofResult = Latency.of("Key", 10.0d);
@@ -59,6 +65,8 @@ class LatencyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Latency.equals(Object)", "int Latency.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     Latency ofResult = Latency.of(null, 10.0d);
@@ -85,6 +93,8 @@ class LatencyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Latency.equals(Object)", "int Latency.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     Latency ofResult = Latency.of("Key", 10.0d);
@@ -106,6 +116,8 @@ class LatencyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Latency.equals(Object)", "int Latency.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     Latency ofResult = Latency.of(null, 10.0d);
@@ -125,6 +137,8 @@ class LatencyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Latency.equals(Object)", "int Latency.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     Latency ofResult = Latency.of("org.thingsboard.monitoring.data.Latency", 10.0d);
@@ -144,6 +158,8 @@ class LatencyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Latency.equals(Object)", "int Latency.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     Latency ofResult = Latency.of("Key", 0.5d);
@@ -163,6 +179,8 @@ class LatencyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Latency.equals(Object)", "int Latency.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(Latency.of("Key", 10.0d), null);
@@ -179,6 +197,8 @@ class LatencyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Latency.equals(Object)", "int Latency.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(Latency.of("Key", 10.0d), "Different type to Latency");
@@ -196,6 +216,8 @@ class LatencyDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String Latency.getKey()", "double Latency.getValue()", "String Latency.toString()"})
   void testGettersAndSetters() {
     // Arrange
     Latency ofResult = Latency.of("Key", 10.0d);
@@ -217,6 +239,8 @@ class LatencyDiffblueTest {
    */
   @Test
   @DisplayName("Test of(String, double)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Latency Latency.of(String, double)"})
   void testOf() {
     // Arrange and Act
     Latency actualOfResult = Latency.of("Key", 10.0d);

@@ -1,631 +1,38 @@
 package org.thingsboard.server.common.adaptor;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.google.protobuf.Any;
-import com.google.protobuf.Api;
-import com.google.protobuf.BytesValue;
+import com.google.protobuf.Any.Builder;
 import com.google.protobuf.DescriptorProtos;
+import com.google.protobuf.DescriptorProtos.DescriptorProto;
+import com.google.protobuf.DescriptorProtos.EnumDescriptorProto;
+import com.google.protobuf.DescriptorProtos.FileDescriptorProto;
+import com.google.protobuf.DescriptorProtos.MessageOptions;
 import com.google.protobuf.Descriptors;
+import com.google.protobuf.Descriptors.Descriptor;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.ProtocolStringList;
 import com.google.protobuf.UnknownFieldSet;
-import java.util.List;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.DeviceId;
 import org.thingsboard.server.gen.transport.TransportProtos;
+import org.thingsboard.server.gen.transport.TransportProtos.ClaimDeviceMsg;
+import org.thingsboard.server.gen.transport.TransportProtos.CredentialsType;
+import org.thingsboard.server.gen.transport.TransportProtos.GetAttributeRequestMsg;
+import org.thingsboard.server.gen.transport.TransportProtos.PostAttributeMsg;
+import org.thingsboard.server.gen.transport.TransportProtos.ProvisionDeviceRequestMsg;
+import org.thingsboard.server.gen.transport.TransportProtos.ToServerRpcRequestMsg;
 
 class ProtoConverterDiffblueTest {
-  /**
-   * Test {@link ProtoConverter#convertToClaimDeviceProto(DeviceId, byte[])}.
-   * <p>
-   * Method under test:
-   * {@link ProtoConverter#convertToClaimDeviceProto(DeviceId, byte[])}
-   */
-  @Test
-  @DisplayName("Test convertToClaimDeviceProto(DeviceId, byte[])")
-  void testConvertToClaimDeviceProto() throws InvalidProtocolBufferException {
-    // Arrange and Act
-    TransportProtos.ClaimDeviceMsg actualConvertToClaimDeviceProtoResult = ProtoConverter
-        .convertToClaimDeviceProto(new DeviceId(UUID.randomUUID()), null);
-
-    // Assert
-    Descriptors.Descriptor descriptorForType = actualConvertToClaimDeviceProtoResult.getDescriptorForType();
-    Descriptors.FileDescriptor file = descriptorForType.getFile();
-    DescriptorProtos.FileDescriptorProto toProtoResult = file.toProto();
-    List<DescriptorProtos.EnumDescriptorProto> enumTypeList = toProtoResult.getEnumTypeList();
-    assertEquals(10, enumTypeList.size());
-    List<Descriptors.EnumDescriptor> enumTypes = file.getEnumTypes();
-    assertEquals(10, enumTypes.size());
-    List<DescriptorProtos.DescriptorProto> messageTypeList = toProtoResult.getMessageTypeList();
-    assertEquals(180, messageTypeList.size());
-    List<Descriptors.Descriptor> messageTypes = file.getMessageTypes();
-    assertEquals(180, messageTypes.size());
-    DescriptorProtos.DescriptorProto toProtoResult2 = descriptorForType.toProto();
-    List<DescriptorProtos.FieldDescriptorProto> fieldList = toProtoResult2.getFieldList();
-    assertEquals(4, fieldList.size());
-    List<Descriptors.FieldDescriptor> fields = descriptorForType.getFields();
-    assertEquals(4, fields.size());
-    DescriptorProtos.DescriptorProto defaultInstanceForType = toProtoResult2.getDefaultInstanceForType();
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
-    assertSame(fieldList, toProtoResult2.getFieldOrBuilderList());
-    ProtocolStringList reservedNameList = toProtoResult2.getReservedNameList();
-    assertSame(reservedNameList, defaultInstanceForType.getReservedNameList());
-    DescriptorProtos.MessageOptions options = descriptorForType.getOptions();
-    Descriptors.Descriptor descriptorForType2 = options.getDescriptorForType();
-    DescriptorProtos.DescriptorProto toProtoResult3 = descriptorForType2.toProto();
-    assertSame(reservedNameList, toProtoResult3.getReservedNameList());
-    DescriptorProtos.FileDescriptorProto defaultInstanceForType2 = toProtoResult.getDefaultInstanceForType();
-    assertSame(reservedNameList, defaultInstanceForType2.getDependencyList());
-    assertSame(reservedNameList, toProtoResult.getDependencyList());
-    assertSame(defaultInstanceForType2.getDefaultInstanceForType(),
-        defaultInstanceForType2.getDefaultInstanceForType());
-    assertSame(enumTypeList, toProtoResult.getEnumTypeOrBuilderList());
-    assertSame(messageTypeList, toProtoResult.getMessageTypeOrBuilderList());
-    DescriptorProtos.SourceCodeInfo sourceCodeInfo = toProtoResult.getSourceCodeInfo();
-    assertSame(sourceCodeInfo, defaultInstanceForType2.getSourceCodeInfo());
-    assertSame(sourceCodeInfo, defaultInstanceForType2.getSourceCodeInfoOrBuilder());
-    assertSame(sourceCodeInfo, toProtoResult.getSourceCodeInfoOrBuilder());
-    assertSame(sourceCodeInfo, sourceCodeInfo.getDefaultInstanceForType());
-    DescriptorProtos.FileOptions options2 = file.getOptions();
-    DescriptorProtos.FileOptions defaultInstanceForType3 = options2.getDefaultInstanceForType();
-    assertSame(defaultInstanceForType3.getDefaultInstanceForType(),
-        defaultInstanceForType3.getDefaultInstanceForType());
-    DescriptorProtos.FeatureSet features = options.getFeatures();
-    assertSame(features, features.getDefaultInstanceForType());
-    Descriptors.FieldDescriptor getResult = fields.get(0);
-    DescriptorProtos.FieldOptions options3 = getResult.getOptions();
-    assertSame(features, options3.getFeatures());
-    assertSame(features, options3.getFeaturesOrBuilder());
-    assertSame(features, defaultInstanceForType3.getFeatures());
-    assertSame(features, options2.getFeatures());
-    assertSame(features, defaultInstanceForType3.getFeaturesOrBuilder());
-    assertSame(features, options2.getFeaturesOrBuilder());
-    assertSame(features, options.getFeaturesOrBuilder());
-    Descriptors.Descriptor getResult2 = messageTypes.get(0);
-    assertSame(file, getResult2.getFile());
-    Descriptors.Descriptor getResult3 = messageTypes.get(1);
-    assertSame(file, getResult3.getFile());
-    Descriptors.Descriptor getResult4 = messageTypes.get(178);
-    assertSame(file, getResult4.getFile());
-    Descriptors.Descriptor getResult5 = messageTypes.get(179);
-    assertSame(file, getResult5.getFile());
-    assertSame(file, enumTypes.get(0).getFile());
-    assertSame(file, enumTypes.get(1).getFile());
-    assertSame(file, enumTypes.get(8).getFile());
-    assertSame(file, enumTypes.get(9).getFile());
-    assertSame(file, getResult.getFile());
-    Descriptors.FieldDescriptor getResult6 = fields.get(1);
-    assertSame(file, getResult6.getFile());
-    Descriptors.FieldDescriptor getResult7 = fields.get(2);
-    assertSame(file, getResult7.getFile());
-    Descriptors.FieldDescriptor getResult8 = fields.get(3);
-    assertSame(file, getResult8.getFile());
-    DescriptorProtos.MessageOptions options4 = descriptorForType2.getOptions();
-    assertSame(options4, defaultInstanceForType.getOptions());
-    assertSame(options4, toProtoResult3.getOptions());
-    assertSame(options4, toProtoResult2.getOptions());
-    assertSame(options4, defaultInstanceForType.getOptionsOrBuilder());
-    assertSame(options4, toProtoResult3.getOptionsOrBuilder());
-    assertSame(options4, toProtoResult2.getOptionsOrBuilder());
-    assertSame(options4, options4);
-    assertSame(options4, toProtoResult2.getDescriptorForType().getOptions());
-    assertSame(options4, options2.getDescriptorForType().getOptions());
-    assertSame(options4, toProtoResult.getDescriptorForType().getOptions());
-    assertSame(options4, getResult2.getOptions());
-    assertSame(options4, getResult3.getOptions());
-    assertSame(options4, getResult4.getOptions());
-    assertSame(options4, getResult5.getOptions());
-    assertSame(options, options.getDefaultInstanceForType());
-    DescriptorProtos.FieldDescriptorProto toProtoResult4 = getResult.toProto();
-    assertSame(options3, toProtoResult4.getOptions());
-    DescriptorProtos.FieldDescriptorProto toProtoResult5 = getResult6.toProto();
-    assertSame(options3, toProtoResult5.getOptions());
-    DescriptorProtos.FieldDescriptorProto toProtoResult6 = getResult7.toProto();
-    assertSame(options3, toProtoResult6.getOptions());
-    DescriptorProtos.FieldDescriptorProto toProtoResult7 = getResult8.toProto();
-    assertSame(options3, toProtoResult7.getOptions());
-    assertSame(options3, toProtoResult4.getOptionsOrBuilder());
-    assertSame(options3, toProtoResult5.getOptionsOrBuilder());
-    assertSame(options3, toProtoResult6.getOptionsOrBuilder());
-    assertSame(options3, toProtoResult7.getOptionsOrBuilder());
-    assertSame(options3, options3.getDefaultInstanceForType());
-    assertSame(options3, getResult6.getOptions());
-    assertSame(options3, getResult7.getOptions());
-    assertSame(options3, getResult8.getOptions());
-    assertSame(toProtoResult4, fieldList.get(0));
-    assertSame(descriptorForType, getResult.getContainingType());
-    assertSame(descriptorForType, getResult6.getContainingType());
-    assertSame(descriptorForType, getResult7.getContainingType());
-    assertSame(descriptorForType, getResult8.getContainingType());
-    TransportProtos.ClaimDeviceMsg defaultInstanceForType4 = actualConvertToClaimDeviceProtoResult
-        .getDefaultInstanceForType();
-    assertSame(descriptorForType, defaultInstanceForType4.getDescriptorForType());
-    UnknownFieldSet unknownFields = actualConvertToClaimDeviceProtoResult.getUnknownFields();
-    assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
-    assertSame(unknownFields, defaultInstanceForType2.getUnknownFields());
-    assertSame(unknownFields, sourceCodeInfo.getUnknownFields());
-    assertSame(unknownFields, defaultInstanceForType3.getUnknownFields());
-    assertSame(unknownFields, features.getUnknownFields());
-    assertSame(unknownFields, options.getUnknownFields());
-    assertSame(unknownFields, toProtoResult2.getUnknownFields());
-    assertSame(unknownFields, options3.getUnknownFields());
-    assertSame(unknownFields, toProtoResult4.getUnknownFields());
-    assertSame(unknownFields, toProtoResult5.getUnknownFields());
-    assertSame(unknownFields, toProtoResult6.getUnknownFields());
-    assertSame(unknownFields, toProtoResult7.getUnknownFields());
-    assertSame(unknownFields, options2.getUnknownFields());
-    assertSame(unknownFields, toProtoResult.getUnknownFields());
-    assertSame(unknownFields, defaultInstanceForType4.getUnknownFields());
-    assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType4.getDefaultInstanceForType(),
-        defaultInstanceForType4.getDefaultInstanceForType());
-  }
-
-  /**
-   * Test {@link ProtoConverter#convertToClaimDeviceProto(DeviceId, byte[])}.
-   * <p>
-   * Method under test:
-   * {@link ProtoConverter#convertToClaimDeviceProto(DeviceId, byte[])}
-   */
-  @Test
-  @DisplayName("Test convertToClaimDeviceProto(DeviceId, byte[])")
-  void testConvertToClaimDeviceProto2() throws InvalidProtocolBufferException {
-    // Arrange and Act
-    TransportProtos.ClaimDeviceMsg actualConvertToClaimDeviceProtoResult = ProtoConverter
-        .convertToClaimDeviceProto(new DeviceId(UUID.randomUUID()), new byte[]{});
-
-    // Assert
-    Descriptors.Descriptor descriptorForType = actualConvertToClaimDeviceProtoResult.getDescriptorForType();
-    Descriptors.FileDescriptor file = descriptorForType.getFile();
-    DescriptorProtos.FileDescriptorProto toProtoResult = file.toProto();
-    List<DescriptorProtos.EnumDescriptorProto> enumTypeList = toProtoResult.getEnumTypeList();
-    assertEquals(10, enumTypeList.size());
-    List<Descriptors.EnumDescriptor> enumTypes = file.getEnumTypes();
-    assertEquals(10, enumTypes.size());
-    List<DescriptorProtos.DescriptorProto> messageTypeList = toProtoResult.getMessageTypeList();
-    assertEquals(180, messageTypeList.size());
-    List<Descriptors.Descriptor> messageTypes = file.getMessageTypes();
-    assertEquals(180, messageTypes.size());
-    DescriptorProtos.DescriptorProto toProtoResult2 = descriptorForType.toProto();
-    List<DescriptorProtos.FieldDescriptorProto> fieldList = toProtoResult2.getFieldList();
-    assertEquals(4, fieldList.size());
-    List<Descriptors.FieldDescriptor> fields = descriptorForType.getFields();
-    assertEquals(4, fields.size());
-    DescriptorProtos.DescriptorProto defaultInstanceForType = toProtoResult2.getDefaultInstanceForType();
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
-    assertSame(fieldList, toProtoResult2.getFieldOrBuilderList());
-    ProtocolStringList reservedNameList = toProtoResult2.getReservedNameList();
-    assertSame(reservedNameList, defaultInstanceForType.getReservedNameList());
-    DescriptorProtos.MessageOptions options = descriptorForType.getOptions();
-    Descriptors.Descriptor descriptorForType2 = options.getDescriptorForType();
-    DescriptorProtos.DescriptorProto toProtoResult3 = descriptorForType2.toProto();
-    assertSame(reservedNameList, toProtoResult3.getReservedNameList());
-    DescriptorProtos.FileDescriptorProto defaultInstanceForType2 = toProtoResult.getDefaultInstanceForType();
-    assertSame(reservedNameList, defaultInstanceForType2.getDependencyList());
-    assertSame(reservedNameList, toProtoResult.getDependencyList());
-    assertSame(defaultInstanceForType2.getDefaultInstanceForType(),
-        defaultInstanceForType2.getDefaultInstanceForType());
-    assertSame(enumTypeList, toProtoResult.getEnumTypeOrBuilderList());
-    assertSame(messageTypeList, toProtoResult.getMessageTypeOrBuilderList());
-    DescriptorProtos.SourceCodeInfo sourceCodeInfo = toProtoResult.getSourceCodeInfo();
-    assertSame(sourceCodeInfo, defaultInstanceForType2.getSourceCodeInfo());
-    assertSame(sourceCodeInfo, defaultInstanceForType2.getSourceCodeInfoOrBuilder());
-    assertSame(sourceCodeInfo, toProtoResult.getSourceCodeInfoOrBuilder());
-    assertSame(sourceCodeInfo, sourceCodeInfo.getDefaultInstanceForType());
-    DescriptorProtos.FileOptions options2 = file.getOptions();
-    DescriptorProtos.FileOptions defaultInstanceForType3 = options2.getDefaultInstanceForType();
-    assertSame(defaultInstanceForType3.getDefaultInstanceForType(),
-        defaultInstanceForType3.getDefaultInstanceForType());
-    DescriptorProtos.FeatureSet features = options.getFeatures();
-    assertSame(features, features.getDefaultInstanceForType());
-    Descriptors.FieldDescriptor getResult = fields.get(0);
-    DescriptorProtos.FieldOptions options3 = getResult.getOptions();
-    assertSame(features, options3.getFeatures());
-    assertSame(features, options3.getFeaturesOrBuilder());
-    assertSame(features, defaultInstanceForType3.getFeatures());
-    assertSame(features, options2.getFeatures());
-    assertSame(features, defaultInstanceForType3.getFeaturesOrBuilder());
-    assertSame(features, options2.getFeaturesOrBuilder());
-    assertSame(features, options.getFeaturesOrBuilder());
-    Descriptors.Descriptor getResult2 = messageTypes.get(0);
-    assertSame(file, getResult2.getFile());
-    Descriptors.Descriptor getResult3 = messageTypes.get(1);
-    assertSame(file, getResult3.getFile());
-    Descriptors.Descriptor getResult4 = messageTypes.get(178);
-    assertSame(file, getResult4.getFile());
-    Descriptors.Descriptor getResult5 = messageTypes.get(179);
-    assertSame(file, getResult5.getFile());
-    assertSame(file, enumTypes.get(0).getFile());
-    assertSame(file, enumTypes.get(1).getFile());
-    assertSame(file, enumTypes.get(8).getFile());
-    assertSame(file, enumTypes.get(9).getFile());
-    assertSame(file, getResult.getFile());
-    Descriptors.FieldDescriptor getResult6 = fields.get(1);
-    assertSame(file, getResult6.getFile());
-    Descriptors.FieldDescriptor getResult7 = fields.get(2);
-    assertSame(file, getResult7.getFile());
-    Descriptors.FieldDescriptor getResult8 = fields.get(3);
-    assertSame(file, getResult8.getFile());
-    DescriptorProtos.MessageOptions options4 = descriptorForType2.getOptions();
-    assertSame(options4, defaultInstanceForType.getOptions());
-    assertSame(options4, toProtoResult3.getOptions());
-    assertSame(options4, toProtoResult2.getOptions());
-    assertSame(options4, defaultInstanceForType.getOptionsOrBuilder());
-    assertSame(options4, toProtoResult3.getOptionsOrBuilder());
-    assertSame(options4, toProtoResult2.getOptionsOrBuilder());
-    assertSame(options4, options4);
-    assertSame(options4, toProtoResult2.getDescriptorForType().getOptions());
-    assertSame(options4, options2.getDescriptorForType().getOptions());
-    assertSame(options4, toProtoResult.getDescriptorForType().getOptions());
-    assertSame(options4, getResult2.getOptions());
-    assertSame(options4, getResult3.getOptions());
-    assertSame(options4, getResult4.getOptions());
-    assertSame(options4, getResult5.getOptions());
-    assertSame(options, options.getDefaultInstanceForType());
-    DescriptorProtos.FieldDescriptorProto toProtoResult4 = getResult.toProto();
-    assertSame(options3, toProtoResult4.getOptions());
-    DescriptorProtos.FieldDescriptorProto toProtoResult5 = getResult6.toProto();
-    assertSame(options3, toProtoResult5.getOptions());
-    DescriptorProtos.FieldDescriptorProto toProtoResult6 = getResult7.toProto();
-    assertSame(options3, toProtoResult6.getOptions());
-    DescriptorProtos.FieldDescriptorProto toProtoResult7 = getResult8.toProto();
-    assertSame(options3, toProtoResult7.getOptions());
-    assertSame(options3, toProtoResult4.getOptionsOrBuilder());
-    assertSame(options3, toProtoResult5.getOptionsOrBuilder());
-    assertSame(options3, toProtoResult6.getOptionsOrBuilder());
-    assertSame(options3, toProtoResult7.getOptionsOrBuilder());
-    assertSame(options3, options3.getDefaultInstanceForType());
-    assertSame(options3, getResult6.getOptions());
-    assertSame(options3, getResult7.getOptions());
-    assertSame(options3, getResult8.getOptions());
-    assertSame(toProtoResult4, fieldList.get(0));
-    assertSame(descriptorForType, getResult.getContainingType());
-    assertSame(descriptorForType, getResult6.getContainingType());
-    assertSame(descriptorForType, getResult7.getContainingType());
-    assertSame(descriptorForType, getResult8.getContainingType());
-    TransportProtos.ClaimDeviceMsg defaultInstanceForType4 = actualConvertToClaimDeviceProtoResult
-        .getDefaultInstanceForType();
-    assertSame(descriptorForType, defaultInstanceForType4.getDescriptorForType());
-    UnknownFieldSet unknownFields = actualConvertToClaimDeviceProtoResult.getUnknownFields();
-    assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
-    assertSame(unknownFields, defaultInstanceForType2.getUnknownFields());
-    assertSame(unknownFields, sourceCodeInfo.getUnknownFields());
-    assertSame(unknownFields, defaultInstanceForType3.getUnknownFields());
-    assertSame(unknownFields, features.getUnknownFields());
-    assertSame(unknownFields, options.getUnknownFields());
-    assertSame(unknownFields, toProtoResult2.getUnknownFields());
-    assertSame(unknownFields, options3.getUnknownFields());
-    assertSame(unknownFields, toProtoResult4.getUnknownFields());
-    assertSame(unknownFields, toProtoResult5.getUnknownFields());
-    assertSame(unknownFields, toProtoResult6.getUnknownFields());
-    assertSame(unknownFields, toProtoResult7.getUnknownFields());
-    assertSame(unknownFields, options2.getUnknownFields());
-    assertSame(unknownFields, toProtoResult.getUnknownFields());
-    assertSame(unknownFields, defaultInstanceForType4.getUnknownFields());
-    assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType4.getDefaultInstanceForType(),
-        defaultInstanceForType4.getDefaultInstanceForType());
-  }
-
-  /**
-   * Test {@link ProtoConverter#convertToGetAttributeRequestMessage(byte[], int)}.
-   * <ul>
-   *   <li>Then return RequestId is one.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link ProtoConverter#convertToGetAttributeRequestMessage(byte[], int)}
-   */
-  @Test
-  @DisplayName("Test convertToGetAttributeRequestMessage(byte[], int); then return RequestId is one")
-  void testConvertToGetAttributeRequestMessage_thenReturnRequestIdIsOne()
-      throws InvalidProtocolBufferException, RuntimeException {
-    // Arrange and Act
-    TransportProtos.GetAttributeRequestMsg actualConvertToGetAttributeRequestMessageResult = ProtoConverter
-        .convertToGetAttributeRequestMessage(new byte[]{}, 1);
-
-    // Assert
-    assertEquals(1, actualConvertToGetAttributeRequestMessageResult.getRequestId());
-    Descriptors.Descriptor descriptorForType = actualConvertToGetAttributeRequestMessageResult.getDescriptorForType();
-    Descriptors.FileDescriptor file = descriptorForType.getFile();
-    DescriptorProtos.FileDescriptorProto toProtoResult = file.toProto();
-    List<DescriptorProtos.EnumDescriptorProto> enumTypeList = toProtoResult.getEnumTypeList();
-    assertEquals(10, enumTypeList.size());
-    List<Descriptors.EnumDescriptor> enumTypes = file.getEnumTypes();
-    assertEquals(10, enumTypes.size());
-    List<DescriptorProtos.DescriptorProto> messageTypeList = toProtoResult.getMessageTypeList();
-    assertEquals(180, messageTypeList.size());
-    List<Descriptors.Descriptor> messageTypes = file.getMessageTypes();
-    assertEquals(180, messageTypes.size());
-    DescriptorProtos.DescriptorProto toProtoResult2 = descriptorForType.toProto();
-    List<DescriptorProtos.FieldDescriptorProto> fieldList = toProtoResult2.getFieldList();
-    assertEquals(4, fieldList.size());
-    List<Descriptors.FieldDescriptor> fields = descriptorForType.getFields();
-    assertEquals(4, fields.size());
-    DescriptorProtos.DescriptorProto defaultInstanceForType = toProtoResult2.getDefaultInstanceForType();
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
-    assertSame(fieldList, toProtoResult2.getFieldOrBuilderList());
-    DescriptorProtos.FileDescriptorProto defaultInstanceForType2 = toProtoResult.getDefaultInstanceForType();
-    assertSame(defaultInstanceForType2.getDefaultInstanceForType(),
-        defaultInstanceForType2.getDefaultInstanceForType());
-    assertSame(enumTypeList, toProtoResult.getEnumTypeOrBuilderList());
-    assertSame(messageTypeList, toProtoResult.getMessageTypeOrBuilderList());
-    DescriptorProtos.SourceCodeInfo sourceCodeInfo = toProtoResult.getSourceCodeInfo();
-    assertSame(sourceCodeInfo, defaultInstanceForType2.getSourceCodeInfo());
-    assertSame(sourceCodeInfo, defaultInstanceForType2.getSourceCodeInfoOrBuilder());
-    assertSame(sourceCodeInfo, toProtoResult.getSourceCodeInfoOrBuilder());
-    assertSame(sourceCodeInfo, sourceCodeInfo.getDefaultInstanceForType());
-    DescriptorProtos.FileOptions options = file.getOptions();
-    DescriptorProtos.FileOptions defaultInstanceForType3 = options.getDefaultInstanceForType();
-    assertSame(defaultInstanceForType3.getDefaultInstanceForType(),
-        defaultInstanceForType3.getDefaultInstanceForType());
-    DescriptorProtos.MessageOptions options2 = descriptorForType.getOptions();
-    DescriptorProtos.FeatureSet features = options2.getFeatures();
-    assertSame(features, features.getDefaultInstanceForType());
-    Descriptors.FieldDescriptor getResult = fields.get(0);
-    DescriptorProtos.FieldOptions options3 = getResult.getOptions();
-    assertSame(features, options3.getFeatures());
-    assertSame(features, options3.getFeaturesOrBuilder());
-    assertSame(features, defaultInstanceForType3.getFeatures());
-    assertSame(features, options.getFeatures());
-    assertSame(features, defaultInstanceForType3.getFeaturesOrBuilder());
-    assertSame(features, options.getFeaturesOrBuilder());
-    assertSame(features, options2.getFeaturesOrBuilder());
-    Descriptors.Descriptor getResult2 = messageTypes.get(0);
-    assertSame(file, getResult2.getFile());
-    Descriptors.Descriptor getResult3 = messageTypes.get(1);
-    assertSame(file, getResult3.getFile());
-    Descriptors.Descriptor getResult4 = messageTypes.get(178);
-    assertSame(file, getResult4.getFile());
-    Descriptors.Descriptor getResult5 = messageTypes.get(179);
-    assertSame(file, getResult5.getFile());
-    assertSame(file, enumTypes.get(0).getFile());
-    assertSame(file, enumTypes.get(1).getFile());
-    assertSame(file, enumTypes.get(8).getFile());
-    assertSame(file, enumTypes.get(9).getFile());
-    assertSame(file, getResult.getFile());
-    Descriptors.FieldDescriptor getResult6 = fields.get(1);
-    assertSame(file, getResult6.getFile());
-    Descriptors.FieldDescriptor getResult7 = fields.get(2);
-    assertSame(file, getResult7.getFile());
-    Descriptors.FieldDescriptor getResult8 = fields.get(3);
-    assertSame(file, getResult8.getFile());
-    Descriptors.Descriptor descriptorForType2 = options2.getDescriptorForType();
-    DescriptorProtos.MessageOptions options4 = descriptorForType2.getOptions();
-    assertSame(options4, defaultInstanceForType.getOptions());
-    DescriptorProtos.DescriptorProto toProtoResult3 = descriptorForType2.toProto();
-    assertSame(options4, toProtoResult3.getOptions());
-    assertSame(options4, toProtoResult2.getOptions());
-    assertSame(options4, defaultInstanceForType.getOptionsOrBuilder());
-    assertSame(options4, toProtoResult3.getOptionsOrBuilder());
-    assertSame(options4, toProtoResult2.getOptionsOrBuilder());
-    assertSame(options4, options4);
-    assertSame(options4, toProtoResult2.getDescriptorForType().getOptions());
-    assertSame(options4, options.getDescriptorForType().getOptions());
-    assertSame(options4, toProtoResult.getDescriptorForType().getOptions());
-    assertSame(options4, getResult2.getOptions());
-    assertSame(options4, getResult3.getOptions());
-    assertSame(options4, getResult4.getOptions());
-    assertSame(options4, getResult5.getOptions());
-    assertSame(options2, options2.getDefaultInstanceForType());
-    DescriptorProtos.FieldDescriptorProto toProtoResult4 = getResult.toProto();
-    assertSame(options3, toProtoResult4.getOptions());
-    DescriptorProtos.FieldDescriptorProto toProtoResult5 = getResult6.toProto();
-    assertSame(options3, toProtoResult5.getOptions());
-    DescriptorProtos.FieldDescriptorProto toProtoResult6 = getResult7.toProto();
-    assertSame(options3, toProtoResult6.getOptions());
-    DescriptorProtos.FieldDescriptorProto toProtoResult7 = getResult8.toProto();
-    assertSame(options3, toProtoResult7.getOptions());
-    assertSame(options3, toProtoResult4.getOptionsOrBuilder());
-    assertSame(options3, toProtoResult5.getOptionsOrBuilder());
-    assertSame(options3, toProtoResult6.getOptionsOrBuilder());
-    assertSame(options3, toProtoResult7.getOptionsOrBuilder());
-    assertSame(options3, options3.getDefaultInstanceForType());
-    assertSame(options3, getResult6.getOptions());
-    assertSame(options3, getResult7.getOptions());
-    assertSame(options3, getResult8.getOptions());
-    assertSame(toProtoResult4, fieldList.get(0));
-    assertSame(descriptorForType, getResult.getContainingType());
-    assertSame(descriptorForType, getResult6.getContainingType());
-    assertSame(descriptorForType, getResult7.getContainingType());
-    assertSame(descriptorForType, getResult8.getContainingType());
-    TransportProtos.GetAttributeRequestMsg defaultInstanceForType4 = actualConvertToGetAttributeRequestMessageResult
-        .getDefaultInstanceForType();
-    assertSame(descriptorForType, defaultInstanceForType4.getDescriptorForType());
-    UnknownFieldSet unknownFields = actualConvertToGetAttributeRequestMessageResult.getUnknownFields();
-    assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
-    assertSame(unknownFields, defaultInstanceForType2.getUnknownFields());
-    assertSame(unknownFields, sourceCodeInfo.getUnknownFields());
-    assertSame(unknownFields, defaultInstanceForType3.getUnknownFields());
-    assertSame(unknownFields, features.getUnknownFields());
-    assertSame(unknownFields, options2.getUnknownFields());
-    assertSame(unknownFields, toProtoResult3.getUnknownFields());
-    assertSame(unknownFields, toProtoResult2.getUnknownFields());
-    assertSame(unknownFields, options3.getUnknownFields());
-    assertSame(unknownFields, toProtoResult4.getUnknownFields());
-    assertSame(unknownFields, toProtoResult5.getUnknownFields());
-    assertSame(unknownFields, toProtoResult6.getUnknownFields());
-    assertSame(unknownFields, toProtoResult7.getUnknownFields());
-    assertSame(unknownFields, options.getUnknownFields());
-    assertSame(unknownFields, toProtoResult.getUnknownFields());
-    assertSame(unknownFields, defaultInstanceForType4.getUnknownFields());
-    assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    ProtocolStringList clientAttributeNamesList = actualConvertToGetAttributeRequestMessageResult
-        .getClientAttributeNamesList();
-    assertSame(clientAttributeNamesList, defaultInstanceForType.getReservedNameList());
-    assertSame(clientAttributeNamesList, toProtoResult3.getReservedNameList());
-    assertSame(clientAttributeNamesList, toProtoResult2.getReservedNameList());
-    assertSame(clientAttributeNamesList, defaultInstanceForType2.getDependencyList());
-    assertSame(clientAttributeNamesList, toProtoResult.getDependencyList());
-    assertSame(clientAttributeNamesList, defaultInstanceForType4.getClientAttributeNamesList());
-    assertSame(clientAttributeNamesList, defaultInstanceForType4.getSharedAttributeNamesList());
-    assertSame(clientAttributeNamesList, actualConvertToGetAttributeRequestMessageResult.getSharedAttributeNamesList());
-    assertSame(defaultInstanceForType4.getDefaultInstanceForType(),
-        defaultInstanceForType4.getDefaultInstanceForType());
-  }
-
-  /**
-   * Test {@link ProtoConverter#convertToGetAttributeRequestMessage(byte[], int)}.
-   * <ul>
-   *   <li>When two.</li>
-   *   <li>Then return RequestId is two.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link ProtoConverter#convertToGetAttributeRequestMessage(byte[], int)}
-   */
-  @Test
-  @DisplayName("Test convertToGetAttributeRequestMessage(byte[], int); when two; then return RequestId is two")
-  void testConvertToGetAttributeRequestMessage_whenTwo_thenReturnRequestIdIsTwo()
-      throws InvalidProtocolBufferException, RuntimeException {
-    // Arrange and Act
-    TransportProtos.GetAttributeRequestMsg actualConvertToGetAttributeRequestMessageResult = ProtoConverter
-        .convertToGetAttributeRequestMessage(new byte[]{}, 2);
-
-    // Assert
-    Descriptors.Descriptor descriptorForType = actualConvertToGetAttributeRequestMessageResult.getDescriptorForType();
-    Descriptors.FileDescriptor file = descriptorForType.getFile();
-    DescriptorProtos.FileDescriptorProto toProtoResult = file.toProto();
-    List<DescriptorProtos.EnumDescriptorProto> enumTypeList = toProtoResult.getEnumTypeList();
-    assertEquals(10, enumTypeList.size());
-    List<Descriptors.EnumDescriptor> enumTypes = file.getEnumTypes();
-    assertEquals(10, enumTypes.size());
-    List<DescriptorProtos.DescriptorProto> messageTypeList = toProtoResult.getMessageTypeList();
-    assertEquals(180, messageTypeList.size());
-    List<Descriptors.Descriptor> messageTypes = file.getMessageTypes();
-    assertEquals(180, messageTypes.size());
-    assertEquals(2, actualConvertToGetAttributeRequestMessageResult.getRequestId());
-    DescriptorProtos.DescriptorProto toProtoResult2 = descriptorForType.toProto();
-    List<DescriptorProtos.FieldDescriptorProto> fieldList = toProtoResult2.getFieldList();
-    assertEquals(4, fieldList.size());
-    List<Descriptors.FieldDescriptor> fields = descriptorForType.getFields();
-    assertEquals(4, fields.size());
-    DescriptorProtos.DescriptorProto defaultInstanceForType = toProtoResult2.getDefaultInstanceForType();
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
-    assertSame(fieldList, toProtoResult2.getFieldOrBuilderList());
-    DescriptorProtos.FileDescriptorProto defaultInstanceForType2 = toProtoResult.getDefaultInstanceForType();
-    assertSame(defaultInstanceForType2.getDefaultInstanceForType(),
-        defaultInstanceForType2.getDefaultInstanceForType());
-    assertSame(enumTypeList, toProtoResult.getEnumTypeOrBuilderList());
-    assertSame(messageTypeList, toProtoResult.getMessageTypeOrBuilderList());
-    DescriptorProtos.SourceCodeInfo sourceCodeInfo = toProtoResult.getSourceCodeInfo();
-    assertSame(sourceCodeInfo, defaultInstanceForType2.getSourceCodeInfo());
-    assertSame(sourceCodeInfo, defaultInstanceForType2.getSourceCodeInfoOrBuilder());
-    assertSame(sourceCodeInfo, toProtoResult.getSourceCodeInfoOrBuilder());
-    assertSame(sourceCodeInfo, sourceCodeInfo.getDefaultInstanceForType());
-    DescriptorProtos.FileOptions options = file.getOptions();
-    DescriptorProtos.FileOptions defaultInstanceForType3 = options.getDefaultInstanceForType();
-    assertSame(defaultInstanceForType3.getDefaultInstanceForType(),
-        defaultInstanceForType3.getDefaultInstanceForType());
-    DescriptorProtos.MessageOptions options2 = descriptorForType.getOptions();
-    DescriptorProtos.FeatureSet features = options2.getFeatures();
-    assertSame(features, features.getDefaultInstanceForType());
-    Descriptors.FieldDescriptor getResult = fields.get(0);
-    DescriptorProtos.FieldOptions options3 = getResult.getOptions();
-    assertSame(features, options3.getFeatures());
-    assertSame(features, options3.getFeaturesOrBuilder());
-    assertSame(features, defaultInstanceForType3.getFeatures());
-    assertSame(features, options.getFeatures());
-    assertSame(features, defaultInstanceForType3.getFeaturesOrBuilder());
-    assertSame(features, options.getFeaturesOrBuilder());
-    assertSame(features, options2.getFeaturesOrBuilder());
-    Descriptors.Descriptor getResult2 = messageTypes.get(0);
-    assertSame(file, getResult2.getFile());
-    Descriptors.Descriptor getResult3 = messageTypes.get(1);
-    assertSame(file, getResult3.getFile());
-    Descriptors.Descriptor getResult4 = messageTypes.get(178);
-    assertSame(file, getResult4.getFile());
-    Descriptors.Descriptor getResult5 = messageTypes.get(179);
-    assertSame(file, getResult5.getFile());
-    assertSame(file, enumTypes.get(0).getFile());
-    assertSame(file, enumTypes.get(1).getFile());
-    assertSame(file, enumTypes.get(8).getFile());
-    assertSame(file, enumTypes.get(9).getFile());
-    assertSame(file, getResult.getFile());
-    Descriptors.FieldDescriptor getResult6 = fields.get(1);
-    assertSame(file, getResult6.getFile());
-    Descriptors.FieldDescriptor getResult7 = fields.get(2);
-    assertSame(file, getResult7.getFile());
-    Descriptors.FieldDescriptor getResult8 = fields.get(3);
-    assertSame(file, getResult8.getFile());
-    Descriptors.Descriptor descriptorForType2 = options2.getDescriptorForType();
-    DescriptorProtos.MessageOptions options4 = descriptorForType2.getOptions();
-    assertSame(options4, defaultInstanceForType.getOptions());
-    DescriptorProtos.DescriptorProto toProtoResult3 = descriptorForType2.toProto();
-    assertSame(options4, toProtoResult3.getOptions());
-    assertSame(options4, toProtoResult2.getOptions());
-    assertSame(options4, defaultInstanceForType.getOptionsOrBuilder());
-    assertSame(options4, toProtoResult3.getOptionsOrBuilder());
-    assertSame(options4, toProtoResult2.getOptionsOrBuilder());
-    assertSame(options4, options4);
-    assertSame(options4, toProtoResult2.getDescriptorForType().getOptions());
-    assertSame(options4, options.getDescriptorForType().getOptions());
-    assertSame(options4, toProtoResult.getDescriptorForType().getOptions());
-    assertSame(options4, getResult2.getOptions());
-    assertSame(options4, getResult3.getOptions());
-    assertSame(options4, getResult4.getOptions());
-    assertSame(options4, getResult5.getOptions());
-    assertSame(options2, options2.getDefaultInstanceForType());
-    DescriptorProtos.FieldDescriptorProto toProtoResult4 = getResult.toProto();
-    assertSame(options3, toProtoResult4.getOptions());
-    DescriptorProtos.FieldDescriptorProto toProtoResult5 = getResult6.toProto();
-    assertSame(options3, toProtoResult5.getOptions());
-    DescriptorProtos.FieldDescriptorProto toProtoResult6 = getResult7.toProto();
-    assertSame(options3, toProtoResult6.getOptions());
-    DescriptorProtos.FieldDescriptorProto toProtoResult7 = getResult8.toProto();
-    assertSame(options3, toProtoResult7.getOptions());
-    assertSame(options3, toProtoResult4.getOptionsOrBuilder());
-    assertSame(options3, toProtoResult5.getOptionsOrBuilder());
-    assertSame(options3, toProtoResult6.getOptionsOrBuilder());
-    assertSame(options3, toProtoResult7.getOptionsOrBuilder());
-    assertSame(options3, options3.getDefaultInstanceForType());
-    assertSame(options3, getResult6.getOptions());
-    assertSame(options3, getResult7.getOptions());
-    assertSame(options3, getResult8.getOptions());
-    assertSame(toProtoResult4, fieldList.get(0));
-    assertSame(descriptorForType, getResult.getContainingType());
-    assertSame(descriptorForType, getResult6.getContainingType());
-    assertSame(descriptorForType, getResult7.getContainingType());
-    assertSame(descriptorForType, getResult8.getContainingType());
-    TransportProtos.GetAttributeRequestMsg defaultInstanceForType4 = actualConvertToGetAttributeRequestMessageResult
-        .getDefaultInstanceForType();
-    assertSame(descriptorForType, defaultInstanceForType4.getDescriptorForType());
-    UnknownFieldSet unknownFields = actualConvertToGetAttributeRequestMessageResult.getUnknownFields();
-    assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
-    assertSame(unknownFields, defaultInstanceForType2.getUnknownFields());
-    assertSame(unknownFields, sourceCodeInfo.getUnknownFields());
-    assertSame(unknownFields, defaultInstanceForType3.getUnknownFields());
-    assertSame(unknownFields, features.getUnknownFields());
-    assertSame(unknownFields, options2.getUnknownFields());
-    assertSame(unknownFields, toProtoResult3.getUnknownFields());
-    assertSame(unknownFields, toProtoResult2.getUnknownFields());
-    assertSame(unknownFields, options3.getUnknownFields());
-    assertSame(unknownFields, toProtoResult4.getUnknownFields());
-    assertSame(unknownFields, toProtoResult5.getUnknownFields());
-    assertSame(unknownFields, toProtoResult6.getUnknownFields());
-    assertSame(unknownFields, toProtoResult7.getUnknownFields());
-    assertSame(unknownFields, options.getUnknownFields());
-    assertSame(unknownFields, toProtoResult.getUnknownFields());
-    assertSame(unknownFields, defaultInstanceForType4.getUnknownFields());
-    assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    ProtocolStringList clientAttributeNamesList = actualConvertToGetAttributeRequestMessageResult
-        .getClientAttributeNamesList();
-    assertSame(clientAttributeNamesList, defaultInstanceForType.getReservedNameList());
-    assertSame(clientAttributeNamesList, toProtoResult3.getReservedNameList());
-    assertSame(clientAttributeNamesList, toProtoResult2.getReservedNameList());
-    assertSame(clientAttributeNamesList, defaultInstanceForType2.getDependencyList());
-    assertSame(clientAttributeNamesList, toProtoResult.getDependencyList());
-    assertSame(clientAttributeNamesList, defaultInstanceForType4.getClientAttributeNamesList());
-    assertSame(clientAttributeNamesList, defaultInstanceForType4.getSharedAttributeNamesList());
-    assertSame(clientAttributeNamesList, actualConvertToGetAttributeRequestMessageResult.getSharedAttributeNamesList());
-    assertSame(defaultInstanceForType4.getDefaultInstanceForType(),
-        defaultInstanceForType4.getDefaultInstanceForType());
-  }
-
   /**
    * Test {@link ProtoConverter#convertToTelemetryProto(byte[])}.
    * <ul>
@@ -636,6 +43,8 @@ class ProtoConverterDiffblueTest {
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(byte[]); then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg ProtoConverter.convertToTelemetryProto(byte[])"})
   void testConvertToTelemetryProto_thenThrowIllegalArgumentException()
       throws InvalidProtocolBufferException, IllegalArgumentException {
     // Arrange, Act and Assert
@@ -653,101 +62,12 @@ class ProtoConverterDiffblueTest {
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(byte[]); when empty array of byte")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg ProtoConverter.convertToTelemetryProto(byte[])"})
   void testConvertToTelemetryProto_whenEmptyArrayOfByte()
       throws InvalidProtocolBufferException, IllegalArgumentException {
     // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class, () -> ProtoConverter.convertToTelemetryProto(new byte[]{}));
-  }
-
-  /**
-   * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
-   * <ul>
-   *   <li>Then return {@code {}}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
-   */
-  @Test
-  @DisplayName("Test dynamicMsgToJson(byte[], Descriptor); then return '{}'")
-  void testDynamicMsgToJson_thenReturnLeftCurlyBracketRightCurlyBracket() throws InvalidProtocolBufferException {
-    // Arrange, Act and Assert
-    assertEquals("{}", ProtoConverter.dynamicMsgToJson(new byte[]{}, Any.getDescriptor()));
-    assertEquals("{}", ProtoConverter.dynamicMsgToJson(new byte[]{}, Any.Builder.getDescriptor()));
-  }
-
-  /**
-   * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
-   * <ul>
-   *   <li>Then return {@code { "name": "", "methods": [], "options": [], "version":
-   * "", "mixins": [], "syntax": "SYNTAX_PROTO2" }}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
-   */
-  @Test
-  @DisplayName("Test dynamicMsgToJson(byte[], Descriptor); then return '{ \"name\": \"\", \"methods\": [], \"options\": [], \"version\": \"\", \"mixins\": [], \"syntax\": \"SYNTAX_PROTO2\" }'")
-  void testDynamicMsgToJson_thenReturnNameMethodsOptionsVersionMixinsSyntaxSyntaxProto2()
-      throws InvalidProtocolBufferException {
-    // Arrange, Act and Assert
-    assertEquals(
-        "{\n" + "  \"name\": \"\",\n" + "  \"methods\": [],\n" + "  \"options\": [],\n" + "  \"version\": \"\",\n"
-            + "  \"mixins\": [],\n" + "  \"syntax\": \"SYNTAX_PROTO2\"\n" + "}",
-        ProtoConverter.dynamicMsgToJson(new byte[]{}, Api.getDescriptor()));
-  }
-
-  /**
-   * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
-   * <ul>
-   *   <li>When empty array of {@code byte}.</li>
-   *   <li>Then return {@code ""}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
-   */
-  @Test
-  @DisplayName("Test dynamicMsgToJson(byte[], Descriptor); when empty array of byte; then return '\"\"'")
-  void testDynamicMsgToJson_whenEmptyArrayOfByte_thenReturnQuotationMarkQuotationMark()
-      throws InvalidProtocolBufferException {
-    // Arrange, Act and Assert
-    assertEquals("\"\"", ProtoConverter.dynamicMsgToJson(new byte[]{}, BytesValue.getDescriptor()));
-  }
-
-  /**
-   * Test {@link ProtoConverter#validateDescriptor(Descriptor)}.
-   * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then throw {@link AdaptorException}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link ProtoConverter#validateDescriptor(Descriptors.Descriptor)}
-   */
-  @Test
-  @DisplayName("Test validateDescriptor(Descriptor); when 'null'; then throw AdaptorException")
-  void testValidateDescriptor_whenNull_thenThrowAdaptorException() throws AdaptorException {
-    // Arrange, Act and Assert
-    assertThrows(AdaptorException.class, () -> ProtoConverter.validateDescriptor(null));
-  }
-
-  /**
-   * Test {@link ProtoConverter#validatePostAttributeMsg(PostAttributeMsg)}.
-   * <ul>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link ProtoConverter#validatePostAttributeMsg(TransportProtos.PostAttributeMsg)}
-   */
-  @Test
-  @DisplayName("Test validatePostAttributeMsg(PostAttributeMsg); then throw IllegalArgumentException")
-  void testValidatePostAttributeMsg_thenThrowIllegalArgumentException()
-      throws InvalidProtocolBufferException, IllegalArgumentException {
-    // Arrange, Act and Assert
-    assertThrows(IllegalArgumentException.class,
-        () -> ProtoConverter.validatePostAttributeMsg(TransportProtos.PostAttributeMsg.getDefaultInstance()));
   }
 
   /**
@@ -760,9 +80,427 @@ class ProtoConverterDiffblueTest {
    */
   @Test
   @DisplayName("Test validatePostTelemetryMsg(byte[]); then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg ProtoConverter.validatePostTelemetryMsg(byte[])"})
   void testValidatePostTelemetryMsg_thenThrowIllegalArgumentException()
       throws InvalidProtocolBufferException, IllegalArgumentException {
     // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class, () -> ProtoConverter.validatePostTelemetryMsg(new byte[]{}));
+  }
+
+  /**
+   * Test {@link ProtoConverter#validatePostAttributeMsg(PostAttributeMsg)}.
+   * <ul>
+   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ProtoConverter#validatePostAttributeMsg(PostAttributeMsg)}
+   */
+  @Test
+  @DisplayName("Test validatePostAttributeMsg(PostAttributeMsg); then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"PostAttributeMsg ProtoConverter.validatePostAttributeMsg(PostAttributeMsg)"})
+  void testValidatePostAttributeMsg_thenThrowIllegalArgumentException()
+      throws InvalidProtocolBufferException, IllegalArgumentException {
+    // Arrange, Act and Assert
+    assertThrows(IllegalArgumentException.class,
+        () -> ProtoConverter.validatePostAttributeMsg(PostAttributeMsg.getDefaultInstance()));
+  }
+
+  /**
+   * Test {@link ProtoConverter#convertToClaimDeviceProto(DeviceId, byte[])}.
+   * <p>
+   * Method under test: {@link ProtoConverter#convertToClaimDeviceProto(DeviceId, byte[])}
+   */
+  @Test
+  @DisplayName("Test convertToClaimDeviceProto(DeviceId, byte[])")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ClaimDeviceMsg ProtoConverter.convertToClaimDeviceProto(DeviceId, byte[])"})
+  void testConvertToClaimDeviceProto() throws InvalidProtocolBufferException {
+    // Arrange and Act
+    ClaimDeviceMsg actualConvertToClaimDeviceProtoResult = ProtoConverter
+        .convertToClaimDeviceProto(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null);
+
+    // Assert
+    UnknownFieldSet unknownFields = actualConvertToClaimDeviceProtoResult.getUnknownFields();
+    ClaimDeviceMsg defaultInstanceForType = actualConvertToClaimDeviceProtoResult.getDefaultInstanceForType();
+    assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
+    assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
+    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+  }
+
+  /**
+   * Test {@link ProtoConverter#convertToClaimDeviceProto(DeviceId, byte[])}.
+   * <p>
+   * Method under test: {@link ProtoConverter#convertToClaimDeviceProto(DeviceId, byte[])}
+   */
+  @Test
+  @DisplayName("Test convertToClaimDeviceProto(DeviceId, byte[])")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ClaimDeviceMsg ProtoConverter.convertToClaimDeviceProto(DeviceId, byte[])"})
+  void testConvertToClaimDeviceProto2() throws InvalidProtocolBufferException {
+    // Arrange and Act
+    ClaimDeviceMsg actualConvertToClaimDeviceProtoResult = ProtoConverter
+        .convertToClaimDeviceProto(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), new byte[]{});
+
+    // Assert
+    UnknownFieldSet unknownFields = actualConvertToClaimDeviceProtoResult.getUnknownFields();
+    ClaimDeviceMsg defaultInstanceForType = actualConvertToClaimDeviceProtoResult.getDefaultInstanceForType();
+    assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
+    assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
+    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+  }
+
+  /**
+   * Test {@link ProtoConverter#convertToGetAttributeRequestMessage(byte[], int)}.
+   * <ul>
+   *   <li>When array of {@code byte} with {@link Byte#MIN_VALUE} and {@code X}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ProtoConverter#convertToGetAttributeRequestMessage(byte[], int)}
+   */
+  @Test
+  @DisplayName("Test convertToGetAttributeRequestMessage(byte[], int); when array of byte with MIN_VALUE and 'X'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"GetAttributeRequestMsg ProtoConverter.convertToGetAttributeRequestMessage(byte[], int)"})
+  void testConvertToGetAttributeRequestMessage_whenArrayOfByteWithMin_valueAndX()
+      throws InvalidProtocolBufferException, RuntimeException {
+    // Arrange and Act
+    GetAttributeRequestMsg actualConvertToGetAttributeRequestMessageResult = ProtoConverter
+        .convertToGetAttributeRequestMessage(new byte[]{Byte.MIN_VALUE, 'X', 'A', 'X', 'A', Byte.MIN_VALUE, 'A', 'X'},
+            1);
+
+    // Assert
+    UnknownFieldSet unknownFields = actualConvertToGetAttributeRequestMessageResult.getUnknownFields();
+    GetAttributeRequestMsg defaultInstanceForType = actualConvertToGetAttributeRequestMessageResult
+        .getDefaultInstanceForType();
+    assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
+    assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
+    ProtocolStringList clientAttributeNamesList = actualConvertToGetAttributeRequestMessageResult
+        .getClientAttributeNamesList();
+    assertSame(clientAttributeNamesList, defaultInstanceForType.getClientAttributeNamesList());
+    assertSame(clientAttributeNamesList, defaultInstanceForType.getSharedAttributeNamesList());
+    assertSame(clientAttributeNamesList, actualConvertToGetAttributeRequestMessageResult.getSharedAttributeNamesList());
+    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+  }
+
+  /**
+   * Test {@link ProtoConverter#convertToGetAttributeRequestMessage(byte[], int)}.
+   * <ul>
+   *   <li>When empty array of {@code byte}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ProtoConverter#convertToGetAttributeRequestMessage(byte[], int)}
+   */
+  @Test
+  @DisplayName("Test convertToGetAttributeRequestMessage(byte[], int); when empty array of byte")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"GetAttributeRequestMsg ProtoConverter.convertToGetAttributeRequestMessage(byte[], int)"})
+  void testConvertToGetAttributeRequestMessage_whenEmptyArrayOfByte()
+      throws InvalidProtocolBufferException, RuntimeException {
+    // Arrange and Act
+    GetAttributeRequestMsg actualConvertToGetAttributeRequestMessageResult = ProtoConverter
+        .convertToGetAttributeRequestMessage(new byte[]{}, 1);
+
+    // Assert
+    UnknownFieldSet unknownFields = actualConvertToGetAttributeRequestMessageResult.getUnknownFields();
+    GetAttributeRequestMsg defaultInstanceForType = actualConvertToGetAttributeRequestMessageResult
+        .getDefaultInstanceForType();
+    assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
+    assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
+    ProtocolStringList clientAttributeNamesList = actualConvertToGetAttributeRequestMessageResult
+        .getClientAttributeNamesList();
+    assertSame(clientAttributeNamesList, defaultInstanceForType.getClientAttributeNamesList());
+    assertSame(clientAttributeNamesList, defaultInstanceForType.getSharedAttributeNamesList());
+    assertSame(clientAttributeNamesList, actualConvertToGetAttributeRequestMessageResult.getSharedAttributeNamesList());
+    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+  }
+
+  /**
+   * Test {@link ProtoConverter#convertToGetAttributeRequestMessage(byte[], int)}.
+   * <ul>
+   *   <li>When two.</li>
+   *   <li>Then return RequestId is two.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ProtoConverter#convertToGetAttributeRequestMessage(byte[], int)}
+   */
+  @Test
+  @DisplayName("Test convertToGetAttributeRequestMessage(byte[], int); when two; then return RequestId is two")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"GetAttributeRequestMsg ProtoConverter.convertToGetAttributeRequestMessage(byte[], int)"})
+  void testConvertToGetAttributeRequestMessage_whenTwo_thenReturnRequestIdIsTwo()
+      throws InvalidProtocolBufferException, RuntimeException {
+    // Arrange and Act
+    GetAttributeRequestMsg actualConvertToGetAttributeRequestMessageResult = ProtoConverter
+        .convertToGetAttributeRequestMessage(new byte[]{}, 2);
+
+    // Assert
+    assertEquals(2, actualConvertToGetAttributeRequestMessageResult.getRequestId());
+    UnknownFieldSet unknownFields = actualConvertToGetAttributeRequestMessageResult.getUnknownFields();
+    GetAttributeRequestMsg defaultInstanceForType = actualConvertToGetAttributeRequestMessageResult
+        .getDefaultInstanceForType();
+    assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
+    assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
+    ProtocolStringList clientAttributeNamesList = actualConvertToGetAttributeRequestMessageResult
+        .getClientAttributeNamesList();
+    assertSame(clientAttributeNamesList, defaultInstanceForType.getClientAttributeNamesList());
+    assertSame(clientAttributeNamesList, defaultInstanceForType.getSharedAttributeNamesList());
+    assertSame(clientAttributeNamesList, actualConvertToGetAttributeRequestMessageResult.getSharedAttributeNamesList());
+    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+  }
+
+  /**
+   * Test {@link ProtoConverter#convertToServerRpcRequest(byte[], int)}.
+   * <ul>
+   *   <li>Then return InitializationErrorString is empty string.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ProtoConverter#convertToServerRpcRequest(byte[], int)}
+   */
+  @Test
+  @DisplayName("Test convertToServerRpcRequest(byte[], int); then return InitializationErrorString is empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ToServerRpcRequestMsg ProtoConverter.convertToServerRpcRequest(byte[], int)"})
+  void testConvertToServerRpcRequest_thenReturnInitializationErrorStringIsEmptyString()
+      throws InvalidProtocolBufferException {
+    // Arrange and Act
+    ToServerRpcRequestMsg actualConvertToServerRpcRequestResult = ProtoConverter.convertToServerRpcRequest(new byte[]{},
+        1);
+
+    // Assert
+    assertEquals("", actualConvertToServerRpcRequestResult.getInitializationErrorString());
+    assertEquals("", actualConvertToServerRpcRequestResult.getMethodName());
+    assertEquals("", actualConvertToServerRpcRequestResult.getParams());
+    assertEquals(1, actualConvertToServerRpcRequestResult.getAllFields().size());
+    assertEquals(1, actualConvertToServerRpcRequestResult.getRequestId());
+    assertEquals(2, actualConvertToServerRpcRequestResult.getSerializedSize());
+    assertTrue(actualConvertToServerRpcRequestResult.findInitializationErrors().isEmpty());
+    assertTrue(actualConvertToServerRpcRequestResult.isInitialized());
+  }
+
+  /**
+   * Test {@link ProtoConverter#convertToProvisionRequestMsg(byte[])}.
+   * <p>
+   * Method under test: {@link ProtoConverter#convertToProvisionRequestMsg(byte[])}
+   */
+  @Test
+  @DisplayName("Test convertToProvisionRequestMsg(byte[])")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ProvisionDeviceRequestMsg ProtoConverter.convertToProvisionRequestMsg(byte[])"})
+  void testConvertToProvisionRequestMsg() throws InvalidProtocolBufferException {
+    // Arrange and Act
+    ProvisionDeviceRequestMsg actualConvertToProvisionRequestMsgResult = ProtoConverter
+        .convertToProvisionRequestMsg(new byte[]{});
+
+    // Assert
+    assertEquals("", actualConvertToProvisionRequestMsgResult.getInitializationErrorString());
+    assertEquals("", actualConvertToProvisionRequestMsgResult.getDeviceName());
+    assertEquals(0, actualConvertToProvisionRequestMsgResult.getCredentialsTypeValue());
+    assertEquals(0, actualConvertToProvisionRequestMsgResult.getSerializedSize());
+    assertEquals(CredentialsType.ACCESS_TOKEN, actualConvertToProvisionRequestMsgResult.getCredentialsType());
+    assertFalse(actualConvertToProvisionRequestMsgResult.getGateway());
+    assertFalse(actualConvertToProvisionRequestMsgResult.hasCredentialsDataProto());
+    assertFalse(actualConvertToProvisionRequestMsgResult.hasProvisionDeviceCredentialsMsg());
+    assertTrue(actualConvertToProvisionRequestMsgResult.findInitializationErrors().isEmpty());
+    assertTrue(actualConvertToProvisionRequestMsgResult.getAllFields().isEmpty());
+    assertTrue(actualConvertToProvisionRequestMsgResult.isInitialized());
+    assertEquals(actualConvertToProvisionRequestMsgResult,
+        actualConvertToProvisionRequestMsgResult.getDefaultInstanceForType());
+  }
+
+  /**
+   * Test {@link ProtoConverter#validateDescriptor(Descriptor)}.
+   * <ul>
+   *   <li>When Descriptor.</li>
+   *   <li>Then return Name is {@code Any}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ProtoConverter#validateDescriptor(Descriptors.Descriptor)}
+   */
+  @Test
+  @DisplayName("Test validateDescriptor(Descriptor); when Descriptor; then return Name is 'Any'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Descriptors.Descriptor ProtoConverter.validateDescriptor(Descriptors.Descriptor)"})
+  void testValidateDescriptor_whenDescriptor_thenReturnNameIsAny() throws AdaptorException {
+    // Arrange and Act
+    Descriptor actualValidateDescriptorResult = ProtoConverter.validateDescriptor(Any.getDescriptor());
+
+    // Assert
+    assertEquals("Any", actualValidateDescriptorResult.getName());
+    assertEquals("google.protobuf.Any", actualValidateDescriptorResult.getFullName());
+    assertNull(actualValidateDescriptorResult.getContainingType());
+    assertEquals(0, actualValidateDescriptorResult.getIndex());
+    assertEquals(2, actualValidateDescriptorResult.getFields().size());
+    assertFalse(actualValidateDescriptorResult.isExtendable());
+    assertTrue(actualValidateDescriptorResult.getEnumTypes().isEmpty());
+    assertTrue(actualValidateDescriptorResult.getExtensions().isEmpty());
+    assertTrue(actualValidateDescriptorResult.getNestedTypes().isEmpty());
+    assertTrue(actualValidateDescriptorResult.getOneofs().isEmpty());
+    assertTrue(actualValidateDescriptorResult.getRealOneofs().isEmpty());
+  }
+
+  /**
+   * Test {@link ProtoConverter#validateDescriptor(Descriptor)}.
+   * <ul>
+   *   <li>When {@code null}.</li>
+   *   <li>Then throw {@link AdaptorException}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ProtoConverter#validateDescriptor(Descriptors.Descriptor)}
+   */
+  @Test
+  @DisplayName("Test validateDescriptor(Descriptor); when 'null'; then throw AdaptorException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Descriptors.Descriptor ProtoConverter.validateDescriptor(Descriptors.Descriptor)"})
+  void testValidateDescriptor_whenNull_thenThrowAdaptorException() throws AdaptorException {
+    // Arrange, Act and Assert
+    assertThrows(AdaptorException.class, () -> ProtoConverter.validateDescriptor(null));
+  }
+
+  /**
+   * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
+   * <ul>
+   *   <li>Then return {@code {}}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
+   */
+  @Test
+  @DisplayName("Test dynamicMsgToJson(byte[], Descriptor); then return '{}'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"})
+  void testDynamicMsgToJson_thenReturnLeftCurlyBracketRightCurlyBracket() throws InvalidProtocolBufferException {
+    // Arrange, Act and Assert
+    assertEquals("{}", ProtoConverter.dynamicMsgToJson(new byte[]{}, Any.getDescriptor()));
+  }
+
+  /**
+   * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
+   * <ul>
+   *   <li>Then return {@code {}}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
+   */
+  @Test
+  @DisplayName("Test dynamicMsgToJson(byte[], Descriptor); then return '{}'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"})
+  void testDynamicMsgToJson_thenReturnLeftCurlyBracketRightCurlyBracket2() throws InvalidProtocolBufferException {
+    // Arrange, Act and Assert
+    assertEquals("{}", ProtoConverter.dynamicMsgToJson(new byte[]{}, Builder.getDescriptor()));
+  }
+
+  /**
+   * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
+   * <ul>
+   *   <li>Then return {@code { "name": "", "value": [], "reservedRange": [], "reservedName": [] }}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
+   */
+  @Test
+  @DisplayName("Test dynamicMsgToJson(byte[], Descriptor); then return '{ \"name\": \"\", \"value\": [], \"reservedRange\": [], \"reservedName\": [] }'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"})
+  void testDynamicMsgToJson_thenReturnNameValueReservedRangeReservedName() throws InvalidProtocolBufferException {
+    // Arrange, Act and Assert
+    assertEquals("{\n  \"name\": \"\",\n  \"value\": [],\n  \"reservedRange\": [],\n  \"reservedName\": []\n}",
+        ProtoConverter.dynamicMsgToJson(new byte[]{}, EnumDescriptorProto.getDescriptor()));
+  }
+
+  /**
+   * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
+   * <ul>
+   *   <li>When array of {@code byte} with {@link Byte#MIN_VALUE} and {@code X}.</li>
+   *   <li>Then return a string.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
+   */
+  @Test
+  @DisplayName("Test dynamicMsgToJson(byte[], Descriptor); when array of byte with MIN_VALUE and 'X'; then return a string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"})
+  void testDynamicMsgToJson_whenArrayOfByteWithMin_valueAndX_thenReturnAString() throws InvalidProtocolBufferException {
+    // Arrange, Act and Assert
+    assertEquals(
+        "{\n" + "  \"name\": \"\",\n" + "  \"field\": [],\n" + "  \"nestedType\": [],\n" + "  \"enumType\": [],\n"
+            + "  \"extensionRange\": [],\n" + "  \"extension\": [],\n" + "  \"oneofDecl\": [],\n"
+            + "  \"reservedRange\": [],\n" + "  \"reservedName\": []\n" + "}",
+        ProtoConverter.dynamicMsgToJson(new byte[]{Byte.MIN_VALUE, 'X', 'A', 'X', 'A', Byte.MIN_VALUE, 'A', 'X'},
+            DescriptorProto.getDescriptor()));
+  }
+
+  /**
+   * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
+   * <ul>
+   *   <li>When array of {@code byte} with {@link Byte#MIN_VALUE} and {@code X}.</li>
+   *   <li>Then return a string.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
+   */
+  @Test
+  @DisplayName("Test dynamicMsgToJson(byte[], Descriptor); when array of byte with MIN_VALUE and 'X'; then return a string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"})
+  void testDynamicMsgToJson_whenArrayOfByteWithMin_valueAndX_thenReturnAString2()
+      throws InvalidProtocolBufferException {
+    // Arrange, Act and Assert
+    assertEquals(
+        "{\n" + "  \"name\": \"\",\n" + "  \"package\": \"\",\n" + "  \"dependency\": [],\n"
+            + "  \"messageType\": [],\n" + "  \"enumType\": [],\n" + "  \"service\": [],\n" + "  \"extension\": [],\n"
+            + "  \"publicDependency\": [],\n" + "  \"weakDependency\": [65],\n" + "  \"syntax\": \"\",\n"
+            + "  \"edition\": \"EDITION_UNKNOWN\"\n" + "}",
+        ProtoConverter.dynamicMsgToJson(new byte[]{Byte.MIN_VALUE, 'X', 'A', 'X', 'A', Byte.MIN_VALUE, 'A', 'X'},
+            FileDescriptorProto.getDescriptor()));
+  }
+
+  /**
+   * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
+   * <ul>
+   *   <li>When array of {@code byte} with {@link Byte#MIN_VALUE} and {@code X}.</li>
+   *   <li>Then return a string.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
+   */
+  @Test
+  @DisplayName("Test dynamicMsgToJson(byte[], Descriptor); when array of byte with MIN_VALUE and 'X'; then return a string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"})
+  void testDynamicMsgToJson_whenArrayOfByteWithMin_valueAndX_thenReturnAString3()
+      throws InvalidProtocolBufferException {
+    // Arrange, Act and Assert
+    assertEquals(
+        "{\n" + "  \"messageSetWireFormat\": false,\n" + "  \"noStandardDescriptorAccessor\": false,\n"
+            + "  \"deprecated\": false,\n" + "  \"mapEntry\": false,\n"
+            + "  \"deprecatedLegacyJsonFieldConflicts\": true,\n" + "  \"uninterpretedOption\": []\n" + "}",
+        ProtoConverter.dynamicMsgToJson(new byte[]{Byte.MIN_VALUE, 'X', 'A', 'X', 'A', Byte.MIN_VALUE, 'A', 'X'},
+            MessageOptions.getDescriptor()));
+  }
+
+  /**
+   * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
+   * <ul>
+   *   <li>When empty array of {@code byte}.</li>
+   *   <li>Then return a string.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
+   */
+  @Test
+  @DisplayName("Test dynamicMsgToJson(byte[], Descriptor); when empty array of byte; then return a string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"})
+  void testDynamicMsgToJson_whenEmptyArrayOfByte_thenReturnAString() throws InvalidProtocolBufferException {
+    // Arrange, Act and Assert
+    assertEquals(
+        "{\n" + "  \"name\": \"\",\n" + "  \"field\": [],\n" + "  \"nestedType\": [],\n" + "  \"enumType\": [],\n"
+            + "  \"extensionRange\": [],\n" + "  \"extension\": [],\n" + "  \"oneofDecl\": [],\n"
+            + "  \"reservedRange\": [],\n" + "  \"reservedName\": []\n" + "}",
+        ProtoConverter.dynamicMsgToJson(new byte[]{}, DescriptorProto.getDescriptor()));
   }
 }

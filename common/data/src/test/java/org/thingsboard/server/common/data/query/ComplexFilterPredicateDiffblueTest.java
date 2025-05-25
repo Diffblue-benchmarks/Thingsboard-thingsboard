@@ -5,15 +5,17 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.thingsboard.server.common.data.query.ComplexFilterPredicate.ComplexOperation;
 
 class ComplexFilterPredicateDiffblueTest {
   /**
-   * Test {@link ComplexFilterPredicate#equals(Object)}, and
-   * {@link ComplexFilterPredicate#hashCode()}.
+   * Test {@link ComplexFilterPredicate#equals(Object)}, and {@link ComplexFilterPredicate#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -27,14 +29,16 @@ class ComplexFilterPredicateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ComplexFilterPredicate.equals(Object)", "int ComplexFilterPredicate.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ComplexFilterPredicate complexFilterPredicate = new ComplexFilterPredicate();
-    complexFilterPredicate.setOperation(ComplexFilterPredicate.ComplexOperation.AND);
+    complexFilterPredicate.setOperation(ComplexOperation.AND);
     complexFilterPredicate.setPredicates(new ArrayList<>());
 
     ComplexFilterPredicate complexFilterPredicate2 = new ComplexFilterPredicate();
-    complexFilterPredicate2.setOperation(ComplexFilterPredicate.ComplexOperation.AND);
+    complexFilterPredicate2.setOperation(ComplexOperation.AND);
     complexFilterPredicate2.setPredicates(new ArrayList<>());
 
     // Act and Assert
@@ -44,8 +48,7 @@ class ComplexFilterPredicateDiffblueTest {
   }
 
   /**
-   * Test {@link ComplexFilterPredicate#equals(Object)}, and
-   * {@link ComplexFilterPredicate#hashCode()}.
+   * Test {@link ComplexFilterPredicate#equals(Object)}, and {@link ComplexFilterPredicate#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -59,6 +62,8 @@ class ComplexFilterPredicateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ComplexFilterPredicate.equals(Object)", "int ComplexFilterPredicate.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     ComplexFilterPredicate complexFilterPredicate = new ComplexFilterPredicate();
@@ -76,8 +81,7 @@ class ComplexFilterPredicateDiffblueTest {
   }
 
   /**
-   * Test {@link ComplexFilterPredicate#equals(Object)}, and
-   * {@link ComplexFilterPredicate#hashCode()}.
+   * Test {@link ComplexFilterPredicate#equals(Object)}, and {@link ComplexFilterPredicate#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -91,10 +95,12 @@ class ComplexFilterPredicateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ComplexFilterPredicate.equals(Object)", "int ComplexFilterPredicate.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ComplexFilterPredicate complexFilterPredicate = new ComplexFilterPredicate();
-    complexFilterPredicate.setOperation(ComplexFilterPredicate.ComplexOperation.AND);
+    complexFilterPredicate.setOperation(ComplexOperation.AND);
     complexFilterPredicate.setPredicates(new ArrayList<>());
 
     // Act and Assert
@@ -114,6 +120,8 @@ class ComplexFilterPredicateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ComplexFilterPredicate.equals(Object)", "int ComplexFilterPredicate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ComplexFilterPredicate complexFilterPredicate = new ComplexFilterPredicate();
@@ -121,7 +129,7 @@ class ComplexFilterPredicateDiffblueTest {
     complexFilterPredicate.setPredicates(new ArrayList<>());
 
     ComplexFilterPredicate complexFilterPredicate2 = new ComplexFilterPredicate();
-    complexFilterPredicate2.setOperation(ComplexFilterPredicate.ComplexOperation.AND);
+    complexFilterPredicate2.setOperation(ComplexOperation.AND);
     complexFilterPredicate2.setPredicates(new ArrayList<>());
 
     // Act and Assert
@@ -139,14 +147,16 @@ class ComplexFilterPredicateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ComplexFilterPredicate.equals(Object)", "int ComplexFilterPredicate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ComplexFilterPredicate complexFilterPredicate = new ComplexFilterPredicate();
-    complexFilterPredicate.setOperation(ComplexFilterPredicate.ComplexOperation.OR);
+    complexFilterPredicate.setOperation(ComplexOperation.OR);
     complexFilterPredicate.setPredicates(new ArrayList<>());
 
     ComplexFilterPredicate complexFilterPredicate2 = new ComplexFilterPredicate();
-    complexFilterPredicate2.setOperation(ComplexFilterPredicate.ComplexOperation.AND);
+    complexFilterPredicate2.setOperation(ComplexOperation.AND);
     complexFilterPredicate2.setPredicates(new ArrayList<>());
 
     // Act and Assert
@@ -164,17 +174,19 @@ class ComplexFilterPredicateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ComplexFilterPredicate.equals(Object)", "int ComplexFilterPredicate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     ArrayList<KeyFilterPredicate> predicates = new ArrayList<>();
     predicates.add(mock(KeyFilterPredicate.class));
 
     ComplexFilterPredicate complexFilterPredicate = new ComplexFilterPredicate();
-    complexFilterPredicate.setOperation(ComplexFilterPredicate.ComplexOperation.AND);
+    complexFilterPredicate.setOperation(ComplexOperation.AND);
     complexFilterPredicate.setPredicates(predicates);
 
     ComplexFilterPredicate complexFilterPredicate2 = new ComplexFilterPredicate();
-    complexFilterPredicate2.setOperation(ComplexFilterPredicate.ComplexOperation.AND);
+    complexFilterPredicate2.setOperation(ComplexOperation.AND);
     complexFilterPredicate2.setPredicates(new ArrayList<>());
 
     // Act and Assert
@@ -192,10 +204,12 @@ class ComplexFilterPredicateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ComplexFilterPredicate.equals(Object)", "int ComplexFilterPredicate.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     ComplexFilterPredicate complexFilterPredicate = new ComplexFilterPredicate();
-    complexFilterPredicate.setOperation(ComplexFilterPredicate.ComplexOperation.AND);
+    complexFilterPredicate.setOperation(ComplexOperation.AND);
     complexFilterPredicate.setPredicates(new ArrayList<>());
 
     // Act and Assert
@@ -213,10 +227,12 @@ class ComplexFilterPredicateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ComplexFilterPredicate.equals(Object)", "int ComplexFilterPredicate.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     ComplexFilterPredicate complexFilterPredicate = new ComplexFilterPredicate();
-    complexFilterPredicate.setOperation(ComplexFilterPredicate.ComplexOperation.AND);
+    complexFilterPredicate.setOperation(ComplexOperation.AND);
     complexFilterPredicate.setPredicates(new ArrayList<>());
 
     // Act and Assert
@@ -229,8 +245,7 @@ class ComplexFilterPredicateDiffblueTest {
    * Methods under test:
    * <ul>
    *   <li>default or parameterless constructor of {@link ComplexFilterPredicate}
-   *   <li>
-   * {@link ComplexFilterPredicate#setOperation(ComplexFilterPredicate.ComplexOperation)}
+   *   <li>{@link ComplexFilterPredicate#setOperation(ComplexOperation)}
    *   <li>{@link ComplexFilterPredicate#setPredicates(List)}
    *   <li>{@link ComplexFilterPredicate#toString()}
    *   <li>{@link ComplexFilterPredicate#getOperation()}
@@ -240,19 +255,24 @@ class ComplexFilterPredicateDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ComplexFilterPredicate.<init>()", "ComplexOperation ComplexFilterPredicate.getOperation()",
+      "List ComplexFilterPredicate.getPredicates()", "FilterPredicateType ComplexFilterPredicate.getType()",
+      "void ComplexFilterPredicate.setOperation(ComplexOperation)", "void ComplexFilterPredicate.setPredicates(List)",
+      "String ComplexFilterPredicate.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     ComplexFilterPredicate actualComplexFilterPredicate = new ComplexFilterPredicate();
-    actualComplexFilterPredicate.setOperation(ComplexFilterPredicate.ComplexOperation.AND);
+    actualComplexFilterPredicate.setOperation(ComplexOperation.AND);
     ArrayList<KeyFilterPredicate> predicates = new ArrayList<>();
     actualComplexFilterPredicate.setPredicates(predicates);
     String actualToStringResult = actualComplexFilterPredicate.toString();
-    ComplexFilterPredicate.ComplexOperation actualOperation = actualComplexFilterPredicate.getOperation();
+    ComplexOperation actualOperation = actualComplexFilterPredicate.getOperation();
     List<KeyFilterPredicate> actualPredicates = actualComplexFilterPredicate.getPredicates();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("ComplexFilterPredicate(operation=AND, predicates=[])", actualToStringResult);
-    assertEquals(ComplexFilterPredicate.ComplexOperation.AND, actualOperation);
+    assertEquals(ComplexOperation.AND, actualOperation);
     assertEquals(FilterPredicateType.COMPLEX, actualComplexFilterPredicate.getType());
     assertTrue(actualPredicates.isEmpty());
     assertSame(predicates, actualPredicates);

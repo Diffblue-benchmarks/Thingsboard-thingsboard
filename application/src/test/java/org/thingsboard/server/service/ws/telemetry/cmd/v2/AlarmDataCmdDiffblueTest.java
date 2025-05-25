@@ -2,7 +2,9 @@ package org.thingsboard.server.service.ws.telemetry.cmd.v2;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.query.AlarmDataQuery;
 import org.thingsboard.server.service.ws.WsCmdType;
@@ -20,6 +22,9 @@ class AlarmDataCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmDataCmd.<init>(int, AlarmDataQuery)", "AlarmDataQuery AlarmDataCmd.getQuery()",
+      "WsCmdType AlarmDataCmd.getType()"})
   void testGettersAndSetters() {
     // Arrange
     AlarmDataQuery query = new AlarmDataQuery();

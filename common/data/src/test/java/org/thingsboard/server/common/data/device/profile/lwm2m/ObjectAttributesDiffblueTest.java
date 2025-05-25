@@ -3,7 +3,9 @@ package org.thingsboard.server.common.data.device.profile.lwm2m;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ObjectAttributesDiffblueTest {
@@ -18,6 +20,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test getVer(); given ObjectAttributes (default constructor); then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"org.eclipse.leshan.core.LwM2m.Version ObjectAttributes.getVer()"})
   void testGetVer_givenObjectAttributes_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull((new ObjectAttributes()).getVer());
@@ -34,6 +38,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test getLwm2m(); given ObjectAttributes (default constructor); then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"org.eclipse.leshan.core.LwM2m.LwM2mVersion ObjectAttributes.getLwm2m()"})
   void testGetLwm2m_givenObjectAttributes_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull((new ObjectAttributes()).getLwm2m());
@@ -50,6 +56,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ObjectAttributes.equals(Object)", "int ObjectAttributes.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ObjectAttributes objectAttributes = new ObjectAttributes();
@@ -95,6 +103,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ObjectAttributes.equals(Object)", "int ObjectAttributes.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ObjectAttributes objectAttributes = new ObjectAttributes();
@@ -140,6 +150,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ObjectAttributes.equals(Object)", "int ObjectAttributes.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     ObjectAttributes objectAttributes = new ObjectAttributes();
@@ -185,6 +197,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ObjectAttributes.equals(Object)", "int ObjectAttributes.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     ObjectAttributes objectAttributes = new ObjectAttributes();
@@ -230,6 +244,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ObjectAttributes.equals(Object)", "int ObjectAttributes.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     ObjectAttributes objectAttributes = new ObjectAttributes();
@@ -275,6 +291,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ObjectAttributes.equals(Object)", "int ObjectAttributes.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     ObjectAttributes objectAttributes = new ObjectAttributes();
@@ -320,6 +338,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ObjectAttributes.equals(Object)", "int ObjectAttributes.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     ObjectAttributes objectAttributes = new ObjectAttributes();
@@ -365,6 +385,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ObjectAttributes.equals(Object)", "int ObjectAttributes.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     ObjectAttributes objectAttributes = new ObjectAttributes();
@@ -410,6 +432,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ObjectAttributes.equals(Object)", "int ObjectAttributes.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     ObjectAttributes objectAttributes = new ObjectAttributes();
@@ -455,6 +479,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ObjectAttributes.equals(Object)", "int ObjectAttributes.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     ObjectAttributes objectAttributes = new ObjectAttributes();
@@ -500,6 +526,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ObjectAttributes.equals(Object)", "int ObjectAttributes.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     ObjectAttributes objectAttributes = new ObjectAttributes();
@@ -545,6 +573,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ObjectAttributes.equals(Object)", "int ObjectAttributes.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     ObjectAttributes objectAttributes = new ObjectAttributes();
@@ -590,6 +620,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ObjectAttributes.equals(Object)", "int ObjectAttributes.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     ObjectAttributes objectAttributes = new ObjectAttributes();
@@ -635,6 +667,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ObjectAttributes.equals(Object)", "int ObjectAttributes.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     ObjectAttributes objectAttributes = new ObjectAttributes();
@@ -680,6 +714,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ObjectAttributes.equals(Object)", "int ObjectAttributes.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     ObjectAttributes objectAttributes = new ObjectAttributes();
@@ -725,6 +761,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ObjectAttributes.equals(Object)", "int ObjectAttributes.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     ObjectAttributes objectAttributes = new ObjectAttributes();
@@ -770,6 +808,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ObjectAttributes.equals(Object)", "int ObjectAttributes.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     ObjectAttributes objectAttributes = new ObjectAttributes();
@@ -815,6 +855,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ObjectAttributes.equals(Object)", "int ObjectAttributes.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     ObjectAttributes objectAttributes = new ObjectAttributes();
@@ -860,6 +902,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ObjectAttributes.equals(Object)", "int ObjectAttributes.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     ObjectAttributes objectAttributes = new ObjectAttributes();
@@ -905,6 +949,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ObjectAttributes.equals(Object)", "int ObjectAttributes.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     ObjectAttributes objectAttributes = new ObjectAttributes();
@@ -950,6 +996,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ObjectAttributes.equals(Object)", "int ObjectAttributes.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     ObjectAttributes objectAttributes = new ObjectAttributes();
@@ -981,6 +1029,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ObjectAttributes.equals(Object)", "int ObjectAttributes.hashCode()"})
   void testEquals_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ObjectAttributes objectAttributes = new ObjectAttributes();
@@ -1012,6 +1062,8 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ObjectAttributes.equals(Object)", "int ObjectAttributes.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     ObjectAttributes objectAttributes = new ObjectAttributes();
@@ -1064,6 +1116,18 @@ class ObjectAttributesDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ObjectAttributes.<init>()", "Long ObjectAttributes.getDim()",
+      "Long ObjectAttributes.getEpmax()", "Long ObjectAttributes.getEpmin()", "Double ObjectAttributes.getGt()",
+      "Double ObjectAttributes.getLt()", "Long ObjectAttributes.getPmax()", "Long ObjectAttributes.getPmin()",
+      "Long ObjectAttributes.getSsid()", "Double ObjectAttributes.getSt()", "String ObjectAttributes.getUri()",
+      "void ObjectAttributes.setDim(Long)", "void ObjectAttributes.setEpmax(Long)",
+      "void ObjectAttributes.setEpmin(Long)", "void ObjectAttributes.setGt(Double)",
+      "void ObjectAttributes.setLt(Double)", "void ObjectAttributes.setLwm2m(String)",
+      "void ObjectAttributes.setPmax(Long)", "void ObjectAttributes.setPmin(Long)",
+      "void ObjectAttributes.setSsid(Long)", "void ObjectAttributes.setSt(Double)",
+      "void ObjectAttributes.setUri(String)", "void ObjectAttributes.setVer(String)",
+      "String ObjectAttributes.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     ObjectAttributes actualObjectAttributes = new ObjectAttributes();
@@ -1089,7 +1153,7 @@ class ObjectAttributesDiffblueTest {
     Long actualSsid = actualObjectAttributes.getSsid();
     Double actualSt = actualObjectAttributes.getSt();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Uri", actualObjectAttributes.getUri());
     assertEquals(10.0d, actualGt.doubleValue());
     assertEquals(10.0d, actualLt.doubleValue());

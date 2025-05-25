@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.netty.channel.Channel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.mqtt.MqttQoS;
@@ -13,6 +14,7 @@ import io.netty.handler.ssl.JdkSslClientContext;
 import io.netty.handler.ssl.SslContext;
 import javax.net.ssl.SSLException;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class MqttClientConfigDiffblueTest {
@@ -23,6 +25,8 @@ class MqttClientConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test new MqttClientConfig()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttClientConfig.<init>()"})
   void testNewMqttClientConfig() {
     // Arrange and Act
     MqttClientConfig actualMqttClientConfig = new MqttClientConfig();
@@ -50,6 +54,8 @@ class MqttClientConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test new MqttClientConfig(SslContext)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttClientConfig.<init>(SslContext)"})
   void testNewMqttClientConfig2() throws SSLException {
     // Arrange
     JdkSslClientContext sslContext = new JdkSslClientContext();
@@ -58,6 +64,8 @@ class MqttClientConfigDiffblueTest {
     MqttClientConfig actualMqttClientConfig = new MqttClientConfig(sslContext);
 
     // Assert
+    SslContext sslContext2 = actualMqttClientConfig.getSslContext();
+    assertTrue(sslContext2 instanceof JdkSslClientContext);
     assertNull(actualMqttClientConfig.getOwnerId());
     assertNull(actualMqttClientConfig.getPassword());
     assertNull(actualMqttClientConfig.getUsername());
@@ -70,21 +78,22 @@ class MqttClientConfigDiffblueTest {
     assertTrue(actualMqttClientConfig.isReconnect());
     Class<NioSocketChannel> expectedChannelClass = NioSocketChannel.class;
     assertEquals(expectedChannelClass, actualMqttClientConfig.getChannelClass());
-    assertSame(sslContext, actualMqttClientConfig.getSslContext());
+    assertSame(sslContext, sslContext2);
   }
 
   /**
    * Test {@link MqttClientConfig#setClientId(String)}.
    * <ul>
    *   <li>When {@code 42}.</li>
-   *   <li>Then {@link MqttClientConfig#MqttClientConfig()} ClientId is
-   * {@code 42}.</li>
+   *   <li>Then {@link MqttClientConfig#MqttClientConfig()} ClientId is {@code 42}.</li>
    * </ul>
    * <p>
    * Method under test: {@link MqttClientConfig#setClientId(String)}
    */
   @Test
   @DisplayName("Test setClientId(String); when '42'; then MqttClientConfig() ClientId is '42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttClientConfig.setClientId(String)"})
   void testSetClientId_when42_thenMqttClientConfigClientIdIs42() {
     // Arrange
     MqttClientConfig mqttClientConfig = new MqttClientConfig();
@@ -100,14 +109,15 @@ class MqttClientConfigDiffblueTest {
    * Test {@link MqttClientConfig#setTimeoutSeconds(int)}.
    * <ul>
    *   <li>When minus one.</li>
-   *   <li>Then {@link MqttClientConfig#MqttClientConfig()} TimeoutSeconds is minus
-   * one.</li>
+   *   <li>Then {@link MqttClientConfig#MqttClientConfig()} TimeoutSeconds is minus one.</li>
    * </ul>
    * <p>
    * Method under test: {@link MqttClientConfig#setTimeoutSeconds(int)}
    */
   @Test
   @DisplayName("Test setTimeoutSeconds(int); when minus one; then MqttClientConfig() TimeoutSeconds is minus one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttClientConfig.setTimeoutSeconds(int)"})
   void testSetTimeoutSeconds_whenMinusOne_thenMqttClientConfigTimeoutSecondsIsMinusOne() {
     // Arrange
     MqttClientConfig mqttClientConfig = new MqttClientConfig();
@@ -123,14 +133,15 @@ class MqttClientConfigDiffblueTest {
    * Test {@link MqttClientConfig#setTimeoutSeconds(int)}.
    * <ul>
    *   <li>When ten.</li>
-   *   <li>Then {@link MqttClientConfig#MqttClientConfig()} TimeoutSeconds is
-   * ten.</li>
+   *   <li>Then {@link MqttClientConfig#MqttClientConfig()} TimeoutSeconds is ten.</li>
    * </ul>
    * <p>
    * Method under test: {@link MqttClientConfig#setTimeoutSeconds(int)}
    */
   @Test
   @DisplayName("Test setTimeoutSeconds(int); when ten; then MqttClientConfig() TimeoutSeconds is ten")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttClientConfig.setTimeoutSeconds(int)"})
   void testSetTimeoutSeconds_whenTen_thenMqttClientConfigTimeoutSecondsIsTen() {
     // Arrange
     MqttClientConfig mqttClientConfig = new MqttClientConfig();
@@ -153,6 +164,8 @@ class MqttClientConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test setTimeoutSeconds(int); when zero; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttClientConfig.setTimeoutSeconds(int)"})
   void testSetTimeoutSeconds_whenZero_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class, () -> (new MqttClientConfig()).setTimeoutSeconds(0));
@@ -187,6 +200,17 @@ class MqttClientConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Class MqttClientConfig.getChannelClass()", "String MqttClientConfig.getClientId()",
+      "MqttLastWill MqttClientConfig.getLastWill()", "int MqttClientConfig.getMaxBytesInMessage()",
+      "String MqttClientConfig.getOwnerId()", "String MqttClientConfig.getPassword()",
+      "MqttVersion MqttClientConfig.getProtocolVersion()", "long MqttClientConfig.getReconnectDelay()",
+      "SslContext MqttClientConfig.getSslContext()", "int MqttClientConfig.getTimeoutSeconds()",
+      "String MqttClientConfig.getUsername()", "boolean MqttClientConfig.isCleanSession()",
+      "boolean MqttClientConfig.isReconnect()", "void MqttClientConfig.setChannelClass(Class)",
+      "void MqttClientConfig.setCleanSession(boolean)", "void MqttClientConfig.setLastWill(MqttLastWill)",
+      "void MqttClientConfig.setOwnerId(String)", "void MqttClientConfig.setPassword(String)",
+      "void MqttClientConfig.setReconnect(boolean)", "void MqttClientConfig.setUsername(String)"})
   void testGettersAndSetters() {
     // Arrange
     MqttClientConfig mqttClientConfig = new MqttClientConfig();
@@ -214,15 +238,16 @@ class MqttClientConfigDiffblueTest {
     String actualPassword = mqttClientConfig.getPassword();
     MqttVersion actualProtocolVersion = mqttClientConfig.getProtocolVersion();
     long actualReconnectDelay = mqttClientConfig.getReconnectDelay();
-    mqttClientConfig.getSslContext();
+    SslContext actualSslContext = mqttClientConfig.getSslContext();
     int actualTimeoutSeconds = mqttClientConfig.getTimeoutSeconds();
     String actualUsername = mqttClientConfig.getUsername();
     boolean actualIsCleanSessionResult = mqttClientConfig.isCleanSession();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("42", actualOwnerId);
     assertEquals("iloveyou", actualPassword);
     assertEquals("janedoe", actualUsername);
+    assertNull(actualSslContext);
     assertEquals(1L, actualReconnectDelay);
     assertEquals(60, actualTimeoutSeconds);
     assertEquals(8092, actualMaxBytesInMessage);
@@ -246,6 +271,8 @@ class MqttClientConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test setReconnectDelay(long); when zero; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttClientConfig.setReconnectDelay(long)"})
   void testSetReconnectDelay_whenZero_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class, () -> (new MqttClientConfig()).setReconnectDelay(0L));
@@ -262,6 +289,8 @@ class MqttClientConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test setMaxBytesInMessage(int); when '256000001'; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttClientConfig.setMaxBytesInMessage(int)"})
   void testSetMaxBytesInMessage_when256000001_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class, () -> (new MqttClientConfig()).setMaxBytesInMessage(256000001));
@@ -271,14 +300,15 @@ class MqttClientConfigDiffblueTest {
    * Test {@link MqttClientConfig#setMaxBytesInMessage(int)}.
    * <ul>
    *   <li>When three.</li>
-   *   <li>Then {@link MqttClientConfig#MqttClientConfig()} MaxBytesInMessage is
-   * three.</li>
+   *   <li>Then {@link MqttClientConfig#MqttClientConfig()} MaxBytesInMessage is three.</li>
    * </ul>
    * <p>
    * Method under test: {@link MqttClientConfig#setMaxBytesInMessage(int)}
    */
   @Test
   @DisplayName("Test setMaxBytesInMessage(int); when three; then MqttClientConfig() MaxBytesInMessage is three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttClientConfig.setMaxBytesInMessage(int)"})
   void testSetMaxBytesInMessage_whenThree_thenMqttClientConfigMaxBytesInMessageIsThree() {
     // Arrange
     MqttClientConfig mqttClientConfig = new MqttClientConfig();
@@ -301,6 +331,8 @@ class MqttClientConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test setMaxBytesInMessage(int); when zero; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttClientConfig.setMaxBytesInMessage(int)"})
   void testSetMaxBytesInMessage_whenZero_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class, () -> (new MqttClientConfig()).setMaxBytesInMessage(0));

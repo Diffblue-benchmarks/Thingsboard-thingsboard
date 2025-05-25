@@ -6,27 +6,45 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.anyBoolean;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.service.state.DeviceState.DeviceStateBuilder;
 
+@ContextConfiguration(classes = {DeviceStateBuilder.class})
+@ExtendWith(SpringExtension.class)
 class DeviceStateDiffblueTest {
+  @Autowired
+  private DeviceStateBuilder deviceStateBuilder;
+
   /**
    * Test DeviceStateBuilder {@link DeviceStateBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link DeviceState.DeviceStateBuilder#build()}
-   *   <li>{@link DeviceState.DeviceStateBuilder#active(boolean)}
-   *   <li>{@link DeviceState.DeviceStateBuilder#inactivityTimeout(long)}
-   *   <li>{@link DeviceState.DeviceStateBuilder#lastActivityTime(long)}
-   *   <li>{@link DeviceState.DeviceStateBuilder#lastConnectTime(long)}
-   *   <li>{@link DeviceState.DeviceStateBuilder#lastDisconnectTime(long)}
-   *   <li>{@link DeviceState.DeviceStateBuilder#lastInactivityAlarmTime(long)}
+   *   <li>{@link DeviceStateBuilder#build()}
+   *   <li>{@link DeviceStateBuilder#active(boolean)}
+   *   <li>{@link DeviceStateBuilder#inactivityTimeout(long)}
+   *   <li>{@link DeviceStateBuilder#lastActivityTime(long)}
+   *   <li>{@link DeviceStateBuilder#lastConnectTime(long)}
+   *   <li>{@link DeviceStateBuilder#lastDisconnectTime(long)}
+   *   <li>{@link DeviceStateBuilder#lastInactivityAlarmTime(long)}
    * </ul>
    */
   @Test
   @DisplayName("Test DeviceStateBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DeviceStateBuilder.<init>()", "DeviceStateBuilder DeviceStateBuilder.active(boolean)",
+      "DeviceState DeviceStateBuilder.build()", "DeviceStateBuilder DeviceStateBuilder.inactivityTimeout(long)",
+      "DeviceStateBuilder DeviceStateBuilder.lastActivityTime(long)",
+      "DeviceStateBuilder DeviceStateBuilder.lastConnectTime(long)",
+      "DeviceStateBuilder DeviceStateBuilder.lastDisconnectTime(long)",
+      "DeviceStateBuilder DeviceStateBuilder.lastInactivityAlarmTime(long)", "String DeviceStateBuilder.toString()"})
   void testDeviceStateBuilderBuild() {
     // Arrange and Act
     DeviceState actualBuildResult = DeviceState.builder()
@@ -62,6 +80,8 @@ class DeviceStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceState.equals(Object)", "int DeviceState.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DeviceState buildResult = DeviceState.builder()
@@ -102,6 +122,8 @@ class DeviceStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceState.equals(Object)", "int DeviceState.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DeviceState buildResult = DeviceState.builder()
@@ -130,9 +152,11 @@ class DeviceStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceState.equals(Object)", "int DeviceState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    DeviceState.DeviceStateBuilder deviceStateBuilder = mock(DeviceState.DeviceStateBuilder.class);
+    DeviceStateBuilder deviceStateBuilder = mock(DeviceStateBuilder.class);
     when(deviceStateBuilder.active(anyBoolean())).thenReturn(DeviceState.builder());
     DeviceState buildResult = deviceStateBuilder.active(true)
         .inactivityTimeout(1L)
@@ -165,9 +189,11 @@ class DeviceStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceState.equals(Object)", "int DeviceState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    DeviceState.DeviceStateBuilder deviceStateBuilder = mock(DeviceState.DeviceStateBuilder.class);
+    DeviceStateBuilder deviceStateBuilder = mock(DeviceStateBuilder.class);
     when(deviceStateBuilder.active(anyBoolean())).thenReturn(DeviceState.builder());
     DeviceState buildResult = deviceStateBuilder.active(true)
         .inactivityTimeout(3L)
@@ -200,9 +226,11 @@ class DeviceStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceState.equals(Object)", "int DeviceState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    DeviceState.DeviceStateBuilder deviceStateBuilder = mock(DeviceState.DeviceStateBuilder.class);
+    DeviceStateBuilder deviceStateBuilder = mock(DeviceStateBuilder.class);
     when(deviceStateBuilder.active(anyBoolean())).thenReturn(DeviceState.builder());
     DeviceState buildResult = deviceStateBuilder.active(true)
         .inactivityTimeout(3L)
@@ -235,9 +263,11 @@ class DeviceStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceState.equals(Object)", "int DeviceState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    DeviceState.DeviceStateBuilder deviceStateBuilder = mock(DeviceState.DeviceStateBuilder.class);
+    DeviceStateBuilder deviceStateBuilder = mock(DeviceStateBuilder.class);
     when(deviceStateBuilder.active(anyBoolean())).thenReturn(DeviceState.builder());
     DeviceState buildResult = deviceStateBuilder.active(true)
         .inactivityTimeout(3L)
@@ -270,9 +300,11 @@ class DeviceStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceState.equals(Object)", "int DeviceState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    DeviceState.DeviceStateBuilder deviceStateBuilder = mock(DeviceState.DeviceStateBuilder.class);
+    DeviceStateBuilder deviceStateBuilder = mock(DeviceStateBuilder.class);
     when(deviceStateBuilder.active(anyBoolean())).thenReturn(DeviceState.builder());
     DeviceState buildResult = deviceStateBuilder.active(true)
         .inactivityTimeout(3L)
@@ -305,9 +337,11 @@ class DeviceStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceState.equals(Object)", "int DeviceState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    DeviceState.DeviceStateBuilder deviceStateBuilder = mock(DeviceState.DeviceStateBuilder.class);
+    DeviceStateBuilder deviceStateBuilder = mock(DeviceStateBuilder.class);
     when(deviceStateBuilder.active(anyBoolean())).thenReturn(DeviceState.builder());
     DeviceState buildResult = deviceStateBuilder.active(true)
         .inactivityTimeout(3L)
@@ -340,6 +374,8 @@ class DeviceStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceState.equals(Object)", "int DeviceState.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     DeviceState buildResult = DeviceState.builder()
@@ -366,6 +402,8 @@ class DeviceStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceState.equals(Object)", "int DeviceState.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     DeviceState buildResult = DeviceState.builder()
@@ -403,6 +441,14 @@ class DeviceStateDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DeviceState.getInactivityTimeout()", "long DeviceState.getLastActivityTime()",
+      "long DeviceState.getLastConnectTime()", "long DeviceState.getLastDisconnectTime()",
+      "long DeviceState.getLastInactivityAlarmTime()", "boolean DeviceState.isActive()",
+      "void DeviceState.setActive(boolean)", "void DeviceState.setInactivityTimeout(long)",
+      "void DeviceState.setLastActivityTime(long)", "void DeviceState.setLastConnectTime(long)",
+      "void DeviceState.setLastDisconnectTime(long)", "void DeviceState.setLastInactivityAlarmTime(long)",
+      "String DeviceState.toString()"})
   void testGettersAndSetters() {
     // Arrange
     DeviceState buildResult = DeviceState.builder()
@@ -428,7 +474,7 @@ class DeviceStateDiffblueTest {
     long actualLastDisconnectTime = buildResult.getLastDisconnectTime();
     long actualLastInactivityAlarmTime = buildResult.getLastInactivityAlarmTime();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "DeviceState(active=true, lastConnectTime=1, lastActivityTime=1, lastDisconnectTime=1, lastInactivityAlarmTime"
             + "=1, inactivityTimeout=1)",
@@ -444,14 +490,13 @@ class DeviceStateDiffblueTest {
   /**
    * Test {@link DeviceState#DeviceState(boolean, long, long, long, long, long)}.
    * <p>
-   * Method under test:
-   * {@link DeviceState#DeviceState(boolean, long, long, long, long, long)}
+   * Method under test: {@link DeviceState#DeviceState(boolean, long, long, long, long, long)}
    */
   @Test
   @DisplayName("Test new DeviceState(boolean, long, long, long, long, long)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DeviceState.<init>(boolean, long, long, long, long, long)"})
   void testNewDeviceState() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
     DeviceState actualDeviceState = new DeviceState(true, 1L, 1L, 1L, 1L, 1L);
 

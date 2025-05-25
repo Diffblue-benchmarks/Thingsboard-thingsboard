@@ -2,16 +2,12 @@ package org.thingsboard.server.service.ws.telemetry.cmd.v2;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.aot.DisabledInAotMode;
 
-@DisabledInAotMode
 class AlarmCountUpdateDiffblueTest {
-  @MockBean
-  private AlarmCountUpdate alarmCountUpdate;
-
   /**
    * Test getters and setters.
    * <ul>
@@ -28,6 +24,10 @@ class AlarmCountUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; then return toString is 'AlarmCountUpdate(count=0)'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmCountUpdate.<init>(int, int, int, String)",
+      "void AlarmCountUpdate.<init>(int, int, String)", "CmdUpdateType AlarmCountUpdate.getCmdUpdateType()",
+      "int AlarmCountUpdate.getCount()", "String AlarmCountUpdate.toString()"})
   void testGettersAndSetters_thenReturnToStringIsAlarmCountUpdateCount0() {
     // Arrange and Act
     AlarmCountUpdate actualAlarmCountUpdate = new AlarmCountUpdate(1, -1, "An error occurred");
@@ -61,6 +61,10 @@ class AlarmCountUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when three; then return toString is 'AlarmCountUpdate(count=3)'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmCountUpdate.<init>(int, int, int, String)",
+      "void AlarmCountUpdate.<init>(int, int, String)", "CmdUpdateType AlarmCountUpdate.getCmdUpdateType()",
+      "int AlarmCountUpdate.getCount()", "String AlarmCountUpdate.toString()"})
   void testGettersAndSetters_whenThree_thenReturnToStringIsAlarmCountUpdateCount3() {
     // Arrange and Act
     AlarmCountUpdate actualAlarmCountUpdate = new AlarmCountUpdate(1, 3, -1, "An error occurred");
@@ -79,12 +83,17 @@ class AlarmCountUpdateDiffblueTest {
 
   /**
    * Test {@link AlarmCountUpdate#AlarmCountUpdate(int, int)}.
+   * <ul>
+   *   <li>Then return ErrorMsg is {@code null}.</li>
+   * </ul>
    * <p>
    * Method under test: {@link AlarmCountUpdate#AlarmCountUpdate(int, int)}
    */
   @Test
-  @DisplayName("Test new AlarmCountUpdate(int, int)")
-  void testNewAlarmCountUpdate() {
+  @DisplayName("Test new AlarmCountUpdate(int, int); then return ErrorMsg is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmCountUpdate.<init>(int, int)"})
+  void testNewAlarmCountUpdate_thenReturnErrorMsgIsNull() {
     // Arrange and Act
     AlarmCountUpdate actualAlarmCountUpdate = new AlarmCountUpdate(1, 3);
 

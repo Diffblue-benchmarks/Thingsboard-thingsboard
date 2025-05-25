@@ -4,64 +4,46 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.isA;
-import static org.mockito.Mockito.atLeast;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.MissingNode;
-import com.google.api.core.ApiFutureToListenableFuture;
-import com.google.api.core.ForwardingApiFuture;
-import com.google.api.core.ListenableFutureToApiFuture;
-import com.google.common.util.concurrent.ListenableFuture;
-import com.google.common.util.concurrent.SettableFuture;
-import java.util.UUID;
+import com.fasterxml.jackson.databind.node.POJONode;
+import java.util.ArrayList;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import org.thingsboard.rule.engine.api.TbContext;
+import org.thingsboard.rule.engine.api.TbNodeConfiguration;
 import org.thingsboard.rule.engine.api.TbNodeException;
-import org.thingsboard.server.common.data.Tenant;
-import org.thingsboard.server.common.data.id.TenantId;
+import org.thingsboard.rule.engine.util.ContactBasedEntityDetails;
 import org.thingsboard.server.common.data.util.TbPair;
-import org.thingsboard.server.common.msg.TbMsg;
-import org.thingsboard.server.dao.tenant.TenantServiceImpl;
 
 class TbGetTenantDetailsNodeDiffblueTest {
   /**
-   * Test {@link TbGetTenantDetailsNode#getContactBasedFuture(TbContext, TbMsg)}.
+   * Test {@link TbGetTenantDetailsNode#loadNodeConfiguration(TbNodeConfiguration)}.
    * <ul>
-   *   <li>Then return {@link ApiFutureToListenableFuture}.</li>
+   *   <li>Then return {@link TbGetTenantDetailsNodeConfiguration} (default constructor).</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGetTenantDetailsNode#getContactBasedFuture(TbContext, TbMsg)}
+   * Method under test: {@link TbGetTenantDetailsNode#loadNodeConfiguration(TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test getContactBasedFuture(TbContext, TbMsg); then return ApiFutureToListenableFuture")
-  void testGetContactBasedFuture_thenReturnApiFutureToListenableFuture() {
+  @DisplayName("Test loadNodeConfiguration(TbNodeConfiguration); then return TbGetTenantDetailsNodeConfiguration (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "TbGetTenantDetailsNodeConfiguration TbGetTenantDetailsNode.loadNodeConfiguration(TbNodeConfiguration)"})
+  void testLoadNodeConfiguration_thenReturnTbGetTenantDetailsNodeConfiguration() throws TbNodeException {
     // Arrange
     TbGetTenantDetailsNode tbGetTenantDetailsNode = new TbGetTenantDetailsNode();
-    TenantServiceImpl tenantServiceImpl = mock(TenantServiceImpl.class);
-    SettableFuture<Tenant> delegate = SettableFuture.create();
-    ApiFutureToListenableFuture<Tenant> apiFutureToListenableFuture = new ApiFutureToListenableFuture<>(
-        new ForwardingApiFuture<>(new ListenableFutureToApiFuture<>(delegate)));
-    when(tenantServiceImpl.findTenantByIdAsync(Mockito.<TenantId>any(), Mockito.<TenantId>any()))
-        .thenReturn(apiFutureToListenableFuture);
-    TbContext ctx = mock(TbContext.class);
-    when(ctx.getTenantId()).thenReturn(new TenantId(UUID.randomUUID()));
-    when(ctx.getTenantService()).thenReturn(tenantServiceImpl);
 
-    // Act
-    ListenableFuture<Tenant> actualContactBasedFuture = tbGetTenantDetailsNode.getContactBasedFuture(ctx, null);
+    ArrayList<ContactBasedEntityDetails> detailsList = new ArrayList<>();
+    detailsList.add(ContactBasedEntityDetails.ID);
 
-    // Assert
-    verify(ctx, atLeast(1)).getTenantId();
-    verify(ctx).getTenantService();
-    verify(tenantServiceImpl).findTenantByIdAsync(isA(TenantId.class), isA(TenantId.class));
-    assertTrue(actualContactBasedFuture instanceof ApiFutureToListenableFuture);
-    assertSame(apiFutureToListenableFuture, actualContactBasedFuture);
+    TbGetTenantDetailsNodeConfiguration tbGetTenantDetailsNodeConfiguration = new TbGetTenantDetailsNodeConfiguration();
+    tbGetTenantDetailsNodeConfiguration.setDetailsList(detailsList);
+
+    // Act and Assert
+    assertSame(tbGetTenantDetailsNodeConfiguration, tbGetTenantDetailsNode
+        .loadNodeConfiguration(new TbNodeConfiguration(new POJONode(tbGetTenantDetailsNodeConfiguration))));
   }
 
   /**
@@ -71,6 +53,8 @@ class TbGetTenantDetailsNodeDiffblueTest {
    */
   @Test
   @DisplayName("Test upgrade(int, JsonNode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbPair TbGetTenantDetailsNode.upgrade(int, JsonNode)"})
   void testUpgrade() throws TbNodeException {
     // Arrange
     TbGetTenantDetailsNode tbGetTenantDetailsNode = new TbGetTenantDetailsNode();
@@ -80,8 +64,10 @@ class TbGetTenantDetailsNodeDiffblueTest {
     TbPair<Boolean, JsonNode> actualUpgradeResult = tbGetTenantDetailsNode.upgrade(1, oldConfiguration);
 
     // Assert
+    JsonNode second = actualUpgradeResult.getSecond();
+    assertTrue(second instanceof MissingNode);
     assertFalse(actualUpgradeResult.getFirst());
-    assertSame(oldConfiguration, actualUpgradeResult.getSecond());
+    assertSame(oldConfiguration, second);
   }
 
   /**
@@ -95,6 +81,8 @@ class TbGetTenantDetailsNodeDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbGetTenantDetailsNode.<init>()", "java.lang.String TbGetTenantDetailsNode.getPrefix()"})
   void testGettersAndSetters() {
     // Arrange, Act and Assert
     assertEquals("tenant_", (new TbGetTenantDetailsNode()).getPrefix());

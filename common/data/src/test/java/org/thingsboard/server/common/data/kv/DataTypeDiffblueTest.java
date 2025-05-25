@@ -1,7 +1,9 @@
 package org.thingsboard.server.common.data.kv;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class DataTypeDiffblueTest {
@@ -12,6 +14,8 @@ class DataTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test getProtoNumber()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int DataType.getProtoNumber()"})
   void testGetProtoNumber() {
     // Arrange, Act and Assert
     assertEquals(0, DataType.valueOf("BOOLEAN").getProtoNumber());

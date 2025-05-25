@@ -4,20 +4,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashSet;
 import java.util.Set;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ParametersAnalyzeResultDiffblueTest {
   /**
    * Test new {@link ParametersAnalyzeResult} (default constructor).
    * <p>
-   * Method under test: default or parameterless constructor of
-   * {@link ParametersAnalyzeResult}
+   * Method under test: default or parameterless constructor of {@link ParametersAnalyzeResult}
    */
   @Test
   @DisplayName("Test new ParametersAnalyzeResult (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ParametersAnalyzeResult.<init>()"})
   void testNewParametersAnalyzeResult() {
     // Arrange and Act
     ParametersAnalyzeResult actualParametersAnalyzeResult = new ParametersAnalyzeResult();
@@ -28,8 +31,7 @@ class ParametersAnalyzeResultDiffblueTest {
   }
 
   /**
-   * Test {@link ParametersAnalyzeResult#equals(Object)}, and
-   * {@link ParametersAnalyzeResult#hashCode()}.
+   * Test {@link ParametersAnalyzeResult#equals(Object)}, and {@link ParametersAnalyzeResult#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -43,6 +45,8 @@ class ParametersAnalyzeResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ParametersAnalyzeResult.equals(Object)", "int ParametersAnalyzeResult.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ParametersAnalyzeResult parametersAnalyzeResult = new ParametersAnalyzeResult();
@@ -60,8 +64,7 @@ class ParametersAnalyzeResultDiffblueTest {
   }
 
   /**
-   * Test {@link ParametersAnalyzeResult#equals(Object)}, and
-   * {@link ParametersAnalyzeResult#hashCode()}.
+   * Test {@link ParametersAnalyzeResult#equals(Object)}, and {@link ParametersAnalyzeResult#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -75,6 +78,8 @@ class ParametersAnalyzeResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ParametersAnalyzeResult.equals(Object)", "int ParametersAnalyzeResult.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ParametersAnalyzeResult parametersAnalyzeResult = new ParametersAnalyzeResult();
@@ -98,6 +103,8 @@ class ParametersAnalyzeResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ParametersAnalyzeResult.equals(Object)", "int ParametersAnalyzeResult.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     HashSet<String> pathPostParametersAdd = new HashSet<>();
@@ -126,6 +133,8 @@ class ParametersAnalyzeResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ParametersAnalyzeResult.equals(Object)", "int ParametersAnalyzeResult.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     HashSet<String> pathPostParametersDel = new HashSet<>();
@@ -154,6 +163,8 @@ class ParametersAnalyzeResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ParametersAnalyzeResult.equals(Object)", "int ParametersAnalyzeResult.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     ParametersAnalyzeResult parametersAnalyzeResult = new ParametersAnalyzeResult();
@@ -175,6 +186,8 @@ class ParametersAnalyzeResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ParametersAnalyzeResult.equals(Object)", "int ParametersAnalyzeResult.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     ParametersAnalyzeResult parametersAnalyzeResult = new ParametersAnalyzeResult();
@@ -199,6 +212,11 @@ class ParametersAnalyzeResultDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Set ParametersAnalyzeResult.getPathPostParametersAdd()",
+      "Set ParametersAnalyzeResult.getPathPostParametersDel()",
+      "void ParametersAnalyzeResult.setPathPostParametersAdd(Set)",
+      "void ParametersAnalyzeResult.setPathPostParametersDel(Set)", "String ParametersAnalyzeResult.toString()"})
   void testGettersAndSetters() {
     // Arrange
     ParametersAnalyzeResult parametersAnalyzeResult = new ParametersAnalyzeResult();
@@ -212,7 +230,7 @@ class ParametersAnalyzeResultDiffblueTest {
     Set<String> actualPathPostParametersAdd = parametersAnalyzeResult.getPathPostParametersAdd();
     Set<String> actualPathPostParametersDel = parametersAnalyzeResult.getPathPostParametersDel();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("ParametersAnalyzeResult(pathPostParametersAdd=[], pathPostParametersDel=[])", actualToStringResult);
     assertTrue(actualPathPostParametersAdd.isEmpty());
     assertTrue(actualPathPostParametersDel.isEmpty());

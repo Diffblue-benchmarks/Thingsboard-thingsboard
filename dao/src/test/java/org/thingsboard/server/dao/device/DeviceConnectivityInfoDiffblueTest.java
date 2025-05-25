@@ -3,12 +3,14 @@ package org.thingsboard.server.dao.device;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 public class DeviceConnectivityInfoDiffblueTest {
   /**
-   * Test {@link DeviceConnectivityInfo#equals(Object)}, and
-   * {@link DeviceConnectivityInfo#hashCode()}.
+   * Test {@link DeviceConnectivityInfo#equals(Object)}, and {@link DeviceConnectivityInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -21,6 +23,8 @@ public class DeviceConnectivityInfoDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DeviceConnectivityInfo.equals(Object)", "int DeviceConnectivityInfo.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DeviceConnectivityInfo deviceConnectivityInfo = new DeviceConnectivityInfo();
@@ -40,8 +44,7 @@ public class DeviceConnectivityInfoDiffblueTest {
   }
 
   /**
-   * Test {@link DeviceConnectivityInfo#equals(Object)}, and
-   * {@link DeviceConnectivityInfo#hashCode()}.
+   * Test {@link DeviceConnectivityInfo#equals(Object)}, and {@link DeviceConnectivityInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -54,6 +57,8 @@ public class DeviceConnectivityInfoDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DeviceConnectivityInfo.equals(Object)", "int DeviceConnectivityInfo.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     DeviceConnectivityInfo deviceConnectivityInfo = new DeviceConnectivityInfo();
@@ -73,8 +78,7 @@ public class DeviceConnectivityInfoDiffblueTest {
   }
 
   /**
-   * Test {@link DeviceConnectivityInfo#equals(Object)}, and
-   * {@link DeviceConnectivityInfo#hashCode()}.
+   * Test {@link DeviceConnectivityInfo#equals(Object)}, and {@link DeviceConnectivityInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -87,6 +91,8 @@ public class DeviceConnectivityInfoDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DeviceConnectivityInfo.equals(Object)", "int DeviceConnectivityInfo.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     DeviceConnectivityInfo deviceConnectivityInfo = new DeviceConnectivityInfo();
@@ -106,8 +112,7 @@ public class DeviceConnectivityInfoDiffblueTest {
   }
 
   /**
-   * Test {@link DeviceConnectivityInfo#equals(Object)}, and
-   * {@link DeviceConnectivityInfo#hashCode()}.
+   * Test {@link DeviceConnectivityInfo#equals(Object)}, and {@link DeviceConnectivityInfo#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -120,6 +125,8 @@ public class DeviceConnectivityInfoDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DeviceConnectivityInfo.equals(Object)", "int DeviceConnectivityInfo.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DeviceConnectivityInfo deviceConnectivityInfo = new DeviceConnectivityInfo();
@@ -143,6 +150,8 @@ public class DeviceConnectivityInfoDiffblueTest {
    * Method under test: {@link DeviceConnectivityInfo#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DeviceConnectivityInfo.equals(Object)", "int DeviceConnectivityInfo.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     DeviceConnectivityInfo deviceConnectivityInfo = new DeviceConnectivityInfo();
@@ -169,6 +178,8 @@ public class DeviceConnectivityInfoDiffblueTest {
    * Method under test: {@link DeviceConnectivityInfo#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DeviceConnectivityInfo.equals(Object)", "int DeviceConnectivityInfo.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DeviceConnectivityInfo deviceConnectivityInfo = new DeviceConnectivityInfo();
@@ -195,6 +206,8 @@ public class DeviceConnectivityInfoDiffblueTest {
    * Method under test: {@link DeviceConnectivityInfo#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DeviceConnectivityInfo.equals(Object)", "int DeviceConnectivityInfo.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DeviceConnectivityInfo deviceConnectivityInfo = new DeviceConnectivityInfo();
@@ -221,6 +234,8 @@ public class DeviceConnectivityInfoDiffblueTest {
    * Method under test: {@link DeviceConnectivityInfo#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DeviceConnectivityInfo.equals(Object)", "int DeviceConnectivityInfo.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     DeviceConnectivityInfo deviceConnectivityInfo = new DeviceConnectivityInfo();
@@ -247,6 +262,8 @@ public class DeviceConnectivityInfoDiffblueTest {
    * Method under test: {@link DeviceConnectivityInfo#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DeviceConnectivityInfo.equals(Object)", "int DeviceConnectivityInfo.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     DeviceConnectivityInfo deviceConnectivityInfo = new DeviceConnectivityInfo();
@@ -273,6 +290,8 @@ public class DeviceConnectivityInfoDiffblueTest {
    * Method under test: {@link DeviceConnectivityInfo#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DeviceConnectivityInfo.equals(Object)", "int DeviceConnectivityInfo.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     DeviceConnectivityInfo deviceConnectivityInfo = new DeviceConnectivityInfo();
@@ -294,6 +313,8 @@ public class DeviceConnectivityInfoDiffblueTest {
    * Method under test: {@link DeviceConnectivityInfo#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DeviceConnectivityInfo.equals(Object)", "int DeviceConnectivityInfo.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     DeviceConnectivityInfo deviceConnectivityInfo = new DeviceConnectivityInfo();
@@ -321,6 +342,11 @@ public class DeviceConnectivityInfoDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DeviceConnectivityInfo.<init>()", "String DeviceConnectivityInfo.getHost()",
+      "String DeviceConnectivityInfo.getPort()", "boolean DeviceConnectivityInfo.isEnabled()",
+      "void DeviceConnectivityInfo.setEnabled(boolean)", "void DeviceConnectivityInfo.setHost(String)",
+      "void DeviceConnectivityInfo.setPort(String)", "String DeviceConnectivityInfo.toString()"})
   public void testGettersAndSetters() {
     // Arrange and Act
     DeviceConnectivityInfo actualDeviceConnectivityInfo = new DeviceConnectivityInfo();
@@ -331,7 +357,7 @@ public class DeviceConnectivityInfoDiffblueTest {
     String actualHost = actualDeviceConnectivityInfo.getHost();
     String actualPort = actualDeviceConnectivityInfo.getPort();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("DeviceConnectivityInfo(enabled=true, host=localhost, port=Port)", actualToStringResult);
     assertEquals("Port", actualPort);
     assertEquals("localhost", actualHost);

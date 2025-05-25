@@ -2,7 +2,9 @@ package org.thingsboard.server.common.data.util;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TbPairDiffblueTest {
@@ -13,6 +15,8 @@ class TbPairDiffblueTest {
    */
   @Test
   @DisplayName("Test of(Object, Object)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbPair TbPair.of(Object, Object)"})
   void testOf() {
     // Arrange and Act
     TbPair<Object, Object> actualOfResult = TbPair.of("First", "Second");
@@ -37,6 +41,8 @@ class TbPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbPair.equals(Object)", "int TbPair.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbPair<Object, Object> ofResult = TbPair.of("First", "Second");
@@ -63,6 +69,8 @@ class TbPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbPair.equals(Object)", "int TbPair.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbPair<Object, Object> ofResult = TbPair.of(null, "Second");
@@ -89,6 +97,8 @@ class TbPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbPair.equals(Object)", "int TbPair.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TbPair<Object, Object> ofResult = TbPair.of("First", null);
@@ -115,6 +125,8 @@ class TbPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbPair.equals(Object)", "int TbPair.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbPair<Object, Object> ofResult = TbPair.of("First", "Second");
@@ -136,6 +148,8 @@ class TbPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbPair.equals(Object)", "int TbPair.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TbPair<Object, Object> ofResult = TbPair.<Object, Object>of(1, "Second");
@@ -156,7 +170,32 @@ class TbPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbPair.equals(Object)", "int TbPair.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    TbPair<Object, Object> ofResult = TbPair.of("First", "Second");
+    TbPair<Object, Object> ofResult2 = TbPair.of(ofResult, "Second");
+    TbPair<Object, Object> ofResult3 = TbPair.of("First", "Second");
+
+    // Act and Assert
+    assertNotEquals(ofResult2, ofResult3);
+  }
+
+  /**
+   * Test {@link TbPair#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link TbPair#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbPair.equals(Object)", "int TbPair.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbPair<Object, Object> ofResult = TbPair.of(null, "Second");
     TbPair<Object, Object> ofResult2 = TbPair.of("First", "Second");
@@ -176,26 +215,8 @@ class TbPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
-    // Arrange
-    TbPair<Object, Object> ofResult = TbPair.of(new TbPair<>("First", "Second"), "Second");
-    TbPair<Object, Object> ofResult2 = TbPair.of("First", "Second");
-
-    // Act and Assert
-    assertNotEquals(ofResult, ofResult2);
-  }
-
-  /**
-   * Test {@link TbPair#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbPair#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbPair.equals(Object)", "int TbPair.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbPair<Object, Object> ofResult = TbPair.<Object, Object>of("First", 1);
@@ -216,13 +237,16 @@ class TbPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbPair.equals(Object)", "int TbPair.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    TbPair<Object, Object> ofResult = TbPair.of("First", null);
-    TbPair<Object, Object> ofResult2 = TbPair.of("First", "Second");
+    TbPair<Object, Object> ofResult = TbPair.of("First", "Second");
+    TbPair<Object, Object> ofResult2 = TbPair.of("First", ofResult);
+    TbPair<Object, Object> ofResult3 = TbPair.of("First", "Second");
 
     // Act and Assert
-    assertNotEquals(ofResult, ofResult2);
+    assertNotEquals(ofResult2, ofResult3);
   }
 
   /**
@@ -236,9 +260,11 @@ class TbPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbPair.equals(Object)", "int TbPair.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    TbPair<Object, Object> ofResult = TbPair.of("First", new TbPair<>("First", "Second"));
+    TbPair<Object, Object> ofResult = TbPair.of("First", null);
     TbPair<Object, Object> ofResult2 = TbPair.of("First", "Second");
 
     // Act and Assert
@@ -256,6 +282,8 @@ class TbPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbPair.equals(Object)", "int TbPair.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     TbPair<Object, Object> ofResult = TbPair.of("First", "Second");
@@ -275,6 +303,8 @@ class TbPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbPair.equals(Object)", "int TbPair.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     TbPair<Object, Object> ofResult = TbPair.of("First", "Second");
@@ -298,6 +328,9 @@ class TbPairDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbPair.<init>(Object, Object)", "Object TbPair.getFirst()", "Object TbPair.getSecond()",
+      "void TbPair.setFirst(Object)", "void TbPair.setSecond(Object)", "String TbPair.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbPair<Object, Object> actualTbPair = new TbPair<>("First", "Second");
@@ -306,7 +339,7 @@ class TbPairDiffblueTest {
     String actualToStringResult = actualTbPair.toString();
     Object actualFirst = actualTbPair.getFirst();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("First", actualFirst);
     assertEquals("Second", actualTbPair.getSecond());
     assertEquals("TbPair(first=First, second=Second)", actualToStringResult);

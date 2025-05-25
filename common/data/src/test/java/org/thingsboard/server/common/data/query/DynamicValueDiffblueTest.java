@@ -4,13 +4,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class DynamicValueDiffblueTest {
   /**
-   * Test {@link DynamicValue#equals(Object)}, and
-   * {@link DynamicValue#hashCode()}.
+   * Test {@link DynamicValue#equals(Object)}, and {@link DynamicValue#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -24,6 +25,8 @@ class DynamicValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DynamicValue.equals(Object)", "int DynamicValue.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DynamicValue<Object> dynamicValue = new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute");
@@ -36,8 +39,7 @@ class DynamicValueDiffblueTest {
   }
 
   /**
-   * Test {@link DynamicValue#equals(Object)}, and
-   * {@link DynamicValue#hashCode()}.
+   * Test {@link DynamicValue#equals(Object)}, and {@link DynamicValue#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -51,6 +53,8 @@ class DynamicValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DynamicValue.equals(Object)", "int DynamicValue.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     DynamicValue<Object> dynamicValue = new DynamicValue<>(null, "Source Attribute");
@@ -63,8 +67,7 @@ class DynamicValueDiffblueTest {
   }
 
   /**
-   * Test {@link DynamicValue#equals(Object)}, and
-   * {@link DynamicValue#hashCode()}.
+   * Test {@link DynamicValue#equals(Object)}, and {@link DynamicValue#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -78,6 +81,8 @@ class DynamicValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DynamicValue.equals(Object)", "int DynamicValue.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     DynamicValue<Object> dynamicValue = new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, null);
@@ -90,8 +95,7 @@ class DynamicValueDiffblueTest {
   }
 
   /**
-   * Test {@link DynamicValue#equals(Object)}, and
-   * {@link DynamicValue#hashCode()}.
+   * Test {@link DynamicValue#equals(Object)}, and {@link DynamicValue#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -105,6 +109,8 @@ class DynamicValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DynamicValue.equals(Object)", "int DynamicValue.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     DynamicValue<Object> dynamicValue = new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute");
@@ -120,8 +126,7 @@ class DynamicValueDiffblueTest {
   }
 
   /**
-   * Test {@link DynamicValue#equals(Object)}, and
-   * {@link DynamicValue#hashCode()}.
+   * Test {@link DynamicValue#equals(Object)}, and {@link DynamicValue#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -135,6 +140,8 @@ class DynamicValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DynamicValue.equals(Object)", "int DynamicValue.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DynamicValue<Object> dynamicValue = new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute");
@@ -156,6 +163,8 @@ class DynamicValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DynamicValue.equals(Object)", "int DynamicValue.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     DynamicValue<Object> dynamicValue = new DynamicValue<>(null, "Source Attribute");
@@ -175,6 +184,8 @@ class DynamicValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DynamicValue.equals(Object)", "int DynamicValue.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DynamicValue<Object> dynamicValue = new DynamicValue<>(DynamicValueSourceType.CURRENT_CUSTOMER, "Source Attribute");
@@ -194,6 +205,8 @@ class DynamicValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DynamicValue.equals(Object)", "int DynamicValue.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DynamicValue<Object> dynamicValue = new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, null);
@@ -213,6 +226,8 @@ class DynamicValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DynamicValue.equals(Object)", "int DynamicValue.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     DynamicValue<Object> dynamicValue = new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT,
@@ -233,6 +248,8 @@ class DynamicValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DynamicValue.equals(Object)", "int DynamicValue.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     DynamicValue<Object> dynamicValue = new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute",
@@ -253,6 +270,8 @@ class DynamicValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DynamicValue.equals(Object)", "int DynamicValue.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     DynamicValue<Object> dynamicValue = new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute");
@@ -273,6 +292,8 @@ class DynamicValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DynamicValue.equals(Object)", "int DynamicValue.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     DynamicValue<Object> dynamicValue = new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute");
@@ -295,6 +316,8 @@ class DynamicValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DynamicValue.equals(Object)", "int DynamicValue.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     DynamicValue<Object> dynamicValue = new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute");
@@ -315,6 +338,8 @@ class DynamicValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DynamicValue.equals(Object)", "int DynamicValue.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     DynamicValue<Object> dynamicValue = new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute");
@@ -334,6 +359,8 @@ class DynamicValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DynamicValue.equals(Object)", "int DynamicValue.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     DynamicValue<Object> dynamicValue = new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute");
@@ -362,6 +389,12 @@ class DynamicValueDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when 'Source Attribute'; then return not Inherit")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DynamicValue.<init>(DynamicValueSourceType, String)",
+      "void DynamicValue.<init>(DynamicValueSourceType, String, boolean)", "Object DynamicValue.getResolvedValue()",
+      "String DynamicValue.getSourceAttribute()", "DynamicValueSourceType DynamicValue.getSourceType()",
+      "boolean DynamicValue.isInherit()", "void DynamicValue.setResolvedValue(Object)",
+      "String DynamicValue.toString()"})
   void testGettersAndSetters_whenSourceAttribute_thenReturnNotInherit() {
     // Arrange and Act
     DynamicValue<Object> actualDynamicValue = new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT,
@@ -372,7 +405,7 @@ class DynamicValueDiffblueTest {
     String actualSourceAttribute = actualDynamicValue.getSourceAttribute();
     DynamicValueSourceType actualSourceType = actualDynamicValue.getSourceType();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "DynamicValue(resolvedValue=Resolved Value, sourceType=CURRENT_TENANT, sourceAttribute=Source Attribute,"
             + " inherit=false)",
@@ -392,8 +425,7 @@ class DynamicValueDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link DynamicValue#DynamicValue(DynamicValueSourceType, String, boolean)}
+   *   <li>{@link DynamicValue#DynamicValue(DynamicValueSourceType, String, boolean)}
    *   <li>{@link DynamicValue#setResolvedValue(Object)}
    *   <li>{@link DynamicValue#toString()}
    *   <li>{@link DynamicValue#getResolvedValue()}
@@ -404,6 +436,12 @@ class DynamicValueDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when 'true'; then return Inherit")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DynamicValue.<init>(DynamicValueSourceType, String)",
+      "void DynamicValue.<init>(DynamicValueSourceType, String, boolean)", "Object DynamicValue.getResolvedValue()",
+      "String DynamicValue.getSourceAttribute()", "DynamicValueSourceType DynamicValue.getSourceType()",
+      "boolean DynamicValue.isInherit()", "void DynamicValue.setResolvedValue(Object)",
+      "String DynamicValue.toString()"})
   void testGettersAndSetters_whenTrue_thenReturnInherit() {
     // Arrange and Act
     DynamicValue<Object> actualDynamicValue = new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT,
@@ -414,7 +452,7 @@ class DynamicValueDiffblueTest {
     String actualSourceAttribute = actualDynamicValue.getSourceAttribute();
     DynamicValueSourceType actualSourceType = actualDynamicValue.getSourceType();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "DynamicValue(resolvedValue=Resolved Value, sourceType=CURRENT_TENANT, sourceAttribute=Source Attribute,"
             + " inherit=true)",

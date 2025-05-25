@@ -1,22 +1,24 @@
 package org.thingsboard.monitoring.data.notification;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.Collection;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.monitoring.data.Latency;
 
 class HighLatencyNotificationDiffblueTest {
   /**
-   * Test
-   * {@link HighLatencyNotification#HighLatencyNotification(Collection, int)}.
+   * Test {@link HighLatencyNotification#HighLatencyNotification(Collection, int)}.
    * <p>
-   * Method under test:
-   * {@link HighLatencyNotification#HighLatencyNotification(Collection, int)}
+   * Method under test: {@link HighLatencyNotification#HighLatencyNotification(Collection, int)}
    */
   @Test
   @DisplayName("Test new HighLatencyNotification(Collection, int)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void HighLatencyNotification.<init>(Collection, int)"})
   void testNewHighLatencyNotification() {
     // Arrange, Act and Assert
     assertEquals("Some of the latencies are higher than 1 ms:\n",
@@ -30,6 +32,8 @@ class HighLatencyNotificationDiffblueTest {
    */
   @Test
   @DisplayName("Test getText()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String HighLatencyNotification.getText()"})
   void testGetText() {
     // Arrange
     ArrayList<Latency> highLatencies = new ArrayList<>();
@@ -50,6 +54,8 @@ class HighLatencyNotificationDiffblueTest {
    */
   @Test
   @DisplayName("Test getText(); then return a string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String HighLatencyNotification.getText()"})
   void testGetText_thenReturnAString() {
     // Arrange
     ArrayList<Latency> highLatencies = new ArrayList<>();
@@ -73,6 +79,8 @@ class HighLatencyNotificationDiffblueTest {
    */
   @Test
   @DisplayName("Test getText(); then return 'Some of the latencies are higher than 1 ms:'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String HighLatencyNotification.getText()"})
   void testGetText_thenReturnSomeOfTheLatenciesAreHigherThan1Ms() {
     // Arrange, Act and Assert
     assertEquals("Some of the latencies are higher than 1 ms:\n",

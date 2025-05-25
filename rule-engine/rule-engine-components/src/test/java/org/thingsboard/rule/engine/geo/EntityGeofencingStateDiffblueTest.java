@@ -3,13 +3,14 @@ package org.thingsboard.rule.engine.geo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class EntityGeofencingStateDiffblueTest {
   /**
-   * Test {@link EntityGeofencingState#equals(Object)}, and
-   * {@link EntityGeofencingState#hashCode()}.
+   * Test {@link EntityGeofencingState#equals(Object)}, and {@link EntityGeofencingState#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -23,6 +24,8 @@ class EntityGeofencingStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityGeofencingState.equals(Object)", "int EntityGeofencingState.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EntityGeofencingState entityGeofencingState = new EntityGeofencingState(true, 1L, true);
@@ -35,8 +38,7 @@ class EntityGeofencingStateDiffblueTest {
   }
 
   /**
-   * Test {@link EntityGeofencingState#equals(Object)}, and
-   * {@link EntityGeofencingState#hashCode()}.
+   * Test {@link EntityGeofencingState#equals(Object)}, and {@link EntityGeofencingState#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -50,6 +52,8 @@ class EntityGeofencingStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityGeofencingState.equals(Object)", "int EntityGeofencingState.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EntityGeofencingState entityGeofencingState = new EntityGeofencingState(true, 1L, true);
@@ -71,6 +75,8 @@ class EntityGeofencingStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityGeofencingState.equals(Object)", "int EntityGeofencingState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     EntityGeofencingState entityGeofencingState = new EntityGeofencingState(false, 1L, true);
@@ -90,6 +96,8 @@ class EntityGeofencingStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityGeofencingState.equals(Object)", "int EntityGeofencingState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EntityGeofencingState entityGeofencingState = new EntityGeofencingState(true, 3L, true);
@@ -109,6 +117,8 @@ class EntityGeofencingStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityGeofencingState.equals(Object)", "int EntityGeofencingState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     EntityGeofencingState entityGeofencingState = new EntityGeofencingState(true, 1L, false);
@@ -128,6 +138,8 @@ class EntityGeofencingStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityGeofencingState.equals(Object)", "int EntityGeofencingState.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EntityGeofencingState(true, 1L, true), null);
@@ -144,6 +156,8 @@ class EntityGeofencingStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityGeofencingState.equals(Object)", "int EntityGeofencingState.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EntityGeofencingState(true, 1L, true), "Different type to EntityGeofencingState");
@@ -165,6 +179,11 @@ class EntityGeofencingStateDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long EntityGeofencingState.getStateSwitchTime()", "boolean EntityGeofencingState.isInside()",
+      "boolean EntityGeofencingState.isStayed()", "void EntityGeofencingState.setInside(boolean)",
+      "void EntityGeofencingState.setStateSwitchTime(long)", "void EntityGeofencingState.setStayed(boolean)",
+      "String EntityGeofencingState.toString()"})
   void testGettersAndSetters() {
     // Arrange
     EntityGeofencingState entityGeofencingState = new EntityGeofencingState(true, 1L, true);
@@ -177,7 +196,7 @@ class EntityGeofencingStateDiffblueTest {
     long actualStateSwitchTime = entityGeofencingState.getStateSwitchTime();
     boolean actualIsInsideResult = entityGeofencingState.isInside();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("EntityGeofencingState(inside=true, stateSwitchTime=1, stayed=true)", actualToStringResult);
     assertEquals(1L, actualStateSwitchTime);
     assertTrue(actualIsInsideResult);
@@ -185,14 +204,14 @@ class EntityGeofencingStateDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EntityGeofencingState#EntityGeofencingState(boolean, long, boolean)}.
+   * Test {@link EntityGeofencingState#EntityGeofencingState(boolean, long, boolean)}.
    * <p>
-   * Method under test:
-   * {@link EntityGeofencingState#EntityGeofencingState(boolean, long, boolean)}
+   * Method under test: {@link EntityGeofencingState#EntityGeofencingState(boolean, long, boolean)}
    */
   @Test
   @DisplayName("Test new EntityGeofencingState(boolean, long, boolean)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityGeofencingState.<init>(boolean, long, boolean)"})
   void testNewEntityGeofencingState() {
     // Arrange and Act
     EntityGeofencingState actualEntityGeofencingState = new EntityGeofencingState(true, 1L, true);

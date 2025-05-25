@@ -3,17 +3,18 @@ package org.thingsboard.server.common.data.alarm;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.Collection;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.page.TimePageLink;
 
 class AlarmStatusFilterDiffblueTest {
   /**
-   * Test {@link AlarmStatusFilter#from(AlarmSearchStatus)} with
-   * {@code alarmSearchStatus}.
+   * Test {@link AlarmStatusFilter#from(AlarmSearchStatus)} with {@code alarmSearchStatus}.
    * <ul>
    *   <li>When {@code ACK}.</li>
    *   <li>Then return AckFilter.</li>
@@ -23,6 +24,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(AlarmSearchStatus) with 'alarmSearchStatus'; when 'ACK'; then return AckFilter")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(AlarmSearchStatus)"})
   void testFromWithAlarmSearchStatus_whenAck_thenReturnAckFilter() {
     // Arrange and Act
     AlarmStatusFilter actualFromResult = AlarmStatusFilter.from(AlarmSearchStatus.ACK);
@@ -35,8 +38,7 @@ class AlarmStatusFilterDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmStatusFilter#from(AlarmSearchStatus)} with
-   * {@code alarmSearchStatus}.
+   * Test {@link AlarmStatusFilter#from(AlarmSearchStatus)} with {@code alarmSearchStatus}.
    * <ul>
    *   <li>When {@code ACTIVE}.</li>
    *   <li>Then return not ClearFilter.</li>
@@ -46,6 +48,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(AlarmSearchStatus) with 'alarmSearchStatus'; when 'ACTIVE'; then return not ClearFilter")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(AlarmSearchStatus)"})
   void testFromWithAlarmSearchStatus_whenActive_thenReturnNotClearFilter() {
     // Arrange and Act
     AlarmStatusFilter actualFromResult = AlarmStatusFilter.from(AlarmSearchStatus.ACTIVE);
@@ -58,8 +62,7 @@ class AlarmStatusFilterDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmStatusFilter#from(AlarmSearchStatus)} with
-   * {@code alarmSearchStatus}.
+   * Test {@link AlarmStatusFilter#from(AlarmSearchStatus)} with {@code alarmSearchStatus}.
    * <ul>
    *   <li>When {@code ANY}.</li>
    *   <li>Then return not hasAnyFilter.</li>
@@ -69,6 +72,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(AlarmSearchStatus) with 'alarmSearchStatus'; when 'ANY'; then return not hasAnyFilter")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(AlarmSearchStatus)"})
   void testFromWithAlarmSearchStatus_whenAny_thenReturnNotHasAnyFilter() {
     // Arrange and Act
     AlarmStatusFilter actualFromResult = AlarmStatusFilter.from(AlarmSearchStatus.ANY);
@@ -80,8 +85,7 @@ class AlarmStatusFilterDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmStatusFilter#from(AlarmSearchStatus)} with
-   * {@code alarmSearchStatus}.
+   * Test {@link AlarmStatusFilter#from(AlarmSearchStatus)} with {@code alarmSearchStatus}.
    * <ul>
    *   <li>When {@code CLEARED}.</li>
    *   <li>Then return ClearFilter.</li>
@@ -91,6 +95,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(AlarmSearchStatus) with 'alarmSearchStatus'; when 'CLEARED'; then return ClearFilter")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(AlarmSearchStatus)"})
   void testFromWithAlarmSearchStatus_whenCleared_thenReturnClearFilter() {
     // Arrange and Act
     AlarmStatusFilter actualFromResult = AlarmStatusFilter.from(AlarmSearchStatus.CLEARED);
@@ -103,8 +109,7 @@ class AlarmStatusFilterDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmStatusFilter#from(AlarmSearchStatus)} with
-   * {@code alarmSearchStatus}.
+   * Test {@link AlarmStatusFilter#from(AlarmSearchStatus)} with {@code alarmSearchStatus}.
    * <ul>
    *   <li>When {@code UNACK}.</li>
    *   <li>Then return not AckFilter.</li>
@@ -114,6 +119,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(AlarmSearchStatus) with 'alarmSearchStatus'; when 'UNACK'; then return not AckFilter")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(AlarmSearchStatus)"})
   void testFromWithAlarmSearchStatus_whenUnack_thenReturnNotAckFilter() {
     // Arrange and Act
     AlarmStatusFilter actualFromResult = AlarmStatusFilter.from(AlarmSearchStatus.UNACK);
@@ -136,6 +143,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(AlarmStatus) with 'alarmStatus'; when 'ACTIVE_ACK'; then return not ClearFilter")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(AlarmStatus)"})
   void testFromWithAlarmStatus_whenActiveAck_thenReturnNotClearFilter() {
     // Arrange and Act
     AlarmStatusFilter actualFromResult = AlarmStatusFilter.from(AlarmStatus.ACTIVE_ACK);
@@ -159,6 +168,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(AlarmStatus) with 'alarmStatus'; when 'ACTIVE_UNACK'; then return not AckFilter")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(AlarmStatus)"})
   void testFromWithAlarmStatus_whenActiveUnack_thenReturnNotAckFilter() {
     // Arrange and Act
     AlarmStatusFilter actualFromResult = AlarmStatusFilter.from(AlarmStatus.ACTIVE_UNACK);
@@ -182,6 +193,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(AlarmStatus) with 'alarmStatus'; when 'CLEARED_ACK'; then return AckFilter")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(AlarmStatus)"})
   void testFromWithAlarmStatus_whenClearedAck_thenReturnAckFilter() {
     // Arrange and Act
     AlarmStatusFilter actualFromResult = AlarmStatusFilter.from(AlarmStatus.CLEARED_ACK);
@@ -205,6 +218,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(AlarmStatus) with 'alarmStatus'; when 'CLEARED_UNACK'; then return not AckFilter")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(AlarmStatus)"})
   void testFromWithAlarmStatus_whenClearedUnack_thenReturnNotAckFilter() {
     // Arrange and Act
     AlarmStatusFilter actualFromResult = AlarmStatusFilter.from(AlarmStatus.CLEARED_UNACK);
@@ -224,6 +239,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(AlarmQuery) with 'query'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(AlarmQuery)"})
   void testFromWithQuery() {
     // Arrange and Act
     AlarmStatusFilter actualFromResult = AlarmStatusFilter.from(new AlarmQuery(TenantId.SYS_TENANT_ID,
@@ -242,6 +259,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(AlarmQuery) with 'query'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(AlarmQuery)"})
   void testFromWithQuery2() {
     // Arrange and Act
     AlarmStatusFilter actualFromResult = AlarmStatusFilter
@@ -261,6 +280,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(AlarmQuery) with 'query'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(AlarmQuery)"})
   void testFromWithQuery3() {
     // Arrange and Act
     AlarmStatusFilter actualFromResult = AlarmStatusFilter.from(new AlarmQuery(TenantId.SYS_TENANT_ID,
@@ -280,6 +301,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(AlarmQuery) with 'query'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(AlarmQuery)"})
   void testFromWithQuery4() {
     // Arrange and Act
     AlarmStatusFilter actualFromResult = AlarmStatusFilter.from(new AlarmQuery(TenantId.SYS_TENANT_ID,
@@ -299,6 +322,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(AlarmQuery) with 'query'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(AlarmQuery)"})
   void testFromWithQuery5() {
     // Arrange and Act
     AlarmStatusFilter actualFromResult = AlarmStatusFilter.from(new AlarmQuery(TenantId.SYS_TENANT_ID,
@@ -318,6 +343,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(AlarmQuery) with 'query'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(AlarmQuery)"})
   void testFromWithQuery6() {
     // Arrange and Act
     AlarmStatusFilter actualFromResult = AlarmStatusFilter.from(new AlarmQuery(TenantId.SYS_TENANT_ID,
@@ -337,6 +364,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(AlarmQuery) with 'query'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(AlarmQuery)"})
   void testFromWithQuery7() {
     // Arrange and Act
     AlarmStatusFilter actualFromResult = AlarmStatusFilter
@@ -355,6 +384,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(AlarmQuery) with 'query'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(AlarmQuery)"})
   void testFromWithQuery8() {
     // Arrange and Act
     AlarmStatusFilter actualFromResult = AlarmStatusFilter
@@ -374,6 +405,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(AlarmQuery) with 'query'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(AlarmQuery)"})
   void testFromWithQuery9() {
     // Arrange and Act
     AlarmStatusFilter actualFromResult = AlarmStatusFilter
@@ -393,6 +426,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(AlarmQuery) with 'query'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(AlarmQuery)"})
   void testFromWithQuery10() {
     // Arrange and Act
     AlarmStatusFilter actualFromResult = AlarmStatusFilter
@@ -417,6 +452,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(Collection) with 'statuses'; given 'ACK'; when ArrayList() add 'ACK'; then return AckFilter")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(Collection)"})
   void testFromWithStatuses_givenAck_whenArrayListAddAck_thenReturnAckFilter() {
     // Arrange
     ArrayList<AlarmSearchStatus> statuses = new ArrayList<>();
@@ -444,6 +481,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(Collection) with 'statuses'; given 'ACTIVE'; when ArrayList() add 'ACTIVE'; then return not ClearFilter")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(Collection)"})
   void testFromWithStatuses_givenActive_whenArrayListAddActive_thenReturnNotClearFilter() {
     // Arrange
     ArrayList<AlarmSearchStatus> statuses = new ArrayList<>();
@@ -471,6 +510,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(Collection) with 'statuses'; given 'ANY'; when ArrayList() add 'ANY'; then return not hasAnyFilter")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(Collection)"})
   void testFromWithStatuses_givenAny_whenArrayListAddAny_thenReturnNotHasAnyFilter() {
     // Arrange
     ArrayList<AlarmSearchStatus> statuses = new ArrayList<>();
@@ -497,6 +538,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(Collection) with 'statuses'; given 'ANY'; when ArrayList() add 'ANY'; then return not hasAnyFilter")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(Collection)"})
   void testFromWithStatuses_givenAny_whenArrayListAddAny_thenReturnNotHasAnyFilter2() {
     // Arrange
     ArrayList<AlarmSearchStatus> statuses = new ArrayList<>();
@@ -523,6 +566,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(Collection) with 'statuses'; given 'CLEARED'; when ArrayList() add 'CLEARED'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(Collection)"})
   void testFromWithStatuses_givenCleared_whenArrayListAddCleared() {
     // Arrange
     ArrayList<AlarmSearchStatus> statuses = new ArrayList<>();
@@ -550,6 +595,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(Collection) with 'statuses'; given 'CLEARED'; when ArrayList() add 'CLEARED'; then return ClearFilter")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(Collection)"})
   void testFromWithStatuses_givenCleared_whenArrayListAddCleared_thenReturnClearFilter() {
     // Arrange
     ArrayList<AlarmSearchStatus> statuses = new ArrayList<>();
@@ -577,6 +624,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(Collection) with 'statuses'; given 'null'; when ArrayList() add 'null'; then return not hasAnyFilter")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(Collection)"})
   void testFromWithStatuses_givenNull_whenArrayListAddNull_thenReturnNotHasAnyFilter() {
     // Arrange
     ArrayList<AlarmSearchStatus> statuses = new ArrayList<>();
@@ -603,6 +652,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(Collection) with 'statuses'; given 'UNACK'; when ArrayList() add 'UNACK'; then return not AckFilter")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(Collection)"})
   void testFromWithStatuses_givenUnack_whenArrayListAddUnack_thenReturnNotAckFilter() {
     // Arrange
     ArrayList<AlarmSearchStatus> statuses = new ArrayList<>();
@@ -630,6 +681,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(Collection) with 'statuses'; given 'UNACK'; when ArrayList() add 'UNACK'; then return not hasAnyFilter")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(Collection)"})
   void testFromWithStatuses_givenUnack_whenArrayListAddUnack_thenReturnNotHasAnyFilter() {
     // Arrange
     ArrayList<AlarmSearchStatus> statuses = new ArrayList<>();
@@ -656,6 +709,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(Collection) with 'statuses'; when ArrayList(); then return not hasAnyFilter")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(Collection)"})
   void testFromWithStatuses_whenArrayList_thenReturnNotHasAnyFilter() {
     // Arrange and Act
     AlarmStatusFilter actualFromResult = AlarmStatusFilter.from(new ArrayList<>());
@@ -677,6 +732,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test from(Collection) with 'statuses'; when 'null'; then return not hasAnyFilter")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.from(Collection)"})
   void testFromWithStatuses_whenNull_thenReturnNotHasAnyFilter() {
     // Arrange and Act
     AlarmStatusFilter actualFromResult = AlarmStatusFilter.from((Collection<AlarmSearchStatus>) null);
@@ -699,6 +756,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test matches(Alarm); given empty; when Alarm(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmStatusFilter.matches(Alarm)"})
   void testMatches_givenEmpty_whenAlarm_thenReturnTrue() {
     // Arrange
     AlarmStatusFilter emptyResult = AlarmStatusFilter.empty();
@@ -719,6 +778,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test matches(Alarm); given from 'ACTIVE_ACK'; when Alarm(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmStatusFilter.matches(Alarm)"})
   void testMatches_givenFromActiveAck_whenAlarm_thenReturnFalse() {
     // Arrange
     AlarmStatusFilter fromResult = AlarmStatusFilter.from(AlarmStatus.ACTIVE_ACK);
@@ -739,6 +800,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test matches(Alarm); given from 'ACTIVE_UNACK'; when Alarm(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmStatusFilter.matches(Alarm)"})
   void testMatches_givenFromActiveUnack_whenAlarm_thenReturnTrue() {
     // Arrange
     AlarmStatusFilter fromResult = AlarmStatusFilter.from(AlarmStatus.ACTIVE_UNACK);
@@ -759,6 +822,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test matches(Alarm); given from 'CLEARED_UNACK'; when Alarm(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmStatusFilter.matches(Alarm)"})
   void testMatches_givenFromClearedUnack_whenAlarm_thenReturnFalse() {
     // Arrange
     AlarmStatusFilter fromResult = AlarmStatusFilter.from(AlarmStatus.CLEARED_UNACK);
@@ -774,6 +839,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test empty()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatusFilter AlarmStatusFilter.empty()"})
   void testEmpty() {
     // Arrange and Act
     AlarmStatusFilter actualEmptyResult = AlarmStatusFilter.empty();
@@ -795,6 +862,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test hasAnyFilter(); given empty; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmStatusFilter.hasAnyFilter()"})
   void testHasAnyFilter_givenEmpty_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(AlarmStatusFilter.empty().hasAnyFilter());
@@ -811,6 +880,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test hasAnyFilter(); given from 'ACK'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmStatusFilter.hasAnyFilter()"})
   void testHasAnyFilter_givenFromAck_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue(AlarmStatusFilter.from(AlarmSearchStatus.ACK).hasAnyFilter());
@@ -827,6 +898,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test hasAnyFilter(); given from 'ACTIVE_UNACK'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmStatusFilter.hasAnyFilter()"})
   void testHasAnyFilter_givenFromActiveUnack_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue(AlarmStatusFilter.from(AlarmStatus.ACTIVE_UNACK).hasAnyFilter());
@@ -843,6 +916,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test hasClearFilter(); given empty; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmStatusFilter.hasClearFilter()"})
   void testHasClearFilter_givenEmpty_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(AlarmStatusFilter.empty().hasClearFilter());
@@ -859,6 +934,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test hasClearFilter(); given from 'ACTIVE_UNACK'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmStatusFilter.hasClearFilter()"})
   void testHasClearFilter_givenFromActiveUnack_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue(AlarmStatusFilter.from(AlarmStatus.ACTIVE_UNACK).hasClearFilter());
@@ -875,6 +952,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test hasAckFilter(); given empty; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmStatusFilter.hasAckFilter()"})
   void testHasAckFilter_givenEmpty_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(AlarmStatusFilter.empty().hasAckFilter());
@@ -891,6 +970,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test hasAckFilter(); given from 'ACTIVE_UNACK'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmStatusFilter.hasAckFilter()"})
   void testHasAckFilter_givenFromActiveUnack_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue(AlarmStatusFilter.from(AlarmStatus.ACTIVE_UNACK).hasAckFilter());
@@ -907,6 +988,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test getClearFilter(); given empty; then throw RuntimeException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmStatusFilter.getClearFilter()"})
   void testGetClearFilter_givenEmpty_thenThrowRuntimeException() {
     // Arrange, Act and Assert
     assertThrows(RuntimeException.class, () -> AlarmStatusFilter.empty().getClearFilter());
@@ -923,6 +1006,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test getClearFilter(); given from 'ACTIVE_UNACK'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmStatusFilter.getClearFilter()"})
   void testGetClearFilter_givenFromActiveUnack_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(AlarmStatusFilter.from(AlarmStatus.ACTIVE_UNACK).getClearFilter());
@@ -939,6 +1024,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test getClearFilter(); given from 'CLEARED_UNACK'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmStatusFilter.getClearFilter()"})
   void testGetClearFilter_givenFromClearedUnack_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue(AlarmStatusFilter.from(AlarmStatus.CLEARED_UNACK).getClearFilter());
@@ -955,6 +1042,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test getAckFilter(); given empty; then throw RuntimeException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmStatusFilter.getAckFilter()"})
   void testGetAckFilter_givenEmpty_thenThrowRuntimeException() {
     // Arrange, Act and Assert
     assertThrows(RuntimeException.class, () -> AlarmStatusFilter.empty().getAckFilter());
@@ -971,6 +1060,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test getAckFilter(); given from 'ACTIVE_ACK'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmStatusFilter.getAckFilter()"})
   void testGetAckFilter_givenFromActiveAck_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue(AlarmStatusFilter.from(AlarmStatus.ACTIVE_ACK).getAckFilter());
@@ -987,6 +1078,8 @@ class AlarmStatusFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test getAckFilter(); given from 'ACTIVE_UNACK'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmStatusFilter.getAckFilter()"})
   void testGetAckFilter_givenFromActiveUnack_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(AlarmStatusFilter.from(AlarmStatus.ACTIVE_UNACK).getAckFilter());

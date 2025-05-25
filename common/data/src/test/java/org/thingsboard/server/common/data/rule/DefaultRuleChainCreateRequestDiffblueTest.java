@@ -2,13 +2,14 @@ package org.thingsboard.server.common.data.rule;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class DefaultRuleChainCreateRequestDiffblueTest {
   /**
-   * Test {@link DefaultRuleChainCreateRequest#equals(Object)}, and
-   * {@link DefaultRuleChainCreateRequest#hashCode()}.
+   * Test {@link DefaultRuleChainCreateRequest#equals(Object)}, and {@link DefaultRuleChainCreateRequest#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -22,6 +23,9 @@ class DefaultRuleChainCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultRuleChainCreateRequest.equals(Object)",
+      "int DefaultRuleChainCreateRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DefaultRuleChainCreateRequest defaultRuleChainCreateRequest = new DefaultRuleChainCreateRequest();
@@ -37,8 +41,7 @@ class DefaultRuleChainCreateRequestDiffblueTest {
   }
 
   /**
-   * Test {@link DefaultRuleChainCreateRequest#equals(Object)}, and
-   * {@link DefaultRuleChainCreateRequest#hashCode()}.
+   * Test {@link DefaultRuleChainCreateRequest#equals(Object)}, and {@link DefaultRuleChainCreateRequest#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -52,6 +55,9 @@ class DefaultRuleChainCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultRuleChainCreateRequest.equals(Object)",
+      "int DefaultRuleChainCreateRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     DefaultRuleChainCreateRequest defaultRuleChainCreateRequest = new DefaultRuleChainCreateRequest();
@@ -67,8 +73,7 @@ class DefaultRuleChainCreateRequestDiffblueTest {
   }
 
   /**
-   * Test {@link DefaultRuleChainCreateRequest#equals(Object)}, and
-   * {@link DefaultRuleChainCreateRequest#hashCode()}.
+   * Test {@link DefaultRuleChainCreateRequest#equals(Object)}, and {@link DefaultRuleChainCreateRequest#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -82,6 +87,9 @@ class DefaultRuleChainCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultRuleChainCreateRequest.equals(Object)",
+      "int DefaultRuleChainCreateRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DefaultRuleChainCreateRequest defaultRuleChainCreateRequest = new DefaultRuleChainCreateRequest();
@@ -104,6 +112,9 @@ class DefaultRuleChainCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultRuleChainCreateRequest.equals(Object)",
+      "int DefaultRuleChainCreateRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     DefaultRuleChainCreateRequest defaultRuleChainCreateRequest = new DefaultRuleChainCreateRequest();
@@ -127,6 +138,9 @@ class DefaultRuleChainCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultRuleChainCreateRequest.equals(Object)",
+      "int DefaultRuleChainCreateRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DefaultRuleChainCreateRequest defaultRuleChainCreateRequest = new DefaultRuleChainCreateRequest();
@@ -150,6 +164,9 @@ class DefaultRuleChainCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultRuleChainCreateRequest.equals(Object)",
+      "int DefaultRuleChainCreateRequest.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     DefaultRuleChainCreateRequest defaultRuleChainCreateRequest = new DefaultRuleChainCreateRequest();
@@ -170,6 +187,9 @@ class DefaultRuleChainCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultRuleChainCreateRequest.equals(Object)",
+      "int DefaultRuleChainCreateRequest.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     DefaultRuleChainCreateRequest defaultRuleChainCreateRequest = new DefaultRuleChainCreateRequest();
@@ -184,8 +204,7 @@ class DefaultRuleChainCreateRequestDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link DefaultRuleChainCreateRequest}
+   *   <li>default or parameterless constructor of {@link DefaultRuleChainCreateRequest}
    *   <li>{@link DefaultRuleChainCreateRequest#setName(String)}
    *   <li>{@link DefaultRuleChainCreateRequest#toString()}
    *   <li>{@link DefaultRuleChainCreateRequest#getName()}
@@ -193,13 +212,16 @@ class DefaultRuleChainCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultRuleChainCreateRequest.<init>()", "String DefaultRuleChainCreateRequest.getName()",
+      "void DefaultRuleChainCreateRequest.setName(String)", "String DefaultRuleChainCreateRequest.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     DefaultRuleChainCreateRequest actualDefaultRuleChainCreateRequest = new DefaultRuleChainCreateRequest();
     actualDefaultRuleChainCreateRequest.setName("Name");
     String actualToStringResult = actualDefaultRuleChainCreateRequest.toString();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("DefaultRuleChainCreateRequest(name=Name)", actualToStringResult);
     assertEquals("Name", actualDefaultRuleChainCreateRequest.getName());
   }

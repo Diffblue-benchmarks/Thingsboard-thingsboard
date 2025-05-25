@@ -6,39 +6,51 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashSet;
 import java.util.Set;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.ApiFeature;
 import org.thingsboard.server.common.data.ApiUsageStateValue;
 import org.thingsboard.server.common.data.notification.rule.trigger.config.ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder;
 
+@ContextConfiguration(classes = {ApiUsageLimitNotificationRuleTriggerConfigBuilder.class})
+@ExtendWith(SpringExtension.class)
 class ApiUsageLimitNotificationRuleTriggerConfigDiffblueTest {
+  @Autowired
+  private ApiUsageLimitNotificationRuleTriggerConfigBuilder apiUsageLimitNotificationRuleTriggerConfigBuilder;
+
   /**
-   * Test ApiUsageLimitNotificationRuleTriggerConfigBuilder
-   * {@link ApiUsageLimitNotificationRuleTriggerConfigBuilder#build()}.
+   * Test ApiUsageLimitNotificationRuleTriggerConfigBuilder {@link ApiUsageLimitNotificationRuleTriggerConfigBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder#build()}
-   *   <li>
-   * {@link ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder#apiFeatures(Set)}
-   *   <li>
-   * {@link ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder#notifyOn(Set)}
+   *   <li>{@link ApiUsageLimitNotificationRuleTriggerConfigBuilder#build()}
+   *   <li>{@link ApiUsageLimitNotificationRuleTriggerConfigBuilder#apiFeatures(Set)}
+   *   <li>{@link ApiUsageLimitNotificationRuleTriggerConfigBuilder#notifyOn(Set)}
    * </ul>
    */
   @Test
   @DisplayName("Test ApiUsageLimitNotificationRuleTriggerConfigBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ApiUsageLimitNotificationRuleTriggerConfigBuilder.<init>()",
+      "ApiUsageLimitNotificationRuleTriggerConfigBuilder ApiUsageLimitNotificationRuleTriggerConfigBuilder.apiFeatures(Set)",
+      "ApiUsageLimitNotificationRuleTriggerConfig ApiUsageLimitNotificationRuleTriggerConfigBuilder.build()",
+      "ApiUsageLimitNotificationRuleTriggerConfigBuilder ApiUsageLimitNotificationRuleTriggerConfigBuilder.notifyOn(Set)",
+      "String ApiUsageLimitNotificationRuleTriggerConfigBuilder.toString()"})
   void testApiUsageLimitNotificationRuleTriggerConfigBuilderBuild() {
     // Arrange
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder builderResult = ApiUsageLimitNotificationRuleTriggerConfig
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder builderResult = ApiUsageLimitNotificationRuleTriggerConfig
         .builder();
     HashSet<ApiFeature> apiFeatures = new HashSet<>();
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult = builderResult
-        .apiFeatures(apiFeatures);
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult = builderResult.apiFeatures(apiFeatures);
     HashSet<ApiUsageStateValue> notifyOn = new HashSet<>();
 
     // Act
@@ -56,8 +68,7 @@ class ApiUsageLimitNotificationRuleTriggerConfigDiffblueTest {
   }
 
   /**
-   * Test {@link ApiUsageLimitNotificationRuleTriggerConfig#equals(Object)}, and
-   * {@link ApiUsageLimitNotificationRuleTriggerConfig#hashCode()}.
+   * Test {@link ApiUsageLimitNotificationRuleTriggerConfig#equals(Object)}, and {@link ApiUsageLimitNotificationRuleTriggerConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -71,17 +82,18 @@ class ApiUsageLimitNotificationRuleTriggerConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationRuleTriggerConfig.equals(Object)",
+      "int ApiUsageLimitNotificationRuleTriggerConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder builderResult = ApiUsageLimitNotificationRuleTriggerConfig
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder builderResult = ApiUsageLimitNotificationRuleTriggerConfig
         .builder();
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult = builderResult
-        .apiFeatures(new HashSet<>());
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult = builderResult.apiFeatures(new HashSet<>());
     ApiUsageLimitNotificationRuleTriggerConfig buildResult = apiFeaturesResult.notifyOn(new HashSet<>()).build();
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder builderResult2 = ApiUsageLimitNotificationRuleTriggerConfig
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder builderResult2 = ApiUsageLimitNotificationRuleTriggerConfig
         .builder();
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult2 = builderResult2
-        .apiFeatures(new HashSet<>());
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult2 = builderResult2.apiFeatures(new HashSet<>());
     ApiUsageLimitNotificationRuleTriggerConfig buildResult2 = apiFeaturesResult2.notifyOn(new HashSet<>()).build();
 
     // Act and Assert
@@ -91,8 +103,7 @@ class ApiUsageLimitNotificationRuleTriggerConfigDiffblueTest {
   }
 
   /**
-   * Test {@link ApiUsageLimitNotificationRuleTriggerConfig#equals(Object)}, and
-   * {@link ApiUsageLimitNotificationRuleTriggerConfig#hashCode()}.
+   * Test {@link ApiUsageLimitNotificationRuleTriggerConfig#equals(Object)}, and {@link ApiUsageLimitNotificationRuleTriggerConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -106,20 +117,23 @@ class ApiUsageLimitNotificationRuleTriggerConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationRuleTriggerConfig.equals(Object)",
+      "int ApiUsageLimitNotificationRuleTriggerConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiUsageLimitNotificationRuleTriggerConfigBuilder = mock(
-        ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder.class);
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiUsageLimitNotificationRuleTriggerConfigBuilder = mock(
+        ApiUsageLimitNotificationRuleTriggerConfigBuilder.class);
     when(apiUsageLimitNotificationRuleTriggerConfigBuilder.apiFeatures(Mockito.<Set<ApiFeature>>any()))
         .thenReturn(ApiUsageLimitNotificationRuleTriggerConfig.builder());
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult = apiUsageLimitNotificationRuleTriggerConfigBuilder
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult = apiUsageLimitNotificationRuleTriggerConfigBuilder
         .apiFeatures(new HashSet<>());
     ApiUsageLimitNotificationRuleTriggerConfig buildResult = apiFeaturesResult.notifyOn(new HashSet<>()).build();
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiUsageLimitNotificationRuleTriggerConfigBuilder2 = mock(
-        ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder.class);
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiUsageLimitNotificationRuleTriggerConfigBuilder2 = mock(
+        ApiUsageLimitNotificationRuleTriggerConfigBuilder.class);
     when(apiUsageLimitNotificationRuleTriggerConfigBuilder2.apiFeatures(Mockito.<Set<ApiFeature>>any()))
         .thenReturn(ApiUsageLimitNotificationRuleTriggerConfig.builder());
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult2 = apiUsageLimitNotificationRuleTriggerConfigBuilder2
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult2 = apiUsageLimitNotificationRuleTriggerConfigBuilder2
         .apiFeatures(new HashSet<>());
     ApiUsageLimitNotificationRuleTriggerConfig buildResult2 = apiFeaturesResult2.notifyOn(new HashSet<>()).build();
 
@@ -130,8 +144,7 @@ class ApiUsageLimitNotificationRuleTriggerConfigDiffblueTest {
   }
 
   /**
-   * Test {@link ApiUsageLimitNotificationRuleTriggerConfig#equals(Object)}, and
-   * {@link ApiUsageLimitNotificationRuleTriggerConfig#hashCode()}.
+   * Test {@link ApiUsageLimitNotificationRuleTriggerConfig#equals(Object)}, and {@link ApiUsageLimitNotificationRuleTriggerConfig#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -145,12 +158,14 @@ class ApiUsageLimitNotificationRuleTriggerConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationRuleTriggerConfig.equals(Object)",
+      "int ApiUsageLimitNotificationRuleTriggerConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder builderResult = ApiUsageLimitNotificationRuleTriggerConfig
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder builderResult = ApiUsageLimitNotificationRuleTriggerConfig
         .builder();
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult = builderResult
-        .apiFeatures(new HashSet<>());
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult = builderResult.apiFeatures(new HashSet<>());
     ApiUsageLimitNotificationRuleTriggerConfig buildResult = apiFeaturesResult.notifyOn(new HashSet<>()).build();
 
     // Act and Assert
@@ -166,24 +181,25 @@ class ApiUsageLimitNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ApiUsageLimitNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link ApiUsageLimitNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationRuleTriggerConfig.equals(Object)",
+      "int ApiUsageLimitNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiUsageLimitNotificationRuleTriggerConfigBuilder = mock(
-        ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder.class);
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiUsageLimitNotificationRuleTriggerConfigBuilder = mock(
+        ApiUsageLimitNotificationRuleTriggerConfigBuilder.class);
     when(apiUsageLimitNotificationRuleTriggerConfigBuilder.apiFeatures(Mockito.<Set<ApiFeature>>any()))
         .thenReturn(ApiUsageLimitNotificationRuleTriggerConfig.builder());
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult = apiUsageLimitNotificationRuleTriggerConfigBuilder
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult = apiUsageLimitNotificationRuleTriggerConfigBuilder
         .apiFeatures(new HashSet<>());
     ApiUsageLimitNotificationRuleTriggerConfig buildResult = apiFeaturesResult.notifyOn(new HashSet<>()).build();
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder builderResult = ApiUsageLimitNotificationRuleTriggerConfig
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder builderResult = ApiUsageLimitNotificationRuleTriggerConfig
         .builder();
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult2 = builderResult
-        .apiFeatures(new HashSet<>());
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult2 = builderResult.apiFeatures(new HashSet<>());
     ApiUsageLimitNotificationRuleTriggerConfig buildResult2 = apiFeaturesResult2.notifyOn(new HashSet<>()).build();
 
     // Act and Assert
@@ -197,29 +213,31 @@ class ApiUsageLimitNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ApiUsageLimitNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link ApiUsageLimitNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationRuleTriggerConfig.equals(Object)",
+      "int ApiUsageLimitNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiUsageLimitNotificationRuleTriggerConfigBuilder = mock(
-        ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder.class);
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiUsageLimitNotificationRuleTriggerConfigBuilder = mock(
+        ApiUsageLimitNotificationRuleTriggerConfigBuilder.class);
     when(apiUsageLimitNotificationRuleTriggerConfigBuilder.notifyOn(Mockito.<Set<ApiUsageStateValue>>any()))
         .thenReturn(ApiUsageLimitNotificationRuleTriggerConfig.builder());
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiUsageLimitNotificationRuleTriggerConfigBuilder2 = mock(
-        ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder.class);
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiUsageLimitNotificationRuleTriggerConfigBuilder2 = mock(
+        ApiUsageLimitNotificationRuleTriggerConfigBuilder.class);
     when(apiUsageLimitNotificationRuleTriggerConfigBuilder2.apiFeatures(Mockito.<Set<ApiFeature>>any()))
         .thenReturn(apiUsageLimitNotificationRuleTriggerConfigBuilder);
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult = apiUsageLimitNotificationRuleTriggerConfigBuilder2
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult = apiUsageLimitNotificationRuleTriggerConfigBuilder2
         .apiFeatures(new HashSet<>());
     ApiUsageLimitNotificationRuleTriggerConfig buildResult = apiFeaturesResult.notifyOn(new HashSet<>()).build();
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiUsageLimitNotificationRuleTriggerConfigBuilder3 = mock(
-        ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder.class);
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiUsageLimitNotificationRuleTriggerConfigBuilder3 = mock(
+        ApiUsageLimitNotificationRuleTriggerConfigBuilder.class);
     when(apiUsageLimitNotificationRuleTriggerConfigBuilder3.apiFeatures(Mockito.<Set<ApiFeature>>any()))
         .thenReturn(ApiUsageLimitNotificationRuleTriggerConfig.builder());
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult2 = apiUsageLimitNotificationRuleTriggerConfigBuilder3
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult2 = apiUsageLimitNotificationRuleTriggerConfigBuilder3
         .apiFeatures(new HashSet<>());
     ApiUsageLimitNotificationRuleTriggerConfig buildResult2 = apiFeaturesResult2.notifyOn(new HashSet<>()).build();
 
@@ -234,37 +252,38 @@ class ApiUsageLimitNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ApiUsageLimitNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link ApiUsageLimitNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationRuleTriggerConfig.equals(Object)",
+      "int ApiUsageLimitNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiUsageLimitNotificationRuleTriggerConfigBuilder = mock(
-        ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder.class);
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder builderResult = ApiUsageLimitNotificationRuleTriggerConfig
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiUsageLimitNotificationRuleTriggerConfigBuilder = mock(
+        ApiUsageLimitNotificationRuleTriggerConfigBuilder.class);
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder builderResult = ApiUsageLimitNotificationRuleTriggerConfig
         .builder();
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult = builderResult
-        .apiFeatures(new HashSet<>());
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult = builderResult.apiFeatures(new HashSet<>());
     ApiUsageLimitNotificationRuleTriggerConfig buildResult = apiFeaturesResult.notifyOn(new HashSet<>()).build();
     when(apiUsageLimitNotificationRuleTriggerConfigBuilder.build()).thenReturn(buildResult);
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiUsageLimitNotificationRuleTriggerConfigBuilder2 = mock(
-        ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder.class);
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiUsageLimitNotificationRuleTriggerConfigBuilder2 = mock(
+        ApiUsageLimitNotificationRuleTriggerConfigBuilder.class);
     when(apiUsageLimitNotificationRuleTriggerConfigBuilder2.notifyOn(Mockito.<Set<ApiUsageStateValue>>any()))
         .thenReturn(apiUsageLimitNotificationRuleTriggerConfigBuilder);
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiUsageLimitNotificationRuleTriggerConfigBuilder3 = mock(
-        ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder.class);
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiUsageLimitNotificationRuleTriggerConfigBuilder3 = mock(
+        ApiUsageLimitNotificationRuleTriggerConfigBuilder.class);
     when(apiUsageLimitNotificationRuleTriggerConfigBuilder3.apiFeatures(Mockito.<Set<ApiFeature>>any()))
         .thenReturn(apiUsageLimitNotificationRuleTriggerConfigBuilder2);
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult2 = apiUsageLimitNotificationRuleTriggerConfigBuilder3
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult2 = apiUsageLimitNotificationRuleTriggerConfigBuilder3
         .apiFeatures(new HashSet<>());
     ApiUsageLimitNotificationRuleTriggerConfig buildResult2 = apiFeaturesResult2.notifyOn(new HashSet<>()).build();
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiUsageLimitNotificationRuleTriggerConfigBuilder4 = mock(
-        ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder.class);
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiUsageLimitNotificationRuleTriggerConfigBuilder4 = mock(
+        ApiUsageLimitNotificationRuleTriggerConfigBuilder.class);
     when(apiUsageLimitNotificationRuleTriggerConfigBuilder4.apiFeatures(Mockito.<Set<ApiFeature>>any()))
         .thenReturn(ApiUsageLimitNotificationRuleTriggerConfig.builder());
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult3 = apiUsageLimitNotificationRuleTriggerConfigBuilder4
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult3 = apiUsageLimitNotificationRuleTriggerConfigBuilder4
         .apiFeatures(new HashSet<>());
     ApiUsageLimitNotificationRuleTriggerConfig buildResult3 = apiFeaturesResult3.notifyOn(new HashSet<>()).build();
 
@@ -279,17 +298,18 @@ class ApiUsageLimitNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ApiUsageLimitNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link ApiUsageLimitNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationRuleTriggerConfig.equals(Object)",
+      "int ApiUsageLimitNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder builderResult = ApiUsageLimitNotificationRuleTriggerConfig
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder builderResult = ApiUsageLimitNotificationRuleTriggerConfig
         .builder();
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult = builderResult
-        .apiFeatures(new HashSet<>());
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult = builderResult.apiFeatures(new HashSet<>());
     ApiUsageLimitNotificationRuleTriggerConfig buildResult = apiFeaturesResult.notifyOn(new HashSet<>()).build();
 
     // Act and Assert
@@ -303,17 +323,18 @@ class ApiUsageLimitNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ApiUsageLimitNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link ApiUsageLimitNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationRuleTriggerConfig.equals(Object)",
+      "int ApiUsageLimitNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder builderResult = ApiUsageLimitNotificationRuleTriggerConfig
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder builderResult = ApiUsageLimitNotificationRuleTriggerConfig
         .builder();
-    ApiUsageLimitNotificationRuleTriggerConfig.ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult = builderResult
-        .apiFeatures(new HashSet<>());
+    ApiUsageLimitNotificationRuleTriggerConfigBuilder apiFeaturesResult = builderResult.apiFeatures(new HashSet<>());
     ApiUsageLimitNotificationRuleTriggerConfig buildResult = apiFeaturesResult.notifyOn(new HashSet<>()).build();
 
     // Act and Assert
@@ -325,8 +346,7 @@ class ApiUsageLimitNotificationRuleTriggerConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link ApiUsageLimitNotificationRuleTriggerConfig#ApiUsageLimitNotificationRuleTriggerConfig()}
+   *   <li>{@link ApiUsageLimitNotificationRuleTriggerConfig#ApiUsageLimitNotificationRuleTriggerConfig()}
    *   <li>{@link ApiUsageLimitNotificationRuleTriggerConfig#setApiFeatures(Set)}
    *   <li>{@link ApiUsageLimitNotificationRuleTriggerConfig#setNotifyOn(Set)}
    *   <li>{@link ApiUsageLimitNotificationRuleTriggerConfig#toString()}
@@ -337,6 +357,15 @@ class ApiUsageLimitNotificationRuleTriggerConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ApiUsageLimitNotificationRuleTriggerConfig.<init>()",
+      "void ApiUsageLimitNotificationRuleTriggerConfig.<init>(Set, Set)",
+      "Set ApiUsageLimitNotificationRuleTriggerConfig.getApiFeatures()",
+      "Set ApiUsageLimitNotificationRuleTriggerConfig.getNotifyOn()",
+      "NotificationRuleTriggerType ApiUsageLimitNotificationRuleTriggerConfig.getTriggerType()",
+      "void ApiUsageLimitNotificationRuleTriggerConfig.setApiFeatures(Set)",
+      "void ApiUsageLimitNotificationRuleTriggerConfig.setNotifyOn(Set)",
+      "String ApiUsageLimitNotificationRuleTriggerConfig.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     ApiUsageLimitNotificationRuleTriggerConfig actualApiUsageLimitNotificationRuleTriggerConfig = new ApiUsageLimitNotificationRuleTriggerConfig();
@@ -348,7 +377,7 @@ class ApiUsageLimitNotificationRuleTriggerConfigDiffblueTest {
     Set<ApiFeature> actualApiFeatures = actualApiUsageLimitNotificationRuleTriggerConfig.getApiFeatures();
     Set<ApiUsageStateValue> actualNotifyOn = actualApiUsageLimitNotificationRuleTriggerConfig.getNotifyOn();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("ApiUsageLimitNotificationRuleTriggerConfig(apiFeatures=[], notifyOn=[])", actualToStringResult);
     assertEquals(NotificationRuleTriggerType.API_USAGE_LIMIT,
         actualApiUsageLimitNotificationRuleTriggerConfig.getTriggerType());
@@ -366,8 +395,7 @@ class ApiUsageLimitNotificationRuleTriggerConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link ApiUsageLimitNotificationRuleTriggerConfig#ApiUsageLimitNotificationRuleTriggerConfig(Set, Set)}
+   *   <li>{@link ApiUsageLimitNotificationRuleTriggerConfig#ApiUsageLimitNotificationRuleTriggerConfig(Set, Set)}
    *   <li>{@link ApiUsageLimitNotificationRuleTriggerConfig#setApiFeatures(Set)}
    *   <li>{@link ApiUsageLimitNotificationRuleTriggerConfig#setNotifyOn(Set)}
    *   <li>{@link ApiUsageLimitNotificationRuleTriggerConfig#toString()}
@@ -378,6 +406,15 @@ class ApiUsageLimitNotificationRuleTriggerConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when HashSet()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ApiUsageLimitNotificationRuleTriggerConfig.<init>()",
+      "void ApiUsageLimitNotificationRuleTriggerConfig.<init>(Set, Set)",
+      "Set ApiUsageLimitNotificationRuleTriggerConfig.getApiFeatures()",
+      "Set ApiUsageLimitNotificationRuleTriggerConfig.getNotifyOn()",
+      "NotificationRuleTriggerType ApiUsageLimitNotificationRuleTriggerConfig.getTriggerType()",
+      "void ApiUsageLimitNotificationRuleTriggerConfig.setApiFeatures(Set)",
+      "void ApiUsageLimitNotificationRuleTriggerConfig.setNotifyOn(Set)",
+      "String ApiUsageLimitNotificationRuleTriggerConfig.toString()"})
   void testGettersAndSetters_whenHashSet() {
     // Arrange
     HashSet<ApiFeature> apiFeatures = new HashSet<>();
@@ -393,7 +430,7 @@ class ApiUsageLimitNotificationRuleTriggerConfigDiffblueTest {
     Set<ApiFeature> actualApiFeatures = actualApiUsageLimitNotificationRuleTriggerConfig.getApiFeatures();
     Set<ApiUsageStateValue> actualNotifyOn = actualApiUsageLimitNotificationRuleTriggerConfig.getNotifyOn();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("ApiUsageLimitNotificationRuleTriggerConfig(apiFeatures=[], notifyOn=[])", actualToStringResult);
     assertEquals(NotificationRuleTriggerType.API_USAGE_LIMIT,
         actualApiUsageLimitNotificationRuleTriggerConfig.getTriggerType());

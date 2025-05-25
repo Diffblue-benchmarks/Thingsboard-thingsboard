@@ -7,17 +7,20 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @ContextConfiguration(classes = {AttributesSubscriptionCmd.class})
+@DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 @ExtendWith(SpringExtension.class)
 class SubscriptionCmdDiffblueTest {
   @Autowired
@@ -30,37 +33,12 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test toString()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String SubscriptionCmd.toString()"})
   void testToString() {
     // Arrange, Act and Assert
     assertEquals("SubscriptionCmd [entityType=null, entityId=null, tags=null, unsubscribe=false]",
         subscriptionCmd.toString());
-  }
-
-  /**
-   * Test {@link SubscriptionCmd#canEqual(Object)}.
-   * <ul>
-   *   <li>Given one.</li>
-   *   <li>When {@link AttributesSubscriptionCmd} (default constructor) CmdId is
-   * one.</li>
-   *   <li>Then return {@code true}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link SubscriptionCmd#canEqual(Object)}
-   */
-  @Test
-  @DisplayName("Test canEqual(Object); given one; when AttributesSubscriptionCmd (default constructor) CmdId is one; then return 'true'")
-  void testCanEqual_givenOne_whenAttributesSubscriptionCmdCmdIdIsOne_thenReturnTrue() {
-    // Arrange
-    AttributesSubscriptionCmd attributesSubscriptionCmd = new AttributesSubscriptionCmd();
-    attributesSubscriptionCmd.setCmdId(1);
-    attributesSubscriptionCmd.setEntityId("42");
-    attributesSubscriptionCmd.setEntityType("Entity Type");
-    attributesSubscriptionCmd.setKeys("Keys");
-    attributesSubscriptionCmd.setScope("Scope");
-    attributesSubscriptionCmd.setUnsubscribe(true);
-
-    // Act and Assert
-    assertTrue(subscriptionCmd.canEqual(attributesSubscriptionCmd));
   }
 
   /**
@@ -74,6 +52,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test canEqual(Object); when 'Other'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.canEqual(Object)"})
   void testCanEqual_whenOther_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(subscriptionCmd.canEqual("Other"));
@@ -82,22 +62,23 @@ class SubscriptionCmdDiffblueTest {
   /**
    * Test {@link SubscriptionCmd#canEqual(Object)}.
    * <ul>
-   *   <li>When {@link TimeseriesSubscriptionCmd}.</li>
+   *   <li>When {@link SubscriptionCmd}.</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
    * Method under test: {@link SubscriptionCmd#canEqual(Object)}
    */
   @Test
-  @DisplayName("Test canEqual(Object); when TimeseriesSubscriptionCmd; then return 'true'")
-  void testCanEqual_whenTimeseriesSubscriptionCmd_thenReturnTrue() {
+  @DisplayName("Test canEqual(Object); when SubscriptionCmd; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.canEqual(Object)"})
+  void testCanEqual_whenSubscriptionCmd_thenReturnTrue() {
     // Arrange, Act and Assert
-    assertTrue(subscriptionCmd.canEqual(mock(TimeseriesSubscriptionCmd.class)));
+    assertTrue(subscriptionCmd.canEqual(subscriptionCmd));
   }
 
   /**
-   * Test {@link SubscriptionCmd#equals(Object)}, and
-   * {@link SubscriptionCmd#hashCode()}.
+   * Test {@link SubscriptionCmd#equals(Object)}, and {@link SubscriptionCmd#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -111,6 +92,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.equals(Object)", "int SubscriptionCmd.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AttributesSubscriptionCmd attributesSubscriptionCmd = new AttributesSubscriptionCmd();
@@ -123,8 +106,7 @@ class SubscriptionCmdDiffblueTest {
   }
 
   /**
-   * Test {@link SubscriptionCmd#equals(Object)}, and
-   * {@link SubscriptionCmd#hashCode()}.
+   * Test {@link SubscriptionCmd#equals(Object)}, and {@link SubscriptionCmd#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -138,6 +120,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.equals(Object)", "int SubscriptionCmd.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AttributesSubscriptionCmd attributesSubscriptionCmd = new AttributesSubscriptionCmd();
@@ -158,8 +142,7 @@ class SubscriptionCmdDiffblueTest {
   }
 
   /**
-   * Test {@link SubscriptionCmd#equals(Object)}, and
-   * {@link SubscriptionCmd#hashCode()}.
+   * Test {@link SubscriptionCmd#equals(Object)}, and {@link SubscriptionCmd#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -173,6 +156,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.equals(Object)", "int SubscriptionCmd.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AttributesSubscriptionCmd attributesSubscriptionCmd = new AttributesSubscriptionCmd();
@@ -194,6 +179,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.equals(Object)", "int SubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AttributesSubscriptionCmd(), 1);
@@ -210,6 +197,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.equals(Object)", "int SubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AttributesSubscriptionCmd attributesSubscriptionCmd = new AttributesSubscriptionCmd();
@@ -229,6 +218,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.equals(Object)", "int SubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AttributesSubscriptionCmd attributesSubscriptionCmd = new AttributesSubscriptionCmd();
@@ -256,6 +247,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.equals(Object)", "int SubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AttributesSubscriptionCmd attributesSubscriptionCmd = new AttributesSubscriptionCmd();
@@ -283,6 +276,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.equals(Object)", "int SubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     AttributesSubscriptionCmd attributesSubscriptionCmd = new AttributesSubscriptionCmd();
@@ -310,6 +305,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.equals(Object)", "int SubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AttributesSubscriptionCmd attributesSubscriptionCmd = new AttributesSubscriptionCmd();
@@ -337,6 +334,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.equals(Object)", "int SubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     AttributesSubscriptionCmd attributesSubscriptionCmd = new AttributesSubscriptionCmd();
@@ -365,6 +364,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.equals(Object)", "int SubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     AttributesSubscriptionCmd attributesSubscriptionCmd = new AttributesSubscriptionCmd();
@@ -392,6 +393,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.equals(Object)", "int SubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     AttributesSubscriptionCmd attributesSubscriptionCmd = new AttributesSubscriptionCmd();
@@ -420,6 +423,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.equals(Object)", "int SubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     AttributesSubscriptionCmd attributesSubscriptionCmd = new AttributesSubscriptionCmd();
@@ -448,6 +453,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.equals(Object)", "int SubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     AttributesSubscriptionCmd attributesSubscriptionCmd = new AttributesSubscriptionCmd();
@@ -475,6 +482,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.equals(Object)", "int SubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     AttributesSubscriptionCmd attributesSubscriptionCmd = new AttributesSubscriptionCmd();
@@ -503,6 +512,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.equals(Object)", "int SubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     AttributesSubscriptionCmd attributesSubscriptionCmd = new AttributesSubscriptionCmd();
@@ -531,6 +542,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.equals(Object)", "int SubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     AttributesSubscriptionCmd attributesSubscriptionCmd = new AttributesSubscriptionCmd();
@@ -559,6 +572,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.equals(Object)", "int SubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     AttributesSubscriptionCmd attributesSubscriptionCmd = new AttributesSubscriptionCmd();
@@ -587,6 +602,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.equals(Object)", "int SubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AttributesSubscriptionCmd(), null);
@@ -603,6 +620,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.equals(Object)", "int SubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AttributesSubscriptionCmd(), "Different type to SubscriptionCmd");
@@ -615,6 +634,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test getCmdId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int SubscriptionCmd.getCmdId()"})
   void testGetCmdId() {
     // Arrange, Act and Assert
     assertEquals(0, subscriptionCmd.getCmdId());
@@ -627,6 +648,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test getEntityId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String SubscriptionCmd.getEntityId()"})
   void testGetEntityId() {
     // Arrange, Act and Assert
     assertNull(subscriptionCmd.getEntityId());
@@ -639,6 +662,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test getEntityType()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String SubscriptionCmd.getEntityType()"})
   void testGetEntityType() {
     // Arrange, Act and Assert
     assertNull(subscriptionCmd.getEntityType());
@@ -651,6 +676,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test getKeys()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String SubscriptionCmd.getKeys()"})
   void testGetKeys() {
     // Arrange, Act and Assert
     assertNull(subscriptionCmd.getKeys());
@@ -663,6 +690,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test getScope()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String SubscriptionCmd.getScope()"})
   void testGetScope() {
     // Arrange, Act and Assert
     assertNull(subscriptionCmd.getScope());
@@ -670,12 +699,40 @@ class SubscriptionCmdDiffblueTest {
 
   /**
    * Test {@link SubscriptionCmd#isUnsubscribe()}.
+   * <ul>
+   *   <li>Given {@link AttributesSubscriptionCmd} (default constructor) Unsubscribe is {@code true}.</li>
+   *   <li>Then return {@code true}.</li>
+   * </ul>
    * <p>
    * Method under test: {@link SubscriptionCmd#isUnsubscribe()}
    */
   @Test
-  @DisplayName("Test isUnsubscribe()")
-  void testIsUnsubscribe() {
+  @DisplayName("Test isUnsubscribe(); given AttributesSubscriptionCmd (default constructor) Unsubscribe is 'true'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.isUnsubscribe()"})
+  void testIsUnsubscribe_givenAttributesSubscriptionCmdUnsubscribeIsTrue_thenReturnTrue() {
+    // Arrange
+    AttributesSubscriptionCmd attributesSubscriptionCmd = new AttributesSubscriptionCmd();
+    attributesSubscriptionCmd.setUnsubscribe(true);
+
+    // Act and Assert
+    assertTrue(attributesSubscriptionCmd.isUnsubscribe());
+  }
+
+  /**
+   * Test {@link SubscriptionCmd#isUnsubscribe()}.
+   * <ul>
+   *   <li>Given {@link SubscriptionCmd}.</li>
+   *   <li>Then return {@code false}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link SubscriptionCmd#isUnsubscribe()}
+   */
+  @Test
+  @DisplayName("Test isUnsubscribe(); given SubscriptionCmd; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionCmd.isUnsubscribe()"})
+  void testIsUnsubscribe_givenSubscriptionCmd_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(subscriptionCmd.isUnsubscribe());
   }
@@ -687,6 +744,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test setCmdId(int)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SubscriptionCmd.setCmdId(int)"})
   void testSetCmdId() {
     // Arrange and Act
     subscriptionCmd.setCmdId(1);
@@ -703,6 +762,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test setEntityId(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SubscriptionCmd.setEntityId(String)"})
   void testSetEntityId() {
     // Arrange and Act
     subscriptionCmd.setEntityId("42");
@@ -719,6 +780,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test setEntityType(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SubscriptionCmd.setEntityType(String)"})
   void testSetEntityType() {
     // Arrange and Act
     subscriptionCmd.setEntityType("Entity Type");
@@ -735,6 +798,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test setKeys(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SubscriptionCmd.setKeys(String)"})
   void testSetKeys() {
     // Arrange and Act
     subscriptionCmd.setKeys("Keys");
@@ -751,6 +816,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test setScope(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SubscriptionCmd.setScope(String)"})
   void testSetScope() {
     // Arrange and Act
     subscriptionCmd.setScope("Scope");
@@ -767,6 +834,8 @@ class SubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test setUnsubscribe(boolean)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SubscriptionCmd.setUnsubscribe(boolean)"})
   void testSetUnsubscribe() {
     // Arrange and Act
     subscriptionCmd.setUnsubscribe(true);

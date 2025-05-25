@@ -1,5 +1,6 @@
 package org.thingsboard.server.transport.snmp.service;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertSame;
@@ -10,34 +11,401 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.snmp4j.PDU;
+import org.snmp4j.ScopedPDU;
 import org.snmp4j.agent.mo.snmp.RowCount;
 import org.snmp4j.smi.OID;
+import org.snmp4j.smi.OctetString;
+import org.snmp4j.smi.Variable;
 import org.snmp4j.smi.VariableBinding;
+import org.thingsboard.server.common.data.device.data.SnmpDeviceTransportConfiguration;
 import org.thingsboard.server.common.data.kv.DataType;
 import org.thingsboard.server.common.data.transport.snmp.SnmpMapping;
+import org.thingsboard.server.common.data.transport.snmp.SnmpMethod;
+import org.thingsboard.server.common.data.transport.snmp.SnmpProtocolVersion;
+import org.thingsboard.server.transport.snmp.session.DeviceSessionContext;
 
 class PduServiceDiffblueTest {
   /**
-   * Test {@link PduService#processPdus(List, List)} with {@code pdus},
-   * {@code responseMappings}.
+   * Test {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}.
+   * <p>
+   * Method under test: {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}
+   */
+  @Test
+  @DisplayName("Test createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "PDU PduService.createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)"})
+  void testCreateSingleVariablePdu() throws UnsupportedEncodingException {
+    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+    //   Run dcover create --keep-partial-tests to gain insights into why
+    //   a non-Spring test was created.
+
+    // Arrange
+    PduService pduService = new PduService();
+    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = mock(SnmpDeviceTransportConfiguration.class);
+    when(snmpDeviceTransportConfiguration.getEngineId()).thenReturn("42");
+    when(snmpDeviceTransportConfiguration.getContextName()).thenReturn("Context Name");
+    when(snmpDeviceTransportConfiguration.getProtocolVersion()).thenReturn(SnmpProtocolVersion.V3);
+    DeviceSessionContext sessionContext = mock(DeviceSessionContext.class);
+    when(sessionContext.getDeviceTransportConfiguration()).thenReturn(snmpDeviceTransportConfiguration);
+
+    // Act
+    PDU actualCreateSingleVariablePduResult = pduService.createSingleVariablePdu(sessionContext, SnmpMethod.GET, "42",
+        "42", DataType.BOOLEAN);
+
+    // Assert
+    verify(snmpDeviceTransportConfiguration).getContextName();
+    verify(snmpDeviceTransportConfiguration).getEngineId();
+    verify(snmpDeviceTransportConfiguration).getProtocolVersion();
+    verify(sessionContext).getDeviceTransportConfiguration();
+    assertTrue(actualCreateSingleVariablePduResult instanceof ScopedPDU);
+    List<VariableBinding> all = actualCreateSingleVariablePduResult.getAll();
+    assertEquals(1, all.size());
+    VariableBinding getResult = all.get(0);
+    Variable variable = getResult.getVariable();
+    assertTrue(variable instanceof OctetString);
+    OctetString contextEngineID = ((ScopedPDU) actualCreateSingleVariablePduResult).getContextEngineID();
+    byte[] value = contextEngineID.getValue();
+    assertSame(value, contextEngineID.toByteArray());
+    OctetString contextName = ((ScopedPDU) actualCreateSingleVariablePduResult).getContextName();
+    byte[] value2 = contextName.getValue();
+    assertSame(value2, contextName.toByteArray());
+    assertArrayEquals("Context Name".getBytes("UTF-8"), value2);
+    OID oid = getResult.getOid();
+    assertArrayEquals(new byte[]{'*'}, oid.toByteArray());
+    assertArrayEquals(new byte[]{'4', '2'}, value);
+    assertArrayEquals(new byte[]{'4', '2'}, ((OctetString) variable).getValue());
+    assertArrayEquals(new int[]{42}, oid.getValue());
+    assertArrayEquals(new long[]{42L}, oid.toUnsignedLongArray());
+  }
+
+  /**
+   * Test {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}.
+   * <ul>
+   *   <li>Then return BERPayloadLength is twenty.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}
+   */
+  @Test
+  @DisplayName("Test createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType); then return BERPayloadLength is twenty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "PDU PduService.createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)"})
+  void testCreateSingleVariablePdu_thenReturnBERPayloadLengthIsTwenty() {
+    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+    //   Run dcover create --keep-partial-tests to gain insights into why
+    //   a non-Spring test was created.
+
+    // Arrange
+    PduService pduService = new PduService();
+    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = mock(SnmpDeviceTransportConfiguration.class);
+    when(snmpDeviceTransportConfiguration.getProtocolVersion()).thenReturn(SnmpProtocolVersion.V1);
+    DeviceSessionContext sessionContext = mock(DeviceSessionContext.class);
+    when(sessionContext.getDeviceTransportConfiguration()).thenReturn(snmpDeviceTransportConfiguration);
+
+    // Act
+    PDU actualCreateSingleVariablePduResult = pduService.createSingleVariablePdu(sessionContext, SnmpMethod.GET, "42",
+        "42", DataType.BOOLEAN);
+
+    // Assert
+    verify(snmpDeviceTransportConfiguration).getProtocolVersion();
+    verify(sessionContext).getDeviceTransportConfiguration();
+    List<VariableBinding> all = actualCreateSingleVariablePduResult.getAll();
+    assertEquals(1, all.size());
+    VariableBinding getResult = all.get(0);
+    Variable variable = getResult.getVariable();
+    assertTrue(variable instanceof OctetString);
+    assertEquals(20, actualCreateSingleVariablePduResult.getBERPayloadLength());
+    assertEquals(22, actualCreateSingleVariablePduResult.getBERLength());
+    OID oid = getResult.getOid();
+    OID trimResult = oid.trim();
+    assertArrayEquals(new byte[]{}, trimResult.toByteArray());
+    assertArrayEquals(new byte[]{'*'}, oid.toByteArray());
+    OID successorResult = oid.successor();
+    assertArrayEquals(new byte[]{'*', 0}, successorResult.toByteArray());
+    assertArrayEquals(new byte[]{'4', '2'}, ((OctetString) variable).getValue());
+    assertArrayEquals(new int[]{}, trimResult.getValue());
+    assertArrayEquals(new int[]{42}, oid.getValue());
+    assertArrayEquals(new int[]{42, 0}, successorResult.getValue());
+    assertArrayEquals(new long[]{}, trimResult.toUnsignedLongArray());
+    assertArrayEquals(new long[]{42L}, oid.toUnsignedLongArray());
+    assertArrayEquals(new long[]{42L, 0L}, successorResult.toUnsignedLongArray());
+  }
+
+  /**
+   * Test {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}.
+   * <ul>
+   *   <li>Then throw {@link NumberFormatException}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}
+   */
+  @Test
+  @DisplayName("Test createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType); then throw NumberFormatException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "PDU PduService.createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)"})
+  void testCreateSingleVariablePdu_thenThrowNumberFormatException() {
+    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+    //   Run dcover create --keep-partial-tests to gain insights into why
+    //   a non-Spring test was created.
+
+    // Arrange
+    PduService pduService = new PduService();
+    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = mock(SnmpDeviceTransportConfiguration.class);
+    when(snmpDeviceTransportConfiguration.getEngineId()).thenThrow(new NumberFormatException("foo"));
+    when(snmpDeviceTransportConfiguration.getContextName()).thenReturn("Context Name");
+    when(snmpDeviceTransportConfiguration.getProtocolVersion()).thenReturn(SnmpProtocolVersion.V3);
+    DeviceSessionContext sessionContext = mock(DeviceSessionContext.class);
+    when(sessionContext.getDeviceTransportConfiguration()).thenReturn(snmpDeviceTransportConfiguration);
+
+    // Act and Assert
+    assertThrows(NumberFormatException.class,
+        () -> pduService.createSingleVariablePdu(sessionContext, SnmpMethod.GET, "Oid", "42", DataType.BOOLEAN));
+    verify(snmpDeviceTransportConfiguration).getContextName();
+    verify(snmpDeviceTransportConfiguration).getEngineId();
+    verify(snmpDeviceTransportConfiguration).getProtocolVersion();
+    verify(sessionContext).getDeviceTransportConfiguration();
+  }
+
+  /**
+   * Test {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}.
+   * <ul>
+   *   <li>When {@code LONG}.</li>
+   *   <li>Then return BERPayloadLength is thirty-nine.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}
+   */
+  @Test
+  @DisplayName("Test createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType); when 'LONG'; then return BERPayloadLength is thirty-nine")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "PDU PduService.createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)"})
+  void testCreateSingleVariablePdu_whenLong_thenReturnBERPayloadLengthIsThirtyNine()
+      throws UnsupportedEncodingException {
+    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+    //   Run dcover create --keep-partial-tests to gain insights into why
+    //   a non-Spring test was created.
+
+    // Arrange
+    PduService pduService = new PduService();
+    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = mock(SnmpDeviceTransportConfiguration.class);
+    when(snmpDeviceTransportConfiguration.getEngineId()).thenReturn("42");
+    when(snmpDeviceTransportConfiguration.getContextName()).thenReturn("Context Name");
+    when(snmpDeviceTransportConfiguration.getProtocolVersion()).thenReturn(SnmpProtocolVersion.V3);
+    DeviceSessionContext sessionContext = mock(DeviceSessionContext.class);
+    when(sessionContext.getDeviceTransportConfiguration()).thenReturn(snmpDeviceTransportConfiguration);
+
+    // Act
+    PDU actualCreateSingleVariablePduResult = pduService.createSingleVariablePdu(sessionContext, SnmpMethod.GET, "42",
+        "42", DataType.LONG);
+
+    // Assert
+    verify(snmpDeviceTransportConfiguration).getContextName();
+    verify(snmpDeviceTransportConfiguration).getEngineId();
+    verify(snmpDeviceTransportConfiguration).getProtocolVersion();
+    verify(sessionContext).getDeviceTransportConfiguration();
+    assertTrue(actualCreateSingleVariablePduResult instanceof ScopedPDU);
+    assertEquals(1, actualCreateSingleVariablePduResult.toArray().length);
+    assertEquals(39, actualCreateSingleVariablePduResult.getBERPayloadLength());
+    assertEquals(41, actualCreateSingleVariablePduResult.getBERLength());
+    OctetString contextEngineID = ((ScopedPDU) actualCreateSingleVariablePduResult).getContextEngineID();
+    byte[] value = contextEngineID.getValue();
+    assertSame(value, contextEngineID.toByteArray());
+    OctetString contextName = ((ScopedPDU) actualCreateSingleVariablePduResult).getContextName();
+    byte[] value2 = contextName.getValue();
+    assertSame(value2, contextName.toByteArray());
+    assertArrayEquals("Context Name".getBytes("UTF-8"), value2);
+    assertArrayEquals(new byte[]{'4', '2'}, value);
+  }
+
+  /**
+   * Test {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}.
+   * <ul>
+   *   <li>When {@code null}.</li>
+   *   <li>Then return All first Variable is ContextEngineID.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}
+   */
+  @Test
+  @DisplayName("Test createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType); when 'null'; then return All first Variable is ContextEngineID")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "PDU PduService.createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)"})
+  void testCreateSingleVariablePdu_whenNull_thenReturnAllFirstVariableIsContextEngineID()
+      throws UnsupportedEncodingException {
+    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+    //   Run dcover create --keep-partial-tests to gain insights into why
+    //   a non-Spring test was created.
+
+    // Arrange
+    PduService pduService = new PduService();
+    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = mock(SnmpDeviceTransportConfiguration.class);
+    when(snmpDeviceTransportConfiguration.getEngineId()).thenReturn("42");
+    when(snmpDeviceTransportConfiguration.getContextName()).thenReturn("Context Name");
+    when(snmpDeviceTransportConfiguration.getProtocolVersion()).thenReturn(SnmpProtocolVersion.V3);
+    DeviceSessionContext sessionContext = mock(DeviceSessionContext.class);
+    when(sessionContext.getDeviceTransportConfiguration()).thenReturn(snmpDeviceTransportConfiguration);
+
+    // Act
+    PDU actualCreateSingleVariablePduResult = pduService.createSingleVariablePdu(sessionContext, SnmpMethod.GET, "42",
+        "42", null);
+
+    // Assert
+    verify(snmpDeviceTransportConfiguration).getContextName();
+    verify(snmpDeviceTransportConfiguration).getEngineId();
+    verify(snmpDeviceTransportConfiguration).getProtocolVersion();
+    verify(sessionContext).getDeviceTransportConfiguration();
+    assertTrue(actualCreateSingleVariablePduResult instanceof ScopedPDU);
+    List<VariableBinding> all = actualCreateSingleVariablePduResult.getAll();
+    assertEquals(1, all.size());
+    VariableBinding getResult = all.get(0);
+    Variable variable = getResult.getVariable();
+    assertTrue(variable instanceof OctetString);
+    VariableBinding[] toArrayResult = actualCreateSingleVariablePduResult.toArray();
+    assertEquals(1, toArrayResult.length);
+    OctetString contextEngineID = ((ScopedPDU) actualCreateSingleVariablePduResult).getContextEngineID();
+    assertEquals(contextEngineID, variable);
+    assertSame(getResult, toArrayResult[0]);
+    assertSame(all, actualCreateSingleVariablePduResult.getVariableBindings());
+    byte[] value = contextEngineID.getValue();
+    assertSame(value, contextEngineID.toByteArray());
+    OctetString contextName = ((ScopedPDU) actualCreateSingleVariablePduResult).getContextName();
+    byte[] value2 = contextName.getValue();
+    assertSame(value2, contextName.toByteArray());
+    assertArrayEquals("Context Name".getBytes("UTF-8"), value2);
+    assertArrayEquals(new byte[]{'4', '2'}, value);
+  }
+
+  /**
+   * Test {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}.
+   * <ul>
+   *   <li>When {@code null}.</li>
+   *   <li>Then return BERPayloadLength is thirty-eight.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}
+   */
+  @Test
+  @DisplayName("Test createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType); when 'null'; then return BERPayloadLength is thirty-eight")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "PDU PduService.createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)"})
+  void testCreateSingleVariablePdu_whenNull_thenReturnBERPayloadLengthIsThirtyEight()
+      throws UnsupportedEncodingException {
+    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+    //   Run dcover create --keep-partial-tests to gain insights into why
+    //   a non-Spring test was created.
+
+    // Arrange
+    PduService pduService = new PduService();
+    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = mock(SnmpDeviceTransportConfiguration.class);
+    when(snmpDeviceTransportConfiguration.getEngineId()).thenReturn("42");
+    when(snmpDeviceTransportConfiguration.getContextName()).thenReturn("Context Name");
+    when(snmpDeviceTransportConfiguration.getProtocolVersion()).thenReturn(SnmpProtocolVersion.V3);
+    DeviceSessionContext sessionContext = mock(DeviceSessionContext.class);
+    when(sessionContext.getDeviceTransportConfiguration()).thenReturn(snmpDeviceTransportConfiguration);
+
+    // Act
+    PDU actualCreateSingleVariablePduResult = pduService.createSingleVariablePdu(sessionContext, SnmpMethod.GET, "42",
+        null, DataType.BOOLEAN);
+
+    // Assert
+    verify(snmpDeviceTransportConfiguration).getContextName();
+    verify(snmpDeviceTransportConfiguration).getEngineId();
+    verify(snmpDeviceTransportConfiguration).getProtocolVersion();
+    verify(sessionContext).getDeviceTransportConfiguration();
+    assertTrue(actualCreateSingleVariablePduResult instanceof ScopedPDU);
+    assertEquals(1, actualCreateSingleVariablePduResult.toArray().length);
+    assertEquals(38, actualCreateSingleVariablePduResult.getBERPayloadLength());
+    assertEquals(40, actualCreateSingleVariablePduResult.getBERLength());
+    OctetString contextEngineID = ((ScopedPDU) actualCreateSingleVariablePduResult).getContextEngineID();
+    byte[] value = contextEngineID.getValue();
+    assertSame(value, contextEngineID.toByteArray());
+    OctetString contextName = ((ScopedPDU) actualCreateSingleVariablePduResult).getContextName();
+    byte[] value2 = contextName.getValue();
+    assertSame(value2, contextName.toByteArray());
+    assertArrayEquals("Context Name".getBytes("UTF-8"), value2);
+    assertArrayEquals(new byte[]{'4', '2'}, value);
+  }
+
+  /**
+   * Test {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}.
+   * <ul>
+   *   <li>When {@code Value}.</li>
+   *   <li>Then return BERPayloadLength is forty-three.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}
+   */
+  @Test
+  @DisplayName("Test createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType); when 'Value'; then return BERPayloadLength is forty-three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "PDU PduService.createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)"})
+  void testCreateSingleVariablePdu_whenValue_thenReturnBERPayloadLengthIsFortyThree()
+      throws UnsupportedEncodingException {
+    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+    //   Run dcover create --keep-partial-tests to gain insights into why
+    //   a non-Spring test was created.
+
+    // Arrange
+    PduService pduService = new PduService();
+    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = mock(SnmpDeviceTransportConfiguration.class);
+    when(snmpDeviceTransportConfiguration.getEngineId()).thenReturn("42");
+    when(snmpDeviceTransportConfiguration.getContextName()).thenReturn("Context Name");
+    when(snmpDeviceTransportConfiguration.getProtocolVersion()).thenReturn(SnmpProtocolVersion.V3);
+    DeviceSessionContext sessionContext = mock(DeviceSessionContext.class);
+    when(sessionContext.getDeviceTransportConfiguration()).thenReturn(snmpDeviceTransportConfiguration);
+
+    // Act
+    PDU actualCreateSingleVariablePduResult = pduService.createSingleVariablePdu(sessionContext, SnmpMethod.GET, "42",
+        "Value", DataType.LONG);
+
+    // Assert
+    verify(snmpDeviceTransportConfiguration).getContextName();
+    verify(snmpDeviceTransportConfiguration).getEngineId();
+    verify(snmpDeviceTransportConfiguration).getProtocolVersion();
+    verify(sessionContext).getDeviceTransportConfiguration();
+    assertTrue(actualCreateSingleVariablePduResult instanceof ScopedPDU);
+    assertEquals(1, actualCreateSingleVariablePduResult.toArray().length);
+    assertEquals(43, actualCreateSingleVariablePduResult.getBERPayloadLength());
+    assertEquals(45, actualCreateSingleVariablePduResult.getBERLength());
+    OctetString contextEngineID = ((ScopedPDU) actualCreateSingleVariablePduResult).getContextEngineID();
+    byte[] value = contextEngineID.getValue();
+    assertSame(value, contextEngineID.toByteArray());
+    OctetString contextName = ((ScopedPDU) actualCreateSingleVariablePduResult).getContextName();
+    byte[] value2 = contextName.getValue();
+    assertSame(value2, contextName.toByteArray());
+    assertArrayEquals("Context Name".getBytes("UTF-8"), value2);
+    assertArrayEquals(new byte[]{'4', '2'}, value);
+  }
+
+  /**
+   * Test {@link PduService#processPdus(List, List)} with {@code pdus}, {@code responseMappings}.
    * <p>
    * Method under test: {@link PduService#processPdus(List, List)}
    */
   @Test
   @DisplayName("Test processPdus(List, List) with 'pdus', 'responseMappings'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonObject PduService.processPdus(List, List)"})
   void testProcessPdusWithPdusResponseMappings() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
     ArrayList<PDU> pdus = new ArrayList<>();
@@ -59,20 +427,18 @@ class PduServiceDiffblueTest {
   }
 
   /**
-   * Test {@link PduService#processPdus(List, List)} with {@code pdus},
-   * {@code responseMappings}.
+   * Test {@link PduService#processPdus(List, List)} with {@code pdus}, {@code responseMappings}.
    * <ul>
-   *   <li>Given {@link PDU#PDU()} add
-   * {@link VariableBinding#VariableBinding()}.</li>
+   *   <li>Given {@link PDU#PDU()} add {@link VariableBinding#VariableBinding()}.</li>
    * </ul>
    * <p>
    * Method under test: {@link PduService#processPdus(List, List)}
    */
   @Test
   @DisplayName("Test processPdus(List, List) with 'pdus', 'responseMappings'; given PDU() add VariableBinding()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonObject PduService.processPdus(List, List)"})
   void testProcessPdusWithPdusResponseMappings_givenPduAddVariableBinding() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
 
@@ -96,8 +462,7 @@ class PduServiceDiffblueTest {
   }
 
   /**
-   * Test {@link PduService#processPdus(List, List)} with {@code pdus},
-   * {@code responseMappings}.
+   * Test {@link PduService#processPdus(List, List)} with {@code pdus}, {@code responseMappings}.
    * <ul>
    *   <li>Given {@link PDU#PDU()}.</li>
    *   <li>When {@link ArrayList#ArrayList()} add {@link PDU#PDU()}.</li>
@@ -107,9 +472,9 @@ class PduServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test processPdus(List, List) with 'pdus', 'responseMappings'; given PDU(); when ArrayList() add PDU()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonObject PduService.processPdus(List, List)"})
   void testProcessPdusWithPdusResponseMappings_givenPdu_whenArrayListAddPdu() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
 
@@ -130,8 +495,7 @@ class PduServiceDiffblueTest {
   }
 
   /**
-   * Test {@link PduService#processPdus(List, List)} with {@code pdus},
-   * {@code responseMappings}.
+   * Test {@link PduService#processPdus(List, List)} with {@code pdus}, {@code responseMappings}.
    * <ul>
    *   <li>Given {@link PDU#PDU()}.</li>
    *   <li>When {@link ArrayList#ArrayList()} add {@link PDU#PDU()}.</li>
@@ -141,9 +505,9 @@ class PduServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test processPdus(List, List) with 'pdus', 'responseMappings'; given PDU(); when ArrayList() add PDU()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonObject PduService.processPdus(List, List)"})
   void testProcessPdusWithPdusResponseMappings_givenPdu_whenArrayListAddPdu2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
 
@@ -165,8 +529,7 @@ class PduServiceDiffblueTest {
   }
 
   /**
-   * Test {@link PduService#processPdus(List, List)} with {@code pdus},
-   * {@code responseMappings}.
+   * Test {@link PduService#processPdus(List, List)} with {@code pdus}, {@code responseMappings}.
    * <ul>
    *   <li>Then calls {@link PDU#add(VariableBinding)}.</li>
    * </ul>
@@ -175,9 +538,9 @@ class PduServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test processPdus(List, List) with 'pdus', 'responseMappings'; then calls add(VariableBinding)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonObject PduService.processPdus(List, List)"})
   void testProcessPdusWithPdusResponseMappings_thenCallsAdd() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
     PDU pdu = mock(PDU.class);
@@ -204,8 +567,7 @@ class PduServiceDiffblueTest {
   }
 
   /**
-   * Test {@link PduService#processPdus(List, List)} with {@code pdus},
-   * {@code responseMappings}.
+   * Test {@link PduService#processPdus(List, List)} with {@code pdus}, {@code responseMappings}.
    * <ul>
    *   <li>Then calls {@link VariableBinding#getOid()}.</li>
    * </ul>
@@ -214,9 +576,9 @@ class PduServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test processPdus(List, List) with 'pdus', 'responseMappings'; then calls getOid()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonObject PduService.processPdus(List, List)"})
   void testProcessPdusWithPdusResponseMappings_thenCallsGetOid() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
     VariableBinding variableBinding = mock(VariableBinding.class);
@@ -253,8 +615,7 @@ class PduServiceDiffblueTest {
   }
 
   /**
-   * Test {@link PduService#processPdus(List, List)} with {@code pdus},
-   * {@code responseMappings}.
+   * Test {@link PduService#processPdus(List, List)} with {@code pdus}, {@code responseMappings}.
    * <ul>
    *   <li>When {@link ArrayList#ArrayList()}.</li>
    *   <li>Then return size is zero.</li>
@@ -264,9 +625,9 @@ class PduServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test processPdus(List, List) with 'pdus', 'responseMappings'; when ArrayList(); then return size is zero")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonObject PduService.processPdus(List, List)"})
   void testProcessPdusWithPdusResponseMappings_whenArrayList_thenReturnSizeIsZero() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
     ArrayList<PDU> pdus = new ArrayList<>();
@@ -285,8 +646,7 @@ class PduServiceDiffblueTest {
   }
 
   /**
-   * Test {@link PduService#processPdus(List, List)} with {@code pdus},
-   * {@code responseMappings}.
+   * Test {@link PduService#processPdus(List, List)} with {@code pdus}, {@code responseMappings}.
    * <ul>
    *   <li>When {@code null}.</li>
    *   <li>Then return size is zero.</li>
@@ -296,9 +656,9 @@ class PduServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test processPdus(List, List) with 'pdus', 'responseMappings'; when 'null'; then return size is zero")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonObject PduService.processPdus(List, List)"})
   void testProcessPdusWithPdusResponseMappings_whenNull_thenReturnSizeIsZero() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
 
@@ -318,8 +678,7 @@ class PduServiceDiffblueTest {
   /**
    * Test {@link PduService#processPdus(List)} with {@code pdus}.
    * <ul>
-   *   <li>Given {@link PDU#PDU()} add
-   * {@link VariableBinding#VariableBinding()}.</li>
+   *   <li>Given {@link PDU#PDU()} add {@link VariableBinding#VariableBinding()}.</li>
    *   <li>When {@link ArrayList#ArrayList()} add {@link PDU#PDU()}.</li>
    * </ul>
    * <p>
@@ -327,9 +686,9 @@ class PduServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test processPdus(List) with 'pdus'; given PDU() add VariableBinding(); when ArrayList() add PDU()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Map PduService.processPdus(List)"})
   void testProcessPdusWithPdus_givenPduAddVariableBinding_whenArrayListAddPdu() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
 
@@ -346,8 +705,7 @@ class PduServiceDiffblueTest {
   /**
    * Test {@link PduService#processPdus(List)} with {@code pdus}.
    * <ul>
-   *   <li>Given {@link PDU} {@link PDU#getVariableBindings()} return
-   * {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@link PDU} {@link PDU#getVariableBindings()} return {@link ArrayList#ArrayList()}.</li>
    *   <li>Then calls {@link PDU#add(VariableBinding)}.</li>
    * </ul>
    * <p>
@@ -355,9 +713,9 @@ class PduServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test processPdus(List) with 'pdus'; given PDU getVariableBindings() return ArrayList(); then calls add(VariableBinding)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Map PduService.processPdus(List)"})
   void testProcessPdusWithPdus_givenPduGetVariableBindingsReturnArrayList_thenCallsAdd() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
     PDU pdu = mock(PDU.class);
@@ -389,9 +747,9 @@ class PduServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test processPdus(List) with 'pdus'; given PDU(); when ArrayList() add PDU(); then return Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Map PduService.processPdus(List)"})
   void testProcessPdusWithPdus_givenPdu_whenArrayListAddPdu_thenReturnEmpty() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
 
@@ -414,9 +772,9 @@ class PduServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test processPdus(List) with 'pdus'; given PDU(); when ArrayList() add PDU(); then return Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Map PduService.processPdus(List)"})
   void testProcessPdusWithPdus_givenPdu_whenArrayListAddPdu_thenReturnEmpty2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
 
@@ -438,9 +796,9 @@ class PduServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test processPdus(List) with 'pdus'; then return size is one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Map PduService.processPdus(List)"})
   void testProcessPdusWithPdus_thenReturnSizeIsOne() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
     VariableBinding variableBinding = mock(VariableBinding.class);
@@ -481,9 +839,9 @@ class PduServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test processPdus(List) with 'pdus'; when ArrayList(); then return Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Map PduService.processPdus(List)"})
   void testProcessPdusWithPdus_whenArrayList_thenReturnEmpty() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
 
@@ -498,14 +856,13 @@ class PduServiceDiffblueTest {
    *   <li>Then {@link JsonObject} (default constructor) size is three.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link PduService#processValue(String, DataType, String, JsonObject)}
+   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
   @DisplayName("Test processValue(String, DataType, String, JsonObject); given '42'; then JsonObject (default constructor) size is three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
   void testProcessValue_given42_thenJsonObjectSizeIsThree() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
 
@@ -528,14 +885,13 @@ class PduServiceDiffblueTest {
    *   <li>Then {@link JsonObject} (default constructor) size is three.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link PduService#processValue(String, DataType, String, JsonObject)}
+   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
   @DisplayName("Test processValue(String, DataType, String, JsonObject); given '42'; then JsonObject (default constructor) size is three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
   void testProcessValue_given42_thenJsonObjectSizeIsThree2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
 
@@ -559,14 +915,13 @@ class PduServiceDiffblueTest {
    *   <li>Then {@link JsonObject} (default constructor) size is two.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link PduService#processValue(String, DataType, String, JsonObject)}
+   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
   @DisplayName("Test processValue(String, DataType, String, JsonObject); given '42'; then JsonObject (default constructor) size is two")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
   void testProcessValue_given42_thenJsonObjectSizeIsTwo() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
 
@@ -577,7 +932,7 @@ class PduServiceDiffblueTest {
     // Act
     pduService.processValue("42", DataType.LONG, "42", result);
 
-    // Assert
+    // Assert that nothing has changed
     assertEquals(2, result.size());
     assertFalse(result.isEmpty());
   }
@@ -590,14 +945,13 @@ class PduServiceDiffblueTest {
    *   <li>Then {@link JsonObject} (default constructor) size is three.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link PduService#processValue(String, DataType, String, JsonObject)}
+   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
   @DisplayName("Test processValue(String, DataType, String, JsonObject); given '42'; when '.'; then JsonObject (default constructor) size is three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
   void testProcessValue_given42_whenDot_thenJsonObjectSizeIsThree() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
 
@@ -621,14 +975,13 @@ class PduServiceDiffblueTest {
    *   <li>Then {@link JsonObject} (default constructor) size is three.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link PduService#processValue(String, DataType, String, JsonObject)}
+   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
   @DisplayName("Test processValue(String, DataType, String, JsonObject); given '42'; when '.'; then JsonObject (default constructor) size is three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
   void testProcessValue_given42_whenDot_thenJsonObjectSizeIsThree2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
 
@@ -653,14 +1006,13 @@ class PduServiceDiffblueTest {
    *   <li>Then {@link JsonObject} (default constructor) size is three.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link PduService#processValue(String, DataType, String, JsonObject)}
+   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
   @DisplayName("Test processValue(String, DataType, String, JsonObject); given '42'; when FALSE toString; then JsonObject (default constructor) size is three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
   void testProcessValue_given42_whenFalseToString_thenJsonObjectSizeIsThree() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
     String key = Boolean.FALSE.toString();
@@ -681,18 +1033,16 @@ class PduServiceDiffblueTest {
    * Test {@link PduService#processValue(String, DataType, String, JsonObject)}.
    * <ul>
    *   <li>Given {@code .}.</li>
-   *   <li>When {@link JsonObject} (default constructor) add {@code .} and
-   * {@link JsonArray#JsonArray(int)} with capacity is three.</li>
+   *   <li>When {@link JsonObject} (default constructor) add {@code .} and {@link JsonArray#JsonArray(int)} with capacity is three.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link PduService#processValue(String, DataType, String, JsonObject)}
+   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
   @DisplayName("Test processValue(String, DataType, String, JsonObject); given '.'; when JsonObject (default constructor) add '.' and JsonArray(int) with capacity is three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
   void testProcessValue_givenDot_whenJsonObjectAddDotAndJsonArrayWithCapacityIsThree() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
 
@@ -710,47 +1060,17 @@ class PduServiceDiffblueTest {
   /**
    * Test {@link PduService#processValue(String, DataType, String, JsonObject)}.
    * <ul>
-   *   <li>Given {@link JsonElement}.</li>
-   *   <li>When {@link JsonObject} (default constructor) add {@code Property} and
-   * {@link JsonElement}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link PduService#processValue(String, DataType, String, JsonObject)}
-   */
-  @Test
-  @DisplayName("Test processValue(String, DataType, String, JsonObject); given JsonElement; when JsonObject (default constructor) add 'Property' and JsonElement")
-  void testProcessValue_givenJsonElement_whenJsonObjectAddPropertyAndJsonElement() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    PduService pduService = new PduService();
-
-    JsonObject result = new JsonObject();
-    result.add("Property", mock(JsonElement.class));
-
-    // Act
-    pduService.processValue("Key", DataType.LONG, "42", result);
-
-    // Assert
-    assertEquals(2, result.size());
-    assertFalse(result.isEmpty());
-  }
-
-  /**
-   * Test {@link PduService#processValue(String, DataType, String, JsonObject)}.
-   * <ul>
+   *   <li>Given {@code Property}.</li>
    *   <li>Then {@link JsonObject} (default constructor) size is two.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link PduService#processValue(String, DataType, String, JsonObject)}
+   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
-  @DisplayName("Test processValue(String, DataType, String, JsonObject); then JsonObject (default constructor) size is two")
-  void testProcessValue_thenJsonObjectSizeIsTwo() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test processValue(String, DataType, String, JsonObject); given 'Property'; then JsonObject (default constructor) size is two")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
+  void testProcessValue_givenProperty_thenJsonObjectSizeIsTwo() {
     // Arrange
     PduService pduService = new PduService();
 
@@ -772,14 +1092,13 @@ class PduServiceDiffblueTest {
    *   <li>Then throw {@link IllegalArgumentException}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link PduService#processValue(String, DataType, String, JsonObject)}
+   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
   @DisplayName("Test processValue(String, DataType, String, JsonObject); when 'BOOLEAN'; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
   void testProcessValue_whenBoolean_thenThrowIllegalArgumentException() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
 
@@ -795,14 +1114,13 @@ class PduServiceDiffblueTest {
    *   <li>Then {@link JsonObject} (default constructor) size is one.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link PduService#processValue(String, DataType, String, JsonObject)}
+   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
   @DisplayName("Test processValue(String, DataType, String, JsonObject); when JsonObject (default constructor); then JsonObject (default constructor) size is one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
   void testProcessValue_whenJsonObject_thenJsonObjectSizeIsOne() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
     JsonObject result = new JsonObject();
@@ -822,14 +1140,13 @@ class PduServiceDiffblueTest {
    *   <li>Then {@link JsonObject} (default constructor) size is one.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link PduService#processValue(String, DataType, String, JsonObject)}
+   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
   @DisplayName("Test processValue(String, DataType, String, JsonObject); when 'STRING'; then JsonObject (default constructor) size is one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
   void testProcessValue_whenString_thenJsonObjectSizeIsOne() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
     JsonObject result = new JsonObject();
@@ -849,14 +1166,13 @@ class PduServiceDiffblueTest {
    *   <li>Then {@link JsonObject} (default constructor) size is one.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link PduService#processValue(String, DataType, String, JsonObject)}
+   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
   @DisplayName("Test processValue(String, DataType, String, JsonObject); when TRUE toString; then JsonObject (default constructor) size is one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
   void testProcessValue_whenTrueToString_thenJsonObjectSizeIsOne() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PduService pduService = new PduService();
     String value = Boolean.TRUE.toString();

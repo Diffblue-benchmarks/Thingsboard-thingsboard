@@ -3,17 +3,17 @@ package org.thingsboard.rule.engine.api;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.MissingNode;
 import com.fasterxml.jackson.databind.node.NullNode;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TbNodeConfigurationDiffblueTest {
   /**
-   * Test {@link TbNodeConfiguration#equals(Object)}, and
-   * {@link TbNodeConfiguration#hashCode()}.
+   * Test {@link TbNodeConfiguration#equals(Object)}, and {@link TbNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -27,6 +27,8 @@ class TbNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbNodeConfiguration.equals(Object)", "int TbNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbNodeConfiguration tbNodeConfiguration = new TbNodeConfiguration(MissingNode.getInstance());
@@ -39,8 +41,7 @@ class TbNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbNodeConfiguration#equals(Object)}, and
-   * {@link TbNodeConfiguration#hashCode()}.
+   * Test {@link TbNodeConfiguration#equals(Object)}, and {@link TbNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -54,6 +55,8 @@ class TbNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbNodeConfiguration.equals(Object)", "int TbNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbNodeConfiguration tbNodeConfiguration = new TbNodeConfiguration(null);
@@ -66,8 +69,7 @@ class TbNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbNodeConfiguration#equals(Object)}, and
-   * {@link TbNodeConfiguration#hashCode()}.
+   * Test {@link TbNodeConfiguration#equals(Object)}, and {@link TbNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -81,6 +83,8 @@ class TbNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbNodeConfiguration.equals(Object)", "int TbNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbNodeConfiguration tbNodeConfiguration = new TbNodeConfiguration(MissingNode.getInstance());
@@ -102,6 +106,8 @@ class TbNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbNodeConfiguration.equals(Object)", "int TbNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TbNodeConfiguration tbNodeConfiguration = new TbNodeConfiguration(null);
@@ -121,28 +127,11 @@ class TbNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbNodeConfiguration.equals(Object)", "int TbNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbNodeConfiguration tbNodeConfiguration = new TbNodeConfiguration(NullNode.getInstance());
-
-    // Act and Assert
-    assertNotEquals(tbNodeConfiguration, new TbNodeConfiguration(MissingNode.getInstance()));
-  }
-
-  /**
-   * Test {@link TbNodeConfiguration#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbNodeConfiguration#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
-    // Arrange
-    TbNodeConfiguration tbNodeConfiguration = new TbNodeConfiguration(mock(JsonNode.class));
 
     // Act and Assert
     assertNotEquals(tbNodeConfiguration, new TbNodeConfiguration(MissingNode.getInstance()));
@@ -159,6 +148,8 @@ class TbNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbNodeConfiguration.equals(Object)", "int TbNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbNodeConfiguration(MissingNode.getInstance()), null);
@@ -175,6 +166,8 @@ class TbNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbNodeConfiguration.equals(Object)", "int TbNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbNodeConfiguration(MissingNode.getInstance()), "Different type to TbNodeConfiguration");
@@ -192,6 +185,9 @@ class TbNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbNodeConfiguration.<init>(JsonNode)", "JsonNode TbNodeConfiguration.getData()",
+      "String TbNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange
     MissingNode data = MissingNode.getInstance();

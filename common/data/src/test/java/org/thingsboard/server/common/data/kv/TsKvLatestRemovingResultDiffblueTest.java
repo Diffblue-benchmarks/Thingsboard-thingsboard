@@ -4,15 +4,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TsKvLatestRemovingResultDiffblueTest {
   /**
-   * Test {@link TsKvLatestRemovingResult#equals(Object)}, and
-   * {@link TsKvLatestRemovingResult#hashCode()}.
+   * Test {@link TsKvLatestRemovingResult#equals(Object)}, and {@link TsKvLatestRemovingResult#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -26,6 +25,8 @@ class TsKvLatestRemovingResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsKvLatestRemovingResult.equals(Object)", "int TsKvLatestRemovingResult.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TsKvLatestRemovingResult tsKvLatestRemovingResult = new TsKvLatestRemovingResult("Key", true);
@@ -38,8 +39,7 @@ class TsKvLatestRemovingResultDiffblueTest {
   }
 
   /**
-   * Test {@link TsKvLatestRemovingResult#equals(Object)}, and
-   * {@link TsKvLatestRemovingResult#hashCode()}.
+   * Test {@link TsKvLatestRemovingResult#equals(Object)}, and {@link TsKvLatestRemovingResult#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -53,6 +53,8 @@ class TsKvLatestRemovingResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsKvLatestRemovingResult.equals(Object)", "int TsKvLatestRemovingResult.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TsKvLatestRemovingResult tsKvLatestRemovingResult = new TsKvLatestRemovingResult(null, true);
@@ -65,8 +67,7 @@ class TsKvLatestRemovingResultDiffblueTest {
   }
 
   /**
-   * Test {@link TsKvLatestRemovingResult#equals(Object)}, and
-   * {@link TsKvLatestRemovingResult#hashCode()}.
+   * Test {@link TsKvLatestRemovingResult#equals(Object)}, and {@link TsKvLatestRemovingResult#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -80,10 +81,12 @@ class TsKvLatestRemovingResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsKvLatestRemovingResult.equals(Object)", "int TsKvLatestRemovingResult.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TsKvLatestRemovingResult tsKvLatestRemovingResult = new TsKvLatestRemovingResult(
-        new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L), 1L);
+        new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42")), 1L);
     TsKvLatestRemovingResult tsKvLatestRemovingResult2 = new TsKvLatestRemovingResult(
         new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42")), 1L);
 
@@ -94,8 +97,7 @@ class TsKvLatestRemovingResultDiffblueTest {
   }
 
   /**
-   * Test {@link TsKvLatestRemovingResult#equals(Object)}, and
-   * {@link TsKvLatestRemovingResult#hashCode()}.
+   * Test {@link TsKvLatestRemovingResult#equals(Object)}, and {@link TsKvLatestRemovingResult#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -109,6 +111,8 @@ class TsKvLatestRemovingResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsKvLatestRemovingResult.equals(Object)", "int TsKvLatestRemovingResult.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TsKvLatestRemovingResult tsKvLatestRemovingResult = new TsKvLatestRemovingResult("Key", true);
@@ -130,6 +134,8 @@ class TsKvLatestRemovingResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsKvLatestRemovingResult.equals(Object)", "int TsKvLatestRemovingResult.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TsKvLatestRemovingResult tsKvLatestRemovingResult = new TsKvLatestRemovingResult(null, true);
@@ -149,6 +155,8 @@ class TsKvLatestRemovingResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsKvLatestRemovingResult.equals(Object)", "int TsKvLatestRemovingResult.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TsKvLatestRemovingResult tsKvLatestRemovingResult = new TsKvLatestRemovingResult(
@@ -169,6 +177,8 @@ class TsKvLatestRemovingResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsKvLatestRemovingResult.equals(Object)", "int TsKvLatestRemovingResult.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TsKvLatestRemovingResult tsKvLatestRemovingResult = new TsKvLatestRemovingResult("Key", false);
@@ -188,6 +198,8 @@ class TsKvLatestRemovingResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsKvLatestRemovingResult.equals(Object)", "int TsKvLatestRemovingResult.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TsKvLatestRemovingResult tsKvLatestRemovingResult = new TsKvLatestRemovingResult(
@@ -208,6 +220,8 @@ class TsKvLatestRemovingResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsKvLatestRemovingResult.equals(Object)", "int TsKvLatestRemovingResult.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TsKvLatestRemovingResult tsKvLatestRemovingResult = new TsKvLatestRemovingResult("Key", true);
@@ -228,6 +242,8 @@ class TsKvLatestRemovingResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsKvLatestRemovingResult.equals(Object)", "int TsKvLatestRemovingResult.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TsKvLatestRemovingResult tsKvLatestRemovingResult = new TsKvLatestRemovingResult("Key", true);
@@ -248,56 +264,17 @@ class TsKvLatestRemovingResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsKvLatestRemovingResult.equals(Object)", "int TsKvLatestRemovingResult.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    KvEntry kv = mock(KvEntry.class);
-    when(kv.getKey()).thenReturn("Key");
-    TsKvLatestRemovingResult tsKvLatestRemovingResult = new TsKvLatestRemovingResult(new BasicTsKvEntry(1L, kv), 1L);
+    TsKvLatestRemovingResult tsKvLatestRemovingResult = new TsKvLatestRemovingResult("Key", true);
+
+    TsKvLatestRemovingResult tsKvLatestRemovingResult2 = new TsKvLatestRemovingResult("Key", true);
+    tsKvLatestRemovingResult2.setData(new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42")));
 
     // Act and Assert
-    assertNotEquals(tsKvLatestRemovingResult, new TsKvLatestRemovingResult("Key", true));
-  }
-
-  /**
-   * Test {@link TsKvLatestRemovingResult#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TsKvLatestRemovingResult#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
-    // Arrange
-    KvEntry kv = mock(KvEntry.class);
-    when(kv.getKey()).thenReturn("Key");
-    TsKvLatestRemovingResult tsKvLatestRemovingResult = new TsKvLatestRemovingResult(new BasicTsKvEntry(1L, kv), 1L);
-
-    // Act and Assert
-    assertNotEquals(tsKvLatestRemovingResult,
-        new TsKvLatestRemovingResult(new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42")), 1L));
-  }
-
-  /**
-   * Test {@link TsKvLatestRemovingResult#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TsKvLatestRemovingResult#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
-    // Arrange
-    TsKvLatestRemovingResult tsKvLatestRemovingResult = new TsKvLatestRemovingResult("Key", true, 1L);
-
-    // Act and Assert
-    assertNotEquals(tsKvLatestRemovingResult,
-        new TsKvLatestRemovingResult(new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42")), 1L));
+    assertNotEquals(tsKvLatestRemovingResult, tsKvLatestRemovingResult2);
   }
 
   /**
@@ -311,6 +288,8 @@ class TsKvLatestRemovingResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsKvLatestRemovingResult.equals(Object)", "int TsKvLatestRemovingResult.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TsKvLatestRemovingResult("Key", true), null);
@@ -327,6 +306,8 @@ class TsKvLatestRemovingResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsKvLatestRemovingResult.equals(Object)", "int TsKvLatestRemovingResult.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TsKvLatestRemovingResult("Key", true), "Different type to TsKvLatestRemovingResult");
@@ -340,8 +321,7 @@ class TsKvLatestRemovingResultDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link TsKvLatestRemovingResult#TsKvLatestRemovingResult(String, boolean, Long)}
+   *   <li>{@link TsKvLatestRemovingResult#TsKvLatestRemovingResult(String, boolean, Long)}
    *   <li>{@link TsKvLatestRemovingResult#setData(TsKvEntry)}
    *   <li>{@link TsKvLatestRemovingResult#setKey(String)}
    *   <li>{@link TsKvLatestRemovingResult#setRemoved(boolean)}
@@ -355,6 +335,13 @@ class TsKvLatestRemovingResultDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TsKvLatestRemovingResult.<init>(String, boolean)",
+      "void TsKvLatestRemovingResult.<init>(String, boolean, Long)", "TsKvEntry TsKvLatestRemovingResult.getData()",
+      "String TsKvLatestRemovingResult.getKey()", "Long TsKvLatestRemovingResult.getVersion()",
+      "boolean TsKvLatestRemovingResult.isRemoved()", "void TsKvLatestRemovingResult.setData(TsKvEntry)",
+      "void TsKvLatestRemovingResult.setKey(String)", "void TsKvLatestRemovingResult.setRemoved(boolean)",
+      "void TsKvLatestRemovingResult.setVersion(Long)", "String TsKvLatestRemovingResult.toString()"})
   void testGettersAndSetters_whenOne() {
     // Arrange and Act
     TsKvLatestRemovingResult actualTsKvLatestRemovingResult = new TsKvLatestRemovingResult("Key", true, 1L);
@@ -370,7 +357,7 @@ class TsKvLatestRemovingResultDiffblueTest {
     Long actualVersion = actualTsKvLatestRemovingResult.getVersion();
     boolean actualIsRemovedResult = actualTsKvLatestRemovingResult.isRemoved();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Key", actualKey);
     assertEquals("TsKvLatestRemovingResult(key=Key, data=BasicTsKvEntry(ts=1, kv=JsonDataEntry{value=42} BasicKvEntry"
         + "{key='Key'}, version=null), removed=true, version=1)", actualToStringResult);
@@ -387,8 +374,7 @@ class TsKvLatestRemovingResultDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link TsKvLatestRemovingResult#TsKvLatestRemovingResult(String, boolean)}
+   *   <li>{@link TsKvLatestRemovingResult#TsKvLatestRemovingResult(String, boolean)}
    *   <li>{@link TsKvLatestRemovingResult#setData(TsKvEntry)}
    *   <li>{@link TsKvLatestRemovingResult#setKey(String)}
    *   <li>{@link TsKvLatestRemovingResult#setRemoved(boolean)}
@@ -402,6 +388,13 @@ class TsKvLatestRemovingResultDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TsKvLatestRemovingResult.<init>(String, boolean)",
+      "void TsKvLatestRemovingResult.<init>(String, boolean, Long)", "TsKvEntry TsKvLatestRemovingResult.getData()",
+      "String TsKvLatestRemovingResult.getKey()", "Long TsKvLatestRemovingResult.getVersion()",
+      "boolean TsKvLatestRemovingResult.isRemoved()", "void TsKvLatestRemovingResult.setData(TsKvEntry)",
+      "void TsKvLatestRemovingResult.setKey(String)", "void TsKvLatestRemovingResult.setRemoved(boolean)",
+      "void TsKvLatestRemovingResult.setVersion(Long)", "String TsKvLatestRemovingResult.toString()"})
   void testGettersAndSetters_whenTrue() {
     // Arrange and Act
     TsKvLatestRemovingResult actualTsKvLatestRemovingResult = new TsKvLatestRemovingResult("Key", true);
@@ -417,7 +410,7 @@ class TsKvLatestRemovingResultDiffblueTest {
     Long actualVersion = actualTsKvLatestRemovingResult.getVersion();
     boolean actualIsRemovedResult = actualTsKvLatestRemovingResult.isRemoved();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Key", actualKey);
     assertEquals("TsKvLatestRemovingResult(key=Key, data=BasicTsKvEntry(ts=1, kv=JsonDataEntry{value=42} BasicKvEntry"
         + "{key='Key'}, version=null), removed=true, version=1)", actualToStringResult);
@@ -427,17 +420,17 @@ class TsKvLatestRemovingResultDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link TsKvLatestRemovingResult#TsKvLatestRemovingResult(TsKvEntry, Long)}.
+   * Test {@link TsKvLatestRemovingResult#TsKvLatestRemovingResult(TsKvEntry, Long)}.
    * <ul>
    *   <li>Then return {@code Key}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TsKvLatestRemovingResult#TsKvLatestRemovingResult(TsKvEntry, Long)}
+   * Method under test: {@link TsKvLatestRemovingResult#TsKvLatestRemovingResult(TsKvEntry, Long)}
    */
   @Test
   @DisplayName("Test new TsKvLatestRemovingResult(TsKvEntry, Long); then return 'Key'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TsKvLatestRemovingResult.<init>(TsKvEntry, Long)"})
   void testNewTsKvLatestRemovingResult_thenReturnKey() {
     // Arrange
     BasicTsKvEntry data = new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42"));

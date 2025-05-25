@@ -1,30 +1,37 @@
 package org.thingsboard.server.common.stats;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.Meter;
+import io.micrometer.core.instrument.Meter.Id;
+import io.micrometer.core.instrument.Meter.Type;
 import io.micrometer.core.instrument.Tags;
 import io.micrometer.core.instrument.cumulative.CumulativeCounter;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class DefaultCounterDiffblueTest {
   /**
    * Test {@link DefaultCounter#DefaultCounter(AtomicInteger, Counter)}.
    * <p>
-   * Method under test:
-   * {@link DefaultCounter#DefaultCounter(AtomicInteger, Counter)}
+   * Method under test: {@link DefaultCounter#DefaultCounter(AtomicInteger, Counter)}
    */
   @Test
   @DisplayName("Test new DefaultCounter(AtomicInteger, Counter)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultCounter.<init>(AtomicInteger, Counter)"})
   void testNewDefaultCounter() {
     // Arrange
     AtomicInteger aiCounter = new AtomicInteger(1);
 
     // Act and Assert
-    assertEquals(1, (new DefaultCounter(aiCounter, new CumulativeCounter(new Meter.Id("Name", Tags.empty(), "Base Unit",
-        "The characteristics of someone or something", Meter.Type.COUNTER)))).get());
+    assertEquals(1,
+        (new DefaultCounter(aiCounter, new CumulativeCounter(
+            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER))))
+            .get());
   }
 
   /**
@@ -34,11 +41,13 @@ class DefaultCounterDiffblueTest {
    */
   @Test
   @DisplayName("Test increment()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultCounter.increment()"})
   void testIncrement() {
     // Arrange
     AtomicInteger aiCounter = new AtomicInteger(1);
-    DefaultCounter defaultCounter = new DefaultCounter(aiCounter, new CumulativeCounter(new Meter.Id("Name",
-        Tags.empty(), "Base Unit", "The characteristics of someone or something", Meter.Type.COUNTER)));
+    DefaultCounter defaultCounter = new DefaultCounter(aiCounter, new CumulativeCounter(
+        new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)));
 
     // Act
     defaultCounter.increment();
@@ -54,11 +63,13 @@ class DefaultCounterDiffblueTest {
    */
   @Test
   @DisplayName("Test clear()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultCounter.clear()"})
   void testClear() {
     // Arrange
     AtomicInteger aiCounter = new AtomicInteger(1);
-    DefaultCounter defaultCounter = new DefaultCounter(aiCounter, new CumulativeCounter(new Meter.Id("Name",
-        Tags.empty(), "Base Unit", "The characteristics of someone or something", Meter.Type.COUNTER)));
+    DefaultCounter defaultCounter = new DefaultCounter(aiCounter, new CumulativeCounter(
+        new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)));
 
     // Act
     defaultCounter.clear();
@@ -78,13 +89,17 @@ class DefaultCounterDiffblueTest {
    */
   @Test
   @DisplayName("Test get(); given AtomicInteger(int) with one; then return one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int DefaultCounter.get()"})
   void testGet_givenAtomicIntegerWithOne_thenReturnOne() {
     // Arrange
     AtomicInteger aiCounter = new AtomicInteger(1);
 
     // Act and Assert
-    assertEquals(1, (new DefaultCounter(aiCounter, new CumulativeCounter(new Meter.Id("Name", Tags.empty(), "Base Unit",
-        "The characteristics of someone or something", Meter.Type.COUNTER)))).get());
+    assertEquals(1,
+        (new DefaultCounter(aiCounter, new CumulativeCounter(
+            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER))))
+            .get());
   }
 
   /**
@@ -94,11 +109,13 @@ class DefaultCounterDiffblueTest {
    */
   @Test
   @DisplayName("Test add(int)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultCounter.add(int)"})
   void testAdd() {
     // Arrange
     AtomicInteger aiCounter = new AtomicInteger(1);
-    DefaultCounter defaultCounter = new DefaultCounter(aiCounter, new CumulativeCounter(new Meter.Id("Name",
-        Tags.empty(), "Base Unit", "The characteristics of someone or something", Meter.Type.COUNTER)));
+    DefaultCounter defaultCounter = new DefaultCounter(aiCounter, new CumulativeCounter(
+        new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)));
 
     // Act
     defaultCounter.add(2);

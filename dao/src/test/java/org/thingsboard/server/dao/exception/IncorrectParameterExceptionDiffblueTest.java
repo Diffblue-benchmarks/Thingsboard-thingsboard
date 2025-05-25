@@ -3,7 +3,10 @@ package org.thingsboard.server.dao.exception;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 public class IncorrectParameterExceptionDiffblueTest {
   /**
@@ -13,10 +16,12 @@ public class IncorrectParameterExceptionDiffblueTest {
    *   <li>Then return Cause is {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link IncorrectParameterException#IncorrectParameterException(String)}
+   * Method under test: {@link IncorrectParameterException#IncorrectParameterException(String)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void IncorrectParameterException.<init>(String)",
+      "void IncorrectParameterException.<init>(String, Throwable)"})
   public void testNewIncorrectParameterException_whenAnErrorOccurred_thenReturnCauseIsNull() {
     // Arrange and Act
     IncorrectParameterException actualIncorrectParameterException = new IncorrectParameterException(
@@ -29,17 +34,18 @@ public class IncorrectParameterExceptionDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link IncorrectParameterException#IncorrectParameterException(String, Throwable)}.
+   * Test {@link IncorrectParameterException#IncorrectParameterException(String, Throwable)}.
    * <ul>
    *   <li>When {@link Throwable#Throwable()}.</li>
    *   <li>Then return Cause is {@link Throwable#Throwable()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link IncorrectParameterException#IncorrectParameterException(String, Throwable)}
+   * Method under test: {@link IncorrectParameterException#IncorrectParameterException(String, Throwable)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void IncorrectParameterException.<init>(String)",
+      "void IncorrectParameterException.<init>(String, Throwable)"})
   public void testNewIncorrectParameterException_whenThrowable_thenReturnCauseIsThrowable() {
     // Arrange
     Throwable cause = new Throwable();

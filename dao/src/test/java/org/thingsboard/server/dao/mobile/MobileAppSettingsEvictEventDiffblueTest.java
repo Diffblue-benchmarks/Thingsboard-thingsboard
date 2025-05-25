@@ -3,14 +3,17 @@ package org.thingsboard.server.dao.mobile;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertSame;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import java.util.UUID;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.dao.model.ModelConstants;
 
 public class MobileAppSettingsEvictEventDiffblueTest {
   /**
-   * Test {@link MobileAppSettingsEvictEvent#equals(Object)}, and
-   * {@link MobileAppSettingsEvictEvent#hashCode()}.
+   * Test {@link MobileAppSettingsEvictEvent#equals(Object)}, and {@link MobileAppSettingsEvictEvent#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -23,6 +26,9 @@ public class MobileAppSettingsEvictEventDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean MobileAppSettingsEvictEvent.equals(Object)",
+      "int MobileAppSettingsEvictEvent.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     MobileAppSettingsEvictEvent mobileAppSettingsEvictEvent = new MobileAppSettingsEvictEvent(
@@ -37,8 +43,7 @@ public class MobileAppSettingsEvictEventDiffblueTest {
   }
 
   /**
-   * Test {@link MobileAppSettingsEvictEvent#equals(Object)}, and
-   * {@link MobileAppSettingsEvictEvent#hashCode()}.
+   * Test {@link MobileAppSettingsEvictEvent#equals(Object)}, and {@link MobileAppSettingsEvictEvent#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -51,6 +56,9 @@ public class MobileAppSettingsEvictEventDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean MobileAppSettingsEvictEvent.equals(Object)",
+      "int MobileAppSettingsEvictEvent.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     MobileAppSettingsEvictEvent mobileAppSettingsEvictEvent = new MobileAppSettingsEvictEvent(null);
@@ -63,8 +71,7 @@ public class MobileAppSettingsEvictEventDiffblueTest {
   }
 
   /**
-   * Test {@link MobileAppSettingsEvictEvent#equals(Object)}, and
-   * {@link MobileAppSettingsEvictEvent#hashCode()}.
+   * Test {@link MobileAppSettingsEvictEvent#equals(Object)}, and {@link MobileAppSettingsEvictEvent#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -77,6 +84,9 @@ public class MobileAppSettingsEvictEventDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean MobileAppSettingsEvictEvent.equals(Object)",
+      "int MobileAppSettingsEvictEvent.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     MobileAppSettingsEvictEvent mobileAppSettingsEvictEvent = new MobileAppSettingsEvictEvent(
@@ -98,9 +108,13 @@ public class MobileAppSettingsEvictEventDiffblueTest {
    * Method under test: {@link MobileAppSettingsEvictEvent#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean MobileAppSettingsEvictEvent.equals(Object)",
+      "int MobileAppSettingsEvictEvent.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    MobileAppSettingsEvictEvent mobileAppSettingsEvictEvent = new MobileAppSettingsEvictEvent(null);
+    MobileAppSettingsEvictEvent mobileAppSettingsEvictEvent = new MobileAppSettingsEvictEvent(
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(mobileAppSettingsEvictEvent, new MobileAppSettingsEvictEvent(ModelConstants.SYSTEM_TENANT));
@@ -116,13 +130,15 @@ public class MobileAppSettingsEvictEventDiffblueTest {
    * Method under test: {@link MobileAppSettingsEvictEvent#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean MobileAppSettingsEvictEvent.equals(Object)",
+      "int MobileAppSettingsEvictEvent.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    MobileAppSettingsEvictEvent mobileAppSettingsEvictEvent = new MobileAppSettingsEvictEvent(
-        ModelConstants.SYSTEM_TENANT);
+    MobileAppSettingsEvictEvent mobileAppSettingsEvictEvent = new MobileAppSettingsEvictEvent(null);
 
     // Act and Assert
-    assertNotEquals(mobileAppSettingsEvictEvent, new MobileAppSettingsEvictEvent(null));
+    assertNotEquals(mobileAppSettingsEvictEvent, new MobileAppSettingsEvictEvent(ModelConstants.SYSTEM_TENANT));
   }
 
   /**
@@ -135,6 +151,9 @@ public class MobileAppSettingsEvictEventDiffblueTest {
    * Method under test: {@link MobileAppSettingsEvictEvent#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean MobileAppSettingsEvictEvent.equals(Object)",
+      "int MobileAppSettingsEvictEvent.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MobileAppSettingsEvictEvent(ModelConstants.SYSTEM_TENANT), null);
@@ -150,6 +169,9 @@ public class MobileAppSettingsEvictEventDiffblueTest {
    * Method under test: {@link MobileAppSettingsEvictEvent#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean MobileAppSettingsEvictEvent.equals(Object)",
+      "int MobileAppSettingsEvictEvent.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MobileAppSettingsEvictEvent(ModelConstants.SYSTEM_TENANT),
@@ -167,6 +189,9 @@ public class MobileAppSettingsEvictEventDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void MobileAppSettingsEvictEvent.<init>(TenantId)",
+      "TenantId MobileAppSettingsEvictEvent.getTenantId()", "String MobileAppSettingsEvictEvent.toString()"})
   public void testGettersAndSetters() {
     // Arrange and Act
     MobileAppSettingsEvictEvent actualMobileAppSettingsEvictEvent = new MobileAppSettingsEvictEvent(

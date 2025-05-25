@@ -2,16 +2,14 @@ package org.thingsboard.server.common.data.security.model.mfa.provider;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.mockito.Mockito.anyInt;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class EmailTwoFaProviderConfigDiffblueTest {
   /**
-   * Test {@link EmailTwoFaProviderConfig#equals(Object)}, and
-   * {@link EmailTwoFaProviderConfig#hashCode()}.
+   * Test {@link EmailTwoFaProviderConfig#equals(Object)}, and {@link EmailTwoFaProviderConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -25,6 +23,8 @@ class EmailTwoFaProviderConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EmailTwoFaProviderConfig.equals(Object)", "int EmailTwoFaProviderConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EmailTwoFaProviderConfig emailTwoFaProviderConfig = new EmailTwoFaProviderConfig();
@@ -40,8 +40,7 @@ class EmailTwoFaProviderConfigDiffblueTest {
   }
 
   /**
-   * Test {@link EmailTwoFaProviderConfig#equals(Object)}, and
-   * {@link EmailTwoFaProviderConfig#hashCode()}.
+   * Test {@link EmailTwoFaProviderConfig#equals(Object)}, and {@link EmailTwoFaProviderConfig#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -55,6 +54,8 @@ class EmailTwoFaProviderConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EmailTwoFaProviderConfig.equals(Object)", "int EmailTwoFaProviderConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EmailTwoFaProviderConfig emailTwoFaProviderConfig = new EmailTwoFaProviderConfig();
@@ -77,6 +78,8 @@ class EmailTwoFaProviderConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EmailTwoFaProviderConfig.equals(Object)", "int EmailTwoFaProviderConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     EmailTwoFaProviderConfig emailTwoFaProviderConfig = new EmailTwoFaProviderConfig();
@@ -92,29 +95,6 @@ class EmailTwoFaProviderConfigDiffblueTest {
   /**
    * Test {@link EmailTwoFaProviderConfig#equals(Object)}.
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link EmailTwoFaProviderConfig#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange
-    EmailTwoFaProviderConfig emailTwoFaProviderConfig = new EmailTwoFaProviderConfig();
-    emailTwoFaProviderConfig.setVerificationCodeLifetime(1);
-    SmsTwoFaProviderConfig smsTwoFaProviderConfig = mock(SmsTwoFaProviderConfig.class);
-    doNothing().when(smsTwoFaProviderConfig).setVerificationCodeLifetime(anyInt());
-    smsTwoFaProviderConfig.setVerificationCodeLifetime(1);
-
-    // Act and Assert
-    assertNotEquals(emailTwoFaProviderConfig, smsTwoFaProviderConfig);
-  }
-
-  /**
-   * Test {@link EmailTwoFaProviderConfig#equals(Object)}.
-   * <ul>
    *   <li>When other is {@code null}.</li>
    *   <li>Then return not equal.</li>
    * </ul>
@@ -123,6 +103,8 @@ class EmailTwoFaProviderConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EmailTwoFaProviderConfig.equals(Object)", "int EmailTwoFaProviderConfig.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     EmailTwoFaProviderConfig emailTwoFaProviderConfig = new EmailTwoFaProviderConfig();
@@ -143,6 +125,8 @@ class EmailTwoFaProviderConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EmailTwoFaProviderConfig.equals(Object)", "int EmailTwoFaProviderConfig.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     EmailTwoFaProviderConfig emailTwoFaProviderConfig = new EmailTwoFaProviderConfig();
@@ -164,6 +148,9 @@ class EmailTwoFaProviderConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EmailTwoFaProviderConfig.<init>()",
+      "TwoFaProviderType EmailTwoFaProviderConfig.getProviderType()", "String EmailTwoFaProviderConfig.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     EmailTwoFaProviderConfig actualEmailTwoFaProviderConfig = new EmailTwoFaProviderConfig();

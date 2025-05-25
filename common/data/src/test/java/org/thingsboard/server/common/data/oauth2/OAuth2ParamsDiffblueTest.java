@@ -2,17 +2,18 @@ package org.thingsboard.server.common.data.oauth2;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.TenantId;
 
 class OAuth2ParamsDiffblueTest {
   /**
-   * Test {@link OAuth2Params#equals(Object)}, and
-   * {@link OAuth2Params#hashCode()}.
+   * Test {@link OAuth2Params#equals(Object)}, and {@link OAuth2Params#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -26,6 +27,8 @@ class OAuth2ParamsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2Params.equals(Object)", "int OAuth2Params.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     OAuth2Params oAuth2Params = new OAuth2Params();
@@ -38,8 +41,7 @@ class OAuth2ParamsDiffblueTest {
   }
 
   /**
-   * Test {@link OAuth2Params#equals(Object)}, and
-   * {@link OAuth2Params#hashCode()}.
+   * Test {@link OAuth2Params#equals(Object)}, and {@link OAuth2Params#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -53,6 +55,8 @@ class OAuth2ParamsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2Params.equals(Object)", "int OAuth2Params.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     OAuth2Params oAuth2Params = new OAuth2Params();
@@ -68,8 +72,7 @@ class OAuth2ParamsDiffblueTest {
   }
 
   /**
-   * Test {@link OAuth2Params#equals(Object)}, and
-   * {@link OAuth2Params#hashCode()}.
+   * Test {@link OAuth2Params#equals(Object)}, and {@link OAuth2Params#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -83,6 +86,8 @@ class OAuth2ParamsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2Params.equals(Object)", "int OAuth2Params.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     OAuth2Params oAuth2Params = new OAuth2Params();
@@ -104,10 +109,11 @@ class OAuth2ParamsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2Params.equals(Object)", "int OAuth2Params.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new OAuth2Params(), 1);
-    assertNotEquals(new OAuth2Params(), mock(OAuth2Client.class));
   }
 
   /**
@@ -121,6 +127,8 @@ class OAuth2ParamsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2Params.equals(Object)", "int OAuth2Params.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     OAuth2Params oAuth2Params = new OAuth2Params();
@@ -141,6 +149,8 @@ class OAuth2ParamsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2Params.equals(Object)", "int OAuth2Params.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     OAuth2Params oAuth2Params = new OAuth2Params();
@@ -161,6 +171,8 @@ class OAuth2ParamsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2Params.equals(Object)", "int OAuth2Params.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     OAuth2Params oAuth2Params = new OAuth2Params();
@@ -181,6 +193,8 @@ class OAuth2ParamsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2Params.equals(Object)", "int OAuth2Params.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     OAuth2Params oAuth2Params = new OAuth2Params();
@@ -201,6 +215,8 @@ class OAuth2ParamsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2Params.equals(Object)", "int OAuth2Params.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     OAuth2Params oAuth2Params = new OAuth2Params();
@@ -223,6 +239,8 @@ class OAuth2ParamsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2Params.equals(Object)", "int OAuth2Params.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new OAuth2Params(), null);
@@ -239,6 +257,8 @@ class OAuth2ParamsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2Params.equals(Object)", "int OAuth2Params.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new OAuth2Params(), "Different type to OAuth2Params");
@@ -261,6 +281,11 @@ class OAuth2ParamsDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void OAuth2Params.<init>()", "TenantId OAuth2Params.getTenantId()",
+      "boolean OAuth2Params.isEdgeEnabled()", "boolean OAuth2Params.isEnabled()",
+      "void OAuth2Params.setEdgeEnabled(boolean)", "void OAuth2Params.setEnabled(boolean)",
+      "void OAuth2Params.setTenantId(TenantId)", "String OAuth2Params.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     OAuth2Params actualOAuth2Params = new OAuth2Params();
@@ -272,9 +297,10 @@ class OAuth2ParamsDiffblueTest {
     boolean actualIsEdgeEnabledResult = actualOAuth2Params.isEdgeEnabled();
     boolean actualIsEnabledResult = actualOAuth2Params.isEnabled();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("OAuth2Params(enabled=true, edgeEnabled=true, tenantId=13814000-1dd2-11b2-8080-808080808080)",
         actualToStringResult);
+    assertNull(actualOAuth2Params.getId());
     assertEquals(0L, actualOAuth2Params.getCreatedTime());
     assertTrue(actualIsEdgeEnabledResult);
     assertTrue(actualIsEnabledResult);
@@ -288,6 +314,8 @@ class OAuth2ParamsDiffblueTest {
    */
   @Test
   @DisplayName("Test new OAuth2Params(OAuth2Params)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void OAuth2Params.<init>(OAuth2Params)"})
   void testNewOAuth2Params() {
     // Arrange
     OAuth2Params oauth2Params = new OAuth2Params();

@@ -2,17 +2,20 @@ package org.thingsboard.server.dao.exception;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 public class DeviceCredentialsValidationExceptionDiffblueTest {
   /**
-   * Test
-   * {@link DeviceCredentialsValidationException#DeviceCredentialsValidationException(String)}.
+   * Test {@link DeviceCredentialsValidationException#DeviceCredentialsValidationException(String)}.
    * <p>
-   * Method under test:
-   * {@link DeviceCredentialsValidationException#DeviceCredentialsValidationException(String)}
+   * Method under test: {@link DeviceCredentialsValidationException#DeviceCredentialsValidationException(String)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DeviceCredentialsValidationException.<init>(String)"})
   public void testNewDeviceCredentialsValidationException() {
     // Arrange and Act
     DeviceCredentialsValidationException actualDeviceCredentialsValidationException = new DeviceCredentialsValidationException(

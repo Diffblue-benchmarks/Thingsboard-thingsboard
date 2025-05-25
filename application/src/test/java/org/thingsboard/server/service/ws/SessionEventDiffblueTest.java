@@ -4,9 +4,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Optional;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.thingsboard.server.service.ws.SessionEvent.SessionEventType;
 
 class SessionEventDiffblueTest {
   /**
@@ -16,12 +19,14 @@ class SessionEventDiffblueTest {
    */
   @Test
   @DisplayName("Test onEstablished()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"SessionEvent SessionEvent.onEstablished()"})
   void testOnEstablished() {
     // Arrange and Act
     SessionEvent actualOnEstablishedResult = SessionEvent.onEstablished();
 
     // Assert
-    assertEquals(SessionEvent.SessionEventType.ESTABLISHED, actualOnEstablishedResult.getEventType());
+    assertEquals(SessionEventType.ESTABLISHED, actualOnEstablishedResult.getEventType());
     assertFalse(actualOnEstablishedResult.getError().isPresent());
   }
 
@@ -32,12 +37,14 @@ class SessionEventDiffblueTest {
    */
   @Test
   @DisplayName("Test onClosed()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"SessionEvent SessionEvent.onClosed()"})
   void testOnClosed() {
     // Arrange and Act
     SessionEvent actualOnClosedResult = SessionEvent.onClosed();
 
     // Assert
-    assertEquals(SessionEvent.SessionEventType.CLOSED, actualOnClosedResult.getEventType());
+    assertEquals(SessionEventType.CLOSED, actualOnClosedResult.getEventType());
     assertFalse(actualOnClosedResult.getError().isPresent());
   }
 
@@ -48,6 +55,8 @@ class SessionEventDiffblueTest {
    */
   @Test
   @DisplayName("Test onError(Throwable)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"SessionEvent SessionEvent.onError(Throwable)"})
   void testOnError() {
     // Arrange
     Throwable t = new Throwable();
@@ -56,7 +65,7 @@ class SessionEventDiffblueTest {
     SessionEvent actualOnErrorResult = SessionEvent.onError(t);
 
     // Assert
-    assertEquals(SessionEvent.SessionEventType.ERROR, actualOnErrorResult.getEventType());
+    assertEquals(SessionEventType.ERROR, actualOnErrorResult.getEventType());
     Optional<Throwable> error = actualOnErrorResult.getError();
     assertTrue(error.isPresent());
     assertSame(t, error.get());
@@ -74,6 +83,9 @@ class SessionEventDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Optional SessionEvent.getError()", "SessionEventType SessionEvent.getEventType()",
+      "String SessionEvent.toString()"})
   void testGettersAndSetters() {
     // Arrange
     SessionEvent onClosedResult = SessionEvent.onClosed();
@@ -84,7 +96,7 @@ class SessionEventDiffblueTest {
 
     // Assert
     assertEquals("SessionEvent(eventType=CLOSED, error=Optional.empty)", actualToStringResult);
-    assertEquals(SessionEvent.SessionEventType.CLOSED, onClosedResult.getEventType());
+    assertEquals(SessionEventType.CLOSED, onClosedResult.getEventType());
     assertFalse(actualError.isPresent());
   }
 }

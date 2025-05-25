@@ -2,13 +2,14 @@ package org.thingsboard.server.service.security.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ActivateUserRequestDiffblueTest {
   /**
-   * Test {@link ActivateUserRequest#equals(Object)}, and
-   * {@link ActivateUserRequest#hashCode()}.
+   * Test {@link ActivateUserRequest#equals(Object)}, and {@link ActivateUserRequest#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -22,6 +23,8 @@ class ActivateUserRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActivateUserRequest.equals(Object)", "int ActivateUserRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ActivateUserRequest activateUserRequest = new ActivateUserRequest();
@@ -39,8 +42,7 @@ class ActivateUserRequestDiffblueTest {
   }
 
   /**
-   * Test {@link ActivateUserRequest#equals(Object)}, and
-   * {@link ActivateUserRequest#hashCode()}.
+   * Test {@link ActivateUserRequest#equals(Object)}, and {@link ActivateUserRequest#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -54,6 +56,8 @@ class ActivateUserRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActivateUserRequest.equals(Object)", "int ActivateUserRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     ActivateUserRequest activateUserRequest = new ActivateUserRequest();
@@ -71,8 +75,7 @@ class ActivateUserRequestDiffblueTest {
   }
 
   /**
-   * Test {@link ActivateUserRequest#equals(Object)}, and
-   * {@link ActivateUserRequest#hashCode()}.
+   * Test {@link ActivateUserRequest#equals(Object)}, and {@link ActivateUserRequest#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -86,6 +89,8 @@ class ActivateUserRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActivateUserRequest.equals(Object)", "int ActivateUserRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     ActivateUserRequest activateUserRequest = new ActivateUserRequest();
@@ -103,8 +108,7 @@ class ActivateUserRequestDiffblueTest {
   }
 
   /**
-   * Test {@link ActivateUserRequest#equals(Object)}, and
-   * {@link ActivateUserRequest#hashCode()}.
+   * Test {@link ActivateUserRequest#equals(Object)}, and {@link ActivateUserRequest#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -118,6 +122,8 @@ class ActivateUserRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActivateUserRequest.equals(Object)", "int ActivateUserRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ActivateUserRequest activateUserRequest = new ActivateUserRequest();
@@ -141,6 +147,8 @@ class ActivateUserRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActivateUserRequest.equals(Object)", "int ActivateUserRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ActivateUserRequest activateUserRequest = new ActivateUserRequest();
@@ -166,6 +174,8 @@ class ActivateUserRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActivateUserRequest.equals(Object)", "int ActivateUserRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ActivateUserRequest activateUserRequest = new ActivateUserRequest();
@@ -191,6 +201,8 @@ class ActivateUserRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActivateUserRequest.equals(Object)", "int ActivateUserRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     ActivateUserRequest activateUserRequest = new ActivateUserRequest();
@@ -216,6 +228,8 @@ class ActivateUserRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActivateUserRequest.equals(Object)", "int ActivateUserRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     ActivateUserRequest activateUserRequest = new ActivateUserRequest();
@@ -241,6 +255,8 @@ class ActivateUserRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActivateUserRequest.equals(Object)", "int ActivateUserRequest.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     ActivateUserRequest activateUserRequest = new ActivateUserRequest();
@@ -262,6 +278,8 @@ class ActivateUserRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActivateUserRequest.equals(Object)", "int ActivateUserRequest.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     ActivateUserRequest activateUserRequest = new ActivateUserRequest();
@@ -287,6 +305,10 @@ class ActivateUserRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ActivateUserRequest.<init>()", "String ActivateUserRequest.getActivateToken()",
+      "String ActivateUserRequest.getPassword()", "void ActivateUserRequest.setActivateToken(String)",
+      "void ActivateUserRequest.setPassword(String)", "String ActivateUserRequest.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     ActivateUserRequest actualActivateUserRequest = new ActivateUserRequest();
@@ -295,7 +317,7 @@ class ActivateUserRequestDiffblueTest {
     String actualToStringResult = actualActivateUserRequest.toString();
     String actualActivateToken = actualActivateUserRequest.getActivateToken();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("ABC123", actualActivateToken);
     assertEquals("ActivateUserRequest(activateToken=ABC123, password=iloveyou)", actualToStringResult);
     assertEquals("iloveyou", actualActivateUserRequest.getPassword());

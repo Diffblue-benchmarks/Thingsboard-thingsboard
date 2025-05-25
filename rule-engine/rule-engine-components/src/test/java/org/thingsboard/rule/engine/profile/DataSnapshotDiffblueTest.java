@@ -5,9 +5,11 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashSet;
 import java.util.Set;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.device.profile.AlarmConditionFilterKey;
 import org.thingsboard.server.common.data.device.profile.AlarmConditionKeyType;
@@ -27,12 +29,14 @@ class DataSnapshotDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DataSnapshot.<init>(Set)", "long DataSnapshot.getTs()", "void DataSnapshot.setTs(long)"})
   void testGettersAndSetters() {
     // Arrange and Act
     DataSnapshot actualDataSnapshot = new DataSnapshot(new HashSet<>());
     actualDataSnapshot.setTs(1L);
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(1L, actualDataSnapshot.getTs());
   }
 
@@ -46,6 +50,8 @@ class DataSnapshotDiffblueTest {
    */
   @Test
   @DisplayName("Test toConditionKey(EntityKey); then return Type is 'ATTRIBUTE'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmConditionFilterKey DataSnapshot.toConditionKey(EntityKey)"})
   void testToConditionKey_thenReturnTypeIsAttribute() {
     // Arrange and Act
     AlarmConditionFilterKey actualToConditionKeyResult = DataSnapshot
@@ -66,6 +72,8 @@ class DataSnapshotDiffblueTest {
    */
   @Test
   @DisplayName("Test toConditionKey(EntityKey); then return Type is 'ENTITY_FIELD'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmConditionFilterKey DataSnapshot.toConditionKey(EntityKey)"})
   void testToConditionKey_thenReturnTypeIsEntityField() {
     // Arrange and Act
     AlarmConditionFilterKey actualToConditionKeyResult = DataSnapshot
@@ -86,6 +94,8 @@ class DataSnapshotDiffblueTest {
    */
   @Test
   @DisplayName("Test toConditionKey(EntityKey); then return Type is 'TIME_SERIES'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmConditionFilterKey DataSnapshot.toConditionKey(EntityKey)"})
   void testToConditionKey_thenReturnTypeIsTimeSeries() {
     // Arrange and Act
     AlarmConditionFilterKey actualToConditionKeyResult = DataSnapshot
@@ -106,6 +116,8 @@ class DataSnapshotDiffblueTest {
    */
   @Test
   @DisplayName("Test toConditionKey(EntityKey); then throw RuntimeException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmConditionFilterKey DataSnapshot.toConditionKey(EntityKey)"})
   void testToConditionKey_thenThrowRuntimeException() {
     // Arrange, Act and Assert
     assertThrows(RuntimeException.class,
@@ -123,6 +135,8 @@ class DataSnapshotDiffblueTest {
    */
   @Test
   @DisplayName("Test toConditionKeyType(EntityKeyType); when 'ALARM_FIELD'; then throw RuntimeException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmConditionKeyType DataSnapshot.toConditionKeyType(EntityKeyType)"})
   void testToConditionKeyType_whenAlarmField_thenThrowRuntimeException() {
     // Arrange, Act and Assert
     assertThrows(RuntimeException.class, () -> DataSnapshot.toConditionKeyType(EntityKeyType.ALARM_FIELD));
@@ -139,6 +153,8 @@ class DataSnapshotDiffblueTest {
    */
   @Test
   @DisplayName("Test toConditionKeyType(EntityKeyType); when 'ATTRIBUTE'; then return 'ATTRIBUTE'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmConditionKeyType DataSnapshot.toConditionKeyType(EntityKeyType)"})
   void testToConditionKeyType_whenAttribute_thenReturnAttribute() {
     // Arrange, Act and Assert
     assertEquals(AlarmConditionKeyType.ATTRIBUTE, DataSnapshot.toConditionKeyType(EntityKeyType.ATTRIBUTE));
@@ -155,6 +171,8 @@ class DataSnapshotDiffblueTest {
    */
   @Test
   @DisplayName("Test toConditionKeyType(EntityKeyType); when 'ENTITY_FIELD'; then return 'ENTITY_FIELD'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmConditionKeyType DataSnapshot.toConditionKeyType(EntityKeyType)"})
   void testToConditionKeyType_whenEntityField_thenReturnEntityField() {
     // Arrange, Act and Assert
     assertEquals(AlarmConditionKeyType.ENTITY_FIELD, DataSnapshot.toConditionKeyType(EntityKeyType.ENTITY_FIELD));
@@ -171,6 +189,8 @@ class DataSnapshotDiffblueTest {
    */
   @Test
   @DisplayName("Test toConditionKeyType(EntityKeyType); when 'TIME_SERIES'; then return 'TIME_SERIES'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmConditionKeyType DataSnapshot.toConditionKeyType(EntityKeyType)"})
   void testToConditionKeyType_whenTimeSeries_thenReturnTimeSeries() {
     // Arrange, Act and Assert
     assertEquals(AlarmConditionKeyType.TIME_SERIES, DataSnapshot.toConditionKeyType(EntityKeyType.TIME_SERIES));
@@ -186,6 +206,8 @@ class DataSnapshotDiffblueTest {
    */
   @Test
   @DisplayName("Test removeValue(EntityKey); then throw RuntimeException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DataSnapshot.removeValue(EntityKey)"})
   void testRemoveValue_thenThrowRuntimeException() {
     // Arrange
     DataSnapshot dataSnapshot = new DataSnapshot(new HashSet<>());
@@ -196,14 +218,14 @@ class DataSnapshotDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
+   * Test {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
    * <p>
-   * Method under test:
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
+   * Method under test: {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
    */
   @Test
   @DisplayName("Test putValue(AlarmConditionFilterKey, long, EntityKeyValue)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DataSnapshot.putValue(AlarmConditionFilterKey, long, EntityKeyValue)"})
   void testPutValue() {
     // Arrange
     HashSet<AlarmConditionFilterKey> entityKeysToFetch = new HashSet<>();
@@ -220,14 +242,14 @@ class DataSnapshotDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
+   * Test {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
    * <p>
-   * Method under test:
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
+   * Method under test: {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
    */
   @Test
   @DisplayName("Test putValue(AlarmConditionFilterKey, long, EntityKeyValue)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DataSnapshot.putValue(AlarmConditionFilterKey, long, EntityKeyValue)"})
   void testPutValue2() {
     // Arrange
     HashSet<AlarmConditionFilterKey> entityKeysToFetch = new HashSet<>();
@@ -244,14 +266,14 @@ class DataSnapshotDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
+   * Test {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
    * <p>
-   * Method under test:
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
+   * Method under test: {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
    */
   @Test
   @DisplayName("Test putValue(AlarmConditionFilterKey, long, EntityKeyValue)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DataSnapshot.putValue(AlarmConditionFilterKey, long, EntityKeyValue)"})
   void testPutValue3() {
     // Arrange
     HashSet<AlarmConditionFilterKey> entityKeysToFetch = new HashSet<>();
@@ -268,14 +290,14 @@ class DataSnapshotDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
+   * Test {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
    * <p>
-   * Method under test:
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
+   * Method under test: {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
    */
   @Test
   @DisplayName("Test putValue(AlarmConditionFilterKey, long, EntityKeyValue)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DataSnapshot.putValue(AlarmConditionFilterKey, long, EntityKeyValue)"})
   void testPutValue4() {
     // Arrange
     HashSet<AlarmConditionFilterKey> entityKeysToFetch = new HashSet<>();
@@ -292,14 +314,14 @@ class DataSnapshotDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
+   * Test {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
    * <p>
-   * Method under test:
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
+   * Method under test: {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
    */
   @Test
   @DisplayName("Test putValue(AlarmConditionFilterKey, long, EntityKeyValue)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DataSnapshot.putValue(AlarmConditionFilterKey, long, EntityKeyValue)"})
   void testPutValue5() {
     // Arrange
     HashSet<AlarmConditionFilterKey> entityKeysToFetch = new HashSet<>();
@@ -316,14 +338,14 @@ class DataSnapshotDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
+   * Test {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
    * <p>
-   * Method under test:
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
+   * Method under test: {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
    */
   @Test
   @DisplayName("Test putValue(AlarmConditionFilterKey, long, EntityKeyValue)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DataSnapshot.putValue(AlarmConditionFilterKey, long, EntityKeyValue)"})
   void testPutValue6() {
     // Arrange
     HashSet<AlarmConditionFilterKey> entityKeysToFetch = new HashSet<>();
@@ -340,14 +362,14 @@ class DataSnapshotDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
+   * Test {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
    * <p>
-   * Method under test:
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
+   * Method under test: {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
    */
   @Test
   @DisplayName("Test putValue(AlarmConditionFilterKey, long, EntityKeyValue)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DataSnapshot.putValue(AlarmConditionFilterKey, long, EntityKeyValue)"})
   void testPutValue7() {
     // Arrange
     HashSet<AlarmConditionFilterKey> entityKeysToFetch = new HashSet<>();
@@ -364,17 +386,17 @@ class DataSnapshotDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
+   * Test {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
    * <ul>
    *   <li>When {@link EntityKeyValue} (default constructor).</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
+   * Method under test: {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
    */
   @Test
   @DisplayName("Test putValue(AlarmConditionFilterKey, long, EntityKeyValue); when EntityKeyValue (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DataSnapshot.putValue(AlarmConditionFilterKey, long, EntityKeyValue)"})
   void testPutValue_whenEntityKeyValue() {
     // Arrange
     HashSet<AlarmConditionFilterKey> entityKeysToFetch = new HashSet<>();
@@ -391,18 +413,18 @@ class DataSnapshotDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
+   * Test {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
    * <ul>
    *   <li>When fromBool {@code true}.</li>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
+   * Method under test: {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
    */
   @Test
   @DisplayName("Test putValue(AlarmConditionFilterKey, long, EntityKeyValue); when fromBool 'true'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DataSnapshot.putValue(AlarmConditionFilterKey, long, EntityKeyValue)"})
   void testPutValue_whenFromBoolTrue_thenReturnFalse() {
     // Arrange
     DataSnapshot dataSnapshot = new DataSnapshot(new HashSet<>());
@@ -413,18 +435,18 @@ class DataSnapshotDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
+   * Test {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
    * <ul>
    *   <li>When fromBool {@code true}.</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
+   * Method under test: {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
    */
   @Test
   @DisplayName("Test putValue(AlarmConditionFilterKey, long, EntityKeyValue); when fromBool 'true'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DataSnapshot.putValue(AlarmConditionFilterKey, long, EntityKeyValue)"})
   void testPutValue_whenFromBoolTrue_thenReturnTrue() {
     // Arrange
     HashSet<AlarmConditionFilterKey> entityKeysToFetch = new HashSet<>();
@@ -437,17 +459,17 @@ class DataSnapshotDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
+   * Test {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
    * <ul>
    *   <li>When fromJson {@code foo}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
+   * Method under test: {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
    */
   @Test
   @DisplayName("Test putValue(AlarmConditionFilterKey, long, EntityKeyValue); when fromJson 'foo'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DataSnapshot.putValue(AlarmConditionFilterKey, long, EntityKeyValue)"})
   void testPutValue_whenFromJsonFoo() {
     // Arrange
     HashSet<AlarmConditionFilterKey> entityKeysToFetch = new HashSet<>();
@@ -464,18 +486,18 @@ class DataSnapshotDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
+   * Test {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
    * <ul>
    *   <li>When one.</li>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
+   * Method under test: {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
    */
   @Test
   @DisplayName("Test putValue(AlarmConditionFilterKey, long, EntityKeyValue); when one; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DataSnapshot.putValue(AlarmConditionFilterKey, long, EntityKeyValue)"})
   void testPutValue_whenOne_thenReturnFalse() {
     // Arrange
     DataSnapshot dataSnapshot = new DataSnapshot(new HashSet<>());
@@ -486,18 +508,18 @@ class DataSnapshotDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
+   * Test {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}.
    * <ul>
    *   <li>When one.</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
+   * Method under test: {@link DataSnapshot#putValue(AlarmConditionFilterKey, long, EntityKeyValue)}
    */
   @Test
   @DisplayName("Test putValue(AlarmConditionFilterKey, long, EntityKeyValue); when one; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DataSnapshot.putValue(AlarmConditionFilterKey, long, EntityKeyValue)"})
   void testPutValue_whenOne_thenReturnTrue() {
     // Arrange
     HashSet<AlarmConditionFilterKey> entityKeysToFetch = new HashSet<>();
@@ -512,9 +534,7 @@ class DataSnapshotDiffblueTest {
   /**
    * Test {@link DataSnapshot#getValue(AlarmConditionFilterKey)}.
    * <ul>
-   *   <li>When
-   * {@link AlarmConditionFilterKey#AlarmConditionFilterKey(AlarmConditionKeyType, String)}
-   * with type is {@code ATTRIBUTE} and {@code Key}.</li>
+   *   <li>When {@link AlarmConditionFilterKey#AlarmConditionFilterKey(AlarmConditionKeyType, String)} with type is {@code ATTRIBUTE} and {@code Key}.</li>
    *   <li>Then return {@code null}.</li>
    * </ul>
    * <p>
@@ -522,6 +542,8 @@ class DataSnapshotDiffblueTest {
    */
   @Test
   @DisplayName("Test getValue(AlarmConditionFilterKey); when AlarmConditionFilterKey(AlarmConditionKeyType, String) with type is 'ATTRIBUTE' and 'Key'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityKeyValue DataSnapshot.getValue(AlarmConditionFilterKey)"})
   void testGetValue_whenAlarmConditionFilterKeyWithTypeIsAttributeAndKey_thenReturnNull() {
     // Arrange
     DataSnapshot dataSnapshot = new DataSnapshot(new HashSet<>());

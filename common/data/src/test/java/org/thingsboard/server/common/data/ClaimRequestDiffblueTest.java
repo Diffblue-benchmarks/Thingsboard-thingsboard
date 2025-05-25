@@ -2,13 +2,14 @@ package org.thingsboard.server.common.data;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ClaimRequestDiffblueTest {
   /**
-   * Test {@link ClaimRequest#equals(Object)}, and
-   * {@link ClaimRequest#hashCode()}.
+   * Test {@link ClaimRequest#equals(Object)}, and {@link ClaimRequest#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -22,6 +23,8 @@ class ClaimRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimRequest.equals(Object)", "int ClaimRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ClaimRequest claimRequest = new ClaimRequest("EXAMPLEKEYwjalrXUtnFEMI/K7MDENG/bPxRfiCY");
@@ -34,8 +37,7 @@ class ClaimRequestDiffblueTest {
   }
 
   /**
-   * Test {@link ClaimRequest#equals(Object)}, and
-   * {@link ClaimRequest#hashCode()}.
+   * Test {@link ClaimRequest#equals(Object)}, and {@link ClaimRequest#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -49,6 +51,8 @@ class ClaimRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimRequest.equals(Object)", "int ClaimRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     ClaimRequest claimRequest = new ClaimRequest(null);
@@ -61,8 +65,7 @@ class ClaimRequestDiffblueTest {
   }
 
   /**
-   * Test {@link ClaimRequest#equals(Object)}, and
-   * {@link ClaimRequest#hashCode()}.
+   * Test {@link ClaimRequest#equals(Object)}, and {@link ClaimRequest#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -76,6 +79,8 @@ class ClaimRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimRequest.equals(Object)", "int ClaimRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ClaimRequest claimRequest = new ClaimRequest("EXAMPLEKEYwjalrXUtnFEMI/K7MDENG/bPxRfiCY");
@@ -97,6 +102,8 @@ class ClaimRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimRequest.equals(Object)", "int ClaimRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ClaimRequest claimRequest = new ClaimRequest("Secret Key");
@@ -116,6 +123,8 @@ class ClaimRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimRequest.equals(Object)", "int ClaimRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ClaimRequest claimRequest = new ClaimRequest(null);
@@ -135,6 +144,8 @@ class ClaimRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimRequest.equals(Object)", "int ClaimRequest.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new ClaimRequest("EXAMPLEKEYwjalrXUtnFEMI/K7MDENG/bPxRfiCY"), null);
@@ -151,6 +162,8 @@ class ClaimRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimRequest.equals(Object)", "int ClaimRequest.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new ClaimRequest("EXAMPLEKEYwjalrXUtnFEMI/K7MDENG/bPxRfiCY"), "Different type to ClaimRequest");
@@ -168,6 +181,9 @@ class ClaimRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ClaimRequest.<init>(String)", "String ClaimRequest.getSecretKey()",
+      "String ClaimRequest.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     ClaimRequest actualClaimRequest = new ClaimRequest("EXAMPLEKEYwjalrXUtnFEMI/K7MDENG/bPxRfiCY");

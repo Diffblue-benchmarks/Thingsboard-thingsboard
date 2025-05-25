@@ -1,478 +1,131 @@
 package org.thingsboard.server.controller;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.ArgumentMatchers.isA;
-import static org.mockito.ArgumentMatchers.isNull;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import java.util.ArrayList;
-import java.util.List;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import org.springframework.context.ApplicationEventPublisher;
-import org.thingsboard.server.common.data.User;
-import org.thingsboard.server.common.data.exception.ThingsboardException;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.thingsboard.server.common.data.id.NotificationTargetId;
 import org.thingsboard.server.common.data.id.TenantId;
-import org.thingsboard.server.common.data.id.UserId;
-import org.thingsboard.server.common.data.notification.NotificationType;
 import org.thingsboard.server.common.data.notification.targets.MicrosoftTeamsNotificationTargetConfig;
 import org.thingsboard.server.common.data.notification.targets.NotificationTarget;
-import org.thingsboard.server.common.data.notification.targets.platform.PlatformUsersNotificationTargetConfig;
-import org.thingsboard.server.common.data.notification.targets.platform.UserListFilter;
-import org.thingsboard.server.common.data.page.PageData;
-import org.thingsboard.server.common.data.page.PageLink;
-import org.thingsboard.server.dao.Dao;
-import org.thingsboard.server.dao.entity.BaseEntityCountService;
-import org.thingsboard.server.dao.notification.DefaultNotificationTargetService;
-import org.thingsboard.server.dao.notification.NotificationTargetDao;
-import org.thingsboard.server.dao.service.validator.UserCredentialsDataValidator;
-import org.thingsboard.server.dao.service.validator.UserDataValidator;
-import org.thingsboard.server.dao.settings.AdminSettingsServiceImpl;
-import org.thingsboard.server.dao.settings.DefaultSecuritySettingsService;
-import org.thingsboard.server.dao.sql.JpaExecutorService;
-import org.thingsboard.server.dao.sql.notification.JpaNotificationRequestDao;
-import org.thingsboard.server.dao.sql.notification.JpaNotificationRuleDao;
-import org.thingsboard.server.dao.sql.notification.JpaNotificationTargetDao;
-import org.thingsboard.server.dao.sql.notification.NotificationRequestRepository;
-import org.thingsboard.server.dao.sql.notification.NotificationRuleRepository;
-import org.thingsboard.server.dao.sql.notification.NotificationTargetRepository;
-import org.thingsboard.server.dao.sql.user.JpaUserAuthSettingsDao;
-import org.thingsboard.server.dao.sql.user.JpaUserCredentialsDao;
-import org.thingsboard.server.dao.sql.user.JpaUserDao;
-import org.thingsboard.server.dao.sql.user.JpaUserSettingsDao;
-import org.thingsboard.server.dao.sql.user.UserAuthSettingsRepository;
-import org.thingsboard.server.dao.user.UserDao;
-import org.thingsboard.server.dao.user.UserService;
-import org.thingsboard.server.dao.user.UserServiceImpl;
-import org.thingsboard.server.dao.user.UserSettingsServiceImpl;
+import org.thingsboard.server.exception.ThingsboardErrorResponseHandler;
 import org.thingsboard.server.service.security.model.SecurityUser;
 
+@ExtendWith(MockitoExtension.class)
 class NotificationTargetControllerDiffblueTest {
-  /**
-   * Test
-   * {@link NotificationTargetController#getRecipientsForNotificationTargetConfig(NotificationTarget, int, int, SecurityUser)}.
-   * <ul>
-   *   <li>Then calls {@link Dao#findById(TenantId, UUID)}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link NotificationTargetController#getRecipientsForNotificationTargetConfig(NotificationTarget, int, int, SecurityUser)}
-   */
-  @Test
-  @DisplayName("Test getRecipientsForNotificationTargetConfig(NotificationTarget, int, int, SecurityUser); then calls findById(TenantId, UUID)")
-  void testGetRecipientsForNotificationTargetConfig_thenCallsFindById() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+  @InjectMocks
+  private NotificationTargetController notificationTargetController;
 
-    // Arrange
-    UserDao userDao = mock(UserDao.class);
-    User user = new User();
-    when(userDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(user);
-    JpaUserCredentialsDao userCredentialsDao = new JpaUserCredentialsDao();
-    JpaUserAuthSettingsDao userAuthSettingsDao = new JpaUserAuthSettingsDao(mock(UserAuthSettingsRepository.class));
-    UserSettingsServiceImpl userSettingsService = new UserSettingsServiceImpl(new JpaUserSettingsDao());
-    JpaUserSettingsDao userSettingsDao = new JpaUserSettingsDao();
-    DefaultSecuritySettingsService securitySettingsService = new DefaultSecuritySettingsService(
-        new AdminSettingsServiceImpl());
-    UserDataValidator userValidator = new UserDataValidator();
-    UserCredentialsDataValidator userCredentialsValidator = new UserCredentialsDataValidator();
-    ApplicationEventPublisher eventPublisher = mock(ApplicationEventPublisher.class);
-    BaseEntityCountService countService = new BaseEntityCountService();
-    UserServiceImpl userService = new UserServiceImpl(userDao, userCredentialsDao, userAuthSettingsDao,
-        userSettingsService, userSettingsDao, securitySettingsService, userValidator, userCredentialsValidator,
-        eventPublisher, countService, new JpaExecutorService());
-
-    JpaNotificationTargetDao notificationTargetDao = new JpaNotificationTargetDao(
-        mock(NotificationTargetRepository.class));
-    JpaNotificationRequestDao notificationRequestDao = new JpaNotificationRequestDao(
-        mock(NotificationRequestRepository.class));
-    NotificationTargetController notificationTargetController = new NotificationTargetController(
-        new DefaultNotificationTargetService(notificationTargetDao, notificationRequestDao,
-            new JpaNotificationRuleDao(mock(NotificationRuleRepository.class)), userService));
-
-    ArrayList<UUID> usersIds = new ArrayList<>();
-    usersIds.add(UUID.randomUUID());
-
-    UserListFilter usersFilter = new UserListFilter();
-    usersFilter.setUsersIds(usersIds);
-
-    PlatformUsersNotificationTargetConfig configuration = new PlatformUsersNotificationTargetConfig();
-    configuration.setDescription("The characteristics of someone or something");
-    configuration.setUsersFilter(usersFilter);
-
-    NotificationTarget notificationTarget = new NotificationTarget();
-    notificationTarget.setConfiguration(configuration);
-
-    // Act
-    PageData<User> actualRecipientsForNotificationTargetConfig = notificationTargetController
-        .getRecipientsForNotificationTargetConfig(notificationTarget, 3, 1, new SecurityUser());
-
-    // Assert
-    verify(userDao).findById(isNull(), isA(UUID.class));
-    List<User> data = actualRecipientsForNotificationTargetConfig.getData();
-    assertEquals(1, data.size());
-    assertEquals(1, actualRecipientsForNotificationTargetConfig.getTotalPages());
-    assertEquals(1L, actualRecipientsForNotificationTargetConfig.getTotalElements());
-    assertFalse(actualRecipientsForNotificationTargetConfig.hasNext());
-    assertSame(user, data.get(0));
-  }
+  @Mock
+  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
   /**
-   * Test
-   * {@link NotificationTargetController#getRecipientsForNotificationTargetConfig(NotificationTarget, int, int, SecurityUser)}.
-   * <ul>
-   *   <li>Then calls {@link UserService#findUserById(TenantId, UserId)}.</li>
-   * </ul>
+   * Test {@link NotificationTargetController#saveNotificationTarget(NotificationTarget, SecurityUser)}.
    * <p>
-   * Method under test:
-   * {@link NotificationTargetController#getRecipientsForNotificationTargetConfig(NotificationTarget, int, int, SecurityUser)}
+   * Method under test: {@link NotificationTargetController#saveNotificationTarget(NotificationTarget, SecurityUser)}
    */
   @Test
-  @DisplayName("Test getRecipientsForNotificationTargetConfig(NotificationTarget, int, int, SecurityUser); then calls findUserById(TenantId, UserId)")
-  void testGetRecipientsForNotificationTargetConfig_thenCallsFindUserById() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test saveNotificationTarget(NotificationTarget, SecurityUser)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "NotificationTarget NotificationTargetController.saveNotificationTarget(NotificationTarget, SecurityUser)"})
+  void testSaveNotificationTarget() throws Exception {
     // Arrange
-    UserService userService = mock(UserService.class);
-    User user = new User();
-    when(userService.findUserById(Mockito.<TenantId>any(), Mockito.<UserId>any())).thenReturn(user);
-    JpaNotificationTargetDao notificationTargetDao = new JpaNotificationTargetDao(
-        mock(NotificationTargetRepository.class));
-    JpaNotificationRequestDao notificationRequestDao = new JpaNotificationRequestDao(
-        mock(NotificationRequestRepository.class));
-    NotificationTargetController notificationTargetController = new NotificationTargetController(
-        new DefaultNotificationTargetService(notificationTargetDao, notificationRequestDao,
-            new JpaNotificationRuleDao(mock(NotificationRuleRepository.class)), userService));
-
-    ArrayList<UUID> usersIds = new ArrayList<>();
-    usersIds.add(UUID.randomUUID());
-
-    UserListFilter usersFilter = new UserListFilter();
-    usersFilter.setUsersIds(usersIds);
-
-    PlatformUsersNotificationTargetConfig configuration = new PlatformUsersNotificationTargetConfig();
-    configuration.setDescription("The characteristics of someone or something");
-    configuration.setUsersFilter(usersFilter);
-
-    NotificationTarget notificationTarget = new NotificationTarget();
-    notificationTarget.setConfiguration(configuration);
-
-    // Act
-    PageData<User> actualRecipientsForNotificationTargetConfig = notificationTargetController
-        .getRecipientsForNotificationTargetConfig(notificationTarget, 3, 1, new SecurityUser());
-
-    // Assert
-    verify(userService).findUserById(isNull(), isA(UserId.class));
-    List<User> data = actualRecipientsForNotificationTargetConfig.getData();
-    assertEquals(1, data.size());
-    assertEquals(1, actualRecipientsForNotificationTargetConfig.getTotalPages());
-    assertEquals(1L, actualRecipientsForNotificationTargetConfig.getTotalElements());
-    assertFalse(actualRecipientsForNotificationTargetConfig.hasNext());
-    assertSame(user, data.get(0));
-  }
-
-  /**
-   * Test
-   * {@link NotificationTargetController#getRecipientsForNotificationTargetConfig(NotificationTarget, int, int, SecurityUser)}.
-   * <ul>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link NotificationTargetController#getRecipientsForNotificationTargetConfig(NotificationTarget, int, int, SecurityUser)}
-   */
-  @Test
-  @DisplayName("Test getRecipientsForNotificationTargetConfig(NotificationTarget, int, int, SecurityUser); then throw IllegalArgumentException")
-  void testGetRecipientsForNotificationTargetConfig_thenThrowIllegalArgumentException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    JpaNotificationTargetDao notificationTargetDao = new JpaNotificationTargetDao(
-        mock(NotificationTargetRepository.class));
-    JpaNotificationRequestDao notificationRequestDao = new JpaNotificationRequestDao(
-        mock(NotificationRequestRepository.class));
-    JpaNotificationRuleDao notificationRuleDao = new JpaNotificationRuleDao(mock(NotificationRuleRepository.class));
-    JpaUserDao userDao = new JpaUserDao();
-    JpaUserCredentialsDao userCredentialsDao = new JpaUserCredentialsDao();
-    JpaUserAuthSettingsDao userAuthSettingsDao = new JpaUserAuthSettingsDao(mock(UserAuthSettingsRepository.class));
-    UserSettingsServiceImpl userSettingsService = new UserSettingsServiceImpl(new JpaUserSettingsDao());
-    JpaUserSettingsDao userSettingsDao = new JpaUserSettingsDao();
-    DefaultSecuritySettingsService securitySettingsService = new DefaultSecuritySettingsService(
-        new AdminSettingsServiceImpl());
-    UserDataValidator userValidator = new UserDataValidator();
-    UserCredentialsDataValidator userCredentialsValidator = new UserCredentialsDataValidator();
-    ApplicationEventPublisher eventPublisher = mock(ApplicationEventPublisher.class);
-    BaseEntityCountService countService = new BaseEntityCountService();
-    NotificationTargetController notificationTargetController = new NotificationTargetController(
-        new DefaultNotificationTargetService(notificationTargetDao, notificationRequestDao, notificationRuleDao,
-            new UserServiceImpl(userDao, userCredentialsDao, userAuthSettingsDao, userSettingsService, userSettingsDao,
-                securitySettingsService, userValidator, userCredentialsValidator, eventPublisher, countService,
-                new JpaExecutorService())));
+    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/notification/target");
+    postResult.characterEncoding("https://example.org/example");
+    MockHttpServletRequestBuilder paramResult = postResult.param("user", String.valueOf(new SecurityUser()));
 
     NotificationTarget notificationTarget = new NotificationTarget();
     notificationTarget.setConfiguration(new MicrosoftTeamsNotificationTargetConfig());
+    notificationTarget.setCreatedTime(1L);
+    notificationTarget.setExternalId(new NotificationTargetId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    notificationTarget.setId(new NotificationTargetId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    notificationTarget.setName("Name");
+    notificationTarget.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    String content = (new ObjectMapper()).writeValueAsString(notificationTarget);
+    MockHttpServletRequestBuilder requestBuilder = paramResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
     // Act and Assert
-    assertThrows(IllegalArgumentException.class, () -> notificationTargetController
-        .getRecipientsForNotificationTargetConfig(notificationTarget, 3, 1, new SecurityUser()));
+    MockMvcBuilders.standaloneSetup(notificationTargetController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().is(415));
   }
 
   /**
-   * Test
-   * {@link NotificationTargetController#getNotificationTargetsByIds(UUID[], SecurityUser)}.
+   * Test {@link NotificationTargetController#getRecipientsForNotificationTargetConfig(NotificationTarget, int, int, SecurityUser)}.
    * <ul>
-   *   <li>Then return Empty.</li>
+   *   <li>Then status four hundred.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link NotificationTargetController#getNotificationTargetsByIds(UUID[], SecurityUser)}
+   * Method under test: {@link NotificationTargetController#getRecipientsForNotificationTargetConfig(NotificationTarget, int, int, SecurityUser)}
    */
   @Test
-  @DisplayName("Test getNotificationTargetsByIds(UUID[], SecurityUser); then return Empty")
-  void testGetNotificationTargetsByIds_thenReturnEmpty() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test getRecipientsForNotificationTargetConfig(NotificationTarget, int, int, SecurityUser); then status four hundred")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "org.thingsboard.server.common.data.page.PageData NotificationTargetController.getRecipientsForNotificationTargetConfig(NotificationTarget, int, int, SecurityUser)"})
+  void testGetRecipientsForNotificationTargetConfig_thenStatusFourHundred() throws Exception {
     // Arrange
-    NotificationTargetDao notificationTargetDao = mock(NotificationTargetDao.class);
-    when(notificationTargetDao.findByTenantIdAndIds(Mockito.<TenantId>any(), Mockito.<List<NotificationTargetId>>any()))
-        .thenReturn(new ArrayList<>());
-    JpaNotificationRequestDao notificationRequestDao = new JpaNotificationRequestDao(
-        mock(NotificationRequestRepository.class));
-    JpaNotificationRuleDao notificationRuleDao = new JpaNotificationRuleDao(mock(NotificationRuleRepository.class));
-    JpaUserDao userDao = new JpaUserDao();
-    JpaUserCredentialsDao userCredentialsDao = new JpaUserCredentialsDao();
-    JpaUserAuthSettingsDao userAuthSettingsDao = new JpaUserAuthSettingsDao(mock(UserAuthSettingsRepository.class));
-    UserSettingsServiceImpl userSettingsService = new UserSettingsServiceImpl(new JpaUserSettingsDao());
-    JpaUserSettingsDao userSettingsDao = new JpaUserSettingsDao();
-    DefaultSecuritySettingsService securitySettingsService = new DefaultSecuritySettingsService(
-        new AdminSettingsServiceImpl());
-    UserDataValidator userValidator = new UserDataValidator();
-    UserCredentialsDataValidator userCredentialsValidator = new UserCredentialsDataValidator();
-    ApplicationEventPublisher eventPublisher = mock(ApplicationEventPublisher.class);
-    BaseEntityCountService countService = new BaseEntityCountService();
-    NotificationTargetController notificationTargetController = new NotificationTargetController(
-        new DefaultNotificationTargetService(notificationTargetDao, notificationRequestDao, notificationRuleDao,
-            new UserServiceImpl(userDao, userCredentialsDao, userAuthSettingsDao, userSettingsService, userSettingsDao,
-                securitySettingsService, userValidator, userCredentialsValidator, eventPublisher, countService,
-                new JpaExecutorService())));
+    NotificationTarget notificationTarget = new NotificationTarget();
+    notificationTarget.setConfiguration(new MicrosoftTeamsNotificationTargetConfig());
+    notificationTarget.setCreatedTime(1L);
+    notificationTarget.setExternalId(new NotificationTargetId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    notificationTarget.setId(new NotificationTargetId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    notificationTarget.setName("Name");
+    notificationTarget.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    String content = (new ObjectMapper()).writeValueAsString(notificationTarget);
+    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.post("/api/notification/target/recipients")
+        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult2 = paramResult.param("pageSize", String.valueOf(1));
+    MockHttpServletRequestBuilder requestBuilder = paramResult2.param("user", String.valueOf(new SecurityUser()))
+        .contentType(MediaType.APPLICATION_JSON)
+        .content(content);
 
-    // Act
-    List<NotificationTarget> actualNotificationTargetsByIds = notificationTargetController
-        .getNotificationTargetsByIds(new UUID[]{UUID.randomUUID()}, new SecurityUser());
-
-    // Assert
-    verify(notificationTargetDao).findByTenantIdAndIds(isNull(), isA(List.class));
-    assertTrue(actualNotificationTargetsByIds.isEmpty());
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(notificationTargetController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().is(400));
   }
 
   /**
-   * Test
-   * {@link NotificationTargetController#getNotificationTargets(int, int, String, String, String, SecurityUser)}.
+   * Test {@link NotificationTargetController#getNotificationTargetsByIds(UUID[], SecurityUser)}.
    * <ul>
-   *   <li>Then return {@link PageData#EMPTY_PAGE_DATA}.</li>
+   *   <li>Then status four hundred.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link NotificationTargetController#getNotificationTargets(int, int, String, String, String, SecurityUser)}
+   * Method under test: {@link NotificationTargetController#getNotificationTargetsByIds(UUID[], SecurityUser)}
    */
   @Test
-  @DisplayName("Test getNotificationTargets(int, int, String, String, String, SecurityUser); then return EMPTY_PAGE_DATA")
-  void testGetNotificationTargets_thenReturnEmpty_page_data() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test getNotificationTargetsByIds(UUID[], SecurityUser); then status four hundred")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.util.List NotificationTargetController.getNotificationTargetsByIds(UUID[], SecurityUser)"})
+  void testGetNotificationTargetsByIds_thenStatusFourHundred() throws Exception {
     // Arrange
-    NotificationTargetDao notificationTargetDao = mock(NotificationTargetDao.class);
-    PageData<NotificationTarget> emptyPageDataResult = PageData.emptyPageData();
-    when(notificationTargetDao.findByTenantIdAndPageLink(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
-        .thenReturn(emptyPageDataResult);
-    JpaNotificationRequestDao notificationRequestDao = new JpaNotificationRequestDao(
-        mock(NotificationRequestRepository.class));
-    JpaNotificationRuleDao notificationRuleDao = new JpaNotificationRuleDao(mock(NotificationRuleRepository.class));
-    JpaUserDao userDao = new JpaUserDao();
-    JpaUserCredentialsDao userCredentialsDao = new JpaUserCredentialsDao();
-    JpaUserAuthSettingsDao userAuthSettingsDao = new JpaUserAuthSettingsDao(mock(UserAuthSettingsRepository.class));
-    UserSettingsServiceImpl userSettingsService = new UserSettingsServiceImpl(new JpaUserSettingsDao());
-    JpaUserSettingsDao userSettingsDao = new JpaUserSettingsDao();
-    DefaultSecuritySettingsService securitySettingsService = new DefaultSecuritySettingsService(
-        new AdminSettingsServiceImpl());
-    UserDataValidator userValidator = new UserDataValidator();
-    UserCredentialsDataValidator userCredentialsValidator = new UserCredentialsDataValidator();
-    ApplicationEventPublisher eventPublisher = mock(ApplicationEventPublisher.class);
-    BaseEntityCountService countService = new BaseEntityCountService();
-    NotificationTargetController notificationTargetController = new NotificationTargetController(
-        new DefaultNotificationTargetService(notificationTargetDao, notificationRequestDao, notificationRuleDao,
-            new UserServiceImpl(userDao, userCredentialsDao, userAuthSettingsDao, userSettingsService, userSettingsDao,
-                securitySettingsService, userValidator, userCredentialsValidator, eventPublisher, countService,
-                new JpaExecutorService())));
+    MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/api/notification/targets");
+    MockHttpServletRequestBuilder paramResult = getResult.param("ids",
+        String.valueOf(new UUID[]{UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")}));
+    MockHttpServletRequestBuilder requestBuilder = paramResult.param("user", String.valueOf(new SecurityUser()));
 
-    // Act
-    PageData<NotificationTarget> actualNotificationTargets = notificationTargetController.getNotificationTargets(3, 1,
-        "Text Search", "U", "asc", new SecurityUser());
-
-    // Assert
-    verify(notificationTargetDao).findByTenantIdAndPageLink(isNull(), isA(PageLink.class));
-    assertSame(actualNotificationTargets.EMPTY_PAGE_DATA, actualNotificationTargets);
-  }
-
-  /**
-   * Test
-   * {@link NotificationTargetController#getNotificationTargets(int, int, String, String, String, SecurityUser)}.
-   * <ul>
-   *   <li>When empty string.</li>
-   *   <li>Then return {@link PageData#EMPTY_PAGE_DATA}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link NotificationTargetController#getNotificationTargets(int, int, String, String, String, SecurityUser)}
-   */
-  @Test
-  @DisplayName("Test getNotificationTargets(int, int, String, String, String, SecurityUser); when empty string; then return EMPTY_PAGE_DATA")
-  void testGetNotificationTargets_whenEmptyString_thenReturnEmpty_page_data() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    NotificationTargetDao notificationTargetDao = mock(NotificationTargetDao.class);
-    PageData<NotificationTarget> emptyPageDataResult = PageData.emptyPageData();
-    when(notificationTargetDao.findByTenantIdAndPageLink(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
-        .thenReturn(emptyPageDataResult);
-    JpaNotificationRequestDao notificationRequestDao = new JpaNotificationRequestDao(
-        mock(NotificationRequestRepository.class));
-    JpaNotificationRuleDao notificationRuleDao = new JpaNotificationRuleDao(mock(NotificationRuleRepository.class));
-    JpaUserDao userDao = new JpaUserDao();
-    JpaUserCredentialsDao userCredentialsDao = new JpaUserCredentialsDao();
-    JpaUserAuthSettingsDao userAuthSettingsDao = new JpaUserAuthSettingsDao(mock(UserAuthSettingsRepository.class));
-    UserSettingsServiceImpl userSettingsService = new UserSettingsServiceImpl(new JpaUserSettingsDao());
-    JpaUserSettingsDao userSettingsDao = new JpaUserSettingsDao();
-    DefaultSecuritySettingsService securitySettingsService = new DefaultSecuritySettingsService(
-        new AdminSettingsServiceImpl());
-    UserDataValidator userValidator = new UserDataValidator();
-    UserCredentialsDataValidator userCredentialsValidator = new UserCredentialsDataValidator();
-    ApplicationEventPublisher eventPublisher = mock(ApplicationEventPublisher.class);
-    BaseEntityCountService countService = new BaseEntityCountService();
-    NotificationTargetController notificationTargetController = new NotificationTargetController(
-        new DefaultNotificationTargetService(notificationTargetDao, notificationRequestDao, notificationRuleDao,
-            new UserServiceImpl(userDao, userCredentialsDao, userAuthSettingsDao, userSettingsService, userSettingsDao,
-                securitySettingsService, userValidator, userCredentialsValidator, eventPublisher, countService,
-                new JpaExecutorService())));
-
-    // Act
-    PageData<NotificationTarget> actualNotificationTargets = notificationTargetController.getNotificationTargets(3, 1,
-        "Text Search", "U", "", new SecurityUser());
-
-    // Assert
-    verify(notificationTargetDao).findByTenantIdAndPageLink(isNull(), isA(PageLink.class));
-    assertSame(actualNotificationTargets.EMPTY_PAGE_DATA, actualNotificationTargets);
-  }
-
-  /**
-   * Test
-   * {@link NotificationTargetController#getNotificationTargetsBySupportedNotificationType(int, int, String, String, String, NotificationType, SecurityUser)}.
-   * <ul>
-   *   <li>Then return {@link PageData#EMPTY_PAGE_DATA}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link NotificationTargetController#getNotificationTargetsBySupportedNotificationType(int, int, String, String, String, NotificationType, SecurityUser)}
-   */
-  @Test
-  @DisplayName("Test getNotificationTargetsBySupportedNotificationType(int, int, String, String, String, NotificationType, SecurityUser); then return EMPTY_PAGE_DATA")
-  void testGetNotificationTargetsBySupportedNotificationType_thenReturnEmpty_page_data() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    NotificationTargetDao notificationTargetDao = mock(NotificationTargetDao.class);
-    PageData<NotificationTarget> emptyPageDataResult = PageData.emptyPageData();
-    when(notificationTargetDao.findByTenantIdAndSupportedNotificationTypeAndPageLink(Mockito.<TenantId>any(),
-        Mockito.<NotificationType>any(), Mockito.<PageLink>any())).thenReturn(emptyPageDataResult);
-    JpaNotificationRequestDao notificationRequestDao = new JpaNotificationRequestDao(
-        mock(NotificationRequestRepository.class));
-    JpaNotificationRuleDao notificationRuleDao = new JpaNotificationRuleDao(mock(NotificationRuleRepository.class));
-    JpaUserDao userDao = new JpaUserDao();
-    JpaUserCredentialsDao userCredentialsDao = new JpaUserCredentialsDao();
-    JpaUserAuthSettingsDao userAuthSettingsDao = new JpaUserAuthSettingsDao(mock(UserAuthSettingsRepository.class));
-    UserSettingsServiceImpl userSettingsService = new UserSettingsServiceImpl(new JpaUserSettingsDao());
-    JpaUserSettingsDao userSettingsDao = new JpaUserSettingsDao();
-    DefaultSecuritySettingsService securitySettingsService = new DefaultSecuritySettingsService(
-        new AdminSettingsServiceImpl());
-    UserDataValidator userValidator = new UserDataValidator();
-    UserCredentialsDataValidator userCredentialsValidator = new UserCredentialsDataValidator();
-    ApplicationEventPublisher eventPublisher = mock(ApplicationEventPublisher.class);
-    BaseEntityCountService countService = new BaseEntityCountService();
-    NotificationTargetController notificationTargetController = new NotificationTargetController(
-        new DefaultNotificationTargetService(notificationTargetDao, notificationRequestDao, notificationRuleDao,
-            new UserServiceImpl(userDao, userCredentialsDao, userAuthSettingsDao, userSettingsService, userSettingsDao,
-                securitySettingsService, userValidator, userCredentialsValidator, eventPublisher, countService,
-                new JpaExecutorService())));
-
-    // Act
-    PageData<NotificationTarget> actualNotificationTargetsBySupportedNotificationType = notificationTargetController
-        .getNotificationTargetsBySupportedNotificationType(3, 1, "Text Search", "U", "asc", NotificationType.GENERAL,
-            new SecurityUser());
-
-    // Assert
-    verify(notificationTargetDao).findByTenantIdAndSupportedNotificationTypeAndPageLink(isNull(),
-        eq(NotificationType.GENERAL), isA(PageLink.class));
-    assertSame(actualNotificationTargetsBySupportedNotificationType.EMPTY_PAGE_DATA,
-        actualNotificationTargetsBySupportedNotificationType);
-  }
-
-  /**
-   * Test
-   * {@link NotificationTargetController#getNotificationTargetsBySupportedNotificationType(int, int, String, String, String, NotificationType, SecurityUser)}.
-   * <ul>
-   *   <li>Then return {@link PageData#EMPTY_PAGE_DATA}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link NotificationTargetController#getNotificationTargetsBySupportedNotificationType(int, int, String, String, String, NotificationType, SecurityUser)}
-   */
-  @Test
-  @DisplayName("Test getNotificationTargetsBySupportedNotificationType(int, int, String, String, String, NotificationType, SecurityUser); then return EMPTY_PAGE_DATA")
-  void testGetNotificationTargetsBySupportedNotificationType_thenReturnEmpty_page_data2() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    NotificationTargetDao notificationTargetDao = mock(NotificationTargetDao.class);
-    PageData<NotificationTarget> emptyPageDataResult = PageData.emptyPageData();
-    when(notificationTargetDao.findByTenantIdAndSupportedNotificationTypeAndPageLink(Mockito.<TenantId>any(),
-        Mockito.<NotificationType>any(), Mockito.<PageLink>any())).thenReturn(emptyPageDataResult);
-    JpaNotificationRequestDao notificationRequestDao = new JpaNotificationRequestDao(
-        mock(NotificationRequestRepository.class));
-    JpaNotificationRuleDao notificationRuleDao = new JpaNotificationRuleDao(mock(NotificationRuleRepository.class));
-    JpaUserDao userDao = new JpaUserDao();
-    JpaUserCredentialsDao userCredentialsDao = new JpaUserCredentialsDao();
-    JpaUserAuthSettingsDao userAuthSettingsDao = new JpaUserAuthSettingsDao(mock(UserAuthSettingsRepository.class));
-    UserSettingsServiceImpl userSettingsService = new UserSettingsServiceImpl(new JpaUserSettingsDao());
-    JpaUserSettingsDao userSettingsDao = new JpaUserSettingsDao();
-    DefaultSecuritySettingsService securitySettingsService = new DefaultSecuritySettingsService(
-        new AdminSettingsServiceImpl());
-    UserDataValidator userValidator = new UserDataValidator();
-    UserCredentialsDataValidator userCredentialsValidator = new UserCredentialsDataValidator();
-    ApplicationEventPublisher eventPublisher = mock(ApplicationEventPublisher.class);
-    BaseEntityCountService countService = new BaseEntityCountService();
-    NotificationTargetController notificationTargetController = new NotificationTargetController(
-        new DefaultNotificationTargetService(notificationTargetDao, notificationRequestDao, notificationRuleDao,
-            new UserServiceImpl(userDao, userCredentialsDao, userAuthSettingsDao, userSettingsService, userSettingsDao,
-                securitySettingsService, userValidator, userCredentialsValidator, eventPublisher, countService,
-                new JpaExecutorService())));
-
-    // Act
-    PageData<NotificationTarget> actualNotificationTargetsBySupportedNotificationType = notificationTargetController
-        .getNotificationTargetsBySupportedNotificationType(3, 1, "Text Search", "U", "", NotificationType.GENERAL,
-            new SecurityUser());
-
-    // Assert
-    verify(notificationTargetDao).findByTenantIdAndSupportedNotificationTypeAndPageLink(isNull(),
-        eq(NotificationType.GENERAL), isA(PageLink.class));
-    assertSame(actualNotificationTargetsBySupportedNotificationType.EMPTY_PAGE_DATA,
-        actualNotificationTargetsBySupportedNotificationType);
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(notificationTargetController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().is(400));
   }
 }

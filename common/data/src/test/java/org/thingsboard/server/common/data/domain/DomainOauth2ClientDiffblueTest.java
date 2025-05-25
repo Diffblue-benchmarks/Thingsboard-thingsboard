@@ -2,17 +2,17 @@ package org.thingsboard.server.common.data.domain;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.DomainId;
 import org.thingsboard.server.common.data.id.OAuth2ClientId;
 
 class DomainOauth2ClientDiffblueTest {
   /**
-   * Test {@link DomainOauth2Client#equals(Object)}, and
-   * {@link DomainOauth2Client#hashCode()}.
+   * Test {@link DomainOauth2Client#equals(Object)}, and {@link DomainOauth2Client#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -26,6 +26,8 @@ class DomainOauth2ClientDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DomainOauth2Client.equals(Object)", "int DomainOauth2Client.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DomainOauth2Client domainOauth2Client = new DomainOauth2Client();
@@ -38,8 +40,7 @@ class DomainOauth2ClientDiffblueTest {
   }
 
   /**
-   * Test {@link DomainOauth2Client#equals(Object)}, and
-   * {@link DomainOauth2Client#hashCode()}.
+   * Test {@link DomainOauth2Client#equals(Object)}, and {@link DomainOauth2Client#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -53,6 +54,8 @@ class DomainOauth2ClientDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DomainOauth2Client.equals(Object)", "int DomainOauth2Client.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DomainOauth2Client domainOauth2Client = new DomainOauth2Client();
@@ -74,6 +77,8 @@ class DomainOauth2ClientDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DomainOauth2Client.equals(Object)", "int DomainOauth2Client.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DomainOauth2Client(), 1);
@@ -90,9 +95,12 @@ class DomainOauth2ClientDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DomainOauth2Client.equals(Object)", "int DomainOauth2Client.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    DomainOauth2Client domainOauth2Client = new DomainOauth2Client(mock(DomainId.class), null);
+    DomainOauth2Client domainOauth2Client = new DomainOauth2Client();
+    domainOauth2Client.setDomainId(new DomainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(domainOauth2Client, new DomainOauth2Client());
@@ -109,6 +117,8 @@ class DomainOauth2ClientDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DomainOauth2Client.equals(Object)", "int DomainOauth2Client.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DomainOauth2Client domainOauth2Client = new DomainOauth2Client();
@@ -129,6 +139,8 @@ class DomainOauth2ClientDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DomainOauth2Client.equals(Object)", "int DomainOauth2Client.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     DomainOauth2Client domainOauth2Client = new DomainOauth2Client();
@@ -151,6 +163,8 @@ class DomainOauth2ClientDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DomainOauth2Client.equals(Object)", "int DomainOauth2Client.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     DomainOauth2Client domainOauth2Client = new DomainOauth2Client();
@@ -173,6 +187,8 @@ class DomainOauth2ClientDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DomainOauth2Client.equals(Object)", "int DomainOauth2Client.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DomainOauth2Client(), null);
@@ -189,6 +205,8 @@ class DomainOauth2ClientDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DomainOauth2Client.equals(Object)", "int DomainOauth2Client.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DomainOauth2Client(), "Different type to DomainOauth2Client");

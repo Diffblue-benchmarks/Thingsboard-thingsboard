@@ -2,7 +2,9 @@ package org.thingsboard.rule.engine.transform;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.script.ScriptLanguage;
 
@@ -10,11 +12,12 @@ class TbTransformMsgNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbTransformMsgNodeConfiguration#defaultConfiguration()}.
    * <p>
-   * Method under test:
-   * {@link TbTransformMsgNodeConfiguration#defaultConfiguration()}
+   * Method under test: {@link TbTransformMsgNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbTransformMsgNodeConfiguration TbTransformMsgNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
     // Arrange and Act
     TbTransformMsgNodeConfiguration actualDefaultConfigurationResult = (new TbTransformMsgNodeConfiguration())
@@ -29,8 +32,7 @@ class TbTransformMsgNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbTransformMsgNodeConfiguration#equals(Object)}, and
-   * {@link TbTransformMsgNodeConfiguration#hashCode()}.
+   * Test {@link TbTransformMsgNodeConfiguration#equals(Object)}, and {@link TbTransformMsgNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -44,6 +46,9 @@ class TbTransformMsgNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbTransformMsgNodeConfiguration.equals(Object)",
+      "int TbTransformMsgNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbTransformMsgNodeConfiguration tbTransformMsgNodeConfiguration = new TbTransformMsgNodeConfiguration();
@@ -56,8 +61,7 @@ class TbTransformMsgNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbTransformMsgNodeConfiguration#equals(Object)}, and
-   * {@link TbTransformMsgNodeConfiguration#hashCode()}.
+   * Test {@link TbTransformMsgNodeConfiguration#equals(Object)}, and {@link TbTransformMsgNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -71,6 +75,9 @@ class TbTransformMsgNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbTransformMsgNodeConfiguration.equals(Object)",
+      "int TbTransformMsgNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbTransformMsgNodeConfiguration tbTransformMsgNodeConfiguration = new TbTransformMsgNodeConfiguration();
@@ -86,8 +93,7 @@ class TbTransformMsgNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbTransformMsgNodeConfiguration#equals(Object)}, and
-   * {@link TbTransformMsgNodeConfiguration#hashCode()}.
+   * Test {@link TbTransformMsgNodeConfiguration#equals(Object)}, and {@link TbTransformMsgNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -101,6 +107,9 @@ class TbTransformMsgNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbTransformMsgNodeConfiguration.equals(Object)",
+      "int TbTransformMsgNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TbTransformMsgNodeConfiguration tbTransformMsgNodeConfiguration = new TbTransformMsgNodeConfiguration();
@@ -116,8 +125,7 @@ class TbTransformMsgNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbTransformMsgNodeConfiguration#equals(Object)}, and
-   * {@link TbTransformMsgNodeConfiguration#hashCode()}.
+   * Test {@link TbTransformMsgNodeConfiguration#equals(Object)}, and {@link TbTransformMsgNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -131,6 +139,9 @@ class TbTransformMsgNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbTransformMsgNodeConfiguration.equals(Object)",
+      "int TbTransformMsgNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     TbTransformMsgNodeConfiguration tbTransformMsgNodeConfiguration = new TbTransformMsgNodeConfiguration();
@@ -146,8 +157,7 @@ class TbTransformMsgNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbTransformMsgNodeConfiguration#equals(Object)}, and
-   * {@link TbTransformMsgNodeConfiguration#hashCode()}.
+   * Test {@link TbTransformMsgNodeConfiguration#equals(Object)}, and {@link TbTransformMsgNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -161,6 +171,9 @@ class TbTransformMsgNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbTransformMsgNodeConfiguration.equals(Object)",
+      "int TbTransformMsgNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbTransformMsgNodeConfiguration tbTransformMsgNodeConfiguration = new TbTransformMsgNodeConfiguration();
@@ -182,6 +195,9 @@ class TbTransformMsgNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbTransformMsgNodeConfiguration.equals(Object)",
+      "int TbTransformMsgNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbTransformMsgNodeConfiguration(), 1);
@@ -198,6 +214,9 @@ class TbTransformMsgNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbTransformMsgNodeConfiguration.equals(Object)",
+      "int TbTransformMsgNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbTransformMsgNodeConfiguration tbTransformMsgNodeConfiguration = new TbTransformMsgNodeConfiguration();
@@ -218,6 +237,9 @@ class TbTransformMsgNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbTransformMsgNodeConfiguration.equals(Object)",
+      "int TbTransformMsgNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbTransformMsgNodeConfiguration tbTransformMsgNodeConfiguration = new TbTransformMsgNodeConfiguration();
@@ -238,6 +260,9 @@ class TbTransformMsgNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbTransformMsgNodeConfiguration.equals(Object)",
+      "int TbTransformMsgNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbTransformMsgNodeConfiguration tbTransformMsgNodeConfiguration = new TbTransformMsgNodeConfiguration();
@@ -258,6 +283,9 @@ class TbTransformMsgNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbTransformMsgNodeConfiguration.equals(Object)",
+      "int TbTransformMsgNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbTransformMsgNodeConfiguration tbTransformMsgNodeConfiguration = new TbTransformMsgNodeConfiguration();
@@ -280,6 +308,9 @@ class TbTransformMsgNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbTransformMsgNodeConfiguration.equals(Object)",
+      "int TbTransformMsgNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbTransformMsgNodeConfiguration tbTransformMsgNodeConfiguration = new TbTransformMsgNodeConfiguration();
@@ -302,6 +333,9 @@ class TbTransformMsgNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbTransformMsgNodeConfiguration.equals(Object)",
+      "int TbTransformMsgNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TbTransformMsgNodeConfiguration tbTransformMsgNodeConfiguration = new TbTransformMsgNodeConfiguration();
@@ -324,6 +358,9 @@ class TbTransformMsgNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbTransformMsgNodeConfiguration.equals(Object)",
+      "int TbTransformMsgNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbTransformMsgNodeConfiguration(), null);
@@ -340,6 +377,9 @@ class TbTransformMsgNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbTransformMsgNodeConfiguration.equals(Object)",
+      "int TbTransformMsgNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbTransformMsgNodeConfiguration(), "Different type to TbTransformMsgNodeConfiguration");
@@ -350,8 +390,7 @@ class TbTransformMsgNodeConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link TbTransformMsgNodeConfiguration}
+   *   <li>default or parameterless constructor of {@link TbTransformMsgNodeConfiguration}
    *   <li>{@link TbTransformMsgNodeConfiguration#setJsScript(String)}
    *   <li>{@link TbTransformMsgNodeConfiguration#setScriptLang(ScriptLanguage)}
    *   <li>{@link TbTransformMsgNodeConfiguration#setTbelScript(String)}
@@ -363,6 +402,15 @@ class TbTransformMsgNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbTransformMsgNodeConfiguration.<init>()",
+      "String TbTransformMsgNodeConfiguration.getJsScript()",
+      "ScriptLanguage TbTransformMsgNodeConfiguration.getScriptLang()",
+      "String TbTransformMsgNodeConfiguration.getTbelScript()",
+      "void TbTransformMsgNodeConfiguration.setJsScript(String)",
+      "void TbTransformMsgNodeConfiguration.setScriptLang(ScriptLanguage)",
+      "void TbTransformMsgNodeConfiguration.setTbelScript(String)",
+      "String TbTransformMsgNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbTransformMsgNodeConfiguration actualTbTransformMsgNodeConfiguration = new TbTransformMsgNodeConfiguration();
@@ -373,7 +421,7 @@ class TbTransformMsgNodeConfigurationDiffblueTest {
     String actualJsScript = actualTbTransformMsgNodeConfiguration.getJsScript();
     ScriptLanguage actualScriptLang = actualTbTransformMsgNodeConfiguration.getScriptLang();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Js Script", actualJsScript);
     assertEquals("TbTransformMsgNodeConfiguration(scriptLang=JS, jsScript=Js Script, tbelScript=Tbel Script)",
         actualToStringResult);

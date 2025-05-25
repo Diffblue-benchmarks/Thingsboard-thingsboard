@@ -5,11 +5,11 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.thingsboard.server.common.data.id.AdminSettingsId;
 import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.DeviceId;
 import org.thingsboard.server.common.data.id.EntityId;
@@ -26,6 +26,8 @@ class DeviceIdInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test new DeviceIdInfo(UUID, UUID, UUID); then return CustomerId EntityType is 'CUSTOMER'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DeviceIdInfo.<init>(UUID, UUID, UUID)"})
   void testNewDeviceIdInfo_thenReturnCustomerIdEntityTypeIsCustomer() {
     // Arrange
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -62,6 +64,8 @@ class DeviceIdInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test new DeviceIdInfo(UUID, UUID, UUID); when 'null'; then return CustomerId is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DeviceIdInfo.<init>(UUID, UUID, UUID)"})
   void testNewDeviceIdInfo_whenNull_thenReturnCustomerIdIsNull() {
     // Arrange
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -84,8 +88,7 @@ class DeviceIdInfoDiffblueTest {
   }
 
   /**
-   * Test {@link DeviceIdInfo#equals(Object)}, and
-   * {@link DeviceIdInfo#hashCode()}.
+   * Test {@link DeviceIdInfo#equals(Object)}, and {@link DeviceIdInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -99,6 +102,8 @@ class DeviceIdInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceIdInfo.equals(Object)", "int DeviceIdInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -117,8 +122,7 @@ class DeviceIdInfoDiffblueTest {
   }
 
   /**
-   * Test {@link DeviceIdInfo#equals(Object)}, and
-   * {@link DeviceIdInfo#hashCode()}.
+   * Test {@link DeviceIdInfo#equals(Object)}, and {@link DeviceIdInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -132,6 +136,8 @@ class DeviceIdInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceIdInfo.equals(Object)", "int DeviceIdInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -148,8 +154,7 @@ class DeviceIdInfoDiffblueTest {
   }
 
   /**
-   * Test {@link DeviceIdInfo#equals(Object)}, and
-   * {@link DeviceIdInfo#hashCode()}.
+   * Test {@link DeviceIdInfo#equals(Object)}, and {@link DeviceIdInfo#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -163,6 +168,8 @@ class DeviceIdInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceIdInfo.equals(Object)", "int DeviceIdInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -187,6 +194,8 @@ class DeviceIdInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceIdInfo.equals(Object)", "int DeviceIdInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     UUID customerId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -211,6 +220,8 @@ class DeviceIdInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceIdInfo.equals(Object)", "int DeviceIdInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -235,6 +246,8 @@ class DeviceIdInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceIdInfo.equals(Object)", "int DeviceIdInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -259,6 +272,8 @@ class DeviceIdInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceIdInfo.equals(Object)", "int DeviceIdInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -275,27 +290,6 @@ class DeviceIdInfoDiffblueTest {
   /**
    * Test {@link DeviceIdInfo#equals(Object)}.
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link DeviceIdInfo#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
-    // Arrange
-    UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    UUID customerId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-
-    // Act and Assert
-    assertNotEquals(new DeviceIdInfo(tenantId, customerId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
-        mock(AdminSettingsId.class));
-  }
-
-  /**
-   * Test {@link DeviceIdInfo#equals(Object)}.
-   * <ul>
    *   <li>When other is {@code null}.</li>
    *   <li>Then return not equal.</li>
    * </ul>
@@ -304,6 +298,8 @@ class DeviceIdInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceIdInfo.equals(Object)", "int DeviceIdInfo.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -325,6 +321,8 @@ class DeviceIdInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceIdInfo.equals(Object)", "int DeviceIdInfo.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -348,6 +346,9 @@ class DeviceIdInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"CustomerId DeviceIdInfo.getCustomerId()", "DeviceId DeviceIdInfo.getDeviceId()",
+      "TenantId DeviceIdInfo.getTenantId()", "String DeviceIdInfo.toString()"})
   void testGettersAndSetters() {
     // Arrange
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");

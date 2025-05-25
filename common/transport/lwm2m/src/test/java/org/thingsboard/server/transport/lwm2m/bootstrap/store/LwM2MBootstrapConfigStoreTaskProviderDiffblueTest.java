@@ -9,6 +9,7 @@ import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,34 +18,35 @@ import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock.WriteLock;
 import org.eclipse.leshan.core.node.LwM2mObject;
 import org.eclipse.leshan.core.node.LwM2mObjectInstance;
 import org.eclipse.leshan.core.peer.LwM2mPeer;
 import org.eclipse.leshan.core.request.BootstrapRequest;
 import org.eclipse.leshan.core.request.exception.InvalidRequestException;
-import org.eclipse.leshan.core.response.BootstrapDeleteResponse;
 import org.eclipse.leshan.core.response.BootstrapReadResponse;
-import org.eclipse.leshan.core.response.LwM2mResponse;
 import org.eclipse.leshan.server.bootstrap.BootstrapConfig;
 import org.eclipse.leshan.server.bootstrap.BootstrapConfigStore;
 import org.eclipse.leshan.server.bootstrap.BootstrapSession;
 import org.eclipse.leshan.server.bootstrap.BootstrapTaskProvider;
+import org.eclipse.leshan.server.bootstrap.BootstrapTaskProvider.Tasks;
 import org.eclipse.leshan.server.bootstrap.DefaultBootstrapSession;
 import org.eclipse.leshan.server.bootstrap.InvalidConfigurationException;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 class LwM2MBootstrapConfigStoreTaskProviderDiffblueTest {
   /**
-   * Test
-   * {@link LwM2MBootstrapConfigStoreTaskProvider#LwM2MBootstrapConfigStoreTaskProvider(BootstrapConfigStore)}.
+   * Test {@link LwM2MBootstrapConfigStoreTaskProvider#LwM2MBootstrapConfigStoreTaskProvider(BootstrapConfigStore)}.
    * <p>
-   * Method under test:
-   * {@link LwM2MBootstrapConfigStoreTaskProvider#LwM2MBootstrapConfigStoreTaskProvider(BootstrapConfigStore)}
+   * Method under test: {@link LwM2MBootstrapConfigStoreTaskProvider#LwM2MBootstrapConfigStoreTaskProvider(BootstrapConfigStore)}
    */
   @Test
   @DisplayName("Test new LwM2MBootstrapConfigStoreTaskProvider(BootstrapConfigStore)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MBootstrapConfigStoreTaskProvider.<init>(BootstrapConfigStore)"})
   void testNewLwM2MBootstrapConfigStoreTaskProvider() {
     // Arrange
     BootstrapConfigStore store = mock(BootstrapConfigStore.class);
@@ -57,38 +59,36 @@ class LwM2MBootstrapConfigStoreTaskProviderDiffblueTest {
     ReadWriteLock readWriteLock = actualLwM2MBootstrapConfigStoreTaskProvider.readWriteLock;
     assertTrue(readWriteLock instanceof ReentrantReadWriteLock);
     Lock lock = actualLwM2MBootstrapConfigStoreTaskProvider.writeLock;
-    assertTrue(lock instanceof ReentrantReadWriteLock.WriteLock);
+    assertTrue(lock instanceof WriteLock);
     assertEquals(0, ((ReentrantReadWriteLock) readWriteLock).getQueueLength());
     assertEquals(0, ((ReentrantReadWriteLock) readWriteLock).getReadHoldCount());
     assertEquals(0, ((ReentrantReadWriteLock) readWriteLock).getReadLockCount());
     assertEquals(0, ((ReentrantReadWriteLock) readWriteLock).getWriteHoldCount());
-    assertEquals(0, ((ReentrantReadWriteLock.WriteLock) lock).getHoldCount());
+    assertEquals(0, ((WriteLock) lock).getHoldCount());
     assertFalse(((ReentrantReadWriteLock) readWriteLock).hasQueuedThreads());
     assertFalse(((ReentrantReadWriteLock) readWriteLock).isFair());
     assertFalse(((ReentrantReadWriteLock) readWriteLock).isWriteLocked());
     assertFalse(((ReentrantReadWriteLock) readWriteLock).isWriteLockedByCurrentThread());
-    assertFalse(((ReentrantReadWriteLock.WriteLock) lock).isHeldByCurrentThread());
+    assertFalse(((WriteLock) lock).isHeldByCurrentThread());
     assertTrue(actualLwM2MBootstrapConfigStoreTaskProvider.lwM2MBootstrapSessionClients.isEmpty());
     assertSame(store, actualLwM2MBootstrapConfigStoreTaskProvider.getStore());
   }
 
   /**
-   * Test
-   * {@link LwM2MBootstrapConfigStoreTaskProvider#getTasks(BootstrapSession, List)}.
+   * Test {@link LwM2MBootstrapConfigStoreTaskProvider#getTasks(BootstrapSession, List)}.
    * <ul>
-   *   <li>Given {@link BootstrapConfigStore}
-   * {@link BootstrapConfigStore#get(BootstrapSession)} return {@code null}.</li>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@link BootstrapConfigStore} {@link BootstrapConfigStore#get(BootstrapSession)} return {@code null}.</li>
    *   <li>Then return {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link LwM2MBootstrapConfigStoreTaskProvider#getTasks(BootstrapSession, List)}
+   * Method under test: {@link LwM2MBootstrapConfigStoreTaskProvider#getTasks(BootstrapSession, List)}
    */
   @Test
-  @DisplayName("Test getTasks(BootstrapSession, List); given BootstrapConfigStore get(BootstrapSession) return 'null'; when ArrayList(); then return 'null'")
-  void testGetTasks_givenBootstrapConfigStoreGetReturnNull_whenArrayList_thenReturnNull()
-      throws InvalidRequestException {
+  @DisplayName("Test getTasks(BootstrapSession, List); given BootstrapConfigStore get(BootstrapSession) return 'null'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "BootstrapTaskProvider.Tasks LwM2MBootstrapConfigStoreTaskProvider.getTasks(BootstrapSession, List)"})
+  void testGetTasks_givenBootstrapConfigStoreGetReturnNull_thenReturnNull() throws InvalidRequestException {
     // Arrange
     BootstrapConfigStore store = mock(BootstrapConfigStore.class);
     when(store.get(Mockito.<BootstrapSession>any())).thenReturn(null);
@@ -100,8 +100,7 @@ class LwM2MBootstrapConfigStoreTaskProviderDiffblueTest {
         Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri());
 
     // Act
-    BootstrapTaskProvider.Tasks actualTasks = lwM2MBootstrapConfigStoreTaskProvider.getTasks(session,
-        new ArrayList<>());
+    Tasks actualTasks = lwM2MBootstrapConfigStoreTaskProvider.getTasks(session, new ArrayList<>());
 
     // Assert
     verify(store).get(isA(BootstrapSession.class));
@@ -109,54 +108,18 @@ class LwM2MBootstrapConfigStoreTaskProviderDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link LwM2MBootstrapConfigStoreTaskProvider#getTasks(BootstrapSession, List)}.
-   * <ul>
-   *   <li>Given success.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add success.</li>
-   *   <li>Then return {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link LwM2MBootstrapConfigStoreTaskProvider#getTasks(BootstrapSession, List)}
-   */
-  @Test
-  @DisplayName("Test getTasks(BootstrapSession, List); given success; when ArrayList() add success; then return 'null'")
-  void testGetTasks_givenSuccess_whenArrayListAddSuccess_thenReturnNull() throws InvalidRequestException {
-    // Arrange
-    BootstrapConfigStore store = mock(BootstrapConfigStore.class);
-    when(store.get(Mockito.<BootstrapSession>any())).thenReturn(null);
-    LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider = new LwM2MBootstrapConfigStoreTaskProvider(
-        store);
-    BootstrapRequest request = new BootstrapRequest("https://config.us-east-2.amazonaws.com");
-    LwM2mPeer client = mock(LwM2mPeer.class);
-    DefaultBootstrapSession session = new DefaultBootstrapSession(request, client, true, new HashMap<>(),
-        Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri());
-
-    ArrayList<LwM2mResponse> previousResponse = new ArrayList<>();
-    previousResponse.add(BootstrapDeleteResponse.success());
-
-    // Act
-    BootstrapTaskProvider.Tasks actualTasks = lwM2MBootstrapConfigStoreTaskProvider.getTasks(session, previousResponse);
-
-    // Assert
-    verify(store).get(isA(BootstrapSession.class));
-    assertNull(actualTasks);
-  }
-
-  /**
-   * Test
-   * {@link LwM2MBootstrapConfigStoreTaskProvider#shouldStartWithDiscover(BootstrapConfig)}.
+   * Test {@link LwM2MBootstrapConfigStoreTaskProvider#shouldStartWithDiscover(BootstrapConfig)}.
    * <ul>
    *   <li>Given {@code true}.</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link LwM2MBootstrapConfigStoreTaskProvider#shouldStartWithDiscover(BootstrapConfig)}
+   * Method under test: {@link LwM2MBootstrapConfigStoreTaskProvider#shouldStartWithDiscover(BootstrapConfig)}
    */
   @Test
   @DisplayName("Test shouldStartWithDiscover(BootstrapConfig); given 'true'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MBootstrapConfigStoreTaskProvider.shouldStartWithDiscover(BootstrapConfig)"})
   void testShouldStartWithDiscover_givenTrue_thenReturnTrue() {
     // Arrange
     LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider = new LwM2MBootstrapConfigStoreTaskProvider(
@@ -169,18 +132,18 @@ class LwM2MBootstrapConfigStoreTaskProviderDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link LwM2MBootstrapConfigStoreTaskProvider#shouldStartWithDiscover(BootstrapConfig)}.
+   * Test {@link LwM2MBootstrapConfigStoreTaskProvider#shouldStartWithDiscover(BootstrapConfig)}.
    * <ul>
    *   <li>When {@link BootstrapConfig} (default constructor).</li>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link LwM2MBootstrapConfigStoreTaskProvider#shouldStartWithDiscover(BootstrapConfig)}
+   * Method under test: {@link LwM2MBootstrapConfigStoreTaskProvider#shouldStartWithDiscover(BootstrapConfig)}
    */
   @Test
   @DisplayName("Test shouldStartWithDiscover(BootstrapConfig); when BootstrapConfig (default constructor); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MBootstrapConfigStoreTaskProvider.shouldStartWithDiscover(BootstrapConfig)"})
   void testShouldStartWithDiscover_whenBootstrapConfig_thenReturnFalse() {
     // Arrange
     LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider = new LwM2MBootstrapConfigStoreTaskProvider(
@@ -191,14 +154,14 @@ class LwM2MBootstrapConfigStoreTaskProviderDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse, String)}.
+   * Test {@link LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse, String)}.
    * <p>
-   * Method under test:
-   * {@link LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse, String)}
+   * Method under test: {@link LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse, String)}
    */
   @Test
   @DisplayName("Test findServerInstanceId(BootstrapReadResponse, String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MBootstrapConfigStoreTaskProvider.findServerInstanceId(BootstrapReadResponse, String)"})
   void testFindServerInstanceId() {
     // Arrange
     LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider = new LwM2MBootstrapConfigStoreTaskProvider(
@@ -209,23 +172,22 @@ class LwM2MBootstrapConfigStoreTaskProviderDiffblueTest {
     // Act
     lwM2MBootstrapConfigStoreTaskProvider.findServerInstanceId(readResponse, "https://config.us-east-2.amazonaws.com");
 
-    // Assert that nothing has changed
+    // Assert
     verify(readResponse).getContent();
   }
 
   /**
-   * Test
-   * {@link LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse, String)}.
+   * Test {@link LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse, String)}.
    * <ul>
-   *   <li>Given {@link LwM2mObjectInstance#LwM2mObjectInstance(Collection)} with
-   * resources is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@link LwM2mObjectInstance#LwM2mObjectInstance(Collection)} with resources is {@link ArrayList#ArrayList()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse, String)}
+   * Method under test: {@link LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse, String)}
    */
   @Test
   @DisplayName("Test findServerInstanceId(BootstrapReadResponse, String); given LwM2mObjectInstance(Collection) with resources is ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MBootstrapConfigStoreTaskProvider.findServerInstanceId(BootstrapReadResponse, String)"})
   void testFindServerInstanceId_givenLwM2mObjectInstanceWithResourcesIsArrayList() {
     // Arrange
     LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider = new LwM2MBootstrapConfigStoreTaskProvider(
@@ -236,23 +198,22 @@ class LwM2MBootstrapConfigStoreTaskProviderDiffblueTest {
     // Act
     lwM2MBootstrapConfigStoreTaskProvider.findServerInstanceId(readResponse, "https://config.us-east-2.amazonaws.com");
 
-    // Assert that nothing has changed
+    // Assert
     verify(readResponse).getContent();
   }
 
   /**
-   * Test
-   * {@link LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse, String)}.
+   * Test {@link LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse, String)}.
    * <ul>
-   *   <li>Given {@link LwM2mObject#LwM2mObject(int, Collection)} with id is one and
-   * instances is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@link LwM2mObject#LwM2mObject(int, Collection)} with id is one and instances is {@link ArrayList#ArrayList()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse, String)}
+   * Method under test: {@link LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse, String)}
    */
   @Test
   @DisplayName("Test findServerInstanceId(BootstrapReadResponse, String); given LwM2mObject(int, Collection) with id is one and instances is ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MBootstrapConfigStoreTaskProvider.findServerInstanceId(BootstrapReadResponse, String)"})
   void testFindServerInstanceId_givenLwM2mObjectWithIdIsOneAndInstancesIsArrayList() {
     // Arrange
     LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider = new LwM2MBootstrapConfigStoreTaskProvider(
@@ -263,22 +224,22 @@ class LwM2MBootstrapConfigStoreTaskProviderDiffblueTest {
     // Act
     lwM2MBootstrapConfigStoreTaskProvider.findServerInstanceId(readResponse, "https://config.us-east-2.amazonaws.com");
 
-    // Assert that nothing has changed
+    // Assert
     verify(readResponse).getContent();
   }
 
   /**
-   * Test
-   * {@link LwM2MBootstrapConfigStoreTaskProvider#findBootstrapServerId(String)}.
+   * Test {@link LwM2MBootstrapConfigStoreTaskProvider#findBootstrapServerId(String)}.
    * <ul>
    *   <li>Then return {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link LwM2MBootstrapConfigStoreTaskProvider#findBootstrapServerId(String)}
+   * Method under test: {@link LwM2MBootstrapConfigStoreTaskProvider#findBootstrapServerId(String)}
    */
   @Test
   @DisplayName("Test findBootstrapServerId(String); then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.Integer LwM2MBootstrapConfigStoreTaskProvider.findBootstrapServerId(String)"})
   void testFindBootstrapServerId_thenReturnNull() throws InvalidConfigurationException {
     // Arrange
     LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider = new LwM2MBootstrapConfigStoreTaskProvider(
@@ -296,6 +257,8 @@ class LwM2MBootstrapConfigStoreTaskProviderDiffblueTest {
    */
   @Test
   @DisplayName("Test put(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MBootstrapConfigStoreTaskProvider.put(String)"})
   void testPut() throws InvalidConfigurationException {
     // Arrange
     LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider = new LwM2MBootstrapConfigStoreTaskProvider(

@@ -1,95 +1,174 @@
 package org.thingsboard.server.service.sync.ie.importing.impl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.isA;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.JsonNodeType;
 import com.fasterxml.jackson.databind.node.MissingNode;
 import com.fasterxml.jackson.databind.node.NullNode;
-import com.fasterxml.jackson.databind.node.TreeTraversingParser;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.thingsboard.server.common.data.Customer;
 import org.thingsboard.server.common.data.EntityType;
-import org.thingsboard.server.common.data.ShortCustomerInfo;
+import org.thingsboard.server.common.data.User;
 import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.TenantId;
-import org.thingsboard.server.dao.customer.CustomerService;
+import org.thingsboard.server.common.data.sync.ie.EntityExportData;
+import org.thingsboard.server.common.data.sync.ie.EntityImportResult;
+import org.thingsboard.server.dao.asset.BaseAssetService;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.sql.customer.JpaCustomerDao;
+import org.thingsboard.server.service.sync.ie.importing.impl.BaseEntityImportService.IdProvider;
+import org.thingsboard.server.service.sync.vc.data.EntitiesImportCtx;
 
+@ExtendWith(MockitoExtension.class)
 class CustomerImportServiceDiffblueTest {
+  @InjectMocks
+  private CustomerImportService customerImportService;
+
   /**
-   * Test {@link CustomerImportService#deepCopy(Customer)} with {@code Customer}.
+   * Test {@link CustomerImportService#setOwner(TenantId, Customer, IdProvider)}.
    * <p>
-   * Method under test: {@link CustomerImportService#deepCopy(Customer)}
+   * Method under test: {@link CustomerImportService#setOwner(TenantId, Customer, IdProvider)}
    */
   @Test
-  @DisplayName("Test deepCopy(Customer) with 'Customer'")
-  void testDeepCopyWithCustomer() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test setOwner(TenantId, Customer, IdProvider)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CustomerImportService.setOwner(TenantId, Customer, IdProvider)"})
+  void testSetOwner() {
     // Arrange
-    CustomerService customerService = mock(CustomerService.class);
-    CustomerImportService customerImportService = new CustomerImportService(customerService, new JpaCustomerDao());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    Customer customer = new Customer();
+    AssetImportService assetImportService = new AssetImportService(new BaseAssetService());
+    UUID requestId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    EntitiesImportCtx ctx = new EntitiesImportCtx(requestId, new User(), "42");
 
     // Act
-    Customer actualDeepCopyResult = customerImportService.deepCopy(new Customer());
+    customerImportService.setOwner(tenantId, customer,
+        (IdProvider) assetImportService.new IdProvider(ctx, new EntityImportResult()));
 
     // Assert
-    JsonNode additionalInfo = actualDeepCopyResult.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    assertTrue(additionalInfo.traverse() instanceof TreeTraversingParser);
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(actualDeepCopyResult.getVersion());
-    assertNull(actualDeepCopyResult.getAddress());
-    assertNull(actualDeepCopyResult.getAddress2());
-    assertNull(actualDeepCopyResult.getCity());
-    assertNull(actualDeepCopyResult.getCountry());
-    assertNull(actualDeepCopyResult.getEmail());
-    assertNull(actualDeepCopyResult.getName());
-    assertNull(actualDeepCopyResult.getPhone());
-    assertNull(actualDeepCopyResult.getState());
-    assertNull(actualDeepCopyResult.getTitle());
-    assertNull(actualDeepCopyResult.getZip());
-    ShortCustomerInfo toShortCustomerInfoResult = actualDeepCopyResult.toShortCustomerInfo();
-    assertNull(toShortCustomerInfoResult.getTitle());
-    assertNull(actualDeepCopyResult.getUuidId());
-    assertNull(actualDeepCopyResult.getExternalId());
-    assertNull(actualDeepCopyResult.getId());
-    assertNull(toShortCustomerInfoResult.getCustomerId());
-    assertNull(actualDeepCopyResult.getTenantId());
-    assertEquals(0L, actualDeepCopyResult.getCreatedTime());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(additionalInfo.isMissingNode());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
+    assertSame(tenantId, customer.getTenantId());
+  }
+
+  /**
+   * Test {@link CustomerImportService#setOwner(TenantId, Customer, IdProvider)}.
+   * <ul>
+   *   <li>When {@link Customer} {@link Customer#setTenantId(TenantId)} does nothing.</li>
+   *   <li>Then calls {@link Customer#setTenantId(TenantId)}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link CustomerImportService#setOwner(TenantId, Customer, IdProvider)}
+   */
+  @Test
+  @DisplayName("Test setOwner(TenantId, Customer, IdProvider); when Customer setTenantId(TenantId) does nothing; then calls setTenantId(TenantId)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CustomerImportService.setOwner(TenantId, Customer, IdProvider)"})
+  void testSetOwner_whenCustomerSetTenantIdDoesNothing_thenCallsSetTenantId() {
+    // Arrange
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    Customer customer = mock(Customer.class);
+    doNothing().when(customer).setTenantId(Mockito.<TenantId>any());
+    AssetImportService assetImportService = new AssetImportService(new BaseAssetService());
+    UUID requestId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    EntitiesImportCtx ctx = new EntitiesImportCtx(requestId, new User(), "42");
+
+    // Act
+    customerImportService.setOwner(tenantId, customer,
+        (IdProvider) assetImportService.new IdProvider(ctx, new EntityImportResult()));
+
+    // Assert
+    verify(customer).setTenantId(isA(TenantId.class));
+  }
+
+  /**
+   * Test {@link CustomerImportService#prepare(EntitiesImportCtx, Customer, Customer, EntityExportData, IdProvider)}.
+   * <ul>
+   *   <li>Then return {@link Customer#Customer()}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link CustomerImportService#prepare(EntitiesImportCtx, Customer, Customer, EntityExportData, IdProvider)}
+   */
+  @Test
+  @DisplayName("Test prepare(EntitiesImportCtx, Customer, Customer, EntityExportData, IdProvider); then return Customer()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "Customer CustomerImportService.prepare(EntitiesImportCtx, Customer, Customer, EntityExportData, IdProvider)"})
+  void testPrepare_thenReturnCustomer() {
+    // Arrange
+    UUID requestId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    EntitiesImportCtx ctx = new EntitiesImportCtx(requestId, new User(), "42");
+
+    Customer customer = new Customer();
+    Customer old = new Customer();
+    EntityExportData<Customer> exportData = new EntityExportData<>();
+    AssetImportService assetImportService = new AssetImportService(new BaseAssetService());
+    UUID requestId2 = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    EntitiesImportCtx ctx2 = new EntitiesImportCtx(requestId2, new User(), "42");
+
+    // Act and Assert
+    assertSame(customer, customerImportService.prepare(ctx, customer, old, exportData,
+        (IdProvider) assetImportService.new IdProvider(ctx2, new EntityImportResult())));
+  }
+
+  /**
+   * Test {@link CustomerImportService#prepare(EntitiesImportCtx, Customer, Customer, EntityExportData, IdProvider)}.
+   * <ul>
+   *   <li>Then return {@link Customer#Customer(Customer)} with customer is {@link Customer#Customer()}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link CustomerImportService#prepare(EntitiesImportCtx, Customer, Customer, EntityExportData, IdProvider)}
+   */
+  @Test
+  @DisplayName("Test prepare(EntitiesImportCtx, Customer, Customer, EntityExportData, IdProvider); then return Customer(Customer) with customer is Customer()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "Customer CustomerImportService.prepare(EntitiesImportCtx, Customer, Customer, EntityExportData, IdProvider)"})
+  void testPrepare_thenReturnCustomerWithCustomerIsCustomer() {
+    // Arrange
+    UUID requestId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    EntitiesImportCtx ctx = new EntitiesImportCtx(requestId, new User(), "42");
+
+    Customer customer = new Customer(new Customer());
+    Customer old = new Customer();
+    EntityExportData<Customer> exportData = new EntityExportData<>();
+    AssetImportService assetImportService = new AssetImportService(new BaseAssetService());
+    UUID requestId2 = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    EntitiesImportCtx ctx2 = new EntitiesImportCtx(requestId2, new User(), "42");
+
+    // Act and Assert
+    assertSame(customer, customerImportService.prepare(ctx, customer, old, exportData,
+        (IdProvider) assetImportService.new IdProvider(ctx2, new EntityImportResult())));
   }
 
   /**
    * Test {@link CustomerImportService#deepCopy(Customer)} with {@code Customer}.
    * <ul>
    *   <li>Given Instance.</li>
-   *   <li>Then return Zip is {@code 21654}.</li>
+   *   <li>Then AdditionalInfo return {@link MissingNode}.</li>
    * </ul>
    * <p>
    * Method under test: {@link CustomerImportService#deepCopy(Customer)}
    */
   @Test
-  @DisplayName("Test deepCopy(Customer) with 'Customer'; given Instance; then return Zip is '21654'")
-  void testDeepCopyWithCustomer_givenInstance_thenReturnZipIs21654() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test deepCopy(Customer) with 'Customer'; given Instance; then AdditionalInfo return MissingNode")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Customer CustomerImportService.deepCopy(Customer)"})
+  void testDeepCopyWithCustomer_givenInstance_thenAdditionalInfoReturnMissingNode() {
     // Arrange
-    CustomerServiceImpl customerService = new CustomerServiceImpl();
-    CustomerImportService customerImportService = new CustomerImportService(customerService, new JpaCustomerDao());
     Customer customer = mock(Customer.class);
     MissingNode instance = MissingNode.getInstance();
     when(customer.getAdditionalInfo()).thenReturn(instance);
@@ -104,12 +183,12 @@ class CustomerImportServiceDiffblueTest {
     when(customer.getTitle()).thenReturn("Dr");
     when(customer.getZip()).thenReturn("21654");
     when(customer.getCreatedTime()).thenReturn(1L);
-    CustomerId customerId = new CustomerId(UUID.randomUUID());
+    CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     when(customer.getExternalId()).thenReturn(customerId);
-    UUID id = UUID.randomUUID();
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     CustomerId customerId2 = new CustomerId(id);
     when(customer.getId()).thenReturn(customerId2);
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     when(customer.getTenantId()).thenReturn(tenantId);
 
     // Act
@@ -131,14 +210,14 @@ class CustomerImportServiceDiffblueTest {
     verify(customer).getTitle();
     verify(customer).getVersion();
     verify(customer).getZip();
+    JsonNode additionalInfo = actualDeepCopyResult.getAdditionalInfo();
+    assertTrue(additionalInfo instanceof MissingNode);
     assertEquals("21654", actualDeepCopyResult.getZip());
     assertEquals("42 Main St", actualDeepCopyResult.getAddress());
     assertEquals("42 Main St", actualDeepCopyResult.getAddress2());
     assertEquals("6625550144", actualDeepCopyResult.getPhone());
     assertEquals("Dr", actualDeepCopyResult.getName());
     assertEquals("Dr", actualDeepCopyResult.getTitle());
-    ShortCustomerInfo toShortCustomerInfoResult = actualDeepCopyResult.toShortCustomerInfo();
-    assertEquals("Dr", toShortCustomerInfoResult.getTitle());
     assertEquals("GB", actualDeepCopyResult.getCountry());
     assertEquals("MD", actualDeepCopyResult.getState());
     assertEquals("Oxford", actualDeepCopyResult.getCity());
@@ -147,9 +226,8 @@ class CustomerImportServiceDiffblueTest {
     assertEquals(1L, actualDeepCopyResult.getCreatedTime());
     assertSame(customerId, actualDeepCopyResult.getExternalId());
     assertSame(customerId2, actualDeepCopyResult.getId());
-    assertSame(customerId2, toShortCustomerInfoResult.getCustomerId());
     assertSame(tenantId, actualDeepCopyResult.getTenantId());
-    assertSame(instance, actualDeepCopyResult.getAdditionalInfo());
+    assertSame(instance, additionalInfo);
     assertSame(id, actualDeepCopyResult.getUuidId());
   }
 
@@ -164,21 +242,14 @@ class CustomerImportServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test deepCopy(Customer) with 'Customer'; when Customer(); then AdditionalInfo return NullNode")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Customer CustomerImportService.deepCopy(Customer)"})
   void testDeepCopyWithCustomer_whenCustomer_thenAdditionalInfoReturnNullNode() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    CustomerServiceImpl customerService = new CustomerServiceImpl();
-    CustomerImportService customerImportService = new CustomerImportService(customerService, new JpaCustomerDao());
-
-    // Act
+    // Arrange and Act
     Customer actualDeepCopyResult = customerImportService.deepCopy(new Customer());
 
     // Assert
-    JsonNode additionalInfo = actualDeepCopyResult.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    assertTrue(additionalInfo.traverse() instanceof TreeTraversingParser);
-    assertEquals("null", additionalInfo.toPrettyString());
+    assertTrue(actualDeepCopyResult.getAdditionalInfo() instanceof NullNode);
     assertNull(actualDeepCopyResult.getVersion());
     assertNull(actualDeepCopyResult.getAddress());
     assertNull(actualDeepCopyResult.getAddress2());
@@ -190,18 +261,11 @@ class CustomerImportServiceDiffblueTest {
     assertNull(actualDeepCopyResult.getState());
     assertNull(actualDeepCopyResult.getTitle());
     assertNull(actualDeepCopyResult.getZip());
-    ShortCustomerInfo toShortCustomerInfoResult = actualDeepCopyResult.toShortCustomerInfo();
-    assertNull(toShortCustomerInfoResult.getTitle());
     assertNull(actualDeepCopyResult.getUuidId());
     assertNull(actualDeepCopyResult.getExternalId());
     assertNull(actualDeepCopyResult.getId());
-    assertNull(toShortCustomerInfoResult.getCustomerId());
     assertNull(actualDeepCopyResult.getTenantId());
     assertEquals(0L, actualDeepCopyResult.getCreatedTime());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(additionalInfo.isMissingNode());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
   }
 
   /**
@@ -211,6 +275,8 @@ class CustomerImportServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test getEntityType()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityType CustomerImportService.getEntityType()"})
   void testGetEntityType() {
     // Arrange
     CustomerServiceImpl customerService = new CustomerServiceImpl();

@@ -5,11 +5,15 @@ import static org.junit.Assert.assertThrows;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.anyInt;
+import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Optional;
 import javax.sql.DataSource;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +21,10 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.aot.DisabledInAotMode;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -27,10 +34,11 @@ import org.thingsboard.server.dao.model.sqlts.dictionary.KeyDictionaryEntry;
 import org.thingsboard.server.dao.sql.JpaExecutorService;
 
 @ContextConfiguration(classes = {JpaKeyDictionaryDao.class})
-@RunWith(SpringJUnit4ClassRunner.class)
-@PropertySource("classpath:application-test.properties")
-@EnableConfigurationProperties
+@DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 @DisabledInAotMode
+@EnableConfigurationProperties
+@PropertySource("classpath:application-test.properties")
+@RunWith(SpringJUnit4ClassRunner.class)
 public class JpaKeyDictionaryDaoDiffblueTest {
   @MockBean
   private DataSource dataSource;
@@ -53,12 +61,44 @@ public class JpaKeyDictionaryDaoDiffblueTest {
   /**
    * Test {@link JpaKeyDictionaryDao#getOrSaveKeyId(String)}.
    * <ul>
+   *   <li>Given {@link KeyDictionaryRepository} {@link CrudRepository#findById(Object)} return empty.</li>
+   *   <li>Then calls {@link CrudRepository#save(Object)}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link JpaKeyDictionaryDao#getOrSaveKeyId(String)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"Integer JpaKeyDictionaryDao.getOrSaveKeyId(String)"})
+  public void testGetOrSaveKeyId_givenKeyDictionaryRepositoryFindByIdReturnEmpty_thenCallsSave() {
+    // Arrange
+    KeyDictionaryEntry keyDictionaryEntry = new KeyDictionaryEntry();
+    keyDictionaryEntry.setKey("Key");
+    keyDictionaryEntry.setKeyId(1);
+    when(keyDictionaryRepository.save(Mockito.<KeyDictionaryEntry>any())).thenReturn(keyDictionaryEntry);
+    Optional<KeyDictionaryEntry> emptyResult = Optional.empty();
+    when(keyDictionaryRepository.findById(Mockito.<KeyDictionaryCompositeKey>any())).thenReturn(emptyResult);
+
+    // Act
+    Integer actualOrSaveKeyId = jpaKeyDictionaryDao.getOrSaveKeyId("Str Key");
+
+    // Assert
+    verify(keyDictionaryRepository, atLeast(1)).findById(isA(KeyDictionaryCompositeKey.class));
+    verify(keyDictionaryRepository).save(isA(KeyDictionaryEntry.class));
+    assertEquals(1, actualOrSaveKeyId.intValue());
+  }
+
+  /**
+   * Test {@link JpaKeyDictionaryDao#getOrSaveKeyId(String)}.
+   * <ul>
    *   <li>Then return intValue is one.</li>
    * </ul>
    * <p>
    * Method under test: {@link JpaKeyDictionaryDao#getOrSaveKeyId(String)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"Integer JpaKeyDictionaryDao.getOrSaveKeyId(String)"})
   public void testGetOrSaveKeyId_thenReturnIntValueIsOne() {
     // Arrange
     KeyDictionaryEntry keyDictionaryEntry = new KeyDictionaryEntry();
@@ -76,16 +116,38 @@ public class JpaKeyDictionaryDaoDiffblueTest {
   }
 
   /**
+   * Test {@link JpaKeyDictionaryDao#getOrSaveKeyId(String)}.
+   * <ul>
+   *   <li>Then throw {@link RuntimeException}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link JpaKeyDictionaryDao#getOrSaveKeyId(String)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"Integer JpaKeyDictionaryDao.getOrSaveKeyId(String)"})
+  public void testGetOrSaveKeyId_thenThrowRuntimeException() {
+    // Arrange
+    when(keyDictionaryRepository.findById(Mockito.<KeyDictionaryCompositeKey>any()))
+        .thenThrow(new RuntimeException("foo"));
+
+    // Act and Assert
+    assertThrows(RuntimeException.class, () -> jpaKeyDictionaryDao.getOrSaveKeyId("Str Key"));
+    verify(keyDictionaryRepository).findById(isA(KeyDictionaryCompositeKey.class));
+  }
+
+  /**
    * Test {@link JpaKeyDictionaryDao#getKey(Integer)}.
    * <ul>
-   *   <li>Given {@link KeyDictionaryEntry} (default constructor) Key is
-   * {@code Key}.</li>
+   *   <li>Given {@link KeyDictionaryEntry} (default constructor) Key is {@code Key}.</li>
    *   <li>Then return {@code Key}.</li>
    * </ul>
    * <p>
    * Method under test: {@link JpaKeyDictionaryDao#getKey(Integer)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"String JpaKeyDictionaryDao.getKey(Integer)"})
   public void testGetKey_givenKeyDictionaryEntryKeyIsKey_thenReturnKey() {
     // Arrange
     KeyDictionaryEntry keyDictionaryEntry = new KeyDictionaryEntry();
@@ -111,6 +173,8 @@ public class JpaKeyDictionaryDaoDiffblueTest {
    * Method under test: {@link JpaKeyDictionaryDao#getKey(Integer)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"String JpaKeyDictionaryDao.getKey(Integer)"})
   public void testGetKey_thenThrowDataIntegrityViolationException() {
     // Arrange
     when(keyDictionaryRepository.findByKeyId(anyInt())).thenThrow(new DataIntegrityViolationException("Msg"));

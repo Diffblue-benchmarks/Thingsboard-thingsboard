@@ -3,18 +3,21 @@ package org.thingsboard.rule.engine.action;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TbClearAlarmNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbClearAlarmNodeConfiguration#defaultConfiguration()}.
    * <p>
-   * Method under test:
-   * {@link TbClearAlarmNodeConfiguration#defaultConfiguration()}
+   * Method under test: {@link TbClearAlarmNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbClearAlarmNodeConfiguration TbClearAlarmNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
     // Arrange
     TbClearAlarmNodeConfiguration tbClearAlarmNodeConfiguration = new TbClearAlarmNodeConfiguration();
@@ -24,8 +27,7 @@ class TbClearAlarmNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbClearAlarmNodeConfiguration#equals(Object)}, and
-   * {@link TbClearAlarmNodeConfiguration#hashCode()}.
+   * Test {@link TbClearAlarmNodeConfiguration#equals(Object)}, and {@link TbClearAlarmNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -39,6 +41,9 @@ class TbClearAlarmNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbClearAlarmNodeConfiguration.equals(Object)",
+      "int TbClearAlarmNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbClearAlarmNodeConfiguration tbClearAlarmNodeConfiguration = new TbClearAlarmNodeConfiguration();
@@ -51,8 +56,7 @@ class TbClearAlarmNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbClearAlarmNodeConfiguration#equals(Object)}, and
-   * {@link TbClearAlarmNodeConfiguration#hashCode()}.
+   * Test {@link TbClearAlarmNodeConfiguration#equals(Object)}, and {@link TbClearAlarmNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -66,6 +70,9 @@ class TbClearAlarmNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbClearAlarmNodeConfiguration.equals(Object)",
+      "int TbClearAlarmNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbClearAlarmNodeConfiguration tbClearAlarmNodeConfiguration = new TbClearAlarmNodeConfiguration();
@@ -87,6 +94,9 @@ class TbClearAlarmNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbClearAlarmNodeConfiguration.equals(Object)",
+      "int TbClearAlarmNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbClearAlarmNodeConfiguration(), 1);
@@ -103,6 +113,9 @@ class TbClearAlarmNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbClearAlarmNodeConfiguration.equals(Object)",
+      "int TbClearAlarmNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbClearAlarmNodeConfiguration(), null);
@@ -119,6 +132,9 @@ class TbClearAlarmNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbClearAlarmNodeConfiguration.equals(Object)",
+      "int TbClearAlarmNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbClearAlarmNodeConfiguration(), "Different type to TbClearAlarmNodeConfiguration");
@@ -129,13 +145,15 @@ class TbClearAlarmNodeConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link TbClearAlarmNodeConfiguration}
+   *   <li>default or parameterless constructor of {@link TbClearAlarmNodeConfiguration}
    *   <li>{@link TbClearAlarmNodeConfiguration#toString()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbClearAlarmNodeConfiguration.<init>()",
+      "java.lang.String TbClearAlarmNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbClearAlarmNodeConfiguration actualTbClearAlarmNodeConfiguration = new TbClearAlarmNodeConfiguration();

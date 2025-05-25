@@ -4,13 +4,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 class SystemInfoDiffblueTest {
   /**
@@ -28,6 +27,8 @@ class SystemInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfo.equals(Object)", "int SystemInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     SystemInfo systemInfo = new SystemInfo();
@@ -59,6 +60,8 @@ class SystemInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfo.equals(Object)", "int SystemInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     SystemInfo systemInfo = new SystemInfo();
@@ -82,6 +85,8 @@ class SystemInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfo.equals(Object)", "int SystemInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     SystemInfo systemInfo = new SystemInfo();
@@ -107,55 +112,11 @@ class SystemInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfo.equals(Object)", "int SystemInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
-    systemInfoData.setCpuCount(3L);
-    systemInfoData.setCpuUsage(1L);
-    systemInfoData.setDiscUsage(1L);
-    systemInfoData.setMemoryUsage(1L);
-    systemInfoData.setServiceId("42");
-    systemInfoData.setServiceType("Service Type");
-    systemInfoData.setTotalDiscSpace(1L);
-    systemInfoData.setTotalMemory(1L);
-
-    ArrayList<SystemInfoData> systemData = new ArrayList<>();
-    systemData.add(systemInfoData);
-
-    SystemInfo systemInfo = new SystemInfo();
-    systemInfo.setMonolith(true);
-    systemInfo.setSystemData(systemData);
-
-    SystemInfo systemInfo2 = new SystemInfo();
-    systemInfo2.setMonolith(true);
-    systemInfo2.setSystemData(new ArrayList<>());
-
-    // Act and Assert
-    assertNotEquals(systemInfo, systemInfo2);
-  }
-
-  /**
-   * Test {@link SystemInfo#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link SystemInfo#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
-    // Arrange
-    SystemInfoData systemInfoData = mock(SystemInfoData.class);
-    doNothing().when(systemInfoData).setCpuCount(Mockito.<Long>any());
-    doNothing().when(systemInfoData).setCpuUsage(Mockito.<Long>any());
-    doNothing().when(systemInfoData).setDiscUsage(Mockito.<Long>any());
-    doNothing().when(systemInfoData).setMemoryUsage(Mockito.<Long>any());
-    doNothing().when(systemInfoData).setServiceId(Mockito.<String>any());
-    doNothing().when(systemInfoData).setServiceType(Mockito.<String>any());
-    doNothing().when(systemInfoData).setTotalDiscSpace(Mockito.<Long>any());
-    doNothing().when(systemInfoData).setTotalMemory(Mockito.<Long>any());
     systemInfoData.setCpuCount(3L);
     systemInfoData.setCpuUsage(1L);
     systemInfoData.setDiscUsage(1L);
@@ -191,6 +152,8 @@ class SystemInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfo.equals(Object)", "int SystemInfo.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     SystemInfo systemInfo = new SystemInfo();
@@ -212,6 +175,8 @@ class SystemInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfo.equals(Object)", "int SystemInfo.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     SystemInfo systemInfo = new SystemInfo();
@@ -237,6 +202,9 @@ class SystemInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SystemInfo.<init>()", "List SystemInfo.getSystemData()", "boolean SystemInfo.isMonolith()",
+      "void SystemInfo.setMonolith(boolean)", "void SystemInfo.setSystemData(List)", "String SystemInfo.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     SystemInfo actualSystemInfo = new SystemInfo();
@@ -247,7 +215,7 @@ class SystemInfoDiffblueTest {
     List<SystemInfoData> actualSystemData = actualSystemInfo.getSystemData();
     boolean actualIsMonolithResult = actualSystemInfo.isMonolith();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("SystemInfo(isMonolith=true, systemData=[])", actualToStringResult);
     assertTrue(actualSystemData.isEmpty());
     assertTrue(actualIsMonolithResult);

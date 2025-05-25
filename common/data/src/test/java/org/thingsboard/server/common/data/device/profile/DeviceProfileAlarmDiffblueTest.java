@@ -1,12 +1,15 @@
 package org.thingsboard.server.common.data.device.profile;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.alarm.AlarmSeverity;
 
@@ -37,6 +40,16 @@ class DeviceProfileAlarmDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DeviceProfileAlarm.<init>()", "String DeviceProfileAlarm.getAlarmType()",
+      "AlarmRule DeviceProfileAlarm.getClearRule()", "TreeMap DeviceProfileAlarm.getCreateRules()",
+      "String DeviceProfileAlarm.getId()", "List DeviceProfileAlarm.getPropagateRelationTypes()",
+      "boolean DeviceProfileAlarm.isPropagate()", "boolean DeviceProfileAlarm.isPropagateToOwner()",
+      "boolean DeviceProfileAlarm.isPropagateToTenant()", "void DeviceProfileAlarm.setAlarmType(String)",
+      "void DeviceProfileAlarm.setClearRule(AlarmRule)", "void DeviceProfileAlarm.setCreateRules(TreeMap)",
+      "void DeviceProfileAlarm.setId(String)", "void DeviceProfileAlarm.setPropagate(boolean)",
+      "void DeviceProfileAlarm.setPropagateRelationTypes(List)", "void DeviceProfileAlarm.setPropagateToOwner(boolean)",
+      "void DeviceProfileAlarm.setPropagateToTenant(boolean)", "String DeviceProfileAlarm.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     DeviceProfileAlarm actualDeviceProfileAlarm = new DeviceProfileAlarm();
@@ -51,7 +64,7 @@ class DeviceProfileAlarmDiffblueTest {
     actualDeviceProfileAlarm.setPropagateToTenant(true);
     String actualToStringResult = actualDeviceProfileAlarm.toString();
     String actualAlarmType = actualDeviceProfileAlarm.getAlarmType();
-    actualDeviceProfileAlarm.getClearRule();
+    AlarmRule actualClearRule = actualDeviceProfileAlarm.getClearRule();
     TreeMap<AlarmSeverity, AlarmRule> actualCreateRules = actualDeviceProfileAlarm.getCreateRules();
     String actualId = actualDeviceProfileAlarm.getId();
     List<String> actualPropagateRelationTypes = actualDeviceProfileAlarm.getPropagateRelationTypes();
@@ -59,11 +72,12 @@ class DeviceProfileAlarmDiffblueTest {
     boolean actualIsPropagateToOwnerResult = actualDeviceProfileAlarm.isPropagateToOwner();
     boolean actualIsPropagateToTenantResult = actualDeviceProfileAlarm.isPropagateToTenant();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("42", actualId);
     assertEquals("Alarm Type", actualAlarmType);
     assertEquals("DeviceProfileAlarm(id=42, alarmType=Alarm Type, createRules={}, clearRule=null, propagate=true,"
         + " propagateToOwner=true, propagateToTenant=true, propagateRelationTypes=[])", actualToStringResult);
+    assertNull(actualClearRule);
     assertTrue(actualPropagateRelationTypes.isEmpty());
     assertTrue(actualIsPropagateResult);
     assertTrue(actualIsPropagateToOwnerResult);

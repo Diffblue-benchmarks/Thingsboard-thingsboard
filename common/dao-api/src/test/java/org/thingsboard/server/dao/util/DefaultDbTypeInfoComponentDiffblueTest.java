@@ -2,7 +2,9 @@ package org.thingsboard.server.dao.util;
 
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +20,12 @@ class DefaultDbTypeInfoComponentDiffblueTest {
   /**
    * Test {@link DefaultDbTypeInfoComponent#isLatestTsDaoStoredToSql()}.
    * <p>
-   * Method under test:
-   * {@link DefaultDbTypeInfoComponent#isLatestTsDaoStoredToSql()}
+   * Method under test: {@link DefaultDbTypeInfoComponent#isLatestTsDaoStoredToSql()}
    */
   @Test
   @DisplayName("Test isLatestTsDaoStoredToSql()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDbTypeInfoComponent.isLatestTsDaoStoredToSql()"})
   void testIsLatestTsDaoStoredToSql() {
     // Arrange, Act and Assert
     assertTrue(defaultDbTypeInfoComponent.isLatestTsDaoStoredToSql());
@@ -35,6 +38,8 @@ class DefaultDbTypeInfoComponentDiffblueTest {
    */
   @Test
   @DisplayName("Test getLatestTsDbType()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String DefaultDbTypeInfoComponent.getLatestTsDbType()"})
   void testGetLatestTsDbType() {
     // Arrange, Act and Assert
     assertNull((new DefaultDbTypeInfoComponent()).getLatestTsDbType());

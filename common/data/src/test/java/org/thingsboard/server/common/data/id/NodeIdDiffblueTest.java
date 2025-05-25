@@ -2,8 +2,10 @@ package org.thingsboard.server.common.data.id;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class NodeIdDiffblueTest {
@@ -14,6 +16,8 @@ class NodeIdDiffblueTest {
    */
   @Test
   @DisplayName("Test new NodeId(UUID)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NodeId.<init>(UUID)"})
   void testNewNodeId() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");

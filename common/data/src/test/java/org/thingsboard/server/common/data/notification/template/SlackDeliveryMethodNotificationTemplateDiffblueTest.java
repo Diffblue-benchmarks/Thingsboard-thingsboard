@@ -4,22 +4,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.notification.NotificationDeliveryMethod;
 
 class SlackDeliveryMethodNotificationTemplateDiffblueTest {
   /**
-   * Test
-   * {@link SlackDeliveryMethodNotificationTemplate#SlackDeliveryMethodNotificationTemplate()}.
+   * Test {@link SlackDeliveryMethodNotificationTemplate#SlackDeliveryMethodNotificationTemplate()}.
    * <p>
-   * Method under test:
-   * {@link SlackDeliveryMethodNotificationTemplate#SlackDeliveryMethodNotificationTemplate()}
+   * Method under test: {@link SlackDeliveryMethodNotificationTemplate#SlackDeliveryMethodNotificationTemplate()}
    */
   @Test
   @DisplayName("Test new SlackDeliveryMethodNotificationTemplate()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SlackDeliveryMethodNotificationTemplate.<init>()"})
   void testNewSlackDeliveryMethodNotificationTemplate() {
     // Arrange and Act
     SlackDeliveryMethodNotificationTemplate actualSlackDeliveryMethodNotificationTemplate = new SlackDeliveryMethodNotificationTemplate();
@@ -34,17 +35,17 @@ class SlackDeliveryMethodNotificationTemplateDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link SlackDeliveryMethodNotificationTemplate#SlackDeliveryMethodNotificationTemplate(DeliveryMethodNotificationTemplate)}.
+   * Test {@link SlackDeliveryMethodNotificationTemplate#SlackDeliveryMethodNotificationTemplate(DeliveryMethodNotificationTemplate)}.
    * <ul>
    *   <li>Then return Body is {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SlackDeliveryMethodNotificationTemplate#SlackDeliveryMethodNotificationTemplate(DeliveryMethodNotificationTemplate)}
+   * Method under test: {@link SlackDeliveryMethodNotificationTemplate#SlackDeliveryMethodNotificationTemplate(DeliveryMethodNotificationTemplate)}
    */
   @Test
   @DisplayName("Test new SlackDeliveryMethodNotificationTemplate(DeliveryMethodNotificationTemplate); then return Body is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SlackDeliveryMethodNotificationTemplate.<init>(DeliveryMethodNotificationTemplate)"})
   void testNewSlackDeliveryMethodNotificationTemplate_thenReturnBodyIsNull() {
     // Arrange and Act
     SlackDeliveryMethodNotificationTemplate actualSlackDeliveryMethodNotificationTemplate = new SlackDeliveryMethodNotificationTemplate(
@@ -66,14 +67,15 @@ class SlackDeliveryMethodNotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test getBody()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String SlackDeliveryMethodNotificationTemplate.getBody()"})
   void testGetBody() {
     // Arrange, Act and Assert
     assertNull((new SlackDeliveryMethodNotificationTemplate()).getBody());
   }
 
   /**
-   * Test {@link SlackDeliveryMethodNotificationTemplate#equals(Object)}, and
-   * {@link SlackDeliveryMethodNotificationTemplate#hashCode()}.
+   * Test {@link SlackDeliveryMethodNotificationTemplate#equals(Object)}, and {@link SlackDeliveryMethodNotificationTemplate#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -87,6 +89,9 @@ class SlackDeliveryMethodNotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SlackDeliveryMethodNotificationTemplate.equals(Object)",
+      "int SlackDeliveryMethodNotificationTemplate.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     SlackDeliveryMethodNotificationTemplate slackDeliveryMethodNotificationTemplate = new SlackDeliveryMethodNotificationTemplate();
@@ -104,11 +109,13 @@ class SlackDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SlackDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link SlackDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SlackDeliveryMethodNotificationTemplate.equals(Object)",
+      "int SlackDeliveryMethodNotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     SlackDeliveryMethodNotificationTemplate slackDeliveryMethodNotificationTemplate = new SlackDeliveryMethodNotificationTemplate();
@@ -124,29 +131,14 @@ class SlackDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SlackDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link SlackDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SlackDeliveryMethodNotificationTemplate.equals(Object)",
+      "int SlackDeliveryMethodNotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange, Act and Assert
-    assertNotEquals(new SlackDeliveryMethodNotificationTemplate(), mock(EmailDeliveryMethodNotificationTemplate.class));
-  }
-
-  /**
-   * Test {@link SlackDeliveryMethodNotificationTemplate#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link SlackDeliveryMethodNotificationTemplate#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     SlackDeliveryMethodNotificationTemplate slackDeliveryMethodNotificationTemplate = new SlackDeliveryMethodNotificationTemplate();
     slackDeliveryMethodNotificationTemplate.setEnabled(true);
@@ -162,11 +154,13 @@ class SlackDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SlackDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link SlackDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SlackDeliveryMethodNotificationTemplate.equals(Object)",
+      "int SlackDeliveryMethodNotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new SlackDeliveryMethodNotificationTemplate(), null);
@@ -179,11 +173,13 @@ class SlackDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SlackDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link SlackDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SlackDeliveryMethodNotificationTemplate.equals(Object)",
+      "int SlackDeliveryMethodNotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new SlackDeliveryMethodNotificationTemplate(),
@@ -202,6 +198,10 @@ class SlackDeliveryMethodNotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"NotificationDeliveryMethod SlackDeliveryMethodNotificationTemplate.getMethod()",
+      "List SlackDeliveryMethodNotificationTemplate.getTemplatableValues()",
+      "java.lang.String SlackDeliveryMethodNotificationTemplate.toString()"})
   void testGettersAndSetters() {
     // Arrange
     SlackDeliveryMethodNotificationTemplate slackDeliveryMethodNotificationTemplate = new SlackDeliveryMethodNotificationTemplate();
@@ -224,6 +224,8 @@ class SlackDeliveryMethodNotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test copy()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"SlackDeliveryMethodNotificationTemplate SlackDeliveryMethodNotificationTemplate.copy()"})
   void testCopy() {
     // Arrange and Act
     SlackDeliveryMethodNotificationTemplate actualCopyResult = (new SlackDeliveryMethodNotificationTemplate()).copy();

@@ -1,8 +1,9 @@
 package org.thingsboard.server.service.notification.rule.trigger;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,39 +21,16 @@ class NotificationRuleTriggerProcessorDiffblueTest {
   private NotificationRuleTriggerProcessor<AlarmAssignmentTrigger, AlarmAssignmentNotificationRuleTriggerConfig> notificationRuleTriggerProcessor;
 
   /**
-   * Test
-   * {@link NotificationRuleTriggerProcessor#matchesClearRule(NotificationRuleTrigger, NotificationRuleTriggerConfig)}.
-   * <ul>
-   *   <li>When {@link AlarmAssignmentTrigger}.</li>
-   * </ul>
+   * Test {@link NotificationRuleTriggerProcessor#matchesClearRule(NotificationRuleTrigger, NotificationRuleTriggerConfig)}.
    * <p>
-   * Method under test:
-   * {@link NotificationRuleTriggerProcessor#matchesClearRule(NotificationRuleTrigger, NotificationRuleTriggerConfig)}
+   * Method under test: {@link NotificationRuleTriggerProcessor#matchesClearRule(NotificationRuleTrigger, NotificationRuleTriggerConfig)}
    */
   @Test
-  @DisplayName("Test matchesClearRule(NotificationRuleTrigger, NotificationRuleTriggerConfig); when AlarmAssignmentTrigger")
-  void testMatchesClearRule_whenAlarmAssignmentTrigger() {
-    // Arrange
-    AlarmAssignmentTrigger alarmAssignmentTrigger = mock(AlarmAssignmentTrigger.class);
-
-    // Act and Assert
-    assertFalse(notificationRuleTriggerProcessor.matchesClearRule(alarmAssignmentTrigger,
-        new AlarmAssignmentNotificationRuleTriggerConfig()));
-  }
-
-  /**
-   * Test
-   * {@link NotificationRuleTriggerProcessor#matchesClearRule(NotificationRuleTrigger, NotificationRuleTriggerConfig)}.
-   * <ul>
-   *   <li>When {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link NotificationRuleTriggerProcessor#matchesClearRule(NotificationRuleTrigger, NotificationRuleTriggerConfig)}
-   */
-  @Test
-  @DisplayName("Test matchesClearRule(NotificationRuleTrigger, NotificationRuleTriggerConfig); when 'null'")
-  void testMatchesClearRule_whenNull() {
+  @DisplayName("Test matchesClearRule(NotificationRuleTrigger, NotificationRuleTriggerConfig)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "boolean NotificationRuleTriggerProcessor.matchesClearRule(NotificationRuleTrigger, NotificationRuleTriggerConfig)"})
+  void testMatchesClearRule() {
     // Arrange, Act and Assert
     assertFalse(
         notificationRuleTriggerProcessor.matchesClearRule(null, new AlarmAssignmentNotificationRuleTriggerConfig()));

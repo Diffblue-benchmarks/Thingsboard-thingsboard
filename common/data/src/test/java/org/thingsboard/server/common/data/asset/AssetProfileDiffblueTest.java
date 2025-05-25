@@ -3,9 +3,10 @@ package org.thingsboard.server.common.data.asset;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.RuleChainId;
 import org.thingsboard.server.common.data.id.TenantId;
@@ -18,6 +19,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test getExternalId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"org.thingsboard.server.common.data.id.AssetProfileId AssetProfile.getExternalId()"})
   void testGetExternalId() {
     // Arrange, Act and Assert
     assertNull((new AssetProfile()).getExternalId());
@@ -34,6 +37,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test new AssetProfile(AssetProfile); given 'true'; when AssetProfile() Default is 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AssetProfile.<init>(AssetProfile)"})
   void testNewAssetProfile_givenTrue_whenAssetProfileDefaultIsTrue() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
@@ -53,6 +58,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test new AssetProfile(AssetProfile); when AssetProfile()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AssetProfile.<init>(AssetProfile)"})
   void testNewAssetProfile_whenAssetProfile() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
@@ -68,6 +75,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test getId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"org.thingsboard.server.common.data.id.AssetProfileId AssetProfile.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
     assertNull((new AssetProfile()).getId());
@@ -80,14 +89,15 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test getCreatedTime()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long AssetProfile.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
     assertEquals(0L, (new AssetProfile()).getCreatedTime());
   }
 
   /**
-   * Test {@link AssetProfile#equals(Object)}, and
-   * {@link AssetProfile#hashCode()}.
+   * Test {@link AssetProfile#equals(Object)}, and {@link AssetProfile#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -101,6 +111,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetProfile.equals(Object)", "int AssetProfile.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
@@ -113,8 +125,7 @@ class AssetProfileDiffblueTest {
   }
 
   /**
-   * Test {@link AssetProfile#equals(Object)}, and
-   * {@link AssetProfile#hashCode()}.
+   * Test {@link AssetProfile#equals(Object)}, and {@link AssetProfile#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -128,6 +139,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetProfile.equals(Object)", "int AssetProfile.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
@@ -149,10 +162,11 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetProfile.equals(Object)", "int AssetProfile.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AssetProfile(), 1);
-    assertNotEquals(new AssetProfile(), mock(Asset.class));
   }
 
   /**
@@ -166,6 +180,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetProfile.equals(Object)", "int AssetProfile.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
@@ -186,6 +202,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetProfile.equals(Object)", "int AssetProfile.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
@@ -206,6 +224,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetProfile.equals(Object)", "int AssetProfile.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
@@ -226,6 +246,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetProfile.equals(Object)", "int AssetProfile.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
@@ -246,6 +268,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetProfile.equals(Object)", "int AssetProfile.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
@@ -266,6 +290,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetProfile.equals(Object)", "int AssetProfile.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
@@ -286,6 +312,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetProfile.equals(Object)", "int AssetProfile.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
@@ -306,6 +334,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetProfile.equals(Object)", "int AssetProfile.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
@@ -326,6 +356,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetProfile.equals(Object)", "int AssetProfile.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
@@ -346,6 +378,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetProfile.equals(Object)", "int AssetProfile.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
@@ -366,6 +400,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetProfile.equals(Object)", "int AssetProfile.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
@@ -388,6 +424,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetProfile.equals(Object)", "int AssetProfile.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
@@ -410,6 +448,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetProfile.equals(Object)", "int AssetProfile.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
@@ -432,6 +472,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetProfile.equals(Object)", "int AssetProfile.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
@@ -454,6 +496,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetProfile.equals(Object)", "int AssetProfile.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
@@ -476,6 +520,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetProfile.equals(Object)", "int AssetProfile.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
@@ -498,6 +544,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetProfile.equals(Object)", "int AssetProfile.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
@@ -520,6 +568,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetProfile.equals(Object)", "int AssetProfile.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
@@ -542,6 +592,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetProfile.equals(Object)", "int AssetProfile.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AssetProfile(), null);
@@ -558,6 +610,8 @@ class AssetProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AssetProfile.equals(Object)", "int AssetProfile.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AssetProfile(), "Different type to AssetProfile");

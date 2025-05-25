@@ -5,6 +5,7 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.google.api.core.ApiFutureToListenableFuture;
 import com.google.api.core.ForwardingApiFuture;
 import com.google.api.core.ListenableFutureToApiFuture;
@@ -12,6 +13,7 @@ import com.google.common.util.concurrent.ListenableFutureTask;
 import java.util.UUID;
 import java.util.concurrent.Executor;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.thingsboard.rule.engine.TestDbCallbackExecutor;
@@ -24,18 +26,18 @@ import org.thingsboard.server.common.data.id.TenantId;
 
 class EntitiesAlarmOriginatorIdAsyncLoaderDiffblueTest {
   /**
-   * Test
-   * {@link EntitiesAlarmOriginatorIdAsyncLoader#findEntityIdAsync(TbContext, EntityId)}.
+   * Test {@link EntitiesAlarmOriginatorIdAsyncLoader#findEntityIdAsync(TbContext, EntityId)}.
    * <ul>
-   *   <li>Then calls
-   * {@link ListenableFutureTask#addListener(Runnable, Executor)}.</li>
+   *   <li>Then calls {@link ListenableFutureTask#addListener(Runnable, Executor)}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntitiesAlarmOriginatorIdAsyncLoader#findEntityIdAsync(TbContext, EntityId)}
+   * Method under test: {@link EntitiesAlarmOriginatorIdAsyncLoader#findEntityIdAsync(TbContext, EntityId)}
    */
   @Test
   @DisplayName("Test findEntityIdAsync(TbContext, EntityId); then calls addListener(Runnable, Executor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "com.google.common.util.concurrent.ListenableFuture EntitiesAlarmOriginatorIdAsyncLoader.findEntityIdAsync(TbContext, EntityId)"})
   void testFindEntityIdAsync_thenCallsAddListener() {
     // Arrange
     ListenableFutureTask<Alarm> delegate = mock(ListenableFutureTask.class);
@@ -46,10 +48,11 @@ class EntitiesAlarmOriginatorIdAsyncLoaderDiffblueTest {
     TbContext ctx = mock(TbContext.class);
     when(ctx.getDbCallbackExecutor()).thenReturn(new TestDbCallbackExecutor());
     when(ctx.getAlarmService()).thenReturn(ruleEngineAlarmService);
-    when(ctx.getTenantId()).thenReturn(new TenantId(UUID.randomUUID()));
+    when(ctx.getTenantId()).thenReturn(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    EntitiesAlarmOriginatorIdAsyncLoader.findEntityIdAsync(ctx, new AlarmId(UUID.randomUUID()));
+    EntitiesAlarmOriginatorIdAsyncLoader.findEntityIdAsync(ctx,
+        new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     verify(delegate).addListener(isA(Runnable.class), isA(Executor.class));

@@ -2,7 +2,9 @@ package org.thingsboard.server.dao.device.claim;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ClaimDataDiffblueTest {
@@ -21,6 +23,8 @@ class ClaimDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimData.equals(Object)", "int ClaimData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ClaimData claimData = new ClaimData("EXAMPLEKEYwjalrXUtnFEMI/K7MDENG/bPxRfiCY", 1L);
@@ -47,6 +51,8 @@ class ClaimDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimData.equals(Object)", "int ClaimData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     ClaimData claimData = new ClaimData(null, 1L);
@@ -73,6 +79,8 @@ class ClaimDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimData.equals(Object)", "int ClaimData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ClaimData claimData = new ClaimData("EXAMPLEKEYwjalrXUtnFEMI/K7MDENG/bPxRfiCY", 1L);
@@ -94,7 +102,27 @@ class ClaimDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimData.equals(Object)", "int ClaimData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new ClaimData("EXAMPLEKEYwjalrXUtnFEMI/K7MDENG/bPxRfiCY", 1L), 1);
+  }
+
+  /**
+   * Test {@link ClaimData#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ClaimData#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimData.equals(Object)", "int ClaimData.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ClaimData claimData = new ClaimData("Secret Key", 1L);
 
@@ -113,9 +141,11 @@ class ClaimDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimData.equals(Object)", "int ClaimData.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    ClaimData claimData = new ClaimData(null, 1L);
+    ClaimData claimData = new ClaimData("Secret Key", 3L);
 
     // Act and Assert
     assertNotEquals(claimData, new ClaimData("EXAMPLEKEYwjalrXUtnFEMI/K7MDENG/bPxRfiCY", 1L));
@@ -132,9 +162,11 @@ class ClaimDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimData.equals(Object)", "int ClaimData.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    ClaimData claimData = new ClaimData("EXAMPLEKEYwjalrXUtnFEMI/K7MDENG/bPxRfiCY", 3L);
+    ClaimData claimData = new ClaimData(null, 1L);
 
     // Act and Assert
     assertNotEquals(claimData, new ClaimData("EXAMPLEKEYwjalrXUtnFEMI/K7MDENG/bPxRfiCY", 1L));
@@ -151,6 +183,8 @@ class ClaimDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimData.equals(Object)", "int ClaimData.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new ClaimData("EXAMPLEKEYwjalrXUtnFEMI/K7MDENG/bPxRfiCY", 1L), null);
@@ -167,6 +201,8 @@ class ClaimDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimData.equals(Object)", "int ClaimData.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new ClaimData("EXAMPLEKEYwjalrXUtnFEMI/K7MDENG/bPxRfiCY", 1L), "Different type to ClaimData");
@@ -185,6 +221,9 @@ class ClaimDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ClaimData.<init>(String, long)", "long ClaimData.getExpirationTime()",
+      "String ClaimData.getSecretKey()", "String ClaimData.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     ClaimData actualClaimData = new ClaimData("EXAMPLEKEYwjalrXUtnFEMI/K7MDENG/bPxRfiCY", 1L);

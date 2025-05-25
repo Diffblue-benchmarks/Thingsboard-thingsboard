@@ -4,14 +4,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.anyInt;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.thingsboard.server.common.data.query.EntityDataQuery;
 
 class CmdsWrapperDiffblueTest {
@@ -30,6 +28,8 @@ class CmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CmdsWrapper.equals(Object)", "int CmdsWrapper.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     CmdsWrapper cmdsWrapper = new CmdsWrapper();
@@ -59,6 +59,8 @@ class CmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CmdsWrapper.equals(Object)", "int CmdsWrapper.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     CmdsWrapper cmdsWrapper = new CmdsWrapper();
@@ -81,48 +83,14 @@ class CmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CmdsWrapper.equals(Object)", "int CmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     LatestValueCmd latestCmd = new LatestValueCmd();
     latestCmd.setKeys(new ArrayList<>());
 
     EntityDataCmd entityDataCmd = new EntityDataCmd();
-    entityDataCmd.setCmdId(1);
-    entityDataCmd.setLatestCmd(latestCmd);
-    entityDataCmd.setQuery(new EntityDataQuery());
-
-    ArrayList<EntityDataCmd> entityDataCmds = new ArrayList<>();
-    entityDataCmds.add(entityDataCmd);
-
-    CmdsWrapper cmdsWrapper = new CmdsWrapper();
-    cmdsWrapper.setEntityDataCmds(entityDataCmds);
-
-    CmdsWrapper cmdsWrapper2 = new CmdsWrapper();
-    cmdsWrapper2.setEntityDataCmds(new ArrayList<>());
-
-    // Act and Assert
-    assertNotEquals(cmdsWrapper, cmdsWrapper2);
-  }
-
-  /**
-   * Test {@link CmdsWrapper#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link CmdsWrapper#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange
-    LatestValueCmd latestCmd = new LatestValueCmd();
-    latestCmd.setKeys(new ArrayList<>());
-    EntityDataCmd entityDataCmd = mock(EntityDataCmd.class);
-    doNothing().when(entityDataCmd).setCmdId(anyInt());
-    doNothing().when(entityDataCmd).setLatestCmd(Mockito.<LatestValueCmd>any());
-    doNothing().when(entityDataCmd).setQuery(Mockito.<EntityDataQuery>any());
     entityDataCmd.setCmdId(1);
     entityDataCmd.setLatestCmd(latestCmd);
     entityDataCmd.setQuery(new EntityDataQuery());
@@ -151,6 +119,8 @@ class CmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CmdsWrapper.equals(Object)", "int CmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     CmdsWrapper cmdsWrapper = new CmdsWrapper();
@@ -171,6 +141,8 @@ class CmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CmdsWrapper.equals(Object)", "int CmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     CmdsWrapper cmdsWrapper = new CmdsWrapper();
@@ -193,6 +165,9 @@ class CmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CmdsWrapper.<init>()", "List CmdsWrapper.getEntityDataCmds()",
+      "void CmdsWrapper.setEntityDataCmds(List)", "String CmdsWrapper.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     CmdsWrapper actualCmdsWrapper = new CmdsWrapper();
@@ -201,7 +176,7 @@ class CmdsWrapperDiffblueTest {
     String actualToStringResult = actualCmdsWrapper.toString();
     List<EntityDataCmd> actualEntityDataCmds = actualCmdsWrapper.getEntityDataCmds();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("CmdsWrapper(entityDataCmds=[])", actualToStringResult);
     assertTrue(actualEntityDataCmds.isEmpty());
     assertSame(entityDataCmds, actualEntityDataCmds);

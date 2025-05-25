@@ -5,23 +5,19 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.thingsboard.server.common.data.EntityType;
-import org.thingsboard.server.common.data.User;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.id.UserId;
 
 class AlarmsUnassignHousekeeperTaskDiffblueTest {
   /**
-   * Test {@link AlarmsUnassignHousekeeperTask#equals(Object)}, and
-   * {@link AlarmsUnassignHousekeeperTask#hashCode()}.
+   * Test {@link AlarmsUnassignHousekeeperTask#equals(Object)}, and {@link AlarmsUnassignHousekeeperTask#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -35,6 +31,9 @@ class AlarmsUnassignHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmsUnassignHousekeeperTask.equals(Object)",
+      "int AlarmsUnassignHousekeeperTask.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AlarmsUnassignHousekeeperTask alarmsUnassignHousekeeperTask = new AlarmsUnassignHousekeeperTask();
@@ -47,8 +46,7 @@ class AlarmsUnassignHousekeeperTaskDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmsUnassignHousekeeperTask#equals(Object)}, and
-   * {@link AlarmsUnassignHousekeeperTask#hashCode()}.
+   * Test {@link AlarmsUnassignHousekeeperTask#equals(Object)}, and {@link AlarmsUnassignHousekeeperTask#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -62,6 +60,9 @@ class AlarmsUnassignHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmsUnassignHousekeeperTask.equals(Object)",
+      "int AlarmsUnassignHousekeeperTask.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AlarmsUnassignHousekeeperTask alarmsUnassignHousekeeperTask = new AlarmsUnassignHousekeeperTask();
@@ -77,8 +78,7 @@ class AlarmsUnassignHousekeeperTaskDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmsUnassignHousekeeperTask#equals(Object)}, and
-   * {@link AlarmsUnassignHousekeeperTask#hashCode()}.
+   * Test {@link AlarmsUnassignHousekeeperTask#equals(Object)}, and {@link AlarmsUnassignHousekeeperTask#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -92,6 +92,9 @@ class AlarmsUnassignHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmsUnassignHousekeeperTask.equals(Object)",
+      "int AlarmsUnassignHousekeeperTask.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     AlarmsUnassignHousekeeperTask alarmsUnassignHousekeeperTask = new AlarmsUnassignHousekeeperTask();
@@ -107,8 +110,7 @@ class AlarmsUnassignHousekeeperTaskDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmsUnassignHousekeeperTask#equals(Object)}, and
-   * {@link AlarmsUnassignHousekeeperTask#hashCode()}.
+   * Test {@link AlarmsUnassignHousekeeperTask#equals(Object)}, and {@link AlarmsUnassignHousekeeperTask#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -122,6 +124,9 @@ class AlarmsUnassignHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmsUnassignHousekeeperTask.equals(Object)",
+      "int AlarmsUnassignHousekeeperTask.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AlarmsUnassignHousekeeperTask alarmsUnassignHousekeeperTask = new AlarmsUnassignHousekeeperTask();
@@ -143,10 +148,12 @@ class AlarmsUnassignHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmsUnassignHousekeeperTask.equals(Object)",
+      "int AlarmsUnassignHousekeeperTask.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlarmsUnassignHousekeeperTask(), 1);
-    assertNotEquals(new AlarmsUnassignHousekeeperTask(), mock(AlarmsDeletionHousekeeperTask.class));
   }
 
   /**
@@ -160,6 +167,9 @@ class AlarmsUnassignHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmsUnassignHousekeeperTask.equals(Object)",
+      "int AlarmsUnassignHousekeeperTask.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AlarmsUnassignHousekeeperTask alarmsUnassignHousekeeperTask = new AlarmsUnassignHousekeeperTask();
@@ -180,6 +190,9 @@ class AlarmsUnassignHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmsUnassignHousekeeperTask.equals(Object)",
+      "int AlarmsUnassignHousekeeperTask.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AlarmsUnassignHousekeeperTask alarmsUnassignHousekeeperTask = new AlarmsUnassignHousekeeperTask();
@@ -200,6 +213,9 @@ class AlarmsUnassignHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmsUnassignHousekeeperTask.equals(Object)",
+      "int AlarmsUnassignHousekeeperTask.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AlarmsUnassignHousekeeperTask alarmsUnassignHousekeeperTask = new AlarmsUnassignHousekeeperTask();
@@ -220,6 +236,9 @@ class AlarmsUnassignHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmsUnassignHousekeeperTask.equals(Object)",
+      "int AlarmsUnassignHousekeeperTask.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     AlarmsUnassignHousekeeperTask alarmsUnassignHousekeeperTask = new AlarmsUnassignHousekeeperTask();
@@ -242,6 +261,9 @@ class AlarmsUnassignHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmsUnassignHousekeeperTask.equals(Object)",
+      "int AlarmsUnassignHousekeeperTask.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AlarmsUnassignHousekeeperTask alarmsUnassignHousekeeperTask = new AlarmsUnassignHousekeeperTask();
@@ -264,6 +286,9 @@ class AlarmsUnassignHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmsUnassignHousekeeperTask.equals(Object)",
+      "int AlarmsUnassignHousekeeperTask.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlarmsUnassignHousekeeperTask(), null);
@@ -280,6 +305,9 @@ class AlarmsUnassignHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmsUnassignHousekeeperTask.equals(Object)",
+      "int AlarmsUnassignHousekeeperTask.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlarmsUnassignHousekeeperTask(), "Different type to AlarmsUnassignHousekeeperTask");
@@ -300,6 +328,10 @@ class AlarmsUnassignHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmsUnassignHousekeeperTask.<init>()", "List AlarmsUnassignHousekeeperTask.getAlarms()",
+      "String AlarmsUnassignHousekeeperTask.getUserTitle()", "void AlarmsUnassignHousekeeperTask.setAlarms(List)",
+      "void AlarmsUnassignHousekeeperTask.setUserTitle(String)", "String AlarmsUnassignHousekeeperTask.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     AlarmsUnassignHousekeeperTask actualAlarmsUnassignHousekeeperTask = new AlarmsUnassignHousekeeperTask();
@@ -309,66 +341,32 @@ class AlarmsUnassignHousekeeperTaskDiffblueTest {
     String actualToStringResult = actualAlarmsUnassignHousekeeperTask.toString();
     List<UUID> actualAlarms = actualAlarmsUnassignHousekeeperTask.getAlarms();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "AlarmsUnassignHousekeeperTask(super=HousekeeperTask(tenantId=null, entityId=null, taskType=null, ts=0),"
             + " userTitle=Dr, alarms=[])",
         actualToStringResult);
     assertEquals("Dr", actualAlarmsUnassignHousekeeperTask.getUserTitle());
+    assertNull(actualAlarmsUnassignHousekeeperTask.getTaskType());
+    assertNull(actualAlarmsUnassignHousekeeperTask.getEntityId());
+    assertNull(actualAlarmsUnassignHousekeeperTask.getTenantId());
     assertEquals(0L, actualAlarmsUnassignHousekeeperTask.getTs());
     assertTrue(actualAlarms.isEmpty());
     assertSame(alarms, actualAlarms);
   }
 
   /**
-   * Test
-   * {@link AlarmsUnassignHousekeeperTask#AlarmsUnassignHousekeeperTask(User)}.
-   * <p>
-   * Method under test:
-   * {@link AlarmsUnassignHousekeeperTask#AlarmsUnassignHousekeeperTask(User)}
-   */
-  @Test
-  @DisplayName("Test new AlarmsUnassignHousekeeperTask(User)")
-  void testNewAlarmsUnassignHousekeeperTask() {
-    // Arrange
-    User user = mock(User.class);
-    when(user.getTitle()).thenReturn("Dr");
-    when(user.getTenantId()).thenReturn(TenantId.SYS_TENANT_ID);
-    UserId userId = new UserId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    when(user.getId()).thenReturn(userId);
-
-    // Act
-    AlarmsUnassignHousekeeperTask actualAlarmsUnassignHousekeeperTask = new AlarmsUnassignHousekeeperTask(user);
-
-    // Assert
-    verify(user).getId();
-    verify(user).getTenantId();
-    verify(user).getTitle();
-    TenantId tenantId = actualAlarmsUnassignHousekeeperTask.getTenantId();
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", tenantId.getId().toString());
-    assertEquals("Dr", actualAlarmsUnassignHousekeeperTask.getUserTitle());
-    assertEquals("alarms unassigning for user 784f394c-42b6-435a-983c-b7beff2784f9",
-        actualAlarmsUnassignHousekeeperTask.getDescription());
-    assertNull(actualAlarmsUnassignHousekeeperTask.getAlarms());
-    assertEquals(EntityType.TENANT, tenantId.getEntityType());
-    assertEquals(HousekeeperTaskType.UNASSIGN_ALARMS, actualAlarmsUnassignHousekeeperTask.getTaskType());
-    assertTrue(tenantId.isNullUid());
-    assertTrue(tenantId.isSysTenantId());
-    assertSame(userId, actualAlarmsUnassignHousekeeperTask.getEntityId());
-  }
-
-  /**
-   * Test
-   * {@link AlarmsUnassignHousekeeperTask#AlarmsUnassignHousekeeperTask(TenantId, UserId, String, List)}.
+   * Test {@link AlarmsUnassignHousekeeperTask#AlarmsUnassignHousekeeperTask(TenantId, UserId, String, List)}.
    * <ul>
    *   <li>Then return Alarms is {@link ArrayList#ArrayList()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmsUnassignHousekeeperTask#AlarmsUnassignHousekeeperTask(TenantId, UserId, String, List)}
+   * Method under test: {@link AlarmsUnassignHousekeeperTask#AlarmsUnassignHousekeeperTask(TenantId, UserId, String, List)}
    */
   @Test
   @DisplayName("Test new AlarmsUnassignHousekeeperTask(TenantId, UserId, String, List); then return Alarms is ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmsUnassignHousekeeperTask.<init>(TenantId, UserId, String, List)"})
   void testNewAlarmsUnassignHousekeeperTask_thenReturnAlarmsIsArrayList() {
     // Arrange
     UserId userId = new UserId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -387,17 +385,17 @@ class AlarmsUnassignHousekeeperTaskDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AlarmsUnassignHousekeeperTask#AlarmsUnassignHousekeeperTask(TenantId, UserId, String, List)}.
+   * Test {@link AlarmsUnassignHousekeeperTask#AlarmsUnassignHousekeeperTask(TenantId, UserId, String, List)}.
    * <ul>
    *   <li>Then return Alarms size is two.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmsUnassignHousekeeperTask#AlarmsUnassignHousekeeperTask(TenantId, UserId, String, List)}
+   * Method under test: {@link AlarmsUnassignHousekeeperTask#AlarmsUnassignHousekeeperTask(TenantId, UserId, String, List)}
    */
   @Test
   @DisplayName("Test new AlarmsUnassignHousekeeperTask(TenantId, UserId, String, List); then return Alarms size is two")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmsUnassignHousekeeperTask.<init>(TenantId, UserId, String, List)"})
   void testNewAlarmsUnassignHousekeeperTask_thenReturnAlarmsSizeIsTwo() {
     // Arrange
     UserId userId = new UserId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -424,17 +422,17 @@ class AlarmsUnassignHousekeeperTaskDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AlarmsUnassignHousekeeperTask#AlarmsUnassignHousekeeperTask(TenantId, UserId, String, List)}.
+   * Test {@link AlarmsUnassignHousekeeperTask#AlarmsUnassignHousekeeperTask(TenantId, UserId, String, List)}.
    * <ul>
    *   <li>Then return UserTitle is {@code Dr}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmsUnassignHousekeeperTask#AlarmsUnassignHousekeeperTask(TenantId, UserId, String, List)}
+   * Method under test: {@link AlarmsUnassignHousekeeperTask#AlarmsUnassignHousekeeperTask(TenantId, UserId, String, List)}
    */
   @Test
   @DisplayName("Test new AlarmsUnassignHousekeeperTask(TenantId, UserId, String, List); then return UserTitle is 'Dr'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmsUnassignHousekeeperTask.<init>(TenantId, UserId, String, List)"})
   void testNewAlarmsUnassignHousekeeperTask_thenReturnUserTitleIsDr() {
     // Arrange
     TenantId tenantId = TenantId.SYS_TENANT_ID;
@@ -462,6 +460,8 @@ class AlarmsUnassignHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test getDescription()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String AlarmsUnassignHousekeeperTask.getDescription()"})
   void testGetDescription() {
     // Arrange
     AlarmsUnassignHousekeeperTask alarmsUnassignHousekeeperTask = new AlarmsUnassignHousekeeperTask();
@@ -480,6 +480,8 @@ class AlarmsUnassignHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test getDescription()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String AlarmsUnassignHousekeeperTask.getDescription()"})
   void testGetDescription2() {
     // Arrange
     AlarmsUnassignHousekeeperTask alarmsUnassignHousekeeperTask = new AlarmsUnassignHousekeeperTask();

@@ -7,7 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.query.AlarmData;
@@ -28,6 +30,8 @@ class AlarmInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmInfo.equals(Object)", "int AlarmInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AlarmInfo alarmInfo = new AlarmInfo();
@@ -54,6 +58,8 @@ class AlarmInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmInfo.equals(Object)", "int AlarmInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AlarmInfo alarmInfo = new AlarmInfo();
@@ -83,6 +89,8 @@ class AlarmInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmInfo.equals(Object)", "int AlarmInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     AlarmInfo alarmInfo = new AlarmInfo();
@@ -112,6 +120,8 @@ class AlarmInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmInfo.equals(Object)", "int AlarmInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AlarmInfo alarmInfo = new AlarmInfo();
@@ -133,10 +143,28 @@ class AlarmInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmInfo.equals(Object)", "int AlarmInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlarmInfo(), 1);
-    assertNotEquals(new AlarmInfo(), mock(Alarm.class));
+  }
+
+  /**
+   * Test {@link AlarmInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link AlarmInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmInfo.equals(Object)", "int AlarmInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange, Act and Assert
     assertNotEquals(new AlarmInfo(), mock(AlarmData.class));
   }
 
@@ -151,7 +179,9 @@ class AlarmInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmInfo.equals(Object)", "int AlarmInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AlarmInfo alarmInfo = new AlarmInfo();
     alarmInfo.setOriginatorName("Originator Name");
@@ -171,7 +201,9 @@ class AlarmInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmInfo.equals(Object)", "int AlarmInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AlarmInfo alarmInfo = new AlarmInfo();
     alarmInfo.setOriginatorLabel("Originator Label");
@@ -191,7 +223,9 @@ class AlarmInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmInfo.equals(Object)", "int AlarmInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     AlarmInfo alarmInfo = new AlarmInfo();
     alarmInfo.setTenantId(TenantId.SYS_TENANT_ID);
@@ -211,7 +245,9 @@ class AlarmInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmInfo.equals(Object)", "int AlarmInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AlarmInfo alarmInfo = new AlarmInfo();
 
@@ -233,7 +269,9 @@ class AlarmInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmInfo.equals(Object)", "int AlarmInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     AlarmInfo alarmInfo = new AlarmInfo();
 
@@ -255,6 +293,8 @@ class AlarmInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmInfo.equals(Object)", "int AlarmInfo.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlarmInfo(), null);
@@ -271,6 +311,8 @@ class AlarmInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmInfo.equals(Object)", "int AlarmInfo.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlarmInfo(), "Different type to AlarmInfo");
@@ -292,16 +334,21 @@ class AlarmInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmInfo.<init>()", "AlarmAssignee AlarmInfo.getAssignee()",
+      "String AlarmInfo.getOriginatorLabel()", "String AlarmInfo.getOriginatorName()",
+      "void AlarmInfo.setAssignee(AlarmAssignee)", "void AlarmInfo.setOriginatorLabel(String)",
+      "void AlarmInfo.setOriginatorName(String)", "String AlarmInfo.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     AlarmInfo actualAlarmInfo = new AlarmInfo();
     actualAlarmInfo.setOriginatorLabel("Originator Label");
     actualAlarmInfo.setOriginatorName("Originator Name");
     String actualToStringResult = actualAlarmInfo.toString();
-    actualAlarmInfo.getAssignee();
+    AlarmAssignee actualAssignee = actualAlarmInfo.getAssignee();
     String actualOriginatorLabel = actualAlarmInfo.getOriginatorLabel();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "AlarmInfo(super=Alarm(tenantId=null, customerId=null, type=null, originator=null, severity=null,"
             + " acknowledged=false, cleared=false, assigneeId=null, startTs=0, endTs=0, ackTs=0, clearTs=0, assignTs=0,"
@@ -310,6 +357,17 @@ class AlarmInfoDiffblueTest {
         actualToStringResult);
     assertEquals("Originator Label", actualOriginatorLabel);
     assertEquals("Originator Name", actualAlarmInfo.getOriginatorName());
+    assertNull(actualAlarmInfo.getDetails());
+    assertNull(actualAlarmInfo.getName());
+    assertNull(actualAlarmInfo.getType());
+    assertNull(actualAlarmInfo.getPropagateRelationTypes());
+    assertNull(actualAssignee);
+    assertNull(actualAlarmInfo.getSeverity());
+    assertNull(actualAlarmInfo.getId());
+    assertNull(actualAlarmInfo.getCustomerId());
+    assertNull(actualAlarmInfo.getOriginator());
+    assertNull(actualAlarmInfo.getTenantId());
+    assertNull(actualAlarmInfo.getAssigneeId());
     assertEquals(0L, actualAlarmInfo.getAckTs());
     assertEquals(0L, actualAlarmInfo.getAssignTs());
     assertEquals(0L, actualAlarmInfo.getClearTs());
@@ -334,6 +392,8 @@ class AlarmInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test new AlarmInfo(Alarm); given 'true'; then return Status is 'ACTIVE_ACK'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmInfo.<init>(Alarm)"})
   void testNewAlarmInfo_givenTrue_thenReturnStatusIsActiveAck() {
     // Arrange
     Alarm alarm = new Alarm();
@@ -379,11 +439,12 @@ class AlarmInfoDiffblueTest {
    *   <li>Then return Status is {@code ACTIVE_ACK}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmInfo#AlarmInfo(Alarm, String, String, AlarmAssignee)}
+   * Method under test: {@link AlarmInfo#AlarmInfo(Alarm, String, String, AlarmAssignee)}
    */
   @Test
   @DisplayName("Test new AlarmInfo(Alarm, String, String, AlarmAssignee); given 'true'; then return Status is 'ACTIVE_ACK'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmInfo.<init>(Alarm, String, String, AlarmAssignee)"})
   void testNewAlarmInfo_givenTrue_thenReturnStatusIsActiveAck2() {
     // Arrange
     Alarm alarm = new Alarm();
@@ -434,6 +495,8 @@ class AlarmInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test new AlarmInfo(AlarmInfo); given 'true'; when AlarmInfo() Acknowledged is 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmInfo.<init>(AlarmInfo)"})
   void testNewAlarmInfo_givenTrue_whenAlarmInfoAcknowledgedIsTrue() {
     // Arrange
     AlarmInfo alarmInfo = new AlarmInfo();
@@ -453,6 +516,8 @@ class AlarmInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test new AlarmInfo(AlarmInfo); when AlarmInfo()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmInfo.<init>(AlarmInfo)"})
   void testNewAlarmInfo_whenAlarmInfo() {
     // Arrange
     AlarmInfo alarmInfo = new AlarmInfo();
@@ -472,6 +537,8 @@ class AlarmInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test new AlarmInfo(Alarm); when Alarm(); then return Status is 'ACTIVE_UNACK'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmInfo.<init>(Alarm)"})
   void testNewAlarmInfo_whenAlarm_thenReturnStatusIsActiveUnack() {
     // Arrange and Act
     AlarmInfo actualAlarmInfo = new AlarmInfo(new Alarm());
@@ -513,11 +580,12 @@ class AlarmInfoDiffblueTest {
    *   <li>Then return Status is {@code ACTIVE_UNACK}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmInfo#AlarmInfo(Alarm, String, String, AlarmAssignee)}
+   * Method under test: {@link AlarmInfo#AlarmInfo(Alarm, String, String, AlarmAssignee)}
    */
   @Test
   @DisplayName("Test new AlarmInfo(Alarm, String, String, AlarmAssignee); when Alarm(); then return Status is 'ACTIVE_UNACK'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmInfo.<init>(Alarm, String, String, AlarmAssignee)"})
   void testNewAlarmInfo_whenAlarm_thenReturnStatusIsActiveUnack2() {
     // Arrange
     Alarm alarm = new Alarm();

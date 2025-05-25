@@ -3,14 +3,15 @@ package org.thingsboard.server.dao.model.sqlts.latest;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertSame;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.Test;
-import org.thingsboard.server.dao.model.ModelConstants;
+import org.junit.experimental.categories.Category;
 
 public class TsKvLatestCompositeKeyDiffblueTest {
   /**
-   * Test {@link TsKvLatestCompositeKey#equals(Object)}, and
-   * {@link TsKvLatestCompositeKey#hashCode()}.
+   * Test {@link TsKvLatestCompositeKey#equals(Object)}, and {@link TsKvLatestCompositeKey#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -23,6 +24,8 @@ public class TsKvLatestCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsKvLatestCompositeKey.equals(Object)", "int TsKvLatestCompositeKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TsKvLatestCompositeKey tsKvLatestCompositeKey = new TsKvLatestCompositeKey();
@@ -35,8 +38,7 @@ public class TsKvLatestCompositeKeyDiffblueTest {
   }
 
   /**
-   * Test {@link TsKvLatestCompositeKey#equals(Object)}, and
-   * {@link TsKvLatestCompositeKey#hashCode()}.
+   * Test {@link TsKvLatestCompositeKey#equals(Object)}, and {@link TsKvLatestCompositeKey#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -49,10 +51,14 @@ public class TsKvLatestCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsKvLatestCompositeKey.equals(Object)", "int TsKvLatestCompositeKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    TsKvLatestCompositeKey tsKvLatestCompositeKey = new TsKvLatestCompositeKey(ModelConstants.NULL_UUID, 1);
-    TsKvLatestCompositeKey tsKvLatestCompositeKey2 = new TsKvLatestCompositeKey(ModelConstants.NULL_UUID, 1);
+    TsKvLatestCompositeKey tsKvLatestCompositeKey = new TsKvLatestCompositeKey(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1);
+    TsKvLatestCompositeKey tsKvLatestCompositeKey2 = new TsKvLatestCompositeKey(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1);
 
     // Act and Assert
     assertEquals(tsKvLatestCompositeKey, tsKvLatestCompositeKey2);
@@ -61,8 +67,7 @@ public class TsKvLatestCompositeKeyDiffblueTest {
   }
 
   /**
-   * Test {@link TsKvLatestCompositeKey#equals(Object)}, and
-   * {@link TsKvLatestCompositeKey#hashCode()}.
+   * Test {@link TsKvLatestCompositeKey#equals(Object)}, and {@link TsKvLatestCompositeKey#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -75,6 +80,8 @@ public class TsKvLatestCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsKvLatestCompositeKey.equals(Object)", "int TsKvLatestCompositeKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TsKvLatestCompositeKey tsKvLatestCompositeKey = new TsKvLatestCompositeKey();
@@ -95,9 +102,12 @@ public class TsKvLatestCompositeKeyDiffblueTest {
    * Method under test: {@link TsKvLatestCompositeKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsKvLatestCompositeKey.equals(Object)", "int TsKvLatestCompositeKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    TsKvLatestCompositeKey tsKvLatestCompositeKey = new TsKvLatestCompositeKey(ModelConstants.NULL_UUID, 1);
+    TsKvLatestCompositeKey tsKvLatestCompositeKey = new TsKvLatestCompositeKey(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1);
 
     // Act and Assert
     assertNotEquals(tsKvLatestCompositeKey, new TsKvLatestCompositeKey());
@@ -113,10 +123,12 @@ public class TsKvLatestCompositeKeyDiffblueTest {
    * Method under test: {@link TsKvLatestCompositeKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsKvLatestCompositeKey.equals(Object)", "int TsKvLatestCompositeKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TsKvLatestCompositeKey tsKvLatestCompositeKey = new TsKvLatestCompositeKey();
-    tsKvLatestCompositeKey.setEntityId(ModelConstants.NULL_UUID);
+    tsKvLatestCompositeKey.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(tsKvLatestCompositeKey, new TsKvLatestCompositeKey());
@@ -132,12 +144,14 @@ public class TsKvLatestCompositeKeyDiffblueTest {
    * Method under test: {@link TsKvLatestCompositeKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsKvLatestCompositeKey.equals(Object)", "int TsKvLatestCompositeKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TsKvLatestCompositeKey tsKvLatestCompositeKey = new TsKvLatestCompositeKey();
 
     TsKvLatestCompositeKey tsKvLatestCompositeKey2 = new TsKvLatestCompositeKey();
-    tsKvLatestCompositeKey2.setEntityId(ModelConstants.NULL_UUID);
+    tsKvLatestCompositeKey2.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(tsKvLatestCompositeKey, tsKvLatestCompositeKey2);
@@ -153,6 +167,8 @@ public class TsKvLatestCompositeKeyDiffblueTest {
    * Method under test: {@link TsKvLatestCompositeKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsKvLatestCompositeKey.equals(Object)", "int TsKvLatestCompositeKey.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TsKvLatestCompositeKey(), null);
@@ -168,6 +184,8 @@ public class TsKvLatestCompositeKeyDiffblueTest {
    * Method under test: {@link TsKvLatestCompositeKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsKvLatestCompositeKey.equals(Object)", "int TsKvLatestCompositeKey.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TsKvLatestCompositeKey(), "Different type to TsKvLatestCompositeKey");
@@ -187,19 +205,24 @@ public class TsKvLatestCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void TsKvLatestCompositeKey.<init>()", "void TsKvLatestCompositeKey.<init>(UUID, int)",
+      "UUID TsKvLatestCompositeKey.getEntityId()", "int TsKvLatestCompositeKey.getKey()",
+      "void TsKvLatestCompositeKey.setEntityId(UUID)", "void TsKvLatestCompositeKey.setKey(int)",
+      "String TsKvLatestCompositeKey.toString()"})
   public void testGettersAndSetters() {
     // Arrange and Act
     TsKvLatestCompositeKey actualTsKvLatestCompositeKey = new TsKvLatestCompositeKey();
-    UUID entityId = ModelConstants.NULL_UUID;
+    UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     actualTsKvLatestCompositeKey.setEntityId(entityId);
     actualTsKvLatestCompositeKey.setKey(1);
     String actualToStringResult = actualTsKvLatestCompositeKey.toString();
     UUID actualEntityId = actualTsKvLatestCompositeKey.getEntityId();
     int actualKey = actualTsKvLatestCompositeKey.getKey();
 
-    // Assert that nothing has changed
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualEntityId.toString());
-    assertEquals("TsKvLatestCompositeKey(entityId=13814000-1dd2-11b2-8080-808080808080, key=1)", actualToStringResult);
+    // Assert
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualEntityId.toString());
+    assertEquals("TsKvLatestCompositeKey(entityId=784f394c-42b6-435a-983c-b7beff2784f9, key=1)", actualToStringResult);
     assertEquals(1, actualKey);
     assertSame(entityId, actualEntityId);
   }
@@ -207,7 +230,7 @@ public class TsKvLatestCompositeKeyDiffblueTest {
   /**
    * Test getters and setters.
    * <ul>
-   *   <li>When {@link ModelConstants#NULL_UUID}.</li>
+   *   <li>When fromString {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
    * </ul>
    * <p>
    * Methods under test:
@@ -221,19 +244,25 @@ public class TsKvLatestCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_whenNull_uuid() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void TsKvLatestCompositeKey.<init>()", "void TsKvLatestCompositeKey.<init>(UUID, int)",
+      "UUID TsKvLatestCompositeKey.getEntityId()", "int TsKvLatestCompositeKey.getKey()",
+      "void TsKvLatestCompositeKey.setEntityId(UUID)", "void TsKvLatestCompositeKey.setKey(int)",
+      "String TsKvLatestCompositeKey.toString()"})
+  public void testGettersAndSetters_whenFromString784f394c42b6435a983cB7beff2784f9() {
     // Arrange and Act
-    TsKvLatestCompositeKey actualTsKvLatestCompositeKey = new TsKvLatestCompositeKey(ModelConstants.NULL_UUID, 1);
-    UUID entityId = ModelConstants.NULL_UUID;
+    TsKvLatestCompositeKey actualTsKvLatestCompositeKey = new TsKvLatestCompositeKey(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1);
+    UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     actualTsKvLatestCompositeKey.setEntityId(entityId);
     actualTsKvLatestCompositeKey.setKey(1);
     String actualToStringResult = actualTsKvLatestCompositeKey.toString();
     UUID actualEntityId = actualTsKvLatestCompositeKey.getEntityId();
     int actualKey = actualTsKvLatestCompositeKey.getKey();
 
-    // Assert that nothing has changed
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualEntityId.toString());
-    assertEquals("TsKvLatestCompositeKey(entityId=13814000-1dd2-11b2-8080-808080808080, key=1)", actualToStringResult);
+    // Assert
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualEntityId.toString());
+    assertEquals("TsKvLatestCompositeKey(entityId=784f394c-42b6-435a-983c-b7beff2784f9, key=1)", actualToStringResult);
     assertEquals(1, actualKey);
     assertSame(entityId, actualEntityId);
   }

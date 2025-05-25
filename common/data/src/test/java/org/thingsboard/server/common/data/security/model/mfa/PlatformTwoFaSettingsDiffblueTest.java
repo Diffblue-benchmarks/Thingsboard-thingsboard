@@ -8,10 +8,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.security.model.mfa.provider.TwoFaProviderConfig;
 import org.thingsboard.server.common.data.security.model.mfa.provider.TwoFaProviderType;
@@ -24,11 +26,12 @@ class PlatformTwoFaSettingsDiffblueTest {
    *   <li>Then return not Present.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link PlatformTwoFaSettings#getProviderConfig(TwoFaProviderType)}
+   * Method under test: {@link PlatformTwoFaSettings#getProviderConfig(TwoFaProviderType)}
    */
   @Test
   @DisplayName("Test getProviderConfig(TwoFaProviderType); given PlatformTwoFaSettings (default constructor); then return not Present")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Optional PlatformTwoFaSettings.getProviderConfig(TwoFaProviderType)"})
   void testGetProviderConfig_givenPlatformTwoFaSettings_thenReturnNotPresent() {
     // Arrange, Act and Assert
     assertFalse((new PlatformTwoFaSettings()).getProviderConfig(TwoFaProviderType.TOTP).isPresent());
@@ -40,11 +43,12 @@ class PlatformTwoFaSettingsDiffblueTest {
    *   <li>Then return not Present.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link PlatformTwoFaSettings#getProviderConfig(TwoFaProviderType)}
+   * Method under test: {@link PlatformTwoFaSettings#getProviderConfig(TwoFaProviderType)}
    */
   @Test
   @DisplayName("Test getProviderConfig(TwoFaProviderType); then return not Present")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Optional PlatformTwoFaSettings.getProviderConfig(TwoFaProviderType)"})
   void testGetProviderConfig_thenReturnNotPresent() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -64,11 +68,12 @@ class PlatformTwoFaSettingsDiffblueTest {
    *   <li>Then return Present.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link PlatformTwoFaSettings#getProviderConfig(TwoFaProviderType)}
+   * Method under test: {@link PlatformTwoFaSettings#getProviderConfig(TwoFaProviderType)}
    */
   @Test
   @DisplayName("Test getProviderConfig(TwoFaProviderType); then return Present")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Optional PlatformTwoFaSettings.getProviderConfig(TwoFaProviderType)"})
   void testGetProviderConfig_thenReturnPresent() {
     // Arrange
     TwoFaProviderConfig twoFaProviderConfig = mock(TwoFaProviderConfig.class);
@@ -94,8 +99,7 @@ class PlatformTwoFaSettingsDiffblueTest {
   }
 
   /**
-   * Test {@link PlatformTwoFaSettings#equals(Object)}, and
-   * {@link PlatformTwoFaSettings#hashCode()}.
+   * Test {@link PlatformTwoFaSettings#equals(Object)}, and {@link PlatformTwoFaSettings#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -109,6 +113,8 @@ class PlatformTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -132,8 +138,7 @@ class PlatformTwoFaSettingsDiffblueTest {
   }
 
   /**
-   * Test {@link PlatformTwoFaSettings#equals(Object)}, and
-   * {@link PlatformTwoFaSettings#hashCode()}.
+   * Test {@link PlatformTwoFaSettings#equals(Object)}, and {@link PlatformTwoFaSettings#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -147,6 +152,8 @@ class PlatformTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -170,8 +177,7 @@ class PlatformTwoFaSettingsDiffblueTest {
   }
 
   /**
-   * Test {@link PlatformTwoFaSettings#equals(Object)}, and
-   * {@link PlatformTwoFaSettings#hashCode()}.
+   * Test {@link PlatformTwoFaSettings#equals(Object)}, and {@link PlatformTwoFaSettings#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -185,6 +191,8 @@ class PlatformTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -208,8 +216,7 @@ class PlatformTwoFaSettingsDiffblueTest {
   }
 
   /**
-   * Test {@link PlatformTwoFaSettings#equals(Object)}, and
-   * {@link PlatformTwoFaSettings#hashCode()}.
+   * Test {@link PlatformTwoFaSettings#equals(Object)}, and {@link PlatformTwoFaSettings#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -223,6 +230,8 @@ class PlatformTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -246,8 +255,7 @@ class PlatformTwoFaSettingsDiffblueTest {
   }
 
   /**
-   * Test {@link PlatformTwoFaSettings#equals(Object)}, and
-   * {@link PlatformTwoFaSettings#hashCode()}.
+   * Test {@link PlatformTwoFaSettings#equals(Object)}, and {@link PlatformTwoFaSettings#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -261,6 +269,8 @@ class PlatformTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -284,8 +294,7 @@ class PlatformTwoFaSettingsDiffblueTest {
   }
 
   /**
-   * Test {@link PlatformTwoFaSettings#equals(Object)}, and
-   * {@link PlatformTwoFaSettings#hashCode()}.
+   * Test {@link PlatformTwoFaSettings#equals(Object)}, and {@link PlatformTwoFaSettings#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -299,6 +308,8 @@ class PlatformTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -325,6 +336,8 @@ class PlatformTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -356,6 +369,8 @@ class PlatformTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -387,6 +402,8 @@ class PlatformTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -418,6 +435,8 @@ class PlatformTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -449,6 +468,8 @@ class PlatformTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     ArrayList<TwoFaProviderConfig> providers = new ArrayList<>();
@@ -483,6 +504,8 @@ class PlatformTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -514,6 +537,8 @@ class PlatformTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -545,6 +570,8 @@ class PlatformTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -576,6 +603,8 @@ class PlatformTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -608,6 +637,8 @@ class PlatformTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -632,6 +663,8 @@ class PlatformTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -651,15 +684,13 @@ class PlatformTwoFaSettingsDiffblueTest {
    * Methods under test:
    * <ul>
    *   <li>default or parameterless constructor of {@link PlatformTwoFaSettings}
-   *   <li>
-   * {@link PlatformTwoFaSettings#setMaxVerificationFailuresBeforeUserLockout(Integer)}
+   *   <li>{@link PlatformTwoFaSettings#setMaxVerificationFailuresBeforeUserLockout(Integer)}
    *   <li>{@link PlatformTwoFaSettings#setMinVerificationCodeSendPeriod(Integer)}
    *   <li>{@link PlatformTwoFaSettings#setProviders(List)}
    *   <li>{@link PlatformTwoFaSettings#setTotalAllowedTimeForVerification(Integer)}
    *   <li>{@link PlatformTwoFaSettings#setVerificationCodeCheckRateLimit(String)}
    *   <li>{@link PlatformTwoFaSettings#toString()}
-   *   <li>
-   * {@link PlatformTwoFaSettings#getMaxVerificationFailuresBeforeUserLockout()}
+   *   <li>{@link PlatformTwoFaSettings#getMaxVerificationFailuresBeforeUserLockout()}
    *   <li>{@link PlatformTwoFaSettings#getMinVerificationCodeSendPeriod()}
    *   <li>{@link PlatformTwoFaSettings#getProviders()}
    *   <li>{@link PlatformTwoFaSettings#getTotalAllowedTimeForVerification()}
@@ -668,6 +699,18 @@ class PlatformTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PlatformTwoFaSettings.<init>()",
+      "Integer PlatformTwoFaSettings.getMaxVerificationFailuresBeforeUserLockout()",
+      "Integer PlatformTwoFaSettings.getMinVerificationCodeSendPeriod()", "List PlatformTwoFaSettings.getProviders()",
+      "Integer PlatformTwoFaSettings.getTotalAllowedTimeForVerification()",
+      "String PlatformTwoFaSettings.getVerificationCodeCheckRateLimit()",
+      "void PlatformTwoFaSettings.setMaxVerificationFailuresBeforeUserLockout(Integer)",
+      "void PlatformTwoFaSettings.setMinVerificationCodeSendPeriod(Integer)",
+      "void PlatformTwoFaSettings.setProviders(List)",
+      "void PlatformTwoFaSettings.setTotalAllowedTimeForVerification(Integer)",
+      "void PlatformTwoFaSettings.setVerificationCodeCheckRateLimit(String)",
+      "String PlatformTwoFaSettings.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     PlatformTwoFaSettings actualPlatformTwoFaSettings = new PlatformTwoFaSettings();
@@ -684,7 +727,7 @@ class PlatformTwoFaSettingsDiffblueTest {
     List<TwoFaProviderConfig> actualProviders = actualPlatformTwoFaSettings.getProviders();
     Integer actualTotalAllowedTimeForVerification = actualPlatformTwoFaSettings.getTotalAllowedTimeForVerification();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("PlatformTwoFaSettings(providers=[], minVerificationCodeSendPeriod=3, verificationCodeCheckRateLimit"
         + "=Verification Code Check Rate Limit, maxVerificationFailuresBeforeUserLockout=3, totalAllowedTimeFor"
         + "Verification=1)", actualToStringResult);

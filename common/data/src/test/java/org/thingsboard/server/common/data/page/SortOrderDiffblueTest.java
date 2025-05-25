@@ -2,8 +2,11 @@ package org.thingsboard.server.common.data.page;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.thingsboard.server.common.data.page.SortOrder.Direction;
 
 class SortOrderDiffblueTest {
   /**
@@ -21,6 +24,8 @@ class SortOrderDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SortOrder.equals(Object)", "int SortOrder.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     SortOrder sortOrder = SortOrder.BY_CREATED_TIME_DESC;
@@ -47,15 +52,17 @@ class SortOrderDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SortOrder.equals(Object)", "int SortOrder.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    SortOrder ofResult = SortOrder.of("Property", SortOrder.Direction.ASC);
-    SortOrder sortOrder = new SortOrder("Property");
+    SortOrder ofResult = SortOrder.of("Property", Direction.ASC);
+    SortOrder ofResult2 = SortOrder.of("Property", Direction.ASC);
 
     // Act and Assert
-    assertEquals(ofResult, sortOrder);
+    assertEquals(ofResult, ofResult2);
     int expectedHashCodeResult = ofResult.hashCode();
-    assertEquals(expectedHashCodeResult, sortOrder.hashCode());
+    assertEquals(expectedHashCodeResult, ofResult2.hashCode());
   }
 
   /**
@@ -73,6 +80,8 @@ class SortOrderDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SortOrder.equals(Object)", "int SortOrder.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     SortOrder sortOrder = SortOrder.BY_CREATED_TIME_DESC;
@@ -94,11 +103,64 @@ class SortOrderDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SortOrder.equals(Object)", "int SortOrder.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(SortOrder.of("Property", SortOrder.Direction.ASC), SortOrder.BY_CREATED_TIME_DESC);
-    assertNotEquals(SortOrder.of("createdTime", SortOrder.Direction.ASC), SortOrder.BY_CREATED_TIME_DESC);
-    assertNotEquals(SortOrder.of(null, SortOrder.Direction.ASC), SortOrder.BY_CREATED_TIME_DESC);
+    assertNotEquals(SortOrder.of("Property", Direction.ASC), SortOrder.BY_CREATED_TIME_DESC);
+  }
+
+  /**
+   * Test {@link SortOrder#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link SortOrder#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SortOrder.equals(Object)", "int SortOrder.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange, Act and Assert
+    assertNotEquals(SortOrder.of("createdTime", Direction.ASC), SortOrder.BY_CREATED_TIME_DESC);
+  }
+
+  /**
+   * Test {@link SortOrder#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link SortOrder#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SortOrder.equals(Object)", "int SortOrder.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+    // Arrange, Act and Assert
+    assertNotEquals(SortOrder.of(null, Direction.ASC), SortOrder.BY_CREATED_TIME_DESC);
+  }
+
+  /**
+   * Test {@link SortOrder#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link SortOrder#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SortOrder.equals(Object)", "int SortOrder.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+    // Arrange, Act and Assert
     assertNotEquals(SortOrder.of("createdTime", null), SortOrder.BY_CREATED_TIME_DESC);
   }
 
@@ -113,6 +175,8 @@ class SortOrderDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SortOrder.equals(Object)", "int SortOrder.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(SortOrder.BY_CREATED_TIME_DESC, null);
@@ -129,6 +193,8 @@ class SortOrderDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SortOrder.equals(Object)", "int SortOrder.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(SortOrder.BY_CREATED_TIME_DESC, "Different type to SortOrder");
@@ -139,7 +205,7 @@ class SortOrderDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link SortOrder#SortOrder(String, SortOrder.Direction)}
+   *   <li>{@link SortOrder#SortOrder(String, Direction)}
    *   <li>{@link SortOrder#toString()}
    *   <li>{@link SortOrder#getDirection()}
    *   <li>{@link SortOrder#getProperty()}
@@ -147,16 +213,19 @@ class SortOrderDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SortOrder.<init>(String, Direction)", "Direction SortOrder.getDirection()",
+      "String SortOrder.getProperty()", "String SortOrder.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
-    SortOrder actualSortOrder = new SortOrder("Property", SortOrder.Direction.ASC);
+    SortOrder actualSortOrder = new SortOrder("Property", Direction.ASC);
     String actualToStringResult = actualSortOrder.toString();
-    SortOrder.Direction actualDirection = actualSortOrder.getDirection();
+    Direction actualDirection = actualSortOrder.getDirection();
 
     // Assert
     assertEquals("Property", actualSortOrder.getProperty());
     assertEquals("SortOrder(property=Property, direction=ASC)", actualToStringResult);
-    assertEquals(SortOrder.Direction.ASC, actualDirection);
+    assertEquals(Direction.ASC, actualDirection);
   }
 
   /**
@@ -166,28 +235,32 @@ class SortOrderDiffblueTest {
    */
   @Test
   @DisplayName("Test new SortOrder(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SortOrder.<init>(String)"})
   void testNewSortOrder() {
     // Arrange and Act
     SortOrder actualSortOrder = new SortOrder("Property");
 
     // Assert
     assertEquals("Property", actualSortOrder.getProperty());
-    assertEquals(SortOrder.Direction.ASC, actualSortOrder.getDirection());
+    assertEquals(Direction.ASC, actualSortOrder.getDirection());
   }
 
   /**
    * Test {@link SortOrder#of(String, Direction)}.
    * <p>
-   * Method under test: {@link SortOrder#of(String, SortOrder.Direction)}
+   * Method under test: {@link SortOrder#of(String, Direction)}
    */
   @Test
   @DisplayName("Test of(String, Direction)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"SortOrder SortOrder.of(String, Direction)"})
   void testOf() {
     // Arrange and Act
-    SortOrder actualOfResult = SortOrder.of("Property", SortOrder.Direction.ASC);
+    SortOrder actualOfResult = SortOrder.of("Property", Direction.ASC);
 
     // Assert
     assertEquals("Property", actualOfResult.getProperty());
-    assertEquals(SortOrder.Direction.ASC, actualOfResult.getDirection());
+    assertEquals(Direction.ASC, actualOfResult.getDirection());
   }
 }

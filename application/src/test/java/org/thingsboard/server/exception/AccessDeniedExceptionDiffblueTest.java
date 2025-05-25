@@ -3,7 +3,9 @@ package org.thingsboard.server.exception;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +24,12 @@ class AccessDeniedExceptionDiffblueTest {
   /**
    * Test {@link AccessDeniedException#AccessDeniedException(String)}.
    * <p>
-   * Method under test:
-   * {@link AccessDeniedException#AccessDeniedException(String)}
+   * Method under test: {@link AccessDeniedException#AccessDeniedException(String)}
    */
   @Test
   @DisplayName("Test new AccessDeniedException(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AccessDeniedException.<init>(String)"})
   void testNewAccessDeniedException() {
     // Arrange and Act
     AccessDeniedException actualAccessDeniedException = new AccessDeniedException("An error occurred");
@@ -44,6 +47,8 @@ class AccessDeniedExceptionDiffblueTest {
    */
   @Test
   @DisplayName("Test toErrorResponseEntity()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ResponseEntity AccessDeniedException.toErrorResponseEntity()"})
   void testToErrorResponseEntity() {
     // Arrange and Act
     ResponseEntity<String> actualToErrorResponseEntityResult = accessDeniedException.toErrorResponseEntity();

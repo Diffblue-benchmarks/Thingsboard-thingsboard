@@ -2,14 +2,16 @@ package org.thingsboard.server.transport.lwm2m.server;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.eclipse.leshan.core.model.ResourceModel;
+import org.eclipse.leshan.core.model.ResourceModel.Type;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class LwM2mOtaConvertDiffblueTest {
   /**
-   * Test {@link LwM2mOtaConvert#equals(Object)}, and
-   * {@link LwM2mOtaConvert#hashCode()}.
+   * Test {@link LwM2mOtaConvert#equals(Object)}, and {@link LwM2mOtaConvert#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -23,14 +25,16 @@ class LwM2mOtaConvertDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mOtaConvert.equals(Object)", "int LwM2mOtaConvert.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     LwM2mOtaConvert lwM2mOtaConvert = new LwM2mOtaConvert();
-    lwM2mOtaConvert.setCurrentType(ResourceModel.Type.NONE);
+    lwM2mOtaConvert.setCurrentType(Type.NONE);
     lwM2mOtaConvert.setValue("Value");
 
     LwM2mOtaConvert lwM2mOtaConvert2 = new LwM2mOtaConvert();
-    lwM2mOtaConvert2.setCurrentType(ResourceModel.Type.NONE);
+    lwM2mOtaConvert2.setCurrentType(Type.NONE);
     lwM2mOtaConvert2.setValue("Value");
 
     // Act and Assert
@@ -40,8 +44,7 @@ class LwM2mOtaConvertDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2mOtaConvert#equals(Object)}, and
-   * {@link LwM2mOtaConvert#hashCode()}.
+   * Test {@link LwM2mOtaConvert#equals(Object)}, and {@link LwM2mOtaConvert#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -55,6 +58,8 @@ class LwM2mOtaConvertDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mOtaConvert.equals(Object)", "int LwM2mOtaConvert.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     LwM2mOtaConvert lwM2mOtaConvert = new LwM2mOtaConvert();
@@ -72,8 +77,7 @@ class LwM2mOtaConvertDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2mOtaConvert#equals(Object)}, and
-   * {@link LwM2mOtaConvert#hashCode()}.
+   * Test {@link LwM2mOtaConvert#equals(Object)}, and {@link LwM2mOtaConvert#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -87,14 +91,16 @@ class LwM2mOtaConvertDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mOtaConvert.equals(Object)", "int LwM2mOtaConvert.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     LwM2mOtaConvert lwM2mOtaConvert = new LwM2mOtaConvert();
-    lwM2mOtaConvert.setCurrentType(ResourceModel.Type.NONE);
+    lwM2mOtaConvert.setCurrentType(Type.NONE);
     lwM2mOtaConvert.setValue(null);
 
     LwM2mOtaConvert lwM2mOtaConvert2 = new LwM2mOtaConvert();
-    lwM2mOtaConvert2.setCurrentType(ResourceModel.Type.NONE);
+    lwM2mOtaConvert2.setCurrentType(Type.NONE);
     lwM2mOtaConvert2.setValue(null);
 
     // Act and Assert
@@ -104,8 +110,7 @@ class LwM2mOtaConvertDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2mOtaConvert#equals(Object)}, and
-   * {@link LwM2mOtaConvert#hashCode()}.
+   * Test {@link LwM2mOtaConvert#equals(Object)}, and {@link LwM2mOtaConvert#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -119,10 +124,12 @@ class LwM2mOtaConvertDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mOtaConvert.equals(Object)", "int LwM2mOtaConvert.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     LwM2mOtaConvert lwM2mOtaConvert = new LwM2mOtaConvert();
-    lwM2mOtaConvert.setCurrentType(ResourceModel.Type.NONE);
+    lwM2mOtaConvert.setCurrentType(Type.NONE);
     lwM2mOtaConvert.setValue("Value");
 
     // Act and Assert
@@ -142,6 +149,8 @@ class LwM2mOtaConvertDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mOtaConvert.equals(Object)", "int LwM2mOtaConvert.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     LwM2mOtaConvert lwM2mOtaConvert = new LwM2mOtaConvert();
@@ -149,7 +158,7 @@ class LwM2mOtaConvertDiffblueTest {
     lwM2mOtaConvert.setValue("Value");
 
     LwM2mOtaConvert lwM2mOtaConvert2 = new LwM2mOtaConvert();
-    lwM2mOtaConvert2.setCurrentType(ResourceModel.Type.NONE);
+    lwM2mOtaConvert2.setCurrentType(Type.NONE);
     lwM2mOtaConvert2.setValue("Value");
 
     // Act and Assert
@@ -167,14 +176,16 @@ class LwM2mOtaConvertDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mOtaConvert.equals(Object)", "int LwM2mOtaConvert.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     LwM2mOtaConvert lwM2mOtaConvert = new LwM2mOtaConvert();
-    lwM2mOtaConvert.setCurrentType(ResourceModel.Type.STRING);
+    lwM2mOtaConvert.setCurrentType(Type.STRING);
     lwM2mOtaConvert.setValue("Value");
 
     LwM2mOtaConvert lwM2mOtaConvert2 = new LwM2mOtaConvert();
-    lwM2mOtaConvert2.setCurrentType(ResourceModel.Type.NONE);
+    lwM2mOtaConvert2.setCurrentType(Type.NONE);
     lwM2mOtaConvert2.setValue("Value");
 
     // Act and Assert
@@ -192,18 +203,20 @@ class LwM2mOtaConvertDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mOtaConvert.equals(Object)", "int LwM2mOtaConvert.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     LwM2mOtaConvert lwM2mOtaConvert = new LwM2mOtaConvert();
-    lwM2mOtaConvert.setCurrentType(ResourceModel.Type.NONE);
+    lwM2mOtaConvert.setCurrentType(Type.NONE);
     lwM2mOtaConvert.setValue("Value");
 
     LwM2mOtaConvert lwM2mOtaConvert2 = new LwM2mOtaConvert();
-    lwM2mOtaConvert2.setCurrentType(ResourceModel.Type.NONE);
+    lwM2mOtaConvert2.setCurrentType(Type.NONE);
     lwM2mOtaConvert2.setValue(lwM2mOtaConvert);
 
     LwM2mOtaConvert lwM2mOtaConvert3 = new LwM2mOtaConvert();
-    lwM2mOtaConvert3.setCurrentType(ResourceModel.Type.NONE);
+    lwM2mOtaConvert3.setCurrentType(Type.NONE);
     lwM2mOtaConvert3.setValue("Value");
 
     // Act and Assert
@@ -221,14 +234,16 @@ class LwM2mOtaConvertDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mOtaConvert.equals(Object)", "int LwM2mOtaConvert.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     LwM2mOtaConvert lwM2mOtaConvert = new LwM2mOtaConvert();
-    lwM2mOtaConvert.setCurrentType(ResourceModel.Type.NONE);
+    lwM2mOtaConvert.setCurrentType(Type.NONE);
     lwM2mOtaConvert.setValue(null);
 
     LwM2mOtaConvert lwM2mOtaConvert2 = new LwM2mOtaConvert();
-    lwM2mOtaConvert2.setCurrentType(ResourceModel.Type.NONE);
+    lwM2mOtaConvert2.setCurrentType(Type.NONE);
     lwM2mOtaConvert2.setValue("Value");
 
     // Act and Assert
@@ -246,10 +261,12 @@ class LwM2mOtaConvertDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mOtaConvert.equals(Object)", "int LwM2mOtaConvert.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     LwM2mOtaConvert lwM2mOtaConvert = new LwM2mOtaConvert();
-    lwM2mOtaConvert.setCurrentType(ResourceModel.Type.NONE);
+    lwM2mOtaConvert.setCurrentType(Type.NONE);
     lwM2mOtaConvert.setValue("Value");
 
     // Act and Assert
@@ -267,10 +284,12 @@ class LwM2mOtaConvertDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mOtaConvert.equals(Object)", "int LwM2mOtaConvert.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     LwM2mOtaConvert lwM2mOtaConvert = new LwM2mOtaConvert();
-    lwM2mOtaConvert.setCurrentType(ResourceModel.Type.NONE);
+    lwM2mOtaConvert.setCurrentType(Type.NONE);
     lwM2mOtaConvert.setValue("Value");
 
     // Act and Assert
@@ -283,7 +302,7 @@ class LwM2mOtaConvertDiffblueTest {
    * Methods under test:
    * <ul>
    *   <li>default or parameterless constructor of {@link LwM2mOtaConvert}
-   *   <li>{@link LwM2mOtaConvert#setCurrentType(ResourceModel.Type)}
+   *   <li>{@link LwM2mOtaConvert#setCurrentType(Type)}
    *   <li>{@link LwM2mOtaConvert#setValue(Object)}
    *   <li>{@link LwM2mOtaConvert#toString()}
    *   <li>{@link LwM2mOtaConvert#getCurrentType()}
@@ -292,17 +311,21 @@ class LwM2mOtaConvertDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2mOtaConvert.<init>()", "Type LwM2mOtaConvert.getCurrentType()",
+      "Object LwM2mOtaConvert.getValue()", "void LwM2mOtaConvert.setCurrentType(Type)",
+      "void LwM2mOtaConvert.setValue(Object)", "String LwM2mOtaConvert.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     LwM2mOtaConvert actualLwM2mOtaConvert = new LwM2mOtaConvert();
-    actualLwM2mOtaConvert.setCurrentType(ResourceModel.Type.NONE);
+    actualLwM2mOtaConvert.setCurrentType(Type.NONE);
     actualLwM2mOtaConvert.setValue("Value");
     String actualToStringResult = actualLwM2mOtaConvert.toString();
-    ResourceModel.Type actualCurrentType = actualLwM2mOtaConvert.getCurrentType();
+    Type actualCurrentType = actualLwM2mOtaConvert.getCurrentType();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("LwM2mOtaConvert(currentType=NONE, value=Value)", actualToStringResult);
     assertEquals("Value", actualLwM2mOtaConvert.getValue());
-    assertEquals(ResourceModel.Type.NONE, actualCurrentType);
+    assertEquals(Type.NONE, actualCurrentType);
   }
 }

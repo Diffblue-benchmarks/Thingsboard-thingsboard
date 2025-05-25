@@ -3,71 +3,42 @@ package org.thingsboard.server.service.sync.vc.data;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.Mockito.mock;
-import java.util.UUID;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.thingsboard.server.common.data.id.AlarmId;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.thingsboard.server.common.data.id.EntityId;
 import org.thingsboard.server.common.data.id.TenantId;
 
+@ExtendWith(MockitoExtension.class)
 class EntityContentGitRequestDiffblueTest {
+  @Mock
+  private EntityId entityId;
+
+  @InjectMocks
+  private TenantId tenantId;
+
   /**
-   * Test
-   * {@link EntityContentGitRequest#EntityContentGitRequest(TenantId, String, EntityId)}.
-   * <ul>
-   *   <li>When {@link AlarmId}.</li>
-   *   <li>Then return EntityId is {@link AlarmId}.</li>
-   * </ul>
+   * Test {@link EntityContentGitRequest#EntityContentGitRequest(TenantId, String, EntityId)}.
    * <p>
-   * Method under test:
-   * {@link EntityContentGitRequest#EntityContentGitRequest(TenantId, String, EntityId)}
+   * Method under test: {@link EntityContentGitRequest#EntityContentGitRequest(TenantId, String, EntityId)}
    */
   @Test
-  @DisplayName("Test new EntityContentGitRequest(TenantId, String, EntityId); when AlarmId; then return EntityId is AlarmId")
-  void testNewEntityContentGitRequest_whenAlarmId_thenReturnEntityIdIsAlarmId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    TenantId tenantId = new TenantId(UUID.randomUUID());
-    AlarmId entityId = mock(AlarmId.class);
-
-    // Act
+  @DisplayName("Test new EntityContentGitRequest(TenantId, String, EntityId)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityContentGitRequest.<init>(TenantId, String, EntityId)"})
+  void testNewEntityContentGitRequest() {
+    // Arrange and Act
     EntityContentGitRequest actualEntityContentGitRequest = new EntityContentGitRequest(tenantId, "42", entityId);
 
     // Assert
     assertEquals("42", actualEntityContentGitRequest.getVersionId());
     assertNull(actualEntityContentGitRequest.getTimeoutTask());
-    assertSame(tenantId, actualEntityContentGitRequest.getTenantId());
     assertSame(entityId, actualEntityContentGitRequest.getEntityId());
-  }
-
-  /**
-   * Test
-   * {@link EntityContentGitRequest#EntityContentGitRequest(TenantId, String, EntityId)}.
-   * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return EntityId is {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link EntityContentGitRequest#EntityContentGitRequest(TenantId, String, EntityId)}
-   */
-  @Test
-  @DisplayName("Test new EntityContentGitRequest(TenantId, String, EntityId); when 'null'; then return EntityId is 'null'")
-  void testNewEntityContentGitRequest_whenNull_thenReturnEntityIdIsNull() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    TenantId tenantId = new TenantId(UUID.randomUUID());
-
-    // Act
-    EntityContentGitRequest actualEntityContentGitRequest = new EntityContentGitRequest(tenantId, "42", null);
-
-    // Assert
-    assertEquals("42", actualEntityContentGitRequest.getVersionId());
-    assertNull(actualEntityContentGitRequest.getTimeoutTask());
-    assertNull(actualEntityContentGitRequest.getEntityId());
     assertSame(tenantId, actualEntityContentGitRequest.getTenantId());
   }
 }

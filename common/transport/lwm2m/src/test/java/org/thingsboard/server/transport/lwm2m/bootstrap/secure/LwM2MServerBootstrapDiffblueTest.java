@@ -4,8 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.eclipse.leshan.core.SecurityMode;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class LwM2MServerBootstrapDiffblueTest {
@@ -16,6 +18,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test new LwM2MServerBootstrap()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MServerBootstrap.<init>()"})
   void testNewLwM2MServerBootstrap() {
     // Arrange and Act
     LwM2MServerBootstrap actualLwM2MServerBootstrap = new LwM2MServerBootstrap();
@@ -36,14 +40,14 @@ class LwM2MServerBootstrapDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link LwM2MServerBootstrap#LwM2MServerBootstrap(LwM2MServerBootstrap, LwM2MServerBootstrap)}.
+   * Test {@link LwM2MServerBootstrap#LwM2MServerBootstrap(LwM2MServerBootstrap, LwM2MServerBootstrap)}.
    * <p>
-   * Method under test:
-   * {@link LwM2MServerBootstrap#LwM2MServerBootstrap(LwM2MServerBootstrap, LwM2MServerBootstrap)}
+   * Method under test: {@link LwM2MServerBootstrap#LwM2MServerBootstrap(LwM2MServerBootstrap, LwM2MServerBootstrap)}
    */
   @Test
   @DisplayName("Test new LwM2MServerBootstrap(LwM2MServerBootstrap, LwM2MServerBootstrap)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MServerBootstrap.<init>(LwM2MServerBootstrap, LwM2MServerBootstrap)"})
   void testNewLwM2MServerBootstrap2() {
     // Arrange
     LwM2MServerBootstrap bootstrapFromCredential = new LwM2MServerBootstrap();
@@ -56,17 +60,17 @@ class LwM2MServerBootstrapDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link LwM2MServerBootstrap#LwM2MServerBootstrap(LwM2MServerBootstrap, LwM2MServerBootstrap)}.
+   * Test {@link LwM2MServerBootstrap#LwM2MServerBootstrap(LwM2MServerBootstrap, LwM2MServerBootstrap)}.
    * <ul>
    *   <li>Then return ClientPublicKeyOrId is empty string.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link LwM2MServerBootstrap#LwM2MServerBootstrap(LwM2MServerBootstrap, LwM2MServerBootstrap)}
+   * Method under test: {@link LwM2MServerBootstrap#LwM2MServerBootstrap(LwM2MServerBootstrap, LwM2MServerBootstrap)}
    */
   @Test
   @DisplayName("Test new LwM2MServerBootstrap(LwM2MServerBootstrap, LwM2MServerBootstrap); then return ClientPublicKeyOrId is empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MServerBootstrap.<init>(LwM2MServerBootstrap, LwM2MServerBootstrap)"})
   void testNewLwM2MServerBootstrap_thenReturnClientPublicKeyOrIdIsEmptyString() {
     // Arrange
     LwM2MServerBootstrap bootstrapFromCredential = new LwM2MServerBootstrap();
@@ -91,8 +95,7 @@ class LwM2MServerBootstrapDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2MServerBootstrap#equals(Object)}, and
-   * {@link LwM2MServerBootstrap#hashCode()}.
+   * Test {@link LwM2MServerBootstrap#equals(Object)}, and {@link LwM2MServerBootstrap#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -106,6 +109,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     LwM2MServerBootstrap lwM2MServerBootstrap = new LwM2MServerBootstrap();
@@ -118,8 +123,7 @@ class LwM2MServerBootstrapDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2MServerBootstrap#equals(Object)}, and
-   * {@link LwM2MServerBootstrap#hashCode()}.
+   * Test {@link LwM2MServerBootstrap#equals(Object)}, and {@link LwM2MServerBootstrap#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -133,6 +137,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     LwM2MServerBootstrap lwM2MServerBootstrap = new LwM2MServerBootstrap();
@@ -154,6 +160,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     LwM2MServerBootstrap bootstrapFromCredential = new LwM2MServerBootstrap();
@@ -175,6 +183,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     LwM2MServerBootstrap lwM2MServerBootstrap = new LwM2MServerBootstrap();
@@ -195,6 +205,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     LwM2MServerBootstrap lwM2MServerBootstrap = new LwM2MServerBootstrap();
@@ -215,6 +227,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     LwM2MServerBootstrap lwM2MServerBootstrap = new LwM2MServerBootstrap();
@@ -235,6 +249,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     LwM2MServerBootstrap lwM2MServerBootstrap = new LwM2MServerBootstrap();
@@ -255,6 +271,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     LwM2MServerBootstrap lwM2MServerBootstrap = new LwM2MServerBootstrap();
@@ -275,6 +293,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     LwM2MServerBootstrap lwM2MServerBootstrap = new LwM2MServerBootstrap();
@@ -295,6 +315,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     LwM2MServerBootstrap lwM2MServerBootstrap = new LwM2MServerBootstrap();
@@ -315,6 +337,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     LwM2MServerBootstrap lwM2MServerBootstrap = new LwM2MServerBootstrap();
@@ -335,6 +359,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     LwM2MServerBootstrap lwM2MServerBootstrap = new LwM2MServerBootstrap();
@@ -355,6 +381,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     LwM2MServerBootstrap lwM2MServerBootstrap = new LwM2MServerBootstrap();
@@ -375,6 +403,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     LwM2MServerBootstrap lwM2MServerBootstrap = new LwM2MServerBootstrap();
@@ -395,6 +425,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     LwM2MServerBootstrap lwM2MServerBootstrap = new LwM2MServerBootstrap();
@@ -415,6 +447,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     LwM2MServerBootstrap lwM2MServerBootstrap = new LwM2MServerBootstrap();
@@ -435,6 +469,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     LwM2MServerBootstrap lwM2MServerBootstrap = new LwM2MServerBootstrap();
@@ -455,6 +491,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     LwM2MServerBootstrap lwM2MServerBootstrap = new LwM2MServerBootstrap();
@@ -475,6 +513,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     LwM2MServerBootstrap lwM2MServerBootstrap = new LwM2MServerBootstrap();
@@ -495,6 +535,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     LwM2MServerBootstrap lwM2MServerBootstrap = new LwM2MServerBootstrap();
@@ -515,6 +557,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     LwM2MServerBootstrap lwM2MServerBootstrap = new LwM2MServerBootstrap();
@@ -535,6 +579,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     LwM2MServerBootstrap lwM2MServerBootstrap = new LwM2MServerBootstrap();
@@ -555,6 +601,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new LwM2MServerBootstrap(), null);
@@ -571,6 +619,8 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MServerBootstrap.equals(Object)", "int LwM2MServerBootstrap.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new LwM2MServerBootstrap(), "Different type to LwM2MServerBootstrap");
@@ -610,6 +660,23 @@ class LwM2MServerBootstrapDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Integer LwM2MServerBootstrap.getBootstrapServerAccountTimeout()",
+      "Integer LwM2MServerBootstrap.getClientHoldOffTime()", "String LwM2MServerBootstrap.getClientPublicKeyOrId()",
+      "String LwM2MServerBootstrap.getClientSecretKey()", "String LwM2MServerBootstrap.getHost()",
+      "Integer LwM2MServerBootstrap.getPort()", "String LwM2MServerBootstrap.getSecurityHost()",
+      "SecurityMode LwM2MServerBootstrap.getSecurityMode()", "Integer LwM2MServerBootstrap.getSecurityPort()",
+      "Integer LwM2MServerBootstrap.getServerId()", "String LwM2MServerBootstrap.getServerPublicKey()",
+      "boolean LwM2MServerBootstrap.isBootstrapServerIs()",
+      "void LwM2MServerBootstrap.setBootstrapServerAccountTimeout(Integer)",
+      "void LwM2MServerBootstrap.setBootstrapServerIs(boolean)",
+      "void LwM2MServerBootstrap.setClientHoldOffTime(Integer)",
+      "void LwM2MServerBootstrap.setClientPublicKeyOrId(String)",
+      "void LwM2MServerBootstrap.setClientSecretKey(String)", "void LwM2MServerBootstrap.setHost(String)",
+      "void LwM2MServerBootstrap.setPort(Integer)", "void LwM2MServerBootstrap.setSecurityHost(String)",
+      "void LwM2MServerBootstrap.setSecurityMode(SecurityMode)", "void LwM2MServerBootstrap.setSecurityPort(Integer)",
+      "void LwM2MServerBootstrap.setServerId(Integer)", "void LwM2MServerBootstrap.setServerPublicKey(String)",
+      "String LwM2MServerBootstrap.toString()"})
   void testGettersAndSetters() {
     // Arrange
     LwM2MServerBootstrap lwM2MServerBootstrap = new LwM2MServerBootstrap();
@@ -641,7 +708,7 @@ class LwM2MServerBootstrapDiffblueTest {
     String actualServerPublicKey = lwM2MServerBootstrap.getServerPublicKey();
     boolean actualIsBootstrapServerIsResult = lwM2MServerBootstrap.isBootstrapServerIs();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("42", actualClientPublicKeyOrId);
     assertEquals("EXAMPLEKEYwjalrXUtnFEMI/K7MDENG/bPxRfiCY", actualClientSecretKey);
     assertEquals(

@@ -1,120 +1,232 @@
 package org.thingsboard.server.service.sync.ie.exporting.impl;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
+import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.anyBoolean;
+import static org.mockito.Mockito.atLeast;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-import com.fasterxml.jackson.databind.node.MissingNode;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import java.util.ArrayList;
 import java.util.UUID;
-import java.util.regex.Pattern;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.thingsboard.server.common.data.ExportableEntity;
-import org.thingsboard.server.common.data.TbResource;
-import org.thingsboard.server.common.data.User;
 import org.thingsboard.server.common.data.asset.Asset;
 import org.thingsboard.server.common.data.exception.ThingsboardException;
 import org.thingsboard.server.common.data.id.CustomerId;
+import org.thingsboard.server.common.data.id.EntityId;
 import org.thingsboard.server.common.data.id.TenantId;
+import org.thingsboard.server.common.data.relation.EntityRelation;
+import org.thingsboard.server.common.data.relation.RelationTypeGroup;
 import org.thingsboard.server.common.data.sync.ie.EntityExportData;
 import org.thingsboard.server.common.data.sync.ie.EntityExportSettings;
-import org.thingsboard.server.common.data.sync.vc.request.create.ComplexVersionCreateRequest;
-import org.thingsboard.server.service.sync.ie.importing.impl.DashboardImportService;
-import org.thingsboard.server.service.sync.vc.data.CommitGitRequest;
-import org.thingsboard.server.service.sync.vc.data.ComplexEntitiesExportCtx;
+import org.thingsboard.server.common.data.sync.ie.EntityExportSettings.EntityExportSettingsBuilder;
+import org.thingsboard.server.dao.relation.RelationDao;
+import org.thingsboard.server.service.sync.ie.exporting.ExportableEntitiesService;
 import org.thingsboard.server.service.sync.vc.data.EntitiesExportCtx;
 
+@ExtendWith(MockitoExtension.class)
 class BaseEntityExportServiceDiffblueTest {
+  @InjectMocks
+  private AssetExportService assetExportService;
+
+  @Mock
+  private ExportableEntitiesService exportableEntitiesService;
+
+  @Mock
+  private RelationDao relationDao;
+
   /**
-   * Test
-   * {@link BaseEntityExportService#setAdditionalExportData(EntitiesExportCtx, ExportableEntity, EntityExportData)}.
+   * Test {@link BaseEntityExportService#setAdditionalExportData(EntitiesExportCtx, ExportableEntity, EntityExportData)}.
    * <ul>
-   *   <li>Then {@link Asset#Asset()} CustomerId is
-   * {@link CustomerId#CustomerId(UUID)} with id is randomUUID.</li>
+   *   <li>Given {@code null}.</li>
+   *   <li>Then calls {@link EntitiesExportCtx#putExternalId(EntityId, EntityId)}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseEntityExportService#setAdditionalExportData(EntitiesExportCtx, ExportableEntity, EntityExportData)}
+   * Method under test: {@link BaseEntityExportService#setAdditionalExportData(EntitiesExportCtx, ExportableEntity, EntityExportData)}
    */
   @Test
-  @DisplayName("Test setAdditionalExportData(EntitiesExportCtx, ExportableEntity, EntityExportData); then Asset() CustomerId is CustomerId(UUID) with id is randomUUID")
-  void testSetAdditionalExportData_thenAssetCustomerIdIsCustomerIdWithIdIsRandomUUID() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test setAdditionalExportData(EntitiesExportCtx, ExportableEntity, EntityExportData); given 'null'; then calls putExternalId(EntityId, EntityId)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void BaseEntityExportService.setAdditionalExportData(EntitiesExportCtx, ExportableEntity, EntityExportData)"})
+  void testSetAdditionalExportData_givenNull_thenCallsPutExternalId() throws ThingsboardException {
     // Arrange
-    AssetExportService assetExportService = new AssetExportService();
-    EntityExportSettings.EntityExportSettingsBuilder entityExportSettingsBuilder = mock(
-        EntityExportSettings.EntityExportSettingsBuilder.class);
+    when(exportableEntitiesService.getExternalIdByInternal(Mockito.<EntityId>any())).thenReturn(null);
+    when(exportableEntitiesService.getExternalIdByInternal(Mockito.<CustomerId>any()))
+        .thenReturn(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    when(relationDao.findAllByFrom(Mockito.<TenantId>any(), Mockito.<EntityId>any(), Mockito.<RelationTypeGroup>any()))
+        .thenReturn(new ArrayList<>());
+    when(relationDao.findAllByTo(Mockito.<TenantId>any(), Mockito.<EntityId>any(), Mockito.<RelationTypeGroup>any()))
+        .thenReturn(new ArrayList<>());
+    EntityExportSettingsBuilder entityExportSettingsBuilder = mock(EntityExportSettingsBuilder.class);
+    when(entityExportSettingsBuilder.exportAttributes(anyBoolean())).thenReturn(EntityExportSettings.builder());
+    EntityExportSettings buildResult = entityExportSettingsBuilder.exportAttributes(true)
+        .exportCredentials(true)
+        .exportRelations(true)
+        .build();
+    EntitiesExportCtx<?> ctx = mock(EntitiesExportCtx.class);
+    when(ctx.getExternalId(Mockito.<CustomerId>any())).thenReturn(null);
+    doNothing().when(ctx).putExternalId(Mockito.<EntityId>any(), Mockito.<EntityId>any());
+    when(ctx.getTenantId()).thenReturn(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    when(ctx.getSettings()).thenReturn(buildResult);
+
+    Asset asset = new Asset();
+    asset.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    EntityExportData<Asset> entityExportData = new EntityExportData<>();
+
+    // Act
+    assetExportService.setAdditionalExportData(ctx, asset, entityExportData);
+
+    // Assert
+    verify(entityExportSettingsBuilder).exportAttributes(eq(true));
+    verify(relationDao).findAllByFrom(isA(TenantId.class), isNull(), eq(RelationTypeGroup.COMMON));
+    verify(relationDao).findAllByTo(isA(TenantId.class), isNull(), eq(RelationTypeGroup.COMMON));
+    verify(exportableEntitiesService, atLeast(1)).getExternalIdByInternal(isA(CustomerId.class));
+    verify(ctx).getExternalId(isA(CustomerId.class));
+    verify(ctx).getSettings();
+    verify(ctx, atLeast(1)).getTenantId();
+    verify(ctx).putExternalId(isA(EntityId.class), isA(EntityId.class));
+    assertTrue(entityExportData.getRelations().isEmpty());
+    assertTrue(entityExportData.hasRelations());
+  }
+
+  /**
+   * Test {@link BaseEntityExportService#setAdditionalExportData(EntitiesExportCtx, ExportableEntity, EntityExportData)}.
+   * <ul>
+   *   <li>Then {@link EntityExportData} (default constructor) Relations Empty.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link BaseEntityExportService#setAdditionalExportData(EntitiesExportCtx, ExportableEntity, EntityExportData)}
+   */
+  @Test
+  @DisplayName("Test setAdditionalExportData(EntitiesExportCtx, ExportableEntity, EntityExportData); then EntityExportData (default constructor) Relations Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void BaseEntityExportService.setAdditionalExportData(EntitiesExportCtx, ExportableEntity, EntityExportData)"})
+  void testSetAdditionalExportData_thenEntityExportDataRelationsEmpty() throws ThingsboardException {
+    // Arrange
+    when(relationDao.findAllByFrom(Mockito.<TenantId>any(), Mockito.<EntityId>any(), Mockito.<RelationTypeGroup>any()))
+        .thenReturn(new ArrayList<>());
+    when(relationDao.findAllByTo(Mockito.<TenantId>any(), Mockito.<EntityId>any(), Mockito.<RelationTypeGroup>any()))
+        .thenReturn(new ArrayList<>());
+    EntityExportSettingsBuilder entityExportSettingsBuilder = mock(EntityExportSettingsBuilder.class);
+    when(entityExportSettingsBuilder.exportAttributes(anyBoolean())).thenReturn(EntityExportSettings.builder());
+    EntityExportSettings buildResult = entityExportSettingsBuilder.exportAttributes(true)
+        .exportCredentials(true)
+        .exportRelations(true)
+        .build();
+    EntitiesExportCtx<?> ctx = mock(EntitiesExportCtx.class);
+    when(ctx.getTenantId()).thenReturn(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    when(ctx.getSettings()).thenReturn(buildResult);
+    Asset asset = new Asset();
+    EntityExportData<Asset> entityExportData = new EntityExportData<>();
+
+    // Act
+    assetExportService.setAdditionalExportData(ctx, asset, entityExportData);
+
+    // Assert
+    verify(entityExportSettingsBuilder).exportAttributes(eq(true));
+    verify(relationDao).findAllByFrom(isA(TenantId.class), isNull(), eq(RelationTypeGroup.COMMON));
+    verify(relationDao).findAllByTo(isA(TenantId.class), isNull(), eq(RelationTypeGroup.COMMON));
+    verify(ctx).getSettings();
+    verify(ctx, atLeast(1)).getTenantId();
+    assertTrue(entityExportData.getRelations().isEmpty());
+    assertTrue(entityExportData.hasRelations());
+  }
+
+  /**
+   * Test {@link BaseEntityExportService#setAdditionalExportData(EntitiesExportCtx, ExportableEntity, EntityExportData)}.
+   * <ul>
+   *   <li>Then {@link EntityExportData} (default constructor) Relations is {@link ArrayList#ArrayList()}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link BaseEntityExportService#setAdditionalExportData(EntitiesExportCtx, ExportableEntity, EntityExportData)}
+   */
+  @Test
+  @DisplayName("Test setAdditionalExportData(EntitiesExportCtx, ExportableEntity, EntityExportData); then EntityExportData (default constructor) Relations is ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void BaseEntityExportService.setAdditionalExportData(EntitiesExportCtx, ExportableEntity, EntityExportData)"})
+  void testSetAdditionalExportData_thenEntityExportDataRelationsIsArrayList() throws ThingsboardException {
+    // Arrange
+    ArrayList<EntityRelation> entityRelationList = new ArrayList<>();
+    entityRelationList.add(new EntityRelation());
+    when(relationDao.findAllByFrom(Mockito.<TenantId>any(), Mockito.<EntityId>any(), Mockito.<RelationTypeGroup>any()))
+        .thenReturn(entityRelationList);
+    when(relationDao.findAllByTo(Mockito.<TenantId>any(), Mockito.<EntityId>any(), Mockito.<RelationTypeGroup>any()))
+        .thenReturn(new ArrayList<>());
+    EntityExportSettingsBuilder entityExportSettingsBuilder = mock(EntityExportSettingsBuilder.class);
+    when(entityExportSettingsBuilder.exportAttributes(anyBoolean())).thenReturn(EntityExportSettings.builder());
+    EntityExportSettings buildResult = entityExportSettingsBuilder.exportAttributes(true)
+        .exportCredentials(true)
+        .exportRelations(true)
+        .build();
+    EntitiesExportCtx<?> ctx = mock(EntitiesExportCtx.class);
+    when(ctx.getTenantId()).thenReturn(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    when(ctx.getSettings()).thenReturn(buildResult);
+    Asset asset = new Asset();
+    EntityExportData<Asset> entityExportData = new EntityExportData<>();
+
+    // Act
+    assetExportService.setAdditionalExportData(ctx, asset, entityExportData);
+
+    // Assert
+    verify(entityExportSettingsBuilder).exportAttributes(eq(true));
+    verify(relationDao).findAllByFrom(isA(TenantId.class), isNull(), eq(RelationTypeGroup.COMMON));
+    verify(relationDao).findAllByTo(isA(TenantId.class), isNull(), eq(RelationTypeGroup.COMMON));
+    verify(ctx).getSettings();
+    verify(ctx, atLeast(1)).getTenantId();
+    assertEquals(entityRelationList, entityExportData.getRelations());
+  }
+
+  /**
+   * Test {@link BaseEntityExportService#setAdditionalExportData(EntitiesExportCtx, ExportableEntity, EntityExportData)}.
+   * <ul>
+   *   <li>Then not {@link EntityExportData} (default constructor) hasRelations.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link BaseEntityExportService#setAdditionalExportData(EntitiesExportCtx, ExportableEntity, EntityExportData)}
+   */
+  @Test
+  @DisplayName("Test setAdditionalExportData(EntitiesExportCtx, ExportableEntity, EntityExportData); then not EntityExportData (default constructor) hasRelations")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void BaseEntityExportService.setAdditionalExportData(EntitiesExportCtx, ExportableEntity, EntityExportData)"})
+  void testSetAdditionalExportData_thenNotEntityExportDataHasRelations() throws ThingsboardException {
+    // Arrange
+    EntityExportSettingsBuilder entityExportSettingsBuilder = mock(EntityExportSettingsBuilder.class);
     when(entityExportSettingsBuilder.exportAttributes(anyBoolean())).thenReturn(EntityExportSettings.builder());
     EntityExportSettings buildResult = entityExportSettingsBuilder.exportAttributes(true)
         .exportCredentials(true)
         .exportRelations(false)
         .build();
     EntitiesExportCtx<?> ctx = mock(EntitiesExportCtx.class);
-    UUID id = UUID.randomUUID();
-    CustomerId customerId = new CustomerId(id);
-    when(ctx.getExternalId(Mockito.<CustomerId>any())).thenReturn(customerId);
     when(ctx.getSettings()).thenReturn(buildResult);
-
     Asset asset = new Asset();
-    asset.setCustomerId(new CustomerId(null));
+    EntityExportData<Asset> entityExportData = new EntityExportData<>();
 
     // Act
-    assetExportService.setAdditionalExportData(ctx, asset, new EntityExportData<>());
-
-    // Assert
-    verify(entityExportSettingsBuilder).exportAttributes(eq(true));
-    verify(ctx).getExternalId(isA(CustomerId.class));
-    verify(ctx).getSettings();
-    CustomerId customerId2 = asset.getCustomerId();
-    assertSame(customerId, customerId2);
-    assertSame(id, customerId2.getId());
-  }
-
-  /**
-   * Test
-   * {@link BaseEntityExportService#setRelatedEntities(EntitiesExportCtx, ExportableEntity, EntityExportData)}.
-   * <ul>
-   *   <li>Given {@link HashMap#HashMap()}.</li>
-   *   <li>Then calls {@link ComplexVersionCreateRequest#getEntityTypes()}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseEntityExportService#setRelatedEntities(EntitiesExportCtx, ExportableEntity, EntityExportData)}
-   */
-  @Test
-  @DisplayName("Test setRelatedEntities(EntitiesExportCtx, ExportableEntity, EntityExportData); given HashMap(); then calls getEntityTypes()")
-  void testSetRelatedEntities_givenHashMap_thenCallsGetEntityTypes() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    ResourceExportService resourceExportService = new ResourceExportService();
-    ComplexVersionCreateRequest request = mock(ComplexVersionCreateRequest.class);
-    when(request.getEntityTypes()).thenReturn(new HashMap<>());
-    User user = mock(User.class);
-    TenantId tenantId = new TenantId(UUID.randomUUID());
-    ComplexEntitiesExportCtx ctx = new ComplexEntitiesExportCtx(user,
-        new CommitGitRequest(tenantId, new ComplexVersionCreateRequest()), request);
-
-    TbResource tbResource = new TbResource();
-
-    // Act
-    resourceExportService.setRelatedEntities(ctx, tbResource, new EntityExportData<>());
+    assetExportService.setAdditionalExportData(ctx, asset, entityExportData);
 
     // Assert that nothing has changed
-    verify(request).getEntityTypes();
+    verify(entityExportSettingsBuilder).exportAttributes(eq(true));
+    verify(ctx).getSettings();
+    assertFalse(entityExportData.hasRelations());
   }
 
   /**
@@ -124,9 +236,9 @@ class BaseEntityExportServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test newExportData()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityExportData BaseEntityExportService.newExportData()"})
   void testNewExportData() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
     EntityExportData<Asset> actualNewExportDataResult = (new AssetExportService()).newExportData();
 
@@ -138,106 +250,5 @@ class BaseEntityExportServiceDiffblueTest {
     assertFalse(actualNewExportDataResult.hasAttributes());
     assertFalse(actualNewExportDataResult.hasCredentials());
     assertFalse(actualNewExportDataResult.hasRelations());
-  }
-
-  /**
-   * Test
-   * {@link BaseEntityExportService#replaceUuidsRecursively(EntitiesExportCtx, JsonNode, Set, Pattern)}.
-   * <ul>
-   *   <li>When {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is
-   * withExactBigDecimals {@code true}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseEntityExportService#replaceUuidsRecursively(EntitiesExportCtx, JsonNode, Set, Pattern)}
-   */
-  @Test
-  @DisplayName("Test replaceUuidsRecursively(EntitiesExportCtx, JsonNode, Set, Pattern); when ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true'")
-  void testReplaceUuidsRecursively_whenArrayNodeWithNfIsWithExactBigDecimalsTrue() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    AssetExportService assetExportService = new AssetExportService();
-    ComplexVersionCreateRequest request = mock(ComplexVersionCreateRequest.class);
-    when(request.getEntityTypes()).thenReturn(new HashMap<>());
-    User user = mock(User.class);
-    TenantId tenantId = new TenantId(UUID.randomUUID());
-    ComplexEntitiesExportCtx ctx = new ComplexEntitiesExportCtx(user,
-        new CommitGitRequest(tenantId, new ComplexVersionCreateRequest()), request);
-
-    ArrayNode node = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
-
-    // Act
-    assetExportService.replaceUuidsRecursively(ctx, node, new HashSet<>(),
-        DashboardImportService.WIDGET_CONFIG_PROCESSED_FIELDS_PATTERN);
-
-    // Assert that nothing has changed
-    verify(request).getEntityTypes();
-  }
-
-  /**
-   * Test
-   * {@link BaseEntityExportService#replaceUuidsRecursively(EntitiesExportCtx, JsonNode, Set, Pattern)}.
-   * <ul>
-   *   <li>When Instance.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseEntityExportService#replaceUuidsRecursively(EntitiesExportCtx, JsonNode, Set, Pattern)}
-   */
-  @Test
-  @DisplayName("Test replaceUuidsRecursively(EntitiesExportCtx, JsonNode, Set, Pattern); when Instance")
-  void testReplaceUuidsRecursively_whenInstance() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    AssetExportService assetExportService = new AssetExportService();
-    ComplexVersionCreateRequest request = mock(ComplexVersionCreateRequest.class);
-    when(request.getEntityTypes()).thenReturn(new HashMap<>());
-    User user = mock(User.class);
-    TenantId tenantId = new TenantId(UUID.randomUUID());
-    ComplexEntitiesExportCtx ctx = new ComplexEntitiesExportCtx(user,
-        new CommitGitRequest(tenantId, new ComplexVersionCreateRequest()), request);
-
-    MissingNode node = MissingNode.getInstance();
-
-    // Act
-    assetExportService.replaceUuidsRecursively(ctx, node, new HashSet<>(),
-        DashboardImportService.WIDGET_CONFIG_PROCESSED_FIELDS_PATTERN);
-
-    // Assert that nothing has changed
-    verify(request).getEntityTypes();
-  }
-
-  /**
-   * Test
-   * {@link BaseEntityExportService#replaceUuidsRecursively(EntitiesExportCtx, JsonNode, Set, Pattern)}.
-   * <ul>
-   *   <li>When {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseEntityExportService#replaceUuidsRecursively(EntitiesExportCtx, JsonNode, Set, Pattern)}
-   */
-  @Test
-  @DisplayName("Test replaceUuidsRecursively(EntitiesExportCtx, JsonNode, Set, Pattern); when 'null'")
-  void testReplaceUuidsRecursively_whenNull() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    AssetExportService assetExportService = new AssetExportService();
-    ComplexVersionCreateRequest request = mock(ComplexVersionCreateRequest.class);
-    when(request.getEntityTypes()).thenReturn(new HashMap<>());
-    User user = mock(User.class);
-    TenantId tenantId = new TenantId(UUID.randomUUID());
-    ComplexEntitiesExportCtx ctx = new ComplexEntitiesExportCtx(user,
-        new CommitGitRequest(tenantId, new ComplexVersionCreateRequest()), request);
-
-    // Act
-    assetExportService.replaceUuidsRecursively(ctx, null, new HashSet<>(),
-        DashboardImportService.WIDGET_CONFIG_PROCESSED_FIELDS_PATTERN);
-
-    // Assert that nothing has changed
-    verify(request).getEntityTypes();
   }
 }

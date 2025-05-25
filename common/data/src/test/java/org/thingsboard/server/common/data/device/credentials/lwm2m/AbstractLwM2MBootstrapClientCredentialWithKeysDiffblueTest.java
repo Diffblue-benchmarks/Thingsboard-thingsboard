@@ -3,78 +3,43 @@ package org.thingsboard.server.common.data.device.credentials.lwm2m;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class AbstractLwM2MBootstrapClientCredentialWithKeysDiffblueTest {
   /**
-   * Test
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientPublicKeyOrId()}.
+   * Test {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientPublicKeyOrId()}.
    * <p>
-   * Method under test:
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientPublicKeyOrId()}
+   * Method under test: {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientPublicKeyOrId()}
    */
   @Test
   @DisplayName("Test getDecodedClientPublicKeyOrId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"byte[] AbstractLwM2MBootstrapClientCredentialWithKeys.getDecodedClientPublicKeyOrId()"})
   void testGetDecodedClientPublicKeyOrId() {
     // Arrange
     PSKBootstrapClientCredential pskBootstrapClientCredential = new PSKBootstrapClientCredential();
     pskBootstrapClientCredential.setClientPublicKeyOrId("42Client Public Key Or Id");
 
-    // Act
-    byte[] actualDecodedClientPublicKeyOrId = pskBootstrapClientCredential.getDecodedClientPublicKeyOrId();
-
-    // Assert
-    assertEquals((byte) -119, actualDecodedClientPublicKeyOrId[3]);
-    assertEquals((byte) -119, actualDecodedClientPublicKeyOrId[9]);
-    assertEquals((byte) -19, actualDecodedClientPublicKeyOrId[5]);
-    assertEquals((byte) -22, actualDecodedClientPublicKeyOrId[13]);
-    assertEquals((byte) -23, actualDecodedClientPublicKeyOrId[4]);
-    assertEquals((byte) -26, actualDecodedClientPublicKeyOrId[7]);
-    assertEquals((byte) -27, actualDecodedClientPublicKeyOrId[8]);
-    assertEquals((byte) -56, actualDecodedClientPublicKeyOrId[12]);
-    assertEquals((byte) -56, actualDecodedClientPublicKeyOrId[14]);
-    assertEquals((byte) -62, actualDecodedClientPublicKeyOrId[10]);
-    assertEquals((byte) -91, actualDecodedClientPublicKeyOrId[2]);
-    assertEquals((byte) -98, actualDecodedClientPublicKeyOrId[11]);
-    assertEquals(15, actualDecodedClientPublicKeyOrId.length);
-    assertEquals('>', actualDecodedClientPublicKeyOrId[6]);
-    assertEquals('`', actualDecodedClientPublicKeyOrId[1]);
-  }
-
-  /**
-   * Test
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientPublicKeyOrId()}.
-   * <ul>
-   *   <li>Then return array length is zero.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientPublicKeyOrId()}
-   */
-  @Test
-  @DisplayName("Test getDecodedClientPublicKeyOrId(); then return array length is zero")
-  void testGetDecodedClientPublicKeyOrId_thenReturnArrayLengthIsZero() {
-    // Arrange
-    PSKBootstrapClientCredential pskBootstrapClientCredential = new PSKBootstrapClientCredential();
-    pskBootstrapClientCredential.setClientPublicKeyOrId("");
-
     // Act and Assert
-    assertEquals(0, pskBootstrapClientCredential.getDecodedClientPublicKeyOrId().length);
+    assertArrayEquals(new byte[]{-29, '`', -91, -119, -23, -19, '>', -26, -27, -119, -62, -98, -56, -22, -56},
+        pskBootstrapClientCredential.getDecodedClientPublicKeyOrId());
   }
 
   /**
-   * Test
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientPublicKeyOrId()}.
+   * Test {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientPublicKeyOrId()}.
    * <ul>
    *   <li>Then return array of {@code byte} with lf and {@code X}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientPublicKeyOrId()}
+   * Method under test: {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientPublicKeyOrId()}
    */
   @Test
   @DisplayName("Test getDecodedClientPublicKeyOrId(); then return array of byte with lf and 'X'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"byte[] AbstractLwM2MBootstrapClientCredentialWithKeys.getDecodedClientPublicKeyOrId()"})
   void testGetDecodedClientPublicKeyOrId_thenReturnArrayOfByteWithLfAndX() {
     // Arrange
     PSKBootstrapClientCredential pskBootstrapClientCredential = new PSKBootstrapClientCredential();
@@ -86,17 +51,17 @@ class AbstractLwM2MBootstrapClientCredentialWithKeysDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientPublicKeyOrId()}.
+   * Test {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientPublicKeyOrId()}.
    * <ul>
    *   <li>Then return array of {@code byte} with minus twenty-nine.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientPublicKeyOrId()}
+   * Method under test: {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientPublicKeyOrId()}
    */
   @Test
   @DisplayName("Test getDecodedClientPublicKeyOrId(); then return array of byte with minus twenty-nine")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"byte[] AbstractLwM2MBootstrapClientCredentialWithKeys.getDecodedClientPublicKeyOrId()"})
   void testGetDecodedClientPublicKeyOrId_thenReturnArrayOfByteWithMinusTwentyNine() {
     // Arrange
     PSKBootstrapClientCredential pskBootstrapClientCredential = new PSKBootstrapClientCredential();
@@ -107,18 +72,17 @@ class AbstractLwM2MBootstrapClientCredentialWithKeysDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientPublicKeyOrId()}.
+   * Test {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientPublicKeyOrId()}.
    * <ul>
-   *   <li>Then return array of {@code byte} with minus twenty-nine and
-   * {@code n}.</li>
+   *   <li>Then return array of {@code byte} with minus twenty-nine and {@code n}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientPublicKeyOrId()}
+   * Method under test: {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientPublicKeyOrId()}
    */
   @Test
   @DisplayName("Test getDecodedClientPublicKeyOrId(); then return array of byte with minus twenty-nine and 'n'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"byte[] AbstractLwM2MBootstrapClientCredentialWithKeys.getDecodedClientPublicKeyOrId()"})
   void testGetDecodedClientPublicKeyOrId_thenReturnArrayOfByteWithMinusTwentyNineAndN() {
     // Arrange
     PSKBootstrapClientCredential pskBootstrapClientCredential = new PSKBootstrapClientCredential();
@@ -129,14 +93,35 @@ class AbstractLwM2MBootstrapClientCredentialWithKeysDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientSecretKey()}.
+   * Test {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientPublicKeyOrId()}.
+   * <ul>
+   *   <li>Then return empty array of {@code byte}.</li>
+   * </ul>
    * <p>
-   * Method under test:
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientSecretKey()}
+   * Method under test: {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientPublicKeyOrId()}
+   */
+  @Test
+  @DisplayName("Test getDecodedClientPublicKeyOrId(); then return empty array of byte")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"byte[] AbstractLwM2MBootstrapClientCredentialWithKeys.getDecodedClientPublicKeyOrId()"})
+  void testGetDecodedClientPublicKeyOrId_thenReturnEmptyArrayOfByte() {
+    // Arrange
+    PSKBootstrapClientCredential pskBootstrapClientCredential = new PSKBootstrapClientCredential();
+    pskBootstrapClientCredential.setClientPublicKeyOrId("");
+
+    // Act and Assert
+    assertArrayEquals(new byte[]{}, pskBootstrapClientCredential.getDecodedClientPublicKeyOrId());
+  }
+
+  /**
+   * Test {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientSecretKey()}.
+   * <p>
+   * Method under test: {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientSecretKey()}
    */
   @Test
   @DisplayName("Test getDecodedClientSecretKey()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"byte[] AbstractLwM2MBootstrapClientCredentialWithKeys.getDecodedClientSecretKey()"})
   void testGetDecodedClientSecretKey() {
     // Arrange
     PSKBootstrapClientCredential pskBootstrapClientCredential = new PSKBootstrapClientCredential();
@@ -148,14 +133,14 @@ class AbstractLwM2MBootstrapClientCredentialWithKeysDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientSecretKey()}.
+   * Test {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientSecretKey()}.
    * <p>
-   * Method under test:
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientSecretKey()}
+   * Method under test: {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientSecretKey()}
    */
   @Test
   @DisplayName("Test getDecodedClientSecretKey()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"byte[] AbstractLwM2MBootstrapClientCredentialWithKeys.getDecodedClientSecretKey()"})
   void testGetDecodedClientSecretKey2() {
     // Arrange
     PSKBootstrapClientCredential pskBootstrapClientCredential = new PSKBootstrapClientCredential();
@@ -167,38 +152,17 @@ class AbstractLwM2MBootstrapClientCredentialWithKeysDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientSecretKey()}.
-   * <ul>
-   *   <li>Then return array length is zero.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientSecretKey()}
-   */
-  @Test
-  @DisplayName("Test getDecodedClientSecretKey(); then return array length is zero")
-  void testGetDecodedClientSecretKey_thenReturnArrayLengthIsZero() {
-    // Arrange
-    PSKBootstrapClientCredential pskBootstrapClientCredential = new PSKBootstrapClientCredential();
-    pskBootstrapClientCredential.setClientSecretKey("");
-
-    // Act and Assert
-    assertEquals(0, pskBootstrapClientCredential.getDecodedClientSecretKey().length);
-  }
-
-  /**
-   * Test
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientSecretKey()}.
+   * Test {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientSecretKey()}.
    * <ul>
    *   <li>Then return array of {@code byte} with minus twenty-nine.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientSecretKey()}
+   * Method under test: {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientSecretKey()}
    */
   @Test
   @DisplayName("Test getDecodedClientSecretKey(); then return array of byte with minus twenty-nine")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"byte[] AbstractLwM2MBootstrapClientCredentialWithKeys.getDecodedClientSecretKey()"})
   void testGetDecodedClientSecretKey_thenReturnArrayOfByteWithMinusTwentyNine() {
     // Arrange
     PSKBootstrapClientCredential pskBootstrapClientCredential = new PSKBootstrapClientCredential();
@@ -209,17 +173,17 @@ class AbstractLwM2MBootstrapClientCredentialWithKeysDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientSecretKey()}.
+   * Test {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientSecretKey()}.
    * <ul>
    *   <li>Then return array of {@code byte} with seventeen and {@code p}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientSecretKey()}
+   * Method under test: {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientSecretKey()}
    */
   @Test
   @DisplayName("Test getDecodedClientSecretKey(); then return array of byte with seventeen and 'p'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"byte[] AbstractLwM2MBootstrapClientCredentialWithKeys.getDecodedClientSecretKey()"})
   void testGetDecodedClientSecretKey_thenReturnArrayOfByteWithSeventeenAndP() {
     // Arrange
     PSKBootstrapClientCredential pskBootstrapClientCredential = new PSKBootstrapClientCredential();
@@ -232,42 +196,63 @@ class AbstractLwM2MBootstrapClientCredentialWithKeysDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getClientPublicKeyOrId()}.
+   * Test {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientSecretKey()}.
+   * <ul>
+   *   <li>Then return empty array of {@code byte}.</li>
+   * </ul>
    * <p>
-   * Method under test:
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getClientPublicKeyOrId()}
+   * Method under test: {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getDecodedClientSecretKey()}
+   */
+  @Test
+  @DisplayName("Test getDecodedClientSecretKey(); then return empty array of byte")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"byte[] AbstractLwM2MBootstrapClientCredentialWithKeys.getDecodedClientSecretKey()"})
+  void testGetDecodedClientSecretKey_thenReturnEmptyArrayOfByte() {
+    // Arrange
+    PSKBootstrapClientCredential pskBootstrapClientCredential = new PSKBootstrapClientCredential();
+    pskBootstrapClientCredential.setClientSecretKey("");
+
+    // Act and Assert
+    assertArrayEquals(new byte[]{}, pskBootstrapClientCredential.getDecodedClientSecretKey());
+  }
+
+  /**
+   * Test {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getClientPublicKeyOrId()}.
+   * <p>
+   * Method under test: {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getClientPublicKeyOrId()}
    */
   @Test
   @DisplayName("Test getClientPublicKeyOrId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String AbstractLwM2MBootstrapClientCredentialWithKeys.getClientPublicKeyOrId()"})
   void testGetClientPublicKeyOrId() {
     // Arrange, Act and Assert
     assertNull((new PSKBootstrapClientCredential()).getClientPublicKeyOrId());
   }
 
   /**
-   * Test
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getClientSecretKey()}.
+   * Test {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getClientSecretKey()}.
    * <p>
-   * Method under test:
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getClientSecretKey()}
+   * Method under test: {@link AbstractLwM2MBootstrapClientCredentialWithKeys#getClientSecretKey()}
    */
   @Test
   @DisplayName("Test getClientSecretKey()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String AbstractLwM2MBootstrapClientCredentialWithKeys.getClientSecretKey()"})
   void testGetClientSecretKey() {
     // Arrange, Act and Assert
     assertNull((new PSKBootstrapClientCredential()).getClientSecretKey());
   }
 
   /**
-   * Test
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#setClientPublicKeyOrId(String)}.
+   * Test {@link AbstractLwM2MBootstrapClientCredentialWithKeys#setClientPublicKeyOrId(String)}.
    * <p>
-   * Method under test:
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#setClientPublicKeyOrId(String)}
+   * Method under test: {@link AbstractLwM2MBootstrapClientCredentialWithKeys#setClientPublicKeyOrId(String)}
    */
   @Test
   @DisplayName("Test setClientPublicKeyOrId(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AbstractLwM2MBootstrapClientCredentialWithKeys.setClientPublicKeyOrId(String)"})
   void testSetClientPublicKeyOrId() {
     // Arrange
     PSKBootstrapClientCredential pskBootstrapClientCredential = new PSKBootstrapClientCredential();
@@ -281,14 +266,14 @@ class AbstractLwM2MBootstrapClientCredentialWithKeysDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#setClientSecretKey(String)}.
+   * Test {@link AbstractLwM2MBootstrapClientCredentialWithKeys#setClientSecretKey(String)}.
    * <p>
-   * Method under test:
-   * {@link AbstractLwM2MBootstrapClientCredentialWithKeys#setClientSecretKey(String)}
+   * Method under test: {@link AbstractLwM2MBootstrapClientCredentialWithKeys#setClientSecretKey(String)}
    */
   @Test
   @DisplayName("Test setClientSecretKey(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AbstractLwM2MBootstrapClientCredentialWithKeys.setClientSecretKey(String)"})
   void testSetClientSecretKey() {
     // Arrange
     PSKBootstrapClientCredential pskBootstrapClientCredential = new PSKBootstrapClientCredential();

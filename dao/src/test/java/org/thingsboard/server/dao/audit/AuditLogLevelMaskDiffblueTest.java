@@ -1,7 +1,10 @@
 package org.thingsboard.server.dao.audit;
 
 import static org.junit.Assert.assertFalse;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 public class AuditLogLevelMaskDiffblueTest {
   /**
@@ -14,6 +17,8 @@ public class AuditLogLevelMaskDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean AuditLogLevelMask.isRead()", "boolean AuditLogLevelMask.isWrite()"})
   public void testGettersAndSetters() {
     // Arrange
     AuditLogLevelMask valueOfResult = AuditLogLevelMask.valueOf("OFF");

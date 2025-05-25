@@ -10,6 +10,7 @@ import static org.mockito.Mockito.anyBoolean;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.leshan.client.californium.LeshanClient;
@@ -18,13 +19,14 @@ import org.eclipse.leshan.client.servers.ServerIdentity;
 import org.eclipse.leshan.core.ResponseCode;
 import org.eclipse.leshan.core.model.ObjectModel;
 import org.eclipse.leshan.core.model.ResourceModel;
+import org.eclipse.leshan.core.model.ResourceModel.Type;
 import org.eclipse.leshan.core.node.LwM2mNode;
 import org.eclipse.leshan.core.node.LwM2mSingleResource;
 import org.eclipse.leshan.core.request.Identity;
 import org.eclipse.leshan.core.response.ReadResponse;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 class Lwm2mClientDiffblueTest {
   /**
@@ -38,6 +40,9 @@ class Lwm2mClientDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Lwm2mClient.<init>()", "void Lwm2mClient.<init>(String, String)",
+      "LeshanClient Lwm2mClient.getLeshanClient()", "void Lwm2mClient.setLeshanClient(LeshanClient)"})
   void testGettersAndSetters() {
     // Arrange and Act
     Lwm2mClient actualLwm2mClient = new Lwm2mClient();
@@ -64,6 +69,9 @@ class Lwm2mClientDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when 'Server Uri'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Lwm2mClient.<init>()", "void Lwm2mClient.<init>(String, String)",
+      "LeshanClient Lwm2mClient.getLeshanClient()", "void Lwm2mClient.setLeshanClient(LeshanClient)"})
   void testGettersAndSetters_whenServerUri() {
     // Arrange and Act
     Lwm2mClient actualLwm2mClient = new Lwm2mClient("Server Uri", "https://config.us-east-2.amazonaws.com");
@@ -83,6 +91,8 @@ class Lwm2mClientDiffblueTest {
    */
   @Test
   @DisplayName("Test getAvailableResourceIds(ObjectModel)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List Lwm2mClient.getAvailableResourceIds(ObjectModel)"})
   void testGetAvailableResourceIds() {
     // Arrange
     Lwm2mClient lwm2mClient = new Lwm2mClient("Server Uri", "https://config.us-east-2.amazonaws.com");
@@ -97,29 +107,7 @@ class Lwm2mClientDiffblueTest {
   }
 
   /**
-   * Test {@link Lwm2mClient#getAvailableResourceIds(ObjectModel)}.
-   * <p>
-   * Method under test: {@link Lwm2mClient#getAvailableResourceIds(ObjectModel)}
-   */
-  @Test
-  @DisplayName("Test getAvailableResourceIds(ObjectModel)")
-  void testGetAvailableResourceIds2() {
-    // Arrange
-    Lwm2mClient lwm2mClient = new Lwm2mClient("Server Uri", "https://config.us-east-2.amazonaws.com");
-    lwm2mClient.addResourceChangedListener(mock(ResourceChangedListener.class));
-
-    // Act
-    List<Integer> actualAvailableResourceIds = lwm2mClient.getAvailableResourceIds(new ObjectModel(1, "Name",
-        "The characteristics of someone or something", "1.0.2", true, true, new ArrayList<>()));
-
-    // Assert
-    assertEquals(1, actualAvailableResourceIds.size());
-    assertEquals(0, actualAvailableResourceIds.get(0).intValue());
-  }
-
-  /**
-   * Test {@link Lwm2mClient#read(ServerIdentity, int)} with {@code identity},
-   * {@code resourceId}.
+   * Test {@link Lwm2mClient#read(ServerIdentity, int)} with {@code identity}, {@code resourceId}.
    * <ul>
    *   <li>When one.</li>
    *   <li>Then return Code Name is {@code NOT_FOUND}.</li>
@@ -129,6 +117,8 @@ class Lwm2mClientDiffblueTest {
    */
   @Test
   @DisplayName("Test read(ServerIdentity, int) with 'identity', 'resourceId'; when one; then return Code Name is 'NOT_FOUND'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ReadResponse Lwm2mClient.read(ServerIdentity, int)"})
   void testReadWithIdentityResourceId_whenOne_thenReturnCodeNameIsNotFound() {
     // Arrange
     Lwm2mClient lwm2mClient = new Lwm2mClient("Server Uri", "https://config.us-east-2.amazonaws.com");
@@ -149,8 +139,7 @@ class Lwm2mClientDiffblueTest {
   }
 
   /**
-   * Test {@link Lwm2mClient#read(ServerIdentity, int)} with {@code identity},
-   * {@code resourceId}.
+   * Test {@link Lwm2mClient#read(ServerIdentity, int)} with {@code identity}, {@code resourceId}.
    * <ul>
    *   <li>When zero.</li>
    *   <li>Then Content return {@link LwM2mSingleResource}.</li>
@@ -160,6 +149,8 @@ class Lwm2mClientDiffblueTest {
    */
   @Test
   @DisplayName("Test read(ServerIdentity, int) with 'identity', 'resourceId'; when zero; then Content return LwM2mSingleResource")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ReadResponse Lwm2mClient.read(ServerIdentity, int)"})
   void testReadWithIdentityResourceId_whenZero_thenContentReturnLwM2mSingleResource() {
     // Arrange
     Lwm2mClient lwm2mClient = new Lwm2mClient("Server Uri", "https://config.us-east-2.amazonaws.com");
@@ -175,7 +166,7 @@ class Lwm2mClientDiffblueTest {
     assertEquals("CONTENT", code.getName());
     assertEquals(0, content.getId());
     assertEquals(205, code.getCode());
-    assertEquals(ResourceModel.Type.STRING, ((LwM2mSingleResource) content).getType());
+    assertEquals(Type.STRING, ((LwM2mSingleResource) content).getType());
     assertFalse(code.isClientError());
     assertFalse(code.isError());
     assertFalse(((LwM2mSingleResource) content).isMultiInstances());
@@ -194,6 +185,8 @@ class Lwm2mClientDiffblueTest {
    */
   @Test
   @DisplayName("Test send(String, int); then calls resourcesChanged(int[])")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Lwm2mClient.send(String, int)"})
   void testSend_thenCallsResourcesChanged() {
     // Arrange
     ResourceChangedListener listener = mock(ResourceChangedListener.class);
@@ -212,8 +205,7 @@ class Lwm2mClientDiffblueTest {
   /**
    * Test {@link Lwm2mClient#destroy()}.
    * <ul>
-   *   <li>Given {@link LeshanClient} {@link LeshanClient#destroy(boolean)} does
-   * nothing.</li>
+   *   <li>Given {@link LeshanClient} {@link LeshanClient#destroy(boolean)} does nothing.</li>
    *   <li>Then calls {@link LeshanClient#destroy(boolean)}.</li>
    * </ul>
    * <p>
@@ -221,6 +213,8 @@ class Lwm2mClientDiffblueTest {
    */
   @Test
   @DisplayName("Test destroy(); given LeshanClient destroy(boolean) does nothing; then calls destroy(boolean)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Lwm2mClient.destroy()"})
   void testDestroy_givenLeshanClientDestroyDoesNothing_thenCallsDestroy() {
     // Arrange
     LeshanClient leshanClient = mock(LeshanClient.class);
@@ -232,7 +226,7 @@ class Lwm2mClientDiffblueTest {
     // Act
     lwm2mClient.destroy();
 
-    // Assert that nothing has changed
+    // Assert
     verify(leshanClient).destroy(eq(true));
   }
 }

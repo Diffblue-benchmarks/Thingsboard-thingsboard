@@ -7,14 +7,15 @@ import static org.mockito.Mockito.anyBoolean;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 class VersionCreateConfigDiffblueTest {
   /**
-   * Test {@link VersionCreateConfig#equals(Object)}, and
-   * {@link VersionCreateConfig#hashCode()}.
+   * Test {@link VersionCreateConfig#equals(Object)}, and {@link VersionCreateConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -28,6 +29,8 @@ class VersionCreateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionCreateConfig.equals(Object)", "int VersionCreateConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     VersionCreateConfig versionCreateConfig = new VersionCreateConfig();
@@ -47,8 +50,7 @@ class VersionCreateConfigDiffblueTest {
   }
 
   /**
-   * Test {@link VersionCreateConfig#equals(Object)}, and
-   * {@link VersionCreateConfig#hashCode()}.
+   * Test {@link VersionCreateConfig#equals(Object)}, and {@link VersionCreateConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -62,6 +64,8 @@ class VersionCreateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionCreateConfig.equals(Object)", "int VersionCreateConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     VersionCreateConfig versionCreateConfig = new VersionCreateConfig();
@@ -87,8 +91,7 @@ class VersionCreateConfigDiffblueTest {
   }
 
   /**
-   * Test {@link VersionCreateConfig#equals(Object)}, and
-   * {@link VersionCreateConfig#hashCode()}.
+   * Test {@link VersionCreateConfig#equals(Object)}, and {@link VersionCreateConfig#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -102,6 +105,8 @@ class VersionCreateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionCreateConfig.equals(Object)", "int VersionCreateConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     VersionCreateConfig versionCreateConfig = new VersionCreateConfig();
@@ -126,6 +131,8 @@ class VersionCreateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionCreateConfig.equals(Object)", "int VersionCreateConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AutoVersionCreateConfig autoVersionCreateConfig = new AutoVersionCreateConfig();
@@ -157,6 +164,8 @@ class VersionCreateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionCreateConfig.equals(Object)", "int VersionCreateConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     VersionCreateConfig versionCreateConfig = new VersionCreateConfig();
@@ -184,6 +193,8 @@ class VersionCreateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionCreateConfig.equals(Object)", "int VersionCreateConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     VersionCreateConfig versionCreateConfig = new VersionCreateConfig();
@@ -211,6 +222,8 @@ class VersionCreateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionCreateConfig.equals(Object)", "int VersionCreateConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     VersionCreateConfig versionCreateConfig = new VersionCreateConfig();
@@ -238,6 +251,8 @@ class VersionCreateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionCreateConfig.equals(Object)", "int VersionCreateConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     VersionCreateConfig versionCreateConfig = new VersionCreateConfig();
@@ -269,6 +284,8 @@ class VersionCreateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionCreateConfig.equals(Object)", "int VersionCreateConfig.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     VersionCreateConfig versionCreateConfig = new VersionCreateConfig();
@@ -291,6 +308,8 @@ class VersionCreateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionCreateConfig.equals(Object)", "int VersionCreateConfig.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     VersionCreateConfig versionCreateConfig = new VersionCreateConfig();
@@ -319,6 +338,11 @@ class VersionCreateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void VersionCreateConfig.<init>()", "boolean VersionCreateConfig.isSaveAttributes()",
+      "boolean VersionCreateConfig.isSaveCredentials()", "boolean VersionCreateConfig.isSaveRelations()",
+      "void VersionCreateConfig.setSaveAttributes(boolean)", "void VersionCreateConfig.setSaveCredentials(boolean)",
+      "void VersionCreateConfig.setSaveRelations(boolean)", "String VersionCreateConfig.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     VersionCreateConfig actualVersionCreateConfig = new VersionCreateConfig();
@@ -329,7 +353,7 @@ class VersionCreateConfigDiffblueTest {
     boolean actualIsSaveAttributesResult = actualVersionCreateConfig.isSaveAttributes();
     boolean actualIsSaveCredentialsResult = actualVersionCreateConfig.isSaveCredentials();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("VersionCreateConfig(saveRelations=true, saveAttributes=true, saveCredentials=true)",
         actualToStringResult);
     assertTrue(actualIsSaveAttributesResult);

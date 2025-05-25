@@ -4,18 +4,28 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.TbImageDeleteResult.TbImageDeleteResultBuilder;
 import org.thingsboard.server.common.data.id.HasId;
 
+@ContextConfiguration(classes = {TbImageDeleteResultBuilder.class})
+@ExtendWith(SpringExtension.class)
 class TbImageDeleteResultDiffblueTest {
+  @Autowired
+  private TbImageDeleteResultBuilder tbImageDeleteResultBuilder;
+
   /**
-   * Test {@link TbImageDeleteResult#equals(Object)}, and
-   * {@link TbImageDeleteResult#hashCode()}.
+   * Test {@link TbImageDeleteResult#equals(Object)}, and {@link TbImageDeleteResult#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -29,11 +39,13 @@ class TbImageDeleteResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbImageDeleteResult.equals(Object)", "int TbImageDeleteResult.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TbImageDeleteResult.TbImageDeleteResultBuilder builderResult = TbImageDeleteResult.builder();
+    TbImageDeleteResultBuilder builderResult = TbImageDeleteResult.builder();
     TbImageDeleteResult buildResult = builderResult.references(new HashMap<>()).success(true).build();
-    TbImageDeleteResult.TbImageDeleteResultBuilder builderResult2 = TbImageDeleteResult.builder();
+    TbImageDeleteResultBuilder builderResult2 = TbImageDeleteResult.builder();
     TbImageDeleteResult buildResult2 = builderResult2.references(new HashMap<>()).success(true).build();
 
     // Act and Assert
@@ -43,8 +55,7 @@ class TbImageDeleteResultDiffblueTest {
   }
 
   /**
-   * Test {@link TbImageDeleteResult#equals(Object)}, and
-   * {@link TbImageDeleteResult#hashCode()}.
+   * Test {@link TbImageDeleteResult#equals(Object)}, and {@link TbImageDeleteResult#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -58,9 +69,11 @@ class TbImageDeleteResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbImageDeleteResult.equals(Object)", "int TbImageDeleteResult.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TbImageDeleteResult.TbImageDeleteResultBuilder builderResult = TbImageDeleteResult.builder();
+    TbImageDeleteResultBuilder builderResult = TbImageDeleteResult.builder();
     TbImageDeleteResult buildResult = builderResult.references(new HashMap<>()).success(true).build();
 
     // Act and Assert
@@ -80,9 +93,11 @@ class TbImageDeleteResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbImageDeleteResult.equals(Object)", "int TbImageDeleteResult.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    TbImageDeleteResult.TbImageDeleteResultBuilder builderResult = TbImageDeleteResult.builder();
+    TbImageDeleteResultBuilder builderResult = TbImageDeleteResult.builder();
     TbImageDeleteResult buildResult = builderResult.references(new HashMap<>()).success(true).build();
 
     // Act and Assert
@@ -100,9 +115,11 @@ class TbImageDeleteResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbImageDeleteResult.equals(Object)", "int TbImageDeleteResult.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    TbImageDeleteResult.TbImageDeleteResultBuilder builderResult = TbImageDeleteResult.builder();
+    TbImageDeleteResultBuilder builderResult = TbImageDeleteResult.builder();
     TbImageDeleteResult buildResult = builderResult.references(new HashMap<>()).success(true).build();
 
     // Act and Assert
@@ -124,6 +141,10 @@ class TbImageDeleteResultDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbImageDeleteResult.<init>(boolean, Map)", "Map TbImageDeleteResult.getReferences()",
+      "boolean TbImageDeleteResult.isSuccess()", "void TbImageDeleteResult.setReferences(Map)",
+      "void TbImageDeleteResult.setSuccess(boolean)", "String TbImageDeleteResult.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbImageDeleteResult actualTbImageDeleteResult = new TbImageDeleteResult(true, new HashMap<>());
@@ -134,7 +155,7 @@ class TbImageDeleteResultDiffblueTest {
     Map<String, List<? extends HasId<?>>> actualReferences = actualTbImageDeleteResult.getReferences();
     boolean actualIsSuccessResult = actualTbImageDeleteResult.isSuccess();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("TbImageDeleteResult(success=true, references={})", actualToStringResult);
     assertTrue(actualReferences.isEmpty());
     assertTrue(actualIsSuccessResult);
@@ -146,16 +167,22 @@ class TbImageDeleteResultDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TbImageDeleteResult.TbImageDeleteResultBuilder#build()}
-   *   <li>{@link TbImageDeleteResult.TbImageDeleteResultBuilder#references(Map)}
-   *   <li>{@link TbImageDeleteResult.TbImageDeleteResultBuilder#success(boolean)}
+   *   <li>{@link TbImageDeleteResultBuilder#build()}
+   *   <li>{@link TbImageDeleteResultBuilder#references(Map)}
+   *   <li>{@link TbImageDeleteResultBuilder#success(boolean)}
    * </ul>
    */
   @Test
   @DisplayName("Test TbImageDeleteResultBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbImageDeleteResultBuilder.<init>()",
+      "TbImageDeleteResult TbImageDeleteResultBuilder.build()",
+      "TbImageDeleteResultBuilder TbImageDeleteResultBuilder.references(Map)",
+      "TbImageDeleteResultBuilder TbImageDeleteResultBuilder.success(boolean)",
+      "String TbImageDeleteResultBuilder.toString()"})
   void testTbImageDeleteResultBuilderBuild() {
     // Arrange
-    TbImageDeleteResult.TbImageDeleteResultBuilder builderResult = TbImageDeleteResult.builder();
+    TbImageDeleteResultBuilder builderResult = TbImageDeleteResult.builder();
     HashMap<String, List<? extends HasId<?>>> references = new HashMap<>();
 
     // Act

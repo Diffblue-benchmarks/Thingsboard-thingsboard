@@ -8,12 +8,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadPoolExecutor;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.context.ApplicationEventPublisher;
 import org.thingsboard.script.api.js.JsScriptInfo;
 import org.thingsboard.server.common.stats.TbApiUsageReportClient;
@@ -35,7 +40,11 @@ import org.thingsboard.server.queue.settings.TbQueueTransportNotificationSetting
 import org.thingsboard.server.queue.settings.TbQueueVersionControlSettings;
 import org.thingsboard.server.queue.usagestats.DefaultTbApiUsageReportClient;
 
+@ExtendWith(MockitoExtension.class)
 class RemoteJsInvokeServiceDiffblueTest {
+  @InjectMocks
+  private RemoteJsInvokeService remoteJsInvokeService;
+
   /**
    * Test getters and setters.
    * <p>
@@ -52,6 +61,12 @@ class RemoteJsInvokeServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Executor RemoteJsInvokeService.getCallbackExecutor()",
+      "int RemoteJsInvokeService.getMaxBlackListDurationSec()", "int RemoteJsInvokeService.getMaxErrors()",
+      "long RemoteJsInvokeService.getMaxEvalRequestsTimeout()",
+      "long RemoteJsInvokeService.getMaxInvokeRequestsTimeout()", "String RemoteJsInvokeService.getStatsName()",
+      "boolean RemoteJsInvokeService.isStatsEnabled()"})
   void testGettersAndSetters() {
     // Arrange
     Optional<TbApiUsageStateClient> apiUsageStateClient = Optional.of(mock(TbApiUsageStateClient.class));
@@ -98,78 +113,21 @@ class RemoteJsInvokeServiceDiffblueTest {
   }
 
   /**
-   * Test {@link RemoteJsInvokeService#doEval(UUID, JsScriptInfo, String)}.
-   * <ul>
-   *   <li>Given {@link RuntimeException#RuntimeException(String)} with
-   * {@code foo}.</li>
-   *   <li>Then throw {@link RuntimeException}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link RemoteJsInvokeService#doEval(UUID, JsScriptInfo, String)}
-   */
-  @Test
-  @DisplayName("Test doEval(UUID, JsScriptInfo, String); given RuntimeException(String) with 'foo'; then throw RuntimeException")
-  void testDoEval_givenRuntimeExceptionWithFoo_thenThrowRuntimeException() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    Optional<TbApiUsageStateClient> apiUsageStateClient = Optional.of(mock(TbApiUsageStateClient.class));
-    DefaultTbServiceInfoProvider serviceInfoProvider = new DefaultTbServiceInfoProvider();
-    TenantRoutingInfoService tenantRoutingInfoService = mock(TenantRoutingInfoService.class);
-    ApplicationEventPublisher applicationEventPublisher = mock(ApplicationEventPublisher.class);
-    QueueRoutingInfoService queueRoutingInfoService = mock(QueueRoutingInfoService.class);
-    HashPartitionService partitionService = new HashPartitionService(serviceInfoProvider, tenantRoutingInfoService,
-        applicationEventPublisher, queueRoutingInfoService, new TopicService());
-
-    DefaultTbServiceInfoProvider serviceInfoProvider2 = new DefaultTbServiceInfoProvider();
-    DefaultSchedulerComponent scheduler = new DefaultSchedulerComponent();
-    Optional<TbApiUsageReportClient> apiUsageClient = Optional.of(new DefaultTbApiUsageReportClient(partitionService,
-        serviceInfoProvider2, scheduler, new TbCoreQueueProducerProvider(null)));
-    RemoteJsInvokeService remoteJsInvokeService = new RemoteJsInvokeService(apiUsageStateClient, apiUsageClient);
-    UUID scriptId = UUID.randomUUID();
-    JsScriptInfo jsInfo = mock(JsScriptInfo.class);
-    when(jsInfo.getFunctionName()).thenThrow(new RuntimeException("foo"));
-    when(jsInfo.getHash()).thenReturn("Hash");
-
-    // Act and Assert
-    assertThrows(RuntimeException.class,
-        () -> remoteJsInvokeService.doEval(scriptId, jsInfo, "Not all who wander are lost"));
-    verify(jsInfo).getFunctionName();
-    verify(jsInfo).getHash();
-  }
-
-  /**
-   * Test
-   * {@link RemoteJsInvokeService#doInvokeFunction(UUID, JsScriptInfo, Object[])}
-   * with {@code scriptId}, {@code jsInfo}, {@code args}.
+   * Test {@link RemoteJsInvokeService#doInvokeFunction(UUID, JsScriptInfo, Object[])} with {@code scriptId}, {@code jsInfo}, {@code args}.
    * <ul>
    *   <li>Then return Done.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link RemoteJsInvokeService#doInvokeFunction(UUID, JsScriptInfo, Object[])}
+   * Method under test: {@link RemoteJsInvokeService#doInvokeFunction(UUID, JsScriptInfo, Object[])}
    */
   @Test
   @DisplayName("Test doInvokeFunction(UUID, JsScriptInfo, Object[]) with 'scriptId', 'jsInfo', 'args'; then return Done")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "com.google.common.util.concurrent.ListenableFuture RemoteJsInvokeService.doInvokeFunction(UUID, JsScriptInfo, Object[])"})
   void testDoInvokeFunctionWithScriptIdJsInfoArgs_thenReturnDone() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    Optional<TbApiUsageStateClient> apiUsageStateClient = Optional.of(mock(TbApiUsageStateClient.class));
-    DefaultTbServiceInfoProvider serviceInfoProvider = new DefaultTbServiceInfoProvider();
-    TenantRoutingInfoService tenantRoutingInfoService = mock(TenantRoutingInfoService.class);
-    ApplicationEventPublisher applicationEventPublisher = mock(ApplicationEventPublisher.class);
-    QueueRoutingInfoService queueRoutingInfoService = mock(QueueRoutingInfoService.class);
-    HashPartitionService partitionService = new HashPartitionService(serviceInfoProvider, tenantRoutingInfoService,
-        applicationEventPublisher, queueRoutingInfoService, new TopicService());
-
-    DefaultTbServiceInfoProvider serviceInfoProvider2 = new DefaultTbServiceInfoProvider();
-    DefaultSchedulerComponent scheduler = new DefaultSchedulerComponent();
-    Optional<TbApiUsageReportClient> apiUsageClient = Optional.of(new DefaultTbApiUsageReportClient(partitionService,
-        serviceInfoProvider2, scheduler, new TbCoreQueueProducerProvider(null)));
-    RemoteJsInvokeService remoteJsInvokeService = new RemoteJsInvokeService(apiUsageStateClient, apiUsageClient);
-    UUID scriptId = UUID.randomUUID();
+    UUID scriptId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
     assertTrue(remoteJsInvokeService
@@ -178,35 +136,20 @@ class RemoteJsInvokeServiceDiffblueTest {
   }
 
   /**
-   * Test {@link RemoteJsInvokeService#doRelease(UUID, JsScriptInfo)} with
-   * {@code scriptId}, {@code jsInfo}.
+   * Test {@link RemoteJsInvokeService#doRelease(UUID, JsScriptInfo)} with {@code scriptId}, {@code jsInfo}.
    * <ul>
    *   <li>Then throw {@link RuntimeException}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link RemoteJsInvokeService#doRelease(UUID, JsScriptInfo)}
+   * Method under test: {@link RemoteJsInvokeService#doRelease(UUID, JsScriptInfo)}
    */
   @Test
   @DisplayName("Test doRelease(UUID, JsScriptInfo) with 'scriptId', 'jsInfo'; then throw RuntimeException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void RemoteJsInvokeService.doRelease(UUID, JsScriptInfo)"})
   void testDoReleaseWithScriptIdJsInfo_thenThrowRuntimeException() throws Exception {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    Optional<TbApiUsageStateClient> apiUsageStateClient = Optional.of(mock(TbApiUsageStateClient.class));
-    DefaultTbServiceInfoProvider serviceInfoProvider = new DefaultTbServiceInfoProvider();
-    TenantRoutingInfoService tenantRoutingInfoService = mock(TenantRoutingInfoService.class);
-    ApplicationEventPublisher applicationEventPublisher = mock(ApplicationEventPublisher.class);
-    QueueRoutingInfoService queueRoutingInfoService = mock(QueueRoutingInfoService.class);
-    HashPartitionService partitionService = new HashPartitionService(serviceInfoProvider, tenantRoutingInfoService,
-        applicationEventPublisher, queueRoutingInfoService, new TopicService());
-
-    DefaultTbServiceInfoProvider serviceInfoProvider2 = new DefaultTbServiceInfoProvider();
-    DefaultSchedulerComponent scheduler = new DefaultSchedulerComponent();
-    Optional<TbApiUsageReportClient> apiUsageClient = Optional.of(new DefaultTbApiUsageReportClient(partitionService,
-        serviceInfoProvider2, scheduler, new TbCoreQueueProducerProvider(null)));
-    RemoteJsInvokeService remoteJsInvokeService = new RemoteJsInvokeService(apiUsageStateClient, apiUsageClient);
-    UUID scriptId = UUID.randomUUID();
+    UUID scriptId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     JsScriptInfo jsInfo = mock(JsScriptInfo.class);
     when(jsInfo.getFunctionName()).thenThrow(new RuntimeException("foo"));
     when(jsInfo.getHash()).thenReturn("Hash");
@@ -220,64 +163,33 @@ class RemoteJsInvokeServiceDiffblueTest {
   /**
    * Test {@link RemoteJsInvokeService#constructFunctionName(UUID, String)}.
    * <p>
-   * Method under test:
-   * {@link RemoteJsInvokeService#constructFunctionName(UUID, String)}
+   * Method under test: {@link RemoteJsInvokeService#constructFunctionName(UUID, String)}
    */
   @Test
   @DisplayName("Test constructFunctionName(UUID, String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String RemoteJsInvokeService.constructFunctionName(UUID, String)"})
   void testConstructFunctionName() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    Optional<TbApiUsageStateClient> apiUsageStateClient = Optional.of(mock(TbApiUsageStateClient.class));
-    DefaultTbServiceInfoProvider serviceInfoProvider = new DefaultTbServiceInfoProvider();
-    TenantRoutingInfoService tenantRoutingInfoService = mock(TenantRoutingInfoService.class);
-    ApplicationEventPublisher applicationEventPublisher = mock(ApplicationEventPublisher.class);
-    QueueRoutingInfoService queueRoutingInfoService = mock(QueueRoutingInfoService.class);
-    HashPartitionService partitionService = new HashPartitionService(serviceInfoProvider, tenantRoutingInfoService,
-        applicationEventPublisher, queueRoutingInfoService, new TopicService());
-
-    DefaultTbServiceInfoProvider serviceInfoProvider2 = new DefaultTbServiceInfoProvider();
-    DefaultSchedulerComponent scheduler = new DefaultSchedulerComponent();
-    Optional<TbApiUsageReportClient> apiUsageClient = Optional.of(new DefaultTbApiUsageReportClient(partitionService,
-        serviceInfoProvider2, scheduler, new TbCoreQueueProducerProvider(null)));
-    RemoteJsInvokeService remoteJsInvokeService = new RemoteJsInvokeService(apiUsageStateClient, apiUsageClient);
-
-    // Act and Assert
-    assertEquals("invokeInternal_Script Hash",
-        remoteJsInvokeService.constructFunctionName(UUID.randomUUID(), "Script Hash"));
+    // Arrange, Act and Assert
+    assertEquals("invokeInternal_Script Hash", remoteJsInvokeService
+        .constructFunctionName(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Script Hash"));
   }
 
   /**
    * Test {@link RemoteJsInvokeService#getScriptHash(UUID)}.
    * <ul>
-   *   <li>When randomUUID.</li>
+   *   <li>When fromString {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
    *   <li>Then return {@code null}.</li>
    * </ul>
    * <p>
    * Method under test: {@link RemoteJsInvokeService#getScriptHash(UUID)}
    */
   @Test
-  @DisplayName("Test getScriptHash(UUID); when randomUUID; then return 'null'")
-  void testGetScriptHash_whenRandomUUID_thenReturnNull() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    Optional<TbApiUsageStateClient> apiUsageStateClient = Optional.of(mock(TbApiUsageStateClient.class));
-    DefaultTbServiceInfoProvider serviceInfoProvider = new DefaultTbServiceInfoProvider();
-    TenantRoutingInfoService tenantRoutingInfoService = mock(TenantRoutingInfoService.class);
-    ApplicationEventPublisher applicationEventPublisher = mock(ApplicationEventPublisher.class);
-    QueueRoutingInfoService queueRoutingInfoService = mock(QueueRoutingInfoService.class);
-    HashPartitionService partitionService = new HashPartitionService(serviceInfoProvider, tenantRoutingInfoService,
-        applicationEventPublisher, queueRoutingInfoService, new TopicService());
-
-    DefaultTbServiceInfoProvider serviceInfoProvider2 = new DefaultTbServiceInfoProvider();
-    DefaultSchedulerComponent scheduler = new DefaultSchedulerComponent();
-    Optional<TbApiUsageReportClient> apiUsageClient = Optional.of(new DefaultTbApiUsageReportClient(partitionService,
-        serviceInfoProvider2, scheduler, new TbCoreQueueProducerProvider(null)));
-    RemoteJsInvokeService remoteJsInvokeService = new RemoteJsInvokeService(apiUsageStateClient, apiUsageClient);
-
-    // Act and Assert
-    assertNull(remoteJsInvokeService.getScriptHash(UUID.randomUUID()));
+  @DisplayName("Test getScriptHash(UUID); when fromString '784f394c-42b6-435a-983c-b7beff2784f9'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String RemoteJsInvokeService.getScriptHash(UUID)"})
+  void testGetScriptHash_whenFromString784f394c42b6435a983cB7beff2784f9_thenReturnNull() {
+    // Arrange, Act and Assert
+    assertNull(remoteJsInvokeService.getScriptHash(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
   }
 }

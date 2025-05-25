@@ -6,7 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -17,11 +19,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return LatitudeKeyName is {@code latitude}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#defaultConfiguration()}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration(); then return LatitudeKeyName is 'latitude'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "TbGpsGeofencingFilterNodeConfiguration TbGpsGeofencingFilterNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration_thenReturnLatitudeKeyNameIsLatitude() {
     // Arrange and Act
     TbGpsGeofencingFilterNodeConfiguration actualDefaultConfigurationResult = (new TbGpsGeofencingFilterNodeConfiguration())
@@ -46,11 +50,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return {@link TbGpsGeofencingActionNodeConfiguration}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#defaultConfiguration()}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration(); then return TbGpsGeofencingActionNodeConfiguration")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "TbGpsGeofencingFilterNodeConfiguration TbGpsGeofencingFilterNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration_thenReturnTbGpsGeofencingActionNodeConfiguration() {
     // Arrange and Act
     TbGpsGeofencingActionNodeConfiguration actualDefaultConfigurationResult = (new TbGpsGeofencingActionNodeConfiguration())
@@ -70,8 +76,7 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}, and
-   * {@link TbGpsGeofencingFilterNodeConfiguration#hashCode()}.
+   * Test {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}, and {@link TbGpsGeofencingFilterNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -85,6 +90,9 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbGpsGeofencingFilterNodeConfiguration tbGpsGeofencingFilterNodeConfiguration = new TbGpsGeofencingFilterNodeConfiguration();
@@ -97,8 +105,7 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}, and
-   * {@link TbGpsGeofencingFilterNodeConfiguration#hashCode()}.
+   * Test {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}, and {@link TbGpsGeofencingFilterNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -112,6 +119,9 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbGpsGeofencingFilterNodeConfiguration tbGpsGeofencingFilterNodeConfiguration = new TbGpsGeofencingFilterNodeConfiguration();
@@ -129,11 +139,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration = new TbGpsGeofencingActionNodeConfiguration();
@@ -149,11 +161,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbGpsGeofencingFilterNodeConfiguration tbGpsGeofencingFilterNodeConfiguration = new TbGpsGeofencingFilterNodeConfiguration();
@@ -169,11 +183,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbGpsGeofencingFilterNodeConfiguration tbGpsGeofencingFilterNodeConfiguration = new TbGpsGeofencingFilterNodeConfiguration();
@@ -194,11 +210,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbGpsGeofencingFilterNodeConfiguration tbGpsGeofencingFilterNodeConfiguration = new TbGpsGeofencingFilterNodeConfiguration();
@@ -219,11 +237,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbGpsGeofencingFilterNodeConfiguration tbGpsGeofencingFilterNodeConfiguration = new TbGpsGeofencingFilterNodeConfiguration();
@@ -245,11 +265,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbGpsGeofencingFilterNodeConfiguration tbGpsGeofencingFilterNodeConfiguration = new TbGpsGeofencingFilterNodeConfiguration();
@@ -272,11 +294,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TbGpsGeofencingFilterNodeConfiguration tbGpsGeofencingFilterNodeConfiguration = new TbGpsGeofencingFilterNodeConfiguration();
@@ -305,11 +329,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TbGpsGeofencingFilterNodeConfiguration tbGpsGeofencingFilterNodeConfiguration = new TbGpsGeofencingFilterNodeConfiguration();
@@ -338,11 +364,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     TbGpsGeofencingFilterNodeConfiguration tbGpsGeofencingFilterNodeConfiguration = new TbGpsGeofencingFilterNodeConfiguration();
@@ -372,11 +400,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     TbGpsGeofencingFilterNodeConfiguration tbGpsGeofencingFilterNodeConfiguration = new TbGpsGeofencingFilterNodeConfiguration();
@@ -406,11 +436,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     TbGpsGeofencingFilterNodeConfiguration tbGpsGeofencingFilterNodeConfiguration = new TbGpsGeofencingFilterNodeConfiguration();
@@ -440,11 +472,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     TbGpsGeofencingFilterNodeConfiguration tbGpsGeofencingFilterNodeConfiguration = new TbGpsGeofencingFilterNodeConfiguration();
@@ -474,11 +508,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     TbGpsGeofencingFilterNodeConfiguration tbGpsGeofencingFilterNodeConfiguration = new TbGpsGeofencingFilterNodeConfiguration();
@@ -507,11 +543,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     TbGpsGeofencingFilterNodeConfiguration tbGpsGeofencingFilterNodeConfiguration = new TbGpsGeofencingFilterNodeConfiguration();
@@ -542,11 +580,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     TbGpsGeofencingFilterNodeConfiguration tbGpsGeofencingFilterNodeConfiguration = new TbGpsGeofencingFilterNodeConfiguration();
@@ -576,11 +616,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     TbGpsGeofencingFilterNodeConfiguration tbGpsGeofencingFilterNodeConfiguration = new TbGpsGeofencingFilterNodeConfiguration();
@@ -610,11 +652,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     TbGpsGeofencingFilterNodeConfiguration tbGpsGeofencingFilterNodeConfiguration = new TbGpsGeofencingFilterNodeConfiguration();
@@ -644,11 +688,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     TbGpsGeofencingFilterNodeConfiguration tbGpsGeofencingFilterNodeConfiguration = new TbGpsGeofencingFilterNodeConfiguration();
@@ -678,11 +724,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     TbGpsGeofencingFilterNodeConfiguration tbGpsGeofencingFilterNodeConfiguration = new TbGpsGeofencingFilterNodeConfiguration();
@@ -711,11 +759,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     TbGpsGeofencingFilterNodeConfiguration tbGpsGeofencingFilterNodeConfiguration = new TbGpsGeofencingFilterNodeConfiguration();
@@ -746,11 +796,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbGpsGeofencingFilterNodeConfiguration(), null);
@@ -763,11 +815,13 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbGpsGeofencingFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGpsGeofencingFilterNodeConfiguration.equals(Object)",
+      "int TbGpsGeofencingFilterNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbGpsGeofencingFilterNodeConfiguration(),
@@ -779,21 +833,15 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link TbGpsGeofencingFilterNodeConfiguration}
+   *   <li>default or parameterless constructor of {@link TbGpsGeofencingFilterNodeConfiguration}
    *   <li>{@link TbGpsGeofencingFilterNodeConfiguration#setCenterLatitude(Double)}
    *   <li>{@link TbGpsGeofencingFilterNodeConfiguration#setCenterLongitude(Double)}
-   *   <li>
-   * {@link TbGpsGeofencingFilterNodeConfiguration#setFetchPerimeterInfoFromMessageMetadata(boolean)}
+   *   <li>{@link TbGpsGeofencingFilterNodeConfiguration#setFetchPerimeterInfoFromMessageMetadata(boolean)}
    *   <li>{@link TbGpsGeofencingFilterNodeConfiguration#setLatitudeKeyName(String)}
-   *   <li>
-   * {@link TbGpsGeofencingFilterNodeConfiguration#setLongitudeKeyName(String)}
-   *   <li>
-   * {@link TbGpsGeofencingFilterNodeConfiguration#setPerimeterKeyName(String)}
-   *   <li>
-   * {@link TbGpsGeofencingFilterNodeConfiguration#setPerimeterType(PerimeterType)}
-   *   <li>
-   * {@link TbGpsGeofencingFilterNodeConfiguration#setPolygonsDefinition(String)}
+   *   <li>{@link TbGpsGeofencingFilterNodeConfiguration#setLongitudeKeyName(String)}
+   *   <li>{@link TbGpsGeofencingFilterNodeConfiguration#setPerimeterKeyName(String)}
+   *   <li>{@link TbGpsGeofencingFilterNodeConfiguration#setPerimeterType(PerimeterType)}
+   *   <li>{@link TbGpsGeofencingFilterNodeConfiguration#setPolygonsDefinition(String)}
    *   <li>{@link TbGpsGeofencingFilterNodeConfiguration#setRange(Double)}
    *   <li>{@link TbGpsGeofencingFilterNodeConfiguration#setRangeUnit(RangeUnit)}
    *   <li>{@link TbGpsGeofencingFilterNodeConfiguration#toString()}
@@ -806,12 +854,34 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
    *   <li>{@link TbGpsGeofencingFilterNodeConfiguration#getPolygonsDefinition()}
    *   <li>{@link TbGpsGeofencingFilterNodeConfiguration#getRange()}
    *   <li>{@link TbGpsGeofencingFilterNodeConfiguration#getRangeUnit()}
-   *   <li>
-   * {@link TbGpsGeofencingFilterNodeConfiguration#isFetchPerimeterInfoFromMessageMetadata()}
+   *   <li>{@link TbGpsGeofencingFilterNodeConfiguration#isFetchPerimeterInfoFromMessageMetadata()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbGpsGeofencingFilterNodeConfiguration.<init>()",
+      "Double TbGpsGeofencingFilterNodeConfiguration.getCenterLatitude()",
+      "Double TbGpsGeofencingFilterNodeConfiguration.getCenterLongitude()",
+      "String TbGpsGeofencingFilterNodeConfiguration.getLatitudeKeyName()",
+      "String TbGpsGeofencingFilterNodeConfiguration.getLongitudeKeyName()",
+      "String TbGpsGeofencingFilterNodeConfiguration.getPerimeterKeyName()",
+      "PerimeterType TbGpsGeofencingFilterNodeConfiguration.getPerimeterType()",
+      "String TbGpsGeofencingFilterNodeConfiguration.getPolygonsDefinition()",
+      "Double TbGpsGeofencingFilterNodeConfiguration.getRange()",
+      "RangeUnit TbGpsGeofencingFilterNodeConfiguration.getRangeUnit()",
+      "boolean TbGpsGeofencingFilterNodeConfiguration.isFetchPerimeterInfoFromMessageMetadata()",
+      "void TbGpsGeofencingFilterNodeConfiguration.setCenterLatitude(Double)",
+      "void TbGpsGeofencingFilterNodeConfiguration.setCenterLongitude(Double)",
+      "void TbGpsGeofencingFilterNodeConfiguration.setFetchPerimeterInfoFromMessageMetadata(boolean)",
+      "void TbGpsGeofencingFilterNodeConfiguration.setLatitudeKeyName(String)",
+      "void TbGpsGeofencingFilterNodeConfiguration.setLongitudeKeyName(String)",
+      "void TbGpsGeofencingFilterNodeConfiguration.setPerimeterKeyName(String)",
+      "void TbGpsGeofencingFilterNodeConfiguration.setPerimeterType(PerimeterType)",
+      "void TbGpsGeofencingFilterNodeConfiguration.setPolygonsDefinition(String)",
+      "void TbGpsGeofencingFilterNodeConfiguration.setRange(Double)",
+      "void TbGpsGeofencingFilterNodeConfiguration.setRangeUnit(RangeUnit)",
+      "String TbGpsGeofencingFilterNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbGpsGeofencingFilterNodeConfiguration actualTbGpsGeofencingFilterNodeConfiguration = new TbGpsGeofencingFilterNodeConfiguration();
@@ -838,7 +908,7 @@ class TbGpsGeofencingFilterNodeConfigurationDiffblueTest {
     boolean actualIsFetchPerimeterInfoFromMessageMetadataResult = actualTbGpsGeofencingFilterNodeConfiguration
         .isFetchPerimeterInfoFromMessageMetadata();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Latitude Key Name", actualLatitudeKeyName);
     assertEquals("Longitude Key Name", actualLongitudeKeyName);
     assertEquals("Perimeter Key Name", actualPerimeterKeyName);

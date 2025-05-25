@@ -2,8 +2,10 @@ package org.thingsboard.server.common.data.notification.info;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.alarm.AlarmSeverity;
 import org.thingsboard.server.common.data.alarm.AlarmStatus;
@@ -21,6 +23,8 @@ class AlarmNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getTemplateData(); then return size is eight")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Map AlarmNotificationInfo.getTemplateData()"})
   void testGetTemplateData_thenReturnSizeIsEight() {
     // Arrange
     AlarmNotificationInfo alarmNotificationInfo = new AlarmNotificationInfo();

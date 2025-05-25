@@ -2,8 +2,10 @@ package org.thingsboard.server.actors.device;
 
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +22,10 @@ import org.thingsboard.server.common.data.id.DeviceId;
 import org.thingsboard.server.common.data.id.TenantId;
 
 @ContextConfiguration(classes = {DeviceActorCreator.class, TenantId.class})
+@DisabledInAotMode
+@EnableConfigurationProperties
 @ExtendWith(SpringExtension.class)
 @PropertySource("classpath:application-test.properties")
-@EnableConfigurationProperties
-@DisabledInAotMode
 class DeviceActorCreatorDiffblueTest {
   @MockBean
   private ActorSystemContext actorSystemContext;
@@ -44,6 +46,8 @@ class DeviceActorCreatorDiffblueTest {
    */
   @Test
   @DisplayName("Test createActorId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbActorId DeviceActorCreator.createActorId()"})
   void testCreateActorId() {
     // Arrange and Act
     TbActorId actualCreateActorIdResult = deviceActorCreator.createActorId();

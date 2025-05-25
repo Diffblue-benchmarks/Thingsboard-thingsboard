@@ -7,11 +7,17 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Map;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.audit.ActionType;
 import org.thingsboard.server.common.data.id.AlarmId;
 import org.thingsboard.server.common.data.id.CustomerId;
@@ -19,45 +25,50 @@ import org.thingsboard.server.common.data.id.EntityId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.notification.info.EntityActionNotificationInfo.EntityActionNotificationInfoBuilder;
 
+@ContextConfiguration(classes = {EntityActionNotificationInfoBuilder.class})
+@ExtendWith(SpringExtension.class)
 class EntityActionNotificationInfoDiffblueTest {
+  @Autowired
+  private EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder;
+
   /**
-   * Test EntityActionNotificationInfoBuilder
-   * {@link EntityActionNotificationInfoBuilder#build()}.
+   * Test EntityActionNotificationInfoBuilder {@link EntityActionNotificationInfoBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link EntityActionNotificationInfo.EntityActionNotificationInfoBuilder#build()}
-   *   <li>
-   * {@link EntityActionNotificationInfo.EntityActionNotificationInfoBuilder#actionType(ActionType)}
-   *   <li>
-   * {@link EntityActionNotificationInfo.EntityActionNotificationInfoBuilder#entityCustomerId(CustomerId)}
-   *   <li>
-   * {@link EntityActionNotificationInfo.EntityActionNotificationInfoBuilder#entityId(EntityId)}
-   *   <li>
-   * {@link EntityActionNotificationInfo.EntityActionNotificationInfoBuilder#entityName(String)}
-   *   <li>
-   * {@link EntityActionNotificationInfo.EntityActionNotificationInfoBuilder#userEmail(String)}
-   *   <li>
-   * {@link EntityActionNotificationInfo.EntityActionNotificationInfoBuilder#userFirstName(String)}
-   *   <li>
-   * {@link EntityActionNotificationInfo.EntityActionNotificationInfoBuilder#userId(UUID)}
-   *   <li>
-   * {@link EntityActionNotificationInfo.EntityActionNotificationInfoBuilder#userLastName(String)}
-   *   <li>
-   * {@link EntityActionNotificationInfo.EntityActionNotificationInfoBuilder#userTitle(String)}
+   *   <li>{@link EntityActionNotificationInfoBuilder#build()}
+   *   <li>{@link EntityActionNotificationInfoBuilder#actionType(ActionType)}
+   *   <li>{@link EntityActionNotificationInfoBuilder#entityCustomerId(CustomerId)}
+   *   <li>{@link EntityActionNotificationInfoBuilder#entityId(EntityId)}
+   *   <li>{@link EntityActionNotificationInfoBuilder#entityName(String)}
+   *   <li>{@link EntityActionNotificationInfoBuilder#userEmail(String)}
+   *   <li>{@link EntityActionNotificationInfoBuilder#userFirstName(String)}
+   *   <li>{@link EntityActionNotificationInfoBuilder#userId(UUID)}
+   *   <li>{@link EntityActionNotificationInfoBuilder#userLastName(String)}
+   *   <li>{@link EntityActionNotificationInfoBuilder#userTitle(String)}
    * </ul>
    */
   @Test
   @DisplayName("Test EntityActionNotificationInfoBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityActionNotificationInfoBuilder.<init>()",
+      "EntityActionNotificationInfoBuilder EntityActionNotificationInfoBuilder.actionType(ActionType)",
+      "EntityActionNotificationInfo EntityActionNotificationInfoBuilder.build()",
+      "EntityActionNotificationInfoBuilder EntityActionNotificationInfoBuilder.entityCustomerId(CustomerId)",
+      "EntityActionNotificationInfoBuilder EntityActionNotificationInfoBuilder.entityId(EntityId)",
+      "EntityActionNotificationInfoBuilder EntityActionNotificationInfoBuilder.entityName(String)",
+      "String EntityActionNotificationInfoBuilder.toString()",
+      "EntityActionNotificationInfoBuilder EntityActionNotificationInfoBuilder.userEmail(String)",
+      "EntityActionNotificationInfoBuilder EntityActionNotificationInfoBuilder.userFirstName(String)",
+      "EntityActionNotificationInfoBuilder EntityActionNotificationInfoBuilder.userId(UUID)",
+      "EntityActionNotificationInfoBuilder EntityActionNotificationInfoBuilder.userLastName(String)",
+      "EntityActionNotificationInfoBuilder EntityActionNotificationInfoBuilder.userTitle(String)"})
   void testEntityActionNotificationInfoBuilderBuild() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = EntityActionNotificationInfo
-        .builder()
+    EntityActionNotificationInfoBuilder actionTypeResult = EntityActionNotificationInfo.builder()
         .actionType(ActionType.ADDED);
     CustomerId entityCustomerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
-        .entityCustomerId(entityCustomerId)
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult.entityCustomerId(entityCustomerId)
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
         .userEmail("jane.doe@example.org")
@@ -108,12 +119,13 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getTemplateData(); then return size is nine")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Map EntityActionNotificationInfo.getTemplateData()"})
   void testGetTemplateData_thenReturnSizeIsNine() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = EntityActionNotificationInfo
-        .builder()
+    EntityActionNotificationInfoBuilder actionTypeResult = EntityActionNotificationInfo.builder()
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -142,8 +154,7 @@ class EntityActionNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link EntityActionNotificationInfo#equals(Object)}, and
-   * {@link EntityActionNotificationInfo#hashCode()}.
+   * Test {@link EntityActionNotificationInfo#equals(Object)}, and {@link EntityActionNotificationInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -157,12 +168,14 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = EntityActionNotificationInfo
-        .builder()
+    EntityActionNotificationInfoBuilder actionTypeResult = EntityActionNotificationInfo.builder()
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -173,10 +186,9 @@ class EntityActionNotificationInfoDiffblueTest {
         .userLastName("Doe")
         .userTitle("Dr")
         .build();
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult2 = EntityActionNotificationInfo
-        .builder()
+    EntityActionNotificationInfoBuilder actionTypeResult2 = EntityActionNotificationInfo.builder()
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
+    EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -195,8 +207,7 @@ class EntityActionNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link EntityActionNotificationInfo#equals(Object)}, and
-   * {@link EntityActionNotificationInfo#hashCode()}.
+   * Test {@link EntityActionNotificationInfo#equals(Object)}, and {@link EntityActionNotificationInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -210,15 +221,18 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder.actionType(Mockito.<ActionType>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder
+    EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -229,13 +243,13 @@ class EntityActionNotificationInfoDiffblueTest {
         .userLastName("Doe")
         .userTitle("Dr")
         .build();
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder2.actionType(Mockito.<ActionType>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder2
+    EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder2
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
+    EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -254,8 +268,7 @@ class EntityActionNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link EntityActionNotificationInfo#equals(Object)}, and
-   * {@link EntityActionNotificationInfo#hashCode()}.
+   * Test {@link EntityActionNotificationInfo#equals(Object)}, and {@link EntityActionNotificationInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -269,19 +282,22 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder2.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
+    EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -292,17 +308,17 @@ class EntityActionNotificationInfoDiffblueTest {
         .userLastName("Doe")
         .userTitle("Dr")
         .build();
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder3.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder4.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder3);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
+    EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
+    EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -321,8 +337,7 @@ class EntityActionNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link EntityActionNotificationInfo#equals(Object)}, and
-   * {@link EntityActionNotificationInfo#hashCode()}.
+   * Test {@link EntityActionNotificationInfo#equals(Object)}, and {@link EntityActionNotificationInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -336,19 +351,22 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder2.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
+    EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -359,17 +377,17 @@ class EntityActionNotificationInfoDiffblueTest {
         .userLastName("Doe")
         .userTitle("Dr")
         .build();
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder3.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder4.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder3);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
+    EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
+    EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -388,8 +406,7 @@ class EntityActionNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link EntityActionNotificationInfo#equals(Object)}, and
-   * {@link EntityActionNotificationInfo#hashCode()}.
+   * Test {@link EntityActionNotificationInfo#equals(Object)}, and {@link EntityActionNotificationInfo#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -403,12 +420,14 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = EntityActionNotificationInfo
-        .builder()
+    EntityActionNotificationInfoBuilder actionTypeResult = EntityActionNotificationInfo.builder()
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -437,15 +456,18 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder.actionType(Mockito.<ActionType>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder
+    EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -456,10 +478,9 @@ class EntityActionNotificationInfoDiffblueTest {
         .userLastName("Doe")
         .userTitle("Dr")
         .build();
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult2 = EntityActionNotificationInfo
-        .builder()
+    EntityActionNotificationInfoBuilder actionTypeResult2 = EntityActionNotificationInfo.builder()
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
+    EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -486,15 +507,18 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder.actionType(Mockito.<ActionType>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder
+    EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(null)
         .entityName("Entity Name")
@@ -505,10 +529,9 @@ class EntityActionNotificationInfoDiffblueTest {
         .userLastName("Doe")
         .userTitle("Dr")
         .build();
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult2 = EntityActionNotificationInfo
-        .builder()
+    EntityActionNotificationInfoBuilder actionTypeResult2 = EntityActionNotificationInfo.builder()
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
+    EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -535,17 +558,20 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder.actionType(Mockito.<ActionType>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder
+    EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityCustomerIdResult = actionTypeResult
+    EntityActionNotificationInfoBuilder entityCustomerIdResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = entityCustomerIdResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = entityCustomerIdResult
         .entityId(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityName("Entity Name")
         .userEmail("jane.doe@example.org")
@@ -555,10 +581,9 @@ class EntityActionNotificationInfoDiffblueTest {
         .userLastName("Doe")
         .userTitle("Dr")
         .build();
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult2 = EntityActionNotificationInfo
-        .builder()
+    EntityActionNotificationInfoBuilder actionTypeResult2 = EntityActionNotificationInfo.builder()
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
+    EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -585,15 +610,18 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder.actionType(Mockito.<ActionType>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder
+    EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName(null)
@@ -604,10 +632,9 @@ class EntityActionNotificationInfoDiffblueTest {
         .userLastName("Doe")
         .userTitle("Dr")
         .build();
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult2 = EntityActionNotificationInfo
-        .builder()
+    EntityActionNotificationInfoBuilder actionTypeResult2 = EntityActionNotificationInfo.builder()
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
+    EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -634,15 +661,18 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder.actionType(Mockito.<ActionType>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder
+    EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("42")
@@ -653,10 +683,9 @@ class EntityActionNotificationInfoDiffblueTest {
         .userLastName("Doe")
         .userTitle("Dr")
         .build();
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult2 = EntityActionNotificationInfo
-        .builder()
+    EntityActionNotificationInfoBuilder actionTypeResult2 = EntityActionNotificationInfo.builder()
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
+    EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -683,19 +712,22 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder2.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
+    EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -706,13 +738,13 @@ class EntityActionNotificationInfoDiffblueTest {
         .userLastName("Doe")
         .userTitle("Dr")
         .build();
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder3.actionType(Mockito.<ActionType>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder3
+    EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder3
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
+    EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -739,19 +771,22 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder2.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
+    EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -762,17 +797,17 @@ class EntityActionNotificationInfoDiffblueTest {
         .userLastName("Doe")
         .userTitle("Dr")
         .build();
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder3.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder4.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder3);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
+    EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
+    EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -799,19 +834,22 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder2.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
+    EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -822,17 +860,17 @@ class EntityActionNotificationInfoDiffblueTest {
         .userLastName("Doe")
         .userTitle("Dr")
         .build();
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder3.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder4.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder3);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
+    EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
+    EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -859,19 +897,22 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder2.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
+    EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -882,17 +923,17 @@ class EntityActionNotificationInfoDiffblueTest {
         .userLastName("Doe")
         .userTitle("Dr")
         .build();
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder3.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder4.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder3);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
+    EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
+    EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -919,19 +960,22 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder2.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
+    EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -942,17 +986,17 @@ class EntityActionNotificationInfoDiffblueTest {
         .userLastName("Doe")
         .userTitle("Dr")
         .build();
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder3.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder4.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder3);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
+    EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
+    EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -979,17 +1023,20 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder2.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
+    EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
         .actionType(ActionType.ADDED);
     EntityActionNotificationInfo buildResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
@@ -1001,17 +1048,17 @@ class EntityActionNotificationInfoDiffblueTest {
         .userLastName("Doe")
         .userTitle("Dr")
         .build();
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder3.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder4.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder3);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
+    EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult2
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult2
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -1038,17 +1085,20 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder2.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
+    EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
         .actionType(ActionType.ADDED);
     EntityActionNotificationInfo buildResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
@@ -1060,17 +1110,17 @@ class EntityActionNotificationInfoDiffblueTest {
         .userLastName("Doe")
         .userTitle("Dr")
         .build();
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder3.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder4.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder3);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
+    EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult2
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult2
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -1097,19 +1147,22 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder2.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
+    EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -1120,17 +1173,17 @@ class EntityActionNotificationInfoDiffblueTest {
         .userLastName("Smith")
         .userTitle("Dr")
         .build();
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder3.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder4.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder3);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
+    EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
+    EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -1157,19 +1210,22 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder2.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
+    EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -1180,17 +1236,17 @@ class EntityActionNotificationInfoDiffblueTest {
         .userLastName(null)
         .userTitle("Dr")
         .build();
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder3.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder4.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder3);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
+    EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
+    EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -1217,19 +1273,22 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder2.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
+    EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -1240,17 +1299,17 @@ class EntityActionNotificationInfoDiffblueTest {
         .userLastName("Doe")
         .userTitle("Mr")
         .build();
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder3.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder4.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder3);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
+    EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
+    EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -1277,19 +1336,22 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder2.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
+    EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -1300,17 +1362,17 @@ class EntityActionNotificationInfoDiffblueTest {
         .userLastName("Doe")
         .userTitle(null)
         .build();
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder3.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder4.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder3);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
+    EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
+    EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -1337,21 +1399,23 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder builderResult = EntityActionNotificationInfo
-        .builder();
+    EntityActionNotificationInfoBuilder builderResult = EntityActionNotificationInfo.builder();
     builderResult.actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder.entityCustomerId(Mockito.<CustomerId>any())).thenReturn(builderResult);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder2.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
+    EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -1362,17 +1426,17 @@ class EntityActionNotificationInfoDiffblueTest {
         .userLastName("Doe")
         .userTitle("Dr")
         .build();
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder3.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder4.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder3);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
+    EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
+    EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -1399,21 +1463,23 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder builderResult = EntityActionNotificationInfo
-        .builder();
+    EntityActionNotificationInfoBuilder builderResult = EntityActionNotificationInfo.builder();
     builderResult.entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder.entityCustomerId(Mockito.<CustomerId>any())).thenReturn(builderResult);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder2 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder2.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
+    EntityActionNotificationInfoBuilder actionTypeResult = entityActionNotificationInfoBuilder2
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -1424,17 +1490,17 @@ class EntityActionNotificationInfoDiffblueTest {
         .userLastName("Doe")
         .userTitle("Dr")
         .build();
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder3 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder3.entityCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(EntityActionNotificationInfo.builder());
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
-        EntityActionNotificationInfo.EntityActionNotificationInfoBuilder.class);
+    EntityActionNotificationInfoBuilder entityActionNotificationInfoBuilder4 = mock(
+        EntityActionNotificationInfoBuilder.class);
     when(entityActionNotificationInfoBuilder4.actionType(Mockito.<ActionType>any()))
         .thenReturn(entityActionNotificationInfoBuilder3);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
+    EntityActionNotificationInfoBuilder actionTypeResult2 = entityActionNotificationInfoBuilder4
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
+    EntityActionNotificationInfoBuilder userFirstNameResult2 = actionTypeResult2
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -1461,12 +1527,14 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = EntityActionNotificationInfo
-        .builder()
+    EntityActionNotificationInfoBuilder actionTypeResult = EntityActionNotificationInfo.builder()
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -1493,12 +1561,14 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationInfo.equals(Object)",
+      "int EntityActionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder actionTypeResult = EntityActionNotificationInfo
-        .builder()
+    EntityActionNotificationInfoBuilder actionTypeResult = EntityActionNotificationInfo.builder()
         .actionType(ActionType.ADDED);
-    EntityActionNotificationInfo.EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
+    EntityActionNotificationInfoBuilder userFirstNameResult = actionTypeResult
         .entityCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .entityId(TenantId.SYS_TENANT_ID)
         .entityName("Entity Name")
@@ -1545,6 +1615,24 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityActionNotificationInfo.<init>()",
+      "void EntityActionNotificationInfo.<init>(EntityId, String, ActionType, CustomerId, UUID, String, String, String, String)",
+      "ActionType EntityActionNotificationInfo.getActionType()",
+      "CustomerId EntityActionNotificationInfo.getAffectedCustomerId()",
+      "CustomerId EntityActionNotificationInfo.getEntityCustomerId()",
+      "EntityId EntityActionNotificationInfo.getEntityId()", "String EntityActionNotificationInfo.getEntityName()",
+      "EntityId EntityActionNotificationInfo.getStateEntityId()", "String EntityActionNotificationInfo.getUserEmail()",
+      "String EntityActionNotificationInfo.getUserFirstName()", "UUID EntityActionNotificationInfo.getUserId()",
+      "String EntityActionNotificationInfo.getUserLastName()", "String EntityActionNotificationInfo.getUserTitle()",
+      "void EntityActionNotificationInfo.setActionType(ActionType)",
+      "void EntityActionNotificationInfo.setEntityCustomerId(CustomerId)",
+      "void EntityActionNotificationInfo.setEntityId(EntityId)",
+      "void EntityActionNotificationInfo.setEntityName(String)",
+      "void EntityActionNotificationInfo.setUserEmail(String)",
+      "void EntityActionNotificationInfo.setUserFirstName(String)", "void EntityActionNotificationInfo.setUserId(UUID)",
+      "void EntityActionNotificationInfo.setUserLastName(String)",
+      "void EntityActionNotificationInfo.setUserTitle(String)", "String EntityActionNotificationInfo.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     EntityActionNotificationInfo actualEntityActionNotificationInfo = new EntityActionNotificationInfo();
@@ -1572,7 +1660,7 @@ class EntityActionNotificationInfoDiffblueTest {
     String actualUserLastName = actualEntityActionNotificationInfo.getUserLastName();
     String actualUserTitle = actualEntityActionNotificationInfo.getUserTitle();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualUserId.toString());
     assertEquals("Doe", actualUserLastName);
     assertEquals("Dr", actualUserTitle);
@@ -1600,8 +1688,7 @@ class EntityActionNotificationInfoDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link EntityActionNotificationInfo#EntityActionNotificationInfo(EntityId, String, ActionType, CustomerId, UUID, String, String, String, String)}
+   *   <li>{@link EntityActionNotificationInfo#EntityActionNotificationInfo(EntityId, String, ActionType, CustomerId, UUID, String, String, String, String)}
    *   <li>{@link EntityActionNotificationInfo#setActionType(ActionType)}
    *   <li>{@link EntityActionNotificationInfo#setEntityCustomerId(CustomerId)}
    *   <li>{@link EntityActionNotificationInfo#setEntityId(EntityId)}
@@ -1627,6 +1714,24 @@ class EntityActionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when SYS_TENANT_ID")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityActionNotificationInfo.<init>()",
+      "void EntityActionNotificationInfo.<init>(EntityId, String, ActionType, CustomerId, UUID, String, String, String, String)",
+      "ActionType EntityActionNotificationInfo.getActionType()",
+      "CustomerId EntityActionNotificationInfo.getAffectedCustomerId()",
+      "CustomerId EntityActionNotificationInfo.getEntityCustomerId()",
+      "EntityId EntityActionNotificationInfo.getEntityId()", "String EntityActionNotificationInfo.getEntityName()",
+      "EntityId EntityActionNotificationInfo.getStateEntityId()", "String EntityActionNotificationInfo.getUserEmail()",
+      "String EntityActionNotificationInfo.getUserFirstName()", "UUID EntityActionNotificationInfo.getUserId()",
+      "String EntityActionNotificationInfo.getUserLastName()", "String EntityActionNotificationInfo.getUserTitle()",
+      "void EntityActionNotificationInfo.setActionType(ActionType)",
+      "void EntityActionNotificationInfo.setEntityCustomerId(CustomerId)",
+      "void EntityActionNotificationInfo.setEntityId(EntityId)",
+      "void EntityActionNotificationInfo.setEntityName(String)",
+      "void EntityActionNotificationInfo.setUserEmail(String)",
+      "void EntityActionNotificationInfo.setUserFirstName(String)", "void EntityActionNotificationInfo.setUserId(UUID)",
+      "void EntityActionNotificationInfo.setUserLastName(String)",
+      "void EntityActionNotificationInfo.setUserTitle(String)", "String EntityActionNotificationInfo.toString()"})
   void testGettersAndSetters_whenSys_tenant_id() {
     // Arrange
     CustomerId entityCustomerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -1659,7 +1764,7 @@ class EntityActionNotificationInfoDiffblueTest {
     String actualUserLastName = actualEntityActionNotificationInfo.getUserLastName();
     String actualUserTitle = actualEntityActionNotificationInfo.getUserTitle();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualUserId.toString());
     assertEquals("Doe", actualUserLastName);
     assertEquals("Dr", actualUserTitle);

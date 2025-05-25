@@ -2,13 +2,14 @@ package org.thingsboard.server.common.data;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class SystemInfoDataDiffblueTest {
   /**
-   * Test {@link SystemInfoData#equals(Object)}, and
-   * {@link SystemInfoData#hashCode()}.
+   * Test {@link SystemInfoData#equals(Object)}, and {@link SystemInfoData#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -22,6 +23,8 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfoData.equals(Object)", "int SystemInfoData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
@@ -51,8 +54,7 @@ class SystemInfoDataDiffblueTest {
   }
 
   /**
-   * Test {@link SystemInfoData#equals(Object)}, and
-   * {@link SystemInfoData#hashCode()}.
+   * Test {@link SystemInfoData#equals(Object)}, and {@link SystemInfoData#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -66,6 +68,8 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfoData.equals(Object)", "int SystemInfoData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
@@ -95,8 +99,7 @@ class SystemInfoDataDiffblueTest {
   }
 
   /**
-   * Test {@link SystemInfoData#equals(Object)}, and
-   * {@link SystemInfoData#hashCode()}.
+   * Test {@link SystemInfoData#equals(Object)}, and {@link SystemInfoData#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -110,6 +113,8 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfoData.equals(Object)", "int SystemInfoData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
@@ -139,8 +144,7 @@ class SystemInfoDataDiffblueTest {
   }
 
   /**
-   * Test {@link SystemInfoData#equals(Object)}, and
-   * {@link SystemInfoData#hashCode()}.
+   * Test {@link SystemInfoData#equals(Object)}, and {@link SystemInfoData#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -154,6 +158,8 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfoData.equals(Object)", "int SystemInfoData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
@@ -183,8 +189,7 @@ class SystemInfoDataDiffblueTest {
   }
 
   /**
-   * Test {@link SystemInfoData#equals(Object)}, and
-   * {@link SystemInfoData#hashCode()}.
+   * Test {@link SystemInfoData#equals(Object)}, and {@link SystemInfoData#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -198,6 +203,8 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfoData.equals(Object)", "int SystemInfoData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
@@ -227,6 +234,8 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfoData.equals(Object)", "int SystemInfoData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
@@ -264,6 +273,8 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfoData.equals(Object)", "int SystemInfoData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
@@ -301,6 +312,8 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfoData.equals(Object)", "int SystemInfoData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
@@ -338,6 +351,8 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfoData.equals(Object)", "int SystemInfoData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
@@ -375,6 +390,8 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfoData.equals(Object)", "int SystemInfoData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
@@ -412,6 +429,8 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfoData.equals(Object)", "int SystemInfoData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
@@ -449,6 +468,8 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfoData.equals(Object)", "int SystemInfoData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
@@ -486,6 +507,8 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfoData.equals(Object)", "int SystemInfoData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
@@ -523,6 +546,8 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfoData.equals(Object)", "int SystemInfoData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
@@ -560,6 +585,8 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfoData.equals(Object)", "int SystemInfoData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
@@ -597,6 +624,8 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfoData.equals(Object)", "int SystemInfoData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
@@ -634,6 +663,8 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfoData.equals(Object)", "int SystemInfoData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
@@ -671,6 +702,8 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfoData.equals(Object)", "int SystemInfoData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
@@ -708,6 +741,8 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfoData.equals(Object)", "int SystemInfoData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
@@ -745,6 +780,8 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfoData.equals(Object)", "int SystemInfoData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
@@ -782,6 +819,8 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfoData.equals(Object)", "int SystemInfoData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
@@ -819,6 +858,8 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfoData.equals(Object)", "int SystemInfoData.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
@@ -846,6 +887,8 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SystemInfoData.equals(Object)", "int SystemInfoData.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
@@ -889,6 +932,16 @@ class SystemInfoDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SystemInfoData.<init>()", "Long SystemInfoData.getCpuCount()",
+      "Long SystemInfoData.getCpuUsage()", "Long SystemInfoData.getDiscUsage()", "Long SystemInfoData.getMemoryUsage()",
+      "String SystemInfoData.getServiceId()", "String SystemInfoData.getServiceType()",
+      "Long SystemInfoData.getTotalDiscSpace()", "Long SystemInfoData.getTotalMemory()",
+      "void SystemInfoData.setCpuCount(Long)", "void SystemInfoData.setCpuUsage(Long)",
+      "void SystemInfoData.setDiscUsage(Long)", "void SystemInfoData.setMemoryUsage(Long)",
+      "void SystemInfoData.setServiceId(String)", "void SystemInfoData.setServiceType(String)",
+      "void SystemInfoData.setTotalDiscSpace(Long)", "void SystemInfoData.setTotalMemory(Long)",
+      "String SystemInfoData.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     SystemInfoData actualSystemInfoData = new SystemInfoData();
@@ -910,7 +963,7 @@ class SystemInfoDataDiffblueTest {
     Long actualTotalDiscSpace = actualSystemInfoData.getTotalDiscSpace();
     Long actualTotalMemory = actualSystemInfoData.getTotalMemory();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("42", actualServiceId);
     assertEquals("Service Type", actualServiceType);
     assertEquals("SystemInfoData(serviceId=42, serviceType=Service Type, cpuUsage=1, cpuCount=3, memoryUsage=1,"

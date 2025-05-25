@@ -2,13 +2,14 @@ package org.thingsboard.server.common.data.device.credentials;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class BasicMqttCredentialsDiffblueTest {
   /**
-   * Test {@link BasicMqttCredentials#equals(Object)}, and
-   * {@link BasicMqttCredentials#hashCode()}.
+   * Test {@link BasicMqttCredentials#equals(Object)}, and {@link BasicMqttCredentials#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -22,6 +23,8 @@ class BasicMqttCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BasicMqttCredentials.equals(Object)", "int BasicMqttCredentials.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     BasicMqttCredentials basicMqttCredentials = new BasicMqttCredentials();
@@ -41,8 +44,7 @@ class BasicMqttCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link BasicMqttCredentials#equals(Object)}, and
-   * {@link BasicMqttCredentials#hashCode()}.
+   * Test {@link BasicMqttCredentials#equals(Object)}, and {@link BasicMqttCredentials#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -56,6 +58,8 @@ class BasicMqttCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BasicMqttCredentials.equals(Object)", "int BasicMqttCredentials.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     BasicMqttCredentials basicMqttCredentials = new BasicMqttCredentials();
@@ -75,8 +79,7 @@ class BasicMqttCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link BasicMqttCredentials#equals(Object)}, and
-   * {@link BasicMqttCredentials#hashCode()}.
+   * Test {@link BasicMqttCredentials#equals(Object)}, and {@link BasicMqttCredentials#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -90,6 +93,8 @@ class BasicMqttCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BasicMqttCredentials.equals(Object)", "int BasicMqttCredentials.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     BasicMqttCredentials basicMqttCredentials = new BasicMqttCredentials();
@@ -109,8 +114,7 @@ class BasicMqttCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link BasicMqttCredentials#equals(Object)}, and
-   * {@link BasicMqttCredentials#hashCode()}.
+   * Test {@link BasicMqttCredentials#equals(Object)}, and {@link BasicMqttCredentials#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -124,6 +128,8 @@ class BasicMqttCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BasicMqttCredentials.equals(Object)", "int BasicMqttCredentials.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     BasicMqttCredentials basicMqttCredentials = new BasicMqttCredentials();
@@ -143,8 +149,7 @@ class BasicMqttCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link BasicMqttCredentials#equals(Object)}, and
-   * {@link BasicMqttCredentials#hashCode()}.
+   * Test {@link BasicMqttCredentials#equals(Object)}, and {@link BasicMqttCredentials#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -158,6 +163,8 @@ class BasicMqttCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BasicMqttCredentials.equals(Object)", "int BasicMqttCredentials.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     BasicMqttCredentials basicMqttCredentials = new BasicMqttCredentials();
@@ -182,6 +189,8 @@ class BasicMqttCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BasicMqttCredentials.equals(Object)", "int BasicMqttCredentials.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     BasicMqttCredentials basicMqttCredentials = new BasicMqttCredentials();
@@ -209,6 +218,8 @@ class BasicMqttCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BasicMqttCredentials.equals(Object)", "int BasicMqttCredentials.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     BasicMqttCredentials basicMqttCredentials = new BasicMqttCredentials();
@@ -236,6 +247,8 @@ class BasicMqttCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BasicMqttCredentials.equals(Object)", "int BasicMqttCredentials.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     BasicMqttCredentials basicMqttCredentials = new BasicMqttCredentials();
@@ -263,6 +276,8 @@ class BasicMqttCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BasicMqttCredentials.equals(Object)", "int BasicMqttCredentials.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     BasicMqttCredentials basicMqttCredentials = new BasicMqttCredentials();
@@ -290,6 +305,8 @@ class BasicMqttCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BasicMqttCredentials.equals(Object)", "int BasicMqttCredentials.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     BasicMqttCredentials basicMqttCredentials = new BasicMqttCredentials();
@@ -317,6 +334,8 @@ class BasicMqttCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BasicMqttCredentials.equals(Object)", "int BasicMqttCredentials.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     BasicMqttCredentials basicMqttCredentials = new BasicMqttCredentials();
@@ -344,6 +363,8 @@ class BasicMqttCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BasicMqttCredentials.equals(Object)", "int BasicMqttCredentials.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     BasicMqttCredentials basicMqttCredentials = new BasicMqttCredentials();
@@ -366,6 +387,8 @@ class BasicMqttCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BasicMqttCredentials.equals(Object)", "int BasicMqttCredentials.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     BasicMqttCredentials basicMqttCredentials = new BasicMqttCredentials();
@@ -394,6 +417,11 @@ class BasicMqttCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BasicMqttCredentials.<init>()", "String BasicMqttCredentials.getClientId()",
+      "String BasicMqttCredentials.getPassword()", "String BasicMqttCredentials.getUserName()",
+      "void BasicMqttCredentials.setClientId(String)", "void BasicMqttCredentials.setPassword(String)",
+      "void BasicMqttCredentials.setUserName(String)", "String BasicMqttCredentials.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     BasicMqttCredentials actualBasicMqttCredentials = new BasicMqttCredentials();
@@ -404,7 +432,7 @@ class BasicMqttCredentialsDiffblueTest {
     String actualClientId = actualBasicMqttCredentials.getClientId();
     String actualPassword = actualBasicMqttCredentials.getPassword();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("42", actualClientId);
     assertEquals("BasicMqttCredentials(clientId=42, userName=janedoe, password=iloveyou)", actualToStringResult);
     assertEquals("iloveyou", actualPassword);

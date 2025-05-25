@@ -7,17 +7,28 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.id.EntityId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.limit.LimitedApi;
 import org.thingsboard.server.common.data.notification.rule.trigger.RateLimitsTrigger.RateLimitsTriggerBuilder;
 import org.thingsboard.server.common.data.notification.rule.trigger.config.NotificationRuleTriggerType;
 
+@ContextConfiguration(classes = {RateLimitsTriggerBuilder.class})
+@ExtendWith(SpringExtension.class)
 class RateLimitsTriggerDiffblueTest {
+  @Autowired
+  private RateLimitsTriggerBuilder rateLimitsTriggerBuilder;
+
   /**
    * Test {@link RateLimitsTrigger#getOriginatorEntityId()}.
    * <p>
@@ -25,6 +36,8 @@ class RateLimitsTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test getOriginatorEntityId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId RateLimitsTrigger.getOriginatorEntityId()"})
   void testGetOriginatorEntityId() {
     // Arrange
     RateLimitsTrigger rateLimitsTrigger = new RateLimitsTrigger(TenantId.SYS_TENANT_ID, LimitedApi.ENTITY_EXPORT,
@@ -47,6 +60,8 @@ class RateLimitsTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test getOriginatorEntityId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId RateLimitsTrigger.getOriginatorEntityId()"})
   void testGetOriginatorEntityId2() {
     // Arrange
     RateLimitsTrigger rateLimitsTrigger = new RateLimitsTrigger(TenantId.SYS_TENANT_ID, LimitedApi.ENTITY_EXPORT, null,
@@ -69,6 +84,8 @@ class RateLimitsTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test deduplicate()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsTrigger.deduplicate()"})
   void testDeduplicate() {
     // Arrange, Act and Assert
     assertTrue((new RateLimitsTrigger(TenantId.SYS_TENANT_ID, LimitedApi.ENTITY_EXPORT, TenantId.SYS_TENANT_ID,
@@ -82,11 +99,26 @@ class RateLimitsTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test getDeduplicationKey()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String RateLimitsTrigger.getDeduplicationKey()"})
   void testGetDeduplicationKey() {
     // Arrange, Act and Assert
     assertEquals("RATE_LIMITS:TENANT:13814000-1dd2-11b2-8080-808080808080:ENTITY_EXPORT",
         (new RateLimitsTrigger(TenantId.SYS_TENANT_ID, LimitedApi.ENTITY_EXPORT, TenantId.SYS_TENANT_ID,
             "Limit Level Entity Name")).getDeduplicationKey());
+  }
+
+  /**
+   * Test {@link RateLimitsTrigger#getDeduplicationKey()}.
+   * <p>
+   * Method under test: {@link RateLimitsTrigger#getDeduplicationKey()}
+   */
+  @Test
+  @DisplayName("Test getDeduplicationKey()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String RateLimitsTrigger.getDeduplicationKey()"})
+  void testGetDeduplicationKey2() {
+    // Arrange, Act and Assert
     assertEquals("RATE_LIMITS:TENANT:13814000-1dd2-11b2-8080-808080808080:ENTITY_EXPORT",
         (new RateLimitsTrigger(TenantId.SYS_TENANT_ID, LimitedApi.ENTITY_EXPORT, null, "Limit Level Entity Name"))
             .getDeduplicationKey());
@@ -95,11 +127,12 @@ class RateLimitsTriggerDiffblueTest {
   /**
    * Test {@link RateLimitsTrigger#getDefaultDeduplicationDuration()}.
    * <p>
-   * Method under test:
-   * {@link RateLimitsTrigger#getDefaultDeduplicationDuration()}
+   * Method under test: {@link RateLimitsTrigger#getDefaultDeduplicationDuration()}
    */
   @Test
   @DisplayName("Test getDefaultDeduplicationDuration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long RateLimitsTrigger.getDefaultDeduplicationDuration()"})
   void testGetDefaultDeduplicationDuration() {
     // Arrange, Act and Assert
     assertEquals(14400000L, (new RateLimitsTrigger(TenantId.SYS_TENANT_ID, LimitedApi.ENTITY_EXPORT,
@@ -107,8 +140,7 @@ class RateLimitsTriggerDiffblueTest {
   }
 
   /**
-   * Test {@link RateLimitsTrigger#equals(Object)}, and
-   * {@link RateLimitsTrigger#hashCode()}.
+   * Test {@link RateLimitsTrigger#equals(Object)}, and {@link RateLimitsTrigger#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -122,6 +154,8 @@ class RateLimitsTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsTrigger.equals(Object)", "int RateLimitsTrigger.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     RateLimitsTrigger buildResult = RateLimitsTrigger.builder()
@@ -144,8 +178,7 @@ class RateLimitsTriggerDiffblueTest {
   }
 
   /**
-   * Test {@link RateLimitsTrigger#equals(Object)}, and
-   * {@link RateLimitsTrigger#hashCode()}.
+   * Test {@link RateLimitsTrigger#equals(Object)}, and {@link RateLimitsTrigger#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -159,18 +192,18 @@ class RateLimitsTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsTrigger.equals(Object)", "int RateLimitsTrigger.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder.api(Mockito.<LimitedApi>any())).thenReturn(RateLimitsTrigger.builder());
     RateLimitsTrigger buildResult = rateLimitsTriggerBuilder.api(LimitedApi.ENTITY_EXPORT)
         .limitLevel(TenantId.SYS_TENANT_ID)
         .limitLevelEntityName("Limit Level Entity Name")
         .tenantId(TenantId.SYS_TENANT_ID)
         .build();
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder2 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder2 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder2.api(Mockito.<LimitedApi>any())).thenReturn(RateLimitsTrigger.builder());
     RateLimitsTrigger buildResult2 = rateLimitsTriggerBuilder2.api(LimitedApi.ENTITY_EXPORT)
         .limitLevel(TenantId.SYS_TENANT_ID)
@@ -185,8 +218,7 @@ class RateLimitsTriggerDiffblueTest {
   }
 
   /**
-   * Test {@link RateLimitsTrigger#equals(Object)}, and
-   * {@link RateLimitsTrigger#hashCode()}.
+   * Test {@link RateLimitsTrigger#equals(Object)}, and {@link RateLimitsTrigger#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -200,24 +232,22 @@ class RateLimitsTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsTrigger.equals(Object)", "int RateLimitsTrigger.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder.limitLevel(Mockito.<EntityId>any())).thenReturn(RateLimitsTrigger.builder());
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder2 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder2 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder2.api(Mockito.<LimitedApi>any())).thenReturn(rateLimitsTriggerBuilder);
     RateLimitsTrigger buildResult = rateLimitsTriggerBuilder2.api(LimitedApi.ENTITY_EXPORT)
         .limitLevel(TenantId.SYS_TENANT_ID)
         .limitLevelEntityName("Limit Level Entity Name")
         .tenantId(TenantId.SYS_TENANT_ID)
         .build();
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder3 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder3 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder3.limitLevel(Mockito.<EntityId>any())).thenReturn(RateLimitsTrigger.builder());
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder4 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder4 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder4.api(Mockito.<LimitedApi>any())).thenReturn(rateLimitsTriggerBuilder3);
     RateLimitsTrigger buildResult2 = rateLimitsTriggerBuilder4.api(LimitedApi.ENTITY_EXPORT)
         .limitLevel(TenantId.SYS_TENANT_ID)
@@ -232,8 +262,7 @@ class RateLimitsTriggerDiffblueTest {
   }
 
   /**
-   * Test {@link RateLimitsTrigger#equals(Object)}, and
-   * {@link RateLimitsTrigger#hashCode()}.
+   * Test {@link RateLimitsTrigger#equals(Object)}, and {@link RateLimitsTrigger#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -247,30 +276,26 @@ class RateLimitsTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsTrigger.equals(Object)", "int RateLimitsTrigger.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder.limitLevelEntityName(Mockito.<String>any())).thenReturn(RateLimitsTrigger.builder());
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder2 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder2 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder2.limitLevel(Mockito.<EntityId>any())).thenReturn(rateLimitsTriggerBuilder);
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder3 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder3 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder3.api(Mockito.<LimitedApi>any())).thenReturn(rateLimitsTriggerBuilder2);
     RateLimitsTrigger buildResult = rateLimitsTriggerBuilder3.api(LimitedApi.ENTITY_EXPORT)
         .limitLevel(TenantId.SYS_TENANT_ID)
         .limitLevelEntityName("Limit Level Entity Name")
         .tenantId(TenantId.SYS_TENANT_ID)
         .build();
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder4 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder4 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder4.limitLevelEntityName(Mockito.<String>any())).thenReturn(RateLimitsTrigger.builder());
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder5 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder5 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder5.limitLevel(Mockito.<EntityId>any())).thenReturn(rateLimitsTriggerBuilder4);
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder6 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder6 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder6.api(Mockito.<LimitedApi>any())).thenReturn(rateLimitsTriggerBuilder5);
     RateLimitsTrigger buildResult2 = rateLimitsTriggerBuilder6.api(LimitedApi.ENTITY_EXPORT)
         .limitLevel(TenantId.SYS_TENANT_ID)
@@ -285,8 +310,7 @@ class RateLimitsTriggerDiffblueTest {
   }
 
   /**
-   * Test {@link RateLimitsTrigger#equals(Object)}, and
-   * {@link RateLimitsTrigger#hashCode()}.
+   * Test {@link RateLimitsTrigger#equals(Object)}, and {@link RateLimitsTrigger#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -300,6 +324,8 @@ class RateLimitsTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsTrigger.equals(Object)", "int RateLimitsTrigger.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     RateLimitsTrigger buildResult = RateLimitsTrigger.builder()
@@ -326,10 +352,11 @@ class RateLimitsTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsTrigger.equals(Object)", "int RateLimitsTrigger.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder.api(Mockito.<LimitedApi>any())).thenReturn(RateLimitsTrigger.builder());
     RateLimitsTrigger buildResult = rateLimitsTriggerBuilder.api(LimitedApi.ENTITY_EXPORT)
         .limitLevel(TenantId.SYS_TENANT_ID)
@@ -358,13 +385,13 @@ class RateLimitsTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsTrigger.equals(Object)", "int RateLimitsTrigger.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder.api(Mockito.<LimitedApi>any())).thenReturn(RateLimitsTrigger.builder());
-    RateLimitsTrigger.RateLimitsTriggerBuilder limitLevelEntityNameResult = rateLimitsTriggerBuilder
-        .api(LimitedApi.ENTITY_EXPORT)
+    RateLimitsTriggerBuilder limitLevelEntityNameResult = rateLimitsTriggerBuilder.api(LimitedApi.ENTITY_EXPORT)
         .limitLevel(TenantId.SYS_TENANT_ID)
         .limitLevelEntityName("Limit Level Entity Name");
     RateLimitsTrigger buildResult = limitLevelEntityNameResult
@@ -392,10 +419,11 @@ class RateLimitsTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsTrigger.equals(Object)", "int RateLimitsTrigger.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder.api(Mockito.<LimitedApi>any())).thenReturn(RateLimitsTrigger.builder());
     RateLimitsTrigger buildResult = rateLimitsTriggerBuilder.api(LimitedApi.ENTITY_EXPORT)
         .limitLevel(TenantId.SYS_TENANT_ID)
@@ -424,21 +452,20 @@ class RateLimitsTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsTrigger.equals(Object)", "int RateLimitsTrigger.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder.limitLevel(Mockito.<EntityId>any())).thenReturn(RateLimitsTrigger.builder());
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder2 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder2 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder2.api(Mockito.<LimitedApi>any())).thenReturn(rateLimitsTriggerBuilder);
     RateLimitsTrigger buildResult = rateLimitsTriggerBuilder2.api(LimitedApi.ENTITY_EXPORT)
         .limitLevel(TenantId.SYS_TENANT_ID)
         .limitLevelEntityName("Limit Level Entity Name")
         .tenantId(TenantId.SYS_TENANT_ID)
         .build();
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder3 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder3 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder3.api(Mockito.<LimitedApi>any())).thenReturn(RateLimitsTrigger.builder());
     RateLimitsTrigger buildResult2 = rateLimitsTriggerBuilder3.api(LimitedApi.ENTITY_EXPORT)
         .limitLevel(TenantId.SYS_TENANT_ID)
@@ -461,27 +488,24 @@ class RateLimitsTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsTrigger.equals(Object)", "int RateLimitsTrigger.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder.limitLevelEntityName(Mockito.<String>any())).thenReturn(RateLimitsTrigger.builder());
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder2 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder2 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder2.limitLevel(Mockito.<EntityId>any())).thenReturn(rateLimitsTriggerBuilder);
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder3 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder3 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder3.api(Mockito.<LimitedApi>any())).thenReturn(rateLimitsTriggerBuilder2);
     RateLimitsTrigger buildResult = rateLimitsTriggerBuilder3.api(LimitedApi.ENTITY_EXPORT)
         .limitLevel(TenantId.SYS_TENANT_ID)
         .limitLevelEntityName("Limit Level Entity Name")
         .tenantId(TenantId.SYS_TENANT_ID)
         .build();
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder4 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder4 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder4.limitLevel(Mockito.<EntityId>any())).thenReturn(RateLimitsTrigger.builder());
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder5 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder5 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder5.api(Mockito.<LimitedApi>any())).thenReturn(rateLimitsTriggerBuilder4);
     RateLimitsTrigger buildResult2 = rateLimitsTriggerBuilder5.api(LimitedApi.ENTITY_EXPORT)
         .limitLevel(TenantId.SYS_TENANT_ID)
@@ -504,32 +528,28 @@ class RateLimitsTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsTrigger.equals(Object)", "int RateLimitsTrigger.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    RateLimitsTrigger.RateLimitsTriggerBuilder builderResult = RateLimitsTrigger.builder();
+    RateLimitsTriggerBuilder builderResult = RateLimitsTrigger.builder();
     builderResult.api(LimitedApi.ENTITY_EXPORT);
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder.limitLevelEntityName(Mockito.<String>any())).thenReturn(builderResult);
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder2 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder2 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder2.limitLevel(Mockito.<EntityId>any())).thenReturn(rateLimitsTriggerBuilder);
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder3 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder3 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder3.api(Mockito.<LimitedApi>any())).thenReturn(rateLimitsTriggerBuilder2);
     RateLimitsTrigger buildResult = rateLimitsTriggerBuilder3.api(LimitedApi.ENTITY_EXPORT)
         .limitLevel(TenantId.SYS_TENANT_ID)
         .limitLevelEntityName("Limit Level Entity Name")
         .tenantId(TenantId.SYS_TENANT_ID)
         .build();
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder4 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder4 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder4.limitLevelEntityName(Mockito.<String>any())).thenReturn(RateLimitsTrigger.builder());
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder5 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder5 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder5.limitLevel(Mockito.<EntityId>any())).thenReturn(rateLimitsTriggerBuilder4);
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder6 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder6 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder6.api(Mockito.<LimitedApi>any())).thenReturn(rateLimitsTriggerBuilder5);
     RateLimitsTrigger buildResult2 = rateLimitsTriggerBuilder6.api(LimitedApi.ENTITY_EXPORT)
         .limitLevel(TenantId.SYS_TENANT_ID)
@@ -552,32 +572,28 @@ class RateLimitsTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsTrigger.equals(Object)", "int RateLimitsTrigger.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    RateLimitsTrigger.RateLimitsTriggerBuilder builderResult = RateLimitsTrigger.builder();
+    RateLimitsTriggerBuilder builderResult = RateLimitsTrigger.builder();
     builderResult.limitLevel(TenantId.SYS_TENANT_ID);
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder.limitLevelEntityName(Mockito.<String>any())).thenReturn(builderResult);
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder2 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder2 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder2.limitLevel(Mockito.<EntityId>any())).thenReturn(rateLimitsTriggerBuilder);
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder3 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder3 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder3.api(Mockito.<LimitedApi>any())).thenReturn(rateLimitsTriggerBuilder2);
     RateLimitsTrigger buildResult = rateLimitsTriggerBuilder3.api(LimitedApi.ENTITY_EXPORT)
         .limitLevel(TenantId.SYS_TENANT_ID)
         .limitLevelEntityName("Limit Level Entity Name")
         .tenantId(TenantId.SYS_TENANT_ID)
         .build();
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder4 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder4 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder4.limitLevelEntityName(Mockito.<String>any())).thenReturn(RateLimitsTrigger.builder());
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder5 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder5 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder5.limitLevel(Mockito.<EntityId>any())).thenReturn(rateLimitsTriggerBuilder4);
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder6 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder6 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder6.api(Mockito.<LimitedApi>any())).thenReturn(rateLimitsTriggerBuilder5);
     RateLimitsTrigger buildResult2 = rateLimitsTriggerBuilder6.api(LimitedApi.ENTITY_EXPORT)
         .limitLevel(TenantId.SYS_TENANT_ID)
@@ -600,32 +616,28 @@ class RateLimitsTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsTrigger.equals(Object)", "int RateLimitsTrigger.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
-    RateLimitsTrigger.RateLimitsTriggerBuilder builderResult = RateLimitsTrigger.builder();
+    RateLimitsTriggerBuilder builderResult = RateLimitsTrigger.builder();
     builderResult.limitLevelEntityName("Limit Level Entity Name");
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder.limitLevelEntityName(Mockito.<String>any())).thenReturn(builderResult);
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder2 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder2 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder2.limitLevel(Mockito.<EntityId>any())).thenReturn(rateLimitsTriggerBuilder);
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder3 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder3 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder3.api(Mockito.<LimitedApi>any())).thenReturn(rateLimitsTriggerBuilder2);
     RateLimitsTrigger buildResult = rateLimitsTriggerBuilder3.api(LimitedApi.ENTITY_EXPORT)
         .limitLevel(TenantId.SYS_TENANT_ID)
         .limitLevelEntityName("Limit Level Entity Name")
         .tenantId(TenantId.SYS_TENANT_ID)
         .build();
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder4 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder4 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder4.limitLevelEntityName(Mockito.<String>any())).thenReturn(RateLimitsTrigger.builder());
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder5 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder5 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder5.limitLevel(Mockito.<EntityId>any())).thenReturn(rateLimitsTriggerBuilder4);
-    RateLimitsTrigger.RateLimitsTriggerBuilder rateLimitsTriggerBuilder6 = mock(
-        RateLimitsTrigger.RateLimitsTriggerBuilder.class);
+    RateLimitsTriggerBuilder rateLimitsTriggerBuilder6 = mock(RateLimitsTriggerBuilder.class);
     when(rateLimitsTriggerBuilder6.api(Mockito.<LimitedApi>any())).thenReturn(rateLimitsTriggerBuilder5);
     RateLimitsTrigger buildResult2 = rateLimitsTriggerBuilder6.api(LimitedApi.ENTITY_EXPORT)
         .limitLevel(TenantId.SYS_TENANT_ID)
@@ -648,6 +660,8 @@ class RateLimitsTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsTrigger.equals(Object)", "int RateLimitsTrigger.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     RateLimitsTrigger buildResult = RateLimitsTrigger.builder()
@@ -672,6 +686,8 @@ class RateLimitsTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsTrigger.equals(Object)", "int RateLimitsTrigger.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     RateLimitsTrigger buildResult = RateLimitsTrigger.builder()
@@ -690,8 +706,7 @@ class RateLimitsTriggerDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link RateLimitsTrigger#RateLimitsTrigger(TenantId, LimitedApi, EntityId, String)}
+   *   <li>{@link RateLimitsTrigger#RateLimitsTrigger(TenantId, LimitedApi, EntityId, String)}
    *   <li>{@link RateLimitsTrigger#toString()}
    *   <li>{@link RateLimitsTrigger#getApi()}
    *   <li>{@link RateLimitsTrigger#getLimitLevel()}
@@ -702,6 +717,11 @@ class RateLimitsTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void RateLimitsTrigger.<init>(TenantId, LimitedApi, EntityId, String)",
+      "LimitedApi RateLimitsTrigger.getApi()", "EntityId RateLimitsTrigger.getLimitLevel()",
+      "String RateLimitsTrigger.getLimitLevelEntityName()", "TenantId RateLimitsTrigger.getTenantId()",
+      "NotificationRuleTriggerType RateLimitsTrigger.getType()", "String RateLimitsTrigger.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     RateLimitsTrigger actualRateLimitsTrigger = new RateLimitsTrigger(TenantId.SYS_TENANT_ID, LimitedApi.ENTITY_EXPORT,
@@ -730,16 +750,23 @@ class RateLimitsTriggerDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link RateLimitsTrigger.RateLimitsTriggerBuilder#build()}
-   *   <li>{@link RateLimitsTrigger.RateLimitsTriggerBuilder#api(LimitedApi)}
-   *   <li>{@link RateLimitsTrigger.RateLimitsTriggerBuilder#limitLevel(EntityId)}
-   *   <li>
-   * {@link RateLimitsTrigger.RateLimitsTriggerBuilder#limitLevelEntityName(String)}
-   *   <li>{@link RateLimitsTrigger.RateLimitsTriggerBuilder#tenantId(TenantId)}
+   *   <li>{@link RateLimitsTriggerBuilder#build()}
+   *   <li>{@link RateLimitsTriggerBuilder#api(LimitedApi)}
+   *   <li>{@link RateLimitsTriggerBuilder#limitLevel(EntityId)}
+   *   <li>{@link RateLimitsTriggerBuilder#limitLevelEntityName(String)}
+   *   <li>{@link RateLimitsTriggerBuilder#tenantId(TenantId)}
    * </ul>
    */
   @Test
   @DisplayName("Test RateLimitsTriggerBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void RateLimitsTriggerBuilder.<init>()",
+      "RateLimitsTriggerBuilder RateLimitsTriggerBuilder.api(LimitedApi)",
+      "RateLimitsTrigger RateLimitsTriggerBuilder.build()",
+      "RateLimitsTriggerBuilder RateLimitsTriggerBuilder.limitLevel(EntityId)",
+      "RateLimitsTriggerBuilder RateLimitsTriggerBuilder.limitLevelEntityName(String)",
+      "RateLimitsTriggerBuilder RateLimitsTriggerBuilder.tenantId(TenantId)",
+      "String RateLimitsTriggerBuilder.toString()"})
   void testRateLimitsTriggerBuilderBuild() {
     // Arrange and Act
     RateLimitsTrigger actualBuildResult = RateLimitsTrigger.builder()

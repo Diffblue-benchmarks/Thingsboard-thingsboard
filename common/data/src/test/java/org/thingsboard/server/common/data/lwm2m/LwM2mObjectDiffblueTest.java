@@ -7,7 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.anyInt;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -27,6 +29,8 @@ class LwM2mObjectDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mObject.equals(Object)", "int LwM2mObject.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     LwM2mInstance lwM2mInstance = new LwM2mInstance();
@@ -74,6 +78,8 @@ class LwM2mObjectDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mObject.equals(Object)", "int LwM2mObject.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     LwM2mInstance lwM2mInstance = new LwM2mInstance();
@@ -105,6 +111,8 @@ class LwM2mObjectDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mObject.equals(Object)", "int LwM2mObject.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     LwM2mInstance lwM2mInstance = new LwM2mInstance();
@@ -146,6 +154,8 @@ class LwM2mObjectDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mObject.equals(Object)", "int LwM2mObject.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     LwM2mInstance lwM2mInstance = mock(LwM2mInstance.class);
@@ -189,6 +199,8 @@ class LwM2mObjectDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mObject.equals(Object)", "int LwM2mObject.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     LwM2mInstance lwM2mInstance = mock(LwM2mInstance.class);
@@ -232,6 +244,8 @@ class LwM2mObjectDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mObject.equals(Object)", "int LwM2mObject.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     LwM2mInstance lwM2mInstance = mock(LwM2mInstance.class);
@@ -275,6 +289,8 @@ class LwM2mObjectDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mObject.equals(Object)", "int LwM2mObject.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     LwM2mInstance lwM2mInstance = mock(LwM2mInstance.class);
@@ -318,6 +334,8 @@ class LwM2mObjectDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mObject.equals(Object)", "int LwM2mObject.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     LwM2mInstance lwM2mInstance = mock(LwM2mInstance.class);
@@ -361,6 +379,8 @@ class LwM2mObjectDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mObject.equals(Object)", "int LwM2mObject.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     LwM2mInstance lwM2mInstance = mock(LwM2mInstance.class);
@@ -404,6 +424,8 @@ class LwM2mObjectDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mObject.equals(Object)", "int LwM2mObject.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     LwM2mInstance lwM2mInstance = mock(LwM2mInstance.class);
@@ -447,6 +469,8 @@ class LwM2mObjectDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mObject.equals(Object)", "int LwM2mObject.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     LwM2mInstance lwM2mInstance = new LwM2mInstance();
@@ -476,6 +500,8 @@ class LwM2mObjectDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mObject.equals(Object)", "int LwM2mObject.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     LwM2mInstance lwM2mInstance = new LwM2mInstance();
@@ -517,6 +543,13 @@ class LwM2mObjectDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2mObject.<init>()", "int LwM2mObject.getId()",
+      "LwM2mInstance[] LwM2mObject.getInstances()", "String LwM2mObject.getKeyId()", "String LwM2mObject.getName()",
+      "boolean LwM2mObject.isMandatory()", "boolean LwM2mObject.isMultiple()", "void LwM2mObject.setId(int)",
+      "void LwM2mObject.setInstances(LwM2mInstance[])", "void LwM2mObject.setKeyId(String)",
+      "void LwM2mObject.setMandatory(boolean)", "void LwM2mObject.setMultiple(boolean)",
+      "void LwM2mObject.setName(String)", "String LwM2mObject.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     LwM2mObject actualLwM2mObject = new LwM2mObject();
@@ -537,7 +570,7 @@ class LwM2mObjectDiffblueTest {
     String actualName = actualLwM2mObject.getName();
     boolean actualIsMandatoryResult = actualLwM2mObject.isMandatory();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("42", actualKeyId);
     assertEquals("LwM2mObject(id=1, keyId=42, name=Name, multiple=true, mandatory=true, instances=[LwM2mInstance(id=1,"
         + " resources=[LwM2mResourceObserve(id=1, name=Name, observe=true, attribute=true, telemetry=true,"

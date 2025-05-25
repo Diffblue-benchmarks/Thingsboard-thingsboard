@@ -5,11 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.thingsboard.server.common.data.script.ScriptLanguage;
 
 class TbAbstractAlarmNodeConfigurationDiffblueTest {
@@ -24,6 +23,8 @@ class TbAbstractAlarmNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test canEqual(Object); when 'Other'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAbstractAlarmNodeConfiguration.canEqual(Object)"})
   void testCanEqual_whenOther_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse((new TbClearAlarmNodeConfiguration()).canEqual("Other"));
@@ -40,6 +41,8 @@ class TbAbstractAlarmNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test canEqual(Object); when TbClearAlarmNodeConfiguration (default constructor); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAbstractAlarmNodeConfiguration.canEqual(Object)"})
   void testCanEqual_whenTbClearAlarmNodeConfiguration_thenReturnTrue() {
     // Arrange
     TbClearAlarmNodeConfiguration tbClearAlarmNodeConfiguration = new TbClearAlarmNodeConfiguration();
@@ -49,8 +52,7 @@ class TbAbstractAlarmNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbAbstractAlarmNodeConfiguration#equals(Object)}, and
-   * {@link TbAbstractAlarmNodeConfiguration#hashCode()}.
+   * Test {@link TbAbstractAlarmNodeConfiguration#equals(Object)}, and {@link TbAbstractAlarmNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -60,6 +62,9 @@ class TbAbstractAlarmNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAbstractAlarmNodeConfiguration.equals(Object)",
+      "int TbAbstractAlarmNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbClearAlarmNodeConfiguration tbClearAlarmNodeConfiguration = new TbClearAlarmNodeConfiguration();
@@ -72,32 +77,7 @@ class TbAbstractAlarmNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbAbstractAlarmNodeConfiguration#equals(Object)}, and
-   * {@link TbAbstractAlarmNodeConfiguration#hashCode()}.
-   * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbAbstractAlarmNodeConfiguration#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
-  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
-    // Arrange
-    TbClearAlarmNodeConfiguration tbClearAlarmNodeConfiguration = new TbClearAlarmNodeConfiguration();
-    TbClearAlarmNodeConfiguration tbClearAlarmNodeConfiguration2 = mock(TbClearAlarmNodeConfiguration.class);
-    when(tbClearAlarmNodeConfiguration2.canEqual(Mockito.<Object>any())).thenReturn(true);
-
-    // Act and Assert
-    assertEquals(tbClearAlarmNodeConfiguration, tbClearAlarmNodeConfiguration2);
-    int notExpectedHashCodeResult = tbClearAlarmNodeConfiguration.hashCode();
-    assertNotEquals(notExpectedHashCodeResult, tbClearAlarmNodeConfiguration2.hashCode());
-  }
-
-  /**
-   * Test {@link TbAbstractAlarmNodeConfiguration#equals(Object)}, and
-   * {@link TbAbstractAlarmNodeConfiguration#hashCode()}.
+   * Test {@link TbAbstractAlarmNodeConfiguration#equals(Object)}, and {@link TbAbstractAlarmNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -107,6 +87,9 @@ class TbAbstractAlarmNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAbstractAlarmNodeConfiguration.equals(Object)",
+      "int TbAbstractAlarmNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbClearAlarmNodeConfiguration tbClearAlarmNodeConfiguration = new TbClearAlarmNodeConfiguration();
@@ -128,6 +111,9 @@ class TbAbstractAlarmNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAbstractAlarmNodeConfiguration.equals(Object)",
+      "int TbAbstractAlarmNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbClearAlarmNodeConfiguration(), 1);
@@ -144,6 +130,9 @@ class TbAbstractAlarmNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAbstractAlarmNodeConfiguration.equals(Object)",
+      "int TbAbstractAlarmNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbClearAlarmNodeConfiguration(), null);
@@ -160,6 +149,9 @@ class TbAbstractAlarmNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAbstractAlarmNodeConfiguration.equals(Object)",
+      "int TbAbstractAlarmNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbClearAlarmNodeConfiguration(), "Different type to TbAbstractAlarmNodeConfiguration");
@@ -168,11 +160,12 @@ class TbAbstractAlarmNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbAbstractAlarmNodeConfiguration#getAlarmDetailsBuildJs()}.
    * <p>
-   * Method under test:
-   * {@link TbAbstractAlarmNodeConfiguration#getAlarmDetailsBuildJs()}
+   * Method under test: {@link TbAbstractAlarmNodeConfiguration#getAlarmDetailsBuildJs()}
    */
   @Test
   @DisplayName("Test getAlarmDetailsBuildJs()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String TbAbstractAlarmNodeConfiguration.getAlarmDetailsBuildJs()"})
   void testGetAlarmDetailsBuildJs() {
     // Arrange, Act and Assert
     assertNull((new TbClearAlarmNodeConfiguration()).getAlarmDetailsBuildJs());
@@ -181,11 +174,12 @@ class TbAbstractAlarmNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbAbstractAlarmNodeConfiguration#getAlarmDetailsBuildTbel()}.
    * <p>
-   * Method under test:
-   * {@link TbAbstractAlarmNodeConfiguration#getAlarmDetailsBuildTbel()}
+   * Method under test: {@link TbAbstractAlarmNodeConfiguration#getAlarmDetailsBuildTbel()}
    */
   @Test
   @DisplayName("Test getAlarmDetailsBuildTbel()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String TbAbstractAlarmNodeConfiguration.getAlarmDetailsBuildTbel()"})
   void testGetAlarmDetailsBuildTbel() {
     // Arrange, Act and Assert
     assertNull((new TbClearAlarmNodeConfiguration()).getAlarmDetailsBuildTbel());
@@ -198,6 +192,8 @@ class TbAbstractAlarmNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getAlarmType()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String TbAbstractAlarmNodeConfiguration.getAlarmType()"})
   void testGetAlarmType() {
     // Arrange, Act and Assert
     assertNull((new TbClearAlarmNodeConfiguration()).getAlarmType());
@@ -210,6 +206,8 @@ class TbAbstractAlarmNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getScriptLang()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ScriptLanguage TbAbstractAlarmNodeConfiguration.getScriptLang()"})
   void testGetScriptLang() {
     // Arrange, Act and Assert
     assertNull((new TbClearAlarmNodeConfiguration()).getScriptLang());
@@ -218,11 +216,12 @@ class TbAbstractAlarmNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbAbstractAlarmNodeConfiguration#setAlarmDetailsBuildJs(String)}.
    * <p>
-   * Method under test:
-   * {@link TbAbstractAlarmNodeConfiguration#setAlarmDetailsBuildJs(String)}
+   * Method under test: {@link TbAbstractAlarmNodeConfiguration#setAlarmDetailsBuildJs(String)}
    */
   @Test
   @DisplayName("Test setAlarmDetailsBuildJs(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbAbstractAlarmNodeConfiguration.setAlarmDetailsBuildJs(String)"})
   void testSetAlarmDetailsBuildJs() {
     // Arrange
     TbClearAlarmNodeConfiguration tbClearAlarmNodeConfiguration = new TbClearAlarmNodeConfiguration();
@@ -235,14 +234,14 @@ class TbAbstractAlarmNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link TbAbstractAlarmNodeConfiguration#setAlarmDetailsBuildTbel(String)}.
+   * Test {@link TbAbstractAlarmNodeConfiguration#setAlarmDetailsBuildTbel(String)}.
    * <p>
-   * Method under test:
-   * {@link TbAbstractAlarmNodeConfiguration#setAlarmDetailsBuildTbel(String)}
+   * Method under test: {@link TbAbstractAlarmNodeConfiguration#setAlarmDetailsBuildTbel(String)}
    */
   @Test
   @DisplayName("Test setAlarmDetailsBuildTbel(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbAbstractAlarmNodeConfiguration.setAlarmDetailsBuildTbel(String)"})
   void testSetAlarmDetailsBuildTbel() {
     // Arrange
     TbClearAlarmNodeConfiguration tbClearAlarmNodeConfiguration = new TbClearAlarmNodeConfiguration();
@@ -257,11 +256,12 @@ class TbAbstractAlarmNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbAbstractAlarmNodeConfiguration#setAlarmType(String)}.
    * <p>
-   * Method under test:
-   * {@link TbAbstractAlarmNodeConfiguration#setAlarmType(String)}
+   * Method under test: {@link TbAbstractAlarmNodeConfiguration#setAlarmType(String)}
    */
   @Test
   @DisplayName("Test setAlarmType(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbAbstractAlarmNodeConfiguration.setAlarmType(String)"})
   void testSetAlarmType() {
     // Arrange
     TbClearAlarmNodeConfiguration tbClearAlarmNodeConfiguration = new TbClearAlarmNodeConfiguration();
@@ -276,11 +276,12 @@ class TbAbstractAlarmNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbAbstractAlarmNodeConfiguration#setScriptLang(ScriptLanguage)}.
    * <p>
-   * Method under test:
-   * {@link TbAbstractAlarmNodeConfiguration#setScriptLang(ScriptLanguage)}
+   * Method under test: {@link TbAbstractAlarmNodeConfiguration#setScriptLang(ScriptLanguage)}
    */
   @Test
   @DisplayName("Test setScriptLang(ScriptLanguage)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbAbstractAlarmNodeConfiguration.setScriptLang(ScriptLanguage)"})
   void testSetScriptLang() {
     // Arrange
     TbClearAlarmNodeConfiguration tbClearAlarmNodeConfiguration = new TbClearAlarmNodeConfiguration();
@@ -299,6 +300,8 @@ class TbAbstractAlarmNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test toString()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String TbAbstractAlarmNodeConfiguration.toString()"})
   void testToString() {
     // Arrange, Act and Assert
     assertEquals("TbClearAlarmNodeConfiguration()", (new TbClearAlarmNodeConfiguration()).toString());

@@ -5,9 +5,11 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +41,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test toCommonCmdsWrapper()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"WsCommandsWrapper TelemetryCmdsWrapper.toCommonCmdsWrapper()"})
   void testToCommonCmdsWrapper() {
     // Arrange and Act
     WsCommandsWrapper actualToCommonCmdsWrapperResult = telemetryCmdsWrapper.toCommonCmdsWrapper();
@@ -49,8 +53,7 @@ class TelemetryCmdsWrapperDiffblueTest {
   }
 
   /**
-   * Test {@link TelemetryCmdsWrapper#equals(Object)}, and
-   * {@link TelemetryCmdsWrapper#hashCode()}.
+   * Test {@link TelemetryCmdsWrapper#equals(Object)}, and {@link TelemetryCmdsWrapper#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -64,6 +67,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -76,8 +81,7 @@ class TelemetryCmdsWrapperDiffblueTest {
   }
 
   /**
-   * Test {@link TelemetryCmdsWrapper#equals(Object)}, and
-   * {@link TelemetryCmdsWrapper#hashCode()}.
+   * Test {@link TelemetryCmdsWrapper#equals(Object)}, and {@link TelemetryCmdsWrapper#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -91,6 +95,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -112,6 +118,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TelemetryCmdsWrapper(), 1);
@@ -128,6 +136,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -148,6 +158,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -168,6 +180,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -188,6 +202,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -208,6 +224,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -228,6 +246,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -248,6 +268,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -268,6 +290,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -288,6 +312,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -308,6 +334,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -328,6 +356,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -348,6 +378,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -370,6 +402,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -392,6 +426,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -414,6 +450,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -436,6 +474,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -458,6 +498,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -480,6 +522,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -502,6 +546,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -524,6 +570,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -546,6 +594,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -568,6 +618,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
     // Arrange
     TelemetryCmdsWrapper telemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -590,6 +642,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TelemetryCmdsWrapper(), null);
@@ -606,6 +660,8 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryCmdsWrapper.equals(Object)", "int TelemetryCmdsWrapper.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TelemetryCmdsWrapper(), "Different type to TelemetryCmdsWrapper");
@@ -644,6 +700,21 @@ class TelemetryCmdsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TelemetryCmdsWrapper.<init>()", "List TelemetryCmdsWrapper.getAlarmCountCmds()",
+      "List TelemetryCmdsWrapper.getAlarmCountUnsubscribeCmds()", "List TelemetryCmdsWrapper.getAlarmDataCmds()",
+      "List TelemetryCmdsWrapper.getAlarmDataUnsubscribeCmds()", "List TelemetryCmdsWrapper.getAttrSubCmds()",
+      "List TelemetryCmdsWrapper.getEntityCountCmds()", "List TelemetryCmdsWrapper.getEntityCountUnsubscribeCmds()",
+      "List TelemetryCmdsWrapper.getEntityDataCmds()", "List TelemetryCmdsWrapper.getEntityDataUnsubscribeCmds()",
+      "List TelemetryCmdsWrapper.getHistoryCmds()", "List TelemetryCmdsWrapper.getTsSubCmds()",
+      "void TelemetryCmdsWrapper.setAlarmCountCmds(List)",
+      "void TelemetryCmdsWrapper.setAlarmCountUnsubscribeCmds(List)",
+      "void TelemetryCmdsWrapper.setAlarmDataCmds(List)", "void TelemetryCmdsWrapper.setAlarmDataUnsubscribeCmds(List)",
+      "void TelemetryCmdsWrapper.setAttrSubCmds(List)", "void TelemetryCmdsWrapper.setEntityCountCmds(List)",
+      "void TelemetryCmdsWrapper.setEntityCountUnsubscribeCmds(List)",
+      "void TelemetryCmdsWrapper.setEntityDataCmds(List)",
+      "void TelemetryCmdsWrapper.setEntityDataUnsubscribeCmds(List)", "void TelemetryCmdsWrapper.setHistoryCmds(List)",
+      "void TelemetryCmdsWrapper.setTsSubCmds(List)", "String TelemetryCmdsWrapper.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TelemetryCmdsWrapper actualTelemetryCmdsWrapper = new TelemetryCmdsWrapper();
@@ -686,7 +757,7 @@ class TelemetryCmdsWrapperDiffblueTest {
     List<GetHistoryCmd> actualHistoryCmds = actualTelemetryCmdsWrapper.getHistoryCmds();
     List<TimeseriesSubscriptionCmd> actualTsSubCmds = actualTelemetryCmdsWrapper.getTsSubCmds();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("TelemetryCmdsWrapper(attrSubCmds=[], tsSubCmds=[], historyCmds=[], entityDataCmds=[], entityDataUnsu"
         + "bscribeCmds=[], alarmDataCmds=[], alarmDataUnsubscribeCmds=[], entityCountCmds=[], entityCountUnsubscribeCmds"
         + "=[], alarmCountCmds=[], alarmCountUnsubscribeCmds=[])", actualToStringResult);

@@ -2,19 +2,21 @@ package org.thingsboard.server.common.msg.tools;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class MaxPayloadSizeExceededExceptionDiffblueTest {
   /**
-   * Test
-   * {@link MaxPayloadSizeExceededException#MaxPayloadSizeExceededException(long)}.
+   * Test {@link MaxPayloadSizeExceededException#MaxPayloadSizeExceededException(long)}.
    * <p>
-   * Method under test:
-   * {@link MaxPayloadSizeExceededException#MaxPayloadSizeExceededException(long)}
+   * Method under test: {@link MaxPayloadSizeExceededException#MaxPayloadSizeExceededException(long)}
    */
   @Test
   @DisplayName("Test new MaxPayloadSizeExceededException(long)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MaxPayloadSizeExceededException.<init>(long)"})
   void testNewMaxPayloadSizeExceededException() {
     // Arrange and Act
     MaxPayloadSizeExceededException actualMaxPayloadSizeExceededException = new MaxPayloadSizeExceededException(1L);
@@ -35,6 +37,8 @@ class MaxPayloadSizeExceededExceptionDiffblueTest {
    */
   @Test
   @DisplayName("Test getLimit()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long MaxPayloadSizeExceededException.getLimit()"})
   void testGetLimit() {
     // Arrange, Act and Assert
     assertEquals(1L, (new MaxPayloadSizeExceededException(1L)).getLimit());

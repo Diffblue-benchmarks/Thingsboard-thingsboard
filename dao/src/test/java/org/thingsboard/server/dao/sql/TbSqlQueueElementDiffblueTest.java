@@ -2,8 +2,11 @@ package org.thingsboard.server.dao.sql;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.google.common.util.concurrent.SettableFuture;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 public class TbSqlQueueElementDiffblueTest {
   /**
@@ -18,6 +21,9 @@ public class TbSqlQueueElementDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void TbSqlQueueElement.<init>(SettableFuture, Object)", "Object TbSqlQueueElement.getEntity()",
+      "SettableFuture TbSqlQueueElement.getFuture()", "String TbSqlQueueElement.toString()"})
   public void testGettersAndSetters() {
     // Arrange
     SettableFuture<Object> future = SettableFuture.create();

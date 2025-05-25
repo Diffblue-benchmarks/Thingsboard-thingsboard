@@ -7,14 +7,24 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.anyBoolean;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.oauth2.OAuth2MapperConfig.OAuth2MapperConfigBuilder;
 
+@ContextConfiguration(classes = {OAuth2MapperConfigBuilder.class})
+@ExtendWith(SpringExtension.class)
 class OAuth2MapperConfigDiffblueTest {
+  @Autowired
+  private OAuth2MapperConfigBuilder oAuth2MapperConfigBuilder;
+
   /**
-   * Test {@link OAuth2MapperConfig#equals(Object)}, and
-   * {@link OAuth2MapperConfig#hashCode()}.
+   * Test {@link OAuth2MapperConfig#equals(Object)}, and {@link OAuth2MapperConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -28,9 +38,11 @@ class OAuth2MapperConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2MapperConfig.equals(Object)", "int OAuth2MapperConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    OAuth2MapperConfig.OAuth2MapperConfigBuilder allowUserCreationResult = OAuth2MapperConfig.builder()
+    OAuth2MapperConfigBuilder allowUserCreationResult = OAuth2MapperConfig.builder()
         .activateUser(true)
         .allowUserCreation(true);
     OAuth2BasicMapperConfig basic = OAuth2BasicMapperConfig.builder()
@@ -43,7 +55,7 @@ class OAuth2MapperConfigDiffblueTest {
         .tenantNamePattern("Tenant Name Pattern")
         .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
         .build();
-    OAuth2MapperConfig.OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
+    OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
     OAuth2CustomMapperConfig custom = OAuth2CustomMapperConfig.builder()
         .password("iloveyou")
         .sendToken(true)
@@ -51,7 +63,7 @@ class OAuth2MapperConfigDiffblueTest {
         .username("janedoe")
         .build();
     OAuth2MapperConfig buildResult = basicResult.custom(custom).type(MapperType.BASIC).build();
-    OAuth2MapperConfig.OAuth2MapperConfigBuilder allowUserCreationResult2 = OAuth2MapperConfig.builder()
+    OAuth2MapperConfigBuilder allowUserCreationResult2 = OAuth2MapperConfig.builder()
         .activateUser(true)
         .allowUserCreation(true);
     OAuth2BasicMapperConfig basic2 = OAuth2BasicMapperConfig.builder()
@@ -64,7 +76,7 @@ class OAuth2MapperConfigDiffblueTest {
         .tenantNamePattern("Tenant Name Pattern")
         .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
         .build();
-    OAuth2MapperConfig.OAuth2MapperConfigBuilder basicResult2 = allowUserCreationResult2.basic(basic2);
+    OAuth2MapperConfigBuilder basicResult2 = allowUserCreationResult2.basic(basic2);
     OAuth2CustomMapperConfig custom2 = OAuth2CustomMapperConfig.builder()
         .password("iloveyou")
         .sendToken(true)
@@ -80,8 +92,7 @@ class OAuth2MapperConfigDiffblueTest {
   }
 
   /**
-   * Test {@link OAuth2MapperConfig#equals(Object)}, and
-   * {@link OAuth2MapperConfig#hashCode()}.
+   * Test {@link OAuth2MapperConfig#equals(Object)}, and {@link OAuth2MapperConfig#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -95,9 +106,11 @@ class OAuth2MapperConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2MapperConfig.equals(Object)", "int OAuth2MapperConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    OAuth2MapperConfig.OAuth2MapperConfigBuilder allowUserCreationResult = OAuth2MapperConfig.builder()
+    OAuth2MapperConfigBuilder allowUserCreationResult = OAuth2MapperConfig.builder()
         .activateUser(true)
         .allowUserCreation(true);
     OAuth2BasicMapperConfig basic = OAuth2BasicMapperConfig.builder()
@@ -110,7 +123,7 @@ class OAuth2MapperConfigDiffblueTest {
         .tenantNamePattern("Tenant Name Pattern")
         .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
         .build();
-    OAuth2MapperConfig.OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
+    OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
     OAuth2CustomMapperConfig custom = OAuth2CustomMapperConfig.builder()
         .password("iloveyou")
         .sendToken(true)
@@ -136,12 +149,13 @@ class OAuth2MapperConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2MapperConfig.equals(Object)", "int OAuth2MapperConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    OAuth2MapperConfig.OAuth2MapperConfigBuilder oAuth2MapperConfigBuilder = mock(
-        OAuth2MapperConfig.OAuth2MapperConfigBuilder.class);
+    OAuth2MapperConfigBuilder oAuth2MapperConfigBuilder = mock(OAuth2MapperConfigBuilder.class);
     when(oAuth2MapperConfigBuilder.activateUser(anyBoolean())).thenReturn(OAuth2MapperConfig.builder());
-    OAuth2MapperConfig.OAuth2MapperConfigBuilder allowUserCreationResult = oAuth2MapperConfigBuilder.activateUser(true)
+    OAuth2MapperConfigBuilder allowUserCreationResult = oAuth2MapperConfigBuilder.activateUser(true)
         .allowUserCreation(true);
     OAuth2BasicMapperConfig basic = OAuth2BasicMapperConfig.builder()
         .alwaysFullScreen(true)
@@ -153,7 +167,7 @@ class OAuth2MapperConfigDiffblueTest {
         .tenantNamePattern("Tenant Name Pattern")
         .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
         .build();
-    OAuth2MapperConfig.OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
+    OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
     OAuth2CustomMapperConfig custom = OAuth2CustomMapperConfig.builder()
         .password("iloveyou")
         .sendToken(true)
@@ -161,7 +175,7 @@ class OAuth2MapperConfigDiffblueTest {
         .username("janedoe")
         .build();
     OAuth2MapperConfig buildResult = basicResult.custom(custom).type(MapperType.BASIC).build();
-    OAuth2MapperConfig.OAuth2MapperConfigBuilder allowUserCreationResult2 = OAuth2MapperConfig.builder()
+    OAuth2MapperConfigBuilder allowUserCreationResult2 = OAuth2MapperConfig.builder()
         .activateUser(true)
         .allowUserCreation(true);
     OAuth2BasicMapperConfig basic2 = OAuth2BasicMapperConfig.builder()
@@ -174,7 +188,7 @@ class OAuth2MapperConfigDiffblueTest {
         .tenantNamePattern("Tenant Name Pattern")
         .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
         .build();
-    OAuth2MapperConfig.OAuth2MapperConfigBuilder basicResult2 = allowUserCreationResult2.basic(basic2);
+    OAuth2MapperConfigBuilder basicResult2 = allowUserCreationResult2.basic(basic2);
     OAuth2CustomMapperConfig custom2 = OAuth2CustomMapperConfig.builder()
         .password("iloveyou")
         .sendToken(true)
@@ -198,15 +212,15 @@ class OAuth2MapperConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2MapperConfig.equals(Object)", "int OAuth2MapperConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    OAuth2MapperConfig.OAuth2MapperConfigBuilder oAuth2MapperConfigBuilder = mock(
-        OAuth2MapperConfig.OAuth2MapperConfigBuilder.class);
+    OAuth2MapperConfigBuilder oAuth2MapperConfigBuilder = mock(OAuth2MapperConfigBuilder.class);
     when(oAuth2MapperConfigBuilder.allowUserCreation(anyBoolean())).thenReturn(OAuth2MapperConfig.builder());
-    OAuth2MapperConfig.OAuth2MapperConfigBuilder oAuth2MapperConfigBuilder2 = mock(
-        OAuth2MapperConfig.OAuth2MapperConfigBuilder.class);
+    OAuth2MapperConfigBuilder oAuth2MapperConfigBuilder2 = mock(OAuth2MapperConfigBuilder.class);
     when(oAuth2MapperConfigBuilder2.activateUser(anyBoolean())).thenReturn(oAuth2MapperConfigBuilder);
-    OAuth2MapperConfig.OAuth2MapperConfigBuilder allowUserCreationResult = oAuth2MapperConfigBuilder2.activateUser(true)
+    OAuth2MapperConfigBuilder allowUserCreationResult = oAuth2MapperConfigBuilder2.activateUser(true)
         .allowUserCreation(true);
     OAuth2BasicMapperConfig basic = OAuth2BasicMapperConfig.builder()
         .alwaysFullScreen(true)
@@ -218,7 +232,7 @@ class OAuth2MapperConfigDiffblueTest {
         .tenantNamePattern("Tenant Name Pattern")
         .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
         .build();
-    OAuth2MapperConfig.OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
+    OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
     OAuth2CustomMapperConfig custom = OAuth2CustomMapperConfig.builder()
         .password("iloveyou")
         .sendToken(true)
@@ -226,7 +240,7 @@ class OAuth2MapperConfigDiffblueTest {
         .username("janedoe")
         .build();
     OAuth2MapperConfig buildResult = basicResult.custom(custom).type(MapperType.BASIC).build();
-    OAuth2MapperConfig.OAuth2MapperConfigBuilder allowUserCreationResult2 = OAuth2MapperConfig.builder()
+    OAuth2MapperConfigBuilder allowUserCreationResult2 = OAuth2MapperConfig.builder()
         .activateUser(true)
         .allowUserCreation(true);
     OAuth2BasicMapperConfig basic2 = OAuth2BasicMapperConfig.builder()
@@ -239,7 +253,7 @@ class OAuth2MapperConfigDiffblueTest {
         .tenantNamePattern("Tenant Name Pattern")
         .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
         .build();
-    OAuth2MapperConfig.OAuth2MapperConfigBuilder basicResult2 = allowUserCreationResult2.basic(basic2);
+    OAuth2MapperConfigBuilder basicResult2 = allowUserCreationResult2.basic(basic2);
     OAuth2CustomMapperConfig custom2 = OAuth2CustomMapperConfig.builder()
         .password("iloveyou")
         .sendToken(true)
@@ -263,9 +277,11 @@ class OAuth2MapperConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2MapperConfig.equals(Object)", "int OAuth2MapperConfig.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    OAuth2MapperConfig.OAuth2MapperConfigBuilder allowUserCreationResult = OAuth2MapperConfig.builder()
+    OAuth2MapperConfigBuilder allowUserCreationResult = OAuth2MapperConfig.builder()
         .activateUser(true)
         .allowUserCreation(true);
     OAuth2BasicMapperConfig basic = OAuth2BasicMapperConfig.builder()
@@ -278,7 +294,7 @@ class OAuth2MapperConfigDiffblueTest {
         .tenantNamePattern("Tenant Name Pattern")
         .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
         .build();
-    OAuth2MapperConfig.OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
+    OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
     OAuth2CustomMapperConfig custom = OAuth2CustomMapperConfig.builder()
         .password("iloveyou")
         .sendToken(true)
@@ -302,9 +318,11 @@ class OAuth2MapperConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2MapperConfig.equals(Object)", "int OAuth2MapperConfig.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    OAuth2MapperConfig.OAuth2MapperConfigBuilder allowUserCreationResult = OAuth2MapperConfig.builder()
+    OAuth2MapperConfigBuilder allowUserCreationResult = OAuth2MapperConfig.builder()
         .activateUser(true)
         .allowUserCreation(true);
     OAuth2BasicMapperConfig basic = OAuth2BasicMapperConfig.builder()
@@ -317,7 +335,7 @@ class OAuth2MapperConfigDiffblueTest {
         .tenantNamePattern("Tenant Name Pattern")
         .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
         .build();
-    OAuth2MapperConfig.OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
+    OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
     OAuth2CustomMapperConfig custom = OAuth2CustomMapperConfig.builder()
         .password("iloveyou")
         .sendToken(true)
@@ -335,8 +353,7 @@ class OAuth2MapperConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link OAuth2MapperConfig#OAuth2MapperConfig(boolean, boolean, MapperType, OAuth2BasicMapperConfig, OAuth2CustomMapperConfig)}
+   *   <li>{@link OAuth2MapperConfig#OAuth2MapperConfig(boolean, boolean, MapperType, OAuth2BasicMapperConfig, OAuth2CustomMapperConfig)}
    *   <li>{@link OAuth2MapperConfig#setActivateUser(boolean)}
    *   <li>{@link OAuth2MapperConfig#setAllowUserCreation(boolean)}
    *   <li>{@link OAuth2MapperConfig#setBasic(OAuth2BasicMapperConfig)}
@@ -353,6 +370,16 @@ class OAuth2MapperConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void OAuth2MapperConfig.<init>(boolean, boolean, MapperType, OAuth2BasicMapperConfig, OAuth2CustomMapperConfig)",
+      "OAuth2BasicMapperConfig OAuth2MapperConfig.getBasic()",
+      "OAuth2CustomMapperConfig OAuth2MapperConfig.getCustom()", "MapperType OAuth2MapperConfig.getType()",
+      "boolean OAuth2MapperConfig.isActivateUser()", "boolean OAuth2MapperConfig.isAllowUserCreation()",
+      "void OAuth2MapperConfig.setActivateUser(boolean)", "void OAuth2MapperConfig.setAllowUserCreation(boolean)",
+      "void OAuth2MapperConfig.setBasic(OAuth2BasicMapperConfig)",
+      "void OAuth2MapperConfig.setCustom(OAuth2CustomMapperConfig)", "void OAuth2MapperConfig.setType(MapperType)",
+      "OAuth2MapperConfigBuilder OAuth2MapperConfig.toBuilder()", "String OAuth2MapperConfig.toString()"})
   void testGettersAndSetters() {
     // Arrange
     OAuth2BasicMapperConfig basic = OAuth2BasicMapperConfig.builder()
@@ -423,23 +450,28 @@ class OAuth2MapperConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link OAuth2MapperConfig.OAuth2MapperConfigBuilder#build()}
-   *   <li>
-   * {@link OAuth2MapperConfig.OAuth2MapperConfigBuilder#activateUser(boolean)}
-   *   <li>
-   * {@link OAuth2MapperConfig.OAuth2MapperConfigBuilder#allowUserCreation(boolean)}
-   *   <li>
-   * {@link OAuth2MapperConfig.OAuth2MapperConfigBuilder#basic(OAuth2BasicMapperConfig)}
-   *   <li>
-   * {@link OAuth2MapperConfig.OAuth2MapperConfigBuilder#custom(OAuth2CustomMapperConfig)}
-   *   <li>{@link OAuth2MapperConfig.OAuth2MapperConfigBuilder#type(MapperType)}
+   *   <li>{@link OAuth2MapperConfigBuilder#build()}
+   *   <li>{@link OAuth2MapperConfigBuilder#activateUser(boolean)}
+   *   <li>{@link OAuth2MapperConfigBuilder#allowUserCreation(boolean)}
+   *   <li>{@link OAuth2MapperConfigBuilder#basic(OAuth2BasicMapperConfig)}
+   *   <li>{@link OAuth2MapperConfigBuilder#custom(OAuth2CustomMapperConfig)}
+   *   <li>{@link OAuth2MapperConfigBuilder#type(MapperType)}
    * </ul>
    */
   @Test
   @DisplayName("Test OAuth2MapperConfigBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void OAuth2MapperConfigBuilder.<init>()",
+      "OAuth2MapperConfigBuilder OAuth2MapperConfigBuilder.activateUser(boolean)",
+      "OAuth2MapperConfigBuilder OAuth2MapperConfigBuilder.allowUserCreation(boolean)",
+      "OAuth2MapperConfigBuilder OAuth2MapperConfigBuilder.basic(OAuth2BasicMapperConfig)",
+      "OAuth2MapperConfig OAuth2MapperConfigBuilder.build()",
+      "OAuth2MapperConfigBuilder OAuth2MapperConfigBuilder.custom(OAuth2CustomMapperConfig)",
+      "String OAuth2MapperConfigBuilder.toString()",
+      "OAuth2MapperConfigBuilder OAuth2MapperConfigBuilder.type(MapperType)"})
   void testOAuth2MapperConfigBuilderBuild() {
     // Arrange
-    OAuth2MapperConfig.OAuth2MapperConfigBuilder allowUserCreationResult = OAuth2MapperConfig.builder()
+    OAuth2MapperConfigBuilder allowUserCreationResult = OAuth2MapperConfig.builder()
         .activateUser(true)
         .allowUserCreation(true);
     OAuth2BasicMapperConfig basic = OAuth2BasicMapperConfig.builder()
@@ -452,7 +484,7 @@ class OAuth2MapperConfigDiffblueTest {
         .tenantNamePattern("Tenant Name Pattern")
         .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
         .build();
-    OAuth2MapperConfig.OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
+    OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
     OAuth2CustomMapperConfig custom = OAuth2CustomMapperConfig.builder()
         .password("iloveyou")
         .sendToken(true)

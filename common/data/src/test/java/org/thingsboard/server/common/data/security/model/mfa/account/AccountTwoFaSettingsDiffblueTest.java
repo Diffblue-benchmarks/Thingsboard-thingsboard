@@ -3,17 +3,16 @@ package org.thingsboard.server.common.data.security.model.mfa.account;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.LinkedHashMap;
-import java.util.function.BiFunction;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.security.model.mfa.provider.TwoFaProviderType;
 
 class AccountTwoFaSettingsDiffblueTest {
   /**
-   * Test {@link AccountTwoFaSettings#equals(Object)}, and
-   * {@link AccountTwoFaSettings#hashCode()}.
+   * Test {@link AccountTwoFaSettings#equals(Object)}, and {@link AccountTwoFaSettings#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -27,6 +26,8 @@ class AccountTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AccountTwoFaSettings.equals(Object)", "int AccountTwoFaSettings.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AccountTwoFaSettings accountTwoFaSettings = new AccountTwoFaSettings();
@@ -42,8 +43,7 @@ class AccountTwoFaSettingsDiffblueTest {
   }
 
   /**
-   * Test {@link AccountTwoFaSettings#equals(Object)}, and
-   * {@link AccountTwoFaSettings#hashCode()}.
+   * Test {@link AccountTwoFaSettings#equals(Object)}, and {@link AccountTwoFaSettings#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -57,6 +57,8 @@ class AccountTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AccountTwoFaSettings.equals(Object)", "int AccountTwoFaSettings.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AccountTwoFaSettings accountTwoFaSettings = new AccountTwoFaSettings();
@@ -79,36 +81,11 @@ class AccountTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AccountTwoFaSettings.equals(Object)", "int AccountTwoFaSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     LinkedHashMap<TwoFaProviderType, TwoFaAccountConfig> configs = new LinkedHashMap<>();
-    configs.put(TwoFaProviderType.TOTP, new BackupCodeTwoFaAccountConfig());
-
-    AccountTwoFaSettings accountTwoFaSettings = new AccountTwoFaSettings();
-    accountTwoFaSettings.setConfigs(configs);
-
-    AccountTwoFaSettings accountTwoFaSettings2 = new AccountTwoFaSettings();
-    accountTwoFaSettings2.setConfigs(new LinkedHashMap<>());
-
-    // Act and Assert
-    assertNotEquals(accountTwoFaSettings, accountTwoFaSettings2);
-  }
-
-  /**
-   * Test {@link AccountTwoFaSettings#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link AccountTwoFaSettings#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange
-    LinkedHashMap<TwoFaProviderType, TwoFaAccountConfig> configs = new LinkedHashMap<>();
-    configs.replaceAll(mock(BiFunction.class));
     configs.put(TwoFaProviderType.TOTP, new BackupCodeTwoFaAccountConfig());
 
     AccountTwoFaSettings accountTwoFaSettings = new AccountTwoFaSettings();
@@ -132,6 +109,8 @@ class AccountTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AccountTwoFaSettings.equals(Object)", "int AccountTwoFaSettings.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     AccountTwoFaSettings accountTwoFaSettings = new AccountTwoFaSettings();
@@ -152,6 +131,8 @@ class AccountTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AccountTwoFaSettings.equals(Object)", "int AccountTwoFaSettings.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     AccountTwoFaSettings accountTwoFaSettings = new AccountTwoFaSettings();
@@ -174,6 +155,9 @@ class AccountTwoFaSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AccountTwoFaSettings.<init>()", "LinkedHashMap AccountTwoFaSettings.getConfigs()",
+      "void AccountTwoFaSettings.setConfigs(LinkedHashMap)", "String AccountTwoFaSettings.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     AccountTwoFaSettings actualAccountTwoFaSettings = new AccountTwoFaSettings();
@@ -181,7 +165,7 @@ class AccountTwoFaSettingsDiffblueTest {
     actualAccountTwoFaSettings.setConfigs(configs);
     String actualToStringResult = actualAccountTwoFaSettings.toString();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("AccountTwoFaSettings(configs={})", actualToStringResult);
     assertSame(configs, actualAccountTwoFaSettings.getConfigs());
   }

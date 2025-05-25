@@ -1,8 +1,11 @@
 package org.thingsboard.server.dao.entity;
 
 import static org.junit.Assert.assertThrows;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.List;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -13,8 +16,8 @@ import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.dao.Dao;
 
 @ContextConfiguration(classes = {EntityDaoRegistry.class})
-@RunWith(SpringJUnit4ClassRunner.class)
 @DisabledInAotMode
+@RunWith(SpringJUnit4ClassRunner.class)
 public class EntityDaoRegistryDiffblueTest {
   @MockBean
   private Dao<Object> dao;
@@ -31,6 +34,8 @@ public class EntityDaoRegistryDiffblueTest {
    * Method under test: {@link EntityDaoRegistry#getDao(EntityType)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"Dao EntityDaoRegistry.getDao(EntityType)"})
   public void testGetDao() {
     // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class, () -> entityDaoRegistry.getDao(EntityType.TENANT));

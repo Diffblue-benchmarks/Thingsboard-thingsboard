@@ -5,7 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.kv.DataType;
 
@@ -17,6 +19,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test getLngValue()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Long EntityKeyValue.getLngValue()"})
   void testGetLngValue() {
     // Arrange, Act and Assert
     assertNull(EntityKeyValue.fromBool(true).getLngValue());
@@ -29,6 +33,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test setLngValue(Long)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityKeyValue.setLngValue(Long)"})
   void testSetLngValue() {
     // Arrange
     EntityKeyValue fromBoolResult = EntityKeyValue.fromBool(true);
@@ -53,6 +59,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test getDblValue(); given fromBool 'true'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Double EntityKeyValue.getDblValue()"})
   void testGetDblValue_givenFromBoolTrue_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(EntityKeyValue.fromBool(true).getDblValue());
@@ -69,6 +77,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test getDblValue(); given fromDouble ten; then return doubleValue is ten")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Double EntityKeyValue.getDblValue()"})
   void testGetDblValue_givenFromDoubleTen_thenReturnDoubleValueIsTen() {
     // Arrange, Act and Assert
     assertEquals(10.0d, EntityKeyValue.fromDouble(10.0d).getDblValue().doubleValue());
@@ -81,6 +91,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test setDblValue(Double)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityKeyValue.setDblValue(Double)"})
   void testSetDblValue() {
     // Arrange
     EntityKeyValue fromBoolResult = EntityKeyValue.fromBool(true);
@@ -105,6 +117,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test getBoolValue(); given EntityKeyValue (default constructor); then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.Boolean EntityKeyValue.getBoolValue()"})
   void testGetBoolValue_givenEntityKeyValue_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull((new EntityKeyValue()).getBoolValue());
@@ -121,6 +135,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test getBoolValue(); given fromBool 'false'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.Boolean EntityKeyValue.getBoolValue()"})
   void testGetBoolValue_givenFromBoolFalse_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(EntityKeyValue.fromBool(false).getBoolValue());
@@ -137,6 +153,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test getBoolValue(); given fromBool 'true'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.Boolean EntityKeyValue.getBoolValue()"})
   void testGetBoolValue_givenFromBoolTrue_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue(EntityKeyValue.fromBool(true).getBoolValue());
@@ -149,6 +167,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test getStrValue()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String EntityKeyValue.getStrValue()"})
   void testGetStrValue() {
     // Arrange, Act and Assert
     assertNull(EntityKeyValue.fromBool(true).getStrValue());
@@ -161,6 +181,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test setStrValue(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityKeyValue.setStrValue(String)"})
   void testSetStrValue() {
     // Arrange
     EntityKeyValue fromBoolResult = EntityKeyValue.fromBool(true);
@@ -181,6 +203,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test setJsonValue(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityKeyValue.setJsonValue(String)"})
   void testSetJsonValue() {
     // Arrange
     EntityKeyValue fromBoolResult = EntityKeyValue.fromBool(true);
@@ -205,6 +229,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test getJsonValue(); given fromBool 'true'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String EntityKeyValue.getJsonValue()"})
   void testGetJsonValue_givenFromBoolTrue_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(EntityKeyValue.fromBool(true).getJsonValue());
@@ -221,6 +247,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test getJsonValue(); given fromJson 'foo'; then return 'foo'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String EntityKeyValue.getJsonValue()"})
   void testGetJsonValue_givenFromJsonFoo_thenReturnFoo() {
     // Arrange, Act and Assert
     assertEquals("foo", EntityKeyValue.fromJson("foo").getJsonValue());
@@ -237,6 +265,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test isSet(); given EntityKeyValue (default constructor); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityKeyValue.isSet()"})
   void testIsSet_givenEntityKeyValue_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse((new EntityKeyValue()).isSet());
@@ -253,6 +283,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test isSet(); given fromBool 'true'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityKeyValue.isSet()"})
   void testIsSet_givenFromBoolTrue_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue(EntityKeyValue.fromBool(true).isSet());
@@ -265,6 +297,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test fromString(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityKeyValue EntityKeyValue.fromString(String)"})
   void testFromString() {
     // Arrange and Act
     EntityKeyValue actualFromStringResult = EntityKeyValue.fromString("foo");
@@ -286,6 +320,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test fromBool(boolean)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityKeyValue EntityKeyValue.fromBool(boolean)"})
   void testFromBool() {
     // Arrange and Act
     EntityKeyValue actualFromBoolResult = EntityKeyValue.fromBool(true);
@@ -307,6 +343,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test fromLong(long)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityKeyValue EntityKeyValue.fromLong(long)"})
   void testFromLong() {
     // Arrange and Act
     EntityKeyValue actualFromLongResult = EntityKeyValue.fromLong(1L);
@@ -328,6 +366,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test fromDouble(double)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityKeyValue EntityKeyValue.fromDouble(double)"})
   void testFromDouble() {
     // Arrange and Act
     EntityKeyValue actualFromDoubleResult = EntityKeyValue.fromDouble(10.0d);
@@ -349,6 +389,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test fromJson(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityKeyValue EntityKeyValue.fromJson(String)"})
   void testFromJson() {
     // Arrange and Act
     EntityKeyValue actualFromJsonResult = EntityKeyValue.fromJson("foo");
@@ -364,8 +406,7 @@ class EntityKeyValueDiffblueTest {
   }
 
   /**
-   * Test {@link EntityKeyValue#equals(Object)}, and
-   * {@link EntityKeyValue#hashCode()}.
+   * Test {@link EntityKeyValue#equals(Object)}, and {@link EntityKeyValue#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -379,6 +420,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityKeyValue.equals(Object)", "int EntityKeyValue.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EntityKeyValue fromBoolResult = EntityKeyValue.fromBool(true);
@@ -391,8 +434,7 @@ class EntityKeyValueDiffblueTest {
   }
 
   /**
-   * Test {@link EntityKeyValue#equals(Object)}, and
-   * {@link EntityKeyValue#hashCode()}.
+   * Test {@link EntityKeyValue#equals(Object)}, and {@link EntityKeyValue#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -406,6 +448,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityKeyValue.equals(Object)", "int EntityKeyValue.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     EntityKeyValue entityKeyValue = new EntityKeyValue();
@@ -418,8 +462,7 @@ class EntityKeyValueDiffblueTest {
   }
 
   /**
-   * Test {@link EntityKeyValue#equals(Object)}, and
-   * {@link EntityKeyValue#hashCode()}.
+   * Test {@link EntityKeyValue#equals(Object)}, and {@link EntityKeyValue#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -433,6 +476,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityKeyValue.equals(Object)", "int EntityKeyValue.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     EntityKeyValue fromDoubleResult = EntityKeyValue.fromDouble(10.0d);
@@ -445,8 +490,7 @@ class EntityKeyValueDiffblueTest {
   }
 
   /**
-   * Test {@link EntityKeyValue#equals(Object)}, and
-   * {@link EntityKeyValue#hashCode()}.
+   * Test {@link EntityKeyValue#equals(Object)}, and {@link EntityKeyValue#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -460,6 +504,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityKeyValue.equals(Object)", "int EntityKeyValue.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EntityKeyValue fromBoolResult = EntityKeyValue.fromBool(true);
@@ -481,6 +527,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityKeyValue.equals(Object)", "int EntityKeyValue.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     EntityKeyValue fromBoolResult = EntityKeyValue.fromBool(false);
@@ -500,6 +548,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityKeyValue.equals(Object)", "int EntityKeyValue.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EntityKeyValue entityKeyValue = new EntityKeyValue();
@@ -519,6 +569,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityKeyValue.equals(Object)", "int EntityKeyValue.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     EntityKeyValue fromDoubleResult = EntityKeyValue.fromDouble(10.0d);
@@ -538,6 +590,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityKeyValue.equals(Object)", "int EntityKeyValue.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     EntityKeyValue fromBoolResult = EntityKeyValue.fromBool(true);
@@ -557,6 +611,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityKeyValue.equals(Object)", "int EntityKeyValue.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     EntityKeyValue entityKeyValue = new EntityKeyValue();
@@ -576,6 +632,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityKeyValue.equals(Object)", "int EntityKeyValue.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     EntityKeyValue fromJsonResult = EntityKeyValue.fromJson("foo");
@@ -595,6 +653,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityKeyValue.equals(Object)", "int EntityKeyValue.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(EntityKeyValue.fromBool(true), null);
@@ -611,6 +671,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityKeyValue.equals(Object)", "int EntityKeyValue.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(EntityKeyValue.fromBool(true), "Different type to EntityKeyValue");
@@ -627,6 +689,8 @@ class EntityKeyValueDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityKeyValue.<init>()", "DataType EntityKeyValue.getDataType()"})
   void testGettersAndSetters() {
     // Arrange, Act and Assert
     assertNull((new EntityKeyValue()).getDataType());

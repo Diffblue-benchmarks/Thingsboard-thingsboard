@@ -5,18 +5,21 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TbAwsLambdaNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbAwsLambdaNodeConfiguration#defaultConfiguration()}.
    * <p>
-   * Method under test:
-   * {@link TbAwsLambdaNodeConfiguration#defaultConfiguration()}
+   * Method under test: {@link TbAwsLambdaNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbAwsLambdaNodeConfiguration TbAwsLambdaNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
     // Arrange and Act
     TbAwsLambdaNodeConfiguration actualDefaultConfigurationResult = (new TbAwsLambdaNodeConfiguration())
@@ -34,8 +37,7 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbAwsLambdaNodeConfiguration#equals(Object)}, and
-   * {@link TbAwsLambdaNodeConfiguration#hashCode()}.
+   * Test {@link TbAwsLambdaNodeConfiguration#equals(Object)}, and {@link TbAwsLambdaNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -49,6 +51,9 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAwsLambdaNodeConfiguration.equals(Object)",
+      "int TbAwsLambdaNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbAwsLambdaNodeConfiguration tbAwsLambdaNodeConfiguration = new TbAwsLambdaNodeConfiguration();
@@ -61,8 +66,7 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbAwsLambdaNodeConfiguration#equals(Object)}, and
-   * {@link TbAwsLambdaNodeConfiguration#hashCode()}.
+   * Test {@link TbAwsLambdaNodeConfiguration#equals(Object)}, and {@link TbAwsLambdaNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -76,6 +80,9 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAwsLambdaNodeConfiguration.equals(Object)",
+      "int TbAwsLambdaNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbAwsLambdaNodeConfiguration tbAwsLambdaNodeConfiguration = new TbAwsLambdaNodeConfiguration();
@@ -91,8 +98,7 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbAwsLambdaNodeConfiguration#equals(Object)}, and
-   * {@link TbAwsLambdaNodeConfiguration#hashCode()}.
+   * Test {@link TbAwsLambdaNodeConfiguration#equals(Object)}, and {@link TbAwsLambdaNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -106,6 +112,9 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAwsLambdaNodeConfiguration.equals(Object)",
+      "int TbAwsLambdaNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TbAwsLambdaNodeConfiguration tbAwsLambdaNodeConfiguration = new TbAwsLambdaNodeConfiguration();
@@ -121,8 +130,7 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbAwsLambdaNodeConfiguration#equals(Object)}, and
-   * {@link TbAwsLambdaNodeConfiguration#hashCode()}.
+   * Test {@link TbAwsLambdaNodeConfiguration#equals(Object)}, and {@link TbAwsLambdaNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -136,6 +144,9 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAwsLambdaNodeConfiguration.equals(Object)",
+      "int TbAwsLambdaNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     TbAwsLambdaNodeConfiguration tbAwsLambdaNodeConfiguration = new TbAwsLambdaNodeConfiguration();
@@ -151,8 +162,7 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbAwsLambdaNodeConfiguration#equals(Object)}, and
-   * {@link TbAwsLambdaNodeConfiguration#hashCode()}.
+   * Test {@link TbAwsLambdaNodeConfiguration#equals(Object)}, and {@link TbAwsLambdaNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -166,6 +176,9 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAwsLambdaNodeConfiguration.equals(Object)",
+      "int TbAwsLambdaNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     TbAwsLambdaNodeConfiguration tbAwsLambdaNodeConfiguration = new TbAwsLambdaNodeConfiguration();
@@ -181,8 +194,7 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbAwsLambdaNodeConfiguration#equals(Object)}, and
-   * {@link TbAwsLambdaNodeConfiguration#hashCode()}.
+   * Test {@link TbAwsLambdaNodeConfiguration#equals(Object)}, and {@link TbAwsLambdaNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -196,6 +208,9 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAwsLambdaNodeConfiguration.equals(Object)",
+      "int TbAwsLambdaNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual6() {
     // Arrange
     TbAwsLambdaNodeConfiguration tbAwsLambdaNodeConfiguration = new TbAwsLambdaNodeConfiguration();
@@ -211,8 +226,7 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbAwsLambdaNodeConfiguration#equals(Object)}, and
-   * {@link TbAwsLambdaNodeConfiguration#hashCode()}.
+   * Test {@link TbAwsLambdaNodeConfiguration#equals(Object)}, and {@link TbAwsLambdaNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -226,6 +240,9 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAwsLambdaNodeConfiguration.equals(Object)",
+      "int TbAwsLambdaNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbAwsLambdaNodeConfiguration tbAwsLambdaNodeConfiguration = new TbAwsLambdaNodeConfiguration();
@@ -247,6 +264,9 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAwsLambdaNodeConfiguration.equals(Object)",
+      "int TbAwsLambdaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbAwsLambdaNodeConfiguration(), 1);
@@ -263,6 +283,9 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAwsLambdaNodeConfiguration.equals(Object)",
+      "int TbAwsLambdaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbAwsLambdaNodeConfiguration tbAwsLambdaNodeConfiguration = new TbAwsLambdaNodeConfiguration();
@@ -283,6 +306,9 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAwsLambdaNodeConfiguration.equals(Object)",
+      "int TbAwsLambdaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbAwsLambdaNodeConfiguration tbAwsLambdaNodeConfiguration = new TbAwsLambdaNodeConfiguration();
@@ -303,6 +329,9 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAwsLambdaNodeConfiguration.equals(Object)",
+      "int TbAwsLambdaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbAwsLambdaNodeConfiguration tbAwsLambdaNodeConfiguration = new TbAwsLambdaNodeConfiguration();
@@ -323,6 +352,9 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAwsLambdaNodeConfiguration.equals(Object)",
+      "int TbAwsLambdaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbAwsLambdaNodeConfiguration tbAwsLambdaNodeConfiguration = new TbAwsLambdaNodeConfiguration();
@@ -343,6 +375,9 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAwsLambdaNodeConfiguration.equals(Object)",
+      "int TbAwsLambdaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbAwsLambdaNodeConfiguration tbAwsLambdaNodeConfiguration = new TbAwsLambdaNodeConfiguration();
@@ -363,6 +398,9 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAwsLambdaNodeConfiguration.equals(Object)",
+      "int TbAwsLambdaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TbAwsLambdaNodeConfiguration tbAwsLambdaNodeConfiguration = new TbAwsLambdaNodeConfiguration();
@@ -383,6 +421,9 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAwsLambdaNodeConfiguration.equals(Object)",
+      "int TbAwsLambdaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TbAwsLambdaNodeConfiguration tbAwsLambdaNodeConfiguration = new TbAwsLambdaNodeConfiguration();
@@ -403,6 +444,9 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAwsLambdaNodeConfiguration.equals(Object)",
+      "int TbAwsLambdaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     TbAwsLambdaNodeConfiguration tbAwsLambdaNodeConfiguration = new TbAwsLambdaNodeConfiguration();
@@ -423,6 +467,9 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAwsLambdaNodeConfiguration.equals(Object)",
+      "int TbAwsLambdaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     TbAwsLambdaNodeConfiguration tbAwsLambdaNodeConfiguration = new TbAwsLambdaNodeConfiguration();
@@ -445,6 +492,9 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAwsLambdaNodeConfiguration.equals(Object)",
+      "int TbAwsLambdaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     TbAwsLambdaNodeConfiguration tbAwsLambdaNodeConfiguration = new TbAwsLambdaNodeConfiguration();
@@ -467,6 +517,9 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAwsLambdaNodeConfiguration.equals(Object)",
+      "int TbAwsLambdaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     TbAwsLambdaNodeConfiguration tbAwsLambdaNodeConfiguration = new TbAwsLambdaNodeConfiguration();
@@ -489,6 +542,9 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAwsLambdaNodeConfiguration.equals(Object)",
+      "int TbAwsLambdaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     TbAwsLambdaNodeConfiguration tbAwsLambdaNodeConfiguration = new TbAwsLambdaNodeConfiguration();
@@ -511,6 +567,9 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAwsLambdaNodeConfiguration.equals(Object)",
+      "int TbAwsLambdaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     TbAwsLambdaNodeConfiguration tbAwsLambdaNodeConfiguration = new TbAwsLambdaNodeConfiguration();
@@ -533,6 +592,9 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAwsLambdaNodeConfiguration.equals(Object)",
+      "int TbAwsLambdaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbAwsLambdaNodeConfiguration(), null);
@@ -549,6 +611,9 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbAwsLambdaNodeConfiguration.equals(Object)",
+      "int TbAwsLambdaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbAwsLambdaNodeConfiguration(), "Different type to TbAwsLambdaNodeConfiguration");
@@ -559,8 +624,7 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link TbAwsLambdaNodeConfiguration}
+   *   <li>default or parameterless constructor of {@link TbAwsLambdaNodeConfiguration}
    *   <li>{@link TbAwsLambdaNodeConfiguration#setAccessKey(String)}
    *   <li>{@link TbAwsLambdaNodeConfiguration#setConnectionTimeout(int)}
    *   <li>{@link TbAwsLambdaNodeConfiguration#setFunctionName(String)}
@@ -568,8 +632,7 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    *   <li>{@link TbAwsLambdaNodeConfiguration#setRegion(String)}
    *   <li>{@link TbAwsLambdaNodeConfiguration#setRequestTimeout(int)}
    *   <li>{@link TbAwsLambdaNodeConfiguration#setSecretKey(String)}
-   *   <li>
-   * {@link TbAwsLambdaNodeConfiguration#setTellFailureIfFuncThrowsExc(boolean)}
+   *   <li>{@link TbAwsLambdaNodeConfiguration#setTellFailureIfFuncThrowsExc(boolean)}
    *   <li>{@link TbAwsLambdaNodeConfiguration#toString()}
    *   <li>{@link TbAwsLambdaNodeConfiguration#getAccessKey()}
    *   <li>{@link TbAwsLambdaNodeConfiguration#getConnectionTimeout()}
@@ -583,6 +646,21 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbAwsLambdaNodeConfiguration.<init>()", "String TbAwsLambdaNodeConfiguration.getAccessKey()",
+      "int TbAwsLambdaNodeConfiguration.getConnectionTimeout()",
+      "String TbAwsLambdaNodeConfiguration.getFunctionName()", "String TbAwsLambdaNodeConfiguration.getQualifier()",
+      "String TbAwsLambdaNodeConfiguration.getRegion()", "int TbAwsLambdaNodeConfiguration.getRequestTimeout()",
+      "String TbAwsLambdaNodeConfiguration.getSecretKey()",
+      "boolean TbAwsLambdaNodeConfiguration.isTellFailureIfFuncThrowsExc()",
+      "void TbAwsLambdaNodeConfiguration.setAccessKey(String)",
+      "void TbAwsLambdaNodeConfiguration.setConnectionTimeout(int)",
+      "void TbAwsLambdaNodeConfiguration.setFunctionName(String)",
+      "void TbAwsLambdaNodeConfiguration.setQualifier(String)", "void TbAwsLambdaNodeConfiguration.setRegion(String)",
+      "void TbAwsLambdaNodeConfiguration.setRequestTimeout(int)",
+      "void TbAwsLambdaNodeConfiguration.setSecretKey(String)",
+      "void TbAwsLambdaNodeConfiguration.setTellFailureIfFuncThrowsExc(boolean)",
+      "String TbAwsLambdaNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbAwsLambdaNodeConfiguration actualTbAwsLambdaNodeConfiguration = new TbAwsLambdaNodeConfiguration();
@@ -603,7 +681,7 @@ class TbAwsLambdaNodeConfigurationDiffblueTest {
     int actualRequestTimeout = actualTbAwsLambdaNodeConfiguration.getRequestTimeout();
     String actualSecretKey = actualTbAwsLambdaNodeConfiguration.getSecretKey();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("EXAMPLEKEYwjalrXUtnFEMI/K7MDENG/bPxRfiCY", actualSecretKey);
     assertEquals("EXAMPLEakiAIOSFODNN7", actualAccessKey);
     assertEquals("Function Name", actualFunctionName);

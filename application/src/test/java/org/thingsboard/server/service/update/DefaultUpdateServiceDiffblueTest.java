@@ -1,7 +1,9 @@
 package org.thingsboard.server.service.update;
 
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class DefaultUpdateServiceDiffblueTest {
@@ -12,9 +14,9 @@ class DefaultUpdateServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test checkUpdates()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"org.thingsboard.server.common.data.UpdateMessage DefaultUpdateService.checkUpdates()"})
   void testCheckUpdates() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertNull((new DefaultUpdateService()).checkUpdates());
   }

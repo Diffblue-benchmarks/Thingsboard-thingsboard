@@ -6,7 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.rule.engine.api.NodeConfiguration;
 import org.thingsboard.server.common.data.sms.config.SmsProviderConfiguration;
@@ -19,38 +21,9 @@ class TbSendSmsNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"NodeConfiguration TbSendSmsNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
-    // Arrange
-    TbSendSmsNodeConfiguration tbSendSmsNodeConfiguration = new TbSendSmsNodeConfiguration();
-    tbSendSmsNodeConfiguration.setSmsProviderConfiguration(mock(SmsProviderConfiguration.class));
-
-    // Act
-    NodeConfiguration actualDefaultConfigurationResult = tbSendSmsNodeConfiguration.defaultConfiguration();
-    Object actualDefaultConfigurationResult2 = actualDefaultConfigurationResult.defaultConfiguration();
-
-    // Assert
-    assertTrue(actualDefaultConfigurationResult2 instanceof TbSendSmsNodeConfiguration);
-    assertTrue(actualDefaultConfigurationResult instanceof TbSendSmsNodeConfiguration);
-    assertEquals("${userPhone}",
-        ((TbSendSmsNodeConfiguration) actualDefaultConfigurationResult).getNumbersToTemplate());
-    assertEquals("Device ${deviceName} has high temperature ${temp}",
-        ((TbSendSmsNodeConfiguration) actualDefaultConfigurationResult).getSmsMessageTemplate());
-    assertNull(((TbSendSmsNodeConfiguration) actualDefaultConfigurationResult).getSmsProviderConfiguration());
-    assertTrue(((TbSendSmsNodeConfiguration) actualDefaultConfigurationResult).isUseSystemSmsSettings());
-    assertEquals(actualDefaultConfigurationResult, actualDefaultConfigurationResult2);
-  }
-
-  /**
-   * Test {@link TbSendSmsNodeConfiguration#defaultConfiguration()}.
-   * <ul>
-   *   <li>Given {@link TbSendSmsNodeConfiguration} (default constructor).</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbSendSmsNodeConfiguration#defaultConfiguration()}
-   */
-  @Test
-  @DisplayName("Test defaultConfiguration(); given TbSendSmsNodeConfiguration (default constructor)")
-  void testDefaultConfiguration_givenTbSendSmsNodeConfiguration() {
     // Arrange and Act
     NodeConfiguration actualDefaultConfigurationResult = (new TbSendSmsNodeConfiguration()).defaultConfiguration();
     Object actualDefaultConfigurationResult2 = actualDefaultConfigurationResult.defaultConfiguration();
@@ -68,8 +41,7 @@ class TbSendSmsNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSendSmsNodeConfiguration#equals(Object)}, and
-   * {@link TbSendSmsNodeConfiguration#hashCode()}.
+   * Test {@link TbSendSmsNodeConfiguration#equals(Object)}, and {@link TbSendSmsNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -83,6 +55,8 @@ class TbSendSmsNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSendSmsNodeConfiguration.equals(Object)", "int TbSendSmsNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbSendSmsNodeConfiguration tbSendSmsNodeConfiguration = new TbSendSmsNodeConfiguration();
@@ -95,8 +69,7 @@ class TbSendSmsNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSendSmsNodeConfiguration#equals(Object)}, and
-   * {@link TbSendSmsNodeConfiguration#hashCode()}.
+   * Test {@link TbSendSmsNodeConfiguration#equals(Object)}, and {@link TbSendSmsNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -110,6 +83,8 @@ class TbSendSmsNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSendSmsNodeConfiguration.equals(Object)", "int TbSendSmsNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbSendSmsNodeConfiguration tbSendSmsNodeConfiguration = new TbSendSmsNodeConfiguration();
@@ -125,8 +100,7 @@ class TbSendSmsNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSendSmsNodeConfiguration#equals(Object)}, and
-   * {@link TbSendSmsNodeConfiguration#hashCode()}.
+   * Test {@link TbSendSmsNodeConfiguration#equals(Object)}, and {@link TbSendSmsNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -140,6 +114,8 @@ class TbSendSmsNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSendSmsNodeConfiguration.equals(Object)", "int TbSendSmsNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TbSendSmsNodeConfiguration tbSendSmsNodeConfiguration = new TbSendSmsNodeConfiguration();
@@ -155,8 +131,7 @@ class TbSendSmsNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSendSmsNodeConfiguration#equals(Object)}, and
-   * {@link TbSendSmsNodeConfiguration#hashCode()}.
+   * Test {@link TbSendSmsNodeConfiguration#equals(Object)}, and {@link TbSendSmsNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -170,6 +145,8 @@ class TbSendSmsNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSendSmsNodeConfiguration.equals(Object)", "int TbSendSmsNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbSendSmsNodeConfiguration tbSendSmsNodeConfiguration = new TbSendSmsNodeConfiguration();
@@ -191,6 +168,8 @@ class TbSendSmsNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSendSmsNodeConfiguration.equals(Object)", "int TbSendSmsNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbSendSmsNodeConfiguration(), 1);
@@ -207,6 +186,8 @@ class TbSendSmsNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSendSmsNodeConfiguration.equals(Object)", "int TbSendSmsNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbSendSmsNodeConfiguration tbSendSmsNodeConfiguration = new TbSendSmsNodeConfiguration();
@@ -227,6 +208,8 @@ class TbSendSmsNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSendSmsNodeConfiguration.equals(Object)", "int TbSendSmsNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbSendSmsNodeConfiguration tbSendSmsNodeConfiguration = new TbSendSmsNodeConfiguration();
@@ -247,6 +230,8 @@ class TbSendSmsNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSendSmsNodeConfiguration.equals(Object)", "int TbSendSmsNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbSendSmsNodeConfiguration tbSendSmsNodeConfiguration = new TbSendSmsNodeConfiguration();
@@ -267,6 +252,8 @@ class TbSendSmsNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSendSmsNodeConfiguration.equals(Object)", "int TbSendSmsNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbSendSmsNodeConfiguration tbSendSmsNodeConfiguration = new TbSendSmsNodeConfiguration();
@@ -287,6 +274,8 @@ class TbSendSmsNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSendSmsNodeConfiguration.equals(Object)", "int TbSendSmsNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbSendSmsNodeConfiguration tbSendSmsNodeConfiguration = new TbSendSmsNodeConfiguration();
@@ -309,6 +298,8 @@ class TbSendSmsNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSendSmsNodeConfiguration.equals(Object)", "int TbSendSmsNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TbSendSmsNodeConfiguration tbSendSmsNodeConfiguration = new TbSendSmsNodeConfiguration();
@@ -331,6 +322,8 @@ class TbSendSmsNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSendSmsNodeConfiguration.equals(Object)", "int TbSendSmsNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TbSendSmsNodeConfiguration tbSendSmsNodeConfiguration = new TbSendSmsNodeConfiguration();
@@ -353,6 +346,8 @@ class TbSendSmsNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSendSmsNodeConfiguration.equals(Object)", "int TbSendSmsNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbSendSmsNodeConfiguration(), null);
@@ -369,6 +364,8 @@ class TbSendSmsNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSendSmsNodeConfiguration.equals(Object)", "int TbSendSmsNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbSendSmsNodeConfiguration(), "Different type to TbSendSmsNodeConfiguration");
@@ -379,12 +376,10 @@ class TbSendSmsNodeConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link TbSendSmsNodeConfiguration}
+   *   <li>default or parameterless constructor of {@link TbSendSmsNodeConfiguration}
    *   <li>{@link TbSendSmsNodeConfiguration#setNumbersToTemplate(String)}
    *   <li>{@link TbSendSmsNodeConfiguration#setSmsMessageTemplate(String)}
-   *   <li>
-   * {@link TbSendSmsNodeConfiguration#setSmsProviderConfiguration(SmsProviderConfiguration)}
+   *   <li>{@link TbSendSmsNodeConfiguration#setSmsProviderConfiguration(SmsProviderConfiguration)}
    *   <li>{@link TbSendSmsNodeConfiguration#setUseSystemSmsSettings(boolean)}
    *   <li>{@link TbSendSmsNodeConfiguration#toString()}
    *   <li>{@link TbSendSmsNodeConfiguration#getNumbersToTemplate()}
@@ -395,6 +390,17 @@ class TbSendSmsNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbSendSmsNodeConfiguration.<init>()",
+      "String TbSendSmsNodeConfiguration.getNumbersToTemplate()",
+      "String TbSendSmsNodeConfiguration.getSmsMessageTemplate()",
+      "SmsProviderConfiguration TbSendSmsNodeConfiguration.getSmsProviderConfiguration()",
+      "boolean TbSendSmsNodeConfiguration.isUseSystemSmsSettings()",
+      "void TbSendSmsNodeConfiguration.setNumbersToTemplate(String)",
+      "void TbSendSmsNodeConfiguration.setSmsMessageTemplate(String)",
+      "void TbSendSmsNodeConfiguration.setSmsProviderConfiguration(SmsProviderConfiguration)",
+      "void TbSendSmsNodeConfiguration.setUseSystemSmsSettings(boolean)",
+      "String TbSendSmsNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbSendSmsNodeConfiguration actualTbSendSmsNodeConfiguration = new TbSendSmsNodeConfiguration();
@@ -409,7 +415,7 @@ class TbSendSmsNodeConfigurationDiffblueTest {
     SmsProviderConfiguration actualSmsProviderConfiguration = actualTbSendSmsNodeConfiguration
         .getSmsProviderConfiguration();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("42", actualNumbersToTemplate);
     assertEquals("Sms Message Template", actualSmsMessageTemplate);
     assertTrue(actualTbSendSmsNodeConfiguration.isUseSystemSmsSettings());

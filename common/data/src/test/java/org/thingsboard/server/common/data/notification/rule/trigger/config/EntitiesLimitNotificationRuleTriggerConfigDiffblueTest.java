@@ -7,34 +7,47 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.anyFloat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashSet;
 import java.util.Set;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.notification.rule.trigger.config.EntitiesLimitNotificationRuleTriggerConfig.EntitiesLimitNotificationRuleTriggerConfigBuilder;
 
+@ContextConfiguration(classes = {EntitiesLimitNotificationRuleTriggerConfigBuilder.class})
+@ExtendWith(SpringExtension.class)
 class EntitiesLimitNotificationRuleTriggerConfigDiffblueTest {
+  @Autowired
+  private EntitiesLimitNotificationRuleTriggerConfigBuilder entitiesLimitNotificationRuleTriggerConfigBuilder;
+
   /**
-   * Test EntitiesLimitNotificationRuleTriggerConfigBuilder
-   * {@link EntitiesLimitNotificationRuleTriggerConfigBuilder#build()}.
+   * Test EntitiesLimitNotificationRuleTriggerConfigBuilder {@link EntitiesLimitNotificationRuleTriggerConfigBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link EntitiesLimitNotificationRuleTriggerConfig.EntitiesLimitNotificationRuleTriggerConfigBuilder#build()}
-   *   <li>
-   * {@link EntitiesLimitNotificationRuleTriggerConfig.EntitiesLimitNotificationRuleTriggerConfigBuilder#entityTypes(Set)}
-   *   <li>
-   * {@link EntitiesLimitNotificationRuleTriggerConfig.EntitiesLimitNotificationRuleTriggerConfigBuilder#threshold(float)}
+   *   <li>{@link EntitiesLimitNotificationRuleTriggerConfigBuilder#build()}
+   *   <li>{@link EntitiesLimitNotificationRuleTriggerConfigBuilder#entityTypes(Set)}
+   *   <li>{@link EntitiesLimitNotificationRuleTriggerConfigBuilder#threshold(float)}
    * </ul>
    */
   @Test
   @DisplayName("Test EntitiesLimitNotificationRuleTriggerConfigBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntitiesLimitNotificationRuleTriggerConfigBuilder.<init>()",
+      "EntitiesLimitNotificationRuleTriggerConfig EntitiesLimitNotificationRuleTriggerConfigBuilder.build()",
+      "EntitiesLimitNotificationRuleTriggerConfigBuilder EntitiesLimitNotificationRuleTriggerConfigBuilder.entityTypes(Set)",
+      "EntitiesLimitNotificationRuleTriggerConfigBuilder EntitiesLimitNotificationRuleTriggerConfigBuilder.threshold(float)",
+      "String EntitiesLimitNotificationRuleTriggerConfigBuilder.toString()"})
   void testEntitiesLimitNotificationRuleTriggerConfigBuilderBuild() {
     // Arrange
-    EntitiesLimitNotificationRuleTriggerConfig.EntitiesLimitNotificationRuleTriggerConfigBuilder builderResult = EntitiesLimitNotificationRuleTriggerConfig
+    EntitiesLimitNotificationRuleTriggerConfigBuilder builderResult = EntitiesLimitNotificationRuleTriggerConfig
         .builder();
     HashSet<EntityType> entityTypes = new HashSet<>();
 
@@ -53,8 +66,7 @@ class EntitiesLimitNotificationRuleTriggerConfigDiffblueTest {
   }
 
   /**
-   * Test {@link EntitiesLimitNotificationRuleTriggerConfig#equals(Object)}, and
-   * {@link EntitiesLimitNotificationRuleTriggerConfig#hashCode()}.
+   * Test {@link EntitiesLimitNotificationRuleTriggerConfig#equals(Object)}, and {@link EntitiesLimitNotificationRuleTriggerConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -68,14 +80,17 @@ class EntitiesLimitNotificationRuleTriggerConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntitiesLimitNotificationRuleTriggerConfig.equals(Object)",
+      "int EntitiesLimitNotificationRuleTriggerConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    EntitiesLimitNotificationRuleTriggerConfig.EntitiesLimitNotificationRuleTriggerConfigBuilder builderResult = EntitiesLimitNotificationRuleTriggerConfig
+    EntitiesLimitNotificationRuleTriggerConfigBuilder builderResult = EntitiesLimitNotificationRuleTriggerConfig
         .builder();
     EntitiesLimitNotificationRuleTriggerConfig buildResult = builderResult.entityTypes(new HashSet<>())
         .threshold(10.0f)
         .build();
-    EntitiesLimitNotificationRuleTriggerConfig.EntitiesLimitNotificationRuleTriggerConfigBuilder builderResult2 = EntitiesLimitNotificationRuleTriggerConfig
+    EntitiesLimitNotificationRuleTriggerConfigBuilder builderResult2 = EntitiesLimitNotificationRuleTriggerConfig
         .builder();
     EntitiesLimitNotificationRuleTriggerConfig buildResult2 = builderResult2.entityTypes(new HashSet<>())
         .threshold(10.0f)
@@ -88,8 +103,7 @@ class EntitiesLimitNotificationRuleTriggerConfigDiffblueTest {
   }
 
   /**
-   * Test {@link EntitiesLimitNotificationRuleTriggerConfig#equals(Object)}, and
-   * {@link EntitiesLimitNotificationRuleTriggerConfig#hashCode()}.
+   * Test {@link EntitiesLimitNotificationRuleTriggerConfig#equals(Object)}, and {@link EntitiesLimitNotificationRuleTriggerConfig#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -103,9 +117,12 @@ class EntitiesLimitNotificationRuleTriggerConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntitiesLimitNotificationRuleTriggerConfig.equals(Object)",
+      "int EntitiesLimitNotificationRuleTriggerConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    EntitiesLimitNotificationRuleTriggerConfig.EntitiesLimitNotificationRuleTriggerConfigBuilder builderResult = EntitiesLimitNotificationRuleTriggerConfig
+    EntitiesLimitNotificationRuleTriggerConfigBuilder builderResult = EntitiesLimitNotificationRuleTriggerConfig
         .builder();
     EntitiesLimitNotificationRuleTriggerConfig buildResult = builderResult.entityTypes(new HashSet<>())
         .threshold(10.0f)
@@ -124,22 +141,24 @@ class EntitiesLimitNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntitiesLimitNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link EntitiesLimitNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntitiesLimitNotificationRuleTriggerConfig.equals(Object)",
+      "int EntitiesLimitNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    EntitiesLimitNotificationRuleTriggerConfig.EntitiesLimitNotificationRuleTriggerConfigBuilder entitiesLimitNotificationRuleTriggerConfigBuilder = mock(
-        EntitiesLimitNotificationRuleTriggerConfig.EntitiesLimitNotificationRuleTriggerConfigBuilder.class);
+    EntitiesLimitNotificationRuleTriggerConfigBuilder entitiesLimitNotificationRuleTriggerConfigBuilder = mock(
+        EntitiesLimitNotificationRuleTriggerConfigBuilder.class);
     when(entitiesLimitNotificationRuleTriggerConfigBuilder.entityTypes(Mockito.<Set<EntityType>>any()))
         .thenReturn(EntitiesLimitNotificationRuleTriggerConfig.builder());
     EntitiesLimitNotificationRuleTriggerConfig buildResult = entitiesLimitNotificationRuleTriggerConfigBuilder
         .entityTypes(new HashSet<>())
         .threshold(10.0f)
         .build();
-    EntitiesLimitNotificationRuleTriggerConfig.EntitiesLimitNotificationRuleTriggerConfigBuilder builderResult = EntitiesLimitNotificationRuleTriggerConfig
+    EntitiesLimitNotificationRuleTriggerConfigBuilder builderResult = EntitiesLimitNotificationRuleTriggerConfig
         .builder();
     EntitiesLimitNotificationRuleTriggerConfig buildResult2 = builderResult.entityTypes(new HashSet<>())
         .threshold(10.0f)
@@ -156,26 +175,28 @@ class EntitiesLimitNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntitiesLimitNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link EntitiesLimitNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntitiesLimitNotificationRuleTriggerConfig.equals(Object)",
+      "int EntitiesLimitNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    EntitiesLimitNotificationRuleTriggerConfig.EntitiesLimitNotificationRuleTriggerConfigBuilder entitiesLimitNotificationRuleTriggerConfigBuilder = mock(
-        EntitiesLimitNotificationRuleTriggerConfig.EntitiesLimitNotificationRuleTriggerConfigBuilder.class);
+    EntitiesLimitNotificationRuleTriggerConfigBuilder entitiesLimitNotificationRuleTriggerConfigBuilder = mock(
+        EntitiesLimitNotificationRuleTriggerConfigBuilder.class);
     when(entitiesLimitNotificationRuleTriggerConfigBuilder.threshold(anyFloat()))
         .thenReturn(EntitiesLimitNotificationRuleTriggerConfig.builder());
-    EntitiesLimitNotificationRuleTriggerConfig.EntitiesLimitNotificationRuleTriggerConfigBuilder entitiesLimitNotificationRuleTriggerConfigBuilder2 = mock(
-        EntitiesLimitNotificationRuleTriggerConfig.EntitiesLimitNotificationRuleTriggerConfigBuilder.class);
+    EntitiesLimitNotificationRuleTriggerConfigBuilder entitiesLimitNotificationRuleTriggerConfigBuilder2 = mock(
+        EntitiesLimitNotificationRuleTriggerConfigBuilder.class);
     when(entitiesLimitNotificationRuleTriggerConfigBuilder2.entityTypes(Mockito.<Set<EntityType>>any()))
         .thenReturn(entitiesLimitNotificationRuleTriggerConfigBuilder);
     EntitiesLimitNotificationRuleTriggerConfig buildResult = entitiesLimitNotificationRuleTriggerConfigBuilder2
         .entityTypes(new HashSet<>())
         .threshold(10.0f)
         .build();
-    EntitiesLimitNotificationRuleTriggerConfig.EntitiesLimitNotificationRuleTriggerConfigBuilder builderResult = EntitiesLimitNotificationRuleTriggerConfig
+    EntitiesLimitNotificationRuleTriggerConfigBuilder builderResult = EntitiesLimitNotificationRuleTriggerConfig
         .builder();
     EntitiesLimitNotificationRuleTriggerConfig buildResult2 = builderResult.entityTypes(new HashSet<>())
         .threshold(10.0f)
@@ -192,14 +213,16 @@ class EntitiesLimitNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntitiesLimitNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link EntitiesLimitNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntitiesLimitNotificationRuleTriggerConfig.equals(Object)",
+      "int EntitiesLimitNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    EntitiesLimitNotificationRuleTriggerConfig.EntitiesLimitNotificationRuleTriggerConfigBuilder builderResult = EntitiesLimitNotificationRuleTriggerConfig
+    EntitiesLimitNotificationRuleTriggerConfigBuilder builderResult = EntitiesLimitNotificationRuleTriggerConfig
         .builder();
     EntitiesLimitNotificationRuleTriggerConfig buildResult = builderResult.entityTypes(new HashSet<>())
         .threshold(10.0f)
@@ -216,14 +239,16 @@ class EntitiesLimitNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntitiesLimitNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link EntitiesLimitNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntitiesLimitNotificationRuleTriggerConfig.equals(Object)",
+      "int EntitiesLimitNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    EntitiesLimitNotificationRuleTriggerConfig.EntitiesLimitNotificationRuleTriggerConfigBuilder builderResult = EntitiesLimitNotificationRuleTriggerConfig
+    EntitiesLimitNotificationRuleTriggerConfigBuilder builderResult = EntitiesLimitNotificationRuleTriggerConfig
         .builder();
     EntitiesLimitNotificationRuleTriggerConfig buildResult = builderResult.entityTypes(new HashSet<>())
         .threshold(10.0f)
@@ -238,8 +263,7 @@ class EntitiesLimitNotificationRuleTriggerConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link EntitiesLimitNotificationRuleTriggerConfig#EntitiesLimitNotificationRuleTriggerConfig()}
+   *   <li>{@link EntitiesLimitNotificationRuleTriggerConfig#EntitiesLimitNotificationRuleTriggerConfig()}
    *   <li>{@link EntitiesLimitNotificationRuleTriggerConfig#setEntityTypes(Set)}
    *   <li>{@link EntitiesLimitNotificationRuleTriggerConfig#setThreshold(float)}
    *   <li>{@link EntitiesLimitNotificationRuleTriggerConfig#toString()}
@@ -250,6 +274,15 @@ class EntitiesLimitNotificationRuleTriggerConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntitiesLimitNotificationRuleTriggerConfig.<init>()",
+      "void EntitiesLimitNotificationRuleTriggerConfig.<init>(Set, float)",
+      "Set EntitiesLimitNotificationRuleTriggerConfig.getEntityTypes()",
+      "float EntitiesLimitNotificationRuleTriggerConfig.getThreshold()",
+      "NotificationRuleTriggerType EntitiesLimitNotificationRuleTriggerConfig.getTriggerType()",
+      "void EntitiesLimitNotificationRuleTriggerConfig.setEntityTypes(Set)",
+      "void EntitiesLimitNotificationRuleTriggerConfig.setThreshold(float)",
+      "String EntitiesLimitNotificationRuleTriggerConfig.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     EntitiesLimitNotificationRuleTriggerConfig actualEntitiesLimitNotificationRuleTriggerConfig = new EntitiesLimitNotificationRuleTriggerConfig();
@@ -260,7 +293,7 @@ class EntitiesLimitNotificationRuleTriggerConfigDiffblueTest {
     Set<EntityType> actualEntityTypes = actualEntitiesLimitNotificationRuleTriggerConfig.getEntityTypes();
     float actualThreshold = actualEntitiesLimitNotificationRuleTriggerConfig.getThreshold();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("EntitiesLimitNotificationRuleTriggerConfig(entityTypes=[], threshold=10.0)", actualToStringResult);
     assertEquals(10.0f, actualThreshold);
     assertEquals(NotificationRuleTriggerType.ENTITIES_LIMIT,
@@ -277,8 +310,7 @@ class EntitiesLimitNotificationRuleTriggerConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link EntitiesLimitNotificationRuleTriggerConfig#EntitiesLimitNotificationRuleTriggerConfig(Set, float)}
+   *   <li>{@link EntitiesLimitNotificationRuleTriggerConfig#EntitiesLimitNotificationRuleTriggerConfig(Set, float)}
    *   <li>{@link EntitiesLimitNotificationRuleTriggerConfig#setEntityTypes(Set)}
    *   <li>{@link EntitiesLimitNotificationRuleTriggerConfig#setThreshold(float)}
    *   <li>{@link EntitiesLimitNotificationRuleTriggerConfig#toString()}
@@ -289,6 +321,15 @@ class EntitiesLimitNotificationRuleTriggerConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when HashSet()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntitiesLimitNotificationRuleTriggerConfig.<init>()",
+      "void EntitiesLimitNotificationRuleTriggerConfig.<init>(Set, float)",
+      "Set EntitiesLimitNotificationRuleTriggerConfig.getEntityTypes()",
+      "float EntitiesLimitNotificationRuleTriggerConfig.getThreshold()",
+      "NotificationRuleTriggerType EntitiesLimitNotificationRuleTriggerConfig.getTriggerType()",
+      "void EntitiesLimitNotificationRuleTriggerConfig.setEntityTypes(Set)",
+      "void EntitiesLimitNotificationRuleTriggerConfig.setThreshold(float)",
+      "String EntitiesLimitNotificationRuleTriggerConfig.toString()"})
   void testGettersAndSetters_whenHashSet() {
     // Arrange and Act
     EntitiesLimitNotificationRuleTriggerConfig actualEntitiesLimitNotificationRuleTriggerConfig = new EntitiesLimitNotificationRuleTriggerConfig(
@@ -300,7 +341,7 @@ class EntitiesLimitNotificationRuleTriggerConfigDiffblueTest {
     Set<EntityType> actualEntityTypes = actualEntitiesLimitNotificationRuleTriggerConfig.getEntityTypes();
     float actualThreshold = actualEntitiesLimitNotificationRuleTriggerConfig.getThreshold();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("EntitiesLimitNotificationRuleTriggerConfig(entityTypes=[], threshold=10.0)", actualToStringResult);
     assertEquals(10.0f, actualThreshold);
     assertEquals(NotificationRuleTriggerType.ENTITIES_LIMIT,

@@ -2,7 +2,9 @@ package org.thingsboard.server.transport.lwm2m.server.store;
 
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.transport.lwm2m.server.client.LwM2mClient;
 
@@ -14,6 +16,8 @@ class TbDummyLwM2MClientStoreDiffblueTest {
    */
   @Test
   @DisplayName("Test get(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"LwM2mClient TbDummyLwM2MClientStore.get(String)"})
   void testGet() {
     // Arrange, Act and Assert
     assertNull((new TbDummyLwM2MClientStore()).get("https://config.us-east-2.amazonaws.com"));
@@ -26,6 +30,8 @@ class TbDummyLwM2MClientStoreDiffblueTest {
    */
   @Test
   @DisplayName("Test getAll()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.util.Set TbDummyLwM2MClientStore.getAll()"})
   void testGetAll() {
     // Arrange, Act and Assert
     assertTrue((new TbDummyLwM2MClientStore()).getAll().isEmpty());
@@ -43,13 +49,16 @@ class TbDummyLwM2MClientStoreDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbDummyLwM2MClientStore.<init>()", "void TbDummyLwM2MClientStore.put(LwM2mClient)",
+      "void TbDummyLwM2MClientStore.remove(String)"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbDummyLwM2MClientStore actualTbDummyLwM2MClientStore = new TbDummyLwM2MClientStore();
     actualTbDummyLwM2MClientStore.put(new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"));
     actualTbDummyLwM2MClientStore.remove("https://config.us-east-2.amazonaws.com");
 
-    // Assert that nothing has changed
+    // Assert
     assertTrue(actualTbDummyLwM2MClientStore.getAll().isEmpty());
   }
 }

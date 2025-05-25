@@ -5,24 +5,25 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.MissingNode;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.notification.NotificationDeliveryMethod;
 
 class MobileAppDeliveryMethodNotificationTemplateDiffblueTest {
   /**
-   * Test
-   * {@link MobileAppDeliveryMethodNotificationTemplate#MobileAppDeliveryMethodNotificationTemplate()}.
+   * Test {@link MobileAppDeliveryMethodNotificationTemplate#MobileAppDeliveryMethodNotificationTemplate()}.
    * <p>
-   * Method under test:
-   * {@link MobileAppDeliveryMethodNotificationTemplate#MobileAppDeliveryMethodNotificationTemplate()}
+   * Method under test: {@link MobileAppDeliveryMethodNotificationTemplate#MobileAppDeliveryMethodNotificationTemplate()}
    */
   @Test
   @DisplayName("Test new MobileAppDeliveryMethodNotificationTemplate()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MobileAppDeliveryMethodNotificationTemplate.<init>()"})
   void testNewMobileAppDeliveryMethodNotificationTemplate() {
     // Arrange and Act
     MobileAppDeliveryMethodNotificationTemplate actualMobileAppDeliveryMethodNotificationTemplate = new MobileAppDeliveryMethodNotificationTemplate();
@@ -40,14 +41,15 @@ class MobileAppDeliveryMethodNotificationTemplateDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link MobileAppDeliveryMethodNotificationTemplate#MobileAppDeliveryMethodNotificationTemplate(MobileAppDeliveryMethodNotificationTemplate)}.
+   * Test {@link MobileAppDeliveryMethodNotificationTemplate#MobileAppDeliveryMethodNotificationTemplate(MobileAppDeliveryMethodNotificationTemplate)}.
    * <p>
-   * Method under test:
-   * {@link MobileAppDeliveryMethodNotificationTemplate#MobileAppDeliveryMethodNotificationTemplate(MobileAppDeliveryMethodNotificationTemplate)}
+   * Method under test: {@link MobileAppDeliveryMethodNotificationTemplate#MobileAppDeliveryMethodNotificationTemplate(MobileAppDeliveryMethodNotificationTemplate)}
    */
   @Test
   @DisplayName("Test new MobileAppDeliveryMethodNotificationTemplate(MobileAppDeliveryMethodNotificationTemplate)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void MobileAppDeliveryMethodNotificationTemplate.<init>(MobileAppDeliveryMethodNotificationTemplate)"})
   void testNewMobileAppDeliveryMethodNotificationTemplate2() {
     // Arrange and Act
     MobileAppDeliveryMethodNotificationTemplate actualMobileAppDeliveryMethodNotificationTemplate = new MobileAppDeliveryMethodNotificationTemplate(
@@ -72,6 +74,8 @@ class MobileAppDeliveryMethodNotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test copy()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MobileAppDeliveryMethodNotificationTemplate MobileAppDeliveryMethodNotificationTemplate.copy()"})
   void testCopy() {
     // Arrange and Act
     MobileAppDeliveryMethodNotificationTemplate actualCopyResult = (new MobileAppDeliveryMethodNotificationTemplate())
@@ -90,8 +94,7 @@ class MobileAppDeliveryMethodNotificationTemplateDiffblueTest {
   }
 
   /**
-   * Test {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}, and
-   * {@link MobileAppDeliveryMethodNotificationTemplate#hashCode()}.
+   * Test {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}, and {@link MobileAppDeliveryMethodNotificationTemplate#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -105,6 +108,9 @@ class MobileAppDeliveryMethodNotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MobileAppDeliveryMethodNotificationTemplate.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     MobileAppDeliveryMethodNotificationTemplate mobileAppDeliveryMethodNotificationTemplate = new MobileAppDeliveryMethodNotificationTemplate();
@@ -122,11 +128,13 @@ class MobileAppDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MobileAppDeliveryMethodNotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     MobileAppDeliveryMethodNotificationTemplate mobileAppDeliveryMethodNotificationTemplate = new MobileAppDeliveryMethodNotificationTemplate();
@@ -142,30 +150,14 @@ class MobileAppDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MobileAppDeliveryMethodNotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange, Act and Assert
-    assertNotEquals(new MobileAppDeliveryMethodNotificationTemplate(),
-        mock(EmailDeliveryMethodNotificationTemplate.class));
-  }
-
-  /**
-   * Test {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     MobileAppDeliveryMethodNotificationTemplate mobileAppDeliveryMethodNotificationTemplate = new MobileAppDeliveryMethodNotificationTemplate();
     mobileAppDeliveryMethodNotificationTemplate.setSubject("Hello from the Dreaming Spires");
@@ -181,12 +173,14 @@ class MobileAppDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MobileAppDeliveryMethodNotificationTemplate.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     MobileAppDeliveryMethodNotificationTemplate mobileAppDeliveryMethodNotificationTemplate = new MobileAppDeliveryMethodNotificationTemplate();
     mobileAppDeliveryMethodNotificationTemplate.setAdditionalConfig(MissingNode.getInstance());
@@ -202,12 +196,14 @@ class MobileAppDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MobileAppDeliveryMethodNotificationTemplate.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     MobileAppDeliveryMethodNotificationTemplate mobileAppDeliveryMethodNotificationTemplate = new MobileAppDeliveryMethodNotificationTemplate();
     mobileAppDeliveryMethodNotificationTemplate.setEnabled(true);
@@ -223,12 +219,14 @@ class MobileAppDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MobileAppDeliveryMethodNotificationTemplate.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     MobileAppDeliveryMethodNotificationTemplate mobileAppDeliveryMethodNotificationTemplate = new MobileAppDeliveryMethodNotificationTemplate();
 
@@ -246,12 +244,14 @@ class MobileAppDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MobileAppDeliveryMethodNotificationTemplate.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     MobileAppDeliveryMethodNotificationTemplate mobileAppDeliveryMethodNotificationTemplate = new MobileAppDeliveryMethodNotificationTemplate();
 
@@ -269,12 +269,14 @@ class MobileAppDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MobileAppDeliveryMethodNotificationTemplate.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     MobileAppDeliveryMethodNotificationTemplate mobileAppDeliveryMethodNotificationTemplate = new MobileAppDeliveryMethodNotificationTemplate();
     mobileAppDeliveryMethodNotificationTemplate.setSubject("Hello from the Dreaming Spires");
@@ -293,12 +295,14 @@ class MobileAppDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MobileAppDeliveryMethodNotificationTemplate.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     MobileAppDeliveryMethodNotificationTemplate mobileAppDeliveryMethodNotificationTemplate = new MobileAppDeliveryMethodNotificationTemplate();
     mobileAppDeliveryMethodNotificationTemplate.setAdditionalConfig(MissingNode.getInstance());
@@ -317,11 +321,13 @@ class MobileAppDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MobileAppDeliveryMethodNotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MobileAppDeliveryMethodNotificationTemplate(), null);
@@ -334,11 +340,13 @@ class MobileAppDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link MobileAppDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MobileAppDeliveryMethodNotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MobileAppDeliveryMethodNotificationTemplate(),
@@ -350,19 +358,25 @@ class MobileAppDeliveryMethodNotificationTemplateDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link MobileAppDeliveryMethodNotificationTemplate#setAdditionalConfig(JsonNode)}
+   *   <li>{@link MobileAppDeliveryMethodNotificationTemplate#setAdditionalConfig(JsonNode)}
    *   <li>{@link MobileAppDeliveryMethodNotificationTemplate#setSubject(String)}
    *   <li>{@link MobileAppDeliveryMethodNotificationTemplate#toString()}
    *   <li>{@link MobileAppDeliveryMethodNotificationTemplate#getAdditionalConfig()}
    *   <li>{@link MobileAppDeliveryMethodNotificationTemplate#getMethod()}
    *   <li>{@link MobileAppDeliveryMethodNotificationTemplate#getSubject()}
-   *   <li>
-   * {@link MobileAppDeliveryMethodNotificationTemplate#getTemplatableValues()}
+   *   <li>{@link MobileAppDeliveryMethodNotificationTemplate#getTemplatableValues()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode MobileAppDeliveryMethodNotificationTemplate.getAdditionalConfig()",
+      "NotificationDeliveryMethod MobileAppDeliveryMethodNotificationTemplate.getMethod()",
+      "String MobileAppDeliveryMethodNotificationTemplate.getSubject()",
+      "List MobileAppDeliveryMethodNotificationTemplate.getTemplatableValues()",
+      "void MobileAppDeliveryMethodNotificationTemplate.setAdditionalConfig(JsonNode)",
+      "void MobileAppDeliveryMethodNotificationTemplate.setSubject(String)",
+      "String MobileAppDeliveryMethodNotificationTemplate.toString()"})
   void testGettersAndSetters() {
     // Arrange
     MobileAppDeliveryMethodNotificationTemplate mobileAppDeliveryMethodNotificationTemplate = new MobileAppDeliveryMethodNotificationTemplate();
@@ -377,10 +391,11 @@ class MobileAppDeliveryMethodNotificationTemplateDiffblueTest {
     String actualSubject = mobileAppDeliveryMethodNotificationTemplate.getSubject();
     List<TemplatableValue> actualTemplatableValues = mobileAppDeliveryMethodNotificationTemplate.getTemplatableValues();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Hello from the Dreaming Spires", actualSubject);
     assertEquals(2, actualTemplatableValues.size());
     assertEquals("Hello from the Dreaming Spires", actualTemplatableValues.get(1).get());
+    assertNull(actualTemplatableValues.get(0).get());
     assertEquals(NotificationDeliveryMethod.MOBILE_APP, actualMethod);
     assertSame(additionalConfig, actualAdditionalConfig);
   }

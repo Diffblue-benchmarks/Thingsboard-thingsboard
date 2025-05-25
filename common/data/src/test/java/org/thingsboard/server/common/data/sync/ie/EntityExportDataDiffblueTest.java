@@ -6,17 +6,16 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import java.util.function.BiFunction;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.thingsboard.server.common.data.Customer;
@@ -25,15 +24,13 @@ import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.ExportableEntity;
 import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.EntityId;
-import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.relation.EntityRelation;
 
 class EntityExportDataDiffblueTest {
   /**
    * Test {@link EntityExportData#sort()}.
    * <ul>
-   *   <li>Given {@link ArrayList#ArrayList()} add
-   * {@link EntityRelation#EntityRelation()}.</li>
+   *   <li>Given {@link ArrayList#ArrayList()} add {@link EntityRelation#EntityRelation()}.</li>
    *   <li>Then return Relations is {@link ArrayList#ArrayList()}.</li>
    * </ul>
    * <p>
@@ -41,6 +38,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test sort(); given ArrayList() add EntityRelation(); then return Relations is ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityExportData EntityExportData.sort()"})
   void testSort_givenArrayListAddEntityRelation_thenReturnRelationsIsArrayList() {
     // Arrange
     ArrayList<EntityRelation> relations = new ArrayList<>();
@@ -57,8 +56,7 @@ class EntityExportDataDiffblueTest {
   /**
    * Test {@link EntityExportData#sort()}.
    * <ul>
-   *   <li>Given {@link EntityExportData} (default constructor) Relations is
-   * {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@link EntityExportData} (default constructor) Relations is {@link ArrayList#ArrayList()}.</li>
    *   <li>Then return Attributes is {@code null}.</li>
    * </ul>
    * <p>
@@ -66,6 +64,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test sort(); given EntityExportData (default constructor) Relations is ArrayList(); then return Attributes is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityExportData EntityExportData.sort()"})
   void testSort_givenEntityExportDataRelationsIsArrayList_thenReturnAttributesIsNull() {
     // Arrange
     EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
@@ -85,8 +85,7 @@ class EntityExportDataDiffblueTest {
   /**
    * Test {@link EntityExportData#sort()}.
    * <ul>
-   *   <li>Given {@link EntityExportData} (default constructor) Relations is
-   * {@code null}.</li>
+   *   <li>Given {@link EntityExportData} (default constructor) Relations is {@code null}.</li>
    *   <li>Then return Attributes Empty.</li>
    * </ul>
    * <p>
@@ -94,6 +93,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test sort(); given EntityExportData (default constructor) Relations is 'null'; then return Attributes Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityExportData EntityExportData.sort()"})
   void testSort_givenEntityExportDataRelationsIsNull_thenReturnAttributesEmpty() {
     // Arrange
     EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
@@ -121,6 +122,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test sort(); given EntityExportData (default constructor); then return EntityExportData (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityExportData EntityExportData.sort()"})
   void testSort_givenEntityExportData_thenReturnEntityExportData() {
     // Arrange
     EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
@@ -132,8 +135,7 @@ class EntityExportDataDiffblueTest {
   /**
    * Test {@link EntityExportData#sort()}.
    * <ul>
-   *   <li>Given {@link HashMap#HashMap()} {@code 42} is
-   * {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@link HashMap#HashMap()} {@code 42} is {@link ArrayList#ArrayList()}.</li>
    *   <li>Then return Attributes is {@link HashMap#HashMap()}.</li>
    * </ul>
    * <p>
@@ -141,6 +143,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test sort(); given HashMap() '42' is ArrayList(); then return Attributes is HashMap()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityExportData EntityExportData.sort()"})
   void testSort_givenHashMap42IsArrayList_thenReturnAttributesIsHashMap() {
     // Arrange
     HashMap<String, List<AttributeExportData>> attributes = new HashMap<>();
@@ -158,42 +162,7 @@ class EntityExportDataDiffblueTest {
   /**
    * Test {@link EntityExportData#sort()}.
    * <ul>
-   *   <li>Given {@link HashMap#HashMap()} computeIfPresent {@code foo} and
-   * {@link BiFunction}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link EntityExportData#sort()}
-   */
-  @Test
-  @DisplayName("Test sort(); given HashMap() computeIfPresent 'foo' and BiFunction")
-  void testSort_givenHashMapComputeIfPresentFooAndBiFunction() {
-    // Arrange
-    HashMap<String, List<AttributeExportData>> attributes = new HashMap<>();
-    attributes.computeIfPresent("foo", mock(BiFunction.class));
-    attributes.put("foo", new ArrayList<>());
-
-    EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
-    entityExportData.setRelations(null);
-    entityExportData.setAttributes(attributes);
-
-    // Act
-    EntityExportData<ExportableEntity<? extends EntityId>> actualSortResult = entityExportData.sort();
-
-    // Assert
-    assertNull(actualSortResult.getRelations());
-    Map<String, List<AttributeExportData>> attributes2 = actualSortResult.getAttributes();
-    assertEquals(1, attributes2.size());
-    assertFalse(actualSortResult.hasRelations());
-    assertTrue(attributes2.get("foo").isEmpty());
-    assertTrue(actualSortResult.hasAttributes());
-    assertSame(attributes, attributes2);
-  }
-
-  /**
-   * Test {@link EntityExportData#sort()}.
-   * <ul>
-   *   <li>Given {@link HashMap#HashMap()} {@code foo} is
-   * {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@link HashMap#HashMap()} {@code foo} is {@link ArrayList#ArrayList()}.</li>
    *   <li>Then return Attributes size is one.</li>
    * </ul>
    * <p>
@@ -201,6 +170,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test sort(); given HashMap() 'foo' is ArrayList(); then return Attributes size is one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityExportData EntityExportData.sort()"})
   void testSort_givenHashMapFooIsArrayList_thenReturnAttributesSizeIsOne() {
     // Arrange
     HashMap<String, List<AttributeExportData>> attributes = new HashMap<>();
@@ -230,6 +201,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getExternalId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId EntityExportData.getExternalId()"})
   void testGetExternalId() {
     // Arrange
     Customer customer = new Customer();
@@ -254,6 +227,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getExternalId(); given Customer() ExternalId is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId EntityExportData.getExternalId()"})
   void testGetExternalId_givenCustomerExternalIdIsNull() {
     // Arrange
     Customer customer = new Customer();
@@ -269,36 +244,9 @@ class EntityExportDataDiffblueTest {
   }
 
   /**
-   * Test {@link EntityExportData#getExternalId()}.
-   * <ul>
-   *   <li>Then return {@link TenantId#SYS_TENANT_ID}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link EntityExportData#getExternalId()}
-   */
-  @Test
-  @DisplayName("Test getExternalId(); then return SYS_TENANT_ID")
-  void testGetExternalId_thenReturnSys_tenant_id() {
-    // Arrange
-    ExportableEntity<EntityId> exportableEntity = mock(ExportableEntity.class);
-    when(exportableEntity.getExternalId()).thenReturn(TenantId.SYS_TENANT_ID);
-
-    EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
-    entityExportData.setEntity(exportableEntity);
-
-    // Act
-    EntityId actualExternalId = entityExportData.getExternalId();
-
-    // Assert
-    verify(exportableEntity, atLeast(1)).getExternalId();
-    assertSame(((TenantId) actualExternalId).SYS_TENANT_ID, actualExternalId);
-  }
-
-  /**
    * Test {@link EntityExportData#hasAttributes()}.
    * <ul>
-   *   <li>Given {@link EntityExportData} (default constructor) Attributes is
-   * {@link HashMap#HashMap()}.</li>
+   *   <li>Given {@link EntityExportData} (default constructor) Attributes is {@link HashMap#HashMap()}.</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
@@ -306,6 +254,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test hasAttributes(); given EntityExportData (default constructor) Attributes is HashMap(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportData.hasAttributes()"})
   void testHasAttributes_givenEntityExportDataAttributesIsHashMap_thenReturnTrue() {
     // Arrange
     EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
@@ -326,6 +276,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test hasAttributes(); given EntityExportData (default constructor); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportData.hasAttributes()"})
   void testHasAttributes_givenEntityExportData_thenReturnFalse() {
     // Arrange
     EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
@@ -335,55 +287,9 @@ class EntityExportDataDiffblueTest {
   }
 
   /**
-   * Test {@link EntityExportData#hasAttributes()}.
-   * <ul>
-   *   <li>Given {@link HashMap#HashMap()} computeIfPresent {@code foo} and
-   * {@link BiFunction}.</li>
-   *   <li>Then return {@code true}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link EntityExportData#hasAttributes()}
-   */
-  @Test
-  @DisplayName("Test hasAttributes(); given HashMap() computeIfPresent 'foo' and BiFunction; then return 'true'")
-  void testHasAttributes_givenHashMapComputeIfPresentFooAndBiFunction_thenReturnTrue() {
-    // Arrange
-    HashMap<String, List<AttributeExportData>> attributes = new HashMap<>();
-    attributes.computeIfPresent("foo", mock(BiFunction.class));
-
-    EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
-    entityExportData.setAttributes(attributes);
-
-    // Act and Assert
-    assertTrue(entityExportData.hasAttributes());
-  }
-
-  /**
    * Test {@link EntityExportData#hasRelations()}.
    * <ul>
-   *   <li>Given {@link EntityExportData} (default constructor) Entity is
-   * {@link ExportableEntity}.</li>
-   *   <li>Then return {@code false}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link EntityExportData#hasRelations()}
-   */
-  @Test
-  @DisplayName("Test hasRelations(); given EntityExportData (default constructor) Entity is ExportableEntity; then return 'false'")
-  void testHasRelations_givenEntityExportDataEntityIsExportableEntity_thenReturnFalse() {
-    // Arrange
-    EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
-    entityExportData.setEntity(mock(ExportableEntity.class));
-
-    // Act and Assert
-    assertFalse(entityExportData.hasRelations());
-  }
-
-  /**
-   * Test {@link EntityExportData#hasRelations()}.
-   * <ul>
-   *   <li>Given {@link EntityExportData} (default constructor) Relations is
-   * {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@link EntityExportData} (default constructor) Relations is {@link ArrayList#ArrayList()}.</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
@@ -391,6 +297,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test hasRelations(); given EntityExportData (default constructor) Relations is ArrayList(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportData.hasRelations()"})
   void testHasRelations_givenEntityExportDataRelationsIsArrayList_thenReturnTrue() {
     // Arrange
     EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
@@ -411,6 +319,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test hasRelations(); given EntityExportData (default constructor); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportData.hasRelations()"})
   void testHasRelations_givenEntityExportData_thenReturnFalse() {
     // Arrange
     EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
@@ -420,8 +330,7 @@ class EntityExportDataDiffblueTest {
   }
 
   /**
-   * Test {@link EntityExportData#equals(Object)}, and
-   * {@link EntityExportData#hashCode()}.
+   * Test {@link EntityExportData#equals(Object)}, and {@link EntityExportData#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -435,6 +344,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportData.equals(Object)", "int EntityExportData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
@@ -447,8 +358,7 @@ class EntityExportDataDiffblueTest {
   }
 
   /**
-   * Test {@link EntityExportData#equals(Object)}, and
-   * {@link EntityExportData#hashCode()}.
+   * Test {@link EntityExportData#equals(Object)}, and {@link EntityExportData#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -462,6 +372,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportData.equals(Object)", "int EntityExportData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
@@ -481,8 +393,7 @@ class EntityExportDataDiffblueTest {
   }
 
   /**
-   * Test {@link EntityExportData#equals(Object)}, and
-   * {@link EntityExportData#hashCode()}.
+   * Test {@link EntityExportData#equals(Object)}, and {@link EntityExportData#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -496,6 +407,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportData.equals(Object)", "int EntityExportData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
@@ -517,6 +430,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportData.equals(Object)", "int EntityExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
@@ -536,6 +451,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportData.equals(Object)", "int EntityExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
@@ -555,6 +472,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportData.equals(Object)", "int EntityExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
@@ -579,6 +498,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportData.equals(Object)", "int EntityExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
@@ -603,6 +524,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportData.equals(Object)", "int EntityExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
@@ -628,6 +551,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportData.equals(Object)", "int EntityExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
@@ -652,6 +577,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportData.equals(Object)", "int EntityExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
@@ -677,6 +604,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportData.equals(Object)", "int EntityExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
@@ -702,6 +631,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportData.equals(Object)", "int EntityExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
@@ -728,6 +659,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportData.equals(Object)", "int EntityExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     ArrayList<EntityRelation> relations = new ArrayList<>();
@@ -757,6 +690,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportData.equals(Object)", "int EntityExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     HashMap<String, List<AttributeExportData>> attributes = new HashMap<>();
@@ -787,6 +722,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportData.equals(Object)", "int EntityExportData.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
@@ -806,6 +743,8 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportData.equals(Object)", "int EntityExportData.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     EntityExportData<ExportableEntity<? extends EntityId>> entityExportData = new EntityExportData<>();
@@ -834,6 +773,13 @@ class EntityExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityExportData.<init>()", "Map EntityExportData.getAttributes()",
+      "ExportableEntity EntityExportData.getEntity()", "EntityType EntityExportData.getEntityType()",
+      "List EntityExportData.getRelations()", "boolean EntityExportData.hasCredentials()",
+      "void EntityExportData.setAttributes(Map)", "void EntityExportData.setEntity(ExportableEntity)",
+      "void EntityExportData.setEntityType(EntityType)", "void EntityExportData.setRelations(List)",
+      "String EntityExportData.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     EntityExportData<ExportableEntity<? extends EntityId>> actualEntityExportData = new EntityExportData<>();
@@ -850,7 +796,7 @@ class EntityExportDataDiffblueTest {
     EntityType actualEntityType = actualEntityExportData.getEntityType();
     List<EntityRelation> actualRelations = actualEntityExportData.getRelations();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("EntityExportData(entity=Customer [title=null, tenantId=null, additionalInfo=null, country=null,"
         + " state=null, city=null, address=null, address2=null, zip=null, phone=null, email=null, createdTime=0,"
         + " id=null], entityType=TENANT, relations=[], attributes={})", actualToStringResult);

@@ -3,13 +3,14 @@ package org.thingsboard.server.common.data.device.profile;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class CustomTimeScheduleItemDiffblueTest {
   /**
-   * Test {@link CustomTimeScheduleItem#equals(Object)}, and
-   * {@link CustomTimeScheduleItem#hashCode()}.
+   * Test {@link CustomTimeScheduleItem#equals(Object)}, and {@link CustomTimeScheduleItem#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -23,6 +24,8 @@ class CustomTimeScheduleItemDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CustomTimeScheduleItem.equals(Object)", "int CustomTimeScheduleItem.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     CustomTimeScheduleItem customTimeScheduleItem = new CustomTimeScheduleItem();
@@ -44,8 +47,7 @@ class CustomTimeScheduleItemDiffblueTest {
   }
 
   /**
-   * Test {@link CustomTimeScheduleItem#equals(Object)}, and
-   * {@link CustomTimeScheduleItem#hashCode()}.
+   * Test {@link CustomTimeScheduleItem#equals(Object)}, and {@link CustomTimeScheduleItem#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -59,6 +61,8 @@ class CustomTimeScheduleItemDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CustomTimeScheduleItem.equals(Object)", "int CustomTimeScheduleItem.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     CustomTimeScheduleItem customTimeScheduleItem = new CustomTimeScheduleItem();
@@ -84,6 +88,8 @@ class CustomTimeScheduleItemDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CustomTimeScheduleItem.equals(Object)", "int CustomTimeScheduleItem.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     CustomTimeScheduleItem customTimeScheduleItem = new CustomTimeScheduleItem();
@@ -113,6 +119,8 @@ class CustomTimeScheduleItemDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CustomTimeScheduleItem.equals(Object)", "int CustomTimeScheduleItem.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     CustomTimeScheduleItem customTimeScheduleItem = new CustomTimeScheduleItem();
@@ -142,6 +150,8 @@ class CustomTimeScheduleItemDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CustomTimeScheduleItem.equals(Object)", "int CustomTimeScheduleItem.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     CustomTimeScheduleItem customTimeScheduleItem = new CustomTimeScheduleItem();
@@ -171,6 +181,8 @@ class CustomTimeScheduleItemDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CustomTimeScheduleItem.equals(Object)", "int CustomTimeScheduleItem.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     CustomTimeScheduleItem customTimeScheduleItem = new CustomTimeScheduleItem();
@@ -200,6 +212,8 @@ class CustomTimeScheduleItemDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CustomTimeScheduleItem.equals(Object)", "int CustomTimeScheduleItem.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     CustomTimeScheduleItem customTimeScheduleItem = new CustomTimeScheduleItem();
@@ -223,6 +237,8 @@ class CustomTimeScheduleItemDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CustomTimeScheduleItem.equals(Object)", "int CustomTimeScheduleItem.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     CustomTimeScheduleItem customTimeScheduleItem = new CustomTimeScheduleItem();
@@ -254,6 +270,12 @@ class CustomTimeScheduleItemDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CustomTimeScheduleItem.<init>()", "int CustomTimeScheduleItem.getDayOfWeek()",
+      "long CustomTimeScheduleItem.getEndsOn()", "long CustomTimeScheduleItem.getStartsOn()",
+      "boolean CustomTimeScheduleItem.isEnabled()", "void CustomTimeScheduleItem.setDayOfWeek(int)",
+      "void CustomTimeScheduleItem.setEnabled(boolean)", "void CustomTimeScheduleItem.setEndsOn(long)",
+      "void CustomTimeScheduleItem.setStartsOn(long)", "String CustomTimeScheduleItem.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     CustomTimeScheduleItem actualCustomTimeScheduleItem = new CustomTimeScheduleItem();
@@ -266,7 +288,7 @@ class CustomTimeScheduleItemDiffblueTest {
     long actualEndsOn = actualCustomTimeScheduleItem.getEndsOn();
     long actualStartsOn = actualCustomTimeScheduleItem.getStartsOn();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("CustomTimeScheduleItem(enabled=true, dayOfWeek=1, startsOn=1, endsOn=1)", actualToStringResult);
     assertEquals(1, actualDayOfWeek);
     assertEquals(1L, actualEndsOn);

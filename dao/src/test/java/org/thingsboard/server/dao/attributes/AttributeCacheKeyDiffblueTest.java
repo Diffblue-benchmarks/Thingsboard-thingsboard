@@ -4,8 +4,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.common.data.AttributeScope;
 import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.EntityId;
@@ -14,8 +16,7 @@ import org.thingsboard.server.dao.model.ModelConstants;
 
 public class AttributeCacheKeyDiffblueTest {
   /**
-   * Test {@link AttributeCacheKey#equals(Object)}, and
-   * {@link AttributeCacheKey#hashCode()}.
+   * Test {@link AttributeCacheKey#equals(Object)}, and {@link AttributeCacheKey#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -28,6 +29,8 @@ public class AttributeCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean AttributeCacheKey.equals(Object)", "int AttributeCacheKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AttributeCacheKey attributeCacheKey = new AttributeCacheKey(AttributeScope.CLIENT_SCOPE,
@@ -42,8 +45,7 @@ public class AttributeCacheKeyDiffblueTest {
   }
 
   /**
-   * Test {@link AttributeCacheKey#equals(Object)}, and
-   * {@link AttributeCacheKey#hashCode()}.
+   * Test {@link AttributeCacheKey#equals(Object)}, and {@link AttributeCacheKey#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -56,6 +58,8 @@ public class AttributeCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean AttributeCacheKey.equals(Object)", "int AttributeCacheKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AttributeCacheKey attributeCacheKey = new AttributeCacheKey(null, BaseEntityService.NULL_CUSTOMER_ID, "Key");
@@ -68,8 +72,7 @@ public class AttributeCacheKeyDiffblueTest {
   }
 
   /**
-   * Test {@link AttributeCacheKey#equals(Object)}, and
-   * {@link AttributeCacheKey#hashCode()}.
+   * Test {@link AttributeCacheKey#equals(Object)}, and {@link AttributeCacheKey#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -82,6 +85,8 @@ public class AttributeCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean AttributeCacheKey.equals(Object)", "int AttributeCacheKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     AttributeCacheKey attributeCacheKey = new AttributeCacheKey(AttributeScope.CLIENT_SCOPE, null, "Key");
@@ -94,8 +99,7 @@ public class AttributeCacheKeyDiffblueTest {
   }
 
   /**
-   * Test {@link AttributeCacheKey#equals(Object)}, and
-   * {@link AttributeCacheKey#hashCode()}.
+   * Test {@link AttributeCacheKey#equals(Object)}, and {@link AttributeCacheKey#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -108,6 +112,8 @@ public class AttributeCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean AttributeCacheKey.equals(Object)", "int AttributeCacheKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     AttributeCacheKey attributeCacheKey = new AttributeCacheKey(AttributeScope.CLIENT_SCOPE,
@@ -122,8 +128,7 @@ public class AttributeCacheKeyDiffblueTest {
   }
 
   /**
-   * Test {@link AttributeCacheKey#equals(Object)}, and
-   * {@link AttributeCacheKey#hashCode()}.
+   * Test {@link AttributeCacheKey#equals(Object)}, and {@link AttributeCacheKey#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -136,6 +141,8 @@ public class AttributeCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean AttributeCacheKey.equals(Object)", "int AttributeCacheKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AttributeCacheKey attributeCacheKey = new AttributeCacheKey(AttributeScope.CLIENT_SCOPE,
@@ -157,6 +164,8 @@ public class AttributeCacheKeyDiffblueTest {
    * Method under test: {@link AttributeCacheKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean AttributeCacheKey.equals(Object)", "int AttributeCacheKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AttributeCacheKey attributeCacheKey = new AttributeCacheKey(null, BaseEntityService.NULL_CUSTOMER_ID, "Key");
@@ -176,6 +185,8 @@ public class AttributeCacheKeyDiffblueTest {
    * Method under test: {@link AttributeCacheKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean AttributeCacheKey.equals(Object)", "int AttributeCacheKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AttributeCacheKey attributeCacheKey = new AttributeCacheKey(AttributeScope.SERVER_SCOPE,
@@ -196,6 +207,8 @@ public class AttributeCacheKeyDiffblueTest {
    * Method under test: {@link AttributeCacheKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean AttributeCacheKey.equals(Object)", "int AttributeCacheKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AttributeCacheKey attributeCacheKey = new AttributeCacheKey(AttributeScope.CLIENT_SCOPE,
@@ -216,6 +229,8 @@ public class AttributeCacheKeyDiffblueTest {
    * Method under test: {@link AttributeCacheKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean AttributeCacheKey.equals(Object)", "int AttributeCacheKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AttributeCacheKey attributeCacheKey = new AttributeCacheKey(AttributeScope.CLIENT_SCOPE, null, "Key");
@@ -235,27 +250,9 @@ public class AttributeCacheKeyDiffblueTest {
    * Method under test: {@link AttributeCacheKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean AttributeCacheKey.equals(Object)", "int AttributeCacheKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
-    // Arrange
-    AttributeCacheKey attributeCacheKey = new AttributeCacheKey(AttributeScope.CLIENT_SCOPE, mock(EntityId.class),
-        "Key");
-
-    // Act and Assert
-    assertNotEquals(attributeCacheKey,
-        new AttributeCacheKey(AttributeScope.CLIENT_SCOPE, BaseEntityService.NULL_CUSTOMER_ID, "Key"));
-  }
-
-  /**
-   * Test {@link AttributeCacheKey#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link AttributeCacheKey#equals(Object)}
-   */
-  @Test
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AttributeCacheKey attributeCacheKey = new AttributeCacheKey(AttributeScope.CLIENT_SCOPE,
         BaseEntityService.NULL_CUSTOMER_ID, null);
@@ -275,7 +272,9 @@ public class AttributeCacheKeyDiffblueTest {
    * Method under test: {@link AttributeCacheKey#equals(Object)}
    */
   @Test
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean AttributeCacheKey.equals(Object)", "int AttributeCacheKey.hashCode()"})
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AttributeCacheKey attributeCacheKey = new AttributeCacheKey(AttributeScope.CLIENT_SCOPE,
         BaseEntityService.NULL_CUSTOMER_ID, "org.thingsboard.server.dao.attributes.AttributeCacheKey");
@@ -295,6 +294,8 @@ public class AttributeCacheKeyDiffblueTest {
    * Method under test: {@link AttributeCacheKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean AttributeCacheKey.equals(Object)", "int AttributeCacheKey.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AttributeCacheKey(AttributeScope.CLIENT_SCOPE, BaseEntityService.NULL_CUSTOMER_ID, "Key"),
@@ -311,6 +312,8 @@ public class AttributeCacheKeyDiffblueTest {
    * Method under test: {@link AttributeCacheKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean AttributeCacheKey.equals(Object)", "int AttributeCacheKey.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AttributeCacheKey(AttributeScope.CLIENT_SCOPE, BaseEntityService.NULL_CUSTOMER_ID, "Key"),
@@ -322,8 +325,7 @@ public class AttributeCacheKeyDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link AttributeCacheKey#AttributeCacheKey(AttributeScope, EntityId, String)}
+   *   <li>{@link AttributeCacheKey#AttributeCacheKey(AttributeScope, EntityId, String)}
    *   <li>{@link AttributeCacheKey#toString()}
    *   <li>{@link AttributeCacheKey#getEntityId()}
    *   <li>{@link AttributeCacheKey#getKey()}
@@ -332,6 +334,11 @@ public class AttributeCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void AttributeCacheKey.<init>(AttributeScope, EntityId, String)",
+      "EntityId AttributeCacheKey.getEntityId()", "String AttributeCacheKey.getKey()",
+      "AttributeScope AttributeCacheKey.getScope()", "boolean AttributeCacheKey.isVersioned()",
+      "String AttributeCacheKey.toString()"})
   public void testGettersAndSetters() {
     // Arrange
     CustomerId entityId = BaseEntityService.NULL_CUSTOMER_ID;

@@ -1,7 +1,9 @@
 package org.thingsboard.server.service.security.auth.rest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class LoginRequestDiffblueTest {
@@ -17,6 +19,9 @@ class LoginRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LoginRequest.<init>(String, String)", "String LoginRequest.getPassword()",
+      "String LoginRequest.getUsername()"})
   void testGettersAndSetters() {
     // Arrange and Act
     LoginRequest actualLoginRequest = new LoginRequest("janedoe", "iloveyou");

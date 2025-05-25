@@ -2,13 +2,24 @@ package org.thingsboard.server.transport.lwm2m.server.downlink.composite;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.eclipse.leshan.core.request.ContentFormat;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.transport.lwm2m.server.LwM2MOperationType;
 import org.thingsboard.server.transport.lwm2m.server.downlink.composite.TbLwM2MWriteCompositeRequest.TbLwM2MWriteCompositeRequestBuilder;
 
+@ContextConfiguration(classes = {TbLwM2MWriteCompositeRequestBuilder.class})
+@ExtendWith(SpringExtension.class)
 class TbLwM2MWriteCompositeRequestDiffblueTest {
+  @Autowired
+  private TbLwM2MWriteCompositeRequestBuilder tbLwM2MWriteCompositeRequestBuilder;
+
   /**
    * Test getters and setters.
    * <p>
@@ -21,10 +32,12 @@ class TbLwM2MWriteCompositeRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ContentFormat TbLwM2MWriteCompositeRequest.getContentFormat()",
+      "LwM2MOperationType TbLwM2MWriteCompositeRequest.getType()", "Object TbLwM2MWriteCompositeRequest.getValue()"})
   void testGettersAndSetters() {
     // Arrange
-    TbLwM2MWriteCompositeRequest.TbLwM2MWriteCompositeRequestBuilder builderResult = TbLwM2MWriteCompositeRequest
-        .builder();
+    TbLwM2MWriteCompositeRequestBuilder builderResult = TbLwM2MWriteCompositeRequest.builder();
     ContentFormat contentFormat = ContentFormat.fromCode(1);
     TbLwM2MWriteCompositeRequest buildResult = builderResult.contentFormat(contentFormat)
         .timeout(10L)
@@ -43,29 +56,30 @@ class TbLwM2MWriteCompositeRequestDiffblueTest {
   }
 
   /**
-   * Test TbLwM2MWriteCompositeRequestBuilder
-   * {@link TbLwM2MWriteCompositeRequestBuilder#build()}.
+   * Test TbLwM2MWriteCompositeRequestBuilder {@link TbLwM2MWriteCompositeRequestBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link TbLwM2MWriteCompositeRequest.TbLwM2MWriteCompositeRequestBuilder#build()}
-   *   <li>
-   * {@link TbLwM2MWriteCompositeRequest.TbLwM2MWriteCompositeRequestBuilder#contentFormat(ContentFormat)}
-   *   <li>
-   * {@link TbLwM2MWriteCompositeRequest.TbLwM2MWriteCompositeRequestBuilder#timeout(long)}
-   *   <li>
-   * {@link TbLwM2MWriteCompositeRequest.TbLwM2MWriteCompositeRequestBuilder#value(Object)}
-   *   <li>
-   * {@link TbLwM2MWriteCompositeRequest.TbLwM2MWriteCompositeRequestBuilder#versionedId(String)}
+   *   <li>{@link TbLwM2MWriteCompositeRequestBuilder#build()}
+   *   <li>{@link TbLwM2MWriteCompositeRequestBuilder#contentFormat(ContentFormat)}
+   *   <li>{@link TbLwM2MWriteCompositeRequestBuilder#timeout(long)}
+   *   <li>{@link TbLwM2MWriteCompositeRequestBuilder#value(Object)}
+   *   <li>{@link TbLwM2MWriteCompositeRequestBuilder#versionedId(String)}
    * </ul>
    */
   @Test
   @DisplayName("Test TbLwM2MWriteCompositeRequestBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbLwM2MWriteCompositeRequestBuilder.<init>()",
+      "TbLwM2MWriteCompositeRequest TbLwM2MWriteCompositeRequestBuilder.build()",
+      "TbLwM2MWriteCompositeRequestBuilder TbLwM2MWriteCompositeRequestBuilder.contentFormat(ContentFormat)",
+      "TbLwM2MWriteCompositeRequestBuilder TbLwM2MWriteCompositeRequestBuilder.timeout(long)",
+      "String TbLwM2MWriteCompositeRequestBuilder.toString()",
+      "TbLwM2MWriteCompositeRequestBuilder TbLwM2MWriteCompositeRequestBuilder.value(Object)",
+      "TbLwM2MWriteCompositeRequestBuilder TbLwM2MWriteCompositeRequestBuilder.versionedId(String)"})
   void testTbLwM2MWriteCompositeRequestBuilderBuild() {
     // Arrange
-    TbLwM2MWriteCompositeRequest.TbLwM2MWriteCompositeRequestBuilder builderResult = TbLwM2MWriteCompositeRequest
-        .builder();
+    TbLwM2MWriteCompositeRequestBuilder builderResult = TbLwM2MWriteCompositeRequest.builder();
     ContentFormat contentFormat = ContentFormat.fromCode(1);
 
     // Act

@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.netty.channel.DefaultChannelProgressivePromise;
 import io.netty.channel.DefaultEventLoop;
 import io.netty.channel.EventLoop;
@@ -22,18 +23,20 @@ import io.netty.util.concurrent.Promise;
 import java.util.ArrayList;
 import java.util.function.Consumer;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class MqttPendingUnsubscriptionDiffblueTest {
   /**
-   * Test
-   * {@link MqttPendingUnsubscription#MqttPendingUnsubscription(Promise, String, MqttUnsubscribeMessage, PendingOperation)}.
+   * Test {@link MqttPendingUnsubscription#MqttPendingUnsubscription(Promise, String, MqttUnsubscribeMessage, PendingOperation)}.
    * <p>
-   * Method under test:
-   * {@link MqttPendingUnsubscription#MqttPendingUnsubscription(Promise, String, MqttUnsubscribeMessage, PendingOperation)}
+   * Method under test: {@link MqttPendingUnsubscription#MqttPendingUnsubscription(Promise, String, MqttUnsubscribeMessage, PendingOperation)}
    */
   @Test
   @DisplayName("Test new MqttPendingUnsubscription(Promise, String, MqttUnsubscribeMessage, PendingOperation)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void MqttPendingUnsubscription.<init>(Promise, String, MqttUnsubscribeMessage, PendingOperation)"})
   void testNewMqttPendingUnsubscription() {
     // Arrange
     DefaultChannelProgressivePromise future = new DefaultChannelProgressivePromise(new EmbeddedChannel());
@@ -65,6 +68,8 @@ class MqttPendingUnsubscriptionDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Promise MqttPendingUnsubscription.getFuture()", "String MqttPendingUnsubscription.getTopic()"})
   void testGettersAndSetters() {
     // Arrange
     DefaultChannelProgressivePromise future = new DefaultChannelProgressivePromise(new EmbeddedChannel());
@@ -87,18 +92,18 @@ class MqttPendingUnsubscriptionDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link MqttPendingUnsubscription#startRetransmissionTimer(EventLoop, Consumer)}.
+   * Test {@link MqttPendingUnsubscription#startRetransmissionTimer(EventLoop, Consumer)}.
    * <ul>
-   *   <li>Then calls {@link PendingOperation#isCanceled()}.</li>
+   *   <li>Given {@link PendingOperation} {@link PendingOperation#isCanceled()} return {@code true}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MqttPendingUnsubscription#startRetransmissionTimer(EventLoop, Consumer)}
+   * Method under test: {@link MqttPendingUnsubscription#startRetransmissionTimer(EventLoop, Consumer)}
    */
   @Test
-  @DisplayName("Test startRetransmissionTimer(EventLoop, Consumer); then calls isCanceled()")
-  void testStartRetransmissionTimer_thenCallsIsCanceled() {
+  @DisplayName("Test startRetransmissionTimer(EventLoop, Consumer); given PendingOperation isCanceled() return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPendingUnsubscription.startRetransmissionTimer(EventLoop, Consumer)"})
+  void testStartRetransmissionTimer_givenPendingOperationIsCanceledReturnTrue() {
     // Arrange
     PendingOperation operation = mock(PendingOperation.class);
     when(operation.isCanceled()).thenReturn(true);
@@ -120,17 +125,17 @@ class MqttPendingUnsubscriptionDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link MqttPendingUnsubscription#startRetransmissionTimer(EventLoop, Consumer)}.
+   * Test {@link MqttPendingUnsubscription#startRetransmissionTimer(EventLoop, Consumer)}.
    * <ul>
    *   <li>Then not {@link DefaultEventLoop#DefaultEventLoop()} Terminated.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MqttPendingUnsubscription#startRetransmissionTimer(EventLoop, Consumer)}
+   * Method under test: {@link MqttPendingUnsubscription#startRetransmissionTimer(EventLoop, Consumer)}
    */
   @Test
   @DisplayName("Test startRetransmissionTimer(EventLoop, Consumer); then not DefaultEventLoop() Terminated")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPendingUnsubscription.startRetransmissionTimer(EventLoop, Consumer)"})
   void testStartRetransmissionTimer_thenNotDefaultEventLoopTerminated() {
     // Arrange
     PendingOperation operation = mock(PendingOperation.class);
@@ -164,6 +169,8 @@ class MqttPendingUnsubscriptionDiffblueTest {
    */
   @Test
   @DisplayName("Test onUnsubackReceived(); then calls isCanceled()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPendingUnsubscription.onUnsubackReceived()"})
   void testOnUnsubackReceived_thenCallsIsCanceled() {
     // Arrange
     PendingOperation operation = mock(PendingOperation.class);
@@ -196,6 +203,8 @@ class MqttPendingUnsubscriptionDiffblueTest {
    */
   @Test
   @DisplayName("Test onChannelClosed(); then calls isCanceled()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPendingUnsubscription.onChannelClosed()"})
   void testOnChannelClosed_thenCallsIsCanceled() {
     // Arrange
     PendingOperation operation = mock(PendingOperation.class);

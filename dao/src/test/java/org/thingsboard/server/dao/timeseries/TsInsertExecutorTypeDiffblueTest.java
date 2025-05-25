@@ -2,8 +2,11 @@ package org.thingsboard.server.dao.timeseries;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Optional;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 public class TsInsertExecutorTypeDiffblueTest {
   /**
@@ -16,6 +19,8 @@ public class TsInsertExecutorTypeDiffblueTest {
    * Method under test: {@link TsInsertExecutorType#parse(String)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"Optional TsInsertExecutorType.parse(String)"})
   public void testParse_whenCached_thenReturnGetIsCached() {
     // Arrange and Act
     Optional<TsInsertExecutorType> actualParseResult = TsInsertExecutorType.parse("CACHED");

@@ -1,40 +1,37 @@
 package org.thingsboard.server.service.edge.rpc.processor.entityview;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.ArgumentMatchers.isA;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.thingsboard.server.common.data.EntityView;
 import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.gen.edge.v1.EntityViewUpdateMsg;
 
+@ExtendWith(MockitoExtension.class)
 class EntityViewProcessorV1DiffblueTest {
+  @InjectMocks
+  private EntityViewProcessorV1 entityViewProcessorV1;
+
   /**
-   * Test
-   * {@link EntityViewProcessorV1#setCustomerId(TenantId, CustomerId, EntityView, EntityViewUpdateMsg)}.
-   * <ul>
-   *   <li>Then {@link EntityView#EntityView()} CustomerId is
-   * {@link CustomerId#CustomerId(UUID)} with id is randomUUID.</li>
-   * </ul>
+   * Test {@link EntityViewProcessorV1#setCustomerId(TenantId, CustomerId, EntityView, EntityViewUpdateMsg)}.
    * <p>
-   * Method under test:
-   * {@link EntityViewProcessorV1#setCustomerId(TenantId, CustomerId, EntityView, EntityViewUpdateMsg)}
+   * Method under test: {@link EntityViewProcessorV1#setCustomerId(TenantId, CustomerId, EntityView, EntityViewUpdateMsg)}
    */
   @Test
-  @DisplayName("Test setCustomerId(TenantId, CustomerId, EntityView, EntityViewUpdateMsg); then EntityView() CustomerId is CustomerId(UUID) with id is randomUUID")
-  void testSetCustomerId_thenEntityViewCustomerIdIsCustomerIdWithIdIsRandomUUID() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test setCustomerId(TenantId, CustomerId, EntityView, EntityViewUpdateMsg)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityViewProcessorV1.setCustomerId(TenantId, CustomerId, EntityView, EntityViewUpdateMsg)"})
+  void testSetCustomerId() {
     // Arrange
-    EntityViewProcessorV1 entityViewProcessorV1 = new EntityViewProcessorV1();
-    TenantId tenantId = new TenantId(UUID.randomUUID());
-    CustomerId customerId = new CustomerId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     EntityView entityView = new EntityView();
 
     // Act
@@ -42,36 +39,5 @@ class EntityViewProcessorV1DiffblueTest {
 
     // Assert
     assertSame(customerId, entityView.getCustomerId());
-  }
-
-  /**
-   * Test
-   * {@link EntityViewProcessorV1#setCustomerId(TenantId, CustomerId, EntityView, EntityViewUpdateMsg)}.
-   * <ul>
-   *   <li>When {@link EntityView} {@link EntityView#setCustomerId(CustomerId)} does
-   * nothing.</li>
-   *   <li>Then calls {@link EntityView#setCustomerId(CustomerId)}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link EntityViewProcessorV1#setCustomerId(TenantId, CustomerId, EntityView, EntityViewUpdateMsg)}
-   */
-  @Test
-  @DisplayName("Test setCustomerId(TenantId, CustomerId, EntityView, EntityViewUpdateMsg); when EntityView setCustomerId(CustomerId) does nothing; then calls setCustomerId(CustomerId)")
-  void testSetCustomerId_whenEntityViewSetCustomerIdDoesNothing_thenCallsSetCustomerId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    EntityViewProcessorV1 entityViewProcessorV1 = new EntityViewProcessorV1();
-    TenantId tenantId = new TenantId(UUID.randomUUID());
-    CustomerId customerId = new CustomerId(UUID.randomUUID());
-    EntityView entityView = mock(EntityView.class);
-    doNothing().when(entityView).setCustomerId(Mockito.<CustomerId>any());
-
-    // Act
-    entityViewProcessorV1.setCustomerId(tenantId, customerId, entityView, EntityViewUpdateMsg.getDefaultInstance());
-
-    // Assert that nothing has changed
-    verify(entityView).setCustomerId(isA(CustomerId.class));
   }
 }

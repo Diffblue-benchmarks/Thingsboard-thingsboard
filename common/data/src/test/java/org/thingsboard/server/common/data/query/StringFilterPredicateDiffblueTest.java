@@ -4,14 +4,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.thingsboard.server.common.data.query.StringFilterPredicate.StringOperation;
 
 class StringFilterPredicateDiffblueTest {
   /**
-   * Test {@link StringFilterPredicate#equals(Object)}, and
-   * {@link StringFilterPredicate#hashCode()}.
+   * Test {@link StringFilterPredicate#equals(Object)}, and {@link StringFilterPredicate#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -25,17 +26,19 @@ class StringFilterPredicateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StringFilterPredicate.equals(Object)", "int StringFilterPredicate.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     StringFilterPredicate stringFilterPredicate = new StringFilterPredicate();
     stringFilterPredicate.setIgnoreCase(true);
-    stringFilterPredicate.setOperation(StringFilterPredicate.StringOperation.EQUAL);
+    stringFilterPredicate.setOperation(StringOperation.EQUAL);
     FilterPredicateValue<String> value = FilterPredicateValue.fromString("42");
     stringFilterPredicate.setValue(value);
 
     StringFilterPredicate stringFilterPredicate2 = new StringFilterPredicate();
     stringFilterPredicate2.setIgnoreCase(true);
-    stringFilterPredicate2.setOperation(StringFilterPredicate.StringOperation.EQUAL);
+    stringFilterPredicate2.setOperation(StringOperation.EQUAL);
     FilterPredicateValue<String> value2 = FilterPredicateValue.fromString("42");
     stringFilterPredicate2.setValue(value2);
 
@@ -46,8 +49,7 @@ class StringFilterPredicateDiffblueTest {
   }
 
   /**
-   * Test {@link StringFilterPredicate#equals(Object)}, and
-   * {@link StringFilterPredicate#hashCode()}.
+   * Test {@link StringFilterPredicate#equals(Object)}, and {@link StringFilterPredicate#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -61,6 +63,8 @@ class StringFilterPredicateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StringFilterPredicate.equals(Object)", "int StringFilterPredicate.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     StringFilterPredicate stringFilterPredicate = new StringFilterPredicate();
@@ -82,8 +86,7 @@ class StringFilterPredicateDiffblueTest {
   }
 
   /**
-   * Test {@link StringFilterPredicate#equals(Object)}, and
-   * {@link StringFilterPredicate#hashCode()}.
+   * Test {@link StringFilterPredicate#equals(Object)}, and {@link StringFilterPredicate#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -97,16 +100,18 @@ class StringFilterPredicateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StringFilterPredicate.equals(Object)", "int StringFilterPredicate.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     StringFilterPredicate stringFilterPredicate = new StringFilterPredicate();
     stringFilterPredicate.setIgnoreCase(true);
-    stringFilterPredicate.setOperation(StringFilterPredicate.StringOperation.EQUAL);
+    stringFilterPredicate.setOperation(StringOperation.EQUAL);
     stringFilterPredicate.setValue(null);
 
     StringFilterPredicate stringFilterPredicate2 = new StringFilterPredicate();
     stringFilterPredicate2.setIgnoreCase(true);
-    stringFilterPredicate2.setOperation(StringFilterPredicate.StringOperation.EQUAL);
+    stringFilterPredicate2.setOperation(StringOperation.EQUAL);
     stringFilterPredicate2.setValue(null);
 
     // Act and Assert
@@ -116,8 +121,7 @@ class StringFilterPredicateDiffblueTest {
   }
 
   /**
-   * Test {@link StringFilterPredicate#equals(Object)}, and
-   * {@link StringFilterPredicate#hashCode()}.
+   * Test {@link StringFilterPredicate#equals(Object)}, and {@link StringFilterPredicate#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -131,11 +135,13 @@ class StringFilterPredicateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StringFilterPredicate.equals(Object)", "int StringFilterPredicate.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     StringFilterPredicate stringFilterPredicate = new StringFilterPredicate();
     stringFilterPredicate.setIgnoreCase(true);
-    stringFilterPredicate.setOperation(StringFilterPredicate.StringOperation.EQUAL);
+    stringFilterPredicate.setOperation(StringOperation.EQUAL);
     FilterPredicateValue<String> value = FilterPredicateValue.fromString("42");
     stringFilterPredicate.setValue(value);
 
@@ -156,17 +162,19 @@ class StringFilterPredicateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StringFilterPredicate.equals(Object)", "int StringFilterPredicate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     StringFilterPredicate stringFilterPredicate = new StringFilterPredicate();
     stringFilterPredicate.setIgnoreCase(false);
-    stringFilterPredicate.setOperation(StringFilterPredicate.StringOperation.EQUAL);
+    stringFilterPredicate.setOperation(StringOperation.EQUAL);
     FilterPredicateValue<String> value = FilterPredicateValue.fromString("42");
     stringFilterPredicate.setValue(value);
 
     StringFilterPredicate stringFilterPredicate2 = new StringFilterPredicate();
     stringFilterPredicate2.setIgnoreCase(true);
-    stringFilterPredicate2.setOperation(StringFilterPredicate.StringOperation.EQUAL);
+    stringFilterPredicate2.setOperation(StringOperation.EQUAL);
     FilterPredicateValue<String> value2 = FilterPredicateValue.fromString("42");
     stringFilterPredicate2.setValue(value2);
 
@@ -185,6 +193,8 @@ class StringFilterPredicateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StringFilterPredicate.equals(Object)", "int StringFilterPredicate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     StringFilterPredicate stringFilterPredicate = new StringFilterPredicate();
@@ -195,7 +205,7 @@ class StringFilterPredicateDiffblueTest {
 
     StringFilterPredicate stringFilterPredicate2 = new StringFilterPredicate();
     stringFilterPredicate2.setIgnoreCase(true);
-    stringFilterPredicate2.setOperation(StringFilterPredicate.StringOperation.EQUAL);
+    stringFilterPredicate2.setOperation(StringOperation.EQUAL);
     FilterPredicateValue<String> value2 = FilterPredicateValue.fromString("42");
     stringFilterPredicate2.setValue(value2);
 
@@ -214,17 +224,19 @@ class StringFilterPredicateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StringFilterPredicate.equals(Object)", "int StringFilterPredicate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     StringFilterPredicate stringFilterPredicate = new StringFilterPredicate();
     stringFilterPredicate.setIgnoreCase(true);
-    stringFilterPredicate.setOperation(StringFilterPredicate.StringOperation.NOT_EQUAL);
+    stringFilterPredicate.setOperation(StringOperation.NOT_EQUAL);
     FilterPredicateValue<String> value = FilterPredicateValue.fromString("42");
     stringFilterPredicate.setValue(value);
 
     StringFilterPredicate stringFilterPredicate2 = new StringFilterPredicate();
     stringFilterPredicate2.setIgnoreCase(true);
-    stringFilterPredicate2.setOperation(StringFilterPredicate.StringOperation.EQUAL);
+    stringFilterPredicate2.setOperation(StringOperation.EQUAL);
     FilterPredicateValue<String> value2 = FilterPredicateValue.fromString("42");
     stringFilterPredicate2.setValue(value2);
 
@@ -243,17 +255,19 @@ class StringFilterPredicateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StringFilterPredicate.equals(Object)", "int StringFilterPredicate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     StringFilterPredicate stringFilterPredicate = new StringFilterPredicate();
     stringFilterPredicate.setIgnoreCase(true);
-    stringFilterPredicate.setOperation(StringFilterPredicate.StringOperation.EQUAL);
+    stringFilterPredicate.setOperation(StringOperation.EQUAL);
     FilterPredicateValue<String> value = FilterPredicateValue.fromString("Value");
     stringFilterPredicate.setValue(value);
 
     StringFilterPredicate stringFilterPredicate2 = new StringFilterPredicate();
     stringFilterPredicate2.setIgnoreCase(true);
-    stringFilterPredicate2.setOperation(StringFilterPredicate.StringOperation.EQUAL);
+    stringFilterPredicate2.setOperation(StringOperation.EQUAL);
     FilterPredicateValue<String> value2 = FilterPredicateValue.fromString("42");
     stringFilterPredicate2.setValue(value2);
 
@@ -272,44 +286,18 @@ class StringFilterPredicateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StringFilterPredicate.equals(Object)", "int StringFilterPredicate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     StringFilterPredicate stringFilterPredicate = new StringFilterPredicate();
     stringFilterPredicate.setIgnoreCase(true);
-    stringFilterPredicate.setOperation(StringFilterPredicate.StringOperation.EQUAL);
+    stringFilterPredicate.setOperation(StringOperation.EQUAL);
     stringFilterPredicate.setValue(null);
 
     StringFilterPredicate stringFilterPredicate2 = new StringFilterPredicate();
     stringFilterPredicate2.setIgnoreCase(true);
-    stringFilterPredicate2.setOperation(StringFilterPredicate.StringOperation.EQUAL);
-    FilterPredicateValue<String> value = FilterPredicateValue.fromString("42");
-    stringFilterPredicate2.setValue(value);
-
-    // Act and Assert
-    assertNotEquals(stringFilterPredicate, stringFilterPredicate2);
-  }
-
-  /**
-   * Test {@link StringFilterPredicate#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link StringFilterPredicate#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
-    // Arrange
-    StringFilterPredicate stringFilterPredicate = new StringFilterPredicate();
-    stringFilterPredicate.setIgnoreCase(true);
-    stringFilterPredicate.setOperation(StringFilterPredicate.StringOperation.EQUAL);
-    stringFilterPredicate.setValue(mock(FilterPredicateValue.class));
-
-    StringFilterPredicate stringFilterPredicate2 = new StringFilterPredicate();
-    stringFilterPredicate2.setIgnoreCase(true);
-    stringFilterPredicate2.setOperation(StringFilterPredicate.StringOperation.EQUAL);
+    stringFilterPredicate2.setOperation(StringOperation.EQUAL);
     FilterPredicateValue<String> value = FilterPredicateValue.fromString("42");
     stringFilterPredicate2.setValue(value);
 
@@ -328,11 +316,13 @@ class StringFilterPredicateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StringFilterPredicate.equals(Object)", "int StringFilterPredicate.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     StringFilterPredicate stringFilterPredicate = new StringFilterPredicate();
     stringFilterPredicate.setIgnoreCase(true);
-    stringFilterPredicate.setOperation(StringFilterPredicate.StringOperation.EQUAL);
+    stringFilterPredicate.setOperation(StringOperation.EQUAL);
     FilterPredicateValue<String> value = FilterPredicateValue.fromString("42");
     stringFilterPredicate.setValue(value);
 
@@ -351,11 +341,13 @@ class StringFilterPredicateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StringFilterPredicate.equals(Object)", "int StringFilterPredicate.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     StringFilterPredicate stringFilterPredicate = new StringFilterPredicate();
     stringFilterPredicate.setIgnoreCase(true);
-    stringFilterPredicate.setOperation(StringFilterPredicate.StringOperation.EQUAL);
+    stringFilterPredicate.setOperation(StringOperation.EQUAL);
     FilterPredicateValue<String> value = FilterPredicateValue.fromString("42");
     stringFilterPredicate.setValue(value);
 
@@ -370,8 +362,7 @@ class StringFilterPredicateDiffblueTest {
    * <ul>
    *   <li>default or parameterless constructor of {@link StringFilterPredicate}
    *   <li>{@link StringFilterPredicate#setIgnoreCase(boolean)}
-   *   <li>
-   * {@link StringFilterPredicate#setOperation(StringFilterPredicate.StringOperation)}
+   *   <li>{@link StringFilterPredicate#setOperation(StringOperation)}
    *   <li>{@link StringFilterPredicate#setValue(FilterPredicateValue)}
    *   <li>{@link StringFilterPredicate#toString()}
    *   <li>{@link StringFilterPredicate#getOperation()}
@@ -382,23 +373,29 @@ class StringFilterPredicateDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void StringFilterPredicate.<init>()", "StringOperation StringFilterPredicate.getOperation()",
+      "FilterPredicateType StringFilterPredicate.getType()", "FilterPredicateValue StringFilterPredicate.getValue()",
+      "boolean StringFilterPredicate.isIgnoreCase()", "void StringFilterPredicate.setIgnoreCase(boolean)",
+      "void StringFilterPredicate.setOperation(StringOperation)",
+      "void StringFilterPredicate.setValue(FilterPredicateValue)", "String StringFilterPredicate.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     StringFilterPredicate actualStringFilterPredicate = new StringFilterPredicate();
     actualStringFilterPredicate.setIgnoreCase(true);
-    actualStringFilterPredicate.setOperation(StringFilterPredicate.StringOperation.EQUAL);
+    actualStringFilterPredicate.setOperation(StringOperation.EQUAL);
     FilterPredicateValue<String> value = FilterPredicateValue.fromString("42");
     actualStringFilterPredicate.setValue(value);
     String actualToStringResult = actualStringFilterPredicate.toString();
-    StringFilterPredicate.StringOperation actualOperation = actualStringFilterPredicate.getOperation();
+    StringOperation actualOperation = actualStringFilterPredicate.getOperation();
     FilterPredicateType actualType = actualStringFilterPredicate.getType();
     FilterPredicateValue<String> actualValue = actualStringFilterPredicate.getValue();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("StringFilterPredicate(operation=EQUAL, value=FilterPredicateValue(defaultValue=42, userValue=null,"
         + " dynamicValue=null), ignoreCase=true)", actualToStringResult);
     assertEquals(FilterPredicateType.STRING, actualType);
-    assertEquals(StringFilterPredicate.StringOperation.EQUAL, actualOperation);
+    assertEquals(StringOperation.EQUAL, actualOperation);
     assertTrue(actualStringFilterPredicate.isIgnoreCase());
     assertSame(value, actualValue);
   }

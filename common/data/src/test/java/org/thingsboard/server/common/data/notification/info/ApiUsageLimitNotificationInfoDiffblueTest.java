@@ -7,10 +7,16 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.ApiFeature;
 import org.thingsboard.server.common.data.ApiUsageRecordKey;
 import org.thingsboard.server.common.data.ApiUsageStateValue;
@@ -18,33 +24,40 @@ import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.notification.info.ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder;
 
+@ContextConfiguration(classes = {ApiUsageLimitNotificationInfoBuilder.class})
+@ExtendWith(SpringExtension.class)
 class ApiUsageLimitNotificationInfoDiffblueTest {
+  @Autowired
+  private ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder;
+
   /**
-   * Test ApiUsageLimitNotificationInfoBuilder
-   * {@link ApiUsageLimitNotificationInfoBuilder#build()}.
+   * Test ApiUsageLimitNotificationInfoBuilder {@link ApiUsageLimitNotificationInfoBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder#build()}
-   *   <li>
-   * {@link ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder#currentValue(String)}
-   *   <li>
-   * {@link ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder#feature(ApiFeature)}
-   *   <li>
-   * {@link ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder#limit(String)}
-   *   <li>
-   * {@link ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder#recordKey(ApiUsageRecordKey)}
-   *   <li>
-   * {@link ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder#status(ApiUsageStateValue)}
-   *   <li>
-   * {@link ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder#tenantId(TenantId)}
-   *   <li>
-   * {@link ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder#tenantName(String)}
+   *   <li>{@link ApiUsageLimitNotificationInfoBuilder#build()}
+   *   <li>{@link ApiUsageLimitNotificationInfoBuilder#currentValue(String)}
+   *   <li>{@link ApiUsageLimitNotificationInfoBuilder#feature(ApiFeature)}
+   *   <li>{@link ApiUsageLimitNotificationInfoBuilder#limit(String)}
+   *   <li>{@link ApiUsageLimitNotificationInfoBuilder#recordKey(ApiUsageRecordKey)}
+   *   <li>{@link ApiUsageLimitNotificationInfoBuilder#status(ApiUsageStateValue)}
+   *   <li>{@link ApiUsageLimitNotificationInfoBuilder#tenantId(TenantId)}
+   *   <li>{@link ApiUsageLimitNotificationInfoBuilder#tenantName(String)}
    * </ul>
    */
   @Test
   @DisplayName("Test ApiUsageLimitNotificationInfoBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ApiUsageLimitNotificationInfoBuilder.<init>()",
+      "ApiUsageLimitNotificationInfo ApiUsageLimitNotificationInfoBuilder.build()",
+      "ApiUsageLimitNotificationInfoBuilder ApiUsageLimitNotificationInfoBuilder.currentValue(String)",
+      "ApiUsageLimitNotificationInfoBuilder ApiUsageLimitNotificationInfoBuilder.feature(ApiFeature)",
+      "ApiUsageLimitNotificationInfoBuilder ApiUsageLimitNotificationInfoBuilder.limit(String)",
+      "ApiUsageLimitNotificationInfoBuilder ApiUsageLimitNotificationInfoBuilder.recordKey(ApiUsageRecordKey)",
+      "ApiUsageLimitNotificationInfoBuilder ApiUsageLimitNotificationInfoBuilder.status(ApiUsageStateValue)",
+      "ApiUsageLimitNotificationInfoBuilder ApiUsageLimitNotificationInfoBuilder.tenantId(TenantId)",
+      "ApiUsageLimitNotificationInfoBuilder ApiUsageLimitNotificationInfoBuilder.tenantName(String)",
+      "String ApiUsageLimitNotificationInfoBuilder.toString()"})
   void testApiUsageLimitNotificationInfoBuilderBuild() {
     // Arrange and Act
     ApiUsageLimitNotificationInfo actualBuildResult = ApiUsageLimitNotificationInfo.builder()
@@ -93,6 +106,8 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getTemplateData(); then return size is seven")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Map ApiUsageLimitNotificationInfo.getTemplateData()"})
   void testGetTemplateData_thenReturnSizeIsSeven() {
     // Arrange
     ApiUsageLimitNotificationInfo buildResult = ApiUsageLimitNotificationInfo.builder()
@@ -120,8 +135,7 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link ApiUsageLimitNotificationInfo#equals(Object)}, and
-   * {@link ApiUsageLimitNotificationInfo#hashCode()}.
+   * Test {@link ApiUsageLimitNotificationInfo#equals(Object)}, and {@link ApiUsageLimitNotificationInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -135,6 +149,9 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationInfo.equals(Object)",
+      "int ApiUsageLimitNotificationInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ApiUsageLimitNotificationInfo buildResult = ApiUsageLimitNotificationInfo.builder()
@@ -163,8 +180,7 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link ApiUsageLimitNotificationInfo#equals(Object)}, and
-   * {@link ApiUsageLimitNotificationInfo#hashCode()}.
+   * Test {@link ApiUsageLimitNotificationInfo#equals(Object)}, and {@link ApiUsageLimitNotificationInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -178,26 +194,29 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationInfo.equals(Object)",
+      "int ApiUsageLimitNotificationInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder.status(Mockito.<ApiUsageStateValue>any()))
         .thenReturn(ApiUsageLimitNotificationInfo.builder());
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder2.recordKey(Mockito.<ApiUsageRecordKey>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder3.limit(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder2);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder4.feature(Mockito.<ApiFeature>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder3);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder5 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder5 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder5.currentValue(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder4);
     ApiUsageLimitNotificationInfo buildResult = apiUsageLimitNotificationInfoBuilder5.currentValue("42")
@@ -208,8 +227,8 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .tenantName("Tenant Name")
         .build();
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder6 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder6 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder6.currentValue(Mockito.<String>any()))
         .thenReturn(ApiUsageLimitNotificationInfo.builder());
     ApiUsageLimitNotificationInfo buildResult2 = apiUsageLimitNotificationInfoBuilder6.currentValue("42")
@@ -228,8 +247,7 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link ApiUsageLimitNotificationInfo#equals(Object)}, and
-   * {@link ApiUsageLimitNotificationInfo#hashCode()}.
+   * Test {@link ApiUsageLimitNotificationInfo#equals(Object)}, and {@link ApiUsageLimitNotificationInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -243,30 +261,33 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationInfo.equals(Object)",
+      "int ApiUsageLimitNotificationInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder.tenantId(Mockito.<TenantId>any()))
         .thenReturn(ApiUsageLimitNotificationInfo.builder());
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder2.status(Mockito.<ApiUsageStateValue>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder3.recordKey(Mockito.<ApiUsageRecordKey>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder2);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder4.limit(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder3);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder5 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder5 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder5.feature(Mockito.<ApiFeature>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder4);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder6 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder6 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder6.currentValue(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder5);
     ApiUsageLimitNotificationInfo buildResult = apiUsageLimitNotificationInfoBuilder6.currentValue("42")
@@ -277,8 +298,8 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .tenantName("Tenant Name")
         .build();
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder7 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder7 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder7.currentValue(Mockito.<String>any()))
         .thenReturn(ApiUsageLimitNotificationInfo.builder());
     ApiUsageLimitNotificationInfo buildResult2 = apiUsageLimitNotificationInfoBuilder7.currentValue("42")
@@ -297,8 +318,7 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link ApiUsageLimitNotificationInfo#equals(Object)}, and
-   * {@link ApiUsageLimitNotificationInfo#hashCode()}.
+   * Test {@link ApiUsageLimitNotificationInfo#equals(Object)}, and {@link ApiUsageLimitNotificationInfo#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -312,6 +332,9 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationInfo.equals(Object)",
+      "int ApiUsageLimitNotificationInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ApiUsageLimitNotificationInfo buildResult = ApiUsageLimitNotificationInfo.builder()
@@ -341,10 +364,13 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationInfo.equals(Object)",
+      "int ApiUsageLimitNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder.currentValue(Mockito.<String>any()))
         .thenReturn(ApiUsageLimitNotificationInfo.builder());
     ApiUsageLimitNotificationInfo buildResult = apiUsageLimitNotificationInfoBuilder.currentValue("42")
@@ -380,14 +406,17 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationInfo.equals(Object)",
+      "int ApiUsageLimitNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder.feature(Mockito.<ApiFeature>any()))
         .thenReturn(ApiUsageLimitNotificationInfo.builder());
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder2.currentValue(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder);
     ApiUsageLimitNotificationInfo buildResult = apiUsageLimitNotificationInfoBuilder2.currentValue("42")
@@ -423,14 +452,17 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationInfo.equals(Object)",
+      "int ApiUsageLimitNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder.feature(Mockito.<ApiFeature>any()))
         .thenReturn(ApiUsageLimitNotificationInfo.builder());
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder2.currentValue(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder);
     ApiUsageLimitNotificationInfo buildResult = apiUsageLimitNotificationInfoBuilder2.currentValue("42")
@@ -466,18 +498,21 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationInfo.equals(Object)",
+      "int ApiUsageLimitNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder.limit(Mockito.<String>any()))
         .thenReturn(ApiUsageLimitNotificationInfo.builder());
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder2.feature(Mockito.<ApiFeature>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder3.currentValue(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder2);
     ApiUsageLimitNotificationInfo buildResult = apiUsageLimitNotificationInfoBuilder3.currentValue("42")
@@ -513,22 +548,25 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationInfo.equals(Object)",
+      "int ApiUsageLimitNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder.recordKey(Mockito.<ApiUsageRecordKey>any()))
         .thenReturn(ApiUsageLimitNotificationInfo.builder());
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder2.limit(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder3.feature(Mockito.<ApiFeature>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder2);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder4.currentValue(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder3);
     ApiUsageLimitNotificationInfo buildResult = apiUsageLimitNotificationInfoBuilder4.currentValue("42")
@@ -564,22 +602,25 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationInfo.equals(Object)",
+      "int ApiUsageLimitNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder.recordKey(Mockito.<ApiUsageRecordKey>any()))
         .thenReturn(ApiUsageLimitNotificationInfo.builder());
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder2.limit(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder3.feature(Mockito.<ApiFeature>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder2);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder4.currentValue(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder3);
     ApiUsageLimitNotificationInfo buildResult = apiUsageLimitNotificationInfoBuilder4.currentValue("42")
@@ -615,24 +656,26 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationInfo.equals(Object)",
+      "int ApiUsageLimitNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder builderResult = ApiUsageLimitNotificationInfo
-        .builder();
+    ApiUsageLimitNotificationInfoBuilder builderResult = ApiUsageLimitNotificationInfo.builder();
     builderResult.feature(ApiFeature.TRANSPORT);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder.recordKey(Mockito.<ApiUsageRecordKey>any())).thenReturn(builderResult);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder2.limit(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder3.feature(Mockito.<ApiFeature>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder2);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder4.currentValue(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder3);
     ApiUsageLimitNotificationInfo buildResult = apiUsageLimitNotificationInfoBuilder4.currentValue("42")
@@ -668,26 +711,29 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationInfo.equals(Object)",
+      "int ApiUsageLimitNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder.status(Mockito.<ApiUsageStateValue>any()))
         .thenReturn(ApiUsageLimitNotificationInfo.builder());
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder2.recordKey(Mockito.<ApiUsageRecordKey>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder3.limit(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder2);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder4.feature(Mockito.<ApiFeature>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder3);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder5 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder5 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder5.currentValue(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder4);
     ApiUsageLimitNotificationInfo buildResult = apiUsageLimitNotificationInfoBuilder5.currentValue("42")
@@ -723,26 +769,29 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationInfo.equals(Object)",
+      "int ApiUsageLimitNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder.status(Mockito.<ApiUsageStateValue>any()))
         .thenReturn(ApiUsageLimitNotificationInfo.builder());
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder2.recordKey(Mockito.<ApiUsageRecordKey>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder3.limit(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder2);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder4.feature(Mockito.<ApiFeature>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder3);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder5 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder5 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder5.currentValue(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder4);
     ApiUsageLimitNotificationInfo buildResult = apiUsageLimitNotificationInfoBuilder5.currentValue("42")
@@ -778,28 +827,30 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationInfo.equals(Object)",
+      "int ApiUsageLimitNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder builderResult = ApiUsageLimitNotificationInfo
-        .builder();
+    ApiUsageLimitNotificationInfoBuilder builderResult = ApiUsageLimitNotificationInfo.builder();
     builderResult.recordKey(ApiUsageRecordKey.TRANSPORT_MSG_COUNT);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder.status(Mockito.<ApiUsageStateValue>any())).thenReturn(builderResult);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder2.recordKey(Mockito.<ApiUsageRecordKey>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder3.limit(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder2);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder4.feature(Mockito.<ApiFeature>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder3);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder5 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder5 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder5.currentValue(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder4);
     ApiUsageLimitNotificationInfo buildResult = apiUsageLimitNotificationInfoBuilder5.currentValue("42")
@@ -835,26 +886,29 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationInfo.equals(Object)",
+      "int ApiUsageLimitNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder.status(Mockito.<ApiUsageStateValue>any()))
         .thenReturn(ApiUsageLimitNotificationInfo.builder());
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder2.recordKey(Mockito.<ApiUsageRecordKey>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder3.limit(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder2);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder4.feature(Mockito.<ApiFeature>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder3);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder5 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder5 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder5.currentValue(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder4);
     ApiUsageLimitNotificationInfo buildResult = apiUsageLimitNotificationInfoBuilder5.currentValue("42")
@@ -890,28 +944,30 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationInfo.equals(Object)",
+      "int ApiUsageLimitNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder builderResult = ApiUsageLimitNotificationInfo
-        .builder();
+    ApiUsageLimitNotificationInfoBuilder builderResult = ApiUsageLimitNotificationInfo.builder();
     builderResult.status(ApiUsageStateValue.ENABLED);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder.status(Mockito.<ApiUsageStateValue>any())).thenReturn(builderResult);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder2.recordKey(Mockito.<ApiUsageRecordKey>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder3.limit(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder2);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder4.feature(Mockito.<ApiFeature>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder3);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder5 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder5 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder5.currentValue(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder4);
     ApiUsageLimitNotificationInfo buildResult = apiUsageLimitNotificationInfoBuilder5.currentValue("42")
@@ -947,30 +1003,33 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationInfo.equals(Object)",
+      "int ApiUsageLimitNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder.tenantId(Mockito.<TenantId>any()))
         .thenReturn(ApiUsageLimitNotificationInfo.builder());
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder2.status(Mockito.<ApiUsageStateValue>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder3.recordKey(Mockito.<ApiUsageRecordKey>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder2);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder4.limit(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder3);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder5 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder5 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder5.feature(Mockito.<ApiFeature>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder4);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder6 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder6 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder6.currentValue(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder5);
     ApiUsageLimitNotificationInfo buildResult = apiUsageLimitNotificationInfoBuilder6.currentValue("42")
@@ -981,8 +1040,8 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .tenantName("Tenant Name")
         .build();
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder7 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder7 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder7.currentValue(Mockito.<String>any()))
         .thenReturn(ApiUsageLimitNotificationInfo.builder());
     ApiUsageLimitNotificationInfo buildResult2 = apiUsageLimitNotificationInfoBuilder7.currentValue("42")
@@ -1009,32 +1068,34 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationInfo.equals(Object)",
+      "int ApiUsageLimitNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder builderResult = ApiUsageLimitNotificationInfo
-        .builder();
+    ApiUsageLimitNotificationInfoBuilder builderResult = ApiUsageLimitNotificationInfo.builder();
     builderResult.limit("Limit");
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder.tenantId(Mockito.<TenantId>any())).thenReturn(builderResult);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder2.status(Mockito.<ApiUsageStateValue>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder3.recordKey(Mockito.<ApiUsageRecordKey>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder2);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder4.limit(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder3);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder5 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder5 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder5.feature(Mockito.<ApiFeature>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder4);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder6 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder6 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder6.currentValue(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder5);
     ApiUsageLimitNotificationInfo buildResult = apiUsageLimitNotificationInfoBuilder6.currentValue("42")
@@ -1045,8 +1106,8 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .tenantName("Tenant Name")
         .build();
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder7 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder7 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder7.currentValue(Mockito.<String>any()))
         .thenReturn(ApiUsageLimitNotificationInfo.builder());
     ApiUsageLimitNotificationInfo buildResult2 = apiUsageLimitNotificationInfoBuilder7.currentValue("42")
@@ -1073,32 +1134,34 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationInfo.equals(Object)",
+      "int ApiUsageLimitNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder builderResult = ApiUsageLimitNotificationInfo
-        .builder();
+    ApiUsageLimitNotificationInfoBuilder builderResult = ApiUsageLimitNotificationInfo.builder();
     builderResult.currentValue("42");
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder.tenantId(Mockito.<TenantId>any())).thenReturn(builderResult);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder2 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder2.status(Mockito.<ApiUsageStateValue>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder3 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder3.recordKey(Mockito.<ApiUsageRecordKey>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder2);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder4 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder4.limit(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder3);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder5 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder5 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder5.feature(Mockito.<ApiFeature>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder4);
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder6 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder6 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder6.currentValue(Mockito.<String>any()))
         .thenReturn(apiUsageLimitNotificationInfoBuilder5);
     ApiUsageLimitNotificationInfo buildResult = apiUsageLimitNotificationInfoBuilder6.currentValue("42")
@@ -1109,8 +1172,8 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .tenantName("Tenant Name")
         .build();
-    ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder7 = mock(
-        ApiUsageLimitNotificationInfo.ApiUsageLimitNotificationInfoBuilder.class);
+    ApiUsageLimitNotificationInfoBuilder apiUsageLimitNotificationInfoBuilder7 = mock(
+        ApiUsageLimitNotificationInfoBuilder.class);
     when(apiUsageLimitNotificationInfoBuilder7.currentValue(Mockito.<String>any()))
         .thenReturn(ApiUsageLimitNotificationInfo.builder());
     ApiUsageLimitNotificationInfo buildResult2 = apiUsageLimitNotificationInfoBuilder7.currentValue("42")
@@ -1137,6 +1200,9 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationInfo.equals(Object)",
+      "int ApiUsageLimitNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     ApiUsageLimitNotificationInfo buildResult = ApiUsageLimitNotificationInfo.builder()
@@ -1164,6 +1230,9 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageLimitNotificationInfo.equals(Object)",
+      "int ApiUsageLimitNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     ApiUsageLimitNotificationInfo buildResult = ApiUsageLimitNotificationInfo.builder()
@@ -1206,6 +1275,22 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ApiUsageLimitNotificationInfo.<init>()",
+      "void ApiUsageLimitNotificationInfo.<init>(ApiFeature, ApiUsageRecordKey, ApiUsageStateValue, String, String, TenantId, String)",
+      "TenantId ApiUsageLimitNotificationInfo.getAffectedTenantId()",
+      "String ApiUsageLimitNotificationInfo.getCurrentValue()", "ApiFeature ApiUsageLimitNotificationInfo.getFeature()",
+      "String ApiUsageLimitNotificationInfo.getLimit()",
+      "ApiUsageRecordKey ApiUsageLimitNotificationInfo.getRecordKey()",
+      "ApiUsageStateValue ApiUsageLimitNotificationInfo.getStatus()",
+      "TenantId ApiUsageLimitNotificationInfo.getTenantId()", "String ApiUsageLimitNotificationInfo.getTenantName()",
+      "void ApiUsageLimitNotificationInfo.setCurrentValue(String)",
+      "void ApiUsageLimitNotificationInfo.setFeature(ApiFeature)",
+      "void ApiUsageLimitNotificationInfo.setLimit(String)",
+      "void ApiUsageLimitNotificationInfo.setRecordKey(ApiUsageRecordKey)",
+      "void ApiUsageLimitNotificationInfo.setStatus(ApiUsageStateValue)",
+      "void ApiUsageLimitNotificationInfo.setTenantId(TenantId)",
+      "void ApiUsageLimitNotificationInfo.setTenantName(String)", "String ApiUsageLimitNotificationInfo.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     ApiUsageLimitNotificationInfo actualApiUsageLimitNotificationInfo = new ApiUsageLimitNotificationInfo();
@@ -1225,7 +1310,7 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
     ApiUsageStateValue actualStatus = actualApiUsageLimitNotificationInfo.getStatus();
     TenantId actualTenantId = actualApiUsageLimitNotificationInfo.getTenantId();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("42", actualCurrentValue);
     assertEquals("ApiUsageLimitNotificationInfo(feature=TRANSPORT, recordKey=TRANSPORT_MSG_COUNT, status=ENABLED,"
         + " limit=Limit, currentValue=42, tenantId=13814000-1dd2-11b2-8080-808080808080, tenantName=Tenant" + " Name)",
@@ -1248,8 +1333,7 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link ApiUsageLimitNotificationInfo#ApiUsageLimitNotificationInfo(ApiFeature, ApiUsageRecordKey, ApiUsageStateValue, String, String, TenantId, String)}
+   *   <li>{@link ApiUsageLimitNotificationInfo#ApiUsageLimitNotificationInfo(ApiFeature, ApiUsageRecordKey, ApiUsageStateValue, String, String, TenantId, String)}
    *   <li>{@link ApiUsageLimitNotificationInfo#setCurrentValue(String)}
    *   <li>{@link ApiUsageLimitNotificationInfo#setFeature(ApiFeature)}
    *   <li>{@link ApiUsageLimitNotificationInfo#setLimit(String)}
@@ -1270,6 +1354,22 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when 'TRANSPORT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ApiUsageLimitNotificationInfo.<init>()",
+      "void ApiUsageLimitNotificationInfo.<init>(ApiFeature, ApiUsageRecordKey, ApiUsageStateValue, String, String, TenantId, String)",
+      "TenantId ApiUsageLimitNotificationInfo.getAffectedTenantId()",
+      "String ApiUsageLimitNotificationInfo.getCurrentValue()", "ApiFeature ApiUsageLimitNotificationInfo.getFeature()",
+      "String ApiUsageLimitNotificationInfo.getLimit()",
+      "ApiUsageRecordKey ApiUsageLimitNotificationInfo.getRecordKey()",
+      "ApiUsageStateValue ApiUsageLimitNotificationInfo.getStatus()",
+      "TenantId ApiUsageLimitNotificationInfo.getTenantId()", "String ApiUsageLimitNotificationInfo.getTenantName()",
+      "void ApiUsageLimitNotificationInfo.setCurrentValue(String)",
+      "void ApiUsageLimitNotificationInfo.setFeature(ApiFeature)",
+      "void ApiUsageLimitNotificationInfo.setLimit(String)",
+      "void ApiUsageLimitNotificationInfo.setRecordKey(ApiUsageRecordKey)",
+      "void ApiUsageLimitNotificationInfo.setStatus(ApiUsageStateValue)",
+      "void ApiUsageLimitNotificationInfo.setTenantId(TenantId)",
+      "void ApiUsageLimitNotificationInfo.setTenantName(String)", "String ApiUsageLimitNotificationInfo.toString()"})
   void testGettersAndSetters_whenTransport() {
     // Arrange and Act
     ApiUsageLimitNotificationInfo actualApiUsageLimitNotificationInfo = new ApiUsageLimitNotificationInfo(
@@ -1291,7 +1391,7 @@ class ApiUsageLimitNotificationInfoDiffblueTest {
     ApiUsageStateValue actualStatus = actualApiUsageLimitNotificationInfo.getStatus();
     TenantId actualTenantId = actualApiUsageLimitNotificationInfo.getTenantId();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("42", actualCurrentValue);
     assertEquals("ApiUsageLimitNotificationInfo(feature=TRANSPORT, recordKey=TRANSPORT_MSG_COUNT, status=ENABLED,"
         + " limit=Limit, currentValue=42, tenantId=13814000-1dd2-11b2-8080-808080808080, tenantName=Tenant" + " Name)",

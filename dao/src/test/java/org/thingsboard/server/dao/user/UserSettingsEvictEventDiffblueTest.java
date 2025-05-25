@@ -3,15 +3,16 @@ package org.thingsboard.server.dao.user;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertSame;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import java.util.UUID;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.common.data.settings.UserSettingsCompositeKey;
-import org.thingsboard.server.dao.model.ModelConstants;
 
 public class UserSettingsEvictEventDiffblueTest {
   /**
-   * Test {@link UserSettingsEvictEvent#equals(Object)}, and
-   * {@link UserSettingsEvictEvent#hashCode()}.
+   * Test {@link UserSettingsEvictEvent#equals(Object)}, and {@link UserSettingsEvictEvent#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -24,6 +25,8 @@ public class UserSettingsEvictEventDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean UserSettingsEvictEvent.equals(Object)", "int UserSettingsEvictEvent.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     UserSettingsEvictEvent userSettingsEvictEvent = new UserSettingsEvictEvent(new UserSettingsCompositeKey());
@@ -36,8 +39,34 @@ public class UserSettingsEvictEventDiffblueTest {
   }
 
   /**
-   * Test {@link UserSettingsEvictEvent#equals(Object)}, and
-   * {@link UserSettingsEvictEvent#hashCode()}.
+   * Test {@link UserSettingsEvictEvent#equals(Object)}, and {@link UserSettingsEvictEvent#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link UserSettingsEvictEvent#equals(Object)}
+   *   <li>{@link UserSettingsEvictEvent#hashCode()}
+   * </ul>
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean UserSettingsEvictEvent.equals(Object)", "int UserSettingsEvictEvent.hashCode()"})
+  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    UserSettingsEvictEvent userSettingsEvictEvent = new UserSettingsEvictEvent(null);
+    UserSettingsEvictEvent userSettingsEvictEvent2 = new UserSettingsEvictEvent(null);
+
+    // Act and Assert
+    assertEquals(userSettingsEvictEvent, userSettingsEvictEvent2);
+    int expectedHashCodeResult = userSettingsEvictEvent.hashCode();
+    assertEquals(expectedHashCodeResult, userSettingsEvictEvent2.hashCode());
+  }
+
+  /**
+   * Test {@link UserSettingsEvictEvent#equals(Object)}, and {@link UserSettingsEvictEvent#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -50,6 +79,8 @@ public class UserSettingsEvictEventDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean UserSettingsEvictEvent.equals(Object)", "int UserSettingsEvictEvent.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     UserSettingsEvictEvent userSettingsEvictEvent = new UserSettingsEvictEvent(new UserSettingsCompositeKey());
@@ -70,6 +101,8 @@ public class UserSettingsEvictEventDiffblueTest {
    * Method under test: {@link UserSettingsEvictEvent#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean UserSettingsEvictEvent.equals(Object)", "int UserSettingsEvictEvent.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     UserSettingsEvictEvent userSettingsEvictEvent = new UserSettingsEvictEvent(null);
@@ -88,28 +121,12 @@ public class UserSettingsEvictEventDiffblueTest {
    * Method under test: {@link UserSettingsEvictEvent#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean UserSettingsEvictEvent.equals(Object)", "int UserSettingsEvictEvent.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     UserSettingsEvictEvent userSettingsEvictEvent = new UserSettingsEvictEvent(
-        new UserSettingsCompositeKey(ModelConstants.NULL_UUID, "Type"));
-
-    // Act and Assert
-    assertNotEquals(userSettingsEvictEvent, new UserSettingsEvictEvent(new UserSettingsCompositeKey()));
-  }
-
-  /**
-   * Test {@link UserSettingsEvictEvent#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link UserSettingsEvictEvent#equals(Object)}
-   */
-  @Test
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
-    // Arrange
-    UserSettingsEvictEvent userSettingsEvictEvent = new UserSettingsEvictEvent(mock(UserSettingsCompositeKey.class));
+        new UserSettingsCompositeKey(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Type"));
 
     // Act and Assert
     assertNotEquals(userSettingsEvictEvent, new UserSettingsEvictEvent(new UserSettingsCompositeKey()));
@@ -125,6 +142,8 @@ public class UserSettingsEvictEventDiffblueTest {
    * Method under test: {@link UserSettingsEvictEvent#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean UserSettingsEvictEvent.equals(Object)", "int UserSettingsEvictEvent.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new UserSettingsEvictEvent(new UserSettingsCompositeKey()), null);
@@ -140,6 +159,8 @@ public class UserSettingsEvictEventDiffblueTest {
    * Method under test: {@link UserSettingsEvictEvent#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean UserSettingsEvictEvent.equals(Object)", "int UserSettingsEvictEvent.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new UserSettingsEvictEvent(new UserSettingsCompositeKey()),
@@ -151,12 +172,14 @@ public class UserSettingsEvictEventDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link UserSettingsEvictEvent#UserSettingsEvictEvent(UserSettingsCompositeKey)}
+   *   <li>{@link UserSettingsEvictEvent#UserSettingsEvictEvent(UserSettingsCompositeKey)}
    *   <li>{@link UserSettingsEvictEvent#getKey()}
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void UserSettingsEvictEvent.<init>(UserSettingsCompositeKey)",
+      "UserSettingsCompositeKey UserSettingsEvictEvent.getKey()", "java.lang.String UserSettingsEvictEvent.toString()"})
   public void testGettersAndSetters() {
     // Arrange
     UserSettingsCompositeKey key = new UserSettingsCompositeKey();

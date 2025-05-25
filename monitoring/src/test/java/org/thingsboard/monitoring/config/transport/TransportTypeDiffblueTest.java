@@ -1,7 +1,9 @@
 package org.thingsboard.monitoring.config.transport;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.monitoring.service.transport.TransportHealthChecker;
 import org.thingsboard.monitoring.service.transport.impl.MqttTransportHealthChecker;
@@ -18,6 +20,8 @@ class TransportTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String TransportType.getName()", "Class TransportType.getServiceClass()"})
   void testGettersAndSetters() {
     // Arrange
     TransportType valueOfResult = TransportType.valueOf("MQTT");

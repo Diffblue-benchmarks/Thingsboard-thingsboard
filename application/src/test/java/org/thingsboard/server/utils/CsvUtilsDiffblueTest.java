@@ -2,8 +2,10 @@ package org.thingsboard.server.utils;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class CsvUtilsDiffblueTest {
@@ -18,6 +20,8 @@ class CsvUtilsDiffblueTest {
    */
   @Test
   @DisplayName("Test parseCsv(String, Character); when 'A'; then return first first is 'Not all who wander are lost'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List CsvUtils.parseCsv(String, Character)"})
   void testParseCsv_whenA_thenReturnFirstFirstIsNotAllWhoWanderAreLost() throws Exception {
     // Arrange and Act
     List<List<String>> actualParseCsvResult = CsvUtils.parseCsv("Not all who wander are lost", 'A');
@@ -40,6 +44,8 @@ class CsvUtilsDiffblueTest {
    */
   @Test
   @DisplayName("Test parseCsv(String, Character); when 'a'; then return first size is four")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List CsvUtils.parseCsv(String, Character)"})
   void testParseCsv_whenA_thenReturnFirstSizeIsFour() throws Exception {
     // Arrange and Act
     List<List<String>> actualParseCsvResult = CsvUtils.parseCsv("Not all who wander are lost", 'a');
@@ -65,6 +71,8 @@ class CsvUtilsDiffblueTest {
    */
   @Test
   @DisplayName("Test parseCsv(String, Character); when ','; then return first first is 'Not all who wander are lost'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List CsvUtils.parseCsv(String, Character)"})
   void testParseCsv_whenComma_thenReturnFirstFirstIsNotAllWhoWanderAreLost() throws Exception {
     // Arrange and Act
     List<List<String>> actualParseCsvResult = CsvUtils.parseCsv("Not all who wander are lost", ',');
@@ -87,6 +95,8 @@ class CsvUtilsDiffblueTest {
    */
   @Test
   @DisplayName("Test parseCsv(String, Character); when 'Content'; then return first first is 'Content'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List CsvUtils.parseCsv(String, Character)"})
   void testParseCsv_whenContent_thenReturnFirstFirstIsContent() throws Exception {
     // Arrange and Act
     List<List<String>> actualParseCsvResult = CsvUtils.parseCsv("Content", 'A');
@@ -109,6 +119,8 @@ class CsvUtilsDiffblueTest {
    */
   @Test
   @DisplayName("Test parseCsv(String, Character); when empty string; then return Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List CsvUtils.parseCsv(String, Character)"})
   void testParseCsv_whenEmptyString_thenReturnEmpty() throws Exception {
     // Arrange and Act
     List<List<String>> actualParseCsvResult = CsvUtils.parseCsv("", 'A');

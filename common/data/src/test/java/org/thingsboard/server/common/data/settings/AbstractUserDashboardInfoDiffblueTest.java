@@ -8,8 +8,10 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.thingsboard.server.common.data.id.EntityId;
@@ -26,6 +28,8 @@ class AbstractUserDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test canEqual(Object); when LastVisitedDashboardInfo (default constructor); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AbstractUserDashboardInfo.canEqual(Object)"})
   void testCanEqual_whenLastVisitedDashboardInfo_thenReturnTrue() {
     // Arrange
     LastVisitedDashboardInfo lastVisitedDashboardInfo = new LastVisitedDashboardInfo();
@@ -45,14 +49,15 @@ class AbstractUserDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test canEqual(Object); when 'Other'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AbstractUserDashboardInfo.canEqual(Object)"})
   void testCanEqual_whenOther_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse((new LastVisitedDashboardInfo()).canEqual("Other"));
   }
 
   /**
-   * Test {@link AbstractUserDashboardInfo#equals(Object)}, and
-   * {@link AbstractUserDashboardInfo#hashCode()}.
+   * Test {@link AbstractUserDashboardInfo#equals(Object)}, and {@link AbstractUserDashboardInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -62,6 +67,8 @@ class AbstractUserDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AbstractUserDashboardInfo.equals(Object)", "int AbstractUserDashboardInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     LastVisitedDashboardInfo lastVisitedDashboardInfo = new LastVisitedDashboardInfo();
@@ -74,8 +81,7 @@ class AbstractUserDashboardInfoDiffblueTest {
   }
 
   /**
-   * Test {@link AbstractUserDashboardInfo#equals(Object)}, and
-   * {@link AbstractUserDashboardInfo#hashCode()}.
+   * Test {@link AbstractUserDashboardInfo#equals(Object)}, and {@link AbstractUserDashboardInfo#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -85,6 +91,8 @@ class AbstractUserDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AbstractUserDashboardInfo.equals(Object)", "int AbstractUserDashboardInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     LastVisitedDashboardInfo lastVisitedDashboardInfo = new LastVisitedDashboardInfo();
@@ -106,6 +114,8 @@ class AbstractUserDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AbstractUserDashboardInfo.equals(Object)", "int AbstractUserDashboardInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     LastVisitedDashboardInfo lastVisitedDashboardInfo = new LastVisitedDashboardInfo();
@@ -130,6 +140,8 @@ class AbstractUserDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AbstractUserDashboardInfo.equals(Object)", "int AbstractUserDashboardInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     LastVisitedDashboardInfo lastVisitedDashboardInfo = new LastVisitedDashboardInfo();
@@ -155,6 +167,8 @@ class AbstractUserDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AbstractUserDashboardInfo.equals(Object)", "int AbstractUserDashboardInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     LastVisitedDashboardInfo lastVisitedDashboardInfo = new LastVisitedDashboardInfo();
@@ -180,6 +194,8 @@ class AbstractUserDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AbstractUserDashboardInfo.equals(Object)", "int AbstractUserDashboardInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     LastVisitedDashboardInfo lastVisitedDashboardInfo = new LastVisitedDashboardInfo();
@@ -206,6 +222,8 @@ class AbstractUserDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AbstractUserDashboardInfo.equals(Object)", "int AbstractUserDashboardInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     LastVisitedDashboardInfo lastVisitedDashboardInfo = new LastVisitedDashboardInfo();
@@ -232,6 +250,8 @@ class AbstractUserDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AbstractUserDashboardInfo.equals(Object)", "int AbstractUserDashboardInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     LastVisitedDashboardInfo lastVisitedDashboardInfo = new LastVisitedDashboardInfo();
@@ -258,6 +278,8 @@ class AbstractUserDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AbstractUserDashboardInfo.equals(Object)", "int AbstractUserDashboardInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     LastVisitedDashboardInfo lastVisitedDashboardInfo = new LastVisitedDashboardInfo();
@@ -284,6 +306,8 @@ class AbstractUserDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AbstractUserDashboardInfo.equals(Object)", "int AbstractUserDashboardInfo.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new LastVisitedDashboardInfo(), null);
@@ -300,6 +324,8 @@ class AbstractUserDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AbstractUserDashboardInfo.equals(Object)", "int AbstractUserDashboardInfo.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new LastVisitedDashboardInfo(), "Different type to AbstractUserDashboardInfo");
@@ -312,6 +338,8 @@ class AbstractUserDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"UUID AbstractUserDashboardInfo.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
     assertNull((new LastVisitedDashboardInfo()).getId());
@@ -324,6 +352,8 @@ class AbstractUserDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getTitle()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String AbstractUserDashboardInfo.getTitle()"})
   void testGetTitle() {
     // Arrange, Act and Assert
     assertNull((new LastVisitedDashboardInfo()).getTitle());
@@ -336,6 +366,8 @@ class AbstractUserDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test setId(UUID)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AbstractUserDashboardInfo.setId(UUID)"})
   void testSetId() {
     // Arrange
     LastVisitedDashboardInfo lastVisitedDashboardInfo = new LastVisitedDashboardInfo();
@@ -355,6 +387,8 @@ class AbstractUserDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test setTitle(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AbstractUserDashboardInfo.setTitle(String)"})
   void testSetTitle() {
     // Arrange
     LastVisitedDashboardInfo lastVisitedDashboardInfo = new LastVisitedDashboardInfo();
@@ -373,6 +407,8 @@ class AbstractUserDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test toString()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String AbstractUserDashboardInfo.toString()"})
   void testToString() {
     // Arrange, Act and Assert
     assertEquals("LastVisitedDashboardInfo(starred=false, lastVisited=0)", (new LastVisitedDashboardInfo()).toString());

@@ -5,6 +5,7 @@ import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.DuplicatedByteBuf;
 import io.netty.buffer.EmptyByteBuf;
@@ -21,6 +22,7 @@ import io.netty.handler.codec.mqtt.MqttPublishMessage;
 import io.netty.handler.codec.mqtt.MqttPublishVariableHeader;
 import io.netty.handler.codec.mqtt.MqttQoS;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -28,11 +30,12 @@ class MqttPingHandlerDiffblueTest {
   /**
    * Test {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}.
    * <p>
-   * Method under test:
-   * {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}
+   * Method under test: {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}
    */
   @Test
   @DisplayName("Test channelRead(ChannelHandlerContext, Object)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPingHandler.channelRead(ChannelHandlerContext, Object)"})
   void testChannelRead() throws Exception {
     // Arrange
     MqttPingHandler mqttPingHandler = new MqttPingHandler(1);
@@ -56,11 +59,12 @@ class MqttPingHandlerDiffblueTest {
    *   <li>Then calls {@link ChannelHandlerContext#fireChannelRead(Object)}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}
+   * Method under test: {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}
    */
   @Test
   @DisplayName("Test channelRead(ChannelHandlerContext, Object); given ChannelHandlerContext; when 'Msg'; then calls fireChannelRead(Object)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPingHandler.channelRead(ChannelHandlerContext, Object)"})
   void testChannelRead_givenChannelHandlerContext_whenMsg_thenCallsFireChannelRead() throws Exception {
     // Arrange
     MqttPingHandler mqttPingHandler = new MqttPingHandler(1);
@@ -81,11 +85,12 @@ class MqttPingHandlerDiffblueTest {
    *   <li>Then calls {@link ByteBuf#capacity()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}
+   * Method under test: {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}
    */
   @Test
   @DisplayName("Test channelRead(ChannelHandlerContext, Object); given EmbeddedChannel(); then calls capacity()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPingHandler.channelRead(ChannelHandlerContext, Object)"})
   void testChannelRead_givenEmbeddedChannel_thenCallsCapacity() throws Exception {
     // Arrange
     MqttPingHandler mqttPingHandler = new MqttPingHandler(1);
@@ -114,15 +119,15 @@ class MqttPingHandlerDiffblueTest {
   /**
    * Test {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}.
    * <ul>
-   *   <li>When {@link EmptyByteBuf#EmptyByteBuf(ByteBufAllocator)} with alloc is
-   * {@link PooledByteBufAllocator#PooledByteBufAllocator()}.</li>
+   *   <li>When {@link EmptyByteBuf#EmptyByteBuf(ByteBufAllocator)} with alloc is {@link PooledByteBufAllocator#PooledByteBufAllocator()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}
+   * Method under test: {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}
    */
   @Test
   @DisplayName("Test channelRead(ChannelHandlerContext, Object); when EmptyByteBuf(ByteBufAllocator) with alloc is PooledByteBufAllocator()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPingHandler.channelRead(ChannelHandlerContext, Object)"})
   void testChannelRead_whenEmptyByteBufWithAllocIsPooledByteBufAllocator() throws Exception {
     // Arrange
     MqttPingHandler mqttPingHandler = new MqttPingHandler(1);
@@ -141,14 +146,14 @@ class MqttPingHandlerDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link MqttPingHandler#userEventTriggered(ChannelHandlerContext, Object)}.
+   * Test {@link MqttPingHandler#userEventTriggered(ChannelHandlerContext, Object)}.
    * <p>
-   * Method under test:
-   * {@link MqttPingHandler#userEventTriggered(ChannelHandlerContext, Object)}
+   * Method under test: {@link MqttPingHandler#userEventTriggered(ChannelHandlerContext, Object)}
    */
   @Test
   @DisplayName("Test userEventTriggered(ChannelHandlerContext, Object)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPingHandler.userEventTriggered(ChannelHandlerContext, Object)"})
   void testUserEventTriggered() throws Exception {
     // Arrange
     MqttPingHandler mqttPingHandler = new MqttPingHandler(1);

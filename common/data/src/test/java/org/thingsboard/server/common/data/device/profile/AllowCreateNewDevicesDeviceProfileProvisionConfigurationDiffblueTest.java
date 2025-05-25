@@ -2,16 +2,15 @@ package org.thingsboard.server.common.data.device.profile;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.DeviceProfileProvisionType;
 
 class AllowCreateNewDevicesDeviceProfileProvisionConfigurationDiffblueTest {
   /**
-   * Test
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)},
-   * and
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#hashCode()}.
+   * Test {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}, and {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -19,14 +18,15 @@ class AllowCreateNewDevicesDeviceProfileProvisionConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}
-   *   <li>
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#hashCode()}
+   *   <li>{@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}
+   *   <li>{@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AllowCreateNewDevicesDeviceProfileProvisionConfiguration.equals(Object)",
+      "int AllowCreateNewDevicesDeviceProfileProvisionConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AllowCreateNewDevicesDeviceProfileProvisionConfiguration allowCreateNewDevicesDeviceProfileProvisionConfiguration = new AllowCreateNewDevicesDeviceProfileProvisionConfiguration(
@@ -42,10 +42,7 @@ class AllowCreateNewDevicesDeviceProfileProvisionConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)},
-   * and
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#hashCode()}.
+   * Test {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}, and {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -53,14 +50,15 @@ class AllowCreateNewDevicesDeviceProfileProvisionConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}
-   *   <li>
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#hashCode()}
+   *   <li>{@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}
+   *   <li>{@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AllowCreateNewDevicesDeviceProfileProvisionConfiguration.equals(Object)",
+      "int AllowCreateNewDevicesDeviceProfileProvisionConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AllowCreateNewDevicesDeviceProfileProvisionConfiguration allowCreateNewDevicesDeviceProfileProvisionConfiguration = new AllowCreateNewDevicesDeviceProfileProvisionConfiguration(
@@ -76,10 +74,7 @@ class AllowCreateNewDevicesDeviceProfileProvisionConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)},
-   * and
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#hashCode()}.
+   * Test {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}, and {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -87,14 +82,15 @@ class AllowCreateNewDevicesDeviceProfileProvisionConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}
-   *   <li>
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#hashCode()}
+   *   <li>{@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}
+   *   <li>{@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AllowCreateNewDevicesDeviceProfileProvisionConfiguration.equals(Object)",
+      "int AllowCreateNewDevicesDeviceProfileProvisionConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AllowCreateNewDevicesDeviceProfileProvisionConfiguration allowCreateNewDevicesDeviceProfileProvisionConfiguration = new AllowCreateNewDevicesDeviceProfileProvisionConfiguration(
@@ -108,18 +104,19 @@ class AllowCreateNewDevicesDeviceProfileProvisionConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}.
+   * Test {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}.
    * <ul>
    *   <li>When other is different.</li>
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}
+   * Method under test: {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AllowCreateNewDevicesDeviceProfileProvisionConfiguration.equals(Object)",
+      "int AllowCreateNewDevicesDeviceProfileProvisionConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AllowCreateNewDevicesDeviceProfileProvisionConfiguration allowCreateNewDevicesDeviceProfileProvisionConfiguration = new AllowCreateNewDevicesDeviceProfileProvisionConfiguration(
@@ -131,18 +128,19 @@ class AllowCreateNewDevicesDeviceProfileProvisionConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}.
+   * Test {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}.
    * <ul>
    *   <li>When other is different.</li>
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}
+   * Method under test: {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AllowCreateNewDevicesDeviceProfileProvisionConfiguration.equals(Object)",
+      "int AllowCreateNewDevicesDeviceProfileProvisionConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AllowCreateNewDevicesDeviceProfileProvisionConfiguration allowCreateNewDevicesDeviceProfileProvisionConfiguration = new AllowCreateNewDevicesDeviceProfileProvisionConfiguration(
@@ -155,36 +153,38 @@ class AllowCreateNewDevicesDeviceProfileProvisionConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}.
+   * Test {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}.
    * <ul>
    *   <li>When other is {@code null}.</li>
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}
+   * Method under test: {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AllowCreateNewDevicesDeviceProfileProvisionConfiguration.equals(Object)",
+      "int AllowCreateNewDevicesDeviceProfileProvisionConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AllowCreateNewDevicesDeviceProfileProvisionConfiguration("Provision Device Secret"), null);
   }
 
   /**
-   * Test
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}.
+   * Test {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}.
    * <ul>
    *   <li>When other is wrong type.</li>
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}
+   * Method under test: {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AllowCreateNewDevicesDeviceProfileProvisionConfiguration.equals(Object)",
+      "int AllowCreateNewDevicesDeviceProfileProvisionConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AllowCreateNewDevicesDeviceProfileProvisionConfiguration("Provision Device Secret"),
@@ -196,18 +196,19 @@ class AllowCreateNewDevicesDeviceProfileProvisionConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#AllowCreateNewDevicesDeviceProfileProvisionConfiguration(String)}
-   *   <li>
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#toString()}
-   *   <li>
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#getProvisionDeviceSecret()}
-   *   <li>
-   * {@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#getType()}
+   *   <li>{@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#AllowCreateNewDevicesDeviceProfileProvisionConfiguration(String)}
+   *   <li>{@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#toString()}
+   *   <li>{@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#getProvisionDeviceSecret()}
+   *   <li>{@link AllowCreateNewDevicesDeviceProfileProvisionConfiguration#getType()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AllowCreateNewDevicesDeviceProfileProvisionConfiguration.<init>(String)",
+      "String AllowCreateNewDevicesDeviceProfileProvisionConfiguration.getProvisionDeviceSecret()",
+      "DeviceProfileProvisionType AllowCreateNewDevicesDeviceProfileProvisionConfiguration.getType()",
+      "String AllowCreateNewDevicesDeviceProfileProvisionConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     AllowCreateNewDevicesDeviceProfileProvisionConfiguration actualAllowCreateNewDevicesDeviceProfileProvisionConfiguration = new AllowCreateNewDevicesDeviceProfileProvisionConfiguration(

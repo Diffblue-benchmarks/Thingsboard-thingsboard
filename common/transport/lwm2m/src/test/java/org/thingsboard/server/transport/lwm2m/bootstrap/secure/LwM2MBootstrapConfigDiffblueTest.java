@@ -6,18 +6,19 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.leshan.server.bootstrap.BootstrapConfig;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.device.credentials.lwm2m.LwM2MBootstrapClientCredential;
 import org.thingsboard.server.common.data.device.profile.lwm2m.bootstrap.LwM2MBootstrapServerCredential;
 
 class LwM2MBootstrapConfigDiffblueTest {
   /**
-   * Test {@link LwM2MBootstrapConfig#equals(Object)}, and
-   * {@link LwM2MBootstrapConfig#hashCode()}.
+   * Test {@link LwM2MBootstrapConfig#equals(Object)}, and {@link LwM2MBootstrapConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -31,6 +32,8 @@ class LwM2MBootstrapConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MBootstrapConfig.equals(Object)", "int LwM2MBootstrapConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     LwM2MBootstrapConfig lwM2MBootstrapConfig = new LwM2MBootstrapConfig();
@@ -43,8 +46,7 @@ class LwM2MBootstrapConfigDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2MBootstrapConfig#equals(Object)}, and
-   * {@link LwM2MBootstrapConfig#hashCode()}.
+   * Test {@link LwM2MBootstrapConfig#equals(Object)}, and {@link LwM2MBootstrapConfig#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -58,6 +60,8 @@ class LwM2MBootstrapConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MBootstrapConfig.equals(Object)", "int LwM2MBootstrapConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     LwM2MBootstrapConfig lwM2MBootstrapConfig = new LwM2MBootstrapConfig();
@@ -79,6 +83,8 @@ class LwM2MBootstrapConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MBootstrapConfig.equals(Object)", "int LwM2MBootstrapConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     LwM2MBootstrapConfig lwM2MBootstrapConfig = new LwM2MBootstrapConfig(new ArrayList<>(),
@@ -99,6 +105,8 @@ class LwM2MBootstrapConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MBootstrapConfig.equals(Object)", "int LwM2MBootstrapConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     LwM2MBootstrapConfig lwM2MBootstrapConfig = new LwM2MBootstrapConfig();
@@ -119,6 +127,8 @@ class LwM2MBootstrapConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MBootstrapConfig.equals(Object)", "int LwM2MBootstrapConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     LwM2MBootstrapConfig lwM2MBootstrapConfig = new LwM2MBootstrapConfig();
@@ -139,6 +149,8 @@ class LwM2MBootstrapConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MBootstrapConfig.equals(Object)", "int LwM2MBootstrapConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     LwM2MBootstrapConfig lwM2MBootstrapConfig = new LwM2MBootstrapConfig();
@@ -159,6 +171,8 @@ class LwM2MBootstrapConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MBootstrapConfig.equals(Object)", "int LwM2MBootstrapConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     LwM2MBootstrapConfig lwM2MBootstrapConfig = new LwM2MBootstrapConfig(new ArrayList<>(),
@@ -180,6 +194,8 @@ class LwM2MBootstrapConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MBootstrapConfig.equals(Object)", "int LwM2MBootstrapConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     LwM2MBootstrapConfig lwM2MBootstrapConfig = new LwM2MBootstrapConfig();
@@ -202,6 +218,8 @@ class LwM2MBootstrapConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MBootstrapConfig.equals(Object)", "int LwM2MBootstrapConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     LwM2MBootstrapConfig lwM2MBootstrapConfig = new LwM2MBootstrapConfig();
@@ -224,6 +242,8 @@ class LwM2MBootstrapConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MBootstrapConfig.equals(Object)", "int LwM2MBootstrapConfig.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new LwM2MBootstrapConfig(), null);
@@ -240,6 +260,8 @@ class LwM2MBootstrapConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MBootstrapConfig.equals(Object)", "int LwM2MBootstrapConfig.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new LwM2MBootstrapConfig(), "Different type to LwM2MBootstrapConfig");
@@ -251,10 +273,8 @@ class LwM2MBootstrapConfigDiffblueTest {
    * Methods under test:
    * <ul>
    *   <li>{@link LwM2MBootstrapConfig#LwM2MBootstrapConfig()}
-   *   <li>
-   * {@link LwM2MBootstrapConfig#setBootstrapServer(LwM2MBootstrapClientCredential)}
-   *   <li>
-   * {@link LwM2MBootstrapConfig#setLwm2mServer(LwM2MBootstrapClientCredential)}
+   *   <li>{@link LwM2MBootstrapConfig#setBootstrapServer(LwM2MBootstrapClientCredential)}
+   *   <li>{@link LwM2MBootstrapConfig#setLwm2mServer(LwM2MBootstrapClientCredential)}
    *   <li>{@link LwM2MBootstrapConfig#setServerConfiguration(List)}
    *   <li>{@link LwM2MBootstrapConfig#toString()}
    *   <li>{@link LwM2MBootstrapConfig#getBootstrapServer()}
@@ -264,6 +284,15 @@ class LwM2MBootstrapConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MBootstrapConfig.<init>()",
+      "void LwM2MBootstrapConfig.<init>(List, LwM2MBootstrapClientCredential, LwM2MBootstrapClientCredential)",
+      "LwM2MBootstrapClientCredential LwM2MBootstrapConfig.getBootstrapServer()",
+      "LwM2MBootstrapClientCredential LwM2MBootstrapConfig.getLwm2mServer()",
+      "List LwM2MBootstrapConfig.getServerConfiguration()",
+      "void LwM2MBootstrapConfig.setBootstrapServer(LwM2MBootstrapClientCredential)",
+      "void LwM2MBootstrapConfig.setLwm2mServer(LwM2MBootstrapClientCredential)",
+      "void LwM2MBootstrapConfig.setServerConfiguration(List)", "java.lang.String LwM2MBootstrapConfig.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     LwM2MBootstrapConfig actualLwM2MBootstrapConfig = new LwM2MBootstrapConfig();
@@ -279,7 +308,7 @@ class LwM2MBootstrapConfigDiffblueTest {
     List<LwM2MBootstrapServerCredential> actualServerConfiguration = actualLwM2MBootstrapConfig
         .getServerConfiguration();
 
-    // Assert that nothing has changed
+    // Assert
     assertTrue(actualServerConfiguration.isEmpty());
     BootstrapConfig lwM2MBootstrapConfig = actualLwM2MBootstrapConfig.getLwM2MBootstrapConfig();
     assertTrue(lwM2MBootstrapConfig.toDelete.isEmpty());
@@ -300,12 +329,9 @@ class LwM2MBootstrapConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link LwM2MBootstrapConfig#LwM2MBootstrapConfig(List, LwM2MBootstrapClientCredential, LwM2MBootstrapClientCredential)}
-   *   <li>
-   * {@link LwM2MBootstrapConfig#setBootstrapServer(LwM2MBootstrapClientCredential)}
-   *   <li>
-   * {@link LwM2MBootstrapConfig#setLwm2mServer(LwM2MBootstrapClientCredential)}
+   *   <li>{@link LwM2MBootstrapConfig#LwM2MBootstrapConfig(List, LwM2MBootstrapClientCredential, LwM2MBootstrapClientCredential)}
+   *   <li>{@link LwM2MBootstrapConfig#setBootstrapServer(LwM2MBootstrapClientCredential)}
+   *   <li>{@link LwM2MBootstrapConfig#setLwm2mServer(LwM2MBootstrapClientCredential)}
    *   <li>{@link LwM2MBootstrapConfig#setServerConfiguration(List)}
    *   <li>{@link LwM2MBootstrapConfig#toString()}
    *   <li>{@link LwM2MBootstrapConfig#getBootstrapServer()}
@@ -315,6 +341,15 @@ class LwM2MBootstrapConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MBootstrapConfig.<init>()",
+      "void LwM2MBootstrapConfig.<init>(List, LwM2MBootstrapClientCredential, LwM2MBootstrapClientCredential)",
+      "LwM2MBootstrapClientCredential LwM2MBootstrapConfig.getBootstrapServer()",
+      "LwM2MBootstrapClientCredential LwM2MBootstrapConfig.getLwm2mServer()",
+      "List LwM2MBootstrapConfig.getServerConfiguration()",
+      "void LwM2MBootstrapConfig.setBootstrapServer(LwM2MBootstrapClientCredential)",
+      "void LwM2MBootstrapConfig.setLwm2mServer(LwM2MBootstrapClientCredential)",
+      "void LwM2MBootstrapConfig.setServerConfiguration(List)", "java.lang.String LwM2MBootstrapConfig.toString()"})
   void testGettersAndSetters_whenArrayList() {
     // Arrange and Act
     LwM2MBootstrapConfig actualLwM2MBootstrapConfig = new LwM2MBootstrapConfig(new ArrayList<>(),
@@ -331,7 +366,7 @@ class LwM2MBootstrapConfigDiffblueTest {
     List<LwM2MBootstrapServerCredential> actualServerConfiguration = actualLwM2MBootstrapConfig
         .getServerConfiguration();
 
-    // Assert that nothing has changed
+    // Assert
     assertTrue(actualServerConfiguration.isEmpty());
     BootstrapConfig lwM2MBootstrapConfig = actualLwM2MBootstrapConfig.getLwM2MBootstrapConfig();
     assertTrue(lwM2MBootstrapConfig.toDelete.isEmpty());
@@ -346,29 +381,6 @@ class LwM2MBootstrapConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MBootstrapConfig#getLwM2MBootstrapConfig()}.
-   * <p>
-   * Method under test: {@link LwM2MBootstrapConfig#getLwM2MBootstrapConfig()}
-   */
-  @Test
-  @DisplayName("Test getLwM2MBootstrapConfig()")
-  void testGetLwM2MBootstrapConfig() {
-    // Arrange and Act
-    BootstrapConfig actualLwM2MBootstrapConfig = (new LwM2MBootstrapConfig(new ArrayList<>(),
-        mock(LwM2MBootstrapClientCredential.class), mock(LwM2MBootstrapClientCredential.class)))
-        .getLwM2MBootstrapConfig();
-
-    // Assert
-    assertNull(actualLwM2MBootstrapConfig.contentFormat);
-    assertTrue(actualLwM2MBootstrapConfig.toDelete.isEmpty());
-    assertTrue(actualLwM2MBootstrapConfig.acls.isEmpty());
-    assertTrue(actualLwM2MBootstrapConfig.oscore.isEmpty());
-    assertTrue(actualLwM2MBootstrapConfig.security.isEmpty());
-    assertTrue(actualLwM2MBootstrapConfig.servers.isEmpty());
-    assertTrue(actualLwM2MBootstrapConfig.autoIdForSecurityObject);
-  }
-
-  /**
-   * Test {@link LwM2MBootstrapConfig#getLwM2MBootstrapConfig()}.
    * <ul>
    *   <li>Then return {@link BootstrapConfig#contentFormat} is {@code null}.</li>
    * </ul>
@@ -377,6 +389,8 @@ class LwM2MBootstrapConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getLwM2MBootstrapConfig(); then return contentFormat is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"BootstrapConfig LwM2MBootstrapConfig.getLwM2MBootstrapConfig()"})
   void testGetLwM2MBootstrapConfig_thenReturnContentFormatIsNull() {
     // Arrange
     LwM2MBootstrapConfig lwM2MBootstrapConfig = new LwM2MBootstrapConfig();

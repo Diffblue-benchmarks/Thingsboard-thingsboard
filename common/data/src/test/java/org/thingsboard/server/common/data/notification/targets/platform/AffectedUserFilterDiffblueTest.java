@@ -2,13 +2,14 @@ package org.thingsboard.server.common.data.notification.targets.platform;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class AffectedUserFilterDiffblueTest {
   /**
-   * Test {@link AffectedUserFilter#equals(Object)}, and
-   * {@link AffectedUserFilter#hashCode()}.
+   * Test {@link AffectedUserFilter#equals(Object)}, and {@link AffectedUserFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -22,6 +23,8 @@ class AffectedUserFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AffectedUserFilter.equals(Object)", "int AffectedUserFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AffectedUserFilter affectedUserFilter = new AffectedUserFilter();
@@ -34,8 +37,7 @@ class AffectedUserFilterDiffblueTest {
   }
 
   /**
-   * Test {@link AffectedUserFilter#equals(Object)}, and
-   * {@link AffectedUserFilter#hashCode()}.
+   * Test {@link AffectedUserFilter#equals(Object)}, and {@link AffectedUserFilter#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -49,6 +51,8 @@ class AffectedUserFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AffectedUserFilter.equals(Object)", "int AffectedUserFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AffectedUserFilter affectedUserFilter = new AffectedUserFilter();
@@ -70,6 +74,8 @@ class AffectedUserFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AffectedUserFilter.equals(Object)", "int AffectedUserFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AffectedUserFilter(), 1);
@@ -86,6 +92,8 @@ class AffectedUserFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AffectedUserFilter.equals(Object)", "int AffectedUserFilter.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AffectedUserFilter(), null);
@@ -102,6 +110,8 @@ class AffectedUserFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AffectedUserFilter.equals(Object)", "int AffectedUserFilter.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AffectedUserFilter(), "Different type to AffectedUserFilter");
@@ -119,6 +129,9 @@ class AffectedUserFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AffectedUserFilter.<init>()", "UsersFilterType AffectedUserFilter.getType()",
+      "String AffectedUserFilter.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     AffectedUserFilter actualAffectedUserFilter = new AffectedUserFilter();

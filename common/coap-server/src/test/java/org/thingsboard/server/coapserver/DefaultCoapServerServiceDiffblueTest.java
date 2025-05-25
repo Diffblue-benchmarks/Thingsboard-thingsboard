@@ -1,10 +1,19 @@
 package org.thingsboard.server.coapserver;
 
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+@ExtendWith(MockitoExtension.class)
 class DefaultCoapServerServiceDiffblueTest {
+  @InjectMocks
+  private DefaultCoapServerService defaultCoapServerService;
+
   /**
    * Test {@link DefaultCoapServerService#getDtlsSessionsMap()}.
    * <p>
@@ -12,10 +21,10 @@ class DefaultCoapServerServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test getDtlsSessionsMap()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.util.concurrent.ConcurrentMap DefaultCoapServerService.getDtlsSessionsMap()"})
   void testGetDtlsSessionsMap() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
-    assertNull((new DefaultCoapServerService()).getDtlsSessionsMap());
+    assertNull(defaultCoapServerService.getDtlsSessionsMap());
   }
 }

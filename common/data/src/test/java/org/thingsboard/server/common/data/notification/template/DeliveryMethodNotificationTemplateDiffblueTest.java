@@ -7,9 +7,11 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -17,16 +19,16 @@ class DeliveryMethodNotificationTemplateDiffblueTest {
   /**
    * Test {@link DeliveryMethodNotificationTemplate#canEqual(Object)}.
    * <ul>
-   *   <li>When
-   * {@link EmailDeliveryMethodNotificationTemplate#EmailDeliveryMethodNotificationTemplate()}.</li>
+   *   <li>When {@link EmailDeliveryMethodNotificationTemplate#EmailDeliveryMethodNotificationTemplate()}.</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DeliveryMethodNotificationTemplate#canEqual(Object)}
+   * Method under test: {@link DeliveryMethodNotificationTemplate#canEqual(Object)}
    */
   @Test
   @DisplayName("Test canEqual(Object); when EmailDeliveryMethodNotificationTemplate(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeliveryMethodNotificationTemplate.canEqual(Object)"})
   void testCanEqual_whenEmailDeliveryMethodNotificationTemplate_thenReturnTrue() {
     // Arrange
     EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate = new EmailDeliveryMethodNotificationTemplate();
@@ -42,19 +44,19 @@ class DeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DeliveryMethodNotificationTemplate#canEqual(Object)}
+   * Method under test: {@link DeliveryMethodNotificationTemplate#canEqual(Object)}
    */
   @Test
   @DisplayName("Test canEqual(Object); when 'Other'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeliveryMethodNotificationTemplate.canEqual(Object)"})
   void testCanEqual_whenOther_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse((new EmailDeliveryMethodNotificationTemplate()).canEqual("Other"));
   }
 
   /**
-   * Test {@link DeliveryMethodNotificationTemplate#equals(Object)}, and
-   * {@link DeliveryMethodNotificationTemplate#hashCode()}.
+   * Test {@link DeliveryMethodNotificationTemplate#equals(Object)}, and {@link DeliveryMethodNotificationTemplate#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -64,6 +66,9 @@ class DeliveryMethodNotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeliveryMethodNotificationTemplate.equals(Object)",
+      "int DeliveryMethodNotificationTemplate.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate = new EmailDeliveryMethodNotificationTemplate();
@@ -85,6 +90,9 @@ class DeliveryMethodNotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeliveryMethodNotificationTemplate.equals(Object)",
+      "int DeliveryMethodNotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate = new EmailDeliveryMethodNotificationTemplate();
@@ -104,6 +112,9 @@ class DeliveryMethodNotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeliveryMethodNotificationTemplate.equals(Object)",
+      "int DeliveryMethodNotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate = new EmailDeliveryMethodNotificationTemplate();
@@ -130,6 +141,9 @@ class DeliveryMethodNotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeliveryMethodNotificationTemplate.equals(Object)",
+      "int DeliveryMethodNotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate = new EmailDeliveryMethodNotificationTemplate();
@@ -156,6 +170,9 @@ class DeliveryMethodNotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeliveryMethodNotificationTemplate.equals(Object)",
+      "int DeliveryMethodNotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate = new EmailDeliveryMethodNotificationTemplate();
@@ -183,6 +200,9 @@ class DeliveryMethodNotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeliveryMethodNotificationTemplate.equals(Object)",
+      "int DeliveryMethodNotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate = new EmailDeliveryMethodNotificationTemplate();
@@ -210,6 +230,9 @@ class DeliveryMethodNotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeliveryMethodNotificationTemplate.equals(Object)",
+      "int DeliveryMethodNotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate = new EmailDeliveryMethodNotificationTemplate();
@@ -237,6 +260,9 @@ class DeliveryMethodNotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeliveryMethodNotificationTemplate.equals(Object)",
+      "int DeliveryMethodNotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EmailDeliveryMethodNotificationTemplate(), null);
@@ -253,6 +279,9 @@ class DeliveryMethodNotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeliveryMethodNotificationTemplate.equals(Object)",
+      "int DeliveryMethodNotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EmailDeliveryMethodNotificationTemplate(),
@@ -266,6 +295,8 @@ class DeliveryMethodNotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test getBody()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String DeliveryMethodNotificationTemplate.getBody()"})
   void testGetBody() {
     // Arrange, Act and Assert
     assertNull((new EmailDeliveryMethodNotificationTemplate()).getBody());
@@ -274,8 +305,7 @@ class DeliveryMethodNotificationTemplateDiffblueTest {
   /**
    * Test {@link DeliveryMethodNotificationTemplate#isEnabled()}.
    * <ul>
-   *   <li>Given
-   * {@link EmailDeliveryMethodNotificationTemplate#EmailDeliveryMethodNotificationTemplate()}.</li>
+   *   <li>Given {@link EmailDeliveryMethodNotificationTemplate#EmailDeliveryMethodNotificationTemplate()}.</li>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
@@ -283,6 +313,8 @@ class DeliveryMethodNotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test isEnabled(); given EmailDeliveryMethodNotificationTemplate(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeliveryMethodNotificationTemplate.isEnabled()"})
   void testIsEnabled_givenEmailDeliveryMethodNotificationTemplate_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse((new EmailDeliveryMethodNotificationTemplate()).isEnabled());
@@ -298,6 +330,8 @@ class DeliveryMethodNotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test isEnabled(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeliveryMethodNotificationTemplate.isEnabled()"})
   void testIsEnabled_thenReturnTrue() {
     // Arrange
     EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate = new EmailDeliveryMethodNotificationTemplate();
@@ -314,6 +348,8 @@ class DeliveryMethodNotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test setBody(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DeliveryMethodNotificationTemplate.setBody(String)"})
   void testSetBody() {
     // Arrange
     EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate = new EmailDeliveryMethodNotificationTemplate();
@@ -331,11 +367,12 @@ class DeliveryMethodNotificationTemplateDiffblueTest {
   /**
    * Test {@link DeliveryMethodNotificationTemplate#setEnabled(boolean)}.
    * <p>
-   * Method under test:
-   * {@link DeliveryMethodNotificationTemplate#setEnabled(boolean)}
+   * Method under test: {@link DeliveryMethodNotificationTemplate#setEnabled(boolean)}
    */
   @Test
   @DisplayName("Test setEnabled(boolean)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DeliveryMethodNotificationTemplate.setEnabled(boolean)"})
   void testSetEnabled() {
     // Arrange
     EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate = new EmailDeliveryMethodNotificationTemplate();

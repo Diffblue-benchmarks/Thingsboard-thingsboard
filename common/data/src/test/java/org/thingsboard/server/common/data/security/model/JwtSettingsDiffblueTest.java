@@ -2,7 +2,9 @@ package org.thingsboard.server.common.data.security.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class JwtSettingsDiffblueTest {
@@ -21,6 +23,8 @@ class JwtSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtSettings.equals(Object)", "int JwtSettings.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     JwtSettings jwtSettings = new JwtSettings();
@@ -47,6 +51,8 @@ class JwtSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtSettings.equals(Object)", "int JwtSettings.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     JwtSettings jwtSettings = new JwtSettings(1, 1, "ABC123", "ABC123");
@@ -73,6 +79,8 @@ class JwtSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtSettings.equals(Object)", "int JwtSettings.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     JwtSettings jwtSettings = new JwtSettings();
@@ -94,6 +102,8 @@ class JwtSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtSettings.equals(Object)", "int JwtSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     JwtSettings jwtSettings = new JwtSettings(1, 1, "ABC123", "ABC123");
@@ -113,6 +123,8 @@ class JwtSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtSettings.equals(Object)", "int JwtSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     JwtSettings jwtSettings = new JwtSettings();
@@ -132,6 +144,8 @@ class JwtSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtSettings.equals(Object)", "int JwtSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     JwtSettings jwtSettings = new JwtSettings();
@@ -152,6 +166,8 @@ class JwtSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtSettings.equals(Object)", "int JwtSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     JwtSettings jwtSettings = new JwtSettings();
@@ -172,6 +188,8 @@ class JwtSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtSettings.equals(Object)", "int JwtSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     JwtSettings jwtSettings = new JwtSettings();
@@ -192,6 +210,8 @@ class JwtSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtSettings.equals(Object)", "int JwtSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     JwtSettings jwtSettings = new JwtSettings();
@@ -214,6 +234,8 @@ class JwtSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtSettings.equals(Object)", "int JwtSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     JwtSettings jwtSettings = new JwtSettings();
@@ -236,6 +258,8 @@ class JwtSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtSettings.equals(Object)", "int JwtSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     JwtSettings jwtSettings = new JwtSettings();
@@ -258,6 +282,8 @@ class JwtSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtSettings.equals(Object)", "int JwtSettings.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new JwtSettings(), null);
@@ -274,6 +300,8 @@ class JwtSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtSettings.equals(Object)", "int JwtSettings.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new JwtSettings(), "Different type to JwtSettings");
@@ -298,6 +326,13 @@ class JwtSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void JwtSettings.<init>()", "void JwtSettings.<init>(Integer, Integer, String, String)",
+      "Integer JwtSettings.getRefreshTokenExpTime()", "Integer JwtSettings.getTokenExpirationTime()",
+      "String JwtSettings.getTokenIssuer()", "String JwtSettings.getTokenSigningKey()",
+      "void JwtSettings.setRefreshTokenExpTime(Integer)", "void JwtSettings.setTokenExpirationTime(Integer)",
+      "void JwtSettings.setTokenIssuer(String)", "void JwtSettings.setTokenSigningKey(String)",
+      "String JwtSettings.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     JwtSettings actualJwtSettings = new JwtSettings();
@@ -310,7 +345,7 @@ class JwtSettingsDiffblueTest {
     Integer actualTokenExpirationTime = actualJwtSettings.getTokenExpirationTime();
     String actualTokenIssuer = actualJwtSettings.getTokenIssuer();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("ABC123", actualTokenIssuer);
     assertEquals("ABC123", actualJwtSettings.getTokenSigningKey());
     assertEquals(
@@ -342,6 +377,13 @@ class JwtSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void JwtSettings.<init>()", "void JwtSettings.<init>(Integer, Integer, String, String)",
+      "Integer JwtSettings.getRefreshTokenExpTime()", "Integer JwtSettings.getTokenExpirationTime()",
+      "String JwtSettings.getTokenIssuer()", "String JwtSettings.getTokenSigningKey()",
+      "void JwtSettings.setRefreshTokenExpTime(Integer)", "void JwtSettings.setTokenExpirationTime(Integer)",
+      "void JwtSettings.setTokenIssuer(String)", "void JwtSettings.setTokenSigningKey(String)",
+      "String JwtSettings.toString()"})
   void testGettersAndSetters_whenOne() {
     // Arrange and Act
     JwtSettings actualJwtSettings = new JwtSettings(1, 1, "ABC123", "ABC123");
@@ -354,7 +396,7 @@ class JwtSettingsDiffblueTest {
     Integer actualTokenExpirationTime = actualJwtSettings.getTokenExpirationTime();
     String actualTokenIssuer = actualJwtSettings.getTokenIssuer();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("ABC123", actualTokenIssuer);
     assertEquals("ABC123", actualJwtSettings.getTokenSigningKey());
     assertEquals(

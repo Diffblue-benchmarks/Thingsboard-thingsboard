@@ -5,16 +5,17 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashSet;
 import java.util.Set;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.security.model.mfa.provider.TwoFaProviderType;
 
 class BackupCodeTwoFaAccountConfigDiffblueTest {
   /**
-   * Test {@link BackupCodeTwoFaAccountConfig#equals(Object)}, and
-   * {@link BackupCodeTwoFaAccountConfig#hashCode()}.
+   * Test {@link BackupCodeTwoFaAccountConfig#equals(Object)}, and {@link BackupCodeTwoFaAccountConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -28,6 +29,9 @@ class BackupCodeTwoFaAccountConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BackupCodeTwoFaAccountConfig.equals(Object)",
+      "int BackupCodeTwoFaAccountConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     BackupCodeTwoFaAccountConfig backupCodeTwoFaAccountConfig = new BackupCodeTwoFaAccountConfig();
@@ -47,8 +51,7 @@ class BackupCodeTwoFaAccountConfigDiffblueTest {
   }
 
   /**
-   * Test {@link BackupCodeTwoFaAccountConfig#equals(Object)}, and
-   * {@link BackupCodeTwoFaAccountConfig#hashCode()}.
+   * Test {@link BackupCodeTwoFaAccountConfig#equals(Object)}, and {@link BackupCodeTwoFaAccountConfig#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -62,6 +65,9 @@ class BackupCodeTwoFaAccountConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BackupCodeTwoFaAccountConfig.equals(Object)",
+      "int BackupCodeTwoFaAccountConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     BackupCodeTwoFaAccountConfig backupCodeTwoFaAccountConfig = new BackupCodeTwoFaAccountConfig();
@@ -86,6 +92,9 @@ class BackupCodeTwoFaAccountConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BackupCodeTwoFaAccountConfig.equals(Object)",
+      "int BackupCodeTwoFaAccountConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     HashSet<String> codes = new HashSet<>();
@@ -116,6 +125,9 @@ class BackupCodeTwoFaAccountConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BackupCodeTwoFaAccountConfig.equals(Object)",
+      "int BackupCodeTwoFaAccountConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     BackupCodeTwoFaAccountConfig backupCodeTwoFaAccountConfig = new BackupCodeTwoFaAccountConfig();
@@ -143,6 +155,9 @@ class BackupCodeTwoFaAccountConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BackupCodeTwoFaAccountConfig.equals(Object)",
+      "int BackupCodeTwoFaAccountConfig.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     BackupCodeTwoFaAccountConfig backupCodeTwoFaAccountConfig = new BackupCodeTwoFaAccountConfig();
@@ -165,6 +180,9 @@ class BackupCodeTwoFaAccountConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BackupCodeTwoFaAccountConfig.equals(Object)",
+      "int BackupCodeTwoFaAccountConfig.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     BackupCodeTwoFaAccountConfig backupCodeTwoFaAccountConfig = new BackupCodeTwoFaAccountConfig();
@@ -181,8 +199,7 @@ class BackupCodeTwoFaAccountConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link BackupCodeTwoFaAccountConfig}
+   *   <li>default or parameterless constructor of {@link BackupCodeTwoFaAccountConfig}
    *   <li>{@link BackupCodeTwoFaAccountConfig#setCodes(Set)}
    *   <li>{@link BackupCodeTwoFaAccountConfig#toString()}
    *   <li>{@link BackupCodeTwoFaAccountConfig#getCodes()}
@@ -191,6 +208,10 @@ class BackupCodeTwoFaAccountConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackupCodeTwoFaAccountConfig.<init>()", "Set BackupCodeTwoFaAccountConfig.getCodes()",
+      "TwoFaProviderType BackupCodeTwoFaAccountConfig.getProviderType()",
+      "void BackupCodeTwoFaAccountConfig.setCodes(Set)", "String BackupCodeTwoFaAccountConfig.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     BackupCodeTwoFaAccountConfig actualBackupCodeTwoFaAccountConfig = new BackupCodeTwoFaAccountConfig();
@@ -199,7 +220,7 @@ class BackupCodeTwoFaAccountConfigDiffblueTest {
     String actualToStringResult = actualBackupCodeTwoFaAccountConfig.toString();
     Set<String> actualCodes = actualBackupCodeTwoFaAccountConfig.getCodes();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("BackupCodeTwoFaAccountConfig(codes=[])", actualToStringResult);
     assertEquals(TwoFaProviderType.BACKUP_CODE, actualBackupCodeTwoFaAccountConfig.getProviderType());
     assertFalse(actualBackupCodeTwoFaAccountConfig.isSerializeHiddenFields());

@@ -5,7 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -16,11 +18,12 @@ class BaseTbMsgPushNodeConfigurationDiffblueTest {
    *   <li>Given {@link BaseTbMsgPushNodeConfiguration} (default constructor).</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseTbMsgPushNodeConfiguration#defaultConfiguration()}
+   * Method under test: {@link BaseTbMsgPushNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration(); given BaseTbMsgPushNodeConfiguration (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"BaseTbMsgPushNodeConfiguration BaseTbMsgPushNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration_givenBaseTbMsgPushNodeConfiguration() {
     // Arrange, Act and Assert
     assertEquals("SERVER_SCOPE", (new BaseTbMsgPushNodeConfiguration()).defaultConfiguration().getScope());
@@ -32,11 +35,12 @@ class BaseTbMsgPushNodeConfigurationDiffblueTest {
    *   <li>Then return {@link TbMsgPushToCloudNodeConfiguration}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseTbMsgPushNodeConfiguration#defaultConfiguration()}
+   * Method under test: {@link BaseTbMsgPushNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration(); then return TbMsgPushToCloudNodeConfiguration")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"BaseTbMsgPushNodeConfiguration BaseTbMsgPushNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration_thenReturnTbMsgPushToCloudNodeConfiguration() {
     // Arrange and Act
     TbMsgPushToCloudNodeConfiguration actualDefaultConfigurationResult = (new TbMsgPushToCloudNodeConfiguration())
@@ -48,8 +52,7 @@ class BaseTbMsgPushNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link BaseTbMsgPushNodeConfiguration#equals(Object)}, and
-   * {@link BaseTbMsgPushNodeConfiguration#hashCode()}.
+   * Test {@link BaseTbMsgPushNodeConfiguration#equals(Object)}, and {@link BaseTbMsgPushNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -63,6 +66,9 @@ class BaseTbMsgPushNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BaseTbMsgPushNodeConfiguration.equals(Object)",
+      "int BaseTbMsgPushNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     BaseTbMsgPushNodeConfiguration baseTbMsgPushNodeConfiguration = new BaseTbMsgPushNodeConfiguration();
@@ -75,8 +81,7 @@ class BaseTbMsgPushNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link BaseTbMsgPushNodeConfiguration#equals(Object)}, and
-   * {@link BaseTbMsgPushNodeConfiguration#hashCode()}.
+   * Test {@link BaseTbMsgPushNodeConfiguration#equals(Object)}, and {@link BaseTbMsgPushNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -90,6 +95,9 @@ class BaseTbMsgPushNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BaseTbMsgPushNodeConfiguration.equals(Object)",
+      "int BaseTbMsgPushNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     BaseTbMsgPushNodeConfiguration baseTbMsgPushNodeConfiguration = new BaseTbMsgPushNodeConfiguration();
@@ -105,8 +113,7 @@ class BaseTbMsgPushNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link BaseTbMsgPushNodeConfiguration#equals(Object)}, and
-   * {@link BaseTbMsgPushNodeConfiguration#hashCode()}.
+   * Test {@link BaseTbMsgPushNodeConfiguration#equals(Object)}, and {@link BaseTbMsgPushNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -120,6 +127,9 @@ class BaseTbMsgPushNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BaseTbMsgPushNodeConfiguration.equals(Object)",
+      "int BaseTbMsgPushNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     BaseTbMsgPushNodeConfiguration baseTbMsgPushNodeConfiguration = new BaseTbMsgPushNodeConfiguration();
@@ -141,6 +151,9 @@ class BaseTbMsgPushNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BaseTbMsgPushNodeConfiguration.equals(Object)",
+      "int BaseTbMsgPushNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TbMsgPushToCloudNodeConfiguration tbMsgPushToCloudNodeConfiguration = new TbMsgPushToCloudNodeConfiguration();
@@ -160,6 +173,9 @@ class BaseTbMsgPushNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BaseTbMsgPushNodeConfiguration.equals(Object)",
+      "int BaseTbMsgPushNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     BaseTbMsgPushNodeConfiguration baseTbMsgPushNodeConfiguration = new BaseTbMsgPushNodeConfiguration();
@@ -179,6 +195,9 @@ class BaseTbMsgPushNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BaseTbMsgPushNodeConfiguration.equals(Object)",
+      "int BaseTbMsgPushNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     BaseTbMsgPushNodeConfiguration baseTbMsgPushNodeConfiguration = new BaseTbMsgPushNodeConfiguration();
@@ -201,6 +220,9 @@ class BaseTbMsgPushNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BaseTbMsgPushNodeConfiguration.equals(Object)",
+      "int BaseTbMsgPushNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     BaseTbMsgPushNodeConfiguration baseTbMsgPushNodeConfiguration = new BaseTbMsgPushNodeConfiguration();
@@ -224,6 +246,9 @@ class BaseTbMsgPushNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BaseTbMsgPushNodeConfiguration.equals(Object)",
+      "int BaseTbMsgPushNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new BaseTbMsgPushNodeConfiguration(), null);
@@ -240,6 +265,9 @@ class BaseTbMsgPushNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BaseTbMsgPushNodeConfiguration.equals(Object)",
+      "int BaseTbMsgPushNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new BaseTbMsgPushNodeConfiguration(), "Different type to BaseTbMsgPushNodeConfiguration");
@@ -250,8 +278,7 @@ class BaseTbMsgPushNodeConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link BaseTbMsgPushNodeConfiguration}
+   *   <li>default or parameterless constructor of {@link BaseTbMsgPushNodeConfiguration}
    *   <li>{@link BaseTbMsgPushNodeConfiguration#setScope(String)}
    *   <li>{@link BaseTbMsgPushNodeConfiguration#toString()}
    *   <li>{@link BaseTbMsgPushNodeConfiguration#getScope()}
@@ -259,13 +286,16 @@ class BaseTbMsgPushNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseTbMsgPushNodeConfiguration.<init>()", "String BaseTbMsgPushNodeConfiguration.getScope()",
+      "void BaseTbMsgPushNodeConfiguration.setScope(String)", "String BaseTbMsgPushNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     BaseTbMsgPushNodeConfiguration actualBaseTbMsgPushNodeConfiguration = new BaseTbMsgPushNodeConfiguration();
     actualBaseTbMsgPushNodeConfiguration.setScope("Scope");
     String actualToStringResult = actualBaseTbMsgPushNodeConfiguration.toString();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("BaseTbMsgPushNodeConfiguration(scope=Scope)", actualToStringResult);
     assertEquals("Scope", actualBaseTbMsgPushNodeConfiguration.getScope());
   }

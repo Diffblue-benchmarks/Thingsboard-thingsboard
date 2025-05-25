@@ -2,13 +2,14 @@ package org.thingsboard.script.api.js;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class JsScriptInfoDiffblueTest {
   /**
-   * Test {@link JsScriptInfo#equals(Object)}, and
-   * {@link JsScriptInfo#hashCode()}.
+   * Test {@link JsScriptInfo#equals(Object)}, and {@link JsScriptInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -22,6 +23,8 @@ class JsScriptInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JsScriptInfo.equals(Object)", "int JsScriptInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     JsScriptInfo jsScriptInfo = new JsScriptInfo("Hash", "Function Name");
@@ -34,8 +37,7 @@ class JsScriptInfoDiffblueTest {
   }
 
   /**
-   * Test {@link JsScriptInfo#equals(Object)}, and
-   * {@link JsScriptInfo#hashCode()}.
+   * Test {@link JsScriptInfo#equals(Object)}, and {@link JsScriptInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -49,6 +51,8 @@ class JsScriptInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JsScriptInfo.equals(Object)", "int JsScriptInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     JsScriptInfo jsScriptInfo = new JsScriptInfo(null, "Function Name");
@@ -61,8 +65,7 @@ class JsScriptInfoDiffblueTest {
   }
 
   /**
-   * Test {@link JsScriptInfo#equals(Object)}, and
-   * {@link JsScriptInfo#hashCode()}.
+   * Test {@link JsScriptInfo#equals(Object)}, and {@link JsScriptInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -76,6 +79,8 @@ class JsScriptInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JsScriptInfo.equals(Object)", "int JsScriptInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     JsScriptInfo jsScriptInfo = new JsScriptInfo("Hash", null);
@@ -88,8 +93,7 @@ class JsScriptInfoDiffblueTest {
   }
 
   /**
-   * Test {@link JsScriptInfo#equals(Object)}, and
-   * {@link JsScriptInfo#hashCode()}.
+   * Test {@link JsScriptInfo#equals(Object)}, and {@link JsScriptInfo#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -103,6 +107,8 @@ class JsScriptInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JsScriptInfo.equals(Object)", "int JsScriptInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     JsScriptInfo jsScriptInfo = new JsScriptInfo("Hash", "Function Name");
@@ -124,6 +130,8 @@ class JsScriptInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JsScriptInfo.equals(Object)", "int JsScriptInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     JsScriptInfo jsScriptInfo = new JsScriptInfo("Function Name", "Function Name");
@@ -143,6 +151,8 @@ class JsScriptInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JsScriptInfo.equals(Object)", "int JsScriptInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     JsScriptInfo jsScriptInfo = new JsScriptInfo(null, "Function Name");
@@ -162,6 +172,8 @@ class JsScriptInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JsScriptInfo.equals(Object)", "int JsScriptInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     JsScriptInfo jsScriptInfo = new JsScriptInfo("Hash", "Hash");
@@ -181,6 +193,8 @@ class JsScriptInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JsScriptInfo.equals(Object)", "int JsScriptInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     JsScriptInfo jsScriptInfo = new JsScriptInfo("Hash", null);
@@ -200,6 +214,8 @@ class JsScriptInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JsScriptInfo.equals(Object)", "int JsScriptInfo.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new JsScriptInfo("Hash", "Function Name"), null);
@@ -216,6 +232,8 @@ class JsScriptInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JsScriptInfo.equals(Object)", "int JsScriptInfo.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new JsScriptInfo("Hash", "Function Name"), "Different type to JsScriptInfo");
@@ -234,6 +252,9 @@ class JsScriptInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void JsScriptInfo.<init>(String, String)", "String JsScriptInfo.getFunctionName()",
+      "String JsScriptInfo.getHash()", "String JsScriptInfo.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     JsScriptInfo actualJsScriptInfo = new JsScriptInfo("Hash", "Function Name");

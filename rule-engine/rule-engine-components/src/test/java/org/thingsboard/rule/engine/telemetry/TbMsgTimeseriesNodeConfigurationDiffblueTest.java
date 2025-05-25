@@ -3,18 +3,21 @@ package org.thingsboard.rule.engine.telemetry;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TbMsgTimeseriesNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbMsgTimeseriesNodeConfiguration#defaultConfiguration()}.
    * <p>
-   * Method under test:
-   * {@link TbMsgTimeseriesNodeConfiguration#defaultConfiguration()}
+   * Method under test: {@link TbMsgTimeseriesNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbMsgTimeseriesNodeConfiguration TbMsgTimeseriesNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
     // Arrange
     TbMsgTimeseriesNodeConfiguration tbMsgTimeseriesNodeConfiguration = new TbMsgTimeseriesNodeConfiguration();
@@ -24,8 +27,7 @@ class TbMsgTimeseriesNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgTimeseriesNodeConfiguration#equals(Object)}, and
-   * {@link TbMsgTimeseriesNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgTimeseriesNodeConfiguration#equals(Object)}, and {@link TbMsgTimeseriesNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -39,6 +41,9 @@ class TbMsgTimeseriesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgTimeseriesNodeConfiguration.equals(Object)",
+      "int TbMsgTimeseriesNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbMsgTimeseriesNodeConfiguration tbMsgTimeseriesNodeConfiguration = new TbMsgTimeseriesNodeConfiguration();
@@ -51,8 +56,7 @@ class TbMsgTimeseriesNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgTimeseriesNodeConfiguration#equals(Object)}, and
-   * {@link TbMsgTimeseriesNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgTimeseriesNodeConfiguration#equals(Object)}, and {@link TbMsgTimeseriesNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -66,6 +70,9 @@ class TbMsgTimeseriesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgTimeseriesNodeConfiguration.equals(Object)",
+      "int TbMsgTimeseriesNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbMsgTimeseriesNodeConfiguration tbMsgTimeseriesNodeConfiguration = new TbMsgTimeseriesNodeConfiguration();
@@ -87,6 +94,9 @@ class TbMsgTimeseriesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgTimeseriesNodeConfiguration.equals(Object)",
+      "int TbMsgTimeseriesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMsgTimeseriesNodeConfiguration(), 1);
@@ -103,6 +113,9 @@ class TbMsgTimeseriesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgTimeseriesNodeConfiguration.equals(Object)",
+      "int TbMsgTimeseriesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbMsgTimeseriesNodeConfiguration tbMsgTimeseriesNodeConfiguration = new TbMsgTimeseriesNodeConfiguration();
@@ -123,6 +136,9 @@ class TbMsgTimeseriesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgTimeseriesNodeConfiguration.equals(Object)",
+      "int TbMsgTimeseriesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbMsgTimeseriesNodeConfiguration tbMsgTimeseriesNodeConfiguration = new TbMsgTimeseriesNodeConfiguration();
@@ -143,6 +159,9 @@ class TbMsgTimeseriesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgTimeseriesNodeConfiguration.equals(Object)",
+      "int TbMsgTimeseriesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbMsgTimeseriesNodeConfiguration tbMsgTimeseriesNodeConfiguration = new TbMsgTimeseriesNodeConfiguration();
@@ -163,6 +182,9 @@ class TbMsgTimeseriesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgTimeseriesNodeConfiguration.equals(Object)",
+      "int TbMsgTimeseriesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMsgTimeseriesNodeConfiguration(), null);
@@ -179,6 +201,9 @@ class TbMsgTimeseriesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgTimeseriesNodeConfiguration.equals(Object)",
+      "int TbMsgTimeseriesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMsgTimeseriesNodeConfiguration(), "Different type to TbMsgTimeseriesNodeConfiguration");
@@ -189,11 +214,9 @@ class TbMsgTimeseriesNodeConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link TbMsgTimeseriesNodeConfiguration}
+   *   <li>default or parameterless constructor of {@link TbMsgTimeseriesNodeConfiguration}
    *   <li>{@link TbMsgTimeseriesNodeConfiguration#setDefaultTTL(long)}
-   *   <li>
-   * {@link TbMsgTimeseriesNodeConfiguration#setSkipLatestPersistence(boolean)}
+   *   <li>{@link TbMsgTimeseriesNodeConfiguration#setSkipLatestPersistence(boolean)}
    *   <li>{@link TbMsgTimeseriesNodeConfiguration#setUseServerTs(boolean)}
    *   <li>{@link TbMsgTimeseriesNodeConfiguration#toString()}
    *   <li>{@link TbMsgTimeseriesNodeConfiguration#getDefaultTTL()}
@@ -203,6 +226,15 @@ class TbMsgTimeseriesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbMsgTimeseriesNodeConfiguration.<init>()",
+      "long TbMsgTimeseriesNodeConfiguration.getDefaultTTL()",
+      "boolean TbMsgTimeseriesNodeConfiguration.isSkipLatestPersistence()",
+      "boolean TbMsgTimeseriesNodeConfiguration.isUseServerTs()",
+      "void TbMsgTimeseriesNodeConfiguration.setDefaultTTL(long)",
+      "void TbMsgTimeseriesNodeConfiguration.setSkipLatestPersistence(boolean)",
+      "void TbMsgTimeseriesNodeConfiguration.setUseServerTs(boolean)",
+      "String TbMsgTimeseriesNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbMsgTimeseriesNodeConfiguration actualTbMsgTimeseriesNodeConfiguration = new TbMsgTimeseriesNodeConfiguration();
@@ -213,7 +245,7 @@ class TbMsgTimeseriesNodeConfigurationDiffblueTest {
     long actualDefaultTTL = actualTbMsgTimeseriesNodeConfiguration.getDefaultTTL();
     boolean actualIsSkipLatestPersistenceResult = actualTbMsgTimeseriesNodeConfiguration.isSkipLatestPersistence();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("TbMsgTimeseriesNodeConfiguration(defaultTTL=1, skipLatestPersistence=true, useServerTs=true)",
         actualToStringResult);
     assertEquals(1L, actualDefaultTTL);

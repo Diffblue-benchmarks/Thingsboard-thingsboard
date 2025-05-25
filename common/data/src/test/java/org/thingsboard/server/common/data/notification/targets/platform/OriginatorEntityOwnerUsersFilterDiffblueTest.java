@@ -2,13 +2,14 @@ package org.thingsboard.server.common.data.notification.targets.platform;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class OriginatorEntityOwnerUsersFilterDiffblueTest {
   /**
-   * Test {@link OriginatorEntityOwnerUsersFilter#equals(Object)}, and
-   * {@link OriginatorEntityOwnerUsersFilter#hashCode()}.
+   * Test {@link OriginatorEntityOwnerUsersFilter#equals(Object)}, and {@link OriginatorEntityOwnerUsersFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -22,6 +23,9 @@ class OriginatorEntityOwnerUsersFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OriginatorEntityOwnerUsersFilter.equals(Object)",
+      "int OriginatorEntityOwnerUsersFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     OriginatorEntityOwnerUsersFilter originatorEntityOwnerUsersFilter = new OriginatorEntityOwnerUsersFilter();
@@ -34,8 +38,7 @@ class OriginatorEntityOwnerUsersFilterDiffblueTest {
   }
 
   /**
-   * Test {@link OriginatorEntityOwnerUsersFilter#equals(Object)}, and
-   * {@link OriginatorEntityOwnerUsersFilter#hashCode()}.
+   * Test {@link OriginatorEntityOwnerUsersFilter#equals(Object)}, and {@link OriginatorEntityOwnerUsersFilter#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -49,6 +52,9 @@ class OriginatorEntityOwnerUsersFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OriginatorEntityOwnerUsersFilter.equals(Object)",
+      "int OriginatorEntityOwnerUsersFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     OriginatorEntityOwnerUsersFilter originatorEntityOwnerUsersFilter = new OriginatorEntityOwnerUsersFilter();
@@ -70,6 +76,9 @@ class OriginatorEntityOwnerUsersFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OriginatorEntityOwnerUsersFilter.equals(Object)",
+      "int OriginatorEntityOwnerUsersFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new OriginatorEntityOwnerUsersFilter(), 1);
@@ -86,6 +95,9 @@ class OriginatorEntityOwnerUsersFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OriginatorEntityOwnerUsersFilter.equals(Object)",
+      "int OriginatorEntityOwnerUsersFilter.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new OriginatorEntityOwnerUsersFilter(), null);
@@ -102,6 +114,9 @@ class OriginatorEntityOwnerUsersFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OriginatorEntityOwnerUsersFilter.equals(Object)",
+      "int OriginatorEntityOwnerUsersFilter.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new OriginatorEntityOwnerUsersFilter(), "Different type to OriginatorEntityOwnerUsersFilter");
@@ -112,14 +127,17 @@ class OriginatorEntityOwnerUsersFilterDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link OriginatorEntityOwnerUsersFilter}
+   *   <li>default or parameterless constructor of {@link OriginatorEntityOwnerUsersFilter}
    *   <li>{@link OriginatorEntityOwnerUsersFilter#toString()}
    *   <li>{@link OriginatorEntityOwnerUsersFilter#getType()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void OriginatorEntityOwnerUsersFilter.<init>()",
+      "UsersFilterType OriginatorEntityOwnerUsersFilter.getType()",
+      "String OriginatorEntityOwnerUsersFilter.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     OriginatorEntityOwnerUsersFilter actualOriginatorEntityOwnerUsersFilter = new OriginatorEntityOwnerUsersFilter();

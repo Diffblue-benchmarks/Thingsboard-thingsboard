@@ -3,15 +3,18 @@ package org.thingsboard.server.dao.entity;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertSame;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import java.util.UUID;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.dao.model.ModelConstants;
 
 public class EntityCountCacheEvictEventDiffblueTest {
   /**
-   * Test {@link EntityCountCacheEvictEvent#equals(Object)}, and
-   * {@link EntityCountCacheEvictEvent#hashCode()}.
+   * Test {@link EntityCountCacheEvictEvent#equals(Object)}, and {@link EntityCountCacheEvictEvent#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -24,6 +27,8 @@ public class EntityCountCacheEvictEventDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean EntityCountCacheEvictEvent.equals(Object)", "int EntityCountCacheEvictEvent.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EntityCountCacheEvictEvent entityCountCacheEvictEvent = new EntityCountCacheEvictEvent(ModelConstants.SYSTEM_TENANT,
@@ -38,8 +43,7 @@ public class EntityCountCacheEvictEventDiffblueTest {
   }
 
   /**
-   * Test {@link EntityCountCacheEvictEvent#equals(Object)}, and
-   * {@link EntityCountCacheEvictEvent#hashCode()}.
+   * Test {@link EntityCountCacheEvictEvent#equals(Object)}, and {@link EntityCountCacheEvictEvent#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -52,6 +56,8 @@ public class EntityCountCacheEvictEventDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean EntityCountCacheEvictEvent.equals(Object)", "int EntityCountCacheEvictEvent.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     EntityCountCacheEvictEvent entityCountCacheEvictEvent = new EntityCountCacheEvictEvent(null, EntityType.TENANT);
@@ -64,8 +70,7 @@ public class EntityCountCacheEvictEventDiffblueTest {
   }
 
   /**
-   * Test {@link EntityCountCacheEvictEvent#equals(Object)}, and
-   * {@link EntityCountCacheEvictEvent#hashCode()}.
+   * Test {@link EntityCountCacheEvictEvent#equals(Object)}, and {@link EntityCountCacheEvictEvent#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -78,6 +83,8 @@ public class EntityCountCacheEvictEventDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean EntityCountCacheEvictEvent.equals(Object)", "int EntityCountCacheEvictEvent.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     EntityCountCacheEvictEvent entityCountCacheEvictEvent = new EntityCountCacheEvictEvent(ModelConstants.SYSTEM_TENANT,
@@ -92,8 +99,7 @@ public class EntityCountCacheEvictEventDiffblueTest {
   }
 
   /**
-   * Test {@link EntityCountCacheEvictEvent#equals(Object)}, and
-   * {@link EntityCountCacheEvictEvent#hashCode()}.
+   * Test {@link EntityCountCacheEvictEvent#equals(Object)}, and {@link EntityCountCacheEvictEvent#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -106,6 +112,8 @@ public class EntityCountCacheEvictEventDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean EntityCountCacheEvictEvent.equals(Object)", "int EntityCountCacheEvictEvent.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EntityCountCacheEvictEvent entityCountCacheEvictEvent = new EntityCountCacheEvictEvent(ModelConstants.SYSTEM_TENANT,
@@ -127,7 +135,31 @@ public class EntityCountCacheEvictEventDiffblueTest {
    * Method under test: {@link EntityCountCacheEvictEvent#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean EntityCountCacheEvictEvent.equals(Object)", "int EntityCountCacheEvictEvent.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    EntityCountCacheEvictEvent entityCountCacheEvictEvent = new EntityCountCacheEvictEvent(
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), EntityType.TENANT);
+
+    // Act and Assert
+    assertNotEquals(entityCountCacheEvictEvent,
+        new EntityCountCacheEvictEvent(ModelConstants.SYSTEM_TENANT, EntityType.TENANT));
+  }
+
+  /**
+   * Test {@link EntityCountCacheEvictEvent#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EntityCountCacheEvictEvent#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean EntityCountCacheEvictEvent.equals(Object)", "int EntityCountCacheEvictEvent.hashCode()"})
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EntityCountCacheEvictEvent entityCountCacheEvictEvent = new EntityCountCacheEvictEvent(null, EntityType.TENANT);
 
@@ -146,7 +178,9 @@ public class EntityCountCacheEvictEventDiffblueTest {
    * Method under test: {@link EntityCountCacheEvictEvent#equals(Object)}
    */
   @Test
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean EntityCountCacheEvictEvent.equals(Object)", "int EntityCountCacheEvictEvent.hashCode()"})
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     EntityCountCacheEvictEvent entityCountCacheEvictEvent = new EntityCountCacheEvictEvent(ModelConstants.SYSTEM_TENANT,
         null);
@@ -166,7 +200,9 @@ public class EntityCountCacheEvictEventDiffblueTest {
    * Method under test: {@link EntityCountCacheEvictEvent#equals(Object)}
    */
   @Test
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean EntityCountCacheEvictEvent.equals(Object)", "int EntityCountCacheEvictEvent.hashCode()"})
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     EntityCountCacheEvictEvent entityCountCacheEvictEvent = new EntityCountCacheEvictEvent(ModelConstants.SYSTEM_TENANT,
         EntityType.CUSTOMER);
@@ -179,25 +215,6 @@ public class EntityCountCacheEvictEventDiffblueTest {
   /**
    * Test {@link EntityCountCacheEvictEvent#equals(Object)}.
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link EntityCountCacheEvictEvent#equals(Object)}
-   */
-  @Test
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
-    // Arrange
-    EntityCountCacheEvictEvent entityCountCacheEvictEvent = new EntityCountCacheEvictEvent(ModelConstants.SYSTEM_TENANT,
-        EntityType.TENANT);
-
-    // Act and Assert
-    assertNotEquals(entityCountCacheEvictEvent, new EntityCountCacheEvictEvent(null, EntityType.TENANT));
-  }
-
-  /**
-   * Test {@link EntityCountCacheEvictEvent#equals(Object)}.
-   * <ul>
    *   <li>When other is {@code null}.</li>
    *   <li>Then return not equal.</li>
    * </ul>
@@ -205,6 +222,8 @@ public class EntityCountCacheEvictEventDiffblueTest {
    * Method under test: {@link EntityCountCacheEvictEvent#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean EntityCountCacheEvictEvent.equals(Object)", "int EntityCountCacheEvictEvent.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EntityCountCacheEvictEvent(ModelConstants.SYSTEM_TENANT, EntityType.TENANT), null);
@@ -220,6 +239,8 @@ public class EntityCountCacheEvictEventDiffblueTest {
    * Method under test: {@link EntityCountCacheEvictEvent#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean EntityCountCacheEvictEvent.equals(Object)", "int EntityCountCacheEvictEvent.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EntityCountCacheEvictEvent(ModelConstants.SYSTEM_TENANT, EntityType.TENANT),
@@ -231,14 +252,17 @@ public class EntityCountCacheEvictEventDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link EntityCountCacheEvictEvent#EntityCountCacheEvictEvent(TenantId, EntityType)}
+   *   <li>{@link EntityCountCacheEvictEvent#EntityCountCacheEvictEvent(TenantId, EntityType)}
    *   <li>{@link EntityCountCacheEvictEvent#toString()}
    *   <li>{@link EntityCountCacheEvictEvent#getEntityType()}
    *   <li>{@link EntityCountCacheEvictEvent#getTenantId()}
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void EntityCountCacheEvictEvent.<init>(TenantId, EntityType)",
+      "EntityType EntityCountCacheEvictEvent.getEntityType()", "TenantId EntityCountCacheEvictEvent.getTenantId()",
+      "String EntityCountCacheEvictEvent.toString()"})
   public void testGettersAndSetters() {
     // Arrange and Act
     EntityCountCacheEvictEvent actualEntityCountCacheEvictEvent = new EntityCountCacheEvictEvent(

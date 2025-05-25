@@ -7,7 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.thingsboard.server.common.data.notification.targets.platform.PlatformUsersNotificationTargetConfig;
@@ -17,8 +19,7 @@ class NotificationTargetConfigDiffblueTest {
   /**
    * Test {@link NotificationTargetConfig#canEqual(Object)}.
    * <ul>
-   *   <li>When {@link MicrosoftTeamsNotificationTargetConfig} (default
-   * constructor).</li>
+   *   <li>When {@link MicrosoftTeamsNotificationTargetConfig} (default constructor).</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
@@ -26,6 +27,8 @@ class NotificationTargetConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test canEqual(Object); when MicrosoftTeamsNotificationTargetConfig (default constructor); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTargetConfig.canEqual(Object)"})
   void testCanEqual_whenMicrosoftTeamsNotificationTargetConfig_thenReturnTrue() {
     // Arrange
     MicrosoftTeamsNotificationTargetConfig microsoftTeamsNotificationTargetConfig = new MicrosoftTeamsNotificationTargetConfig();
@@ -45,14 +48,15 @@ class NotificationTargetConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test canEqual(Object); when 'Other'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTargetConfig.canEqual(Object)"})
   void testCanEqual_whenOther_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse((new MicrosoftTeamsNotificationTargetConfig()).canEqual("Other"));
   }
 
   /**
-   * Test {@link NotificationTargetConfig#equals(Object)}, and
-   * {@link NotificationTargetConfig#hashCode()}.
+   * Test {@link NotificationTargetConfig#equals(Object)}, and {@link NotificationTargetConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -62,6 +66,8 @@ class NotificationTargetConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTargetConfig.equals(Object)", "int NotificationTargetConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     MicrosoftTeamsNotificationTargetConfig microsoftTeamsNotificationTargetConfig = new MicrosoftTeamsNotificationTargetConfig();
@@ -74,8 +80,7 @@ class NotificationTargetConfigDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationTargetConfig#equals(Object)}, and
-   * {@link NotificationTargetConfig#hashCode()}.
+   * Test {@link NotificationTargetConfig#equals(Object)}, and {@link NotificationTargetConfig#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -85,6 +90,8 @@ class NotificationTargetConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTargetConfig.equals(Object)", "int NotificationTargetConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     MicrosoftTeamsNotificationTargetConfig microsoftTeamsNotificationTargetConfig = new MicrosoftTeamsNotificationTargetConfig();
@@ -106,6 +113,8 @@ class NotificationTargetConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTargetConfig.equals(Object)", "int NotificationTargetConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     MicrosoftTeamsNotificationTargetConfig microsoftTeamsNotificationTargetConfig = new MicrosoftTeamsNotificationTargetConfig();
@@ -129,6 +138,8 @@ class NotificationTargetConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTargetConfig.equals(Object)", "int NotificationTargetConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     MicrosoftTeamsNotificationTargetConfig microsoftTeamsNotificationTargetConfig = new MicrosoftTeamsNotificationTargetConfig();
@@ -154,6 +165,8 @@ class NotificationTargetConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTargetConfig.equals(Object)", "int NotificationTargetConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     MicrosoftTeamsNotificationTargetConfig microsoftTeamsNotificationTargetConfig = new MicrosoftTeamsNotificationTargetConfig();
@@ -182,6 +195,8 @@ class NotificationTargetConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTargetConfig.equals(Object)", "int NotificationTargetConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     MicrosoftTeamsNotificationTargetConfig microsoftTeamsNotificationTargetConfig = new MicrosoftTeamsNotificationTargetConfig();
@@ -210,6 +225,8 @@ class NotificationTargetConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTargetConfig.equals(Object)", "int NotificationTargetConfig.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MicrosoftTeamsNotificationTargetConfig(), null);
@@ -226,6 +243,8 @@ class NotificationTargetConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTargetConfig.equals(Object)", "int NotificationTargetConfig.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MicrosoftTeamsNotificationTargetConfig(), "Different type to NotificationTargetConfig");
@@ -238,6 +257,8 @@ class NotificationTargetConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getDescription()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String NotificationTargetConfig.getDescription()"})
   void testGetDescription() {
     // Arrange, Act and Assert
     assertNull((new MicrosoftTeamsNotificationTargetConfig()).getDescription());
@@ -250,6 +271,8 @@ class NotificationTargetConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test setDescription(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NotificationTargetConfig.setDescription(String)"})
   void testSetDescription() {
     // Arrange
     MicrosoftTeamsNotificationTargetConfig microsoftTeamsNotificationTargetConfig = new MicrosoftTeamsNotificationTargetConfig();
@@ -269,6 +292,8 @@ class NotificationTargetConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test toString()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String NotificationTargetConfig.toString()"})
   void testToString() {
     // Arrange, Act and Assert
     assertEquals("MicrosoftTeamsNotificationTargetConfig(webhookUrl=null, channelName=null, useOldApi=true)",

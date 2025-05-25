@@ -2,7 +2,9 @@ package org.thingsboard.server.common.data.device.credentials.lwm2m;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class AbstractLwM2MClientCredentialDiffblueTest {
@@ -13,6 +15,8 @@ class AbstractLwM2MClientCredentialDiffblueTest {
    */
   @Test
   @DisplayName("Test getEndpoint()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String AbstractLwM2MClientCredential.getEndpoint()"})
   void testGetEndpoint() {
     // Arrange, Act and Assert
     assertNull((new NoSecClientCredential()).getEndpoint());
@@ -25,6 +29,8 @@ class AbstractLwM2MClientCredentialDiffblueTest {
    */
   @Test
   @DisplayName("Test setEndpoint(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AbstractLwM2MClientCredential.setEndpoint(String)"})
   void testSetEndpoint() {
     // Arrange
     NoSecClientCredential noSecClientCredential = new NoSecClientCredential();

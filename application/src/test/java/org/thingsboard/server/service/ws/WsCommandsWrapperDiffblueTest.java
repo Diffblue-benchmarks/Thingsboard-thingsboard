@@ -4,16 +4,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class WsCommandsWrapperDiffblueTest {
   /**
-   * Test {@link WsCommandsWrapper#equals(Object)}, and
-   * {@link WsCommandsWrapper#hashCode()}.
+   * Test {@link WsCommandsWrapper#equals(Object)}, and {@link WsCommandsWrapper#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -27,6 +27,8 @@ class WsCommandsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WsCommandsWrapper.equals(Object)", "int WsCommandsWrapper.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     WsCommandsWrapper wsCommandsWrapper = new WsCommandsWrapper();
@@ -39,8 +41,7 @@ class WsCommandsWrapperDiffblueTest {
   }
 
   /**
-   * Test {@link WsCommandsWrapper#equals(Object)}, and
-   * {@link WsCommandsWrapper#hashCode()}.
+   * Test {@link WsCommandsWrapper#equals(Object)}, and {@link WsCommandsWrapper#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -54,6 +55,8 @@ class WsCommandsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WsCommandsWrapper.equals(Object)", "int WsCommandsWrapper.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AuthCmd authCmd = new AuthCmd(1, "ABC123");
@@ -70,8 +73,7 @@ class WsCommandsWrapperDiffblueTest {
   }
 
   /**
-   * Test {@link WsCommandsWrapper#equals(Object)}, and
-   * {@link WsCommandsWrapper#hashCode()}.
+   * Test {@link WsCommandsWrapper#equals(Object)}, and {@link WsCommandsWrapper#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -85,6 +87,8 @@ class WsCommandsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WsCommandsWrapper.equals(Object)", "int WsCommandsWrapper.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     WsCommandsWrapper wsCommandsWrapper = new WsCommandsWrapper();
@@ -106,6 +110,8 @@ class WsCommandsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WsCommandsWrapper.equals(Object)", "int WsCommandsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AuthCmd authCmd = new AuthCmd(1, "ABC123");
@@ -127,6 +133,8 @@ class WsCommandsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WsCommandsWrapper.equals(Object)", "int WsCommandsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     WsCommandsWrapper wsCommandsWrapper = new WsCommandsWrapper();
@@ -147,6 +155,8 @@ class WsCommandsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WsCommandsWrapper.equals(Object)", "int WsCommandsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     WsCommandsWrapper wsCommandsWrapper = new WsCommandsWrapper();
@@ -167,27 +177,9 @@ class WsCommandsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WsCommandsWrapper.equals(Object)", "int WsCommandsWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
-    // Arrange
-    AuthCmd authCmd = mock(AuthCmd.class);
-    WsCommandsWrapper wsCommandsWrapper = new WsCommandsWrapper(authCmd, new ArrayList<>());
-
-    // Act and Assert
-    assertNotEquals(wsCommandsWrapper, new WsCommandsWrapper());
-  }
-
-  /**
-   * Test {@link WsCommandsWrapper#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link WsCommandsWrapper#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     WsCommandsWrapper wsCommandsWrapper = new WsCommandsWrapper();
 
@@ -209,6 +201,8 @@ class WsCommandsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WsCommandsWrapper.equals(Object)", "int WsCommandsWrapper.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new WsCommandsWrapper(), null);
@@ -225,6 +219,8 @@ class WsCommandsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WsCommandsWrapper.equals(Object)", "int WsCommandsWrapper.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new WsCommandsWrapper(), "Different type to WsCommandsWrapper");
@@ -245,6 +241,11 @@ class WsCommandsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void WsCommandsWrapper.<init>()", "void WsCommandsWrapper.<init>(AuthCmd, List)",
+      "AuthCmd WsCommandsWrapper.getAuthCmd()", "List WsCommandsWrapper.getCmds()",
+      "void WsCommandsWrapper.setAuthCmd(AuthCmd)", "void WsCommandsWrapper.setCmds(List)",
+      "String WsCommandsWrapper.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     WsCommandsWrapper actualWsCommandsWrapper = new WsCommandsWrapper();
@@ -257,7 +258,7 @@ class WsCommandsWrapperDiffblueTest {
     AuthCmd actualAuthCmd = actualWsCommandsWrapper.getAuthCmd();
     List<WsCmd> actualCmds = actualWsCommandsWrapper.getCmds();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("WsCommandsWrapper(authCmd=AuthCmd(cmdId=1, token=ABC123), cmds=[])", actualToStringResult);
     assertTrue(actualCmds.isEmpty());
     assertSame(cmds, actualCmds);
@@ -267,8 +268,7 @@ class WsCommandsWrapperDiffblueTest {
   /**
    * Test getters and setters.
    * <ul>
-   *   <li>When {@link AuthCmd#AuthCmd(int, String)} with cmdId is one and token is
-   * {@code ABC123}.</li>
+   *   <li>When {@link AuthCmd#AuthCmd(int, String)} with cmdId is one and token is {@code ABC123}.</li>
    * </ul>
    * <p>
    * Methods under test:
@@ -283,6 +283,11 @@ class WsCommandsWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when AuthCmd(int, String) with cmdId is one and token is 'ABC123'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void WsCommandsWrapper.<init>()", "void WsCommandsWrapper.<init>(AuthCmd, List)",
+      "AuthCmd WsCommandsWrapper.getAuthCmd()", "List WsCommandsWrapper.getCmds()",
+      "void WsCommandsWrapper.setAuthCmd(AuthCmd)", "void WsCommandsWrapper.setCmds(List)",
+      "String WsCommandsWrapper.toString()"})
   void testGettersAndSetters_whenAuthCmdWithCmdIdIsOneAndTokenIsAbc123() {
     // Arrange
     AuthCmd authCmd = new AuthCmd(1, "ABC123");
@@ -298,7 +303,7 @@ class WsCommandsWrapperDiffblueTest {
     AuthCmd actualAuthCmd = actualWsCommandsWrapper.getAuthCmd();
     List<WsCmd> actualCmds = actualWsCommandsWrapper.getCmds();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("WsCommandsWrapper(authCmd=AuthCmd(cmdId=1, token=ABC123), cmds=[])", actualToStringResult);
     assertTrue(actualCmds.isEmpty());
     assertSame(cmds, actualCmds);

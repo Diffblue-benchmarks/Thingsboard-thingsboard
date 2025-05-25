@@ -5,10 +5,13 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.function.Consumer;
 import org.eclipse.californium.core.coap.CoAP;
+import org.eclipse.californium.core.coap.CoAP.ResponseCode;
 import org.eclipse.californium.core.coap.Response;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -20,6 +23,8 @@ class TbCoapMessageObserverDiffblueTest {
    */
   @Test
   @DisplayName("Test onAcknowledgement()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbCoapMessageObserver.onAcknowledgement()"})
   void testOnAcknowledgement() {
     // Arrange
     Consumer<Integer> onAcknowledge = mock(Consumer.class);
@@ -28,7 +33,7 @@ class TbCoapMessageObserverDiffblueTest {
     // Act
     (new TbCoapMessageObserver(1, onAcknowledge, mock(Consumer.class))).onAcknowledgement();
 
-    // Assert that nothing has changed
+    // Assert
     verify(onAcknowledge).accept(eq(1));
   }
 
@@ -39,6 +44,8 @@ class TbCoapMessageObserverDiffblueTest {
    */
   @Test
   @DisplayName("Test onTimeout()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbCoapMessageObserver.onTimeout()"})
   void testOnTimeout() {
     // Arrange
     Consumer<Integer> onTimeout = mock(Consumer.class);
@@ -47,7 +54,7 @@ class TbCoapMessageObserverDiffblueTest {
     // Act
     (new TbCoapMessageObserver(1, mock(Consumer.class), onTimeout)).onTimeout();
 
-    // Assert that nothing has changed
+    // Assert
     verify(onTimeout).accept(eq(1));
   }
 
@@ -56,8 +63,7 @@ class TbCoapMessageObserverDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link TbCoapMessageObserver#TbCoapMessageObserver(int, Consumer, Consumer)}
+   *   <li>{@link TbCoapMessageObserver#TbCoapMessageObserver(int, Consumer, Consumer)}
    *   <li>{@link TbCoapMessageObserver#onCancel()}
    *   <li>{@link TbCoapMessageObserver#onConnecting()}
    *   <li>{@link TbCoapMessageObserver#onDtlsRetransmission(int)}
@@ -74,6 +80,16 @@ class TbCoapMessageObserverDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbCoapMessageObserver.<init>(int, Consumer, Consumer)",
+      "boolean TbCoapMessageObserver.isInternal()", "void TbCoapMessageObserver.onCancel()",
+      "void TbCoapMessageObserver.onConnecting()",
+      "void TbCoapMessageObserver.onContextEstablished(org.eclipse.californium.elements.EndpointContext)",
+      "void TbCoapMessageObserver.onDtlsRetransmission(int)", "void TbCoapMessageObserver.onReadyToSend()",
+      "void TbCoapMessageObserver.onReject()", "void TbCoapMessageObserver.onResponse(Response)",
+      "void TbCoapMessageObserver.onResponseHandlingError(Throwable)", "void TbCoapMessageObserver.onRetransmission()",
+      "void TbCoapMessageObserver.onSendError(Throwable)", "void TbCoapMessageObserver.onSent(boolean)",
+      "void TbCoapMessageObserver.onTransferComplete()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbCoapMessageObserver actualTbCoapMessageObserver = new TbCoapMessageObserver(1, mock(Consumer.class),
@@ -83,14 +99,14 @@ class TbCoapMessageObserverDiffblueTest {
     actualTbCoapMessageObserver.onDtlsRetransmission(1);
     actualTbCoapMessageObserver.onReadyToSend();
     actualTbCoapMessageObserver.onReject();
-    actualTbCoapMessageObserver.onResponse(new Response(CoAP.ResponseCode._UNKNOWN_SUCCESS_CODE));
+    actualTbCoapMessageObserver.onResponse(new Response(ResponseCode._UNKNOWN_SUCCESS_CODE));
     actualTbCoapMessageObserver.onResponseHandlingError(new Throwable());
     actualTbCoapMessageObserver.onRetransmission();
     actualTbCoapMessageObserver.onSendError(new Throwable());
     actualTbCoapMessageObserver.onSent(true);
     actualTbCoapMessageObserver.onTransferComplete();
 
-    // Assert that nothing has changed
+    // Assert
     assertFalse(actualTbCoapMessageObserver.isInternal());
   }
 }

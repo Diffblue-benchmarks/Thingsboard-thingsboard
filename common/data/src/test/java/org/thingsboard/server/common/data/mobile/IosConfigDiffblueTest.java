@@ -6,12 +6,23 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.anyBoolean;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.mobile.IosConfig.IosConfigBuilder;
 
+@ContextConfiguration(classes = {IosConfigBuilder.class})
+@ExtendWith(SpringExtension.class)
 class IosConfigDiffblueTest {
+  @Autowired
+  private IosConfigBuilder iosConfigBuilder;
+
   /**
    * Test {@link IosConfig#equals(Object)}, and {@link IosConfig#hashCode()}.
    * <ul>
@@ -27,6 +38,8 @@ class IosConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean IosConfig.equals(Object)", "int IosConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     IosConfig buildResult = IosConfig.builder().appId("42").enabled(true).storeLink("Store Link").build();
@@ -53,6 +66,8 @@ class IosConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean IosConfig.equals(Object)", "int IosConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     IosConfig buildResult = IosConfig.builder().appId("42").enabled(true).storeLink("Store Link").build();
@@ -74,9 +89,11 @@ class IosConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean IosConfig.equals(Object)", "int IosConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    IosConfig.IosConfigBuilder iosConfigBuilder = mock(IosConfig.IosConfigBuilder.class);
+    IosConfigBuilder iosConfigBuilder = mock(IosConfigBuilder.class);
     when(iosConfigBuilder.appId(Mockito.<String>any())).thenReturn(IosConfig.builder());
     IosConfig buildResult = iosConfigBuilder.appId("42").enabled(true).storeLink("Store Link").build();
     IosConfig buildResult2 = IosConfig.builder().appId("42").enabled(true).storeLink("Store Link").build();
@@ -96,11 +113,13 @@ class IosConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean IosConfig.equals(Object)", "int IosConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    IosConfig.IosConfigBuilder iosConfigBuilder = mock(IosConfig.IosConfigBuilder.class);
+    IosConfigBuilder iosConfigBuilder = mock(IosConfigBuilder.class);
     when(iosConfigBuilder.enabled(anyBoolean())).thenReturn(IosConfig.builder());
-    IosConfig.IosConfigBuilder iosConfigBuilder2 = mock(IosConfig.IosConfigBuilder.class);
+    IosConfigBuilder iosConfigBuilder2 = mock(IosConfigBuilder.class);
     when(iosConfigBuilder2.appId(Mockito.<String>any())).thenReturn(iosConfigBuilder);
     IosConfig buildResult = iosConfigBuilder2.appId("42").enabled(true).storeLink("Store Link").build();
     IosConfig buildResult2 = IosConfig.builder().appId("42").enabled(true).storeLink("Store Link").build();
@@ -120,6 +139,8 @@ class IosConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean IosConfig.equals(Object)", "int IosConfig.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     IosConfig buildResult = IosConfig.builder().appId("42").enabled(true).storeLink("Store Link").build();
@@ -139,6 +160,8 @@ class IosConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean IosConfig.equals(Object)", "int IosConfig.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     IosConfig buildResult = IosConfig.builder().appId("42").enabled(true).storeLink("Store Link").build();
@@ -164,6 +187,11 @@ class IosConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void IosConfig.<init>()", "void IosConfig.<init>(boolean, String, String)",
+      "String IosConfig.getAppId()", "String IosConfig.getStoreLink()", "boolean IosConfig.isEnabled()",
+      "void IosConfig.setAppId(String)", "void IosConfig.setEnabled(boolean)", "void IosConfig.setStoreLink(String)",
+      "String IosConfig.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     IosConfig actualIosConfig = new IosConfig();
@@ -174,7 +202,7 @@ class IosConfigDiffblueTest {
     String actualAppId = actualIosConfig.getAppId();
     String actualStoreLink = actualIosConfig.getStoreLink();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("42", actualAppId);
     assertEquals("IosConfig(enabled=true, appId=42, storeLink=Store Link)", actualToStringResult);
     assertEquals("Store Link", actualStoreLink);
@@ -201,6 +229,11 @@ class IosConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void IosConfig.<init>()", "void IosConfig.<init>(boolean, String, String)",
+      "String IosConfig.getAppId()", "String IosConfig.getStoreLink()", "boolean IosConfig.isEnabled()",
+      "void IosConfig.setAppId(String)", "void IosConfig.setEnabled(boolean)", "void IosConfig.setStoreLink(String)",
+      "String IosConfig.toString()"})
   void testGettersAndSetters_whenTrue() {
     // Arrange and Act
     IosConfig actualIosConfig = new IosConfig(true, "42", "Store Link");
@@ -211,7 +244,7 @@ class IosConfigDiffblueTest {
     String actualAppId = actualIosConfig.getAppId();
     String actualStoreLink = actualIosConfig.getStoreLink();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("42", actualAppId);
     assertEquals("IosConfig(enabled=true, appId=42, storeLink=Store Link)", actualToStringResult);
     assertEquals("Store Link", actualStoreLink);
@@ -223,14 +256,18 @@ class IosConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link IosConfig.IosConfigBuilder#build()}
-   *   <li>{@link IosConfig.IosConfigBuilder#appId(String)}
-   *   <li>{@link IosConfig.IosConfigBuilder#enabled(boolean)}
-   *   <li>{@link IosConfig.IosConfigBuilder#storeLink(String)}
+   *   <li>{@link IosConfigBuilder#build()}
+   *   <li>{@link IosConfigBuilder#appId(String)}
+   *   <li>{@link IosConfigBuilder#enabled(boolean)}
+   *   <li>{@link IosConfigBuilder#storeLink(String)}
    * </ul>
    */
   @Test
   @DisplayName("Test IosConfigBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void IosConfigBuilder.<init>()", "IosConfigBuilder IosConfigBuilder.appId(String)",
+      "IosConfig IosConfigBuilder.build()", "IosConfigBuilder IosConfigBuilder.enabled(boolean)",
+      "IosConfigBuilder IosConfigBuilder.storeLink(String)", "String IosConfigBuilder.toString()"})
   void testIosConfigBuilderBuild() {
     // Arrange and Act
     IosConfig actualBuildResult = IosConfig.builder().appId("42").enabled(true).storeLink("Store Link").build();

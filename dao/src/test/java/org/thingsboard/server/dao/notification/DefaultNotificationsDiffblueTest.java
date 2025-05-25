@@ -3,16 +3,14 @@ package org.thingsboard.server.dao.notification;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.ArgumentMatchers.isA;
-import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.BooleanNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.node.TreeTraversingParser;
 import java.util.Iterator;
@@ -20,16 +18,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.aot.DisabledInAotMode;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.thingsboard.server.common.data.id.NotificationTargetId;
 import org.thingsboard.server.common.data.id.NotificationTemplateId;
-import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.notification.NotificationDeliveryMethod;
 import org.thingsboard.server.common.data.notification.NotificationType;
 import org.thingsboard.server.common.data.notification.rule.DefaultNotificationRuleRecipientsConfig;
@@ -39,430 +35,23 @@ import org.thingsboard.server.common.data.notification.rule.NotificationRuleReci
 import org.thingsboard.server.common.data.notification.rule.trigger.config.NotificationRuleTriggerConfig;
 import org.thingsboard.server.common.data.notification.rule.trigger.config.NotificationRuleTriggerType;
 import org.thingsboard.server.common.data.notification.template.DeliveryMethodNotificationTemplate;
-import org.thingsboard.server.common.data.notification.template.NotificationTemplate;
-import org.thingsboard.server.common.data.notification.template.TemplatableValue;
 import org.thingsboard.server.common.data.notification.template.WebDeliveryMethodNotificationTemplate;
-import org.thingsboard.server.dao.model.ModelConstants;
 import org.thingsboard.server.dao.notification.DefaultNotifications.DefaultNotification;
 import org.thingsboard.server.dao.notification.DefaultNotifications.DefaultNotification.DefaultNotificationBuilder;
 import org.thingsboard.server.dao.notification.DefaultNotifications.DefaultRule;
 import org.thingsboard.server.dao.notification.DefaultNotifications.DefaultRule.DefaultRuleBuilder;
 
-@ContextConfiguration(classes = {DefaultNotifications.class})
+@ContextConfiguration(classes = {DefaultRuleBuilder.class, DefaultNotificationBuilder.class})
 @RunWith(SpringJUnit4ClassRunner.class)
-@DisabledInAotMode
 public class DefaultNotificationsDiffblueTest {
   @Autowired
-  private DefaultNotifications defaultNotifications;
+  private DefaultNotificationBuilder defaultNotificationBuilder;
 
-  @MockBean
-  private NotificationRuleService notificationRuleService;
-
-  @MockBean
-  private NotificationTemplateService notificationTemplateService;
+  @Autowired
+  private DefaultRuleBuilder defaultRuleBuilder;
 
   /**
-   * Test
-   * {@link DefaultNotifications#create(TenantId, DefaultNotification, NotificationTargetId[])}.
-   * <p>
-   * Method under test:
-   * {@link DefaultNotifications#create(TenantId, DefaultNotifications.DefaultNotification, NotificationTargetId[])}
-   */
-  @Test
-  public void testCreate() {
-    // Arrange
-    when(notificationTemplateService.saveNotificationTemplate(Mockito.<TenantId>any(),
-        Mockito.<NotificationTemplate>any())).thenReturn(new NotificationTemplate());
-    when(notificationRuleService.saveNotificationRule(Mockito.<TenantId>any(), Mockito.<NotificationRule>any()))
-        .thenReturn(new NotificationRule());
-    NotificationRuleTriggerConfig triggerConfig = mock(NotificationRuleTriggerConfig.class);
-    when(triggerConfig.getTriggerType()).thenReturn(NotificationRuleTriggerType.ENTITY_ACTION);
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
-        .description("The characteristics of someone or something")
-        .enabled(true)
-        .name("Name")
-        .triggerConfig(triggerConfig)
-        .build();
-    DefaultNotifications.DefaultNotification defaultNotification = new DefaultNotifications.DefaultNotification("Name",
-        NotificationType.GENERAL, "Hello from the Dreaming Spires", "Text", "Icon", "Color", "Button", "Link", rule);
-
-    // Act
-    defaultNotifications.create(ModelConstants.SYSTEM_TENANT, defaultNotification,
-        new NotificationTargetId(ModelConstants.NULL_UUID));
-
-    // Assert
-    verify(triggerConfig).getTriggerType();
-    verify(notificationRuleService).saveNotificationRule(isA(TenantId.class), isA(NotificationRule.class));
-    verify(notificationTemplateService).saveNotificationTemplate(isA(TenantId.class), isA(NotificationTemplate.class));
-  }
-
-  /**
-   * Test
-   * {@link DefaultNotifications#create(TenantId, DefaultNotification, NotificationTargetId[])}.
-   * <p>
-   * Method under test:
-   * {@link DefaultNotifications#create(TenantId, DefaultNotifications.DefaultNotification, NotificationTargetId[])}
-   */
-  @Test
-  public void testCreate2() {
-    // Arrange
-    when(notificationTemplateService.saveNotificationTemplate(Mockito.<TenantId>any(),
-        Mockito.<NotificationTemplate>any())).thenReturn(new NotificationTemplate());
-    when(notificationRuleService.saveNotificationRule(Mockito.<TenantId>any(), Mockito.<NotificationRule>any()))
-        .thenReturn(new NotificationRule());
-    NotificationRuleTriggerConfig triggerConfig = mock(NotificationRuleTriggerConfig.class);
-    when(triggerConfig.getTriggerType()).thenReturn(NotificationRuleTriggerType.ENTITY_ACTION);
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
-        .description("The characteristics of someone or something")
-        .enabled(true)
-        .name("Name")
-        .triggerConfig(triggerConfig)
-        .build();
-    DefaultNotifications.DefaultNotification defaultNotification = new DefaultNotifications.DefaultNotification("Name",
-        null, "Hello from the Dreaming Spires", "Text", "Icon", "Color", "Button", "Link", rule);
-
-    // Act
-    defaultNotifications.create(ModelConstants.SYSTEM_TENANT, defaultNotification,
-        new NotificationTargetId(ModelConstants.NULL_UUID));
-
-    // Assert
-    verify(triggerConfig).getTriggerType();
-    verify(notificationRuleService).saveNotificationRule(isA(TenantId.class), isA(NotificationRule.class));
-    verify(notificationTemplateService).saveNotificationTemplate(isA(TenantId.class), isA(NotificationTemplate.class));
-  }
-
-  /**
-   * Test
-   * {@link DefaultNotifications#create(TenantId, DefaultNotification, NotificationTargetId[])}.
-   * <p>
-   * Method under test:
-   * {@link DefaultNotifications#create(TenantId, DefaultNotifications.DefaultNotification, NotificationTargetId[])}
-   */
-  @Test
-  public void testCreate3() {
-    // Arrange
-    when(notificationTemplateService.saveNotificationTemplate(Mockito.<TenantId>any(),
-        Mockito.<NotificationTemplate>any())).thenReturn(new NotificationTemplate());
-    when(notificationRuleService.saveNotificationRule(Mockito.<TenantId>any(), Mockito.<NotificationRule>any()))
-        .thenReturn(new NotificationRule());
-    NotificationRuleTriggerConfig triggerConfig = mock(NotificationRuleTriggerConfig.class);
-    when(triggerConfig.getTriggerType()).thenReturn(NotificationRuleTriggerType.ENTITY_ACTION);
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
-        .description("The characteristics of someone or something")
-        .enabled(true)
-        .name("Name")
-        .triggerConfig(triggerConfig)
-        .build();
-    DefaultNotifications.DefaultNotification defaultNotification = new DefaultNotifications.DefaultNotification("Name",
-        NotificationType.GENERAL, "Hello from the Dreaming Spires", "Text", null, "Color", "Button", "Link", rule);
-
-    // Act
-    defaultNotifications.create(ModelConstants.SYSTEM_TENANT, defaultNotification,
-        new NotificationTargetId(ModelConstants.NULL_UUID));
-
-    // Assert
-    verify(triggerConfig).getTriggerType();
-    verify(notificationRuleService).saveNotificationRule(isA(TenantId.class), isA(NotificationRule.class));
-    verify(notificationTemplateService).saveNotificationTemplate(isA(TenantId.class), isA(NotificationTemplate.class));
-  }
-
-  /**
-   * Test
-   * {@link DefaultNotifications#create(TenantId, DefaultNotification, NotificationTargetId[])}.
-   * <p>
-   * Method under test:
-   * {@link DefaultNotifications#create(TenantId, DefaultNotifications.DefaultNotification, NotificationTargetId[])}
-   */
-  @Test
-  public void testCreate4() {
-    // Arrange
-    when(notificationTemplateService.saveNotificationTemplate(Mockito.<TenantId>any(),
-        Mockito.<NotificationTemplate>any())).thenReturn(new NotificationTemplate());
-    when(notificationRuleService.saveNotificationRule(Mockito.<TenantId>any(), Mockito.<NotificationRule>any()))
-        .thenReturn(new NotificationRule());
-    NotificationRuleTriggerConfig triggerConfig = mock(NotificationRuleTriggerConfig.class);
-    when(triggerConfig.getTriggerType()).thenReturn(NotificationRuleTriggerType.ENTITY_ACTION);
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
-        .description("The characteristics of someone or something")
-        .enabled(true)
-        .name("Name")
-        .triggerConfig(triggerConfig)
-        .build();
-    DefaultNotifications.DefaultNotification defaultNotification = new DefaultNotifications.DefaultNotification("Name",
-        NotificationType.GENERAL, "Hello from the Dreaming Spires", "Text", "Icon", null, "Button", "Link", rule);
-
-    // Act
-    defaultNotifications.create(ModelConstants.SYSTEM_TENANT, defaultNotification,
-        new NotificationTargetId(ModelConstants.NULL_UUID));
-
-    // Assert
-    verify(triggerConfig).getTriggerType();
-    verify(notificationRuleService).saveNotificationRule(isA(TenantId.class), isA(NotificationRule.class));
-    verify(notificationTemplateService).saveNotificationTemplate(isA(TenantId.class), isA(NotificationTemplate.class));
-  }
-
-  /**
-   * Test
-   * {@link DefaultNotifications#create(TenantId, DefaultNotification, NotificationTargetId[])}.
-   * <p>
-   * Method under test:
-   * {@link DefaultNotifications#create(TenantId, DefaultNotifications.DefaultNotification, NotificationTargetId[])}
-   */
-  @Test
-  public void testCreate5() {
-    // Arrange
-    when(notificationTemplateService.saveNotificationTemplate(Mockito.<TenantId>any(),
-        Mockito.<NotificationTemplate>any())).thenReturn(new NotificationTemplate());
-    when(notificationRuleService.saveNotificationRule(Mockito.<TenantId>any(), Mockito.<NotificationRule>any()))
-        .thenReturn(new NotificationRule());
-    NotificationRuleTriggerConfig triggerConfig = mock(NotificationRuleTriggerConfig.class);
-    when(triggerConfig.getTriggerType()).thenReturn(NotificationRuleTriggerType.ENTITY_ACTION);
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
-        .description("The characteristics of someone or something")
-        .enabled(true)
-        .name("Name")
-        .triggerConfig(triggerConfig)
-        .build();
-    DefaultNotifications.DefaultNotification defaultNotification = new DefaultNotifications.DefaultNotification("Name",
-        NotificationType.GENERAL, "Hello from the Dreaming Spires", "Text", "Icon", "Color", null, "Link", rule);
-
-    // Act
-    defaultNotifications.create(ModelConstants.SYSTEM_TENANT, defaultNotification,
-        new NotificationTargetId(ModelConstants.NULL_UUID));
-
-    // Assert
-    verify(triggerConfig).getTriggerType();
-    verify(notificationRuleService).saveNotificationRule(isA(TenantId.class), isA(NotificationRule.class));
-    verify(notificationTemplateService).saveNotificationTemplate(isA(TenantId.class), isA(NotificationTemplate.class));
-  }
-
-  /**
-   * Test
-   * {@link DefaultNotifications#create(TenantId, DefaultNotification, NotificationTargetId[])}.
-   * <p>
-   * Method under test:
-   * {@link DefaultNotifications#create(TenantId, DefaultNotifications.DefaultNotification, NotificationTargetId[])}
-   */
-  @Test
-  public void testCreate6() {
-    // Arrange
-    when(notificationTemplateService.saveNotificationTemplate(Mockito.<TenantId>any(),
-        Mockito.<NotificationTemplate>any())).thenReturn(new NotificationTemplate());
-    when(notificationRuleService.saveNotificationRule(Mockito.<TenantId>any(), Mockito.<NotificationRule>any()))
-        .thenReturn(new NotificationRule());
-    NotificationRuleTriggerConfig triggerConfig = mock(NotificationRuleTriggerConfig.class);
-    when(triggerConfig.getTriggerType()).thenReturn(NotificationRuleTriggerType.ENTITY_ACTION);
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
-        .description("The characteristics of someone or something")
-        .enabled(true)
-        .name("Name")
-        .triggerConfig(triggerConfig)
-        .build();
-    DefaultNotifications.DefaultNotification defaultNotification = new DefaultNotifications.DefaultNotification("Name",
-        NotificationType.GENERAL, "Hello from the Dreaming Spires", "Text", "Icon", "Color", "Button", null, rule);
-
-    // Act
-    defaultNotifications.create(ModelConstants.SYSTEM_TENANT, defaultNotification,
-        new NotificationTargetId(ModelConstants.NULL_UUID));
-
-    // Assert
-    verify(triggerConfig).getTriggerType();
-    verify(notificationRuleService).saveNotificationRule(isA(TenantId.class), isA(NotificationRule.class));
-    verify(notificationTemplateService).saveNotificationTemplate(isA(TenantId.class), isA(NotificationTemplate.class));
-  }
-
-  /**
-   * Test
-   * {@link DefaultNotifications#create(TenantId, DefaultNotification, NotificationTargetId[])}.
-   * <p>
-   * Method under test:
-   * {@link DefaultNotifications#create(TenantId, DefaultNotifications.DefaultNotification, NotificationTargetId[])}
-   */
-  @Test
-  public void testCreate7() {
-    // Arrange
-    when(notificationTemplateService.saveNotificationTemplate(Mockito.<TenantId>any(),
-        Mockito.<NotificationTemplate>any())).thenReturn(new NotificationTemplate());
-    when(notificationRuleService.saveNotificationRule(Mockito.<TenantId>any(), Mockito.<NotificationRule>any()))
-        .thenReturn(new NotificationRule());
-    NotificationRuleTriggerConfig triggerConfig = mock(NotificationRuleTriggerConfig.class);
-    when(triggerConfig.getTriggerType()).thenReturn(NotificationRuleTriggerType.ENTITY_ACTION);
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
-        .description("The characteristics of someone or something")
-        .enabled(false)
-        .name("Name")
-        .triggerConfig(triggerConfig)
-        .build();
-    DefaultNotifications.DefaultNotification defaultNotification = new DefaultNotifications.DefaultNotification("Name",
-        NotificationType.GENERAL, "Hello from the Dreaming Spires", "Text", "Icon", "Color", "Button", "Link", rule);
-
-    // Act
-    defaultNotifications.create(ModelConstants.SYSTEM_TENANT, defaultNotification,
-        new NotificationTargetId(ModelConstants.NULL_UUID));
-
-    // Assert
-    verify(triggerConfig).getTriggerType();
-    verify(notificationRuleService).saveNotificationRule(isA(TenantId.class), isA(NotificationRule.class));
-    verify(notificationTemplateService).saveNotificationTemplate(isA(TenantId.class), isA(NotificationTemplate.class));
-  }
-
-  /**
-   * Test
-   * {@link DefaultNotifications#create(TenantId, DefaultNotification, NotificationTargetId[])}.
-   * <p>
-   * Method under test:
-   * {@link DefaultNotifications#create(TenantId, DefaultNotifications.DefaultNotification, NotificationTargetId[])}
-   */
-  @Test
-  public void testCreate8() {
-    // Arrange
-    when(notificationTemplateService.saveNotificationTemplate(Mockito.<TenantId>any(),
-        Mockito.<NotificationTemplate>any())).thenReturn(new NotificationTemplate());
-    when(notificationRuleService.saveNotificationRule(Mockito.<TenantId>any(), Mockito.<NotificationRule>any()))
-        .thenReturn(new NotificationRule());
-    NotificationRuleTriggerConfig triggerConfig = mock(NotificationRuleTriggerConfig.class);
-    when(triggerConfig.getTriggerType()).thenReturn(NotificationRuleTriggerType.ENTITY_ACTION);
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
-        .description("The characteristics of someone or something")
-        .enabled(null)
-        .name("Name")
-        .triggerConfig(triggerConfig)
-        .build();
-    DefaultNotifications.DefaultNotification defaultNotification = new DefaultNotifications.DefaultNotification("Name",
-        NotificationType.GENERAL, "Hello from the Dreaming Spires", "Text", "Icon", "Color", "Button", "Link", rule);
-
-    // Act
-    defaultNotifications.create(ModelConstants.SYSTEM_TENANT, defaultNotification,
-        new NotificationTargetId(ModelConstants.NULL_UUID));
-
-    // Assert
-    verify(triggerConfig).getTriggerType();
-    verify(notificationRuleService).saveNotificationRule(isA(TenantId.class), isA(NotificationRule.class));
-    verify(notificationTemplateService).saveNotificationTemplate(isA(TenantId.class), isA(NotificationTemplate.class));
-  }
-
-  /**
-   * Test
-   * {@link DefaultNotifications#create(TenantId, DefaultNotification, NotificationTargetId[])}.
-   * <ul>
-   *   <li>Given {@code ALARM}.</li>
-   *   <li>When {@link NotificationRuleTriggerConfig}
-   * {@link NotificationRuleTriggerConfig#getTriggerType()} return
-   * {@code ALARM}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link DefaultNotifications#create(TenantId, DefaultNotifications.DefaultNotification, NotificationTargetId[])}
-   */
-  @Test
-  public void testCreate_givenAlarm_whenNotificationRuleTriggerConfigGetTriggerTypeReturnAlarm() {
-    // Arrange
-    when(notificationTemplateService.saveNotificationTemplate(Mockito.<TenantId>any(),
-        Mockito.<NotificationTemplate>any())).thenReturn(new NotificationTemplate());
-    when(notificationRuleService.saveNotificationRule(Mockito.<TenantId>any(), Mockito.<NotificationRule>any()))
-        .thenReturn(new NotificationRule());
-    NotificationRuleTriggerConfig triggerConfig = mock(NotificationRuleTriggerConfig.class);
-    when(triggerConfig.getTriggerType()).thenReturn(NotificationRuleTriggerType.ALARM);
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
-        .description("The characteristics of someone or something")
-        .enabled(true)
-        .name("Name")
-        .triggerConfig(triggerConfig)
-        .build();
-    DefaultNotifications.DefaultNotification defaultNotification = new DefaultNotifications.DefaultNotification("Name",
-        NotificationType.GENERAL, "Hello from the Dreaming Spires", "Text", "Icon", "Color", "Button", "Link", rule);
-
-    // Act
-    defaultNotifications.create(ModelConstants.SYSTEM_TENANT, defaultNotification,
-        new NotificationTargetId(ModelConstants.NULL_UUID));
-
-    // Assert
-    verify(triggerConfig).getTriggerType();
-    verify(notificationRuleService).saveNotificationRule(isA(TenantId.class), isA(NotificationRule.class));
-    verify(notificationTemplateService).saveNotificationTemplate(isA(TenantId.class), isA(NotificationTemplate.class));
-  }
-
-  /**
-   * Test
-   * {@link DefaultNotifications#create(TenantId, DefaultNotification, NotificationTargetId[])}.
-   * <ul>
-   *   <li>Given {@link NotificationRule#NotificationRule()}.</li>
-   *   <li>Then calls
-   * {@link DefaultNotification#toRule(NotificationTemplateId, NotificationTargetId[])}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link DefaultNotifications#create(TenantId, DefaultNotifications.DefaultNotification, NotificationTargetId[])}
-   */
-  @Test
-  public void testCreate_givenNotificationRule_thenCallsToRule() {
-    // Arrange
-    when(notificationTemplateService.saveNotificationTemplate(Mockito.<TenantId>any(),
-        Mockito.<NotificationTemplate>any())).thenReturn(new NotificationTemplate());
-    when(notificationRuleService.saveNotificationRule(Mockito.<TenantId>any(), Mockito.<NotificationRule>any()))
-        .thenReturn(new NotificationRule());
-    DefaultNotifications.DefaultNotification defaultNotification = mock(DefaultNotifications.DefaultNotification.class);
-    when(defaultNotification.toRule(Mockito.<NotificationTemplateId>any(), isA(NotificationTargetId[].class)))
-        .thenReturn(new NotificationRule());
-    DefaultNotifications.DefaultRule buildResult = DefaultNotifications.DefaultRule.builder()
-        .description("The characteristics of someone or something")
-        .enabled(true)
-        .name("Name")
-        .triggerConfig(mock(NotificationRuleTriggerConfig.class))
-        .build();
-    when(defaultNotification.getRule()).thenReturn(buildResult);
-    when(defaultNotification.toTemplate()).thenReturn(new NotificationTemplate());
-
-    // Act
-    defaultNotifications.create(ModelConstants.SYSTEM_TENANT, defaultNotification,
-        new NotificationTargetId(ModelConstants.NULL_UUID));
-
-    // Assert
-    verify(defaultNotification).getRule();
-    verify(defaultNotification).toRule(isNull(), isA(NotificationTargetId[].class));
-    verify(defaultNotification).toTemplate();
-    verify(notificationRuleService).saveNotificationRule(isA(TenantId.class), isA(NotificationRule.class));
-    verify(notificationTemplateService).saveNotificationTemplate(isA(TenantId.class), isA(NotificationTemplate.class));
-  }
-
-  /**
-   * Test
-   * {@link DefaultNotifications#create(TenantId, DefaultNotification, NotificationTargetId[])}.
-   * <ul>
-   *   <li>Given {@link NotificationTemplate#NotificationTemplate()}.</li>
-   *   <li>Then calls {@link DefaultNotification#getRule()}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link DefaultNotifications#create(TenantId, DefaultNotifications.DefaultNotification, NotificationTargetId[])}
-   */
-  @Test
-  public void testCreate_givenNotificationTemplate_thenCallsGetRule() {
-    // Arrange
-    when(notificationTemplateService.saveNotificationTemplate(Mockito.<TenantId>any(),
-        Mockito.<NotificationTemplate>any())).thenReturn(new NotificationTemplate());
-    DefaultNotifications.DefaultNotification defaultNotification = mock(DefaultNotifications.DefaultNotification.class);
-    DefaultNotifications.DefaultRule buildResult = DefaultNotifications.DefaultRule.builder()
-        .description("The characteristics of someone or something")
-        .enabled(true)
-        .name("Name")
-        .triggerConfig(mock(NotificationRuleTriggerConfig.class))
-        .build();
-    when(defaultNotification.getRule()).thenReturn(buildResult);
-    when(defaultNotification.toTemplate()).thenReturn(new NotificationTemplate());
-
-    // Act
-    defaultNotifications.create(ModelConstants.SYSTEM_TENANT, defaultNotification);
-
-    // Assert
-    verify(defaultNotification).getRule();
-    verify(defaultNotification).toTemplate();
-    verify(notificationTemplateService).saveNotificationTemplate(isA(TenantId.class), isA(NotificationTemplate.class));
-  }
-
-  /**
-   * Test DefaultNotification {@link DefaultNotification#equals(Object)}, and
-   * {@link DefaultNotification#hashCode()}.
+   * Test DefaultNotification {@link DefaultNotification#equals(Object)}, and {@link DefaultNotification#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -470,27 +59,28 @@ public class DefaultNotificationsDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link DefaultNotifications.DefaultNotification#equals(Object)}
-   *   <li>{@link DefaultNotifications.DefaultNotification#hashCode()}
+   *   <li>{@link DefaultNotification#equals(Object)}
+   *   <li>{@link DefaultNotification#hashCode()}
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultNotification.equals(Object)", "int DefaultNotification.hashCode()"})
   public void testDefaultNotificationEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult = DefaultNotifications.DefaultNotification
-        .builder()
+    DefaultNotificationBuilder nameResult = DefaultNotification.builder()
         .button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult = nameResult.rule(rule)
+    DefaultNotification buildResult = nameResult.rule(rule)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
@@ -509,44 +99,43 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#equals(Object)}
+   * Method under test: {@link DefaultNotification#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultNotification.equals(Object)", "int DefaultNotification.hashCode()"})
   public void testDefaultNotificationEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult = DefaultNotifications.DefaultNotification
-        .builder()
+    DefaultNotificationBuilder nameResult = DefaultNotification.builder()
         .button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult = nameResult.rule(rule)
+    DefaultNotification buildResult = nameResult.rule(rule)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
         .build();
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult2 = DefaultNotifications.DefaultNotification
-        .builder()
+    DefaultNotificationBuilder nameResult2 = DefaultNotification.builder()
         .button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult2 = nameResult2.rule(rule2)
+    DefaultNotification buildResult2 = nameResult2.rule(rule2)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
@@ -563,47 +152,44 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#equals(Object)}
+   * Method under test: {@link DefaultNotification#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultNotification.equals(Object)", "int DefaultNotification.hashCode()"})
   public void testDefaultNotificationEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
-    when(defaultNotificationBuilder.button(Mockito.<String>any()))
-        .thenReturn(DefaultNotifications.DefaultNotification.builder());
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult = defaultNotificationBuilder
-        .button("Button")
+    DefaultNotificationBuilder defaultNotificationBuilder = mock(DefaultNotificationBuilder.class);
+    when(defaultNotificationBuilder.button(Mockito.<String>any())).thenReturn(DefaultNotification.builder());
+    DefaultNotificationBuilder nameResult = defaultNotificationBuilder.button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult = nameResult.rule(rule)
+    DefaultNotification buildResult = nameResult.rule(rule)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
         .build();
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult2 = DefaultNotifications.DefaultNotification
-        .builder()
+    DefaultNotificationBuilder nameResult2 = DefaultNotification.builder()
         .button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult2 = nameResult2.rule(rule2)
+    DefaultNotification buildResult2 = nameResult2.rule(rule2)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
@@ -620,50 +206,46 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#equals(Object)}
+   * Method under test: {@link DefaultNotification#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultNotification.equals(Object)", "int DefaultNotification.hashCode()"})
   public void testDefaultNotificationEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
-    when(defaultNotificationBuilder.color(Mockito.<String>any()))
-        .thenReturn(DefaultNotifications.DefaultNotification.builder());
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder2 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder = mock(DefaultNotificationBuilder.class);
+    when(defaultNotificationBuilder.color(Mockito.<String>any())).thenReturn(DefaultNotification.builder());
+    DefaultNotificationBuilder defaultNotificationBuilder2 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder2.button(Mockito.<String>any())).thenReturn(defaultNotificationBuilder);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult = defaultNotificationBuilder2
-        .button("Button")
+    DefaultNotificationBuilder nameResult = defaultNotificationBuilder2.button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult = nameResult.rule(rule)
+    DefaultNotification buildResult = nameResult.rule(rule)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
         .build();
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult2 = DefaultNotifications.DefaultNotification
-        .builder()
+    DefaultNotificationBuilder nameResult2 = DefaultNotification.builder()
         .button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult2 = nameResult2.rule(rule2)
+    DefaultNotification buildResult2 = nameResult2.rule(rule2)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
@@ -680,53 +262,48 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#equals(Object)}
+   * Method under test: {@link DefaultNotification#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultNotification.equals(Object)", "int DefaultNotification.hashCode()"})
   public void testDefaultNotificationEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
-    when(defaultNotificationBuilder.icon(Mockito.<String>any()))
-        .thenReturn(DefaultNotifications.DefaultNotification.builder());
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder2 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder = mock(DefaultNotificationBuilder.class);
+    when(defaultNotificationBuilder.icon(Mockito.<String>any())).thenReturn(DefaultNotification.builder());
+    DefaultNotificationBuilder defaultNotificationBuilder2 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder2.color(Mockito.<String>any())).thenReturn(defaultNotificationBuilder);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder3 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder3 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder3.button(Mockito.<String>any())).thenReturn(defaultNotificationBuilder2);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult = defaultNotificationBuilder3
-        .button("Button")
+    DefaultNotificationBuilder nameResult = defaultNotificationBuilder3.button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult = nameResult.rule(rule)
+    DefaultNotification buildResult = nameResult.rule(rule)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
         .build();
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult2 = DefaultNotifications.DefaultNotification
-        .builder()
+    DefaultNotificationBuilder nameResult2 = DefaultNotification.builder()
         .button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult2 = nameResult2.rule(rule2)
+    DefaultNotification buildResult2 = nameResult2.rule(rule2)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
@@ -743,53 +320,48 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#equals(Object)}
+   * Method under test: {@link DefaultNotification#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultNotification.equals(Object)", "int DefaultNotification.hashCode()"})
   public void testDefaultNotificationEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
-    when(defaultNotificationBuilder.icon(Mockito.<String>any()))
-        .thenReturn(DefaultNotifications.DefaultNotification.builder());
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder2 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder = mock(DefaultNotificationBuilder.class);
+    when(defaultNotificationBuilder.icon(Mockito.<String>any())).thenReturn(DefaultNotification.builder());
+    DefaultNotificationBuilder defaultNotificationBuilder2 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder2.color(Mockito.<String>any())).thenReturn(defaultNotificationBuilder);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder3 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder3 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder3.button(Mockito.<String>any())).thenReturn(defaultNotificationBuilder2);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult = defaultNotificationBuilder3
-        .button("Button")
+    DefaultNotificationBuilder nameResult = defaultNotificationBuilder3.button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Hello from the Dreaming Spires");
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult = nameResult.rule(rule)
+    DefaultNotification buildResult = nameResult.rule(rule)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
         .build();
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult2 = DefaultNotifications.DefaultNotification
-        .builder()
+    DefaultNotificationBuilder nameResult2 = DefaultNotification.builder()
         .button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult2 = nameResult2.rule(rule2)
+    DefaultNotification buildResult2 = nameResult2.rule(rule2)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
@@ -806,53 +378,48 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#equals(Object)}
+   * Method under test: {@link DefaultNotification#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultNotification.equals(Object)", "int DefaultNotification.hashCode()"})
   public void testDefaultNotificationEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
-    when(defaultNotificationBuilder.icon(Mockito.<String>any()))
-        .thenReturn(DefaultNotifications.DefaultNotification.builder());
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder2 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder = mock(DefaultNotificationBuilder.class);
+    when(defaultNotificationBuilder.icon(Mockito.<String>any())).thenReturn(DefaultNotification.builder());
+    DefaultNotificationBuilder defaultNotificationBuilder2 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder2.color(Mockito.<String>any())).thenReturn(defaultNotificationBuilder);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder3 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder3 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder3.button(Mockito.<String>any())).thenReturn(defaultNotificationBuilder2);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult = defaultNotificationBuilder3
-        .button("Button")
+    DefaultNotificationBuilder nameResult = defaultNotificationBuilder3.button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name(null);
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult = nameResult.rule(rule)
+    DefaultNotification buildResult = nameResult.rule(rule)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
         .build();
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult2 = DefaultNotifications.DefaultNotification
-        .builder()
+    DefaultNotificationBuilder nameResult2 = DefaultNotification.builder()
         .button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult2 = nameResult2.rule(rule2)
+    DefaultNotification buildResult2 = nameResult2.rule(rule2)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
@@ -869,53 +436,48 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#equals(Object)}
+   * Method under test: {@link DefaultNotification#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultNotification.equals(Object)", "int DefaultNotification.hashCode()"})
   public void testDefaultNotificationEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
-    when(defaultNotificationBuilder.icon(Mockito.<String>any()))
-        .thenReturn(DefaultNotifications.DefaultNotification.builder());
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder2 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder = mock(DefaultNotificationBuilder.class);
+    when(defaultNotificationBuilder.icon(Mockito.<String>any())).thenReturn(DefaultNotification.builder());
+    DefaultNotificationBuilder defaultNotificationBuilder2 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder2.color(Mockito.<String>any())).thenReturn(defaultNotificationBuilder);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder3 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder3 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder3.button(Mockito.<String>any())).thenReturn(defaultNotificationBuilder2);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult = defaultNotificationBuilder3
-        .button("Button")
+    DefaultNotificationBuilder nameResult = defaultNotificationBuilder3.button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult = nameResult.rule(rule)
+    DefaultNotification buildResult = nameResult.rule(rule)
         .subject("Name")
         .text("Text")
         .type(NotificationType.GENERAL)
         .build();
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult2 = DefaultNotifications.DefaultNotification
-        .builder()
+    DefaultNotificationBuilder nameResult2 = DefaultNotification.builder()
         .button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult2 = nameResult2.rule(rule2)
+    DefaultNotification buildResult2 = nameResult2.rule(rule2)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
@@ -932,53 +494,48 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#equals(Object)}
+   * Method under test: {@link DefaultNotification#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultNotification.equals(Object)", "int DefaultNotification.hashCode()"})
   public void testDefaultNotificationEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
-    when(defaultNotificationBuilder.icon(Mockito.<String>any()))
-        .thenReturn(DefaultNotifications.DefaultNotification.builder());
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder2 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder = mock(DefaultNotificationBuilder.class);
+    when(defaultNotificationBuilder.icon(Mockito.<String>any())).thenReturn(DefaultNotification.builder());
+    DefaultNotificationBuilder defaultNotificationBuilder2 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder2.color(Mockito.<String>any())).thenReturn(defaultNotificationBuilder);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder3 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder3 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder3.button(Mockito.<String>any())).thenReturn(defaultNotificationBuilder2);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult = defaultNotificationBuilder3
-        .button("Button")
+    DefaultNotificationBuilder nameResult = defaultNotificationBuilder3.button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult = nameResult.rule(rule)
+    DefaultNotification buildResult = nameResult.rule(rule)
         .subject(null)
         .text("Text")
         .type(NotificationType.GENERAL)
         .build();
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult2 = DefaultNotifications.DefaultNotification
-        .builder()
+    DefaultNotificationBuilder nameResult2 = DefaultNotification.builder()
         .button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult2 = nameResult2.rule(rule2)
+    DefaultNotification buildResult2 = nameResult2.rule(rule2)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
@@ -995,53 +552,48 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#equals(Object)}
+   * Method under test: {@link DefaultNotification#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultNotification.equals(Object)", "int DefaultNotification.hashCode()"})
   public void testDefaultNotificationEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
-    when(defaultNotificationBuilder.icon(Mockito.<String>any()))
-        .thenReturn(DefaultNotifications.DefaultNotification.builder());
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder2 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder = mock(DefaultNotificationBuilder.class);
+    when(defaultNotificationBuilder.icon(Mockito.<String>any())).thenReturn(DefaultNotification.builder());
+    DefaultNotificationBuilder defaultNotificationBuilder2 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder2.color(Mockito.<String>any())).thenReturn(defaultNotificationBuilder);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder3 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder3 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder3.button(Mockito.<String>any())).thenReturn(defaultNotificationBuilder2);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult = defaultNotificationBuilder3
-        .button("Button")
+    DefaultNotificationBuilder nameResult = defaultNotificationBuilder3.button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult = nameResult.rule(rule)
+    DefaultNotification buildResult = nameResult.rule(rule)
         .subject("Hello from the Dreaming Spires")
         .text("Name")
         .type(NotificationType.GENERAL)
         .build();
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult2 = DefaultNotifications.DefaultNotification
-        .builder()
+    DefaultNotificationBuilder nameResult2 = DefaultNotification.builder()
         .button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult2 = nameResult2.rule(rule2)
+    DefaultNotification buildResult2 = nameResult2.rule(rule2)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
@@ -1058,53 +610,48 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#equals(Object)}
+   * Method under test: {@link DefaultNotification#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultNotification.equals(Object)", "int DefaultNotification.hashCode()"})
   public void testDefaultNotificationEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
-    when(defaultNotificationBuilder.icon(Mockito.<String>any()))
-        .thenReturn(DefaultNotifications.DefaultNotification.builder());
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder2 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder = mock(DefaultNotificationBuilder.class);
+    when(defaultNotificationBuilder.icon(Mockito.<String>any())).thenReturn(DefaultNotification.builder());
+    DefaultNotificationBuilder defaultNotificationBuilder2 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder2.color(Mockito.<String>any())).thenReturn(defaultNotificationBuilder);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder3 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder3 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder3.button(Mockito.<String>any())).thenReturn(defaultNotificationBuilder2);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult = defaultNotificationBuilder3
-        .button("Button")
+    DefaultNotificationBuilder nameResult = defaultNotificationBuilder3.button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult = nameResult.rule(rule)
+    DefaultNotification buildResult = nameResult.rule(rule)
         .subject("Hello from the Dreaming Spires")
         .text(null)
         .type(NotificationType.GENERAL)
         .build();
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult2 = DefaultNotifications.DefaultNotification
-        .builder()
+    DefaultNotificationBuilder nameResult2 = DefaultNotification.builder()
         .button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult2 = nameResult2.rule(rule2)
+    DefaultNotification buildResult2 = nameResult2.rule(rule2)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
@@ -1121,53 +668,48 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#equals(Object)}
+   * Method under test: {@link DefaultNotification#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultNotification.equals(Object)", "int DefaultNotification.hashCode()"})
   public void testDefaultNotificationEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
-    when(defaultNotificationBuilder.icon(Mockito.<String>any()))
-        .thenReturn(DefaultNotifications.DefaultNotification.builder());
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder2 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder = mock(DefaultNotificationBuilder.class);
+    when(defaultNotificationBuilder.icon(Mockito.<String>any())).thenReturn(DefaultNotification.builder());
+    DefaultNotificationBuilder defaultNotificationBuilder2 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder2.color(Mockito.<String>any())).thenReturn(defaultNotificationBuilder);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder3 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder3 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder3.button(Mockito.<String>any())).thenReturn(defaultNotificationBuilder2);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult = defaultNotificationBuilder3
-        .button("Button")
+    DefaultNotificationBuilder nameResult = defaultNotificationBuilder3.button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult = nameResult.rule(rule)
+    DefaultNotification buildResult = nameResult.rule(rule)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(null)
         .build();
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult2 = DefaultNotifications.DefaultNotification
-        .builder()
+    DefaultNotificationBuilder nameResult2 = DefaultNotification.builder()
         .button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult2 = nameResult2.rule(rule2)
+    DefaultNotification buildResult2 = nameResult2.rule(rule2)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
@@ -1184,53 +726,48 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#equals(Object)}
+   * Method under test: {@link DefaultNotification#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultNotification.equals(Object)", "int DefaultNotification.hashCode()"})
   public void testDefaultNotificationEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
-    when(defaultNotificationBuilder.icon(Mockito.<String>any()))
-        .thenReturn(DefaultNotifications.DefaultNotification.builder());
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder2 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder = mock(DefaultNotificationBuilder.class);
+    when(defaultNotificationBuilder.icon(Mockito.<String>any())).thenReturn(DefaultNotification.builder());
+    DefaultNotificationBuilder defaultNotificationBuilder2 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder2.color(Mockito.<String>any())).thenReturn(defaultNotificationBuilder);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder3 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder3 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder3.button(Mockito.<String>any())).thenReturn(defaultNotificationBuilder2);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult = defaultNotificationBuilder3
-        .button("Button")
+    DefaultNotificationBuilder nameResult = defaultNotificationBuilder3.button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult = nameResult.rule(rule)
+    DefaultNotification buildResult = nameResult.rule(rule)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.ALARM)
         .build();
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult2 = DefaultNotifications.DefaultNotification
-        .builder()
+    DefaultNotificationBuilder nameResult2 = DefaultNotification.builder()
         .button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult2 = nameResult2.rule(rule2)
+    DefaultNotification buildResult2 = nameResult2.rule(rule2)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
@@ -1247,53 +784,48 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#equals(Object)}
+   * Method under test: {@link DefaultNotification#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultNotification.equals(Object)", "int DefaultNotification.hashCode()"})
   public void testDefaultNotificationEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
-    when(defaultNotificationBuilder.icon(Mockito.<String>any()))
-        .thenReturn(DefaultNotifications.DefaultNotification.builder());
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder2 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder = mock(DefaultNotificationBuilder.class);
+    when(defaultNotificationBuilder.icon(Mockito.<String>any())).thenReturn(DefaultNotification.builder());
+    DefaultNotificationBuilder defaultNotificationBuilder2 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder2.color(Mockito.<String>any())).thenReturn(defaultNotificationBuilder);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder3 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder3 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder3.button(Mockito.<String>any())).thenReturn(defaultNotificationBuilder2);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult = defaultNotificationBuilder3
-        .button("Button")
+    DefaultNotificationBuilder nameResult = defaultNotificationBuilder3.button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult = nameResult.rule(rule)
+    DefaultNotification buildResult = nameResult.rule(rule)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
         .build();
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult2 = DefaultNotifications.DefaultNotification
-        .builder()
+    DefaultNotificationBuilder nameResult2 = DefaultNotification.builder()
         .button("Button")
         .color("Color")
         .icon(null)
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult2 = nameResult2.rule(rule2)
+    DefaultNotification buildResult2 = nameResult2.rule(rule2)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
@@ -1310,55 +842,50 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#equals(Object)}
+   * Method under test: {@link DefaultNotification#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultNotification.equals(Object)", "int DefaultNotification.hashCode()"})
   public void testDefaultNotificationEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder builderResult = DefaultNotifications.DefaultNotification
-        .builder();
+    DefaultNotificationBuilder builderResult = DefaultNotification.builder();
     builderResult.icon("Name");
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder.icon(Mockito.<String>any())).thenReturn(builderResult);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder2 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder2 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder2.color(Mockito.<String>any())).thenReturn(defaultNotificationBuilder);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder3 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder3 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder3.button(Mockito.<String>any())).thenReturn(defaultNotificationBuilder2);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult = defaultNotificationBuilder3
-        .button("Button")
+    DefaultNotificationBuilder nameResult = defaultNotificationBuilder3.button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult = nameResult.rule(rule)
+    DefaultNotification buildResult = nameResult.rule(rule)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
         .build();
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult2 = DefaultNotifications.DefaultNotification
-        .builder()
+    DefaultNotificationBuilder nameResult2 = DefaultNotification.builder()
         .button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult2 = nameResult2.rule(rule2)
+    DefaultNotification buildResult2 = nameResult2.rule(rule2)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
@@ -1375,53 +902,48 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#equals(Object)}
+   * Method under test: {@link DefaultNotification#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultNotification.equals(Object)", "int DefaultNotification.hashCode()"})
   public void testDefaultNotificationEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
-    when(defaultNotificationBuilder.icon(Mockito.<String>any()))
-        .thenReturn(DefaultNotifications.DefaultNotification.builder());
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder2 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder = mock(DefaultNotificationBuilder.class);
+    when(defaultNotificationBuilder.icon(Mockito.<String>any())).thenReturn(DefaultNotification.builder());
+    DefaultNotificationBuilder defaultNotificationBuilder2 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder2.color(Mockito.<String>any())).thenReturn(defaultNotificationBuilder);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder defaultNotificationBuilder3 = mock(
-        DefaultNotifications.DefaultNotification.DefaultNotificationBuilder.class);
+    DefaultNotificationBuilder defaultNotificationBuilder3 = mock(DefaultNotificationBuilder.class);
     when(defaultNotificationBuilder3.button(Mockito.<String>any())).thenReturn(defaultNotificationBuilder2);
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult = defaultNotificationBuilder3
-        .button("Button")
+    DefaultNotificationBuilder nameResult = defaultNotificationBuilder3.button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name(null);
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult = nameResult.rule(rule)
+    DefaultNotification buildResult = nameResult.rule(rule)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
         .build();
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult2 = DefaultNotifications.DefaultNotification
-        .builder()
+    DefaultNotificationBuilder nameResult2 = DefaultNotification.builder()
         .button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name(null);
-    DefaultNotifications.DefaultRule rule2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult2 = nameResult2.rule(rule2)
+    DefaultNotification buildResult2 = nameResult2.rule(rule2)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
@@ -1438,26 +960,26 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#equals(Object)}
+   * Method under test: {@link DefaultNotification#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultNotification.equals(Object)", "int DefaultNotification.hashCode()"})
   public void testDefaultNotificationEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult = DefaultNotifications.DefaultNotification
-        .builder()
+    DefaultNotificationBuilder nameResult = DefaultNotification.builder()
         .button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult = nameResult.rule(rule)
+    DefaultNotification buildResult = nameResult.rule(rule)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
@@ -1474,26 +996,26 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#equals(Object)}
+   * Method under test: {@link DefaultNotification#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultNotification.equals(Object)", "int DefaultNotification.hashCode()"})
   public void testDefaultNotificationEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult = DefaultNotifications.DefaultNotification
-        .builder()
+    DefaultNotificationBuilder nameResult = DefaultNotification.builder()
         .button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultNotification buildResult = nameResult.rule(rule)
+    DefaultNotification buildResult = nameResult.rule(rule)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
@@ -1508,25 +1030,33 @@ public class DefaultNotificationsDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link DefaultNotifications.DefaultNotification#DefaultNotification(String, NotificationType, String, String, String, String, String, String, DefaultNotifications.DefaultRule)}
-   *   <li>{@link DefaultNotifications.DefaultNotification#toString()}
-   *   <li>{@link DefaultNotifications.DefaultNotification#getButton()}
-   *   <li>{@link DefaultNotifications.DefaultNotification#getColor()}
-   *   <li>{@link DefaultNotifications.DefaultNotification#getIcon()}
-   *   <li>{@link DefaultNotifications.DefaultNotification#getLink()}
-   *   <li>{@link DefaultNotifications.DefaultNotification#getName()}
-   *   <li>{@link DefaultNotifications.DefaultNotification#getRule()}
-   *   <li>{@link DefaultNotifications.DefaultNotification#getSubject()}
-   *   <li>{@link DefaultNotifications.DefaultNotification#getText()}
-   *   <li>{@link DefaultNotifications.DefaultNotification#getType()}
-   *   <li>{@link DefaultNotifications.DefaultNotification#toBuilder()}
+   *   <li>{@link DefaultNotification#DefaultNotification(String, NotificationType, String, String, String, String, String, String, DefaultRule)}
+   *   <li>{@link DefaultNotification#toString()}
+   *   <li>{@link DefaultNotification#getButton()}
+   *   <li>{@link DefaultNotification#getColor()}
+   *   <li>{@link DefaultNotification#getIcon()}
+   *   <li>{@link DefaultNotification#getLink()}
+   *   <li>{@link DefaultNotification#getName()}
+   *   <li>{@link DefaultNotification#getRule()}
+   *   <li>{@link DefaultNotification#getSubject()}
+   *   <li>{@link DefaultNotification#getText()}
+   *   <li>{@link DefaultNotification#getType()}
+   *   <li>{@link DefaultNotification#toBuilder()}
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+      "void DefaultNotification.<init>(String, NotificationType, String, String, String, String, String, String, DefaultRule)",
+      "String DefaultNotification.getButton()", "String DefaultNotification.getColor()",
+      "String DefaultNotification.getIcon()", "String DefaultNotification.getLink()",
+      "String DefaultNotification.getName()", "DefaultRule DefaultNotification.getRule()",
+      "String DefaultNotification.getSubject()", "String DefaultNotification.getText()",
+      "NotificationType DefaultNotification.getType()", "DefaultNotificationBuilder DefaultNotification.toBuilder()",
+      "String DefaultNotification.toString()"})
   public void testDefaultNotificationGettersAndSetters() {
     // Arrange
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
@@ -1534,16 +1064,15 @@ public class DefaultNotificationsDiffblueTest {
         .build();
 
     // Act
-    DefaultNotifications.DefaultNotification actualDefaultNotification = new DefaultNotifications.DefaultNotification(
-        "Name", NotificationType.GENERAL, "Hello from the Dreaming Spires", "Text", "Icon", "Color", "Button", "Link",
-        rule);
+    DefaultNotification actualDefaultNotification = new DefaultNotification("Name", NotificationType.GENERAL,
+        "Hello from the Dreaming Spires", "Text", "Icon", "Color", "Button", "Link", rule);
     actualDefaultNotification.toString();
     String actualButton = actualDefaultNotification.getButton();
     String actualColor = actualDefaultNotification.getColor();
     String actualIcon = actualDefaultNotification.getIcon();
     String actualLink = actualDefaultNotification.getLink();
     String actualName = actualDefaultNotification.getName();
-    DefaultNotifications.DefaultRule actualRule = actualDefaultNotification.getRule();
+    DefaultRule actualRule = actualDefaultNotification.getRule();
     String actualSubject = actualDefaultNotification.getSubject();
     String actualText = actualDefaultNotification.getText();
     NotificationType actualType = actualDefaultNotification.getType();
@@ -1562,30 +1091,31 @@ public class DefaultNotificationsDiffblueTest {
   }
 
   /**
-   * Test DefaultNotification
-   * {@link DefaultNotification#toRule(NotificationTemplateId, NotificationTargetId[])}.
+   * Test DefaultNotification {@link DefaultNotification#toRule(NotificationTemplateId, NotificationTargetId[])}.
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#toRule(NotificationTemplateId, NotificationTargetId[])}
+   * Method under test: {@link DefaultNotification#toRule(NotificationTemplateId, NotificationTargetId[])}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"NotificationRule DefaultNotification.toRule(NotificationTemplateId, NotificationTargetId[])"})
   public void testDefaultNotificationToRule() {
     // Arrange
     NotificationRuleTriggerConfig triggerConfig = mock(NotificationRuleTriggerConfig.class);
     when(triggerConfig.getTriggerType()).thenReturn(NotificationRuleTriggerType.ENTITY_ACTION);
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(null)
         .name("Name")
         .triggerConfig(triggerConfig)
         .build();
-    DefaultNotifications.DefaultNotification defaultNotification = new DefaultNotifications.DefaultNotification("Name",
-        NotificationType.GENERAL, "Hello from the Dreaming Spires", "Text", "Icon", "Color", "Button", "Link", rule);
-    NotificationTemplateId templateId = new NotificationTemplateId(ModelConstants.NULL_UUID);
+    DefaultNotification defaultNotification = new DefaultNotification("Name", NotificationType.GENERAL,
+        "Hello from the Dreaming Spires", "Text", "Icon", "Color", "Button", "Link", rule);
+    NotificationTemplateId templateId = new NotificationTemplateId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    NotificationRule actualToRuleResult = defaultNotification.toRule(templateId,
-        new NotificationTargetId(ModelConstants.NULL_UUID));
+    NotificationRule actualToRuleResult = defaultNotification.toRule(templateId, new NotificationTargetId(id));
 
     // Assert
     verify(triggerConfig).getTriggerType();
@@ -1593,39 +1123,43 @@ public class DefaultNotificationsDiffblueTest {
     assertTrue(recipientsConfig instanceof DefaultNotificationRuleRecipientsConfig);
     List<UUID> targets = ((DefaultNotificationRuleRecipientsConfig) recipientsConfig).getTargets();
     assertEquals(1, targets.size());
+    UUID getResult = targets.get(0);
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", getResult.toString());
     Map<Integer, List<UUID>> targetsTable = recipientsConfig.getTargetsTable();
     assertEquals(1, targetsTable.size());
     assertEquals(NotificationRuleTriggerType.ENTITY_ACTION, actualToRuleResult.getTriggerType());
     assertEquals(NotificationRuleTriggerType.ENTITY_ACTION, recipientsConfig.getTriggerType());
     assertTrue(actualToRuleResult.isEnabled());
     assertSame(targets, targetsTable.get(0));
+    assertSame(id, getResult);
   }
 
   /**
-   * Test DefaultNotification
-   * {@link DefaultNotification#toRule(NotificationTemplateId, NotificationTargetId[])}.
+   * Test DefaultNotification {@link DefaultNotification#toRule(NotificationTemplateId, NotificationTargetId[])}.
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#toRule(NotificationTemplateId, NotificationTargetId[])}
+   * Method under test: {@link DefaultNotification#toRule(NotificationTemplateId, NotificationTargetId[])}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"NotificationRule DefaultNotification.toRule(NotificationTemplateId, NotificationTargetId[])"})
   public void testDefaultNotificationToRule2() {
     // Arrange
     NotificationRuleTriggerConfig triggerConfig = mock(NotificationRuleTriggerConfig.class);
     when(triggerConfig.getTriggerType()).thenReturn(NotificationRuleTriggerType.ALARM);
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(triggerConfig)
         .build();
-    DefaultNotifications.DefaultNotification defaultNotification = new DefaultNotifications.DefaultNotification("Name",
-        NotificationType.GENERAL, "Hello from the Dreaming Spires", "Text", "Icon", "Color", "Button", "Link", rule);
-    NotificationTemplateId templateId = new NotificationTemplateId(ModelConstants.NULL_UUID);
+    DefaultNotification defaultNotification = new DefaultNotification("Name", NotificationType.GENERAL,
+        "Hello from the Dreaming Spires", "Text", "Icon", "Color", "Button", "Link", rule);
+    NotificationTemplateId templateId = new NotificationTemplateId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    NotificationRule actualToRuleResult = defaultNotification.toRule(templateId,
-        new NotificationTargetId(ModelConstants.NULL_UUID));
+    NotificationRule actualToRuleResult = defaultNotification.toRule(templateId, new NotificationTargetId(id));
 
     // Assert
     verify(triggerConfig).getTriggerType();
@@ -1634,40 +1168,45 @@ public class DefaultNotificationsDiffblueTest {
     Map<Integer, List<UUID>> escalationTable = ((EscalatedNotificationRuleRecipientsConfig) recipientsConfig)
         .getEscalationTable();
     assertEquals(1, escalationTable.size());
-    assertEquals(1, escalationTable.get(0).size());
+    List<UUID> getResult = escalationTable.get(0);
+    assertEquals(1, getResult.size());
+    UUID getResult2 = getResult.get(0);
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", getResult2.toString());
     assertEquals(NotificationRuleTriggerType.ALARM, actualToRuleResult.getTriggerType());
     assertEquals(NotificationRuleTriggerType.ALARM, recipientsConfig.getTriggerType());
     assertSame(escalationTable, recipientsConfig.getTargetsTable());
+    assertSame(id, getResult2);
   }
 
   /**
-   * Test DefaultNotification
-   * {@link DefaultNotification#toRule(NotificationTemplateId, NotificationTargetId[])}.
+   * Test DefaultNotification {@link DefaultNotification#toRule(NotificationTemplateId, NotificationTargetId[])}.
    * <ul>
    *   <li>Then return Enabled.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#toRule(NotificationTemplateId, NotificationTargetId[])}
+   * Method under test: {@link DefaultNotification#toRule(NotificationTemplateId, NotificationTargetId[])}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"NotificationRule DefaultNotification.toRule(NotificationTemplateId, NotificationTargetId[])"})
   public void testDefaultNotificationToRule_thenReturnEnabled() {
     // Arrange
     NotificationRuleTriggerConfig triggerConfig = mock(NotificationRuleTriggerConfig.class);
     when(triggerConfig.getTriggerType()).thenReturn(NotificationRuleTriggerType.ENTITY_ACTION);
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(triggerConfig)
         .build();
-    DefaultNotifications.DefaultNotification defaultNotification = new DefaultNotifications.DefaultNotification("Name",
-        NotificationType.GENERAL, "Hello from the Dreaming Spires", "Text", "Icon", "Color", "Button", "Link", rule);
-    NotificationTemplateId templateId = new NotificationTemplateId(ModelConstants.NULL_UUID);
+    DefaultNotification defaultNotification = new DefaultNotification("Name", NotificationType.GENERAL,
+        "Hello from the Dreaming Spires", "Text", "Icon", "Color", "Button", "Link", rule);
+    NotificationTemplateId templateId = new NotificationTemplateId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    NotificationRule actualToRuleResult = defaultNotification.toRule(templateId,
-        new NotificationTargetId(ModelConstants.NULL_UUID));
+    NotificationRule actualToRuleResult = defaultNotification.toRule(templateId, new NotificationTargetId(id));
 
     // Assert
     verify(triggerConfig).getTriggerType();
@@ -1675,42 +1214,46 @@ public class DefaultNotificationsDiffblueTest {
     assertTrue(recipientsConfig instanceof DefaultNotificationRuleRecipientsConfig);
     List<UUID> targets = ((DefaultNotificationRuleRecipientsConfig) recipientsConfig).getTargets();
     assertEquals(1, targets.size());
+    UUID getResult = targets.get(0);
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", getResult.toString());
     Map<Integer, List<UUID>> targetsTable = recipientsConfig.getTargetsTable();
     assertEquals(1, targetsTable.size());
     assertEquals(NotificationRuleTriggerType.ENTITY_ACTION, actualToRuleResult.getTriggerType());
     assertEquals(NotificationRuleTriggerType.ENTITY_ACTION, recipientsConfig.getTriggerType());
     assertTrue(actualToRuleResult.isEnabled());
     assertSame(targets, targetsTable.get(0));
+    assertSame(id, getResult);
   }
 
   /**
-   * Test DefaultNotification
-   * {@link DefaultNotification#toRule(NotificationTemplateId, NotificationTargetId[])}.
+   * Test DefaultNotification {@link DefaultNotification#toRule(NotificationTemplateId, NotificationTargetId[])}.
    * <ul>
    *   <li>Then return not Enabled.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#toRule(NotificationTemplateId, NotificationTargetId[])}
+   * Method under test: {@link DefaultNotification#toRule(NotificationTemplateId, NotificationTargetId[])}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"NotificationRule DefaultNotification.toRule(NotificationTemplateId, NotificationTargetId[])"})
   public void testDefaultNotificationToRule_thenReturnNotEnabled() {
     // Arrange
     NotificationRuleTriggerConfig triggerConfig = mock(NotificationRuleTriggerConfig.class);
     when(triggerConfig.getTriggerType()).thenReturn(NotificationRuleTriggerType.ENTITY_ACTION);
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(false)
         .name("Name")
         .triggerConfig(triggerConfig)
         .build();
-    DefaultNotifications.DefaultNotification defaultNotification = new DefaultNotifications.DefaultNotification("Name",
-        NotificationType.GENERAL, "Hello from the Dreaming Spires", "Text", "Icon", "Color", "Button", "Link", rule);
-    NotificationTemplateId templateId = new NotificationTemplateId(ModelConstants.NULL_UUID);
+    DefaultNotification defaultNotification = new DefaultNotification("Name", NotificationType.GENERAL,
+        "Hello from the Dreaming Spires", "Text", "Icon", "Color", "Button", "Link", rule);
+    NotificationTemplateId templateId = new NotificationTemplateId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    NotificationRule actualToRuleResult = defaultNotification.toRule(templateId,
-        new NotificationTargetId(ModelConstants.NULL_UUID));
+    NotificationRule actualToRuleResult = defaultNotification.toRule(templateId, new NotificationTargetId(id));
 
     // Assert
     verify(triggerConfig).getTriggerType();
@@ -1718,24 +1261,29 @@ public class DefaultNotificationsDiffblueTest {
     assertTrue(recipientsConfig instanceof DefaultNotificationRuleRecipientsConfig);
     List<UUID> targets = ((DefaultNotificationRuleRecipientsConfig) recipientsConfig).getTargets();
     assertEquals(1, targets.size());
+    UUID getResult = targets.get(0);
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", getResult.toString());
     Map<Integer, List<UUID>> targetsTable = recipientsConfig.getTargetsTable();
     assertEquals(1, targetsTable.size());
     assertEquals(NotificationRuleTriggerType.ENTITY_ACTION, actualToRuleResult.getTriggerType());
     assertEquals(NotificationRuleTriggerType.ENTITY_ACTION, recipientsConfig.getTriggerType());
     assertFalse(actualToRuleResult.isEnabled());
     assertSame(targets, targetsTable.get(0));
+    assertSame(id, getResult);
   }
 
   /**
    * Test DefaultNotification {@link DefaultNotification#toTemplate()}.
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#toTemplate()}
+   * Method under test: {@link DefaultNotification#toTemplate()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+      "org.thingsboard.server.common.data.notification.template.NotificationTemplate DefaultNotification.toTemplate()"})
   public void testDefaultNotificationToTemplate() {
     // Arrange
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
@@ -1743,7 +1291,7 @@ public class DefaultNotificationsDiffblueTest {
         .build();
 
     // Act and Assert
-    Map<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> deliveryMethodsTemplates = (new DefaultNotifications.DefaultNotification(
+    Map<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> deliveryMethodsTemplates = (new DefaultNotification(
         "Name", NotificationType.GENERAL, "Hello from the Dreaming Spires", "Text", "Icon", "Color", "Button", "Link",
         rule)).toTemplate().getConfiguration().getDeliveryMethodsTemplates();
     assertEquals(1, deliveryMethodsTemplates.size());
@@ -1751,29 +1299,33 @@ public class DefaultNotificationsDiffblueTest {
     JsonNode additionalConfig = ((WebDeliveryMethodNotificationTemplate) getResult).getAdditionalConfig();
     Iterator<JsonNode> iteratorResult = additionalConfig.iterator();
     JsonNode nextResult = iteratorResult.next();
-    Iterator<JsonNode> iteratorResult2 = nextResult.iterator();
-    JsonNode nextResult2 = iteratorResult2.next();
-    assertTrue(nextResult2 instanceof BooleanNode);
     assertTrue(nextResult instanceof ObjectNode);
     assertTrue(additionalConfig instanceof ObjectNode);
-    assertTrue(nextResult2.traverse() instanceof TreeTraversingParser);
     assertTrue(nextResult.traverse() instanceof TreeTraversingParser);
     assertTrue(additionalConfig.traverse() instanceof TreeTraversingParser);
     assertTrue(getResult instanceof WebDeliveryMethodNotificationTemplate);
-    assertTrue(iteratorResult2.hasNext());
+    assertEquals("{\r\n  \"enabled\" : true,\r\n  \"icon\" : \"Icon\",\r\n  \"color\" : \"Color\"\r\n}",
+        nextResult.toPrettyString());
+    assertEquals("{\r\n" + "  \"icon\" : {\r\n" + "    \"enabled\" : true,\r\n" + "    \"icon\" : \"Icon\",\r\n"
+        + "    \"color\" : \"Color\"\r\n" + "  },\r\n" + "  \"actionButtonConfig\" : {\r\n"
+        + "    \"enabled\" : true,\r\n" + "    \"text\" : \"Button\",\r\n" + "    \"linkType\" : \"LINK\",\r\n"
+        + "    \"link\" : \"Link\"\r\n" + "  }\r\n" + "}", additionalConfig.toPrettyString());
+    assertTrue(nextResult.iterator().hasNext());
     assertTrue(iteratorResult.hasNext());
   }
 
   /**
    * Test DefaultNotification {@link DefaultNotification#toTemplate()}.
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#toTemplate()}
+   * Method under test: {@link DefaultNotification#toTemplate()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+      "org.thingsboard.server.common.data.notification.template.NotificationTemplate DefaultNotification.toTemplate()"})
   public void testDefaultNotificationToTemplate2() {
     // Arrange
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
@@ -1781,8 +1333,8 @@ public class DefaultNotificationsDiffblueTest {
         .build();
 
     // Act and Assert
-    Map<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> deliveryMethodsTemplates = (new DefaultNotifications.DefaultNotification(
-        "Name", null, "Hello from the Dreaming Spires", "Text", "Icon", "Color", "Button", "Link", rule)).toTemplate()
+    Map<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> deliveryMethodsTemplates = (new DefaultNotification(
+        "Name", null, "Hello from the Dreaming Spires", "Text", "Icon", null, null, null, rule)).toTemplate()
         .getConfiguration()
         .getDeliveryMethodsTemplates();
     assertEquals(1, deliveryMethodsTemplates.size());
@@ -1790,29 +1342,32 @@ public class DefaultNotificationsDiffblueTest {
     JsonNode additionalConfig = ((WebDeliveryMethodNotificationTemplate) getResult).getAdditionalConfig();
     Iterator<JsonNode> iteratorResult = additionalConfig.iterator();
     JsonNode nextResult = iteratorResult.next();
-    Iterator<JsonNode> iteratorResult2 = nextResult.iterator();
-    JsonNode nextResult2 = iteratorResult2.next();
-    assertTrue(nextResult2 instanceof BooleanNode);
     assertTrue(nextResult instanceof ObjectNode);
     assertTrue(additionalConfig instanceof ObjectNode);
-    assertTrue(nextResult2.traverse() instanceof TreeTraversingParser);
     assertTrue(nextResult.traverse() instanceof TreeTraversingParser);
     assertTrue(additionalConfig.traverse() instanceof TreeTraversingParser);
     assertTrue(getResult instanceof WebDeliveryMethodNotificationTemplate);
-    assertTrue(iteratorResult2.hasNext());
+    assertEquals("{\r\n  \"enabled\" : true,\r\n  \"icon\" : \"Icon\",\r\n  \"color\" : \"#757575\"\r\n}",
+        nextResult.toPrettyString());
+    assertEquals("{\r\n" + "  \"icon\" : {\r\n" + "    \"enabled\" : true,\r\n" + "    \"icon\" : \"Icon\",\r\n"
+        + "    \"color\" : \"#757575\"\r\n" + "  },\r\n" + "  \"actionButtonConfig\" : {\r\n"
+        + "    \"enabled\" : false\r\n" + "  }\r\n" + "}", additionalConfig.toPrettyString());
+    assertTrue(nextResult.iterator().hasNext());
     assertTrue(iteratorResult.hasNext());
   }
 
   /**
    * Test DefaultNotification {@link DefaultNotification#toTemplate()}.
    * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#toTemplate()}
+   * Method under test: {@link DefaultNotification#toTemplate()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+      "org.thingsboard.server.common.data.notification.template.NotificationTemplate DefaultNotification.toTemplate()"})
   public void testDefaultNotificationToTemplate3() {
     // Arrange
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
@@ -1820,53 +1375,7 @@ public class DefaultNotificationsDiffblueTest {
         .build();
 
     // Act and Assert
-    Map<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> deliveryMethodsTemplates = (new DefaultNotifications.DefaultNotification(
-        "Name", NotificationType.GENERAL, "Hello from the Dreaming Spires", "Text", null, "Color", "Button", "Link",
-        rule)).toTemplate().getConfiguration().getDeliveryMethodsTemplates();
-    assertEquals(1, deliveryMethodsTemplates.size());
-    DeliveryMethodNotificationTemplate getResult = deliveryMethodsTemplates.get(NotificationDeliveryMethod.WEB);
-    JsonNode additionalConfig = ((WebDeliveryMethodNotificationTemplate) getResult).getAdditionalConfig();
-    Iterator<JsonNode> iteratorResult = additionalConfig.iterator();
-    JsonNode nextResult = iteratorResult.next();
-    Iterator<JsonNode> iteratorResult2 = nextResult.iterator();
-    JsonNode nextResult2 = iteratorResult2.next();
-    assertTrue(nextResult2 instanceof BooleanNode);
-    assertTrue(nextResult instanceof ObjectNode);
-    assertTrue(additionalConfig instanceof ObjectNode);
-    assertTrue(nextResult2.traverse() instanceof TreeTraversingParser);
-    assertTrue(nextResult.traverse() instanceof TreeTraversingParser);
-    assertTrue(additionalConfig.traverse() instanceof TreeTraversingParser);
-    assertTrue(getResult instanceof WebDeliveryMethodNotificationTemplate);
-    assertEquals("{\r\n  \"enabled\" : false\r\n}", nextResult.toPrettyString());
-    assertEquals("{\r\n" + "  \"icon\" : {\r\n" + "    \"enabled\" : false\r\n" + "  },\r\n"
-        + "  \"actionButtonConfig\" : {\r\n" + "    \"enabled\" : true,\r\n" + "    \"text\" : \"Button\",\r\n"
-        + "    \"linkType\" : \"LINK\",\r\n" + "    \"link\" : \"Link\"\r\n" + "  }\r\n" + "}",
-        additionalConfig.toPrettyString());
-    assertEquals(1, nextResult.size());
-    assertFalse(iteratorResult2.hasNext());
-    assertTrue(iteratorResult.hasNext());
-    String expectedToPrettyStringResult = Boolean.FALSE.toString();
-    assertEquals(expectedToPrettyStringResult, nextResult2.toPrettyString());
-  }
-
-  /**
-   * Test DefaultNotification {@link DefaultNotification#toTemplate()}.
-   * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#toTemplate()}
-   */
-  @Test
-  public void testDefaultNotificationToTemplate4() {
-    // Arrange
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
-        .description("The characteristics of someone or something")
-        .enabled(true)
-        .name("Name")
-        .triggerConfig(mock(NotificationRuleTriggerConfig.class))
-        .build();
-
-    // Act and Assert
-    Map<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> deliveryMethodsTemplates = (new DefaultNotifications.DefaultNotification(
+    Map<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> deliveryMethodsTemplates = (new DefaultNotification(
         "Name", NotificationType.GENERAL, "Hello from the Dreaming Spires", "Text", "", "Color", "Button", "Link",
         rule)).toTemplate().getConfiguration().getDeliveryMethodsTemplates();
     assertEquals(1, deliveryMethodsTemplates.size());
@@ -1874,12 +1383,8 @@ public class DefaultNotificationsDiffblueTest {
     JsonNode additionalConfig = ((WebDeliveryMethodNotificationTemplate) getResult).getAdditionalConfig();
     Iterator<JsonNode> iteratorResult = additionalConfig.iterator();
     JsonNode nextResult = iteratorResult.next();
-    Iterator<JsonNode> iteratorResult2 = nextResult.iterator();
-    JsonNode nextResult2 = iteratorResult2.next();
-    assertTrue(nextResult2 instanceof BooleanNode);
     assertTrue(nextResult instanceof ObjectNode);
     assertTrue(additionalConfig instanceof ObjectNode);
-    assertTrue(nextResult2.traverse() instanceof TreeTraversingParser);
     assertTrue(nextResult.traverse() instanceof TreeTraversingParser);
     assertTrue(additionalConfig.traverse() instanceof TreeTraversingParser);
     assertTrue(getResult instanceof WebDeliveryMethodNotificationTemplate);
@@ -1889,180 +1394,50 @@ public class DefaultNotificationsDiffblueTest {
         + "    \"color\" : \"Color\"\r\n" + "  },\r\n" + "  \"actionButtonConfig\" : {\r\n"
         + "    \"enabled\" : true,\r\n" + "    \"text\" : \"Button\",\r\n" + "    \"linkType\" : \"LINK\",\r\n"
         + "    \"link\" : \"Link\"\r\n" + "  }\r\n" + "}", additionalConfig.toPrettyString());
-    assertTrue(iteratorResult2.hasNext());
+    assertTrue(nextResult.iterator().hasNext());
     assertTrue(iteratorResult.hasNext());
   }
 
   /**
-   * Test DefaultNotification {@link DefaultNotification#toTemplate()}.
-   * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#toTemplate()}
-   */
-  @Test
-  public void testDefaultNotificationToTemplate5() {
-    // Arrange
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
-        .description("The characteristics of someone or something")
-        .enabled(true)
-        .name("Name")
-        .triggerConfig(mock(NotificationRuleTriggerConfig.class))
-        .build();
-
-    // Act and Assert
-    Map<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> deliveryMethodsTemplates = (new DefaultNotifications.DefaultNotification(
-        "Name", NotificationType.GENERAL, "Hello from the Dreaming Spires", "Text", "Icon", null, "Button", "Link",
-        rule)).toTemplate().getConfiguration().getDeliveryMethodsTemplates();
-    assertEquals(1, deliveryMethodsTemplates.size());
-    DeliveryMethodNotificationTemplate getResult = deliveryMethodsTemplates.get(NotificationDeliveryMethod.WEB);
-    JsonNode additionalConfig = ((WebDeliveryMethodNotificationTemplate) getResult).getAdditionalConfig();
-    Iterator<JsonNode> iteratorResult = additionalConfig.iterator();
-    JsonNode nextResult = iteratorResult.next();
-    Iterator<JsonNode> iteratorResult2 = nextResult.iterator();
-    JsonNode nextResult2 = iteratorResult2.next();
-    assertTrue(nextResult2 instanceof BooleanNode);
-    assertTrue(nextResult instanceof ObjectNode);
-    assertTrue(additionalConfig instanceof ObjectNode);
-    assertTrue(nextResult2.traverse() instanceof TreeTraversingParser);
-    assertTrue(nextResult.traverse() instanceof TreeTraversingParser);
-    assertTrue(additionalConfig.traverse() instanceof TreeTraversingParser);
-    assertTrue(getResult instanceof WebDeliveryMethodNotificationTemplate);
-    assertEquals("{\r\n  \"enabled\" : true,\r\n  \"icon\" : \"Icon\",\r\n  \"color\" : \"#757575\"\r\n}",
-        nextResult.toPrettyString());
-    assertEquals("{\r\n" + "  \"icon\" : {\r\n" + "    \"enabled\" : true,\r\n" + "    \"icon\" : \"Icon\",\r\n"
-        + "    \"color\" : \"#757575\"\r\n" + "  },\r\n" + "  \"actionButtonConfig\" : {\r\n"
-        + "    \"enabled\" : true,\r\n" + "    \"text\" : \"Button\",\r\n" + "    \"linkType\" : \"LINK\",\r\n"
-        + "    \"link\" : \"Link\"\r\n" + "  }\r\n" + "}", additionalConfig.toPrettyString());
-    assertTrue(iteratorResult2.hasNext());
-    assertTrue(iteratorResult.hasNext());
-  }
-
-  /**
-   * Test DefaultNotification {@link DefaultNotification#toTemplate()}.
-   * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#toTemplate()}
-   */
-  @Test
-  public void testDefaultNotificationToTemplate6() {
-    // Arrange
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
-        .description("The characteristics of someone or something")
-        .enabled(true)
-        .name("Name")
-        .triggerConfig(mock(NotificationRuleTriggerConfig.class))
-        .build();
-
-    // Act and Assert
-    Map<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> deliveryMethodsTemplates = (new DefaultNotifications.DefaultNotification(
-        "Name", NotificationType.GENERAL, "Hello from the Dreaming Spires", "Text", "Icon", "Color", null, "Link",
-        rule)).toTemplate().getConfiguration().getDeliveryMethodsTemplates();
-    assertEquals(1, deliveryMethodsTemplates.size());
-    DeliveryMethodNotificationTemplate getResult = deliveryMethodsTemplates.get(NotificationDeliveryMethod.WEB);
-    JsonNode additionalConfig = ((WebDeliveryMethodNotificationTemplate) getResult).getAdditionalConfig();
-    Iterator<JsonNode> iteratorResult = additionalConfig.iterator();
-    JsonNode nextResult = iteratorResult.next();
-    Iterator<JsonNode> iteratorResult2 = nextResult.iterator();
-    JsonNode nextResult2 = iteratorResult2.next();
-    assertTrue(nextResult2 instanceof BooleanNode);
-    assertTrue(nextResult instanceof ObjectNode);
-    assertTrue(additionalConfig instanceof ObjectNode);
-    assertTrue(nextResult2.traverse() instanceof TreeTraversingParser);
-    assertTrue(nextResult.traverse() instanceof TreeTraversingParser);
-    assertTrue(additionalConfig.traverse() instanceof TreeTraversingParser);
-    assertTrue(getResult instanceof WebDeliveryMethodNotificationTemplate);
-    assertEquals("{\r\n" + "  \"icon\" : {\r\n" + "    \"enabled\" : true,\r\n" + "    \"icon\" : \"Icon\",\r\n"
-        + "    \"color\" : \"Color\"\r\n" + "  },\r\n" + "  \"actionButtonConfig\" : {\r\n"
-        + "    \"enabled\" : false\r\n" + "  }\r\n" + "}", additionalConfig.toPrettyString());
-    List<TemplatableValue> templatableValues = getResult.getTemplatableValues();
-    assertEquals(4, templatableValues.size());
-    assertNull(templatableValues.get(2).get());
-    assertNull(((WebDeliveryMethodNotificationTemplate) getResult).getButtonText());
-    assertTrue(iteratorResult2.hasNext());
-    assertTrue(iteratorResult.hasNext());
-  }
-
-  /**
-   * Test DefaultNotification {@link DefaultNotification#toTemplate()}.
-   * <p>
-   * Method under test:
-   * {@link DefaultNotifications.DefaultNotification#toTemplate()}
-   */
-  @Test
-  public void testDefaultNotificationToTemplate7() {
-    // Arrange
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
-        .description("The characteristics of someone or something")
-        .enabled(true)
-        .name("Name")
-        .triggerConfig(mock(NotificationRuleTriggerConfig.class))
-        .build();
-
-    // Act and Assert
-    Map<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> deliveryMethodsTemplates = (new DefaultNotifications.DefaultNotification(
-        "Name", NotificationType.GENERAL, "Hello from the Dreaming Spires", "Text", "Icon", "Color", "Button", null,
-        rule)).toTemplate().getConfiguration().getDeliveryMethodsTemplates();
-    assertEquals(1, deliveryMethodsTemplates.size());
-    DeliveryMethodNotificationTemplate getResult = deliveryMethodsTemplates.get(NotificationDeliveryMethod.WEB);
-    JsonNode additionalConfig = ((WebDeliveryMethodNotificationTemplate) getResult).getAdditionalConfig();
-    Iterator<JsonNode> iteratorResult = additionalConfig.iterator();
-    JsonNode nextResult = iteratorResult.next();
-    Iterator<JsonNode> iteratorResult2 = nextResult.iterator();
-    JsonNode nextResult2 = iteratorResult2.next();
-    assertTrue(nextResult2 instanceof BooleanNode);
-    assertTrue(nextResult instanceof ObjectNode);
-    assertTrue(additionalConfig instanceof ObjectNode);
-    assertTrue(nextResult2.traverse() instanceof TreeTraversingParser);
-    assertTrue(nextResult.traverse() instanceof TreeTraversingParser);
-    assertTrue(additionalConfig.traverse() instanceof TreeTraversingParser);
-    assertTrue(getResult instanceof WebDeliveryMethodNotificationTemplate);
-    assertEquals("{\r\n" + "  \"icon\" : {\r\n" + "    \"enabled\" : true,\r\n" + "    \"icon\" : \"Icon\",\r\n"
-        + "    \"color\" : \"Color\"\r\n" + "  },\r\n" + "  \"actionButtonConfig\" : {\r\n"
-        + "    \"enabled\" : true,\r\n" + "    \"text\" : \"Button\",\r\n" + "    \"linkType\" : \"LINK\",\r\n"
-        + "    \"link\" : null\r\n" + "  }\r\n" + "}", additionalConfig.toPrettyString());
-    assertTrue(iteratorResult2.hasNext());
-    assertTrue(iteratorResult.hasNext());
-  }
-
-  /**
-   * Test DefaultNotification_DefaultNotificationBuilder
-   * {@link DefaultNotificationBuilder#build()}.
+   * Test DefaultNotification_DefaultNotificationBuilder {@link DefaultNotificationBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link DefaultNotifications.DefaultNotification.DefaultNotificationBuilder#build()}
-   *   <li>
-   * {@link DefaultNotifications.DefaultNotification.DefaultNotificationBuilder#button(String)}
-   *   <li>
-   * {@link DefaultNotifications.DefaultNotification.DefaultNotificationBuilder#color(String)}
-   *   <li>
-   * {@link DefaultNotifications.DefaultNotification.DefaultNotificationBuilder#icon(String)}
-   *   <li>
-   * {@link DefaultNotifications.DefaultNotification.DefaultNotificationBuilder#link(String)}
-   *   <li>
-   * {@link DefaultNotifications.DefaultNotification.DefaultNotificationBuilder#name(String)}
-   *   <li>
-   * {@link DefaultNotifications.DefaultNotification.DefaultNotificationBuilder#rule(DefaultNotifications.DefaultRule)}
-   *   <li>
-   * {@link DefaultNotifications.DefaultNotification.DefaultNotificationBuilder#subject(String)}
-   *   <li>
-   * {@link DefaultNotifications.DefaultNotification.DefaultNotificationBuilder#text(String)}
-   *   <li>
-   * {@link DefaultNotifications.DefaultNotification.DefaultNotificationBuilder#type(NotificationType)}
+   *   <li>{@link DefaultNotificationBuilder#build()}
+   *   <li>{@link DefaultNotificationBuilder#button(String)}
+   *   <li>{@link DefaultNotificationBuilder#color(String)}
+   *   <li>{@link DefaultNotificationBuilder#icon(String)}
+   *   <li>{@link DefaultNotificationBuilder#link(String)}
+   *   <li>{@link DefaultNotificationBuilder#name(String)}
+   *   <li>{@link DefaultNotificationBuilder#rule(DefaultRule)}
+   *   <li>{@link DefaultNotificationBuilder#subject(String)}
+   *   <li>{@link DefaultNotificationBuilder#text(String)}
+   *   <li>{@link DefaultNotificationBuilder#type(NotificationType)}
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DefaultNotificationBuilder.<init>()",
+      "DefaultNotification DefaultNotificationBuilder.build()",
+      "DefaultNotificationBuilder DefaultNotificationBuilder.button(String)",
+      "DefaultNotificationBuilder DefaultNotificationBuilder.color(String)",
+      "DefaultNotificationBuilder DefaultNotificationBuilder.icon(String)",
+      "DefaultNotificationBuilder DefaultNotificationBuilder.link(String)",
+      "DefaultNotificationBuilder DefaultNotificationBuilder.name(String)",
+      "DefaultNotificationBuilder DefaultNotificationBuilder.rule(DefaultRule)",
+      "DefaultNotificationBuilder DefaultNotificationBuilder.subject(String)",
+      "DefaultNotificationBuilder DefaultNotificationBuilder.text(String)",
+      "String DefaultNotificationBuilder.toString()",
+      "DefaultNotificationBuilder DefaultNotificationBuilder.type(NotificationType)"})
   public void testDefaultNotification_DefaultNotificationBuilderBuild() {
     // Arrange
-    DefaultNotifications.DefaultNotification.DefaultNotificationBuilder nameResult = DefaultNotifications.DefaultNotification
-        .builder()
+    DefaultNotificationBuilder nameResult = DefaultNotification.builder()
         .button("Button")
         .color("Color")
         .icon("Icon")
         .link("Link")
         .name("Name");
-    DefaultNotifications.DefaultRule rule = DefaultNotifications.DefaultRule.builder()
+    DefaultRule rule = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
@@ -2070,7 +1445,7 @@ public class DefaultNotificationsDiffblueTest {
         .build();
 
     // Act
-    DefaultNotifications.DefaultNotification actualBuildResult = nameResult.rule(rule)
+    DefaultNotification actualBuildResult = nameResult.rule(rule)
         .subject("Hello from the Dreaming Spires")
         .text("Text")
         .type(NotificationType.GENERAL)
@@ -2083,7 +1458,7 @@ public class DefaultNotificationsDiffblueTest {
     assertEquals("Icon", actualBuildResult.getIcon());
     assertEquals("Link", actualBuildResult.getLink());
     assertEquals("Name", actualBuildResult.getName());
-    DefaultNotifications.DefaultRule rule2 = actualBuildResult.getRule();
+    DefaultRule rule2 = actualBuildResult.getRule();
     assertEquals("Name", rule2.getName());
     assertEquals("Text", actualBuildResult.getText());
     assertEquals("The characteristics of someone or something", rule2.getDescription());
@@ -2092,8 +1467,7 @@ public class DefaultNotificationsDiffblueTest {
   }
 
   /**
-   * Test DefaultRule {@link DefaultRule#equals(Object)}, and
-   * {@link DefaultRule#hashCode()}.
+   * Test DefaultRule {@link DefaultRule#equals(Object)}, and {@link DefaultRule#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -2101,20 +1475,22 @@ public class DefaultNotificationsDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link DefaultNotifications.DefaultRule#equals(Object)}
-   *   <li>{@link DefaultNotifications.DefaultRule#hashCode()}
+   *   <li>{@link DefaultRule#equals(Object)}
+   *   <li>{@link DefaultRule#hashCode()}
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultRule.equals(Object)", "int DefaultRule.hashCode()"})
   public void testDefaultRuleEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    DefaultNotifications.DefaultRule buildResult = DefaultNotifications.DefaultRule.builder()
+    DefaultRule buildResult = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(null)
         .build();
-    DefaultNotifications.DefaultRule buildResult2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule buildResult2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
@@ -2128,8 +1504,7 @@ public class DefaultNotificationsDiffblueTest {
   }
 
   /**
-   * Test DefaultRule {@link DefaultRule#equals(Object)}, and
-   * {@link DefaultRule#hashCode()}.
+   * Test DefaultRule {@link DefaultRule#equals(Object)}, and {@link DefaultRule#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -2137,27 +1512,25 @@ public class DefaultNotificationsDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link DefaultNotifications.DefaultRule#equals(Object)}
-   *   <li>{@link DefaultNotifications.DefaultRule#hashCode()}
+   *   <li>{@link DefaultRule#equals(Object)}
+   *   <li>{@link DefaultRule#hashCode()}
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultRule.equals(Object)", "int DefaultRule.hashCode()"})
   public void testDefaultRuleEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    DefaultNotifications.DefaultRule.DefaultRuleBuilder defaultRuleBuilder = mock(
-        DefaultNotifications.DefaultRule.DefaultRuleBuilder.class);
-    when(defaultRuleBuilder.description(Mockito.<String>any())).thenReturn(DefaultNotifications.DefaultRule.builder());
-    DefaultNotifications.DefaultRule buildResult = defaultRuleBuilder
-        .description("The characteristics of someone or something")
+    DefaultRuleBuilder defaultRuleBuilder = mock(DefaultRuleBuilder.class);
+    when(defaultRuleBuilder.description(Mockito.<String>any())).thenReturn(DefaultRule.builder());
+    DefaultRule buildResult = defaultRuleBuilder.description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(null)
         .build();
-    DefaultNotifications.DefaultRule.DefaultRuleBuilder defaultRuleBuilder2 = mock(
-        DefaultNotifications.DefaultRule.DefaultRuleBuilder.class);
-    when(defaultRuleBuilder2.description(Mockito.<String>any())).thenReturn(DefaultNotifications.DefaultRule.builder());
-    DefaultNotifications.DefaultRule buildResult2 = defaultRuleBuilder2
-        .description("The characteristics of someone or something")
+    DefaultRuleBuilder defaultRuleBuilder2 = mock(DefaultRuleBuilder.class);
+    when(defaultRuleBuilder2.description(Mockito.<String>any())).thenReturn(DefaultRule.builder());
+    DefaultRule buildResult2 = defaultRuleBuilder2.description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(null)
@@ -2170,8 +1543,7 @@ public class DefaultNotificationsDiffblueTest {
   }
 
   /**
-   * Test DefaultRule {@link DefaultRule#equals(Object)}, and
-   * {@link DefaultRule#hashCode()}.
+   * Test DefaultRule {@link DefaultRule#equals(Object)}, and {@link DefaultRule#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -2179,14 +1551,16 @@ public class DefaultNotificationsDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link DefaultNotifications.DefaultRule#equals(Object)}
-   *   <li>{@link DefaultNotifications.DefaultRule#hashCode()}
+   *   <li>{@link DefaultRule#equals(Object)}
+   *   <li>{@link DefaultRule#hashCode()}
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultRule.equals(Object)", "int DefaultRule.hashCode()"})
   public void testDefaultRuleEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    DefaultNotifications.DefaultRule buildResult = DefaultNotifications.DefaultRule.builder()
+    DefaultRule buildResult = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
@@ -2206,18 +1580,20 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link DefaultNotifications.DefaultRule#equals(Object)}
+   * Method under test: {@link DefaultRule#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultRule.equals(Object)", "int DefaultRule.hashCode()"})
   public void testDefaultRuleEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    DefaultNotifications.DefaultRule buildResult = DefaultNotifications.DefaultRule.builder()
+    DefaultRule buildResult = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultRule buildResult2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule buildResult2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
@@ -2235,18 +1611,20 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link DefaultNotifications.DefaultRule#equals(Object)}
+   * Method under test: {@link DefaultRule#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultRule.equals(Object)", "int DefaultRule.hashCode()"})
   public void testDefaultRuleEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    DefaultNotifications.DefaultRule buildResult = DefaultNotifications.DefaultRule.builder()
+    DefaultRule buildResult = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(false)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultRule buildResult2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule buildResult2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
@@ -2264,18 +1642,20 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link DefaultNotifications.DefaultRule#equals(Object)}
+   * Method under test: {@link DefaultRule#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultRule.equals(Object)", "int DefaultRule.hashCode()"})
   public void testDefaultRuleEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    DefaultNotifications.DefaultRule buildResult = DefaultNotifications.DefaultRule.builder()
+    DefaultRule buildResult = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(null)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultRule buildResult2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule buildResult2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
@@ -2293,18 +1673,20 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link DefaultNotifications.DefaultRule#equals(Object)}
+   * Method under test: {@link DefaultRule#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultRule.equals(Object)", "int DefaultRule.hashCode()"})
   public void testDefaultRuleEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    DefaultNotifications.DefaultRule buildResult = DefaultNotifications.DefaultRule.builder()
+    DefaultRule buildResult = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name(null)
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultRule buildResult2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule buildResult2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
@@ -2322,18 +1704,20 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link DefaultNotifications.DefaultRule#equals(Object)}
+   * Method under test: {@link DefaultRule#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultRule.equals(Object)", "int DefaultRule.hashCode()"})
   public void testDefaultRuleEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    DefaultNotifications.DefaultRule buildResult = DefaultNotifications.DefaultRule.builder()
+    DefaultRule buildResult = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("42")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultRule buildResult2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule buildResult2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
@@ -2351,18 +1735,20 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link DefaultNotifications.DefaultRule#equals(Object)}
+   * Method under test: {@link DefaultRule#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultRule.equals(Object)", "int DefaultRule.hashCode()"})
   public void testDefaultRuleEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    DefaultNotifications.DefaultRule buildResult = DefaultNotifications.DefaultRule.builder()
+    DefaultRule buildResult = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(null)
         .build();
-    DefaultNotifications.DefaultRule buildResult2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule buildResult2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
@@ -2380,18 +1766,20 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link DefaultNotifications.DefaultRule#equals(Object)}
+   * Method under test: {@link DefaultRule#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultRule.equals(Object)", "int DefaultRule.hashCode()"})
   public void testDefaultRuleEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    DefaultNotifications.DefaultRule buildResult = DefaultNotifications.DefaultRule.builder()
+    DefaultRule buildResult = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(null)
         .name("Name")
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultRule buildResult2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule buildResult2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(null)
         .name("Name")
@@ -2409,18 +1797,20 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link DefaultNotifications.DefaultRule#equals(Object)}
+   * Method under test: {@link DefaultRule#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultRule.equals(Object)", "int DefaultRule.hashCode()"})
   public void testDefaultRuleEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
-    DefaultNotifications.DefaultRule buildResult = DefaultNotifications.DefaultRule.builder()
+    DefaultRule buildResult = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name(null)
         .triggerConfig(mock(NotificationRuleTriggerConfig.class))
         .build();
-    DefaultNotifications.DefaultRule buildResult2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule buildResult2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name(null)
@@ -2438,21 +1828,21 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link DefaultNotifications.DefaultRule#equals(Object)}
+   * Method under test: {@link DefaultRule#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultRule.equals(Object)", "int DefaultRule.hashCode()"})
   public void testDefaultRuleEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
-    DefaultNotifications.DefaultRule.DefaultRuleBuilder defaultRuleBuilder = mock(
-        DefaultNotifications.DefaultRule.DefaultRuleBuilder.class);
-    when(defaultRuleBuilder.description(Mockito.<String>any())).thenReturn(DefaultNotifications.DefaultRule.builder());
-    DefaultNotifications.DefaultRule buildResult = defaultRuleBuilder
-        .description("The characteristics of someone or something")
+    DefaultRuleBuilder defaultRuleBuilder = mock(DefaultRuleBuilder.class);
+    when(defaultRuleBuilder.description(Mockito.<String>any())).thenReturn(DefaultRule.builder());
+    DefaultRule buildResult = defaultRuleBuilder.description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(null)
         .build();
-    DefaultNotifications.DefaultRule buildResult2 = DefaultNotifications.DefaultRule.builder()
+    DefaultRule buildResult2 = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
@@ -2470,27 +1860,25 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link DefaultNotifications.DefaultRule#equals(Object)}
+   * Method under test: {@link DefaultRule#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultRule.equals(Object)", "int DefaultRule.hashCode()"})
   public void testDefaultRuleEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
-    DefaultNotifications.DefaultRule.DefaultRuleBuilder builderResult = DefaultNotifications.DefaultRule.builder();
+    DefaultRuleBuilder builderResult = DefaultRule.builder();
     builderResult.description("The characteristics of someone or something");
-    DefaultNotifications.DefaultRule.DefaultRuleBuilder defaultRuleBuilder = mock(
-        DefaultNotifications.DefaultRule.DefaultRuleBuilder.class);
+    DefaultRuleBuilder defaultRuleBuilder = mock(DefaultRuleBuilder.class);
     when(defaultRuleBuilder.description(Mockito.<String>any())).thenReturn(builderResult);
-    DefaultNotifications.DefaultRule buildResult = defaultRuleBuilder
-        .description("The characteristics of someone or something")
+    DefaultRule buildResult = defaultRuleBuilder.description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(null)
         .build();
-    DefaultNotifications.DefaultRule.DefaultRuleBuilder defaultRuleBuilder2 = mock(
-        DefaultNotifications.DefaultRule.DefaultRuleBuilder.class);
-    when(defaultRuleBuilder2.description(Mockito.<String>any())).thenReturn(DefaultNotifications.DefaultRule.builder());
-    DefaultNotifications.DefaultRule buildResult2 = defaultRuleBuilder2
-        .description("The characteristics of someone or something")
+    DefaultRuleBuilder defaultRuleBuilder2 = mock(DefaultRuleBuilder.class);
+    when(defaultRuleBuilder2.description(Mockito.<String>any())).thenReturn(DefaultRule.builder());
+    DefaultRule buildResult2 = defaultRuleBuilder2.description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
         .triggerConfig(null)
@@ -2507,12 +1895,14 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link DefaultNotifications.DefaultRule#equals(Object)}
+   * Method under test: {@link DefaultRule#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultRule.equals(Object)", "int DefaultRule.hashCode()"})
   public void testDefaultRuleEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    DefaultNotifications.DefaultRule buildResult = DefaultNotifications.DefaultRule.builder()
+    DefaultRule buildResult = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
@@ -2530,12 +1920,14 @@ public class DefaultNotificationsDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link DefaultNotifications.DefaultRule#equals(Object)}
+   * Method under test: {@link DefaultRule#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DefaultRule.equals(Object)", "int DefaultRule.hashCode()"})
   public void testDefaultRuleEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    DefaultNotifications.DefaultRule buildResult = DefaultNotifications.DefaultRule.builder()
+    DefaultRule buildResult = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")
@@ -2551,24 +1943,28 @@ public class DefaultNotificationsDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link DefaultNotifications.DefaultRule#DefaultRule(String, Boolean, NotificationRuleTriggerConfig, String)}
-   *   <li>{@link DefaultNotifications.DefaultRule#toString()}
-   *   <li>{@link DefaultNotifications.DefaultRule#getDescription()}
-   *   <li>{@link DefaultNotifications.DefaultRule#getEnabled()}
-   *   <li>{@link DefaultNotifications.DefaultRule#getName()}
-   *   <li>{@link DefaultNotifications.DefaultRule#getTriggerConfig()}
-   *   <li>{@link DefaultNotifications.DefaultRule#toBuilder()}
+   *   <li>{@link DefaultRule#DefaultRule(String, Boolean, NotificationRuleTriggerConfig, String)}
+   *   <li>{@link DefaultRule#toString()}
+   *   <li>{@link DefaultRule#getDescription()}
+   *   <li>{@link DefaultRule#getEnabled()}
+   *   <li>{@link DefaultRule#getName()}
+   *   <li>{@link DefaultRule#getTriggerConfig()}
+   *   <li>{@link DefaultRule#toBuilder()}
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DefaultRule.<init>(String, Boolean, NotificationRuleTriggerConfig, String)",
+      "String DefaultRule.getDescription()", "Boolean DefaultRule.getEnabled()", "String DefaultRule.getName()",
+      "NotificationRuleTriggerConfig DefaultRule.getTriggerConfig()",
+      "DefaultRule.DefaultRuleBuilder DefaultRule.toBuilder()", "String DefaultRule.toString()"})
   public void testDefaultRuleGettersAndSetters() {
     // Arrange
     NotificationRuleTriggerConfig triggerConfig = mock(NotificationRuleTriggerConfig.class);
 
     // Act
-    DefaultNotifications.DefaultRule actualDefaultRule = new DefaultNotifications.DefaultRule("Name", true,
-        triggerConfig, "The characteristics of someone or something");
+    DefaultRule actualDefaultRule = new DefaultRule("Name", true, triggerConfig,
+        "The characteristics of someone or something");
     actualDefaultRule.toString();
     String actualDescription = actualDefaultRule.getDescription();
     Boolean actualEnabled = actualDefaultRule.getEnabled();
@@ -2584,24 +1980,29 @@ public class DefaultNotificationsDiffblueTest {
   }
 
   /**
-   * Test DefaultRule_DefaultRuleBuilder {@link DefaultRuleBuilder#build()}.
+   * Test DefaultRule_DefaultRuleBuilder {@link DefaultRule.DefaultRuleBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link DefaultNotifications.DefaultRule.DefaultRuleBuilder#build()}
-   *   <li>
-   * {@link DefaultNotifications.DefaultRule.DefaultRuleBuilder#description(String)}
-   *   <li>
-   * {@link DefaultNotifications.DefaultRule.DefaultRuleBuilder#enabled(Boolean)}
-   *   <li>{@link DefaultNotifications.DefaultRule.DefaultRuleBuilder#name(String)}
-   *   <li>
-   * {@link DefaultNotifications.DefaultRule.DefaultRuleBuilder#triggerConfig(NotificationRuleTriggerConfig)}
+   *   <li>{@link DefaultRule.DefaultRuleBuilder#build()}
+   *   <li>{@link DefaultRule.DefaultRuleBuilder#description(String)}
+   *   <li>{@link DefaultRule.DefaultRuleBuilder#enabled(Boolean)}
+   *   <li>{@link DefaultRule.DefaultRuleBuilder#name(String)}
+   *   <li>{@link DefaultRule.DefaultRuleBuilder#triggerConfig(NotificationRuleTriggerConfig)}
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DefaultRule.DefaultRuleBuilder.<init>()",
+      "DefaultRule DefaultRule.DefaultRuleBuilder.build()",
+      "DefaultRule.DefaultRuleBuilder DefaultRule.DefaultRuleBuilder.description(String)",
+      "DefaultRule.DefaultRuleBuilder DefaultRule.DefaultRuleBuilder.enabled(Boolean)",
+      "DefaultRule.DefaultRuleBuilder DefaultRule.DefaultRuleBuilder.name(String)",
+      "String DefaultRule.DefaultRuleBuilder.toString()",
+      "DefaultRule.DefaultRuleBuilder DefaultRule.DefaultRuleBuilder.triggerConfig(NotificationRuleTriggerConfig)"})
   public void testDefaultRule_DefaultRuleBuilderBuild() {
     // Arrange and Act
-    DefaultNotifications.DefaultRule actualBuildResult = DefaultNotifications.DefaultRule.builder()
+    DefaultRule actualBuildResult = DefaultRule.builder()
         .description("The characteristics of someone or something")
         .enabled(true)
         .name("Name")

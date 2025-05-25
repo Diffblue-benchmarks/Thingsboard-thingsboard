@@ -6,15 +6,25 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.anyBoolean;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.mobile.QRCodeConfig.QRCodeConfigBuilder;
 
+@ContextConfiguration(classes = {QRCodeConfigBuilder.class})
+@ExtendWith(SpringExtension.class)
 class QRCodeConfigDiffblueTest {
+  @Autowired
+  private QRCodeConfigBuilder qRCodeConfigBuilder;
+
   /**
-   * Test {@link QRCodeConfig#equals(Object)}, and
-   * {@link QRCodeConfig#hashCode()}.
+   * Test {@link QRCodeConfig#equals(Object)}, and {@link QRCodeConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -28,6 +38,8 @@ class QRCodeConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean QRCodeConfig.equals(Object)", "int QRCodeConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     QRCodeConfig buildResult = QRCodeConfig.builder()
@@ -52,8 +64,7 @@ class QRCodeConfigDiffblueTest {
   }
 
   /**
-   * Test {@link QRCodeConfig#equals(Object)}, and
-   * {@link QRCodeConfig#hashCode()}.
+   * Test {@link QRCodeConfig#equals(Object)}, and {@link QRCodeConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -67,11 +78,13 @@ class QRCodeConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean QRCodeConfig.equals(Object)", "int QRCodeConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    QRCodeConfig.QRCodeConfigBuilder qrCodeConfigBuilder = mock(QRCodeConfig.QRCodeConfigBuilder.class);
+    QRCodeConfigBuilder qrCodeConfigBuilder = mock(QRCodeConfigBuilder.class);
     when(qrCodeConfigBuilder.badgePosition(Mockito.<BadgePosition>any())).thenReturn(QRCodeConfig.builder());
-    QRCodeConfig.QRCodeConfigBuilder qrCodeConfigBuilder2 = mock(QRCodeConfig.QRCodeConfigBuilder.class);
+    QRCodeConfigBuilder qrCodeConfigBuilder2 = mock(QRCodeConfigBuilder.class);
     when(qrCodeConfigBuilder2.badgeEnabled(anyBoolean())).thenReturn(qrCodeConfigBuilder);
     QRCodeConfig buildResult = qrCodeConfigBuilder2.badgeEnabled(true)
         .badgePosition(BadgePosition.LEFT)
@@ -94,8 +107,7 @@ class QRCodeConfigDiffblueTest {
   }
 
   /**
-   * Test {@link QRCodeConfig#equals(Object)}, and
-   * {@link QRCodeConfig#hashCode()}.
+   * Test {@link QRCodeConfig#equals(Object)}, and {@link QRCodeConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -109,13 +121,15 @@ class QRCodeConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean QRCodeConfig.equals(Object)", "int QRCodeConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    QRCodeConfig.QRCodeConfigBuilder qrCodeConfigBuilder = mock(QRCodeConfig.QRCodeConfigBuilder.class);
+    QRCodeConfigBuilder qrCodeConfigBuilder = mock(QRCodeConfigBuilder.class);
     when(qrCodeConfigBuilder.qrCodeLabel(Mockito.<String>any())).thenReturn(QRCodeConfig.builder());
-    QRCodeConfig.QRCodeConfigBuilder qrCodeConfigBuilder2 = mock(QRCodeConfig.QRCodeConfigBuilder.class);
+    QRCodeConfigBuilder qrCodeConfigBuilder2 = mock(QRCodeConfigBuilder.class);
     when(qrCodeConfigBuilder2.badgePosition(Mockito.<BadgePosition>any())).thenReturn(qrCodeConfigBuilder);
-    QRCodeConfig.QRCodeConfigBuilder qrCodeConfigBuilder3 = mock(QRCodeConfig.QRCodeConfigBuilder.class);
+    QRCodeConfigBuilder qrCodeConfigBuilder3 = mock(QRCodeConfigBuilder.class);
     when(qrCodeConfigBuilder3.badgeEnabled(anyBoolean())).thenReturn(qrCodeConfigBuilder2);
     QRCodeConfig buildResult = qrCodeConfigBuilder3.badgeEnabled(true)
         .badgePosition(BadgePosition.LEFT)
@@ -138,8 +152,7 @@ class QRCodeConfigDiffblueTest {
   }
 
   /**
-   * Test {@link QRCodeConfig#equals(Object)}, and
-   * {@link QRCodeConfig#hashCode()}.
+   * Test {@link QRCodeConfig#equals(Object)}, and {@link QRCodeConfig#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -153,6 +166,8 @@ class QRCodeConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean QRCodeConfig.equals(Object)", "int QRCodeConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     QRCodeConfig buildResult = QRCodeConfig.builder()
@@ -180,9 +195,11 @@ class QRCodeConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean QRCodeConfig.equals(Object)", "int QRCodeConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    QRCodeConfig.QRCodeConfigBuilder qrCodeConfigBuilder = mock(QRCodeConfig.QRCodeConfigBuilder.class);
+    QRCodeConfigBuilder qrCodeConfigBuilder = mock(QRCodeConfigBuilder.class);
     when(qrCodeConfigBuilder.badgeEnabled(anyBoolean())).thenReturn(QRCodeConfig.builder());
     QRCodeConfig buildResult = qrCodeConfigBuilder.badgeEnabled(true)
         .badgePosition(BadgePosition.RIGHT)
@@ -213,9 +230,11 @@ class QRCodeConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean QRCodeConfig.equals(Object)", "int QRCodeConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    QRCodeConfig.QRCodeConfigBuilder qrCodeConfigBuilder = mock(QRCodeConfig.QRCodeConfigBuilder.class);
+    QRCodeConfigBuilder qrCodeConfigBuilder = mock(QRCodeConfigBuilder.class);
     when(qrCodeConfigBuilder.badgeEnabled(anyBoolean())).thenReturn(QRCodeConfig.builder());
     QRCodeConfig buildResult = qrCodeConfigBuilder.badgeEnabled(true)
         .badgePosition(BadgePosition.RIGHT)
@@ -246,9 +265,11 @@ class QRCodeConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean QRCodeConfig.equals(Object)", "int QRCodeConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    QRCodeConfig.QRCodeConfigBuilder qrCodeConfigBuilder = mock(QRCodeConfig.QRCodeConfigBuilder.class);
+    QRCodeConfigBuilder qrCodeConfigBuilder = mock(QRCodeConfigBuilder.class);
     when(qrCodeConfigBuilder.badgeEnabled(anyBoolean())).thenReturn(QRCodeConfig.builder());
     QRCodeConfig buildResult = qrCodeConfigBuilder.badgeEnabled(true)
         .badgePosition(BadgePosition.LEFT)
@@ -279,11 +300,13 @@ class QRCodeConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean QRCodeConfig.equals(Object)", "int QRCodeConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    QRCodeConfig.QRCodeConfigBuilder qrCodeConfigBuilder = mock(QRCodeConfig.QRCodeConfigBuilder.class);
+    QRCodeConfigBuilder qrCodeConfigBuilder = mock(QRCodeConfigBuilder.class);
     when(qrCodeConfigBuilder.badgePosition(Mockito.<BadgePosition>any())).thenReturn(QRCodeConfig.builder());
-    QRCodeConfig.QRCodeConfigBuilder qrCodeConfigBuilder2 = mock(QRCodeConfig.QRCodeConfigBuilder.class);
+    QRCodeConfigBuilder qrCodeConfigBuilder2 = mock(QRCodeConfigBuilder.class);
     when(qrCodeConfigBuilder2.badgeEnabled(anyBoolean())).thenReturn(qrCodeConfigBuilder);
     QRCodeConfig buildResult = qrCodeConfigBuilder2.badgeEnabled(true)
         .badgePosition(BadgePosition.LEFT)
@@ -314,11 +337,13 @@ class QRCodeConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean QRCodeConfig.equals(Object)", "int QRCodeConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    QRCodeConfig.QRCodeConfigBuilder qrCodeConfigBuilder = mock(QRCodeConfig.QRCodeConfigBuilder.class);
+    QRCodeConfigBuilder qrCodeConfigBuilder = mock(QRCodeConfigBuilder.class);
     when(qrCodeConfigBuilder.badgePosition(Mockito.<BadgePosition>any())).thenReturn(QRCodeConfig.builder());
-    QRCodeConfig.QRCodeConfigBuilder qrCodeConfigBuilder2 = mock(QRCodeConfig.QRCodeConfigBuilder.class);
+    QRCodeConfigBuilder qrCodeConfigBuilder2 = mock(QRCodeConfigBuilder.class);
     when(qrCodeConfigBuilder2.badgeEnabled(anyBoolean())).thenReturn(qrCodeConfigBuilder);
     QRCodeConfig buildResult = qrCodeConfigBuilder2.badgeEnabled(true)
         .badgePosition(BadgePosition.LEFT)
@@ -349,13 +374,15 @@ class QRCodeConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean QRCodeConfig.equals(Object)", "int QRCodeConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    QRCodeConfig.QRCodeConfigBuilder qrCodeConfigBuilder = mock(QRCodeConfig.QRCodeConfigBuilder.class);
+    QRCodeConfigBuilder qrCodeConfigBuilder = mock(QRCodeConfigBuilder.class);
     when(qrCodeConfigBuilder.qrCodeLabel(Mockito.<String>any())).thenReturn(QRCodeConfig.builder());
-    QRCodeConfig.QRCodeConfigBuilder qrCodeConfigBuilder2 = mock(QRCodeConfig.QRCodeConfigBuilder.class);
+    QRCodeConfigBuilder qrCodeConfigBuilder2 = mock(QRCodeConfigBuilder.class);
     when(qrCodeConfigBuilder2.badgePosition(Mockito.<BadgePosition>any())).thenReturn(qrCodeConfigBuilder);
-    QRCodeConfig.QRCodeConfigBuilder qrCodeConfigBuilder3 = mock(QRCodeConfig.QRCodeConfigBuilder.class);
+    QRCodeConfigBuilder qrCodeConfigBuilder3 = mock(QRCodeConfigBuilder.class);
     when(qrCodeConfigBuilder3.badgeEnabled(anyBoolean())).thenReturn(qrCodeConfigBuilder2);
     QRCodeConfig buildResult = qrCodeConfigBuilder3.badgeEnabled(true)
         .badgePosition(BadgePosition.LEFT)
@@ -386,15 +413,17 @@ class QRCodeConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean QRCodeConfig.equals(Object)", "int QRCodeConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    QRCodeConfig.QRCodeConfigBuilder builderResult = QRCodeConfig.builder();
+    QRCodeConfigBuilder builderResult = QRCodeConfig.builder();
     builderResult.qrCodeLabel("Qr Code Label");
-    QRCodeConfig.QRCodeConfigBuilder qrCodeConfigBuilder = mock(QRCodeConfig.QRCodeConfigBuilder.class);
+    QRCodeConfigBuilder qrCodeConfigBuilder = mock(QRCodeConfigBuilder.class);
     when(qrCodeConfigBuilder.qrCodeLabel(Mockito.<String>any())).thenReturn(builderResult);
-    QRCodeConfig.QRCodeConfigBuilder qrCodeConfigBuilder2 = mock(QRCodeConfig.QRCodeConfigBuilder.class);
+    QRCodeConfigBuilder qrCodeConfigBuilder2 = mock(QRCodeConfigBuilder.class);
     when(qrCodeConfigBuilder2.badgePosition(Mockito.<BadgePosition>any())).thenReturn(qrCodeConfigBuilder);
-    QRCodeConfig.QRCodeConfigBuilder qrCodeConfigBuilder3 = mock(QRCodeConfig.QRCodeConfigBuilder.class);
+    QRCodeConfigBuilder qrCodeConfigBuilder3 = mock(QRCodeConfigBuilder.class);
     when(qrCodeConfigBuilder3.badgeEnabled(anyBoolean())).thenReturn(qrCodeConfigBuilder2);
     QRCodeConfig buildResult = qrCodeConfigBuilder3.badgeEnabled(true)
         .badgePosition(BadgePosition.LEFT)
@@ -425,6 +454,8 @@ class QRCodeConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean QRCodeConfig.equals(Object)", "int QRCodeConfig.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     QRCodeConfig buildResult = QRCodeConfig.builder()
@@ -450,6 +481,8 @@ class QRCodeConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean QRCodeConfig.equals(Object)", "int QRCodeConfig.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     QRCodeConfig buildResult = QRCodeConfig.builder()
@@ -485,6 +518,15 @@ class QRCodeConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void QRCodeConfig.<init>()",
+      "void QRCodeConfig.<init>(boolean, boolean, boolean, BadgePosition, String)",
+      "BadgePosition QRCodeConfig.getBadgePosition()", "String QRCodeConfig.getQrCodeLabel()",
+      "boolean QRCodeConfig.isBadgeEnabled()", "boolean QRCodeConfig.isQrCodeLabelEnabled()",
+      "boolean QRCodeConfig.isShowOnHomePage()", "void QRCodeConfig.setBadgeEnabled(boolean)",
+      "void QRCodeConfig.setBadgePosition(BadgePosition)", "void QRCodeConfig.setQrCodeLabel(String)",
+      "void QRCodeConfig.setQrCodeLabelEnabled(boolean)", "void QRCodeConfig.setShowOnHomePage(boolean)",
+      "String QRCodeConfig.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     QRCodeConfig actualQrCodeConfig = new QRCodeConfig();
@@ -499,7 +541,7 @@ class QRCodeConfigDiffblueTest {
     boolean actualIsBadgeEnabledResult = actualQrCodeConfig.isBadgeEnabled();
     boolean actualIsQrCodeLabelEnabledResult = actualQrCodeConfig.isQrCodeLabelEnabled();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("QRCodeConfig(showOnHomePage=true, badgeEnabled=true, qrCodeLabelEnabled=true, badgePosition=RIGHT,"
         + " qrCodeLabel=Qr Code Label)", actualToStringResult);
     assertEquals("Qr Code Label", actualQrCodeLabel);
@@ -517,8 +559,7 @@ class QRCodeConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link QRCodeConfig#QRCodeConfig(boolean, boolean, boolean, BadgePosition, String)}
+   *   <li>{@link QRCodeConfig#QRCodeConfig(boolean, boolean, boolean, BadgePosition, String)}
    *   <li>{@link QRCodeConfig#setBadgeEnabled(boolean)}
    *   <li>{@link QRCodeConfig#setBadgePosition(BadgePosition)}
    *   <li>{@link QRCodeConfig#setQrCodeLabel(String)}
@@ -534,6 +575,15 @@ class QRCodeConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void QRCodeConfig.<init>()",
+      "void QRCodeConfig.<init>(boolean, boolean, boolean, BadgePosition, String)",
+      "BadgePosition QRCodeConfig.getBadgePosition()", "String QRCodeConfig.getQrCodeLabel()",
+      "boolean QRCodeConfig.isBadgeEnabled()", "boolean QRCodeConfig.isQrCodeLabelEnabled()",
+      "boolean QRCodeConfig.isShowOnHomePage()", "void QRCodeConfig.setBadgeEnabled(boolean)",
+      "void QRCodeConfig.setBadgePosition(BadgePosition)", "void QRCodeConfig.setQrCodeLabel(String)",
+      "void QRCodeConfig.setQrCodeLabelEnabled(boolean)", "void QRCodeConfig.setShowOnHomePage(boolean)",
+      "String QRCodeConfig.toString()"})
   void testGettersAndSetters_whenTrue() {
     // Arrange and Act
     QRCodeConfig actualQrCodeConfig = new QRCodeConfig(true, true, true, BadgePosition.RIGHT, "Qr Code Label");
@@ -548,7 +598,7 @@ class QRCodeConfigDiffblueTest {
     boolean actualIsBadgeEnabledResult = actualQrCodeConfig.isBadgeEnabled();
     boolean actualIsQrCodeLabelEnabledResult = actualQrCodeConfig.isQrCodeLabelEnabled();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("QRCodeConfig(showOnHomePage=true, badgeEnabled=true, qrCodeLabelEnabled=true, badgePosition=RIGHT,"
         + " qrCodeLabel=Qr Code Label)", actualToStringResult);
     assertEquals("Qr Code Label", actualQrCodeLabel);
@@ -563,16 +613,23 @@ class QRCodeConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link QRCodeConfig.QRCodeConfigBuilder#build()}
-   *   <li>{@link QRCodeConfig.QRCodeConfigBuilder#badgeEnabled(boolean)}
-   *   <li>{@link QRCodeConfig.QRCodeConfigBuilder#badgePosition(BadgePosition)}
-   *   <li>{@link QRCodeConfig.QRCodeConfigBuilder#qrCodeLabel(String)}
-   *   <li>{@link QRCodeConfig.QRCodeConfigBuilder#qrCodeLabelEnabled(boolean)}
-   *   <li>{@link QRCodeConfig.QRCodeConfigBuilder#showOnHomePage(boolean)}
+   *   <li>{@link QRCodeConfigBuilder#build()}
+   *   <li>{@link QRCodeConfigBuilder#badgeEnabled(boolean)}
+   *   <li>{@link QRCodeConfigBuilder#badgePosition(BadgePosition)}
+   *   <li>{@link QRCodeConfigBuilder#qrCodeLabel(String)}
+   *   <li>{@link QRCodeConfigBuilder#qrCodeLabelEnabled(boolean)}
+   *   <li>{@link QRCodeConfigBuilder#showOnHomePage(boolean)}
    * </ul>
    */
   @Test
   @DisplayName("Test QRCodeConfigBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void QRCodeConfigBuilder.<init>()",
+      "QRCodeConfigBuilder QRCodeConfigBuilder.badgeEnabled(boolean)",
+      "QRCodeConfigBuilder QRCodeConfigBuilder.badgePosition(BadgePosition)",
+      "QRCodeConfig QRCodeConfigBuilder.build()", "QRCodeConfigBuilder QRCodeConfigBuilder.qrCodeLabel(String)",
+      "QRCodeConfigBuilder QRCodeConfigBuilder.qrCodeLabelEnabled(boolean)",
+      "QRCodeConfigBuilder QRCodeConfigBuilder.showOnHomePage(boolean)", "String QRCodeConfigBuilder.toString()"})
   void testQRCodeConfigBuilderBuild() {
     // Arrange and Act
     QRCodeConfig actualBuildResult = QRCodeConfig.builder()

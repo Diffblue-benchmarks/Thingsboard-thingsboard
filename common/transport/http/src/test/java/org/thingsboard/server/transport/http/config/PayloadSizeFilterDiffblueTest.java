@@ -7,6 +7,7 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
@@ -16,6 +17,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import org.apache.catalina.connector.Response;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -26,8 +28,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 @ContextConfiguration(classes = {PayloadSizeFilter.class})
-@WebAppConfiguration
 @ExtendWith(SpringExtension.class)
+@WebAppConfiguration
 class PayloadSizeFilterDiffblueTest {
   @Autowired
   private PayloadSizeFilter payloadSizeFilter;
@@ -43,6 +45,8 @@ class PayloadSizeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test new PayloadSizeFilter(String); when '='; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PayloadSizeFilter.<init>(String)"})
   void testNewPayloadSizeFilter_whenEqualsSign_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class, () -> new PayloadSizeFilter("="));
@@ -58,24 +62,42 @@ class PayloadSizeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test new PayloadSizeFilter(String); when 'https://example.org/example'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PayloadSizeFilter.<init>(String)"})
   void testNewPayloadSizeFilter_whenHttpsExampleOrgExample() {
     // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class, () -> new PayloadSizeFilter("https://example.org/example"));
+  }
+
+  /**
+   * Test {@link PayloadSizeFilter#PayloadSizeFilter(String)}.
+   * <ul>
+   *   <li>When {@code =https://example.org/example}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link PayloadSizeFilter#PayloadSizeFilter(String)}
+   */
+  @Test
+  @DisplayName("Test new PayloadSizeFilter(String); when '=https://example.org/example'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PayloadSizeFilter.<init>(String)"})
+  void testNewPayloadSizeFilter_whenHttpsExampleOrgExample2() {
+    // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class, () -> new PayloadSizeFilter("=https://example.org/example"));
   }
 
   /**
-   * Test
-   * {@link PayloadSizeFilter#doFilterInternal(HttpServletRequest, HttpServletResponse, FilterChain)}.
+   * Test {@link PayloadSizeFilter#doFilterInternal(HttpServletRequest, HttpServletResponse, FilterChain)}.
    * <ul>
    *   <li>Then throw {@link IllegalArgumentException}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link PayloadSizeFilter#doFilterInternal(HttpServletRequest, HttpServletResponse, FilterChain)}
+   * Method under test: {@link PayloadSizeFilter#doFilterInternal(HttpServletRequest, HttpServletResponse, FilterChain)}
    */
   @Test
   @DisplayName("Test doFilterInternal(HttpServletRequest, HttpServletResponse, FilterChain); then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PayloadSizeFilter.doFilterInternal(HttpServletRequest, HttpServletResponse, FilterChain)"})
   void testDoFilterInternal_thenThrowIllegalArgumentException() throws ServletException, IOException {
     // Arrange
     MockHttpServletRequest request = new MockHttpServletRequest();
@@ -90,19 +112,17 @@ class PayloadSizeFilterDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link PayloadSizeFilter#doFilterInternal(HttpServletRequest, HttpServletResponse, FilterChain)}.
+   * Test {@link PayloadSizeFilter#doFilterInternal(HttpServletRequest, HttpServletResponse, FilterChain)}.
    * <ul>
-   *   <li>When {@link FilterChain}
-   * {@link FilterChain#doFilter(ServletRequest, ServletResponse)} does
-   * nothing.</li>
+   *   <li>When {@link FilterChain} {@link FilterChain#doFilter(ServletRequest, ServletResponse)} does nothing.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link PayloadSizeFilter#doFilterInternal(HttpServletRequest, HttpServletResponse, FilterChain)}
+   * Method under test: {@link PayloadSizeFilter#doFilterInternal(HttpServletRequest, HttpServletResponse, FilterChain)}
    */
   @Test
   @DisplayName("Test doFilterInternal(HttpServletRequest, HttpServletResponse, FilterChain); when FilterChain doFilter(ServletRequest, ServletResponse) does nothing")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PayloadSizeFilter.doFilterInternal(HttpServletRequest, HttpServletResponse, FilterChain)"})
   void testDoFilterInternal_whenFilterChainDoFilterDoesNothing() throws ServletException, IOException {
     // Arrange
     MockHttpServletRequest request = new MockHttpServletRequest();
@@ -124,6 +144,8 @@ class PayloadSizeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test shouldNotFilterAsyncDispatch()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PayloadSizeFilter.shouldNotFilterAsyncDispatch()"})
   void testShouldNotFilterAsyncDispatch() {
     // Arrange, Act and Assert
     assertFalse(payloadSizeFilter.shouldNotFilterAsyncDispatch());
@@ -136,6 +158,8 @@ class PayloadSizeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test shouldNotFilterErrorDispatch()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PayloadSizeFilter.shouldNotFilterErrorDispatch()"})
   void testShouldNotFilterErrorDispatch() {
     // Arrange, Act and Assert
     assertFalse(payloadSizeFilter.shouldNotFilterErrorDispatch());

@@ -1,26 +1,26 @@
 package org.thingsboard.server.dao.model.sql;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.common.data.BaseData;
 import org.thingsboard.server.common.data.event.StatisticsEvent;
+import org.thingsboard.server.common.data.event.StatisticsEvent.StatisticsEventBuilder;
 import org.thingsboard.server.common.data.id.EventId;
-import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.dao.model.ModelConstants;
 
 public class StatisticsEventEntityDiffblueTest {
   /**
-   * Test {@link StatisticsEventEntity#equals(Object)}, and
-   * {@link StatisticsEventEntity#hashCode()}.
+   * Test {@link StatisticsEventEntity#equals(Object)}, and {@link StatisticsEventEntity#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -33,29 +33,31 @@ public class StatisticsEventEntityDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean StatisticsEventEntity.equals(Object)", "int StatisticsEventEntity.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     StatisticsEventEntity statisticsEventEntity = new StatisticsEventEntity();
     statisticsEventEntity.setCreatedTime(1L);
-    statisticsEventEntity.setEntityId(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity.setErrorsOccurred(-1L);
-    statisticsEventEntity.setId(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity.setMessagesProcessed(1L);
     statisticsEventEntity.setServiceId("42");
-    statisticsEventEntity.setTenantId(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity.setTs(1L);
-    statisticsEventEntity.setUuid(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     StatisticsEventEntity statisticsEventEntity2 = new StatisticsEventEntity();
     statisticsEventEntity2.setCreatedTime(1L);
-    statisticsEventEntity2.setEntityId(ModelConstants.NULL_UUID);
+    statisticsEventEntity2.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity2.setErrorsOccurred(-1L);
-    statisticsEventEntity2.setId(ModelConstants.NULL_UUID);
+    statisticsEventEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity2.setMessagesProcessed(1L);
     statisticsEventEntity2.setServiceId("42");
-    statisticsEventEntity2.setTenantId(ModelConstants.NULL_UUID);
+    statisticsEventEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity2.setTs(1L);
-    statisticsEventEntity2.setUuid(ModelConstants.NULL_UUID);
+    statisticsEventEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertEquals(statisticsEventEntity, statisticsEventEntity2);
@@ -64,8 +66,7 @@ public class StatisticsEventEntityDiffblueTest {
   }
 
   /**
-   * Test {@link StatisticsEventEntity#equals(Object)}, and
-   * {@link StatisticsEventEntity#hashCode()}.
+   * Test {@link StatisticsEventEntity#equals(Object)}, and {@link StatisticsEventEntity#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -78,18 +79,20 @@ public class StatisticsEventEntityDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean StatisticsEventEntity.equals(Object)", "int StatisticsEventEntity.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     StatisticsEventEntity statisticsEventEntity = new StatisticsEventEntity();
     statisticsEventEntity.setCreatedTime(1L);
-    statisticsEventEntity.setEntityId(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity.setErrorsOccurred(-1L);
-    statisticsEventEntity.setId(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity.setMessagesProcessed(1L);
     statisticsEventEntity.setServiceId("42");
-    statisticsEventEntity.setTenantId(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity.setTs(1L);
-    statisticsEventEntity.setUuid(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertEquals(statisticsEventEntity, statisticsEventEntity);
@@ -107,29 +110,31 @@ public class StatisticsEventEntityDiffblueTest {
    * Method under test: {@link StatisticsEventEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean StatisticsEventEntity.equals(Object)", "int StatisticsEventEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     StatisticsEventEntity statisticsEventEntity = new StatisticsEventEntity();
     statisticsEventEntity.setCreatedTime(1L);
-    statisticsEventEntity.setEntityId(UUID.randomUUID());
+    statisticsEventEntity.setEntityId(ModelConstants.NULL_UUID);
     statisticsEventEntity.setErrorsOccurred(-1L);
-    statisticsEventEntity.setId(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity.setMessagesProcessed(1L);
     statisticsEventEntity.setServiceId("42");
-    statisticsEventEntity.setTenantId(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity.setTs(1L);
-    statisticsEventEntity.setUuid(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     StatisticsEventEntity statisticsEventEntity2 = new StatisticsEventEntity();
     statisticsEventEntity2.setCreatedTime(1L);
-    statisticsEventEntity2.setEntityId(ModelConstants.NULL_UUID);
+    statisticsEventEntity2.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity2.setErrorsOccurred(-1L);
-    statisticsEventEntity2.setId(ModelConstants.NULL_UUID);
+    statisticsEventEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity2.setMessagesProcessed(1L);
     statisticsEventEntity2.setServiceId("42");
-    statisticsEventEntity2.setTenantId(ModelConstants.NULL_UUID);
+    statisticsEventEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity2.setTs(1L);
-    statisticsEventEntity2.setUuid(ModelConstants.NULL_UUID);
+    statisticsEventEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(statisticsEventEntity, statisticsEventEntity2);
@@ -145,29 +150,31 @@ public class StatisticsEventEntityDiffblueTest {
    * Method under test: {@link StatisticsEventEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean StatisticsEventEntity.equals(Object)", "int StatisticsEventEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     StatisticsEventEntity statisticsEventEntity = new StatisticsEventEntity();
     statisticsEventEntity.setCreatedTime(1L);
-    statisticsEventEntity.setEntityId(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity.setErrorsOccurred(1L);
-    statisticsEventEntity.setId(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity.setMessagesProcessed(1L);
     statisticsEventEntity.setServiceId("42");
-    statisticsEventEntity.setTenantId(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity.setTs(1L);
-    statisticsEventEntity.setUuid(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     StatisticsEventEntity statisticsEventEntity2 = new StatisticsEventEntity();
     statisticsEventEntity2.setCreatedTime(1L);
-    statisticsEventEntity2.setEntityId(ModelConstants.NULL_UUID);
+    statisticsEventEntity2.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity2.setErrorsOccurred(-1L);
-    statisticsEventEntity2.setId(ModelConstants.NULL_UUID);
+    statisticsEventEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity2.setMessagesProcessed(1L);
     statisticsEventEntity2.setServiceId("42");
-    statisticsEventEntity2.setTenantId(ModelConstants.NULL_UUID);
+    statisticsEventEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity2.setTs(1L);
-    statisticsEventEntity2.setUuid(ModelConstants.NULL_UUID);
+    statisticsEventEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(statisticsEventEntity, statisticsEventEntity2);
@@ -183,29 +190,31 @@ public class StatisticsEventEntityDiffblueTest {
    * Method under test: {@link StatisticsEventEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean StatisticsEventEntity.equals(Object)", "int StatisticsEventEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     StatisticsEventEntity statisticsEventEntity = new StatisticsEventEntity();
     statisticsEventEntity.setCreatedTime(1L);
-    statisticsEventEntity.setEntityId(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity.setErrorsOccurred(-1L);
-    statisticsEventEntity.setId(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity.setMessagesProcessed(3L);
     statisticsEventEntity.setServiceId("42");
-    statisticsEventEntity.setTenantId(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity.setTs(1L);
-    statisticsEventEntity.setUuid(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     StatisticsEventEntity statisticsEventEntity2 = new StatisticsEventEntity();
     statisticsEventEntity2.setCreatedTime(1L);
-    statisticsEventEntity2.setEntityId(ModelConstants.NULL_UUID);
+    statisticsEventEntity2.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity2.setErrorsOccurred(-1L);
-    statisticsEventEntity2.setId(ModelConstants.NULL_UUID);
+    statisticsEventEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity2.setMessagesProcessed(1L);
     statisticsEventEntity2.setServiceId("42");
-    statisticsEventEntity2.setTenantId(ModelConstants.NULL_UUID);
+    statisticsEventEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity2.setTs(1L);
-    statisticsEventEntity2.setUuid(ModelConstants.NULL_UUID);
+    statisticsEventEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(statisticsEventEntity, statisticsEventEntity2);
@@ -221,18 +230,20 @@ public class StatisticsEventEntityDiffblueTest {
    * Method under test: {@link StatisticsEventEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean StatisticsEventEntity.equals(Object)", "int StatisticsEventEntity.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     StatisticsEventEntity statisticsEventEntity = new StatisticsEventEntity();
     statisticsEventEntity.setCreatedTime(1L);
-    statisticsEventEntity.setEntityId(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity.setErrorsOccurred(-1L);
-    statisticsEventEntity.setId(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity.setMessagesProcessed(1L);
     statisticsEventEntity.setServiceId("42");
-    statisticsEventEntity.setTenantId(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity.setTs(1L);
-    statisticsEventEntity.setUuid(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(statisticsEventEntity, null);
@@ -248,18 +259,20 @@ public class StatisticsEventEntityDiffblueTest {
    * Method under test: {@link StatisticsEventEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean StatisticsEventEntity.equals(Object)", "int StatisticsEventEntity.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     StatisticsEventEntity statisticsEventEntity = new StatisticsEventEntity();
     statisticsEventEntity.setCreatedTime(1L);
-    statisticsEventEntity.setEntityId(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity.setErrorsOccurred(-1L);
-    statisticsEventEntity.setId(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity.setMessagesProcessed(1L);
     statisticsEventEntity.setServiceId("42");
-    statisticsEventEntity.setTenantId(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity.setTs(1L);
-    statisticsEventEntity.setUuid(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(statisticsEventEntity, "Different type to StatisticsEventEntity");
@@ -279,6 +292,10 @@ public class StatisticsEventEntityDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void StatisticsEventEntity.<init>()", "long StatisticsEventEntity.getErrorsOccurred()",
+      "long StatisticsEventEntity.getMessagesProcessed()", "void StatisticsEventEntity.setErrorsOccurred(long)",
+      "void StatisticsEventEntity.setMessagesProcessed(long)", "String StatisticsEventEntity.toString()"})
   public void testGettersAndSetters() {
     // Arrange and Act
     StatisticsEventEntity actualStatisticsEventEntity = new StatisticsEventEntity();
@@ -288,8 +305,13 @@ public class StatisticsEventEntityDiffblueTest {
     long actualErrorsOccurred = actualStatisticsEventEntity.getErrorsOccurred();
     long actualMessagesProcessed = actualStatisticsEventEntity.getMessagesProcessed();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("StatisticsEventEntity(messagesProcessed=1, errorsOccurred=-1)", actualToStringResult);
+    assertNull(actualStatisticsEventEntity.getServiceId());
+    assertNull(actualStatisticsEventEntity.getEntityId());
+    assertNull(actualStatisticsEventEntity.getId());
+    assertNull(actualStatisticsEventEntity.getTenantId());
+    assertNull(actualStatisticsEventEntity.getUuid());
     assertEquals(-1L, actualErrorsOccurred);
     assertEquals(0L, actualStatisticsEventEntity.getCreatedTime());
     assertEquals(0L, actualStatisticsEventEntity.getTs());
@@ -299,16 +321,18 @@ public class StatisticsEventEntityDiffblueTest {
   /**
    * Test {@link StatisticsEventEntity#StatisticsEventEntity(StatisticsEvent)}.
    * <p>
-   * Method under test:
-   * {@link StatisticsEventEntity#StatisticsEventEntity(StatisticsEvent)}
+   * Method under test: {@link StatisticsEventEntity#StatisticsEventEntity(StatisticsEvent)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void StatisticsEventEntity.<init>(StatisticsEvent)"})
   public void testNewStatisticsEventEntity() {
     // Arrange
-    StatisticsEvent event = StatisticsEvent.builder()
-        .entityId(ModelConstants.NULL_UUID)
-        .errorsOccurred(-1L)
-        .id(ModelConstants.NULL_UUID)
+    StatisticsEventBuilder builderResult = StatisticsEvent.builder();
+    UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    StatisticsEventBuilder errorsOccurredResult = builderResult.entityId(entityId).errorsOccurred(-1L);
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    StatisticsEvent event = errorsOccurredResult.id(id)
         .messagesProcessed(1L)
         .serviceId("42")
         .tenantId(ModelConstants.SYSTEM_TENANT)
@@ -319,16 +343,19 @@ public class StatisticsEventEntityDiffblueTest {
     StatisticsEventEntity actualStatisticsEventEntity = new StatisticsEventEntity(event);
 
     // Assert
-    UUID entityId = actualStatisticsEventEntity.getEntityId();
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", entityId.toString());
     assertEquals("13814000-1dd2-11b2-8080-808080808080", actualStatisticsEventEntity.getTenantId().toString());
     assertEquals("42", actualStatisticsEventEntity.getServiceId());
+    UUID entityId2 = actualStatisticsEventEntity.getEntityId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", entityId2.toString());
+    UUID id2 = actualStatisticsEventEntity.getId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id2.toString());
     assertEquals(-1L, actualStatisticsEventEntity.getErrorsOccurred());
     assertEquals(1L, actualStatisticsEventEntity.getCreatedTime());
     assertEquals(1L, actualStatisticsEventEntity.getTs());
     assertEquals(1L, actualStatisticsEventEntity.getMessagesProcessed());
-    assertSame(entityId, actualStatisticsEventEntity.getId());
-    assertSame(entityId, actualStatisticsEventEntity.getUuid());
+    assertSame(entityId, entityId2);
+    assertSame(id, id2);
+    assertSame(id, actualStatisticsEventEntity.getUuid());
   }
 
   /**
@@ -338,20 +365,23 @@ public class StatisticsEventEntityDiffblueTest {
    *   <li>Then calls {@link BaseData#getCreatedTime()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link StatisticsEventEntity#StatisticsEventEntity(StatisticsEvent)}
+   * Method under test: {@link StatisticsEventEntity#StatisticsEventEntity(StatisticsEvent)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void StatisticsEventEntity.<init>(StatisticsEvent)"})
   public void testNewStatisticsEventEntity_givenSystem_tenant_thenCallsGetCreatedTime() {
     // Arrange
     StatisticsEvent event = mock(StatisticsEvent.class);
     when(event.getServiceId()).thenReturn("42");
-    when(event.getEntityId()).thenReturn(ModelConstants.NULL_UUID);
+    UUID fromStringResult = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    when(event.getEntityId()).thenReturn(fromStringResult);
     when(event.getCreatedTime()).thenReturn(1L);
     when(event.getErrorsOccurred()).thenReturn(-1L);
     when(event.getMessagesProcessed()).thenReturn(1L);
     when(event.getTenantId()).thenReturn(ModelConstants.SYSTEM_TENANT);
-    when(event.getId()).thenReturn(new EventId(ModelConstants.NULL_UUID));
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    when(event.getId()).thenReturn(new EventId(id));
 
     // Act
     StatisticsEventEntity actualStatisticsEventEntity = new StatisticsEventEntity(event);
@@ -364,16 +394,19 @@ public class StatisticsEventEntityDiffblueTest {
     verify(event).getErrorsOccurred();
     verify(event).getMessagesProcessed();
     verify(event).getId();
-    UUID entityId = actualStatisticsEventEntity.getEntityId();
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", entityId.toString());
     assertEquals("13814000-1dd2-11b2-8080-808080808080", actualStatisticsEventEntity.getTenantId().toString());
     assertEquals("42", actualStatisticsEventEntity.getServiceId());
+    UUID entityId = actualStatisticsEventEntity.getEntityId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", entityId.toString());
+    UUID id2 = actualStatisticsEventEntity.getId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id2.toString());
     assertEquals(-1L, actualStatisticsEventEntity.getErrorsOccurred());
     assertEquals(1L, actualStatisticsEventEntity.getCreatedTime());
     assertEquals(1L, actualStatisticsEventEntity.getTs());
     assertEquals(1L, actualStatisticsEventEntity.getMessagesProcessed());
-    assertSame(entityId, actualStatisticsEventEntity.getId());
-    assertSame(entityId, actualStatisticsEventEntity.getUuid());
+    assertSame(fromStringResult, entityId);
+    assertSame(id, id2);
+    assertSame(id, actualStatisticsEventEntity.getUuid());
   }
 
   /**
@@ -386,6 +419,8 @@ public class StatisticsEventEntityDiffblueTest {
    * Method under test: {@link StatisticsEventEntity#toData()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"StatisticsEvent StatisticsEventEntity.toData()"})
   public void testToData_givenStatisticsEventEntity_thenReturnServiceIdIsNull() {
     // Arrange and Act
     StatisticsEvent actualToDataResult = (new StatisticsEventEntity()).toData();
@@ -404,82 +439,89 @@ public class StatisticsEventEntityDiffblueTest {
   /**
    * Test {@link StatisticsEventEntity#toData()}.
    * <ul>
-   *   <li>Then return not TenantId NullUid.</li>
+   *   <li>Then return TenantId Id is randomUUID.</li>
    * </ul>
    * <p>
    * Method under test: {@link StatisticsEventEntity#toData()}
    */
   @Test
-  public void testToData_thenReturnNotTenantIdNullUid() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"StatisticsEvent StatisticsEventEntity.toData()"})
+  public void testToData_thenReturnTenantIdIdIsRandomUUID() {
     // Arrange
     StatisticsEventEntity statisticsEventEntity = new StatisticsEventEntity();
     statisticsEventEntity.setCreatedTime(1L);
-    statisticsEventEntity.setEntityId(ModelConstants.NULL_UUID);
+    UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    statisticsEventEntity.setEntityId(entityId);
     statisticsEventEntity.setErrorsOccurred(-1L);
-    statisticsEventEntity.setId(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity.setMessagesProcessed(1L);
     statisticsEventEntity.setServiceId("42");
     UUID tenantId = UUID.randomUUID();
     statisticsEventEntity.setTenantId(tenantId);
     statisticsEventEntity.setTs(1L);
-    statisticsEventEntity.setUuid(ModelConstants.NULL_UUID);
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    statisticsEventEntity.setUuid(id);
 
     // Act
     StatisticsEvent actualToDataResult = statisticsEventEntity.toData();
 
     // Assert
-    UUID entityId = actualToDataResult.getEntityId();
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", entityId.toString());
     assertEquals("42", actualToDataResult.getServiceId());
+    UUID entityId2 = actualToDataResult.getEntityId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", entityId2.toString());
+    UUID uuidId = actualToDataResult.getUuidId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", uuidId.toString());
     assertEquals(-1L, actualToDataResult.getErrorsOccurred());
     assertEquals(1L, actualToDataResult.getCreatedTime());
     assertEquals(1L, actualToDataResult.getMessagesProcessed());
-    TenantId tenantId2 = actualToDataResult.getTenantId();
-    assertFalse(tenantId2.isNullUid());
-    assertFalse(tenantId2.isSysTenantId());
-    assertSame(entityId, actualToDataResult.getUuidId());
-    assertSame(entityId, actualToDataResult.getId().getId());
-    assertSame(tenantId, tenantId2.getId());
+    assertSame(entityId, entityId2);
+    assertSame(id, uuidId);
+    assertSame(id, actualToDataResult.getId().getId());
+    assertSame(tenantId, actualToDataResult.getTenantId().getId());
   }
 
   /**
    * Test {@link StatisticsEventEntity#toData()}.
    * <ul>
-   *   <li>Then return TenantId Id toString is
-   * {@code 13814000-1dd2-11b2-8080-808080808080}.</li>
+   *   <li>Then return TenantId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
    * </ul>
    * <p>
    * Method under test: {@link StatisticsEventEntity#toData()}
    */
   @Test
-  public void testToData_thenReturnTenantIdIdToStringIs138140001dd211b28080808080808080() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"StatisticsEvent StatisticsEventEntity.toData()"})
+  public void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     StatisticsEventEntity statisticsEventEntity = new StatisticsEventEntity();
     statisticsEventEntity.setCreatedTime(1L);
-    statisticsEventEntity.setEntityId(ModelConstants.NULL_UUID);
+    UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    statisticsEventEntity.setEntityId(entityId);
     statisticsEventEntity.setErrorsOccurred(-1L);
-    statisticsEventEntity.setId(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity.setMessagesProcessed(1L);
     statisticsEventEntity.setServiceId("42");
-    statisticsEventEntity.setTenantId(ModelConstants.NULL_UUID);
+    statisticsEventEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     statisticsEventEntity.setTs(1L);
-    statisticsEventEntity.setUuid(ModelConstants.NULL_UUID);
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    statisticsEventEntity.setUuid(id);
 
     // Act
     StatisticsEvent actualToDataResult = statisticsEventEntity.toData();
 
     // Assert
-    UUID entityId = actualToDataResult.getEntityId();
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", entityId.toString());
-    TenantId tenantId = actualToDataResult.getTenantId();
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", tenantId.getId().toString());
     assertEquals("42", actualToDataResult.getServiceId());
+    UUID entityId2 = actualToDataResult.getEntityId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", entityId2.toString());
+    UUID uuidId = actualToDataResult.getUuidId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", uuidId.toString());
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualToDataResult.getTenantId().getId().toString());
     assertEquals(-1L, actualToDataResult.getErrorsOccurred());
     assertEquals(1L, actualToDataResult.getCreatedTime());
     assertEquals(1L, actualToDataResult.getMessagesProcessed());
-    assertTrue(tenantId.isNullUid());
-    assertTrue(tenantId.isSysTenantId());
-    assertSame(entityId, actualToDataResult.getUuidId());
-    assertSame(entityId, actualToDataResult.getId().getId());
+    assertSame(entityId, entityId2);
+    assertSame(id, uuidId);
+    assertSame(id, actualToDataResult.getId().getId());
   }
 }

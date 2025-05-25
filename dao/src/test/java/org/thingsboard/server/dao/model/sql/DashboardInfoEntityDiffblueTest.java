@@ -6,19 +6,20 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashSet;
 import java.util.UUID;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.common.data.DashboardInfo;
 import org.thingsboard.server.common.data.EntityType;
-import org.thingsboard.server.common.data.id.DashboardId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.dao.model.ModelConstants;
 
 public class DashboardInfoEntityDiffblueTest {
   /**
-   * Test {@link DashboardInfoEntity#equals(Object)}, and
-   * {@link DashboardInfoEntity#hashCode()}.
+   * Test {@link DashboardInfoEntity#equals(Object)}, and {@link DashboardInfoEntity#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -31,30 +32,32 @@ public class DashboardInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DashboardInfoEntity.equals(Object)", "int DashboardInfoEntity.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DashboardInfoEntity dashboardInfoEntity = new DashboardInfoEntity();
     dashboardInfoEntity.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity.setCreatedTime(1L);
-    dashboardInfoEntity.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setImage("Image");
     dashboardInfoEntity.setMobileHide(true);
     dashboardInfoEntity.setMobileOrder(1);
-    dashboardInfoEntity.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setTitle("Dr");
-    dashboardInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setVersion(1L);
 
     DashboardInfoEntity dashboardInfoEntity2 = new DashboardInfoEntity();
     dashboardInfoEntity2.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity2.setCreatedTime(1L);
-    dashboardInfoEntity2.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setImage("Image");
     dashboardInfoEntity2.setMobileHide(true);
     dashboardInfoEntity2.setMobileOrder(1);
-    dashboardInfoEntity2.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setTitle("Dr");
-    dashboardInfoEntity2.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setVersion(1L);
 
     // Act and Assert
@@ -64,8 +67,55 @@ public class DashboardInfoEntityDiffblueTest {
   }
 
   /**
-   * Test {@link DashboardInfoEntity#equals(Object)}, and
-   * {@link DashboardInfoEntity#hashCode()}.
+   * Test {@link DashboardInfoEntity#equals(Object)}, and {@link DashboardInfoEntity#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link DashboardInfoEntity#equals(Object)}
+   *   <li>{@link DashboardInfoEntity#hashCode()}
+   * </ul>
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DashboardInfoEntity.equals(Object)", "int DashboardInfoEntity.hashCode()"})
+  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    DashboardInfoEntity dashboardInfoEntity = new DashboardInfoEntity();
+    dashboardInfoEntity.setAssignedCustomers(null);
+    dashboardInfoEntity.setCreatedTime(1L);
+    dashboardInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    dashboardInfoEntity.setImage("Image");
+    dashboardInfoEntity.setMobileHide(true);
+    dashboardInfoEntity.setMobileOrder(1);
+    dashboardInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    dashboardInfoEntity.setTitle("Dr");
+    dashboardInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    dashboardInfoEntity.setVersion(1L);
+
+    DashboardInfoEntity dashboardInfoEntity2 = new DashboardInfoEntity();
+    dashboardInfoEntity2.setAssignedCustomers(null);
+    dashboardInfoEntity2.setCreatedTime(1L);
+    dashboardInfoEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    dashboardInfoEntity2.setImage("Image");
+    dashboardInfoEntity2.setMobileHide(true);
+    dashboardInfoEntity2.setMobileOrder(1);
+    dashboardInfoEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    dashboardInfoEntity2.setTitle("Dr");
+    dashboardInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    dashboardInfoEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertEquals(dashboardInfoEntity, dashboardInfoEntity2);
+    int expectedHashCodeResult = dashboardInfoEntity.hashCode();
+    assertEquals(expectedHashCodeResult, dashboardInfoEntity2.hashCode());
+  }
+
+  /**
+   * Test {@link DashboardInfoEntity#equals(Object)}, and {@link DashboardInfoEntity#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -78,18 +128,20 @@ public class DashboardInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DashboardInfoEntity.equals(Object)", "int DashboardInfoEntity.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DashboardInfoEntity dashboardInfoEntity = new DashboardInfoEntity();
     dashboardInfoEntity.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity.setCreatedTime(1L);
-    dashboardInfoEntity.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setImage("Image");
     dashboardInfoEntity.setMobileHide(true);
     dashboardInfoEntity.setMobileOrder(1);
-    dashboardInfoEntity.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setTitle("Dr");
-    dashboardInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setVersion(1L);
 
     // Act and Assert
@@ -108,30 +160,32 @@ public class DashboardInfoEntityDiffblueTest {
    * Method under test: {@link DashboardInfoEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DashboardInfoEntity.equals(Object)", "int DashboardInfoEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     DashboardInfoEntity dashboardInfoEntity = new DashboardInfoEntity();
     dashboardInfoEntity.setAssignedCustomers("Dr");
     dashboardInfoEntity.setCreatedTime(1L);
-    dashboardInfoEntity.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setImage("Image");
     dashboardInfoEntity.setMobileHide(true);
     dashboardInfoEntity.setMobileOrder(1);
-    dashboardInfoEntity.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setTitle("Dr");
-    dashboardInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setVersion(1L);
 
     DashboardInfoEntity dashboardInfoEntity2 = new DashboardInfoEntity();
     dashboardInfoEntity2.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity2.setCreatedTime(1L);
-    dashboardInfoEntity2.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setImage("Image");
     dashboardInfoEntity2.setMobileHide(true);
     dashboardInfoEntity2.setMobileOrder(1);
-    dashboardInfoEntity2.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setTitle("Dr");
-    dashboardInfoEntity2.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setVersion(1L);
 
     // Act and Assert
@@ -148,30 +202,32 @@ public class DashboardInfoEntityDiffblueTest {
    * Method under test: {@link DashboardInfoEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DashboardInfoEntity.equals(Object)", "int DashboardInfoEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DashboardInfoEntity dashboardInfoEntity = new DashboardInfoEntity();
     dashboardInfoEntity.setAssignedCustomers(null);
     dashboardInfoEntity.setCreatedTime(1L);
-    dashboardInfoEntity.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setImage("Image");
     dashboardInfoEntity.setMobileHide(true);
     dashboardInfoEntity.setMobileOrder(1);
-    dashboardInfoEntity.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setTitle("Dr");
-    dashboardInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setVersion(1L);
 
     DashboardInfoEntity dashboardInfoEntity2 = new DashboardInfoEntity();
     dashboardInfoEntity2.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity2.setCreatedTime(1L);
-    dashboardInfoEntity2.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setImage("Image");
     dashboardInfoEntity2.setMobileHide(true);
     dashboardInfoEntity2.setMobileOrder(1);
-    dashboardInfoEntity2.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setTitle("Dr");
-    dashboardInfoEntity2.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setVersion(1L);
 
     // Act and Assert
@@ -188,30 +244,32 @@ public class DashboardInfoEntityDiffblueTest {
    * Method under test: {@link DashboardInfoEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DashboardInfoEntity.equals(Object)", "int DashboardInfoEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DashboardInfoEntity dashboardInfoEntity = new DashboardInfoEntity();
     dashboardInfoEntity.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity.setCreatedTime(3L);
-    dashboardInfoEntity.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setImage("Image");
     dashboardInfoEntity.setMobileHide(true);
     dashboardInfoEntity.setMobileOrder(1);
-    dashboardInfoEntity.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setTitle("Dr");
-    dashboardInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setVersion(1L);
 
     DashboardInfoEntity dashboardInfoEntity2 = new DashboardInfoEntity();
     dashboardInfoEntity2.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity2.setCreatedTime(1L);
-    dashboardInfoEntity2.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setImage("Image");
     dashboardInfoEntity2.setMobileHide(true);
     dashboardInfoEntity2.setMobileOrder(1);
-    dashboardInfoEntity2.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setTitle("Dr");
-    dashboardInfoEntity2.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setVersion(1L);
 
     // Act and Assert
@@ -228,30 +286,32 @@ public class DashboardInfoEntityDiffblueTest {
    * Method under test: {@link DashboardInfoEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DashboardInfoEntity.equals(Object)", "int DashboardInfoEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     DashboardInfoEntity dashboardInfoEntity = new DashboardInfoEntity();
     dashboardInfoEntity.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity.setCreatedTime(1L);
-    dashboardInfoEntity.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setImage("Dr");
     dashboardInfoEntity.setMobileHide(true);
     dashboardInfoEntity.setMobileOrder(1);
-    dashboardInfoEntity.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setTitle("Dr");
-    dashboardInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setVersion(1L);
 
     DashboardInfoEntity dashboardInfoEntity2 = new DashboardInfoEntity();
     dashboardInfoEntity2.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity2.setCreatedTime(1L);
-    dashboardInfoEntity2.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setImage("Image");
     dashboardInfoEntity2.setMobileHide(true);
     dashboardInfoEntity2.setMobileOrder(1);
-    dashboardInfoEntity2.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setTitle("Dr");
-    dashboardInfoEntity2.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setVersion(1L);
 
     // Act and Assert
@@ -268,30 +328,32 @@ public class DashboardInfoEntityDiffblueTest {
    * Method under test: {@link DashboardInfoEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DashboardInfoEntity.equals(Object)", "int DashboardInfoEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     DashboardInfoEntity dashboardInfoEntity = new DashboardInfoEntity();
     dashboardInfoEntity.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity.setCreatedTime(1L);
-    dashboardInfoEntity.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setImage(null);
     dashboardInfoEntity.setMobileHide(true);
     dashboardInfoEntity.setMobileOrder(1);
-    dashboardInfoEntity.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setTitle("Dr");
-    dashboardInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setVersion(1L);
 
     DashboardInfoEntity dashboardInfoEntity2 = new DashboardInfoEntity();
     dashboardInfoEntity2.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity2.setCreatedTime(1L);
-    dashboardInfoEntity2.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setImage("Image");
     dashboardInfoEntity2.setMobileHide(true);
     dashboardInfoEntity2.setMobileOrder(1);
-    dashboardInfoEntity2.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setTitle("Dr");
-    dashboardInfoEntity2.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setVersion(1L);
 
     // Act and Assert
@@ -308,30 +370,32 @@ public class DashboardInfoEntityDiffblueTest {
    * Method under test: {@link DashboardInfoEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DashboardInfoEntity.equals(Object)", "int DashboardInfoEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     DashboardInfoEntity dashboardInfoEntity = new DashboardInfoEntity();
     dashboardInfoEntity.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity.setCreatedTime(1L);
-    dashboardInfoEntity.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setImage("Image");
     dashboardInfoEntity.setMobileHide(false);
     dashboardInfoEntity.setMobileOrder(1);
-    dashboardInfoEntity.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setTitle("Dr");
-    dashboardInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setVersion(1L);
 
     DashboardInfoEntity dashboardInfoEntity2 = new DashboardInfoEntity();
     dashboardInfoEntity2.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity2.setCreatedTime(1L);
-    dashboardInfoEntity2.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setImage("Image");
     dashboardInfoEntity2.setMobileHide(true);
     dashboardInfoEntity2.setMobileOrder(1);
-    dashboardInfoEntity2.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setTitle("Dr");
-    dashboardInfoEntity2.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setVersion(1L);
 
     // Act and Assert
@@ -348,30 +412,32 @@ public class DashboardInfoEntityDiffblueTest {
    * Method under test: {@link DashboardInfoEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DashboardInfoEntity.equals(Object)", "int DashboardInfoEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     DashboardInfoEntity dashboardInfoEntity = new DashboardInfoEntity();
     dashboardInfoEntity.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity.setCreatedTime(1L);
-    dashboardInfoEntity.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setImage("Image");
     dashboardInfoEntity.setMobileHide(true);
     dashboardInfoEntity.setMobileOrder(3);
-    dashboardInfoEntity.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setTitle("Dr");
-    dashboardInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setVersion(1L);
 
     DashboardInfoEntity dashboardInfoEntity2 = new DashboardInfoEntity();
     dashboardInfoEntity2.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity2.setCreatedTime(1L);
-    dashboardInfoEntity2.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setImage("Image");
     dashboardInfoEntity2.setMobileHide(true);
     dashboardInfoEntity2.setMobileOrder(1);
-    dashboardInfoEntity2.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setTitle("Dr");
-    dashboardInfoEntity2.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setVersion(1L);
 
     // Act and Assert
@@ -388,30 +454,32 @@ public class DashboardInfoEntityDiffblueTest {
    * Method under test: {@link DashboardInfoEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DashboardInfoEntity.equals(Object)", "int DashboardInfoEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     DashboardInfoEntity dashboardInfoEntity = new DashboardInfoEntity();
     dashboardInfoEntity.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity.setCreatedTime(1L);
-    dashboardInfoEntity.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setImage("Image");
     dashboardInfoEntity.setMobileHide(true);
     dashboardInfoEntity.setMobileOrder(null);
-    dashboardInfoEntity.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setTitle("Dr");
-    dashboardInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setVersion(1L);
 
     DashboardInfoEntity dashboardInfoEntity2 = new DashboardInfoEntity();
     dashboardInfoEntity2.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity2.setCreatedTime(1L);
-    dashboardInfoEntity2.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setImage("Image");
     dashboardInfoEntity2.setMobileHide(true);
     dashboardInfoEntity2.setMobileOrder(1);
-    dashboardInfoEntity2.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setTitle("Dr");
-    dashboardInfoEntity2.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setVersion(1L);
 
     // Act and Assert
@@ -428,30 +496,32 @@ public class DashboardInfoEntityDiffblueTest {
    * Method under test: {@link DashboardInfoEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DashboardInfoEntity.equals(Object)", "int DashboardInfoEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     DashboardInfoEntity dashboardInfoEntity = new DashboardInfoEntity();
     dashboardInfoEntity.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity.setCreatedTime(1L);
-    dashboardInfoEntity.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setImage("Image");
     dashboardInfoEntity.setMobileHide(true);
     dashboardInfoEntity.setMobileOrder(1);
-    dashboardInfoEntity.setTenantId(UUID.randomUUID());
+    dashboardInfoEntity.setTenantId(ModelConstants.NULL_UUID);
     dashboardInfoEntity.setTitle("Dr");
-    dashboardInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setVersion(1L);
 
     DashboardInfoEntity dashboardInfoEntity2 = new DashboardInfoEntity();
     dashboardInfoEntity2.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity2.setCreatedTime(1L);
-    dashboardInfoEntity2.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setImage("Image");
     dashboardInfoEntity2.setMobileHide(true);
     dashboardInfoEntity2.setMobileOrder(1);
-    dashboardInfoEntity2.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setTitle("Dr");
-    dashboardInfoEntity2.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setVersion(1L);
 
     // Act and Assert
@@ -468,30 +538,32 @@ public class DashboardInfoEntityDiffblueTest {
    * Method under test: {@link DashboardInfoEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DashboardInfoEntity.equals(Object)", "int DashboardInfoEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     DashboardInfoEntity dashboardInfoEntity = new DashboardInfoEntity();
     dashboardInfoEntity.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity.setCreatedTime(1L);
-    dashboardInfoEntity.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setImage("Image");
     dashboardInfoEntity.setMobileHide(true);
     dashboardInfoEntity.setMobileOrder(1);
     dashboardInfoEntity.setTenantId(null);
     dashboardInfoEntity.setTitle("Dr");
-    dashboardInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setVersion(1L);
 
     DashboardInfoEntity dashboardInfoEntity2 = new DashboardInfoEntity();
     dashboardInfoEntity2.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity2.setCreatedTime(1L);
-    dashboardInfoEntity2.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setImage("Image");
     dashboardInfoEntity2.setMobileHide(true);
     dashboardInfoEntity2.setMobileOrder(1);
-    dashboardInfoEntity2.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setTitle("Dr");
-    dashboardInfoEntity2.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setVersion(1L);
 
     // Act and Assert
@@ -508,30 +580,32 @@ public class DashboardInfoEntityDiffblueTest {
    * Method under test: {@link DashboardInfoEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DashboardInfoEntity.equals(Object)", "int DashboardInfoEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     DashboardInfoEntity dashboardInfoEntity = new DashboardInfoEntity();
     dashboardInfoEntity.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity.setCreatedTime(1L);
-    dashboardInfoEntity.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setImage("Image");
     dashboardInfoEntity.setMobileHide(true);
     dashboardInfoEntity.setMobileOrder(1);
-    dashboardInfoEntity.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setTitle("Mr");
-    dashboardInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setVersion(1L);
 
     DashboardInfoEntity dashboardInfoEntity2 = new DashboardInfoEntity();
     dashboardInfoEntity2.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity2.setCreatedTime(1L);
-    dashboardInfoEntity2.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setImage("Image");
     dashboardInfoEntity2.setMobileHide(true);
     dashboardInfoEntity2.setMobileOrder(1);
-    dashboardInfoEntity2.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setTitle("Dr");
-    dashboardInfoEntity2.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setVersion(1L);
 
     // Act and Assert
@@ -548,30 +622,32 @@ public class DashboardInfoEntityDiffblueTest {
    * Method under test: {@link DashboardInfoEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DashboardInfoEntity.equals(Object)", "int DashboardInfoEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     DashboardInfoEntity dashboardInfoEntity = new DashboardInfoEntity();
     dashboardInfoEntity.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity.setCreatedTime(1L);
-    dashboardInfoEntity.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setImage("Image");
     dashboardInfoEntity.setMobileHide(true);
     dashboardInfoEntity.setMobileOrder(1);
-    dashboardInfoEntity.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setTitle(null);
-    dashboardInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setVersion(1L);
 
     DashboardInfoEntity dashboardInfoEntity2 = new DashboardInfoEntity();
     dashboardInfoEntity2.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity2.setCreatedTime(1L);
-    dashboardInfoEntity2.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setImage("Image");
     dashboardInfoEntity2.setMobileHide(true);
     dashboardInfoEntity2.setMobileOrder(1);
-    dashboardInfoEntity2.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setTitle("Dr");
-    dashboardInfoEntity2.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity2.setVersion(1L);
 
     // Act and Assert
@@ -588,18 +664,20 @@ public class DashboardInfoEntityDiffblueTest {
    * Method under test: {@link DashboardInfoEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DashboardInfoEntity.equals(Object)", "int DashboardInfoEntity.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     DashboardInfoEntity dashboardInfoEntity = new DashboardInfoEntity();
     dashboardInfoEntity.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity.setCreatedTime(1L);
-    dashboardInfoEntity.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setImage("Image");
     dashboardInfoEntity.setMobileHide(true);
     dashboardInfoEntity.setMobileOrder(1);
-    dashboardInfoEntity.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setTitle("Dr");
-    dashboardInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setVersion(1L);
 
     // Act and Assert
@@ -616,18 +694,20 @@ public class DashboardInfoEntityDiffblueTest {
    * Method under test: {@link DashboardInfoEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DashboardInfoEntity.equals(Object)", "int DashboardInfoEntity.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     DashboardInfoEntity dashboardInfoEntity = new DashboardInfoEntity();
     dashboardInfoEntity.setAssignedCustomers("Assigned Customers");
     dashboardInfoEntity.setCreatedTime(1L);
-    dashboardInfoEntity.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setImage("Image");
     dashboardInfoEntity.setMobileHide(true);
     dashboardInfoEntity.setMobileOrder(1);
-    dashboardInfoEntity.setTenantId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setTitle("Dr");
-    dashboardInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setVersion(1L);
 
     // Act and Assert
@@ -656,6 +736,14 @@ public class DashboardInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DashboardInfoEntity.<init>()", "String DashboardInfoEntity.getAssignedCustomers()",
+      "String DashboardInfoEntity.getImage()", "Integer DashboardInfoEntity.getMobileOrder()",
+      "UUID DashboardInfoEntity.getTenantId()", "String DashboardInfoEntity.getTitle()",
+      "boolean DashboardInfoEntity.isMobileHide()", "void DashboardInfoEntity.setAssignedCustomers(String)",
+      "void DashboardInfoEntity.setImage(String)", "void DashboardInfoEntity.setMobileHide(boolean)",
+      "void DashboardInfoEntity.setMobileOrder(Integer)", "void DashboardInfoEntity.setTenantId(UUID)",
+      "void DashboardInfoEntity.setTitle(String)", "String DashboardInfoEntity.toString()"})
   public void testGettersAndSetters() {
     // Arrange and Act
     DashboardInfoEntity actualDashboardInfoEntity = new DashboardInfoEntity();
@@ -663,7 +751,7 @@ public class DashboardInfoEntityDiffblueTest {
     actualDashboardInfoEntity.setImage("Image");
     actualDashboardInfoEntity.setMobileHide(true);
     actualDashboardInfoEntity.setMobileOrder(1);
-    UUID tenantId = ModelConstants.NULL_UUID;
+    UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     actualDashboardInfoEntity.setTenantId(tenantId);
     actualDashboardInfoEntity.setTitle("Dr");
     String actualToStringResult = actualDashboardInfoEntity.toString();
@@ -674,15 +762,18 @@ public class DashboardInfoEntityDiffblueTest {
     String actualTitle = actualDashboardInfoEntity.getTitle();
     boolean actualIsMobileHideResult = actualDashboardInfoEntity.isMobileHide();
 
-    // Assert that nothing has changed
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualTenantId.toString());
+    // Assert
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualTenantId.toString());
     assertEquals("Assigned Customers", actualAssignedCustomers);
     assertEquals(
-        "DashboardInfoEntity(tenantId=13814000-1dd2-11b2-8080-808080808080, title=Dr, image=Image, assignedCustomers"
+        "DashboardInfoEntity(tenantId=784f394c-42b6-435a-983c-b7beff2784f9, title=Dr, image=Image, assignedCustomers"
             + "=Assigned Customers, mobileHide=true, mobileOrder=1)",
         actualToStringResult);
     assertEquals("Dr", actualTitle);
     assertEquals("Image", actualImage);
+    assertNull(actualDashboardInfoEntity.getVersion());
+    assertNull(actualDashboardInfoEntity.getId());
+    assertNull(actualDashboardInfoEntity.getUuid());
     assertEquals(0L, actualDashboardInfoEntity.getCreatedTime());
     assertEquals(1, actualMobileOrder.intValue());
     assertTrue(actualIsMobileHideResult);
@@ -692,10 +783,11 @@ public class DashboardInfoEntityDiffblueTest {
   /**
    * Test {@link DashboardInfoEntity#DashboardInfoEntity(DashboardInfo)}.
    * <p>
-   * Method under test:
-   * {@link DashboardInfoEntity#DashboardInfoEntity(DashboardInfo)}
+   * Method under test: {@link DashboardInfoEntity#DashboardInfoEntity(DashboardInfo)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DashboardInfoEntity.<init>(DashboardInfo)"})
   public void testNewDashboardInfoEntity() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
@@ -724,10 +816,11 @@ public class DashboardInfoEntityDiffblueTest {
    *   <li>Given {@link HashSet#HashSet()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DashboardInfoEntity#DashboardInfoEntity(DashboardInfo)}
+   * Method under test: {@link DashboardInfoEntity#DashboardInfoEntity(DashboardInfo)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DashboardInfoEntity.<init>(DashboardInfo)"})
   public void testNewDashboardInfoEntity_givenHashSet() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
@@ -757,10 +850,11 @@ public class DashboardInfoEntityDiffblueTest {
    *   <li>Then return AssignedCustomers is {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DashboardInfoEntity#DashboardInfoEntity(DashboardInfo)}
+   * Method under test: {@link DashboardInfoEntity#DashboardInfoEntity(DashboardInfo)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DashboardInfoEntity.<init>(DashboardInfo)"})
   public void testNewDashboardInfoEntity_whenDashboardInfo_thenReturnAssignedCustomersIsNull() {
     // Arrange and Act
     DashboardInfoEntity actualDashboardInfoEntity = new DashboardInfoEntity(new DashboardInfo());
@@ -781,23 +875,25 @@ public class DashboardInfoEntityDiffblueTest {
   /**
    * Test {@link DashboardInfoEntity#toData()}.
    * <ul>
-   *   <li>Given {@link DashboardInfoEntity#DashboardInfoEntity()} AssignedCustomers
-   * is {@code 42}.</li>
+   *   <li>Given {@link DashboardInfoEntity#DashboardInfoEntity()} AssignedCustomers is {@code 42}.</li>
    * </ul>
    * <p>
    * Method under test: {@link DashboardInfoEntity#toData()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"DashboardInfo DashboardInfoEntity.toData()"})
   public void testToData_givenDashboardInfoEntityAssignedCustomersIs42() {
     // Arrange
     DashboardInfoEntity dashboardInfoEntity = new DashboardInfoEntity();
     dashboardInfoEntity.setCreatedTime(1L);
-    dashboardInfoEntity.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setImage("Image");
     dashboardInfoEntity.setMobileHide(true);
     dashboardInfoEntity.setMobileOrder(1);
     dashboardInfoEntity.setTitle("Dr");
-    dashboardInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    dashboardInfoEntity.setUuid(id);
     dashboardInfoEntity.setVersion(1L);
     dashboardInfoEntity.setTenantId(null);
     dashboardInfoEntity.setAssignedCustomers("42");
@@ -807,7 +903,7 @@ public class DashboardInfoEntityDiffblueTest {
 
     // Assert
     UUID uuidId = actualToDataResult.getUuidId();
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", uuidId.toString());
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", uuidId.toString());
     assertEquals("Dr", actualToDataResult.getName());
     assertEquals("Dr", actualToDataResult.getTitle());
     assertEquals("Image", actualToDataResult.getImage());
@@ -816,74 +912,32 @@ public class DashboardInfoEntityDiffblueTest {
     assertEquals(1L, actualToDataResult.getVersion().longValue());
     assertEquals(1L, actualToDataResult.getCreatedTime());
     assertTrue(actualToDataResult.isMobileHide());
-    DashboardId id = actualToDataResult.getId();
-    assertTrue(id.isNullUid());
-    assertSame(uuidId, id.getId());
+    assertSame(id, uuidId);
+    assertSame(id, actualToDataResult.getId().getId());
   }
 
   /**
    * Test {@link DashboardInfoEntity#toData()}.
    * <ul>
-   *   <li>Given {@link DashboardInfoEntity#DashboardInfoEntity()} AssignedCustomers
-   * is empty string.</li>
+   *   <li>Given {@link DashboardInfoEntity#DashboardInfoEntity()} AssignedCustomers is {@code foo}.</li>
    * </ul>
    * <p>
    * Method under test: {@link DashboardInfoEntity#toData()}
    */
   @Test
-  public void testToData_givenDashboardInfoEntityAssignedCustomersIsEmptyString() {
-    // Arrange
-    DashboardInfoEntity dashboardInfoEntity = new DashboardInfoEntity();
-    dashboardInfoEntity.setCreatedTime(1L);
-    dashboardInfoEntity.setId(ModelConstants.NULL_UUID);
-    dashboardInfoEntity.setImage("Image");
-    dashboardInfoEntity.setMobileHide(true);
-    dashboardInfoEntity.setMobileOrder(1);
-    dashboardInfoEntity.setTitle("Dr");
-    dashboardInfoEntity.setUuid(ModelConstants.NULL_UUID);
-    dashboardInfoEntity.setVersion(1L);
-    dashboardInfoEntity.setTenantId(null);
-    dashboardInfoEntity.setAssignedCustomers("");
-
-    // Act
-    DashboardInfo actualToDataResult = dashboardInfoEntity.toData();
-
-    // Assert
-    UUID uuidId = actualToDataResult.getUuidId();
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", uuidId.toString());
-    assertEquals("Dr", actualToDataResult.getName());
-    assertEquals("Dr", actualToDataResult.getTitle());
-    assertEquals("Image", actualToDataResult.getImage());
-    assertNull(actualToDataResult.getTenantId());
-    assertEquals(1, actualToDataResult.getMobileOrder().intValue());
-    assertEquals(1L, actualToDataResult.getVersion().longValue());
-    assertEquals(1L, actualToDataResult.getCreatedTime());
-    assertTrue(actualToDataResult.isMobileHide());
-    DashboardId id = actualToDataResult.getId();
-    assertTrue(id.isNullUid());
-    assertSame(uuidId, id.getId());
-  }
-
-  /**
-   * Test {@link DashboardInfoEntity#toData()}.
-   * <ul>
-   *   <li>Given {@link DashboardInfoEntity#DashboardInfoEntity()} AssignedCustomers
-   * is {@code foo}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link DashboardInfoEntity#toData()}
-   */
-  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"DashboardInfo DashboardInfoEntity.toData()"})
   public void testToData_givenDashboardInfoEntityAssignedCustomersIsFoo() {
     // Arrange
     DashboardInfoEntity dashboardInfoEntity = new DashboardInfoEntity();
     dashboardInfoEntity.setCreatedTime(1L);
-    dashboardInfoEntity.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setImage("Image");
     dashboardInfoEntity.setMobileHide(true);
     dashboardInfoEntity.setMobileOrder(1);
     dashboardInfoEntity.setTitle("Dr");
-    dashboardInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    dashboardInfoEntity.setUuid(id);
     dashboardInfoEntity.setVersion(1L);
     dashboardInfoEntity.setTenantId(null);
     dashboardInfoEntity.setAssignedCustomers("foo");
@@ -893,7 +947,7 @@ public class DashboardInfoEntityDiffblueTest {
 
     // Assert
     UUID uuidId = actualToDataResult.getUuidId();
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", uuidId.toString());
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", uuidId.toString());
     assertEquals("Dr", actualToDataResult.getName());
     assertEquals("Dr", actualToDataResult.getTitle());
     assertEquals("Image", actualToDataResult.getImage());
@@ -902,9 +956,8 @@ public class DashboardInfoEntityDiffblueTest {
     assertEquals(1L, actualToDataResult.getVersion().longValue());
     assertEquals(1L, actualToDataResult.getCreatedTime());
     assertTrue(actualToDataResult.isMobileHide());
-    DashboardId id = actualToDataResult.getId();
-    assertTrue(id.isNullUid());
-    assertSame(uuidId, id.getId());
+    assertSame(id, uuidId);
+    assertSame(id, actualToDataResult.getId().getId());
   }
 
   /**
@@ -917,6 +970,8 @@ public class DashboardInfoEntityDiffblueTest {
    * Method under test: {@link DashboardInfoEntity#toData()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"DashboardInfo DashboardInfoEntity.toData()"})
   public void testToData_givenDashboardInfoEntity_thenReturnMobileOrderIsNull() {
     // Arrange and Act
     DashboardInfo actualToDataResult = (new DashboardInfoEntity()).toData();
@@ -928,32 +983,32 @@ public class DashboardInfoEntityDiffblueTest {
     assertNull(actualToDataResult.getName());
     assertNull(actualToDataResult.getTitle());
     assertNull(actualToDataResult.getUuidId());
-    DashboardId id = actualToDataResult.getId();
-    assertNull(id.getId());
+    assertNull(actualToDataResult.getId().getId());
     assertEquals(0L, actualToDataResult.getCreatedTime());
     assertFalse(actualToDataResult.isMobileHide());
-    assertFalse(id.isNullUid());
   }
 
   /**
    * Test {@link DashboardInfoEntity#toData()}.
    * <ul>
-   *   <li>Then return not TenantId NullUid.</li>
+   *   <li>Then return TenantId Id is randomUUID.</li>
    * </ul>
    * <p>
    * Method under test: {@link DashboardInfoEntity#toData()}
    */
   @Test
-  public void testToData_thenReturnNotTenantIdNullUid() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"DashboardInfo DashboardInfoEntity.toData()"})
+  public void testToData_thenReturnTenantIdIdIsRandomUUID() {
     // Arrange
     DashboardInfoEntity dashboardInfoEntity = new DashboardInfoEntity();
     dashboardInfoEntity.setCreatedTime(1L);
-    dashboardInfoEntity.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setImage("Image");
     dashboardInfoEntity.setMobileHide(true);
     dashboardInfoEntity.setMobileOrder(1);
     dashboardInfoEntity.setTitle("Dr");
-    dashboardInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setVersion(1L);
     UUID tenantId = UUID.randomUUID();
     dashboardInfoEntity.setTenantId(tenantId);
@@ -961,6 +1016,7 @@ public class DashboardInfoEntityDiffblueTest {
 
     // Act and Assert
     TenantId tenantId2 = dashboardInfoEntity.toData().getTenantId();
+    assertEquals(EntityType.TENANT, tenantId2.getEntityType());
     assertFalse(tenantId2.isNullUid());
     assertFalse(tenantId2.isSysTenantId());
     assertSame(tenantId, tenantId2.getId());
@@ -969,32 +1025,77 @@ public class DashboardInfoEntityDiffblueTest {
   /**
    * Test {@link DashboardInfoEntity#toData()}.
    * <ul>
-   *   <li>Then return TenantId Id toString is
-   * {@code 13814000-1dd2-11b2-8080-808080808080}.</li>
+   *   <li>Then return TenantId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
    * </ul>
    * <p>
    * Method under test: {@link DashboardInfoEntity#toData()}
    */
   @Test
-  public void testToData_thenReturnTenantIdIdToStringIs138140001dd211b28080808080808080() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"DashboardInfo DashboardInfoEntity.toData()"})
+  public void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     DashboardInfoEntity dashboardInfoEntity = new DashboardInfoEntity();
     dashboardInfoEntity.setCreatedTime(1L);
-    dashboardInfoEntity.setId(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setImage("Image");
     dashboardInfoEntity.setMobileHide(true);
     dashboardInfoEntity.setMobileOrder(1);
     dashboardInfoEntity.setTitle("Dr");
-    dashboardInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    dashboardInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     dashboardInfoEntity.setVersion(1L);
-    dashboardInfoEntity.setTenantId(ModelConstants.NULL_UUID);
-    dashboardInfoEntity.setAssignedCustomers(null);
+    dashboardInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    dashboardInfoEntity.setAssignedCustomers("");
 
     // Act and Assert
     TenantId tenantId = dashboardInfoEntity.toData().getTenantId();
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", tenantId.getId().toString());
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", tenantId.getId().toString());
     assertEquals(EntityType.TENANT, tenantId.getEntityType());
-    assertTrue(tenantId.isNullUid());
-    assertTrue(tenantId.isSysTenantId());
+    assertFalse(tenantId.isNullUid());
+    assertFalse(tenantId.isSysTenantId());
+  }
+
+  /**
+   * Test {@link DashboardInfoEntity#toData()}.
+   * <ul>
+   *   <li>Then return UuidId toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DashboardInfoEntity#toData()}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"DashboardInfo DashboardInfoEntity.toData()"})
+  public void testToData_thenReturnUuidIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+    // Arrange
+    DashboardInfoEntity dashboardInfoEntity = new DashboardInfoEntity();
+    dashboardInfoEntity.setCreatedTime(1L);
+    dashboardInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    dashboardInfoEntity.setImage("Image");
+    dashboardInfoEntity.setMobileHide(true);
+    dashboardInfoEntity.setMobileOrder(1);
+    dashboardInfoEntity.setTitle("Dr");
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    dashboardInfoEntity.setUuid(id);
+    dashboardInfoEntity.setVersion(1L);
+    dashboardInfoEntity.setTenantId(null);
+    dashboardInfoEntity.setAssignedCustomers("");
+
+    // Act
+    DashboardInfo actualToDataResult = dashboardInfoEntity.toData();
+
+    // Assert
+    UUID uuidId = actualToDataResult.getUuidId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", uuidId.toString());
+    assertEquals("Dr", actualToDataResult.getName());
+    assertEquals("Dr", actualToDataResult.getTitle());
+    assertEquals("Image", actualToDataResult.getImage());
+    assertNull(actualToDataResult.getTenantId());
+    assertEquals(1, actualToDataResult.getMobileOrder().intValue());
+    assertEquals(1L, actualToDataResult.getVersion().longValue());
+    assertEquals(1L, actualToDataResult.getCreatedTime());
+    assertTrue(actualToDataResult.isMobileHide());
+    assertSame(id, uuidId);
+    assertSame(id, actualToDataResult.getId().getId());
   }
 }

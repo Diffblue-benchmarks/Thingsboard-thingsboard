@@ -5,103 +5,103 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.Map;
 import org.eclipse.leshan.core.model.ResourceModel;
+import org.eclipse.leshan.core.model.ResourceModel.Operations;
+import org.eclipse.leshan.core.model.ResourceModel.Type;
 import org.eclipse.leshan.core.node.LwM2mMultipleResource;
 import org.eclipse.leshan.core.node.LwM2mResource;
 import org.eclipse.leshan.core.node.LwM2mResourceInstance;
 import org.eclipse.leshan.core.node.LwM2mSingleResource;
 import org.eclipse.leshan.core.request.WriteRequest;
+import org.eclipse.leshan.core.request.WriteRequest.Mode;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ResourceValueDiffblueTest {
   /**
    * Test {@link ResourceValue#ResourceValue(LwM2mResource, ResourceModel)}.
-   * <ul>
-   *   <li>Given newBooleanInstance two and {@code true}.</li>
-   * </ul>
    * <p>
-   * Method under test:
-   * {@link ResourceValue#ResourceValue(LwM2mResource, ResourceModel)}
+   * Method under test: {@link ResourceValue#ResourceValue(LwM2mResource, ResourceModel)}
    */
   @Test
-  @DisplayName("Test new ResourceValue(LwM2mResource, ResourceModel); given newBooleanInstance two and 'true'")
-  void testNewResourceValue_givenNewBooleanInstanceTwoAndTrue() {
+  @DisplayName("Test new ResourceValue(LwM2mResource, ResourceModel)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ResourceValue.<init>(LwM2mResource, ResourceModel)"})
+  void testNewResourceValue() {
     // Arrange
     ArrayList<LwM2mResourceInstance> instances = new ArrayList<>();
-    instances.add(LwM2mResourceInstance.newBooleanInstance(2, true));
     instances.add(LwM2mResourceInstance.newBooleanInstance(1, true));
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, instances);
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, instances);
 
-    ResourceModel resourceModel = new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true,
-        ResourceModel.Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something");
-
-    // Act
-    ResourceValue actualResourceValue = new ResourceValue(lwM2mResource, resourceModel);
-
-    // Assert
-    LwM2mResource lwM2mResource2 = actualResourceValue.getLwM2mResource();
+    // Act and Assert
+    LwM2mResource lwM2mResource2 = (new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something")))
+        .getLwM2mResource();
     assertTrue(lwM2mResource2 instanceof LwM2mMultipleResource);
     assertEquals(lwM2mResource, lwM2mResource2);
-    assertSame(resourceModel, actualResourceValue.getResourceModel());
   }
 
   /**
    * Test {@link ResourceValue#ResourceValue(LwM2mResource, ResourceModel)}.
    * <ul>
-   *   <li>Then LwM2mResource return {@link LwM2mMultipleResource}.</li>
+   *   <li>Then return LwM2mResource Instances size is two.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ResourceValue#ResourceValue(LwM2mResource, ResourceModel)}
+   * Method under test: {@link ResourceValue#ResourceValue(LwM2mResource, ResourceModel)}
    */
   @Test
-  @DisplayName("Test new ResourceValue(LwM2mResource, ResourceModel); then LwM2mResource return LwM2mMultipleResource")
-  void testNewResourceValue_thenLwM2mResourceReturnLwM2mMultipleResource() {
+  @DisplayName("Test new ResourceValue(LwM2mResource, ResourceModel); then return LwM2mResource Instances size is two")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ResourceValue.<init>(LwM2mResource, ResourceModel)"})
+  void testNewResourceValue_thenReturnLwM2mResourceInstancesSizeIsTwo() {
     // Arrange
     ArrayList<LwM2mResourceInstance> instances = new ArrayList<>();
+    LwM2mResourceInstance newBooleanInstanceResult = LwM2mResourceInstance.newBooleanInstance(2, true);
+    instances.add(newBooleanInstanceResult);
     instances.add(LwM2mResourceInstance.newBooleanInstance(1, true));
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, instances);
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, instances);
 
-    ResourceModel resourceModel = new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true,
-        ResourceModel.Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something");
-
-    // Act
-    ResourceValue actualResourceValue = new ResourceValue(lwM2mResource, resourceModel);
-
-    // Assert
-    LwM2mResource lwM2mResource2 = actualResourceValue.getLwM2mResource();
+    // Act and Assert
+    LwM2mResource lwM2mResource2 = (new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something")))
+        .getLwM2mResource();
     assertTrue(lwM2mResource2 instanceof LwM2mMultipleResource);
-    assertEquals(lwM2mResource, lwM2mResource2);
-    assertSame(resourceModel, actualResourceValue.getResourceModel());
+    Map<Integer, LwM2mResourceInstance> instances2 = lwM2mResource2.getInstances();
+    assertEquals(2, instances2.size());
+    assertTrue(instances2.containsKey(1));
+    assertSame(newBooleanInstanceResult, instances2.get(2));
   }
 
   /**
    * Test {@link ResourceValue#ResourceValue(LwM2mResource, ResourceModel)}.
    * <ul>
-   *   <li>Then return LwM2mResource is newBooleanResource one and
-   * {@code true}.</li>
+   *   <li>Then return LwM2mResource is newBooleanResource one and {@code true}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ResourceValue#ResourceValue(LwM2mResource, ResourceModel)}
+   * Method under test: {@link ResourceValue#ResourceValue(LwM2mResource, ResourceModel)}
    */
   @Test
   @DisplayName("Test new ResourceValue(LwM2mResource, ResourceModel); then return LwM2mResource is newBooleanResource one and 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ResourceValue.<init>(LwM2mResource, ResourceModel)"})
   void testNewResourceValue_thenReturnLwM2mResourceIsNewBooleanResourceOneAndTrue() {
     // Arrange
     LwM2mSingleResource lwM2mResource = LwM2mSingleResource.newBooleanResource(1, true);
+    ResourceModel resourceModel = new ResourceModel(1, "Name", Operations.NONE, true, true, Type.NONE,
+        "Range Enumeration", "Units", "The characteristics of someone or something");
 
-    // Act and Assert
-    LwM2mResource lwM2mResource2 = (new ResourceValue(lwM2mResource,
-        new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true, ResourceModel.Type.NONE,
-            "Range Enumeration", "Units", "The characteristics of someone or something")))
-        .getLwM2mResource();
+    // Act
+    ResourceValue actualResourceValue = new ResourceValue(lwM2mResource, resourceModel);
+
+    // Assert
+    LwM2mResource lwM2mResource2 = actualResourceValue.getLwM2mResource();
     assertTrue(lwM2mResource2 instanceof LwM2mSingleResource);
     assertEquals(lwM2mResource, lwM2mResource2);
+    assertSame(resourceModel, actualResourceValue.getResourceModel());
   }
 
   /**
@@ -110,16 +110,17 @@ class ResourceValueDiffblueTest {
    *   <li>Then return LwM2mResource is newFloatResource one and ten.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ResourceValue#ResourceValue(LwM2mResource, ResourceModel)}
+   * Method under test: {@link ResourceValue#ResourceValue(LwM2mResource, ResourceModel)}
    */
   @Test
   @DisplayName("Test new ResourceValue(LwM2mResource, ResourceModel); then return LwM2mResource is newFloatResource one and ten")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ResourceValue.<init>(LwM2mResource, ResourceModel)"})
   void testNewResourceValue_thenReturnLwM2mResourceIsNewFloatResourceOneAndTen() {
     // Arrange
     LwM2mSingleResource lwM2mResource = LwM2mSingleResource.newFloatResource(1, 10.0d);
-    ResourceModel resourceModel = new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true,
-        ResourceModel.Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something");
+    ResourceModel resourceModel = new ResourceModel(1, "Name", Operations.NONE, true, true, Type.NONE,
+        "Range Enumeration", "Units", "The characteristics of someone or something");
 
     // Act
     ResourceValue actualResourceValue = new ResourceValue(lwM2mResource, resourceModel);
@@ -137,22 +138,26 @@ class ResourceValueDiffblueTest {
    *   <li>Then return LwM2mResource is newIntegerResource one and forty-two.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ResourceValue#ResourceValue(LwM2mResource, ResourceModel)}
+   * Method under test: {@link ResourceValue#ResourceValue(LwM2mResource, ResourceModel)}
    */
   @Test
   @DisplayName("Test new ResourceValue(LwM2mResource, ResourceModel); then return LwM2mResource is newIntegerResource one and forty-two")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ResourceValue.<init>(LwM2mResource, ResourceModel)"})
   void testNewResourceValue_thenReturnLwM2mResourceIsNewIntegerResourceOneAndFortyTwo() {
     // Arrange
     LwM2mSingleResource lwM2mResource = LwM2mSingleResource.newIntegerResource(1, 42L);
+    ResourceModel resourceModel = new ResourceModel(1, "Name", Operations.NONE, true, true, Type.NONE,
+        "Range Enumeration", "Units", "The characteristics of someone or something");
 
-    // Act and Assert
-    LwM2mResource lwM2mResource2 = (new ResourceValue(lwM2mResource,
-        new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true, ResourceModel.Type.NONE,
-            "Range Enumeration", "Units", "The characteristics of someone or something")))
-        .getLwM2mResource();
+    // Act
+    ResourceValue actualResourceValue = new ResourceValue(lwM2mResource, resourceModel);
+
+    // Assert
+    LwM2mResource lwM2mResource2 = actualResourceValue.getLwM2mResource();
     assertTrue(lwM2mResource2 instanceof LwM2mSingleResource);
     assertEquals(lwM2mResource, lwM2mResource2);
+    assertSame(resourceModel, actualResourceValue.getResourceModel());
   }
 
   /**
@@ -161,17 +166,18 @@ class ResourceValueDiffblueTest {
    *   <li>Then return LwM2mResource is {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ResourceValue#ResourceValue(LwM2mResource, ResourceModel)}
+   * Method under test: {@link ResourceValue#ResourceValue(LwM2mResource, ResourceModel)}
    */
   @Test
   @DisplayName("Test new ResourceValue(LwM2mResource, ResourceModel); then return LwM2mResource is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ResourceValue.<init>(LwM2mResource, ResourceModel)"})
   void testNewResourceValue_thenReturnLwM2mResourceIsNull() {
     // Arrange
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, new ArrayList<>());
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, new ArrayList<>());
 
-    ResourceModel resourceModel = new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true,
-        ResourceModel.Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something");
+    ResourceModel resourceModel = new ResourceModel(1, "Name", Operations.NONE, true, true, Type.NONE,
+        "Range Enumeration", "Units", "The characteristics of someone or something");
 
     // Act
     ResourceValue actualResourceValue = new ResourceValue(lwM2mResource, resourceModel);
@@ -188,15 +194,16 @@ class ResourceValueDiffblueTest {
    *   <li>Then return LwM2mResource is {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ResourceValue#ResourceValue(LwM2mResource, ResourceModel)}
+   * Method under test: {@link ResourceValue#ResourceValue(LwM2mResource, ResourceModel)}
    */
   @Test
   @DisplayName("Test new ResourceValue(LwM2mResource, ResourceModel); when 'null'; then return LwM2mResource is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ResourceValue.<init>(LwM2mResource, ResourceModel)"})
   void testNewResourceValue_whenNull_thenReturnLwM2mResourceIsNull() {
     // Arrange
-    ResourceModel resourceModel = new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true,
-        ResourceModel.Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something");
+    ResourceModel resourceModel = new ResourceModel(1, "Name", Operations.NONE, true, true, Type.NONE,
+        "Range Enumeration", "Units", "The characteristics of someone or something");
 
     // Act
     ResourceValue actualResourceValue = new ResourceValue(null, resourceModel);
@@ -209,22 +216,21 @@ class ResourceValueDiffblueTest {
   /**
    * Test {@link ResourceValue#updateLwM2mResource(LwM2mResource, Mode)}.
    * <p>
-   * Method under test:
-   * {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
+   * Method under test: {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
    */
   @Test
   @DisplayName("Test updateLwM2mResource(LwM2mResource, Mode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ResourceValue.updateLwM2mResource(LwM2mResource, WriteRequest.Mode)"})
   void testUpdateLwM2mResource() {
     // Arrange
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, new ArrayList<>());
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, new ArrayList<>());
 
-    ResourceValue resourceValue = new ResourceValue(lwM2mResource,
-        new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true, ResourceModel.Type.NONE,
-            "Range Enumeration", "Units", "The characteristics of someone or something"));
+    ResourceValue resourceValue = new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something"));
 
     // Act
-    resourceValue.updateLwM2mResource(new LwM2mMultipleResource(1, ResourceModel.Type.NONE, new ArrayList<>()),
-        WriteRequest.Mode.REPLACE);
+    resourceValue.updateLwM2mResource(new LwM2mMultipleResource(1, Type.NONE, new ArrayList<>()), Mode.REPLACE);
 
     // Assert that nothing has changed
     assertNull(resourceValue.getLwM2mResource());
@@ -233,25 +239,25 @@ class ResourceValueDiffblueTest {
   /**
    * Test {@link ResourceValue#updateLwM2mResource(LwM2mResource, Mode)}.
    * <p>
-   * Method under test:
-   * {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
+   * Method under test: {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
    */
   @Test
   @DisplayName("Test updateLwM2mResource(LwM2mResource, Mode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ResourceValue.updateLwM2mResource(LwM2mResource, WriteRequest.Mode)"})
   void testUpdateLwM2mResource2() {
     // Arrange
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, new ArrayList<>());
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, new ArrayList<>());
 
-    ResourceValue resourceValue = new ResourceValue(lwM2mResource,
-        new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true, ResourceModel.Type.NONE,
-            "Range Enumeration", "Units", "The characteristics of someone or something"));
+    ResourceValue resourceValue = new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something"));
 
     ArrayList<LwM2mResourceInstance> instances = new ArrayList<>();
     instances.add(LwM2mResourceInstance.newBooleanInstance(1, true));
-    LwM2mMultipleResource lwM2mResource2 = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, instances);
+    LwM2mMultipleResource lwM2mResource2 = new LwM2mMultipleResource(1, Type.NONE, instances);
 
     // Act
-    resourceValue.updateLwM2mResource(lwM2mResource2, WriteRequest.Mode.REPLACE);
+    resourceValue.updateLwM2mResource(lwM2mResource2, Mode.REPLACE);
 
     // Assert
     LwM2mResource lwM2mResource3 = resourceValue.getLwM2mResource();
@@ -262,22 +268,22 @@ class ResourceValueDiffblueTest {
   /**
    * Test {@link ResourceValue#updateLwM2mResource(LwM2mResource, Mode)}.
    * <p>
-   * Method under test:
-   * {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
+   * Method under test: {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
    */
   @Test
   @DisplayName("Test updateLwM2mResource(LwM2mResource, Mode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ResourceValue.updateLwM2mResource(LwM2mResource, WriteRequest.Mode)"})
   void testUpdateLwM2mResource3() {
     // Arrange
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, new ArrayList<>());
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, new ArrayList<>());
 
-    ResourceValue resourceValue = new ResourceValue(lwM2mResource,
-        new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true, ResourceModel.Type.NONE,
-            "Range Enumeration", "Units", "The characteristics of someone or something"));
+    ResourceValue resourceValue = new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something"));
     LwM2mSingleResource lwM2mResource2 = LwM2mSingleResource.newBooleanResource(1, true);
 
     // Act
-    resourceValue.updateLwM2mResource(lwM2mResource2, WriteRequest.Mode.REPLACE);
+    resourceValue.updateLwM2mResource(lwM2mResource2, Mode.REPLACE);
 
     // Assert
     LwM2mResource lwM2mResource3 = resourceValue.getLwM2mResource();
@@ -288,21 +294,21 @@ class ResourceValueDiffblueTest {
   /**
    * Test {@link ResourceValue#updateLwM2mResource(LwM2mResource, Mode)}.
    * <p>
-   * Method under test:
-   * {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
+   * Method under test: {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
    */
   @Test
   @DisplayName("Test updateLwM2mResource(LwM2mResource, Mode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ResourceValue.updateLwM2mResource(LwM2mResource, WriteRequest.Mode)"})
   void testUpdateLwM2mResource4() {
     // Arrange
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, new ArrayList<>());
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, new ArrayList<>());
 
-    ResourceValue resourceValue = new ResourceValue(lwM2mResource,
-        new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true, ResourceModel.Type.NONE,
-            "Range Enumeration", "Units", "The characteristics of someone or something"));
+    ResourceValue resourceValue = new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something"));
 
     // Act
-    resourceValue.updateLwM2mResource(null, WriteRequest.Mode.REPLACE);
+    resourceValue.updateLwM2mResource(null, Mode.REPLACE);
 
     // Assert that nothing has changed
     assertNull(resourceValue.getLwM2mResource());
@@ -311,22 +317,22 @@ class ResourceValueDiffblueTest {
   /**
    * Test {@link ResourceValue#updateLwM2mResource(LwM2mResource, Mode)}.
    * <p>
-   * Method under test:
-   * {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
+   * Method under test: {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
    */
   @Test
   @DisplayName("Test updateLwM2mResource(LwM2mResource, Mode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ResourceValue.updateLwM2mResource(LwM2mResource, WriteRequest.Mode)"})
   void testUpdateLwM2mResource5() {
     // Arrange
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, new ArrayList<>());
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, new ArrayList<>());
 
-    ResourceValue resourceValue = new ResourceValue(lwM2mResource,
-        new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true, ResourceModel.Type.NONE,
-            "Range Enumeration", "Units", "The characteristics of someone or something"));
+    ResourceValue resourceValue = new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something"));
     LwM2mSingleResource lwM2mResource2 = LwM2mSingleResource.newFloatResource(1, 10.0d);
 
     // Act
-    resourceValue.updateLwM2mResource(lwM2mResource2, WriteRequest.Mode.REPLACE);
+    resourceValue.updateLwM2mResource(lwM2mResource2, Mode.REPLACE);
 
     // Assert
     LwM2mResource lwM2mResource3 = resourceValue.getLwM2mResource();
@@ -337,22 +343,22 @@ class ResourceValueDiffblueTest {
   /**
    * Test {@link ResourceValue#updateLwM2mResource(LwM2mResource, Mode)}.
    * <p>
-   * Method under test:
-   * {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
+   * Method under test: {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
    */
   @Test
   @DisplayName("Test updateLwM2mResource(LwM2mResource, Mode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ResourceValue.updateLwM2mResource(LwM2mResource, WriteRequest.Mode)"})
   void testUpdateLwM2mResource6() {
     // Arrange
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, new ArrayList<>());
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, new ArrayList<>());
 
-    ResourceValue resourceValue = new ResourceValue(lwM2mResource,
-        new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true, ResourceModel.Type.NONE,
-            "Range Enumeration", "Units", "The characteristics of someone or something"));
+    ResourceValue resourceValue = new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something"));
     LwM2mSingleResource lwM2mResource2 = LwM2mSingleResource.newIntegerResource(1, 42L);
 
     // Act
-    resourceValue.updateLwM2mResource(lwM2mResource2, WriteRequest.Mode.REPLACE);
+    resourceValue.updateLwM2mResource(lwM2mResource2, Mode.REPLACE);
 
     // Assert
     LwM2mResource lwM2mResource3 = resourceValue.getLwM2mResource();
@@ -363,28 +369,60 @@ class ResourceValueDiffblueTest {
   /**
    * Test {@link ResourceValue#updateLwM2mResource(LwM2mResource, Mode)}.
    * <p>
-   * Method under test:
-   * {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
+   * Method under test: {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
    */
   @Test
   @DisplayName("Test updateLwM2mResource(LwM2mResource, Mode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ResourceValue.updateLwM2mResource(LwM2mResource, WriteRequest.Mode)"})
   void testUpdateLwM2mResource7() {
     // Arrange
     ArrayList<LwM2mResourceInstance> instances = new ArrayList<>();
-    instances.add(LwM2mResourceInstance.newBooleanInstance(2, true));
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, instances);
+    instances.add(LwM2mResourceInstance.newBooleanInstance(1, true));
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, instances);
 
-    ResourceValue resourceValue = new ResourceValue(lwM2mResource,
-        new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true, ResourceModel.Type.NONE,
-            "Range Enumeration", "Units", "The characteristics of someone or something"));
+    ResourceValue resourceValue = new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something"));
 
     ArrayList<LwM2mResourceInstance> instances2 = new ArrayList<>();
     LwM2mResourceInstance newBooleanInstanceResult = LwM2mResourceInstance.newBooleanInstance(1, true);
     instances2.add(newBooleanInstanceResult);
 
     // Act
-    resourceValue.updateLwM2mResource(new LwM2mMultipleResource(1, ResourceModel.Type.NONE, instances2),
-        WriteRequest.Mode.REPLACE);
+    resourceValue.updateLwM2mResource(new LwM2mMultipleResource(1, Type.NONE, instances2), Mode.REPLACE);
+
+    // Assert that nothing has changed
+    LwM2mResource lwM2mResource2 = resourceValue.getLwM2mResource();
+    assertTrue(lwM2mResource2 instanceof LwM2mMultipleResource);
+    Map<Integer, LwM2mResourceInstance> instances3 = lwM2mResource2.getInstances();
+    assertEquals(1, instances3.size());
+    assertSame(newBooleanInstanceResult, instances3.get(1));
+  }
+
+  /**
+   * Test {@link ResourceValue#updateLwM2mResource(LwM2mResource, Mode)}.
+   * <p>
+   * Method under test: {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
+   */
+  @Test
+  @DisplayName("Test updateLwM2mResource(LwM2mResource, Mode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ResourceValue.updateLwM2mResource(LwM2mResource, WriteRequest.Mode)"})
+  void testUpdateLwM2mResource8() {
+    // Arrange
+    ArrayList<LwM2mResourceInstance> instances = new ArrayList<>();
+    instances.add(LwM2mResourceInstance.newBooleanInstance(2, true));
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, instances);
+
+    ResourceValue resourceValue = new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something"));
+
+    ArrayList<LwM2mResourceInstance> instances2 = new ArrayList<>();
+    LwM2mResourceInstance newBooleanInstanceResult = LwM2mResourceInstance.newBooleanInstance(1, true);
+    instances2.add(newBooleanInstanceResult);
+
+    // Act
+    resourceValue.updateLwM2mResource(new LwM2mMultipleResource(1, Type.NONE, instances2), Mode.REPLACE);
 
     // Assert
     LwM2mResource lwM2mResource2 = resourceValue.getLwM2mResource();
@@ -398,33 +436,32 @@ class ResourceValueDiffblueTest {
   /**
    * Test {@link ResourceValue#updateLwM2mResource(LwM2mResource, Mode)}.
    * <ul>
-   *   <li>Given {@link ArrayList#ArrayList()} add newBooleanInstance one and
-   * {@code true}.</li>
+   *   <li>Given {@link ArrayList#ArrayList()} add newBooleanInstance four and {@code true}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
+   * Method under test: {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
    */
   @Test
-  @DisplayName("Test updateLwM2mResource(LwM2mResource, Mode); given ArrayList() add newBooleanInstance one and 'true'")
-  void testUpdateLwM2mResource_givenArrayListAddNewBooleanInstanceOneAndTrue() {
+  @DisplayName("Test updateLwM2mResource(LwM2mResource, Mode); given ArrayList() add newBooleanInstance four and 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ResourceValue.updateLwM2mResource(LwM2mResource, WriteRequest.Mode)"})
+  void testUpdateLwM2mResource_givenArrayListAddNewBooleanInstanceFourAndTrue() {
     // Arrange
     ArrayList<LwM2mResourceInstance> instances = new ArrayList<>();
+    instances.add(LwM2mResourceInstance.newBooleanInstance(4, true));
     instances.add(LwM2mResourceInstance.newBooleanInstance(1, true));
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, instances);
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, instances);
 
-    ResourceValue resourceValue = new ResourceValue(lwM2mResource,
-        new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true, ResourceModel.Type.NONE,
-            "Range Enumeration", "Units", "The characteristics of someone or something"));
+    ResourceValue resourceValue = new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something"));
 
     ArrayList<LwM2mResourceInstance> instances2 = new ArrayList<>();
     instances2.add(LwM2mResourceInstance.newBooleanInstance(1, true));
 
     // Act
-    resourceValue.updateLwM2mResource(new LwM2mMultipleResource(1, ResourceModel.Type.NONE, instances2),
-        WriteRequest.Mode.REPLACE);
+    resourceValue.updateLwM2mResource(new LwM2mMultipleResource(1, Type.NONE, instances2), Mode.REPLACE);
 
-    // Assert
+    // Assert that nothing has changed
     LwM2mResource lwM2mResource2 = resourceValue.getLwM2mResource();
     assertTrue(lwM2mResource2 instanceof LwM2mMultipleResource);
     assertEquals(lwM2mResource, lwM2mResource2);
@@ -433,34 +470,32 @@ class ResourceValueDiffblueTest {
   /**
    * Test {@link ResourceValue#updateLwM2mResource(LwM2mResource, Mode)}.
    * <ul>
-   *   <li>Given {@link ArrayList#ArrayList()} add newBooleanInstance one and
-   * {@code true}.</li>
+   *   <li>Given {@link ArrayList#ArrayList()} add newBooleanInstance two and {@code true}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
+   * Method under test: {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
    */
   @Test
-  @DisplayName("Test updateLwM2mResource(LwM2mResource, Mode); given ArrayList() add newBooleanInstance one and 'true'")
-  void testUpdateLwM2mResource_givenArrayListAddNewBooleanInstanceOneAndTrue2() {
+  @DisplayName("Test updateLwM2mResource(LwM2mResource, Mode); given ArrayList() add newBooleanInstance two and 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ResourceValue.updateLwM2mResource(LwM2mResource, WriteRequest.Mode)"})
+  void testUpdateLwM2mResource_givenArrayListAddNewBooleanInstanceTwoAndTrue() {
     // Arrange
     ArrayList<LwM2mResourceInstance> instances = new ArrayList<>();
     instances.add(LwM2mResourceInstance.newBooleanInstance(2, true));
     instances.add(LwM2mResourceInstance.newBooleanInstance(1, true));
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, instances);
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, instances);
 
-    ResourceValue resourceValue = new ResourceValue(lwM2mResource,
-        new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true, ResourceModel.Type.NONE,
-            "Range Enumeration", "Units", "The characteristics of someone or something"));
+    ResourceValue resourceValue = new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something"));
 
     ArrayList<LwM2mResourceInstance> instances2 = new ArrayList<>();
     instances2.add(LwM2mResourceInstance.newBooleanInstance(1, true));
 
     // Act
-    resourceValue.updateLwM2mResource(new LwM2mMultipleResource(1, ResourceModel.Type.NONE, instances2),
-        WriteRequest.Mode.REPLACE);
+    resourceValue.updateLwM2mResource(new LwM2mMultipleResource(1, Type.NONE, instances2), Mode.REPLACE);
 
-    // Assert
+    // Assert that nothing has changed
     LwM2mResource lwM2mResource2 = resourceValue.getLwM2mResource();
     assertTrue(lwM2mResource2 instanceof LwM2mMultipleResource);
     assertEquals(lwM2mResource, lwM2mResource2);
@@ -472,61 +507,26 @@ class ResourceValueDiffblueTest {
    *   <li>Given newBooleanInstance two and {@code true}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
+   * Method under test: {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
    */
   @Test
   @DisplayName("Test updateLwM2mResource(LwM2mResource, Mode); given newBooleanInstance two and 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ResourceValue.updateLwM2mResource(LwM2mResource, WriteRequest.Mode)"})
   void testUpdateLwM2mResource_givenNewBooleanInstanceTwoAndTrue() {
     // Arrange
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, new ArrayList<>());
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, new ArrayList<>());
 
-    ResourceValue resourceValue = new ResourceValue(lwM2mResource,
-        new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true, ResourceModel.Type.NONE,
-            "Range Enumeration", "Units", "The characteristics of someone or something"));
+    ResourceValue resourceValue = new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something"));
 
     ArrayList<LwM2mResourceInstance> instances = new ArrayList<>();
     instances.add(LwM2mResourceInstance.newBooleanInstance(2, true));
     instances.add(LwM2mResourceInstance.newBooleanInstance(1, true));
-    LwM2mMultipleResource lwM2mResource2 = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, instances);
+    LwM2mMultipleResource lwM2mResource2 = new LwM2mMultipleResource(1, Type.NONE, instances);
 
     // Act
-    resourceValue.updateLwM2mResource(lwM2mResource2, WriteRequest.Mode.REPLACE);
-
-    // Assert
-    LwM2mResource lwM2mResource3 = resourceValue.getLwM2mResource();
-    assertTrue(lwM2mResource3 instanceof LwM2mMultipleResource);
-    assertEquals(lwM2mResource2, lwM2mResource3);
-  }
-
-  /**
-   * Test {@link ResourceValue#updateLwM2mResource(LwM2mResource, Mode)}.
-   * <ul>
-   *   <li>Given newBooleanInstance two and {@code true}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
-   */
-  @Test
-  @DisplayName("Test updateLwM2mResource(LwM2mResource, Mode); given newBooleanInstance two and 'true'")
-  void testUpdateLwM2mResource_givenNewBooleanInstanceTwoAndTrue2() {
-    // Arrange
-    ArrayList<LwM2mResourceInstance> instances = new ArrayList<>();
-    instances.add(LwM2mResourceInstance.newBooleanInstance(2, true));
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, instances);
-
-    ResourceValue resourceValue = new ResourceValue(lwM2mResource,
-        new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true, ResourceModel.Type.NONE,
-            "Range Enumeration", "Units", "The characteristics of someone or something"));
-
-    ArrayList<LwM2mResourceInstance> instances2 = new ArrayList<>();
-    instances2.add(LwM2mResourceInstance.newBooleanInstance(2, true));
-    instances2.add(LwM2mResourceInstance.newBooleanInstance(1, true));
-    LwM2mMultipleResource lwM2mResource2 = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, instances2);
-
-    // Act
-    resourceValue.updateLwM2mResource(lwM2mResource2, WriteRequest.Mode.REPLACE);
+    resourceValue.updateLwM2mResource(lwM2mResource2, Mode.REPLACE);
 
     // Assert
     LwM2mResource lwM2mResource3 = resourceValue.getLwM2mResource();
@@ -540,22 +540,22 @@ class ResourceValueDiffblueTest {
    *   <li>When {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
+   * Method under test: {@link ResourceValue#updateLwM2mResource(LwM2mResource, WriteRequest.Mode)}
    */
   @Test
   @DisplayName("Test updateLwM2mResource(LwM2mResource, Mode); when 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ResourceValue.updateLwM2mResource(LwM2mResource, WriteRequest.Mode)"})
   void testUpdateLwM2mResource_whenNull() {
     // Arrange
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, new ArrayList<>());
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, new ArrayList<>());
 
-    ResourceValue resourceValue = new ResourceValue(lwM2mResource,
-        new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true, ResourceModel.Type.NONE,
-            "Range Enumeration", "Units", "The characteristics of someone or something"));
+    ResourceValue resourceValue = new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something"));
 
     ArrayList<LwM2mResourceInstance> instances = new ArrayList<>();
     instances.add(LwM2mResourceInstance.newBooleanInstance(1, true));
-    LwM2mMultipleResource lwM2mResource2 = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, instances);
+    LwM2mMultipleResource lwM2mResource2 = new LwM2mMultipleResource(1, Type.NONE, instances);
 
     // Act
     resourceValue.updateLwM2mResource(lwM2mResource2, null);
@@ -567,8 +567,35 @@ class ResourceValueDiffblueTest {
   }
 
   /**
-   * Test {@link ResourceValue#equals(Object)}, and
-   * {@link ResourceValue#hashCode()}.
+   * Test {@link ResourceValue#equals(Object)}, and {@link ResourceValue#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link ResourceValue#equals(Object)}
+   *   <li>{@link ResourceValue#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResourceValue.equals(Object)", "int ResourceValue.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    ResourceValue resourceValue = new ResourceValue(new LwM2mMultipleResource(1, Type.NONE, new ArrayList<>()), null);
+    ResourceValue resourceValue2 = new ResourceValue(new LwM2mMultipleResource(1, Type.NONE, new ArrayList<>()), null);
+
+    // Act and Assert
+    assertEquals(resourceValue, resourceValue2);
+    int expectedHashCodeResult = resourceValue.hashCode();
+    assertEquals(expectedHashCodeResult, resourceValue2.hashCode());
+  }
+
+  /**
+   * Test {@link ResourceValue#equals(Object)}, and {@link ResourceValue#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -582,13 +609,14 @@ class ResourceValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResourceValue.equals(Object)", "int ResourceValue.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, new ArrayList<>());
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, new ArrayList<>());
 
-    ResourceValue resourceValue = new ResourceValue(lwM2mResource,
-        new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true, ResourceModel.Type.NONE,
-            "Range Enumeration", "Units", "The characteristics of someone or something"));
+    ResourceValue resourceValue = new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something"));
 
     // Act and Assert
     assertEquals(resourceValue, resourceValue);
@@ -607,19 +635,19 @@ class ResourceValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResourceValue.equals(Object)", "int ResourceValue.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, new ArrayList<>());
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, new ArrayList<>());
 
-    ResourceValue resourceValue = new ResourceValue(lwM2mResource,
-        new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true, ResourceModel.Type.NONE,
-            "Range Enumeration", "Units", "The characteristics of someone or something"));
-    LwM2mMultipleResource lwM2mResource2 = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, new ArrayList<>());
+    ResourceValue resourceValue = new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something"));
+    LwM2mMultipleResource lwM2mResource2 = new LwM2mMultipleResource(1, Type.NONE, new ArrayList<>());
 
     // Act and Assert
-    assertNotEquals(resourceValue,
-        new ResourceValue(lwM2mResource2, new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true,
-            ResourceModel.Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something")));
+    assertNotEquals(resourceValue, new ResourceValue(lwM2mResource2, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something")));
   }
 
   /**
@@ -633,21 +661,21 @@ class ResourceValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResourceValue.equals(Object)", "int ResourceValue.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ArrayList<LwM2mResourceInstance> instances = new ArrayList<>();
     instances.add(LwM2mResourceInstance.newBooleanInstance(1, true));
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, instances);
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, instances);
 
-    ResourceValue resourceValue = new ResourceValue(lwM2mResource,
-        new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true, ResourceModel.Type.NONE,
-            "Range Enumeration", "Units", "The characteristics of someone or something"));
-    LwM2mMultipleResource lwM2mResource2 = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, new ArrayList<>());
+    ResourceValue resourceValue = new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something"));
+    LwM2mMultipleResource lwM2mResource2 = new LwM2mMultipleResource(1, Type.NONE, new ArrayList<>());
 
     // Act and Assert
-    assertNotEquals(resourceValue,
-        new ResourceValue(lwM2mResource2, new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true,
-            ResourceModel.Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something")));
+    assertNotEquals(resourceValue, new ResourceValue(lwM2mResource2, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something")));
   }
 
   /**
@@ -661,18 +689,16 @@ class ResourceValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResourceValue.equals(Object)", "int ResourceValue.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    LwM2mResource lwM2mResource = mock(LwM2mResource.class);
-    ResourceValue resourceValue = new ResourceValue(lwM2mResource,
-        new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true, ResourceModel.Type.NONE,
-            "Range Enumeration", "Units", "The characteristics of someone or something"));
-    LwM2mMultipleResource lwM2mResource2 = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, new ArrayList<>());
+    ResourceValue resourceValue = new ResourceValue(new LwM2mMultipleResource(1, Type.NONE, new ArrayList<>()), null);
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, new ArrayList<>());
 
     // Act and Assert
-    assertNotEquals(resourceValue,
-        new ResourceValue(lwM2mResource2, new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true,
-            ResourceModel.Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something")));
+    assertNotEquals(resourceValue, new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something")));
   }
 
   /**
@@ -686,16 +712,22 @@ class ResourceValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResourceValue.equals(Object)", "int ResourceValue.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    ResourceValue resourceValue = new ResourceValue(
-        new LwM2mMultipleResource(1, ResourceModel.Type.NONE, new ArrayList<>()), null);
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, new ArrayList<>());
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, new ArrayList<>());
+
+    ResourceValue resourceValue = new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something"));
+
+    ArrayList<LwM2mResourceInstance> instances = new ArrayList<>();
+    instances.add(LwM2mResourceInstance.newBooleanInstance(1, true));
+    LwM2mMultipleResource lwM2mResource2 = new LwM2mMultipleResource(1, Type.NONE, instances);
 
     // Act and Assert
-    assertNotEquals(resourceValue,
-        new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true,
-            ResourceModel.Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something")));
+    assertNotEquals(resourceValue, new ResourceValue(lwM2mResource2, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something")));
   }
 
   /**
@@ -709,53 +741,24 @@ class ResourceValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResourceValue.equals(Object)", "int ResourceValue.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, new ArrayList<>());
-
-    ResourceValue resourceValue = new ResourceValue(lwM2mResource,
-        new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true, ResourceModel.Type.NONE,
-            "Range Enumeration", "Units", "The characteristics of someone or something"));
-
     ArrayList<LwM2mResourceInstance> instances = new ArrayList<>();
     instances.add(LwM2mResourceInstance.newBooleanInstance(1, true));
-    LwM2mMultipleResource lwM2mResource2 = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, instances);
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, instances);
 
-    // Act and Assert
-    assertNotEquals(resourceValue,
-        new ResourceValue(lwM2mResource2, new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true,
-            ResourceModel.Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something")));
-  }
-
-  /**
-   * Test {@link ResourceValue#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ResourceValue#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
-    // Arrange
-    ArrayList<LwM2mResourceInstance> instances = new ArrayList<>();
-    instances.add(LwM2mResourceInstance.newBooleanInstance(1, true));
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, instances);
-
-    ResourceValue resourceValue = new ResourceValue(lwM2mResource,
-        new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true, ResourceModel.Type.NONE,
-            "Range Enumeration", "Units", "The characteristics of someone or something"));
+    ResourceValue resourceValue = new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something"));
 
     ArrayList<LwM2mResourceInstance> instances2 = new ArrayList<>();
     instances2.add(LwM2mResourceInstance.newBooleanInstance(1, true));
-    LwM2mMultipleResource lwM2mResource2 = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, instances2);
+    LwM2mMultipleResource lwM2mResource2 = new LwM2mMultipleResource(1, Type.NONE, instances2);
 
     // Act and Assert
-    assertNotEquals(resourceValue,
-        new ResourceValue(lwM2mResource2, new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true,
-            ResourceModel.Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something")));
+    assertNotEquals(resourceValue, new ResourceValue(lwM2mResource2, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something")));
   }
 
   /**
@@ -769,15 +772,15 @@ class ResourceValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResourceValue.equals(Object)", "int ResourceValue.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, new ArrayList<>());
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, new ArrayList<>());
 
     // Act and Assert
-    assertNotEquals(
-        new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true,
-            ResourceModel.Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something")),
-        null);
+    assertNotEquals(new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", Operations.NONE, true, true,
+        Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something")), null);
   }
 
   /**
@@ -791,15 +794,16 @@ class ResourceValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResourceValue.equals(Object)", "int ResourceValue.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, new ArrayList<>());
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, new ArrayList<>());
 
     // Act and Assert
     assertNotEquals(
-        new ResourceValue(lwM2mResource,
-            new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true, ResourceModel.Type.NONE,
-                "Range Enumeration", "Units", "The characteristics of someone or something")),
+        new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", Operations.NONE, true, true, Type.NONE,
+            "Range Enumeration", "Units", "The characteristics of someone or something")),
         "Different type to ResourceValue");
   }
 
@@ -817,25 +821,28 @@ class ResourceValueDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"LwM2mResource ResourceValue.getLwM2mResource()", "ResourceModel ResourceValue.getResourceModel()",
+      "void ResourceValue.setLwM2mResource(LwM2mResource)", "void ResourceValue.setResourceModel(ResourceModel)",
+      "String ResourceValue.toString()"})
   void testGettersAndSetters() {
     // Arrange
-    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, new ArrayList<>());
+    LwM2mMultipleResource lwM2mResource = new LwM2mMultipleResource(1, Type.NONE, new ArrayList<>());
 
-    ResourceValue resourceValue = new ResourceValue(lwM2mResource,
-        new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true, ResourceModel.Type.NONE,
-            "Range Enumeration", "Units", "The characteristics of someone or something"));
-    LwM2mMultipleResource lwM2mResource2 = new LwM2mMultipleResource(1, ResourceModel.Type.NONE, new ArrayList<>());
+    ResourceValue resourceValue = new ResourceValue(lwM2mResource, new ResourceModel(1, "Name", Operations.NONE, true,
+        true, Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something"));
+    LwM2mMultipleResource lwM2mResource2 = new LwM2mMultipleResource(1, Type.NONE, new ArrayList<>());
 
     // Act
     resourceValue.setLwM2mResource(lwM2mResource2);
-    ResourceModel resourceModel = new ResourceModel(1, "Name", ResourceModel.Operations.NONE, true, true,
-        ResourceModel.Type.NONE, "Range Enumeration", "Units", "The characteristics of someone or something");
+    ResourceModel resourceModel = new ResourceModel(1, "Name", Operations.NONE, true, true, Type.NONE,
+        "Range Enumeration", "Units", "The characteristics of someone or something");
 
     resourceValue.setResourceModel(resourceModel);
     String actualToStringResult = resourceValue.toString();
     LwM2mResource actualLwM2mResource = resourceValue.getLwM2mResource();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "ResourceValue(lwM2mResource=LwM2mMultipleResource [id=1, values={}, type=NONE], resourceModel=ResourceDesc"
             + " [id=1, name=Name, operations=NONE, multiple=true, mandatory=true, type=NONE, rangeEnumeration=Range"

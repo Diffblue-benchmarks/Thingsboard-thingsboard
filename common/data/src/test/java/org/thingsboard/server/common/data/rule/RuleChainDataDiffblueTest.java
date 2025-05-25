@@ -4,16 +4,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class RuleChainDataDiffblueTest {
   /**
-   * Test {@link RuleChainData#equals(Object)}, and
-   * {@link RuleChainData#hashCode()}.
+   * Test {@link RuleChainData#equals(Object)}, and {@link RuleChainData#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -27,6 +27,8 @@ class RuleChainDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainData.equals(Object)", "int RuleChainData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     RuleChainData ruleChainData = new RuleChainData();
@@ -44,8 +46,7 @@ class RuleChainDataDiffblueTest {
   }
 
   /**
-   * Test {@link RuleChainData#equals(Object)}, and
-   * {@link RuleChainData#hashCode()}.
+   * Test {@link RuleChainData#equals(Object)}, and {@link RuleChainData#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -59,6 +60,8 @@ class RuleChainDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainData.equals(Object)", "int RuleChainData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     RuleChainData ruleChainData = new RuleChainData();
@@ -82,6 +85,8 @@ class RuleChainDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainData.equals(Object)", "int RuleChainData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ArrayList<RuleChainMetaData> metadata = new ArrayList<>();
@@ -110,6 +115,8 @@ class RuleChainDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainData.equals(Object)", "int RuleChainData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ArrayList<RuleChain> ruleChains = new ArrayList<>();
@@ -130,34 +137,6 @@ class RuleChainDataDiffblueTest {
   /**
    * Test {@link RuleChainData#equals(Object)}.
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link RuleChainData#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
-    // Arrange
-    ArrayList<RuleChainMetaData> metadata = new ArrayList<>();
-    metadata.add(mock(RuleChainMetaData.class));
-
-    RuleChainData ruleChainData = new RuleChainData();
-    ruleChainData.setMetadata(metadata);
-    ruleChainData.setRuleChains(new ArrayList<>());
-
-    RuleChainData ruleChainData2 = new RuleChainData();
-    ruleChainData2.setMetadata(new ArrayList<>());
-    ruleChainData2.setRuleChains(new ArrayList<>());
-
-    // Act and Assert
-    assertNotEquals(ruleChainData, ruleChainData2);
-  }
-
-  /**
-   * Test {@link RuleChainData#equals(Object)}.
-   * <ul>
    *   <li>When other is {@code null}.</li>
    *   <li>Then return not equal.</li>
    * </ul>
@@ -166,6 +145,8 @@ class RuleChainDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainData.equals(Object)", "int RuleChainData.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     RuleChainData ruleChainData = new RuleChainData();
@@ -187,6 +168,8 @@ class RuleChainDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainData.equals(Object)", "int RuleChainData.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     RuleChainData ruleChainData = new RuleChainData();
@@ -212,6 +195,10 @@ class RuleChainDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void RuleChainData.<init>()", "List RuleChainData.getMetadata()",
+      "List RuleChainData.getRuleChains()", "void RuleChainData.setMetadata(List)",
+      "void RuleChainData.setRuleChains(List)", "String RuleChainData.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     RuleChainData actualRuleChainData = new RuleChainData();
@@ -223,7 +210,7 @@ class RuleChainDataDiffblueTest {
     List<RuleChainMetaData> actualMetadata = actualRuleChainData.getMetadata();
     List<RuleChain> actualRuleChains = actualRuleChainData.getRuleChains();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("RuleChainData(ruleChains=[], metadata=[])", actualToStringResult);
     assertTrue(actualMetadata.isEmpty());
     assertTrue(actualRuleChains.isEmpty());

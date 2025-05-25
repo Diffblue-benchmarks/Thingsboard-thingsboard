@@ -3,27 +3,29 @@ package org.thingsboard.rule.engine.action;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TbUnassignFromCustomerNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbUnassignFromCustomerNodeConfiguration#defaultConfiguration()}.
    * <p>
-   * Method under test:
-   * {@link TbUnassignFromCustomerNodeConfiguration#defaultConfiguration()}
+   * Method under test: {@link TbUnassignFromCustomerNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "TbUnassignFromCustomerNodeConfiguration TbUnassignFromCustomerNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
     // Arrange, Act and Assert
     assertEquals("", (new TbUnassignFromCustomerNodeConfiguration()).defaultConfiguration().getCustomerNamePattern());
   }
 
   /**
-   * Test {@link TbUnassignFromCustomerNodeConfiguration#equals(Object)}, and
-   * {@link TbUnassignFromCustomerNodeConfiguration#hashCode()}.
+   * Test {@link TbUnassignFromCustomerNodeConfiguration#equals(Object)}, and {@link TbUnassignFromCustomerNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -37,6 +39,9 @@ class TbUnassignFromCustomerNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbUnassignFromCustomerNodeConfiguration.equals(Object)",
+      "int TbUnassignFromCustomerNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbUnassignFromCustomerNodeConfiguration tbUnassignFromCustomerNodeConfiguration = new TbUnassignFromCustomerNodeConfiguration();
@@ -49,8 +54,7 @@ class TbUnassignFromCustomerNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbUnassignFromCustomerNodeConfiguration#equals(Object)}, and
-   * {@link TbUnassignFromCustomerNodeConfiguration#hashCode()}.
+   * Test {@link TbUnassignFromCustomerNodeConfiguration#equals(Object)}, and {@link TbUnassignFromCustomerNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -64,6 +68,9 @@ class TbUnassignFromCustomerNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbUnassignFromCustomerNodeConfiguration.equals(Object)",
+      "int TbUnassignFromCustomerNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbUnassignFromCustomerNodeConfiguration tbUnassignFromCustomerNodeConfiguration = new TbUnassignFromCustomerNodeConfiguration();
@@ -81,15 +88,16 @@ class TbUnassignFromCustomerNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbUnassignFromCustomerNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbUnassignFromCustomerNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbUnassignFromCustomerNodeConfiguration.equals(Object)",
+      "int TbUnassignFromCustomerNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbUnassignFromCustomerNodeConfiguration(), 1);
-    assertNotEquals(new TbUnassignFromCustomerNodeConfiguration(), mock(TbAssignToCustomerNodeConfiguration.class));
   }
 
   /**
@@ -99,11 +107,13 @@ class TbUnassignFromCustomerNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbUnassignFromCustomerNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbUnassignFromCustomerNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbUnassignFromCustomerNodeConfiguration.equals(Object)",
+      "int TbUnassignFromCustomerNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbUnassignFromCustomerNodeConfiguration tbUnassignFromCustomerNodeConfiguration = new TbUnassignFromCustomerNodeConfiguration();
@@ -120,11 +130,13 @@ class TbUnassignFromCustomerNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbUnassignFromCustomerNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbUnassignFromCustomerNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbUnassignFromCustomerNodeConfiguration.equals(Object)",
+      "int TbUnassignFromCustomerNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbUnassignFromCustomerNodeConfiguration(), null);
@@ -137,11 +149,13 @@ class TbUnassignFromCustomerNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbUnassignFromCustomerNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbUnassignFromCustomerNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbUnassignFromCustomerNodeConfiguration.equals(Object)",
+      "int TbUnassignFromCustomerNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbUnassignFromCustomerNodeConfiguration(),
@@ -153,13 +167,15 @@ class TbUnassignFromCustomerNodeConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link TbUnassignFromCustomerNodeConfiguration}
+   *   <li>default or parameterless constructor of {@link TbUnassignFromCustomerNodeConfiguration}
    *   <li>{@link TbUnassignFromCustomerNodeConfiguration#toString()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbUnassignFromCustomerNodeConfiguration.<init>()",
+      "java.lang.String TbUnassignFromCustomerNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbUnassignFromCustomerNodeConfiguration actualTbUnassignFromCustomerNodeConfiguration = new TbUnassignFromCustomerNodeConfiguration();

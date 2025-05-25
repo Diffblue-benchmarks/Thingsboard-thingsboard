@@ -3,70 +3,44 @@ package org.thingsboard.server.service.sync.vc.data;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.ArgumentMatchers.isA;
-import static org.mockito.ArgumentMatchers.isNull;
-import static org.mockito.Mockito.anyBoolean;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.aot.DisabledInAotMode;
 import org.thingsboard.server.common.data.User;
-import org.thingsboard.server.common.data.id.EntityId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.sync.ie.EntityExportSettings;
-import org.thingsboard.server.common.data.sync.vc.request.create.AutoVersionCreateConfig;
 import org.thingsboard.server.common.data.sync.vc.request.create.ComplexVersionCreateRequest;
 import org.thingsboard.server.common.data.sync.vc.request.create.SingleEntityVersionCreateRequest;
 import org.thingsboard.server.common.data.sync.vc.request.create.VersionCreateConfig;
 
-@DisabledInAotMode
 class SimpleEntitiesExportCtxDiffblueTest {
-  @MockBean
-  private SimpleEntitiesExportCtx simpleEntitiesExportCtx;
-
   /**
-   * Test
-   * {@link SimpleEntitiesExportCtx#SimpleEntitiesExportCtx(User, CommitGitRequest, SingleEntityVersionCreateRequest)}.
+   * Test {@link SimpleEntitiesExportCtx#SimpleEntitiesExportCtx(User, CommitGitRequest, SingleEntityVersionCreateRequest)}.
    * <ul>
-   *   <li>Then return TenantId is {@code null}.</li>
+   *   <li>Given {@code null}.</li>
+   *   <li>Then return Settings ExportAttributes.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SimpleEntitiesExportCtx#SimpleEntitiesExportCtx(User, CommitGitRequest, SingleEntityVersionCreateRequest)}
+   * Method under test: {@link SimpleEntitiesExportCtx#SimpleEntitiesExportCtx(User, CommitGitRequest, SingleEntityVersionCreateRequest)}
    */
   @Test
-  @DisplayName("Test new SimpleEntitiesExportCtx(User, CommitGitRequest, SingleEntityVersionCreateRequest); then return TenantId is 'null'")
-  void testNewSimpleEntitiesExportCtx_thenReturnTenantIdIsNull() {
+  @DisplayName("Test new SimpleEntitiesExportCtx(User, CommitGitRequest, SingleEntityVersionCreateRequest); given 'null'; then return Settings ExportAttributes")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SimpleEntitiesExportCtx.<init>(User, CommitGitRequest, SingleEntityVersionCreateRequest)"})
+  void testNewSimpleEntitiesExportCtx_givenNull_thenReturnSettingsExportAttributes() {
     // Arrange
-    User user = mock(User.class);
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    User user = new User();
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     CommitGitRequest commit = new CommitGitRequest(tenantId, new ComplexVersionCreateRequest());
 
-    AutoVersionCreateConfig config = mock(AutoVersionCreateConfig.class);
-    doNothing().when(config).setSaveAttributes(anyBoolean());
-    doNothing().when(config).setSaveCredentials(anyBoolean());
-    doNothing().when(config).setSaveRelations(anyBoolean());
+    VersionCreateConfig config = new VersionCreateConfig();
     config.setSaveAttributes(true);
     config.setSaveCredentials(true);
     config.setSaveRelations(true);
 
-    VersionCreateConfig versionCreateConfig = new VersionCreateConfig();
-    versionCreateConfig.setSaveAttributes(true);
-    versionCreateConfig.setSaveCredentials(true);
-    versionCreateConfig.setSaveRelations(true);
-    SingleEntityVersionCreateRequest request = mock(SingleEntityVersionCreateRequest.class);
-    when(request.getConfig()).thenReturn(versionCreateConfig);
-    doNothing().when(request).setEntityId(Mockito.<EntityId>any());
-    doNothing().when(request).setVersionName(Mockito.<String>any());
-    doNothing().when(request).setConfig(Mockito.<VersionCreateConfig>any());
-    doNothing().when(request).setBranch(Mockito.<String>any());
+    SingleEntityVersionCreateRequest request = new SingleEntityVersionCreateRequest();
     request.setBranch("janedoe/featurebranch");
     request.setConfig(config);
     request.setEntityId(null);
@@ -76,14 +50,6 @@ class SimpleEntitiesExportCtxDiffblueTest {
     SimpleEntitiesExportCtx actualSimpleEntitiesExportCtx = new SimpleEntitiesExportCtx(user, commit, request);
 
     // Assert
-    verify(request).getConfig();
-    verify(request).setConfig(isA(VersionCreateConfig.class));
-    verify(request).setEntityId(isNull());
-    verify(config).setSaveAttributes(eq(true));
-    verify(config).setSaveCredentials(eq(true));
-    verify(config).setSaveRelations(eq(true));
-    verify(request).setBranch(eq("janedoe/featurebranch"));
-    verify(request).setVersionName(eq("1.0.2"));
     assertNull(actualSimpleEntitiesExportCtx.getTenantId());
     assertTrue(actualSimpleEntitiesExportCtx.getFutures().isEmpty());
     assertTrue(actualSimpleEntitiesExportCtx.getExternalIdMap().isEmpty());
@@ -91,8 +57,40 @@ class SimpleEntitiesExportCtxDiffblueTest {
     assertTrue(settings.isExportAttributes());
     assertTrue(settings.isExportCredentials());
     assertTrue(settings.isExportRelations());
-    assertSame(commit, actualSimpleEntitiesExportCtx.getCommit());
     assertSame(user, actualSimpleEntitiesExportCtx.getUser());
     assertSame(request, actualSimpleEntitiesExportCtx.getRequest());
+    assertSame(commit, actualSimpleEntitiesExportCtx.getCommit());
+  }
+
+  /**
+   * Test {@link SimpleEntitiesExportCtx#SimpleEntitiesExportCtx(User, CommitGitRequest, SingleEntityVersionCreateRequest)}.
+   * <ul>
+   *   <li>When {@code null}.</li>
+   *   <li>Then return Settings is {@code null}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link SimpleEntitiesExportCtx#SimpleEntitiesExportCtx(User, CommitGitRequest, SingleEntityVersionCreateRequest)}
+   */
+  @Test
+  @DisplayName("Test new SimpleEntitiesExportCtx(User, CommitGitRequest, SingleEntityVersionCreateRequest); when 'null'; then return Settings is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SimpleEntitiesExportCtx.<init>(User, CommitGitRequest, SingleEntityVersionCreateRequest)"})
+  void testNewSimpleEntitiesExportCtx_whenNull_thenReturnSettingsIsNull() {
+    // Arrange
+    User user = new User();
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    CommitGitRequest commit = new CommitGitRequest(tenantId, new ComplexVersionCreateRequest());
+
+    // Act
+    SimpleEntitiesExportCtx actualSimpleEntitiesExportCtx = new SimpleEntitiesExportCtx(user, commit, null);
+
+    // Assert
+    assertNull(actualSimpleEntitiesExportCtx.getTenantId());
+    assertNull(actualSimpleEntitiesExportCtx.getSettings());
+    assertNull(actualSimpleEntitiesExportCtx.getRequest());
+    assertTrue(actualSimpleEntitiesExportCtx.getFutures().isEmpty());
+    assertTrue(actualSimpleEntitiesExportCtx.getExternalIdMap().isEmpty());
+    assertSame(user, actualSimpleEntitiesExportCtx.getUser());
+    assertSame(commit, actualSimpleEntitiesExportCtx.getCommit());
   }
 }

@@ -1,8 +1,10 @@
 package org.thingsboard.server.queue.kafka;
 
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TbKafkaTopicConfigsDiffblueTest {
@@ -27,6 +29,14 @@ class TbKafkaTopicConfigsDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Map TbKafkaTopicConfigs.getCoreConfigs()", "Map TbKafkaTopicConfigs.getEdgeConfigs()",
+      "Map TbKafkaTopicConfigs.getFwUpdatesConfigs()", "Map TbKafkaTopicConfigs.getHousekeeperConfigs()",
+      "Map TbKafkaTopicConfigs.getHousekeeperReprocessingConfigs()",
+      "Map TbKafkaTopicConfigs.getJsExecutorRequestConfigs()", "Map TbKafkaTopicConfigs.getJsExecutorResponseConfigs()",
+      "Map TbKafkaTopicConfigs.getNotificationsConfigs()", "Map TbKafkaTopicConfigs.getRuleEngineConfigs()",
+      "Map TbKafkaTopicConfigs.getTransportApiRequestConfigs()",
+      "Map TbKafkaTopicConfigs.getTransportApiResponseConfigs()", "Map TbKafkaTopicConfigs.getVcConfigs()"})
   void testGettersAndSetters() {
     // Arrange
     TbKafkaTopicConfigs tbKafkaTopicConfigs = new TbKafkaTopicConfigs();

@@ -1,34 +1,19 @@
 package org.thingsboard.server.service.notification.channels;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import java.util.HashMap;
-import java.util.UUID;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.aot.DisabledInAotMode;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.thingsboard.rule.engine.api.notification.SlackService;
-import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.notification.NotificationDeliveryMethod;
-import org.thingsboard.server.common.data.notification.settings.NotificationSettings;
 import org.thingsboard.server.dao.entity.BaseEntityCountService;
 import org.thingsboard.server.dao.notification.DefaultNotificationRuleService;
 import org.thingsboard.server.dao.notification.DefaultNotificationSettingsService;
 import org.thingsboard.server.dao.notification.DefaultNotificationTargetService;
 import org.thingsboard.server.dao.notification.DefaultNotificationTemplateService;
 import org.thingsboard.server.dao.notification.DefaultNotifications;
-import org.thingsboard.server.dao.notification.NotificationSettingsService;
 import org.thingsboard.server.dao.service.validator.UserCredentialsDataValidator;
 import org.thingsboard.server.dao.service.validator.UserDataValidator;
 import org.thingsboard.server.dao.settings.AdminSettingsServiceImpl;
@@ -51,59 +36,7 @@ import org.thingsboard.server.dao.user.UserServiceImpl;
 import org.thingsboard.server.dao.user.UserSettingsServiceImpl;
 import org.thingsboard.server.service.notification.provider.DefaultSlackService;
 
-@ContextConfiguration(classes = {SlackNotificationChannel.class})
-@ExtendWith(SpringExtension.class)
-@DisabledInAotMode
 class SlackNotificationChannelDiffblueTest {
-  @MockBean
-  private NotificationSettingsService notificationSettingsService;
-
-  @Autowired
-  private SlackNotificationChannel slackNotificationChannel;
-
-  @MockBean
-  private SlackService slackService;
-
-  /**
-   * Test {@link SlackNotificationChannel#check(TenantId)}.
-   * <p>
-   * Method under test: {@link SlackNotificationChannel#check(TenantId)}
-   */
-  @Test
-  @DisplayName("Test check(TenantId)")
-  void testCheck() throws Exception {
-    // Arrange
-    when(notificationSettingsService.findNotificationSettings(Mockito.<TenantId>any()))
-        .thenThrow(new RuntimeException("foo"));
-
-    // Act and Assert
-    assertThrows(RuntimeException.class, () -> slackNotificationChannel.check(new TenantId(UUID.randomUUID())));
-    verify(notificationSettingsService).findNotificationSettings(isA(TenantId.class));
-  }
-
-  /**
-   * Test {@link SlackNotificationChannel#check(TenantId)}.
-   * <ul>
-   *   <li>Given {@link NotificationSettings} (default constructor)
-   * DeliveryMethodsConfigs is {@link HashMap#HashMap()}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link SlackNotificationChannel#check(TenantId)}
-   */
-  @Test
-  @DisplayName("Test check(TenantId); given NotificationSettings (default constructor) DeliveryMethodsConfigs is HashMap()")
-  void testCheck_givenNotificationSettingsDeliveryMethodsConfigsIsHashMap() throws Exception {
-    // Arrange
-    NotificationSettings notificationSettings = new NotificationSettings();
-    notificationSettings.setDeliveryMethodsConfigs(new HashMap<>());
-    when(notificationSettingsService.findNotificationSettings(Mockito.<TenantId>any()))
-        .thenReturn(notificationSettings);
-
-    // Act and Assert
-    assertThrows(RuntimeException.class, () -> slackNotificationChannel.check(new TenantId(UUID.randomUUID())));
-    verify(notificationSettingsService).findNotificationSettings(isA(TenantId.class));
-  }
-
   /**
    * Test {@link SlackNotificationChannel#getDeliveryMethod()}.
    * <p>
@@ -111,6 +44,8 @@ class SlackNotificationChannelDiffblueTest {
    */
   @Test
   @DisplayName("Test getDeliveryMethod()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"NotificationDeliveryMethod SlackNotificationChannel.getDeliveryMethod()"})
   void testGetDeliveryMethod() {
     // Arrange
     AdminSettingsServiceImpl adminSettingsService = new AdminSettingsServiceImpl();

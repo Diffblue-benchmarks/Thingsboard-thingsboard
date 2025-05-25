@@ -4,16 +4,103 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.anyBoolean;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.id.NotificationRequestId;
 import org.thingsboard.server.service.ws.notification.sub.NotificationRequestUpdate.NotificationRequestUpdateBuilder;
 
+@ContextConfiguration(classes = {NotificationRequestUpdateBuilder.class})
+@ExtendWith(SpringExtension.class)
 class NotificationRequestUpdateDiffblueTest {
+  @Autowired
+  private NotificationRequestUpdateBuilder notificationRequestUpdateBuilder;
+
   /**
-   * Test {@link NotificationRequestUpdate#equals(Object)}, and
-   * {@link NotificationRequestUpdate#hashCode()}.
+   * Test {@link NotificationRequestUpdate#equals(Object)}, and {@link NotificationRequestUpdate#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link NotificationRequestUpdate#equals(Object)}
+   *   <li>{@link NotificationRequestUpdate#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationRequestUpdate.equals(Object)", "int NotificationRequestUpdate.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    NotificationRequestUpdateBuilder deletedResult = NotificationRequestUpdate.builder().deleted(true);
+    NotificationRequestUpdate buildResult = deletedResult
+        .notificationRequestId(new NotificationRequestId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+        .build();
+    NotificationRequestUpdateBuilder deletedResult2 = NotificationRequestUpdate.builder().deleted(true);
+    NotificationRequestUpdate buildResult2 = deletedResult2
+        .notificationRequestId(new NotificationRequestId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+        .build();
+
+    // Act and Assert
+    assertEquals(buildResult, buildResult2);
+    int expectedHashCodeResult = buildResult.hashCode();
+    assertEquals(expectedHashCodeResult, buildResult2.hashCode());
+  }
+
+  /**
+   * Test {@link NotificationRequestUpdate#equals(Object)}, and {@link NotificationRequestUpdate#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link NotificationRequestUpdate#equals(Object)}
+   *   <li>{@link NotificationRequestUpdate#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationRequestUpdate.equals(Object)", "int NotificationRequestUpdate.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    NotificationRequestUpdateBuilder notificationRequestUpdateBuilder = mock(NotificationRequestUpdateBuilder.class);
+    when(notificationRequestUpdateBuilder.notificationRequestId(Mockito.<NotificationRequestId>any()))
+        .thenReturn(NotificationRequestUpdate.builder());
+    NotificationRequestUpdateBuilder notificationRequestUpdateBuilder2 = mock(NotificationRequestUpdateBuilder.class);
+    when(notificationRequestUpdateBuilder2.deleted(anyBoolean())).thenReturn(notificationRequestUpdateBuilder);
+    NotificationRequestUpdateBuilder deletedResult = notificationRequestUpdateBuilder2.deleted(true);
+    NotificationRequestUpdate buildResult = deletedResult
+        .notificationRequestId(new NotificationRequestId(UUID.randomUUID()))
+        .build();
+    NotificationRequestUpdate buildResult2 = NotificationRequestUpdate.builder()
+        .deleted(false)
+        .notificationRequestId(null)
+        .build();
+
+    // Act and Assert
+    assertEquals(buildResult, buildResult2);
+    int expectedHashCodeResult = buildResult.hashCode();
+    assertEquals(expectedHashCodeResult, buildResult2.hashCode());
+  }
+
+  /**
+   * Test {@link NotificationRequestUpdate#equals(Object)}, and {@link NotificationRequestUpdate#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -27,12 +114,13 @@ class NotificationRequestUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationRequestUpdate.equals(Object)", "int NotificationRequestUpdate.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    NotificationRequestUpdate.NotificationRequestUpdateBuilder deletedResult = NotificationRequestUpdate.builder()
-        .deleted(true);
+    NotificationRequestUpdateBuilder deletedResult = NotificationRequestUpdate.builder().deleted(true);
     NotificationRequestUpdate buildResult = deletedResult
-        .notificationRequestId(new NotificationRequestId(UUID.randomUUID()))
+        .notificationRequestId(new NotificationRequestId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .build();
 
     // Act and Assert
@@ -52,17 +140,82 @@ class NotificationRequestUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationRequestUpdate.equals(Object)", "int NotificationRequestUpdate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    NotificationRequestUpdate.NotificationRequestUpdateBuilder deletedResult = NotificationRequestUpdate.builder()
-        .deleted(true);
+    NotificationRequestUpdateBuilder notificationRequestUpdateBuilder = mock(NotificationRequestUpdateBuilder.class);
+    when(notificationRequestUpdateBuilder.deleted(anyBoolean())).thenReturn(NotificationRequestUpdate.builder());
+    NotificationRequestUpdateBuilder deletedResult = notificationRequestUpdateBuilder.deleted(true);
+    NotificationRequestUpdate buildResult = deletedResult
+        .notificationRequestId(new NotificationRequestId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+        .build();
+    NotificationRequestUpdateBuilder deletedResult2 = NotificationRequestUpdate.builder().deleted(true);
+    NotificationRequestUpdate buildResult2 = deletedResult2
+        .notificationRequestId(new NotificationRequestId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+        .build();
+
+    // Act and Assert
+    assertNotEquals(buildResult, buildResult2);
+  }
+
+  /**
+   * Test {@link NotificationRequestUpdate#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link NotificationRequestUpdate#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationRequestUpdate.equals(Object)", "int NotificationRequestUpdate.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    NotificationRequestUpdateBuilder notificationRequestUpdateBuilder = mock(NotificationRequestUpdateBuilder.class);
+    when(notificationRequestUpdateBuilder.deleted(anyBoolean())).thenReturn(NotificationRequestUpdate.builder());
+    NotificationRequestUpdateBuilder deletedResult = notificationRequestUpdateBuilder.deleted(true);
     NotificationRequestUpdate buildResult = deletedResult
         .notificationRequestId(new NotificationRequestId(UUID.randomUUID()))
         .build();
-    NotificationRequestUpdate.NotificationRequestUpdateBuilder deletedResult2 = NotificationRequestUpdate.builder()
-        .deleted(true);
+    NotificationRequestUpdateBuilder deletedResult2 = NotificationRequestUpdate.builder().deleted(false);
     NotificationRequestUpdate buildResult2 = deletedResult2
+        .notificationRequestId(new NotificationRequestId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+        .build();
+
+    // Act and Assert
+    assertNotEquals(buildResult, buildResult2);
+  }
+
+  /**
+   * Test {@link NotificationRequestUpdate#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link NotificationRequestUpdate#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationRequestUpdate.equals(Object)", "int NotificationRequestUpdate.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+    // Arrange
+    NotificationRequestUpdateBuilder notificationRequestUpdateBuilder = mock(NotificationRequestUpdateBuilder.class);
+    when(notificationRequestUpdateBuilder.notificationRequestId(Mockito.<NotificationRequestId>any()))
+        .thenReturn(NotificationRequestUpdate.builder());
+    NotificationRequestUpdateBuilder notificationRequestUpdateBuilder2 = mock(NotificationRequestUpdateBuilder.class);
+    when(notificationRequestUpdateBuilder2.deleted(anyBoolean())).thenReturn(notificationRequestUpdateBuilder);
+    NotificationRequestUpdateBuilder deletedResult = notificationRequestUpdateBuilder2.deleted(true);
+    NotificationRequestUpdate buildResult = deletedResult
         .notificationRequestId(new NotificationRequestId(UUID.randomUUID()))
+        .build();
+    NotificationRequestUpdateBuilder deletedResult2 = NotificationRequestUpdate.builder().deleted(false);
+    NotificationRequestUpdate buildResult2 = deletedResult2
+        .notificationRequestId(new NotificationRequestId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .build();
 
     // Act and Assert
@@ -80,12 +233,13 @@ class NotificationRequestUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationRequestUpdate.equals(Object)", "int NotificationRequestUpdate.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    NotificationRequestUpdate.NotificationRequestUpdateBuilder deletedResult = NotificationRequestUpdate.builder()
-        .deleted(true);
+    NotificationRequestUpdateBuilder deletedResult = NotificationRequestUpdate.builder().deleted(true);
     NotificationRequestUpdate buildResult = deletedResult
-        .notificationRequestId(new NotificationRequestId(UUID.randomUUID()))
+        .notificationRequestId(new NotificationRequestId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .build();
 
     // Act and Assert
@@ -103,12 +257,13 @@ class NotificationRequestUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationRequestUpdate.equals(Object)", "int NotificationRequestUpdate.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    NotificationRequestUpdate.NotificationRequestUpdateBuilder deletedResult = NotificationRequestUpdate.builder()
-        .deleted(true);
+    NotificationRequestUpdateBuilder deletedResult = NotificationRequestUpdate.builder().deleted(true);
     NotificationRequestUpdate buildResult = deletedResult
-        .notificationRequestId(new NotificationRequestId(UUID.randomUUID()))
+        .notificationRequestId(new NotificationRequestId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .build();
 
     // Act and Assert
@@ -116,92 +271,28 @@ class NotificationRequestUpdateDiffblueTest {
   }
 
   /**
-   * Test getters and setters.
+   * Test NotificationRequestUpdateBuilder {@link NotificationRequestUpdateBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link NotificationRequestUpdate#NotificationRequestUpdate()}
-   *   <li>{@link NotificationRequestUpdate#setDeleted(boolean)}
-   *   <li>
-   * {@link NotificationRequestUpdate#setNotificationRequestId(NotificationRequestId)}
-   *   <li>{@link NotificationRequestUpdate#toString()}
-   *   <li>{@link NotificationRequestUpdate#getNotificationRequestId()}
-   *   <li>{@link NotificationRequestUpdate#isDeleted()}
-   * </ul>
-   */
-  @Test
-  @DisplayName("Test getters and setters")
-  void testGettersAndSetters() {
-    // Arrange and Act
-    NotificationRequestUpdate actualNotificationRequestUpdate = new NotificationRequestUpdate();
-    actualNotificationRequestUpdate.setDeleted(true);
-    NotificationRequestId notificationRequestId = new NotificationRequestId(UUID.randomUUID());
-    actualNotificationRequestUpdate.setNotificationRequestId(notificationRequestId);
-    actualNotificationRequestUpdate.toString();
-    NotificationRequestId actualNotificationRequestId = actualNotificationRequestUpdate.getNotificationRequestId();
-
-    // Assert that nothing has changed
-    assertTrue(actualNotificationRequestUpdate.isDeleted());
-    assertSame(notificationRequestId, actualNotificationRequestId);
-  }
-
-  /**
-   * Test getters and setters.
-   * <ul>
-   *   <li>When {@link NotificationRequestId#NotificationRequestId(UUID)} with id is
-   * randomUUID.</li>
-   * </ul>
-   * <p>
-   * Methods under test:
-   * <ul>
-   *   <li>
-   * {@link NotificationRequestUpdate#NotificationRequestUpdate(NotificationRequestId, boolean)}
-   *   <li>{@link NotificationRequestUpdate#setDeleted(boolean)}
-   *   <li>
-   * {@link NotificationRequestUpdate#setNotificationRequestId(NotificationRequestId)}
-   *   <li>{@link NotificationRequestUpdate#toString()}
-   *   <li>{@link NotificationRequestUpdate#getNotificationRequestId()}
-   *   <li>{@link NotificationRequestUpdate#isDeleted()}
-   * </ul>
-   */
-  @Test
-  @DisplayName("Test getters and setters; when NotificationRequestId(UUID) with id is randomUUID")
-  void testGettersAndSetters_whenNotificationRequestIdWithIdIsRandomUUID() {
-    // Arrange and Act
-    NotificationRequestUpdate actualNotificationRequestUpdate = new NotificationRequestUpdate(
-        new NotificationRequestId(UUID.randomUUID()), true);
-    actualNotificationRequestUpdate.setDeleted(true);
-    NotificationRequestId notificationRequestId = new NotificationRequestId(UUID.randomUUID());
-    actualNotificationRequestUpdate.setNotificationRequestId(notificationRequestId);
-    actualNotificationRequestUpdate.toString();
-    NotificationRequestId actualNotificationRequestId = actualNotificationRequestUpdate.getNotificationRequestId();
-
-    // Assert that nothing has changed
-    assertTrue(actualNotificationRequestUpdate.isDeleted());
-    assertSame(notificationRequestId, actualNotificationRequestId);
-  }
-
-  /**
-   * Test NotificationRequestUpdateBuilder
-   * {@link NotificationRequestUpdateBuilder#build()}.
-   * <p>
-   * Methods under test:
-   * <ul>
-   *   <li>
-   * {@link NotificationRequestUpdate.NotificationRequestUpdateBuilder#build()}
-   *   <li>
-   * {@link NotificationRequestUpdate.NotificationRequestUpdateBuilder#deleted(boolean)}
-   *   <li>
-   * {@link NotificationRequestUpdate.NotificationRequestUpdateBuilder#notificationRequestId(NotificationRequestId)}
+   *   <li>{@link NotificationRequestUpdateBuilder#build()}
+   *   <li>{@link NotificationRequestUpdateBuilder#deleted(boolean)}
+   *   <li>{@link NotificationRequestUpdateBuilder#notificationRequestId(NotificationRequestId)}
    * </ul>
    */
   @Test
   @DisplayName("Test NotificationRequestUpdateBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NotificationRequestUpdateBuilder.<init>()",
+      "NotificationRequestUpdate NotificationRequestUpdateBuilder.build()",
+      "NotificationRequestUpdateBuilder NotificationRequestUpdateBuilder.deleted(boolean)",
+      "NotificationRequestUpdateBuilder NotificationRequestUpdateBuilder.notificationRequestId(NotificationRequestId)",
+      "java.lang.String NotificationRequestUpdateBuilder.toString()"})
   void testNotificationRequestUpdateBuilderBuild() {
     // Arrange
-    NotificationRequestUpdate.NotificationRequestUpdateBuilder deletedResult = NotificationRequestUpdate.builder()
-        .deleted(true);
-    NotificationRequestId notificationRequestId = new NotificationRequestId(UUID.randomUUID());
+    NotificationRequestUpdateBuilder deletedResult = NotificationRequestUpdate.builder().deleted(true);
+    NotificationRequestId notificationRequestId = new NotificationRequestId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
     NotificationRequestUpdate actualBuildResult = deletedResult.notificationRequestId(notificationRequestId).build();

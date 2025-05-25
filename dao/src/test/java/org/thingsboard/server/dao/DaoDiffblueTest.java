@@ -1,9 +1,12 @@
 package org.thingsboard.server.dao;
 
 import static org.junit.Assert.assertNull;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -21,10 +24,10 @@ import org.thingsboard.server.dao.sql.component.ComponentDescriptorRepository;
 import org.thingsboard.server.dao.sql.component.JpaBaseComponentDescriptorDao;
 
 @ContextConfiguration(classes = {JpaBaseComponentDescriptorDao.class})
-@RunWith(SpringJUnit4ClassRunner.class)
-@PropertySource("classpath:application-test.properties")
-@EnableConfigurationProperties
 @DisabledInAotMode
+@EnableConfigurationProperties
+@PropertySource("classpath:application-test.properties")
+@RunWith(SpringJUnit4ClassRunner.class)
 public class DaoDiffblueTest {
   @MockBean
   private ComponentDescriptorInsertRepository componentDescriptorInsertRepository;
@@ -56,6 +59,8 @@ public class DaoDiffblueTest {
    * Method under test: {@link Dao#getEntityType()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"org.thingsboard.server.common.data.EntityType Dao.getEntityType()"})
   public void testGetEntityType() {
     // Arrange, Act and Assert
     assertNull(dao.getEntityType());

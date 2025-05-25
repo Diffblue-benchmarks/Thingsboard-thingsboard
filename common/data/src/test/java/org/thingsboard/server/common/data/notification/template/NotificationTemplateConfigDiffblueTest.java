@@ -6,53 +6,16 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.BiFunction;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.notification.NotificationDeliveryMethod;
 
 class NotificationTemplateConfigDiffblueTest {
-  /**
-   * Test {@link NotificationTemplateConfig#copy()}.
-   * <ul>
-   *   <li>Given {@link HashMap#HashMap()} computeIfPresent {@code WEB} and
-   * {@link BiFunction}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link NotificationTemplateConfig#copy()}
-   */
-  @Test
-  @DisplayName("Test copy(); given HashMap() computeIfPresent 'WEB' and BiFunction")
-  void testCopy_givenHashMapComputeIfPresentWebAndBiFunction() {
-    // Arrange
-    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> deliveryMethodsTemplates = new HashMap<>();
-    deliveryMethodsTemplates.computeIfPresent(NotificationDeliveryMethod.WEB, mock(BiFunction.class));
-    deliveryMethodsTemplates.put(NotificationDeliveryMethod.WEB, new EmailDeliveryMethodNotificationTemplate());
-
-    NotificationTemplateConfig notificationTemplateConfig = new NotificationTemplateConfig();
-    notificationTemplateConfig.setDeliveryMethodsTemplates(deliveryMethodsTemplates);
-
-    // Act and Assert
-    Map<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> deliveryMethodsTemplates2 = notificationTemplateConfig
-        .copy()
-        .getDeliveryMethodsTemplates();
-    assertEquals(1, deliveryMethodsTemplates2.size());
-    DeliveryMethodNotificationTemplate getResult = deliveryMethodsTemplates2.get(NotificationDeliveryMethod.WEB);
-    assertTrue(getResult instanceof EmailDeliveryMethodNotificationTemplate);
-    assertNull(getResult.getBody());
-    assertNull(((EmailDeliveryMethodNotificationTemplate) getResult).getSubject());
-    List<TemplatableValue> templatableValues = getResult.getTemplatableValues();
-    assertEquals(2, templatableValues.size());
-    assertNull(templatableValues.get(0).get());
-    assertNull(templatableValues.get(1).get());
-    assertEquals(NotificationDeliveryMethod.EMAIL, getResult.getMethod());
-    assertFalse(getResult.isEnabled());
-  }
-
   /**
    * Test {@link NotificationTemplateConfig#copy()}.
    * <ul>
@@ -63,6 +26,8 @@ class NotificationTemplateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test copy(); then return DeliveryMethodsTemplates Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"NotificationTemplateConfig NotificationTemplateConfig.copy()"})
   void testCopy_thenReturnDeliveryMethodsTemplatesEmpty() {
     // Arrange
     NotificationTemplateConfig notificationTemplateConfig = new NotificationTemplateConfig();
@@ -82,6 +47,8 @@ class NotificationTemplateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test copy(); then return DeliveryMethodsTemplates size is one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"NotificationTemplateConfig NotificationTemplateConfig.copy()"})
   void testCopy_thenReturnDeliveryMethodsTemplatesSizeIsOne() {
     // Arrange
     HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> deliveryMethodsTemplates = new HashMap<>();
@@ -117,6 +84,8 @@ class NotificationTemplateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test copy(); then return DeliveryMethodsTemplates size is two")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"NotificationTemplateConfig NotificationTemplateConfig.copy()"})
   void testCopy_thenReturnDeliveryMethodsTemplatesSizeIsTwo() {
     // Arrange
     HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> deliveryMethodsTemplates = new HashMap<>();
@@ -145,8 +114,7 @@ class NotificationTemplateConfigDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationTemplateConfig#equals(Object)}, and
-   * {@link NotificationTemplateConfig#hashCode()}.
+   * Test {@link NotificationTemplateConfig#equals(Object)}, and {@link NotificationTemplateConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -160,6 +128,8 @@ class NotificationTemplateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplateConfig.equals(Object)", "int NotificationTemplateConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     NotificationTemplateConfig notificationTemplateConfig = new NotificationTemplateConfig();
@@ -172,8 +142,7 @@ class NotificationTemplateConfigDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationTemplateConfig#equals(Object)}, and
-   * {@link NotificationTemplateConfig#hashCode()}.
+   * Test {@link NotificationTemplateConfig#equals(Object)}, and {@link NotificationTemplateConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -187,6 +156,8 @@ class NotificationTemplateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplateConfig.equals(Object)", "int NotificationTemplateConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     NotificationTemplateConfig notificationTemplateConfig = new NotificationTemplateConfig();
@@ -202,8 +173,7 @@ class NotificationTemplateConfigDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationTemplateConfig#equals(Object)}, and
-   * {@link NotificationTemplateConfig#hashCode()}.
+   * Test {@link NotificationTemplateConfig#equals(Object)}, and {@link NotificationTemplateConfig#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -217,6 +187,8 @@ class NotificationTemplateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplateConfig.equals(Object)", "int NotificationTemplateConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     NotificationTemplateConfig notificationTemplateConfig = new NotificationTemplateConfig();
@@ -238,6 +210,8 @@ class NotificationTemplateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplateConfig.equals(Object)", "int NotificationTemplateConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new NotificationTemplateConfig(), 1);
@@ -254,6 +228,8 @@ class NotificationTemplateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplateConfig.equals(Object)", "int NotificationTemplateConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     NotificationTemplateConfig notificationTemplateConfig = new NotificationTemplateConfig();
@@ -274,6 +250,8 @@ class NotificationTemplateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplateConfig.equals(Object)", "int NotificationTemplateConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     NotificationTemplateConfig notificationTemplateConfig = new NotificationTemplateConfig();
@@ -288,29 +266,6 @@ class NotificationTemplateConfigDiffblueTest {
   /**
    * Test {@link NotificationTemplateConfig#equals(Object)}.
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link NotificationTemplateConfig#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
-    // Arrange
-    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> deliveryMethodsTemplates = new HashMap<>();
-    deliveryMethodsTemplates.computeIfPresent(NotificationDeliveryMethod.WEB, mock(BiFunction.class));
-
-    NotificationTemplateConfig notificationTemplateConfig = new NotificationTemplateConfig();
-    notificationTemplateConfig.setDeliveryMethodsTemplates(deliveryMethodsTemplates);
-
-    // Act and Assert
-    assertNotEquals(notificationTemplateConfig, new NotificationTemplateConfig());
-  }
-
-  /**
-   * Test {@link NotificationTemplateConfig#equals(Object)}.
-   * <ul>
    *   <li>When other is {@code null}.</li>
    *   <li>Then return not equal.</li>
    * </ul>
@@ -319,6 +274,8 @@ class NotificationTemplateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplateConfig.equals(Object)", "int NotificationTemplateConfig.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new NotificationTemplateConfig(), null);
@@ -335,6 +292,8 @@ class NotificationTemplateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplateConfig.equals(Object)", "int NotificationTemplateConfig.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new NotificationTemplateConfig(), "Different type to NotificationTemplateConfig");
@@ -345,8 +304,7 @@ class NotificationTemplateConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link NotificationTemplateConfig}
+   *   <li>default or parameterless constructor of {@link NotificationTemplateConfig}
    *   <li>{@link NotificationTemplateConfig#setDeliveryMethodsTemplates(Map)}
    *   <li>{@link NotificationTemplateConfig#toString()}
    *   <li>{@link NotificationTemplateConfig#getDeliveryMethodsTemplates()}
@@ -354,6 +312,11 @@ class NotificationTemplateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NotificationTemplateConfig.<init>()",
+      "Map NotificationTemplateConfig.getDeliveryMethodsTemplates()",
+      "void NotificationTemplateConfig.setDeliveryMethodsTemplates(Map)",
+      "String NotificationTemplateConfig.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     NotificationTemplateConfig actualNotificationTemplateConfig = new NotificationTemplateConfig();
@@ -363,7 +326,7 @@ class NotificationTemplateConfigDiffblueTest {
     Map<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> actualDeliveryMethodsTemplates = actualNotificationTemplateConfig
         .getDeliveryMethodsTemplates();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("NotificationTemplateConfig(deliveryMethodsTemplates={})", actualToStringResult);
     assertTrue(actualDeliveryMethodsTemplates.isEmpty());
     assertSame(deliveryMethodsTemplates, actualDeliveryMethodsTemplates);

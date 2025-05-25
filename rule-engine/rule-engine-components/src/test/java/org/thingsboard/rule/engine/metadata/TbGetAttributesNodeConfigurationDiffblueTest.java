@@ -3,13 +3,16 @@ package org.thingsboard.rule.engine.metadata;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.thingsboard.rule.engine.data.DeviceRelationsQuery;
@@ -23,11 +26,12 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
    *   <li>Then return FetchTo is {@code METADATA}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGetAttributesNodeConfiguration#defaultConfiguration()}
+   * Method under test: {@link TbGetAttributesNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration(); then return FetchTo is 'METADATA'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbGetAttributesNodeConfiguration TbGetAttributesNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration_thenReturnFetchToIsMetadata() {
     // Arrange and Act
     TbGetAttributesNodeConfiguration actualDefaultConfigurationResult = (new TbGetAttributesNodeConfiguration())
@@ -50,11 +54,12 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
    *   <li>Then return {@link TbGetDeviceAttrNodeConfiguration}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbGetAttributesNodeConfiguration#defaultConfiguration()}
+   * Method under test: {@link TbGetAttributesNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration(); then return TbGetDeviceAttrNodeConfiguration")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbGetAttributesNodeConfiguration TbGetAttributesNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration_thenReturnTbGetDeviceAttrNodeConfiguration() {
     // Arrange and Act
     TbGetDeviceAttrNodeConfiguration actualDefaultConfigurationResult = (new TbGetDeviceAttrNodeConfiguration())
@@ -74,8 +79,7 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGetAttributesNodeConfiguration#equals(Object)}, and
-   * {@link TbGetAttributesNodeConfiguration#hashCode()}.
+   * Test {@link TbGetAttributesNodeConfiguration#equals(Object)}, and {@link TbGetAttributesNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -89,6 +93,9 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetAttributesNodeConfiguration.equals(Object)",
+      "int TbGetAttributesNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbGetAttributesNodeConfiguration tbGetAttributesNodeConfiguration = new TbGetAttributesNodeConfiguration();
@@ -101,8 +108,7 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGetAttributesNodeConfiguration#equals(Object)}, and
-   * {@link TbGetAttributesNodeConfiguration#hashCode()}.
+   * Test {@link TbGetAttributesNodeConfiguration#equals(Object)}, and {@link TbGetAttributesNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -116,6 +122,9 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetAttributesNodeConfiguration.equals(Object)",
+      "int TbGetAttributesNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbGetAttributesNodeConfiguration tbGetAttributesNodeConfiguration = new TbGetAttributesNodeConfiguration();
@@ -141,8 +150,7 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGetAttributesNodeConfiguration#equals(Object)}, and
-   * {@link TbGetAttributesNodeConfiguration#hashCode()}.
+   * Test {@link TbGetAttributesNodeConfiguration#equals(Object)}, and {@link TbGetAttributesNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -156,6 +164,9 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetAttributesNodeConfiguration.equals(Object)",
+      "int TbGetAttributesNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbGetAttributesNodeConfiguration tbGetAttributesNodeConfiguration = new TbGetAttributesNodeConfiguration();
@@ -177,6 +188,9 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetAttributesNodeConfiguration.equals(Object)",
+      "int TbGetAttributesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TbGetDeviceAttrNodeConfiguration tbGetDeviceAttrNodeConfiguration = new TbGetDeviceAttrNodeConfiguration();
@@ -196,6 +210,9 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetAttributesNodeConfiguration.equals(Object)",
+      "int TbGetAttributesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbGetAttributesNodeConfiguration tbGetAttributesNodeConfiguration = new TbGetAttributesNodeConfiguration();
@@ -215,23 +232,10 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetAttributesNodeConfiguration.equals(Object)",
+      "int TbGetAttributesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
-    // Arrange, Act and Assert
-    assertNotEquals(new TbGetAttributesNodeConfiguration(), mock(TbFetchDeviceCredentialsNodeConfiguration.class));
-  }
-
-  /**
-   * Test {@link TbGetAttributesNodeConfiguration#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbGetAttributesNodeConfiguration#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbGetAttributesNodeConfiguration tbGetAttributesNodeConfiguration = new TbGetAttributesNodeConfiguration();
     TbGetDeviceAttrNodeConfiguration tbGetDeviceAttrNodeConfiguration = mock(TbGetDeviceAttrNodeConfiguration.class);
@@ -256,7 +260,10 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetAttributesNodeConfiguration.equals(Object)",
+      "int TbGetAttributesNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbGetAttributesNodeConfiguration tbGetAttributesNodeConfiguration = new TbGetAttributesNodeConfiguration();
     tbGetAttributesNodeConfiguration.setFetchTo(TbMsgSource.DATA);
@@ -282,7 +289,10 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetAttributesNodeConfiguration.equals(Object)",
+      "int TbGetAttributesNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbGetAttributesNodeConfiguration tbGetAttributesNodeConfiguration = new TbGetAttributesNodeConfiguration();
     tbGetAttributesNodeConfiguration.setFetchTo(TbMsgSource.DATA);
@@ -308,7 +318,10 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetAttributesNodeConfiguration.equals(Object)",
+      "int TbGetAttributesNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbGetAttributesNodeConfiguration tbGetAttributesNodeConfiguration = new TbGetAttributesNodeConfiguration();
     tbGetAttributesNodeConfiguration.setFetchTo(TbMsgSource.DATA);
@@ -334,7 +347,10 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetAttributesNodeConfiguration.equals(Object)",
+      "int TbGetAttributesNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TbGetAttributesNodeConfiguration tbGetAttributesNodeConfiguration = new TbGetAttributesNodeConfiguration();
     tbGetAttributesNodeConfiguration.setClientAttributeNames(new ArrayList<>());
@@ -362,7 +378,10 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetAttributesNodeConfiguration.equals(Object)",
+      "int TbGetAttributesNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     ArrayList<String> clientAttributeNames = new ArrayList<>();
     clientAttributeNames.add("foo");
@@ -393,7 +412,10 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetAttributesNodeConfiguration.equals(Object)",
+      "int TbGetAttributesNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     TbGetAttributesNodeConfiguration tbGetAttributesNodeConfiguration = new TbGetAttributesNodeConfiguration();
     tbGetAttributesNodeConfiguration.setSharedAttributeNames(new ArrayList<>());
@@ -423,7 +445,10 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetAttributesNodeConfiguration.equals(Object)",
+      "int TbGetAttributesNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     ArrayList<String> sharedAttributeNames = new ArrayList<>();
     sharedAttributeNames.add("foo");
@@ -456,7 +481,10 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetAttributesNodeConfiguration.equals(Object)",
+      "int TbGetAttributesNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     TbGetAttributesNodeConfiguration tbGetAttributesNodeConfiguration = new TbGetAttributesNodeConfiguration();
     tbGetAttributesNodeConfiguration.setServerAttributeNames(new ArrayList<>());
@@ -488,7 +516,10 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetAttributesNodeConfiguration.equals(Object)",
+      "int TbGetAttributesNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     ArrayList<String> serverAttributeNames = new ArrayList<>();
     serverAttributeNames.add("foo");
@@ -523,7 +554,10 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetAttributesNodeConfiguration.equals(Object)",
+      "int TbGetAttributesNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     ArrayList<String> latestTsKeyNames = new ArrayList<>();
     latestTsKeyNames.add("foo");
@@ -559,6 +593,9 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetAttributesNodeConfiguration.equals(Object)",
+      "int TbGetAttributesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbGetAttributesNodeConfiguration(), null);
@@ -575,6 +612,9 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetAttributesNodeConfiguration.equals(Object)",
+      "int TbGetAttributesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbGetAttributesNodeConfiguration(), "Different type to TbGetAttributesNodeConfiguration");
@@ -585,8 +625,7 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link TbGetAttributesNodeConfiguration}
+   *   <li>default or parameterless constructor of {@link TbGetAttributesNodeConfiguration}
    *   <li>{@link TbGetAttributesNodeConfiguration#setClientAttributeNames(List)}
    *   <li>{@link TbGetAttributesNodeConfiguration#setGetLatestValueWithTs(boolean)}
    *   <li>{@link TbGetAttributesNodeConfiguration#setLatestTsKeyNames(List)}
@@ -604,6 +643,21 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbGetAttributesNodeConfiguration.<init>()",
+      "List TbGetAttributesNodeConfiguration.getClientAttributeNames()",
+      "List TbGetAttributesNodeConfiguration.getLatestTsKeyNames()",
+      "List TbGetAttributesNodeConfiguration.getServerAttributeNames()",
+      "List TbGetAttributesNodeConfiguration.getSharedAttributeNames()",
+      "boolean TbGetAttributesNodeConfiguration.isGetLatestValueWithTs()",
+      "boolean TbGetAttributesNodeConfiguration.isTellFailureIfAbsent()",
+      "void TbGetAttributesNodeConfiguration.setClientAttributeNames(List)",
+      "void TbGetAttributesNodeConfiguration.setGetLatestValueWithTs(boolean)",
+      "void TbGetAttributesNodeConfiguration.setLatestTsKeyNames(List)",
+      "void TbGetAttributesNodeConfiguration.setServerAttributeNames(List)",
+      "void TbGetAttributesNodeConfiguration.setSharedAttributeNames(List)",
+      "void TbGetAttributesNodeConfiguration.setTellFailureIfAbsent(boolean)",
+      "String TbGetAttributesNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbGetAttributesNodeConfiguration actualTbGetAttributesNodeConfiguration = new TbGetAttributesNodeConfiguration();
@@ -625,11 +679,12 @@ class TbGetAttributesNodeConfigurationDiffblueTest {
     boolean actualIsGetLatestValueWithTsResult = actualTbGetAttributesNodeConfiguration.isGetLatestValueWithTs();
     boolean actualIsTellFailureIfAbsentResult = actualTbGetAttributesNodeConfiguration.isTellFailureIfAbsent();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "TbGetAttributesNodeConfiguration(clientAttributeNames=[], sharedAttributeNames=[], serverAttributeNames=[],"
             + " latestTsKeyNames=[], tellFailureIfAbsent=true, getLatestValueWithTs=true)",
         actualToStringResult);
+    assertNull(actualTbGetAttributesNodeConfiguration.getFetchTo());
     assertTrue(actualClientAttributeNames.isEmpty());
     assertTrue(actualLatestTsKeyNames.isEmpty());
     assertTrue(actualServerAttributeNames.isEmpty());

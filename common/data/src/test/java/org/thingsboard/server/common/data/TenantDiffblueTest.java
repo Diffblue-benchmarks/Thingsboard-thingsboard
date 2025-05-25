@@ -1,26 +1,21 @@
 package org.thingsboard.server.common.data;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import com.fasterxml.jackson.core.JsonLocation;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonStreamContext;
-import com.fasterxml.jackson.core.Version;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.JsonNodeType;
 import com.fasterxml.jackson.databind.node.NullNode;
-import com.fasterxml.jackson.databind.node.TreeTraversingParser;
-import java.io.IOException;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.thingsboard.server.common.data.id.TenantId;
+import org.thingsboard.server.common.data.id.TenantProfileId;
 
 class TenantDiffblueTest {
   /**
@@ -38,6 +33,8 @@ class TenantDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Tenant.equals(Object)", "int Tenant.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     Tenant tenant = new Tenant();
@@ -64,6 +61,8 @@ class TenantDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Tenant.equals(Object)", "int Tenant.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     Tenant tenant = new Tenant();
@@ -85,6 +84,8 @@ class TenantDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Tenant.equals(Object)", "int Tenant.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     Tenant tenant = new Tenant(TenantId.SYS_TENANT_ID);
@@ -104,6 +105,8 @@ class TenantDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Tenant.equals(Object)", "int Tenant.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     Tenant tenant = new Tenant();
@@ -123,23 +126,9 @@ class TenantDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Tenant.equals(Object)", "int Tenant.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
-    // Arrange, Act and Assert
-    assertNotEquals(new Tenant(), mock(Customer.class));
-  }
-
-  /**
-   * Test {@link Tenant#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link Tenant#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     Tenant tenant = new Tenant();
     TenantInfo tenantInfo = mock(TenantInfo.class);
@@ -160,6 +149,8 @@ class TenantDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Tenant.equals(Object)", "int Tenant.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new Tenant(), null);
@@ -176,6 +167,8 @@ class TenantDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Tenant.equals(Object)", "int Tenant.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new Tenant(), "Different type to Tenant");
@@ -183,6 +176,9 @@ class TenantDiffblueTest {
 
   /**
    * Test getters and setters.
+   * <ul>
+   *   <li>Then return Id is {@code null}.</li>
+   * </ul>
    * <p>
    * Methods under test:
    * <ul>
@@ -199,8 +195,13 @@ class TenantDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters")
-  void testGettersAndSetters() {
+  @DisplayName("Test getters and setters; then return Id is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Tenant.<init>()", "void Tenant.<init>(TenantId)", "String Tenant.getName()",
+      "String Tenant.getRegion()", "TenantProfileId Tenant.getTenantProfileId()", "String Tenant.getTitle()",
+      "Long Tenant.getVersion()", "void Tenant.setRegion(String)", "void Tenant.setTenantProfileId(TenantProfileId)",
+      "void Tenant.setTitle(String)", "void Tenant.setVersion(Long)", "String Tenant.toString()"})
+  void testGettersAndSetters_thenReturnIdIsNull() {
     // Arrange and Act
     Tenant actualTenant = new Tenant();
     actualTenant.setRegion("us-east-2");
@@ -209,17 +210,27 @@ class TenantDiffblueTest {
     String actualToStringResult = actualTenant.toString();
     String actualName = actualTenant.getName();
     String actualRegion = actualTenant.getRegion();
-    actualTenant.getTenantProfileId();
+    TenantProfileId actualTenantProfileId = actualTenant.getTenantProfileId();
     String actualTitle = actualTenant.getTitle();
     Long actualVersion = actualTenant.getVersion();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Dr", actualName);
     assertEquals("Dr", actualTitle);
     assertEquals("Tenant [title=Dr, region=us-east-2, tenantProfileId=null, additionalInfo=null, country=null,"
         + " state=null, city=null, address=null, address2=null, zip=null, phone=null, email=null, createdTime=0,"
         + " id=null]", actualToStringResult);
     assertEquals("us-east-2", actualRegion);
+    assertNull(actualTenant.getAddress());
+    assertNull(actualTenant.getAddress2());
+    assertNull(actualTenant.getCity());
+    assertNull(actualTenant.getCountry());
+    assertNull(actualTenant.getEmail());
+    assertNull(actualTenant.getPhone());
+    assertNull(actualTenant.getState());
+    assertNull(actualTenant.getZip());
+    assertNull(actualTenant.getId());
+    assertNull(actualTenantProfileId);
     assertEquals(0L, actualTenant.getCreatedTime());
     assertEquals(1L, actualVersion.longValue());
   }
@@ -228,8 +239,7 @@ class TenantDiffblueTest {
    * Test getters and setters.
    * <ul>
    *   <li>When {@link TenantId#SYS_TENANT_ID}.</li>
-   *   <li>Then return Id is {@link TenantId#SYS_TENANT_ID}
-   * {@link TenantId#SYS_TENANT_ID}.</li>
+   *   <li>Then return Id is {@link TenantId#SYS_TENANT_ID} {@link TenantId#SYS_TENANT_ID}.</li>
    * </ul>
    * <p>
    * Methods under test:
@@ -248,6 +258,11 @@ class TenantDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when SYS_TENANT_ID; then return Id is SYS_TENANT_ID SYS_TENANT_ID")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Tenant.<init>()", "void Tenant.<init>(TenantId)", "String Tenant.getName()",
+      "String Tenant.getRegion()", "TenantProfileId Tenant.getTenantProfileId()", "String Tenant.getTitle()",
+      "Long Tenant.getVersion()", "void Tenant.setRegion(String)", "void Tenant.setTenantProfileId(TenantProfileId)",
+      "void Tenant.setTitle(String)", "void Tenant.setVersion(Long)", "String Tenant.toString()"})
   void testGettersAndSetters_whenSys_tenant_id_thenReturnIdIsSys_tenant_idSys_tenant_id() {
     // Arrange
     TenantId id = TenantId.SYS_TENANT_ID;
@@ -260,11 +275,11 @@ class TenantDiffblueTest {
     String actualToStringResult = actualTenant.toString();
     String actualName = actualTenant.getName();
     String actualRegion = actualTenant.getRegion();
-    actualTenant.getTenantProfileId();
+    TenantProfileId actualTenantProfileId = actualTenant.getTenantProfileId();
     String actualTitle = actualTenant.getTitle();
     Long actualVersion = actualTenant.getVersion();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Dr", actualName);
     assertEquals("Dr", actualTitle);
     assertEquals(
@@ -273,6 +288,15 @@ class TenantDiffblueTest {
             + "-1dd2-11b2-8080-808080808080]",
         actualToStringResult);
     assertEquals("us-east-2", actualRegion);
+    assertNull(actualTenant.getAddress());
+    assertNull(actualTenant.getAddress2());
+    assertNull(actualTenant.getCity());
+    assertNull(actualTenant.getCountry());
+    assertNull(actualTenant.getEmail());
+    assertNull(actualTenant.getPhone());
+    assertNull(actualTenant.getState());
+    assertNull(actualTenant.getZip());
+    assertNull(actualTenantProfileId);
     assertEquals(0L, actualTenant.getCreatedTime());
     assertEquals(1L, actualVersion.longValue());
     TenantId expectedId = id.SYS_TENANT_ID;
@@ -289,40 +313,15 @@ class TenantDiffblueTest {
    */
   @Test
   @DisplayName("Test new Tenant(Tenant); when Tenant()")
-  void testNewTenant_whenTenant() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Tenant.<init>(Tenant)"})
+  void testNewTenant_whenTenant() {
     // Arrange and Act
     Tenant actualTenant = new Tenant(new Tenant());
 
     // Assert
-    JsonNode additionalInfo = actualTenant.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
+    assertTrue(actualTenant.getAdditionalInfo() instanceof NullNode);
     assertNull(actualTenant.getVersion());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
     assertNull(actualTenant.getAddress());
     assertNull(actualTenant.getAddress2());
     assertNull(actualTenant.getCity());
@@ -338,110 +337,28 @@ class TenantDiffblueTest {
     assertNull(actualTenant.getId());
     assertNull(actualTenant.getTenantId());
     assertNull(actualTenant.getTenantProfileId());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
     assertEquals(0L, actualTenant.getCreatedTime());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getColumnNr());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getLineNr());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
   }
 
   /**
    * Test {@link Tenant#Tenant(Tenant)}.
    * <ul>
-   *   <li>When {@link Tenant#Tenant(Tenant)} with tenant is
-   * {@link Tenant#Tenant()}.</li>
+   *   <li>When {@link Tenant#Tenant(Tenant)} with tenant is {@link Tenant#Tenant()}.</li>
    * </ul>
    * <p>
    * Method under test: {@link Tenant#Tenant(Tenant)}
    */
   @Test
   @DisplayName("Test new Tenant(Tenant); when Tenant(Tenant) with tenant is Tenant()")
-  void testNewTenant_whenTenantWithTenantIsTenant() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Tenant.<init>(Tenant)"})
+  void testNewTenant_whenTenantWithTenantIsTenant() {
     // Arrange and Act
     Tenant actualTenant = new Tenant(new Tenant(new Tenant()));
 
     // Assert
-    JsonNode additionalInfo = actualTenant.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
+    assertTrue(actualTenant.getAdditionalInfo() instanceof NullNode);
     assertNull(actualTenant.getVersion());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
     assertNull(actualTenant.getAddress());
     assertNull(actualTenant.getAddress2());
     assertNull(actualTenant.getCity());
@@ -457,110 +374,28 @@ class TenantDiffblueTest {
     assertNull(actualTenant.getId());
     assertNull(actualTenant.getTenantId());
     assertNull(actualTenant.getTenantProfileId());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
     assertEquals(0L, actualTenant.getCreatedTime());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getColumnNr());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getLineNr());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
   }
 
   /**
    * Test {@link Tenant#Tenant(Tenant)}.
    * <ul>
-   *   <li>When {@link Tenant#Tenant(Tenant)} with tenant is
-   * {@link Tenant#Tenant(Tenant)}.</li>
+   *   <li>When {@link Tenant#Tenant(Tenant)} with tenant is {@link Tenant#Tenant(Tenant)}.</li>
    * </ul>
    * <p>
    * Method under test: {@link Tenant#Tenant(Tenant)}
    */
   @Test
   @DisplayName("Test new Tenant(Tenant); when Tenant(Tenant) with tenant is Tenant(Tenant)")
-  void testNewTenant_whenTenantWithTenantIsTenant2() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Tenant.<init>(Tenant)"})
+  void testNewTenant_whenTenantWithTenantIsTenant2() {
     // Arrange and Act
     Tenant actualTenant = new Tenant(new Tenant(new Tenant(new Tenant())));
 
     // Assert
-    JsonNode additionalInfo = actualTenant.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
+    assertTrue(actualTenant.getAdditionalInfo() instanceof NullNode);
     assertNull(actualTenant.getVersion());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
     assertNull(actualTenant.getAddress());
     assertNull(actualTenant.getAddress2());
     assertNull(actualTenant.getCity());
@@ -576,63 +411,7 @@ class TenantDiffblueTest {
     assertNull(actualTenant.getId());
     assertNull(actualTenant.getTenantId());
     assertNull(actualTenant.getTenantProfileId());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
     assertEquals(0L, actualTenant.getCreatedTime());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getColumnNr());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getLineNr());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
   }
 
   /**
@@ -642,6 +421,8 @@ class TenantDiffblueTest {
    */
   @Test
   @DisplayName("Test getTenantId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TenantId Tenant.getTenantId()"})
   void testGetTenantId() {
     // Arrange, Act and Assert
     assertNull((new Tenant()).getTenantId());
@@ -654,6 +435,8 @@ class TenantDiffblueTest {
    */
   @Test
   @DisplayName("Test getId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TenantId Tenant.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
     assertNull((new Tenant()).getId());
@@ -666,6 +449,8 @@ class TenantDiffblueTest {
    */
   @Test
   @DisplayName("Test getCreatedTime()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long Tenant.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
     assertEquals(0L, (new Tenant()).getCreatedTime());
@@ -678,6 +463,8 @@ class TenantDiffblueTest {
    */
   @Test
   @DisplayName("Test getCountry()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String Tenant.getCountry()"})
   void testGetCountry() {
     // Arrange, Act and Assert
     assertNull((new Tenant()).getCountry());
@@ -690,6 +477,8 @@ class TenantDiffblueTest {
    */
   @Test
   @DisplayName("Test getState()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String Tenant.getState()"})
   void testGetState() {
     // Arrange, Act and Assert
     assertNull((new Tenant()).getState());
@@ -702,6 +491,8 @@ class TenantDiffblueTest {
    */
   @Test
   @DisplayName("Test getCity()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String Tenant.getCity()"})
   void testGetCity() {
     // Arrange, Act and Assert
     assertNull((new Tenant()).getCity());
@@ -714,6 +505,8 @@ class TenantDiffblueTest {
    */
   @Test
   @DisplayName("Test getAddress()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String Tenant.getAddress()"})
   void testGetAddress() {
     // Arrange, Act and Assert
     assertNull((new Tenant()).getAddress());
@@ -726,6 +519,8 @@ class TenantDiffblueTest {
    */
   @Test
   @DisplayName("Test getAddress2()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String Tenant.getAddress2()"})
   void testGetAddress2() {
     // Arrange, Act and Assert
     assertNull((new Tenant()).getAddress2());
@@ -738,6 +533,8 @@ class TenantDiffblueTest {
    */
   @Test
   @DisplayName("Test getZip()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String Tenant.getZip()"})
   void testGetZip() {
     // Arrange, Act and Assert
     assertNull((new Tenant()).getZip());
@@ -750,6 +547,8 @@ class TenantDiffblueTest {
    */
   @Test
   @DisplayName("Test getPhone()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String Tenant.getPhone()"})
   void testGetPhone() {
     // Arrange, Act and Assert
     assertNull((new Tenant()).getPhone());
@@ -762,6 +561,8 @@ class TenantDiffblueTest {
    */
   @Test
   @DisplayName("Test getEmail()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String Tenant.getEmail()"})
   void testGetEmail() {
     // Arrange, Act and Assert
     assertNull((new Tenant()).getEmail());
@@ -770,8 +571,7 @@ class TenantDiffblueTest {
   /**
    * Test {@link Tenant#getAdditionalInfo()}.
    * <ul>
-   *   <li>Given {@link Tenant#Tenant(Tenant)} with tenant is
-   * {@link Tenant#Tenant()}.</li>
+   *   <li>Given {@link Tenant#Tenant(Tenant)} with tenant is {@link Tenant#Tenant()}.</li>
    *   <li>Then return {@link NullNode#instance}.</li>
    * </ul>
    * <p>
@@ -779,6 +579,8 @@ class TenantDiffblueTest {
    */
   @Test
   @DisplayName("Test getAdditionalInfo(); given Tenant(Tenant) with tenant is Tenant(); then return instance")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode Tenant.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenTenantWithTenantIsTenant_thenReturnInstance() {
     // Arrange and Act
     JsonNode actualAdditionalInfo = (new Tenant(new Tenant())).getAdditionalInfo();
@@ -790,8 +592,7 @@ class TenantDiffblueTest {
   /**
    * Test {@link Tenant#getAdditionalInfo()}.
    * <ul>
-   *   <li>Given {@link Tenant#Tenant(Tenant)} with tenant is
-   * {@link Tenant#Tenant(Tenant)}.</li>
+   *   <li>Given {@link Tenant#Tenant(Tenant)} with tenant is {@link Tenant#Tenant(Tenant)}.</li>
    *   <li>Then return {@link NullNode#instance}.</li>
    * </ul>
    * <p>
@@ -799,6 +600,8 @@ class TenantDiffblueTest {
    */
   @Test
   @DisplayName("Test getAdditionalInfo(); given Tenant(Tenant) with tenant is Tenant(Tenant); then return instance")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode Tenant.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenTenantWithTenantIsTenant_thenReturnInstance2() {
     // Arrange and Act
     JsonNode actualAdditionalInfo = (new Tenant(new Tenant(new Tenant()))).getAdditionalInfo();
@@ -818,6 +621,8 @@ class TenantDiffblueTest {
    */
   @Test
   @DisplayName("Test getAdditionalInfo(); given Tenant(); then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode Tenant.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenTenant_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull((new Tenant()).getAdditionalInfo());

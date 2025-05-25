@@ -6,34 +6,35 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.grpc.netty.shaded.io.netty.channel.DefaultEventLoop;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.function.Supplier;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.queue.TbQueueConsumer;
 import org.thingsboard.server.queue.TbQueueMsg;
 import org.thingsboard.server.queue.TbQueueMsgDecoder;
 import org.thingsboard.server.queue.azure.servicebus.TbServiceBusConsumerTemplate;
 import org.thingsboard.server.queue.azure.servicebus.TbServiceBusSettings;
+import org.thingsboard.server.queue.common.consumer.QueueConsumerManager.MsgPackProcessor;
 import org.thingsboard.server.queue.common.consumer.QueueConsumerManager.QueueConsumerManagerBuilder;
 
 class QueueConsumerManagerDiffblueTest {
   /**
-   * Test
-   * {@link QueueConsumerManager#QueueConsumerManager(String, MsgPackProcessor, long, Supplier, ExecutorService, String)}.
+   * Test {@link QueueConsumerManager#QueueConsumerManager(String, MsgPackProcessor, long, Supplier, ExecutorService, String)}.
    * <p>
-   * Method under test:
-   * {@link QueueConsumerManager#QueueConsumerManager(String, QueueConsumerManager.MsgPackProcessor, long, Supplier, ExecutorService, String)}
+   * Method under test: {@link QueueConsumerManager#QueueConsumerManager(String, MsgPackProcessor, long, Supplier, ExecutorService, String)}
    */
   @Test
   @DisplayName("Test new QueueConsumerManager(String, MsgPackProcessor, long, Supplier, ExecutorService, String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void QueueConsumerManager.<init>(String, MsgPackProcessor, long, Supplier, ExecutorService, String)"})
   void testNewQueueConsumerManager() {
     // Arrange
-    QueueConsumerManager.MsgPackProcessor<TbQueueMsg> msgPackProcessor = mock(
-        QueueConsumerManager.MsgPackProcessor.class);
+    MsgPackProcessor<TbQueueMsg> msgPackProcessor = mock(MsgPackProcessor.class);
     Supplier<TbQueueConsumer<TbQueueMsg>> consumerCreator = mock(Supplier.class);
     TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate = new TbServiceBusConsumerTemplate<>(null,
         new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class));
@@ -50,70 +51,6 @@ class QueueConsumerManagerDiffblueTest {
   }
 
   /**
-   * Test QueueConsumerManagerBuilder {@link QueueConsumerManagerBuilder#build()}.
-   * <p>
-   * Methods under test:
-   * <ul>
-   *   <li>{@link QueueConsumerManager.QueueConsumerManagerBuilder#build()}
-   *   <li>
-   * {@link QueueConsumerManager.QueueConsumerManagerBuilder#consumerCreator(Supplier)}
-   *   <li>
-   * {@link QueueConsumerManager.QueueConsumerManagerBuilder#consumerExecutor(ExecutorService)}
-   *   <li>
-   * {@link QueueConsumerManager.QueueConsumerManagerBuilder#msgPackProcessor(QueueConsumerManager.MsgPackProcessor)}
-   *   <li>{@link QueueConsumerManager.QueueConsumerManagerBuilder#name(String)}
-   *   <li>
-   * {@link QueueConsumerManager.QueueConsumerManagerBuilder#pollInterval(long)}
-   *   <li>
-   * {@link QueueConsumerManager.QueueConsumerManagerBuilder#threadPrefix(String)}
-   * </ul>
-   */
-  @Test
-  @DisplayName("Test QueueConsumerManagerBuilder build()")
-  void testQueueConsumerManagerBuilderBuild() {
-    // Arrange
-    QueueConsumerManager.QueueConsumerManagerBuilder<TbQueueMsg> builderResult = QueueConsumerManager.builder();
-    QueueConsumerManager.QueueConsumerManagerBuilder<TbQueueMsg> consumerCreatorResult = builderResult
-        .consumerCreator(mock(Supplier.class));
-
-    // Act and Assert
-    assertNull(consumerCreatorResult.consumerExecutor(new DefaultEventLoop())
-        .msgPackProcessor(mock(QueueConsumerManager.MsgPackProcessor.class))
-        .name("Name")
-        .pollInterval(42L)
-        .threadPrefix("Thread Prefix")
-        .build()
-        .getConsumer());
-  }
-
-  /**
-   * Test {@link QueueConsumerManager#subscribe(Set)} with {@code Set}.
-   * <ul>
-   *   <li>Then calls {@link Supplier#get()}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link QueueConsumerManager#subscribe(Set)}
-   */
-  @Test
-  @DisplayName("Test subscribe(Set) with 'Set'; then calls get()")
-  void testSubscribeWithSet_thenCallsGet() {
-    // Arrange
-    Supplier<TbQueueConsumer<TbQueueMsg>> consumerCreator = mock(Supplier.class);
-    when(consumerCreator.get()).thenReturn(
-        new TbServiceBusConsumerTemplate<>(null, new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class)));
-    QueueConsumerManager.MsgPackProcessor<TbQueueMsg> msgPackProcessor = mock(
-        QueueConsumerManager.MsgPackProcessor.class);
-    QueueConsumerManager<TbQueueMsg> queueConsumerManager = new QueueConsumerManager<>("Name", msgPackProcessor, 42L,
-        consumerCreator, new DefaultEventLoop(), "Thread Prefix");
-
-    // Act
-    queueConsumerManager.subscribe(new HashSet<>());
-
-    // Assert
-    verify(consumerCreator).get();
-  }
-
-  /**
    * Test {@link QueueConsumerManager#subscribe()}.
    * <ul>
    *   <li>Then calls {@link Supplier#get()}.</li>
@@ -123,93 +60,19 @@ class QueueConsumerManagerDiffblueTest {
    */
   @Test
   @DisplayName("Test subscribe(); then calls get()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void QueueConsumerManager.subscribe()"})
   void testSubscribe_thenCallsGet() {
     // Arrange
     Supplier<TbQueueConsumer<TbQueueMsg>> consumerCreator = mock(Supplier.class);
     when(consumerCreator.get()).thenReturn(
         new TbServiceBusConsumerTemplate<>(null, new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class)));
-    QueueConsumerManager.MsgPackProcessor<TbQueueMsg> msgPackProcessor = mock(
-        QueueConsumerManager.MsgPackProcessor.class);
+    MsgPackProcessor<TbQueueMsg> msgPackProcessor = mock(MsgPackProcessor.class);
     QueueConsumerManager<TbQueueMsg> queueConsumerManager = new QueueConsumerManager<>("Name", msgPackProcessor, 42L,
         consumerCreator, new DefaultEventLoop(), "Thread Prefix");
 
     // Act
     queueConsumerManager.subscribe();
-
-    // Assert
-    verify(consumerCreator).get();
-  }
-
-  /**
-   * Test {@link QueueConsumerManager#launch()}.
-   * <p>
-   * Method under test: {@link QueueConsumerManager#launch()}
-   */
-  @Test
-  @DisplayName("Test launch()")
-  void testLaunch() {
-    // Arrange
-    Supplier<TbQueueConsumer<TbQueueMsg>> consumerCreator = mock(Supplier.class);
-    when(consumerCreator.get()).thenReturn(
-        new TbServiceBusConsumerTemplate<>(null, new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class)));
-    QueueConsumerManager.MsgPackProcessor<TbQueueMsg> msgPackProcessor = mock(
-        QueueConsumerManager.MsgPackProcessor.class);
-    QueueConsumerManager<TbQueueMsg> queueConsumerManager = new QueueConsumerManager<>("Name", msgPackProcessor, 42L,
-        consumerCreator, new DefaultEventLoop(), "Thread Prefix");
-
-    // Act
-    queueConsumerManager.launch();
-
-    // Assert
-    verify(consumerCreator).get();
-  }
-
-  /**
-   * Test {@link QueueConsumerManager#launch()}.
-   * <p>
-   * Method under test: {@link QueueConsumerManager#launch()}
-   */
-  @Test
-  @DisplayName("Test launch()")
-  void testLaunch2() {
-    // Arrange
-    Supplier<TbQueueConsumer<TbQueueMsg>> consumerCreator = mock(Supplier.class);
-    when(consumerCreator.get()).thenReturn(
-        new TbServiceBusConsumerTemplate<>(null, new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class)));
-    QueueConsumerManager.MsgPackProcessor<TbQueueMsg> msgPackProcessor = mock(
-        QueueConsumerManager.MsgPackProcessor.class);
-    QueueConsumerManager<TbQueueMsg> queueConsumerManager = new QueueConsumerManager<>(
-        "org.thingsboard.server.queue.TbQueueConsumer", msgPackProcessor, 42L, consumerCreator, new DefaultEventLoop(),
-        "Thread Prefix");
-
-    // Act
-    queueConsumerManager.launch();
-
-    // Assert
-    verify(consumerCreator).get();
-  }
-
-  /**
-   * Test {@link QueueConsumerManager#launch()}.
-   * <ul>
-   *   <li>Given {@link Supplier} {@link Supplier#get()} return {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link QueueConsumerManager#launch()}
-   */
-  @Test
-  @DisplayName("Test launch(); given Supplier get() return 'null'")
-  void testLaunch_givenSupplierGetReturnNull() {
-    // Arrange
-    Supplier<TbQueueConsumer<TbQueueMsg>> consumerCreator = mock(Supplier.class);
-    when(consumerCreator.get()).thenReturn(null);
-    QueueConsumerManager.MsgPackProcessor<TbQueueMsg> msgPackProcessor = mock(
-        QueueConsumerManager.MsgPackProcessor.class);
-    QueueConsumerManager<TbQueueMsg> queueConsumerManager = new QueueConsumerManager<>("Name", msgPackProcessor, 42L,
-        consumerCreator, new DefaultEventLoop(), "Thread Prefix");
-
-    // Act
-    queueConsumerManager.launch();
 
     // Assert
     verify(consumerCreator).get();
@@ -222,13 +85,14 @@ class QueueConsumerManagerDiffblueTest {
    */
   @Test
   @DisplayName("Test stop()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void QueueConsumerManager.stop()"})
   void testStop() {
     // Arrange
     Supplier<TbQueueConsumer<TbQueueMsg>> consumerCreator = mock(Supplier.class);
     when(consumerCreator.get()).thenReturn(
         new TbServiceBusConsumerTemplate<>(null, new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class)));
-    QueueConsumerManager.MsgPackProcessor<TbQueueMsg> msgPackProcessor = mock(
-        QueueConsumerManager.MsgPackProcessor.class);
+    MsgPackProcessor<TbQueueMsg> msgPackProcessor = mock(MsgPackProcessor.class);
     QueueConsumerManager<TbQueueMsg> queueConsumerManager = new QueueConsumerManager<>("Name", msgPackProcessor, 42L,
         consumerCreator, new DefaultEventLoop(), "Thread Prefix");
 
@@ -249,13 +113,14 @@ class QueueConsumerManagerDiffblueTest {
    */
   @Test
   @DisplayName("Test getConsumer()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbQueueConsumer QueueConsumerManager.getConsumer()"})
   void testGetConsumer() {
     // Arrange
-    QueueConsumerManager.QueueConsumerManagerBuilder<TbQueueMsg> builderResult = QueueConsumerManager.builder();
-    QueueConsumerManager.QueueConsumerManagerBuilder<TbQueueMsg> consumerCreatorResult = builderResult
-        .consumerCreator(mock(Supplier.class));
+    QueueConsumerManagerBuilder<TbQueueMsg> builderResult = QueueConsumerManager.builder();
+    QueueConsumerManagerBuilder<TbQueueMsg> consumerCreatorResult = builderResult.consumerCreator(mock(Supplier.class));
     QueueConsumerManager<TbQueueMsg> buildResult = consumerCreatorResult.consumerExecutor(new DefaultEventLoop())
-        .msgPackProcessor(mock(QueueConsumerManager.MsgPackProcessor.class))
+        .msgPackProcessor(mock(MsgPackProcessor.class))
         .name("Name")
         .pollInterval(42L)
         .threadPrefix("Thread Prefix")

@@ -7,52 +7,32 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.time.Duration;
 import java.util.Collection;
 import java.util.Set;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.cache.CacheManager;
-import org.springframework.core.task.AsyncTaskExecutor;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import redis.clients.jedis.JedisPoolConfig;
 
+@DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
+@ExtendWith(MockitoExtension.class)
 class TBRedisCacheConfigurationDiffblueTest {
-  /**
-   * Test {@link TBRedisCacheConfiguration#cacheManager(RedisConnectionFactory)}.
-   * <ul>
-   *   <li>Given {@link AsyncTaskExecutor}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TBRedisCacheConfiguration#cacheManager(RedisConnectionFactory)}
-   */
-  @Test
-  @DisplayName("Test cacheManager(RedisConnectionFactory); given AsyncTaskExecutor")
-  void testCacheManager_givenAsyncTaskExecutor() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+  @InjectMocks
+  private RedisSslCredentials redisSslCredentials;
 
-    // Arrange
-    TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
-
-    JedisConnectionFactory cf = new JedisConnectionFactory();
-    cf.setExecutor(mock(AsyncTaskExecutor.class));
-
-    // Act
-    CacheManager actualCacheManagerResult = tbRedisClusterConfiguration.cacheManager(cf);
-
-    // Assert
-    Collection<String> cacheNames = actualCacheManagerResult.getCacheNames();
-    assertTrue(cacheNames instanceof Set);
-    assertTrue(actualCacheManagerResult instanceof RedisCacheManager);
-    assertTrue(cacheNames.isEmpty());
-    assertTrue(((RedisCacheManager) actualCacheManagerResult).getCacheConfigurations().isEmpty());
-    assertTrue(((RedisCacheManager) actualCacheManagerResult).isTransactionAware());
-    assertTrue(((RedisCacheManager) actualCacheManagerResult).isAllowRuntimeCacheCreation());
-  }
+  @InjectMocks
+  private TBRedisClusterConfiguration tBRedisClusterConfiguration;
 
   /**
    * Test {@link TBRedisCacheConfiguration#cacheManager(RedisConnectionFactory)}.
@@ -61,14 +41,13 @@ class TBRedisCacheConfigurationDiffblueTest {
    *   <li>Then CacheNames return {@link Set}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TBRedisCacheConfiguration#cacheManager(RedisConnectionFactory)}
+   * Method under test: {@link TBRedisCacheConfiguration#cacheManager(RedisConnectionFactory)}
    */
   @Test
   @DisplayName("Test cacheManager(RedisConnectionFactory); when JedisConnectionFactory(); then CacheNames return Set")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"CacheManager TBRedisCacheConfiguration.cacheManager(RedisConnectionFactory)"})
   void testCacheManager_whenJedisConnectionFactory_thenCacheNamesReturnSet() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
 
@@ -92,9 +71,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test buildPoolConfig()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JedisPoolConfig TBRedisCacheConfiguration.buildPoolConfig()"})
   void testBuildPoolConfig() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
     JedisPoolConfig actualBuildPoolConfigResult = (new TBRedisClusterConfiguration()).buildPoolConfig();
 
@@ -108,16 +87,10 @@ class TBRedisCacheConfigurationDiffblueTest {
     assertEquals(0, actualBuildPoolConfigResult.getMaxIdle());
     assertEquals(0, actualBuildPoolConfigResult.getMaxTotal());
     assertEquals(0, actualBuildPoolConfigResult.getMinIdle());
-    Duration durationBetweenEvictionRuns = actualBuildPoolConfigResult.getDurationBetweenEvictionRuns();
-    assertEquals(0L, durationBetweenEvictionRuns.toNanos());
     assertEquals(0L, actualBuildPoolConfigResult.getMaxWaitMillis());
     assertEquals(0L, actualBuildPoolConfigResult.getSoftMinEvictableIdleTimeMillis());
     assertEquals(0L, actualBuildPoolConfigResult.getTimeBetweenEvictionRunsMillis());
-    Duration evictorShutdownTimeout = actualBuildPoolConfigResult.getEvictorShutdownTimeout();
-    assertEquals(10000000000L, evictorShutdownTimeout.toNanos());
     assertEquals(10000L, actualBuildPoolConfigResult.getEvictorShutdownTimeoutMillis());
-    Duration minEvictableIdleDuration = actualBuildPoolConfigResult.getMinEvictableIdleDuration();
-    assertEquals(60000000000L, minEvictableIdleDuration.toNanos());
     assertEquals(60000L, actualBuildPoolConfigResult.getMinEvictableIdleTimeMillis());
     assertFalse(actualBuildPoolConfigResult.getBlockWhenExhausted());
     assertFalse(actualBuildPoolConfigResult.getFairness());
@@ -127,13 +100,8 @@ class TBRedisCacheConfigurationDiffblueTest {
     assertFalse(actualBuildPoolConfigResult.getTestWhileIdle());
     assertTrue(actualBuildPoolConfigResult.getJmxEnabled());
     assertTrue(actualBuildPoolConfigResult.getLifo());
-    assertSame(durationBetweenEvictionRuns, actualBuildPoolConfigResult.getMaxWaitDuration());
-    assertSame(durationBetweenEvictionRuns, actualBuildPoolConfigResult.getSoftMinEvictableIdleDuration());
-    assertSame(durationBetweenEvictionRuns, actualBuildPoolConfigResult.getSoftMinEvictableIdleTime());
-    assertSame(durationBetweenEvictionRuns, actualBuildPoolConfigResult.getTimeBetweenEvictionRuns());
-    assertSame(minEvictableIdleDuration, actualBuildPoolConfigResult.getMinEvictableIdleTime());
     Duration duration = actualBuildPoolConfigResult.DEFAULT_EVICTOR_SHUTDOWN_TIMEOUT;
-    assertSame(duration, evictorShutdownTimeout);
+    assertSame(duration, actualBuildPoolConfigResult.getEvictorShutdownTimeout());
     assertSame(duration, actualBuildPoolConfigResult.getEvictorShutdownTimeoutDuration());
   }
 
@@ -148,9 +116,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getNodes(String); when ','; then return Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.util.List TBRedisCacheConfiguration.getNodes(String)"})
   void testGetNodes_whenComma_thenReturnEmpty() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertTrue((new TBRedisClusterConfiguration()).getNodes(",").isEmpty());
   }
@@ -166,9 +134,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getNodes(String); when empty string; then return Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.util.List TBRedisCacheConfiguration.getNodes(String)"})
   void testGetNodes_whenEmptyString_thenReturnEmpty() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertTrue((new TBRedisClusterConfiguration()).getNodes("").isEmpty());
   }
@@ -184,112 +152,130 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getNodes(String); when 'null'; then return Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.util.List TBRedisCacheConfiguration.getNodes(String)"})
   void testGetNodes_whenNull_thenReturnEmpty() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertTrue((new TBRedisClusterConfiguration()).getNodes(null).isEmpty());
   }
 
   /**
-   * Test {@link TBRedisCacheConfiguration#createSslSocketFactory()}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#createSslSocketFactory()}
-   */
-  @Test
-  @DisplayName("Test createSslSocketFactory()")
-  void testCreateSslSocketFactory() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    RedisSslCredentials redisSslCredentials = new RedisSslCredentials();
-    redisSslCredentials.setCertFile("Creating TLS factory failed!");
-    redisSslCredentials.setUserCertFile("TLS");
-    redisSslCredentials.setUserKeyFile("TLS");
-
-    TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
-    tbRedisClusterConfiguration.setRedisSslCredentials(redisSslCredentials);
-
-    // Act and Assert
-    assertThrows(RuntimeException.class, () -> tbRedisClusterConfiguration.createSslSocketFactory());
-  }
-
-  /**
-   * Test {@link TBRedisCacheConfiguration#createSslSocketFactory()}.
+   * Test {@link TBRedisCacheConfiguration#getNodes(String)}.
    * <ul>
-   *   <li>Given {@link RedisSslCredentials} (default constructor) CertFile is
-   * {@code TLS}.</li>
+   *   <li>When space.</li>
+   *   <li>Then return Empty.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#createSslSocketFactory()}
+   * Method under test: {@link TBRedisCacheConfiguration#getNodes(String)}
    */
   @Test
-  @DisplayName("Test createSslSocketFactory(); given RedisSslCredentials (default constructor) CertFile is 'TLS'")
-  void testCreateSslSocketFactory_givenRedisSslCredentialsCertFileIsTls() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    RedisSslCredentials redisSslCredentials = new RedisSslCredentials();
-    redisSslCredentials.setCertFile("TLS");
-    redisSslCredentials.setUserCertFile("TLS");
-    redisSslCredentials.setUserKeyFile("TLS");
-
-    TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
-    tbRedisClusterConfiguration.setRedisSslCredentials(redisSslCredentials);
-
-    // Act and Assert
-    assertThrows(RuntimeException.class, () -> tbRedisClusterConfiguration.createSslSocketFactory());
+  @DisplayName("Test getNodes(String); when space; then return Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.util.List TBRedisCacheConfiguration.getNodes(String)"})
+  void testGetNodes_whenSpace_thenReturnEmpty() {
+    // Arrange, Act and Assert
+    assertTrue((new TBRedisClusterConfiguration()).getNodes(" ").isEmpty());
   }
 
   /**
    * Test {@link TBRedisCacheConfiguration#createSslSocketFactory()}.
    * <ul>
-   *   <li>Given {@link RedisSslCredentials} (default constructor) UserCertFile is
-   * empty string.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#createSslSocketFactory()}
-   */
-  @Test
-  @DisplayName("Test createSslSocketFactory(); given RedisSslCredentials (default constructor) UserCertFile is empty string")
-  void testCreateSslSocketFactory_givenRedisSslCredentialsUserCertFileIsEmptyString() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    RedisSslCredentials redisSslCredentials = new RedisSslCredentials();
-    redisSslCredentials.setCertFile("TLS");
-    redisSslCredentials.setUserCertFile("");
-    redisSslCredentials.setUserKeyFile("TLS");
-
-    TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
-    tbRedisClusterConfiguration.setRedisSslCredentials(redisSslCredentials);
-
-    // Act and Assert
-    assertThrows(RuntimeException.class, () -> tbRedisClusterConfiguration.createSslSocketFactory());
-  }
-
-  /**
-   * Test {@link TBRedisCacheConfiguration#createSslSocketFactory()}.
-   * <ul>
-   *   <li>Given {@link RedisSslCredentials} (default constructor) UserKeyFile is
-   * empty string.</li>
+   *   <li>Given {@link RedisSslCredentials} (default constructor) UserKeyFile is empty string.</li>
    * </ul>
    * <p>
    * Method under test: {@link TBRedisCacheConfiguration#createSslSocketFactory()}
    */
   @Test
   @DisplayName("Test createSslSocketFactory(); given RedisSslCredentials (default constructor) UserKeyFile is empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"javax.net.ssl.SSLSocketFactory TBRedisCacheConfiguration.createSslSocketFactory()"})
   void testCreateSslSocketFactory_givenRedisSslCredentialsUserKeyFileIsEmptyString() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    RedisSslCredentials redisSslCredentials = new RedisSslCredentials();
-    redisSslCredentials.setCertFile("TLS");
-    redisSslCredentials.setUserCertFile("TLS");
-    redisSslCredentials.setUserKeyFile("");
+    RedisSslCredentials redisSslCredentials2 = new RedisSslCredentials();
+    redisSslCredentials2.setCertFile("TLS");
+    redisSslCredentials2.setUserCertFile("TLS");
+    redisSslCredentials2.setUserKeyFile("");
 
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
-    tbRedisClusterConfiguration.setRedisSslCredentials(redisSslCredentials);
+    tbRedisClusterConfiguration.setRedisSslCredentials(redisSslCredentials2);
+
+    // Act and Assert
+    assertThrows(RuntimeException.class, () -> tbRedisClusterConfiguration.createSslSocketFactory());
+  }
+
+  /**
+   * Test {@link TBRedisCacheConfiguration#createSslSocketFactory()}.
+   * <ul>
+   *   <li>Given {@link RedisSslCredentials} (default constructor) UserKeyFile is {@code not empty}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link TBRedisCacheConfiguration#createSslSocketFactory()}
+   */
+  @Test
+  @DisplayName("Test createSslSocketFactory(); given RedisSslCredentials (default constructor) UserKeyFile is 'not empty'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"javax.net.ssl.SSLSocketFactory TBRedisCacheConfiguration.createSslSocketFactory()"})
+  void testCreateSslSocketFactory_givenRedisSslCredentialsUserKeyFileIsNotEmpty() {
+    // Arrange
+    RedisSslCredentials redisSslCredentials2 = new RedisSslCredentials();
+    redisSslCredentials2.setCertFile("Cert File");
+    redisSslCredentials2.setUserKeyFile("not empty");
+    redisSslCredentials2.setUserCertFile(" ");
+
+    TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
+    tbRedisClusterConfiguration.setRedisSslCredentials(redisSslCredentials2);
+
+    // Act and Assert
+    assertThrows(RuntimeException.class, () -> tbRedisClusterConfiguration.createSslSocketFactory());
+  }
+
+  /**
+   * Test {@link TBRedisCacheConfiguration#createSslSocketFactory()}.
+   * <ul>
+   *   <li>Given {@link RedisSslCredentials} (default constructor) UserKeyFile is space.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link TBRedisCacheConfiguration#createSslSocketFactory()}
+   */
+  @Test
+  @DisplayName("Test createSslSocketFactory(); given RedisSslCredentials (default constructor) UserKeyFile is space")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"javax.net.ssl.SSLSocketFactory TBRedisCacheConfiguration.createSslSocketFactory()"})
+  void testCreateSslSocketFactory_givenRedisSslCredentialsUserKeyFileIsSpace() {
+    // Arrange
+    RedisSslCredentials redisSslCredentials2 = new RedisSslCredentials();
+    redisSslCredentials2.setCertFile("Cert File");
+    redisSslCredentials2.setUserKeyFile(" ");
+    redisSslCredentials2.setUserCertFile(" ");
+
+    TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
+    tbRedisClusterConfiguration.setRedisSslCredentials(redisSslCredentials2);
+
+    // Act and Assert
+    assertThrows(RuntimeException.class, () -> tbRedisClusterConfiguration.createSslSocketFactory());
+  }
+
+  /**
+   * Test {@link TBRedisCacheConfiguration#createSslSocketFactory()}.
+   * <ul>
+   *   <li>Given {@link RedisSslCredentials} (default constructor) UserKeyFile is {@code TLS}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link TBRedisCacheConfiguration#createSslSocketFactory()}
+   */
+  @Test
+  @DisplayName("Test createSslSocketFactory(); given RedisSslCredentials (default constructor) UserKeyFile is 'TLS'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"javax.net.ssl.SSLSocketFactory TBRedisCacheConfiguration.createSslSocketFactory()"})
+  void testCreateSslSocketFactory_givenRedisSslCredentialsUserKeyFileIsTls() {
+    // Arrange
+    RedisSslCredentials redisSslCredentials2 = new RedisSslCredentials();
+    redisSslCredentials2.setCertFile("TLS");
+    redisSslCredentials2.setUserCertFile("TLS");
+    redisSslCredentials2.setUserKeyFile("TLS");
+
+    TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
+    tbRedisClusterConfiguration.setRedisSslCredentials(redisSslCredentials2);
 
     // Act and Assert
     assertThrows(RuntimeException.class, () -> tbRedisClusterConfiguration.createSslSocketFactory());
@@ -306,9 +292,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test canEqual(Object); when 'Other'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.canEqual(Object)"})
   void testCanEqual_whenOther_thenReturnFalse() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertFalse((new TBRedisClusterConfiguration()).canEqual("Other"));
   }
@@ -324,9 +310,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test canEqual(Object); when TBRedisClusterConfiguration (default constructor); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.canEqual(Object)"})
   void testCanEqual_whenTBRedisClusterConfiguration_thenReturnTrue() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
 
@@ -335,8 +321,7 @@ class TBRedisCacheConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TBRedisCacheConfiguration#equals(Object)}, and
-   * {@link TBRedisCacheConfiguration#hashCode()}.
+   * Test {@link TBRedisCacheConfiguration#equals(Object)}, and {@link TBRedisCacheConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -350,6 +335,8 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -362,8 +349,7 @@ class TBRedisCacheConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TBRedisCacheConfiguration#equals(Object)}, and
-   * {@link TBRedisCacheConfiguration#hashCode()}.
+   * Test {@link TBRedisCacheConfiguration#equals(Object)}, and {@link TBRedisCacheConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -377,6 +363,8 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -398,6 +386,8 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TBRedisClusterConfiguration(), 1);
@@ -414,6 +404,8 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -434,6 +426,8 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -454,6 +448,8 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -474,6 +470,8 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -494,6 +492,8 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -514,6 +514,8 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -534,6 +536,8 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -554,6 +558,8 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -574,6 +580,8 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -594,6 +602,8 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -614,6 +624,8 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -634,6 +646,8 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -654,6 +668,8 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -674,6 +690,8 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     RedisSslCredentials redisSslCredentials = new RedisSslCredentials();
@@ -699,6 +717,8 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -726,6 +746,8 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TBRedisClusterConfiguration(), null);
@@ -742,6 +764,8 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TBRedisClusterConfiguration(), "Different type to TBRedisCacheConfiguration");
@@ -754,9 +778,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getEvictTtlInMs()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int TBRedisCacheConfiguration.getEvictTtlInMs()"})
   void testGetEvictTtlInMs() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertEquals(0, (new TBRedisClusterConfiguration()).getEvictTtlInMs());
   }
@@ -768,9 +792,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getEvictionRunsMs()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long TBRedisCacheConfiguration.getEvictionRunsMs()"})
   void testGetEvictionRunsMs() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertEquals(0L, (new TBRedisClusterConfiguration()).getEvictionRunsMs());
   }
@@ -782,9 +806,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getMaxIdle()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int TBRedisCacheConfiguration.getMaxIdle()"})
   void testGetMaxIdle() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertEquals(0, (new TBRedisClusterConfiguration()).getMaxIdle());
   }
@@ -796,9 +820,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getMaxTotal()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int TBRedisCacheConfiguration.getMaxTotal()"})
   void testGetMaxTotal() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertEquals(0, (new TBRedisClusterConfiguration()).getMaxTotal());
   }
@@ -810,9 +834,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getMaxWaitMills()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long TBRedisCacheConfiguration.getMaxWaitMills()"})
   void testGetMaxWaitMills() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertEquals(0L, (new TBRedisClusterConfiguration()).getMaxWaitMills());
   }
@@ -824,9 +848,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getMinEvictableMs()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long TBRedisCacheConfiguration.getMinEvictableMs()"})
   void testGetMinEvictableMs() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertEquals(0L, (new TBRedisClusterConfiguration()).getMinEvictableMs());
   }
@@ -838,9 +862,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getMinIdle()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int TBRedisCacheConfiguration.getMinIdle()"})
   void testGetMinIdle() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertEquals(0, (new TBRedisClusterConfiguration()).getMinIdle());
   }
@@ -848,14 +872,13 @@ class TBRedisCacheConfigurationDiffblueTest {
   /**
    * Test {@link TBRedisCacheConfiguration#getNumberTestsPerEvictionRun()}.
    * <p>
-   * Method under test:
-   * {@link TBRedisCacheConfiguration#getNumberTestsPerEvictionRun()}
+   * Method under test: {@link TBRedisCacheConfiguration#getNumberTestsPerEvictionRun()}
    */
   @Test
   @DisplayName("Test getNumberTestsPerEvictionRun()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int TBRedisCacheConfiguration.getNumberTestsPerEvictionRun()"})
   void testGetNumberTestsPerEvictionRun() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertEquals(0, (new TBRedisClusterConfiguration()).getNumberTestsPerEvictionRun());
   }
@@ -867,9 +890,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getRedisSslCredentials()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"RedisSslCredentials TBRedisCacheConfiguration.getRedisSslCredentials()"})
   void testGetRedisSslCredentials() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertNull((new TBRedisClusterConfiguration()).getRedisSslCredentials());
   }
@@ -885,9 +908,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test isBlockWhenExhausted(); given TBRedisClusterConfiguration (default constructor); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.isBlockWhenExhausted()"})
   void testIsBlockWhenExhausted_givenTBRedisClusterConfiguration_thenReturnFalse() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertFalse((new TBRedisClusterConfiguration()).isBlockWhenExhausted());
   }
@@ -902,9 +925,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test isBlockWhenExhausted(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.isBlockWhenExhausted()"})
   void testIsBlockWhenExhausted_thenReturnTrue() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
     tbRedisClusterConfiguration.setBlockWhenExhausted(true);
@@ -916,8 +939,7 @@ class TBRedisCacheConfigurationDiffblueTest {
   /**
    * Test {@link TBRedisCacheConfiguration#isSslEnabled()}.
    * <ul>
-   *   <li>Given {@link TBRedisClusterConfiguration} (default constructor)
-   * SslEnabled is {@code true}.</li>
+   *   <li>Given {@link TBRedisClusterConfiguration} (default constructor) SslEnabled is {@code true}.</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
@@ -925,9 +947,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test isSslEnabled(); given TBRedisClusterConfiguration (default constructor) SslEnabled is 'true'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.isSslEnabled()"})
   void testIsSslEnabled_givenTBRedisClusterConfigurationSslEnabledIsTrue_thenReturnTrue() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
     tbRedisClusterConfiguration.setSslEnabled(true);
@@ -947,9 +969,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test isSslEnabled(); given TBRedisClusterConfiguration (default constructor); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.isSslEnabled()"})
   void testIsSslEnabled_givenTBRedisClusterConfiguration_thenReturnFalse() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertFalse((new TBRedisClusterConfiguration()).isSslEnabled());
   }
@@ -965,9 +987,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test isTestOnBorrow(); given TBRedisClusterConfiguration (default constructor); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.isTestOnBorrow()"})
   void testIsTestOnBorrow_givenTBRedisClusterConfiguration_thenReturnFalse() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertFalse((new TBRedisClusterConfiguration()).isTestOnBorrow());
   }
@@ -982,9 +1004,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test isTestOnBorrow(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.isTestOnBorrow()"})
   void testIsTestOnBorrow_thenReturnTrue() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
     tbRedisClusterConfiguration.setTestOnBorrow(true);
@@ -1004,9 +1026,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test isTestOnReturn(); given TBRedisClusterConfiguration (default constructor); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.isTestOnReturn()"})
   void testIsTestOnReturn_givenTBRedisClusterConfiguration_thenReturnFalse() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertFalse((new TBRedisClusterConfiguration()).isTestOnReturn());
   }
@@ -1021,9 +1043,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test isTestOnReturn(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.isTestOnReturn()"})
   void testIsTestOnReturn_thenReturnTrue() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
     tbRedisClusterConfiguration.setTestOnReturn(true);
@@ -1043,9 +1065,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test isTestWhileIdle(); given TBRedisClusterConfiguration (default constructor); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.isTestWhileIdle()"})
   void testIsTestWhileIdle_givenTBRedisClusterConfiguration_thenReturnFalse() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertFalse((new TBRedisClusterConfiguration()).isTestWhileIdle());
   }
@@ -1060,9 +1082,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test isTestWhileIdle(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.isTestWhileIdle()"})
   void testIsTestWhileIdle_thenReturnTrue() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
     tbRedisClusterConfiguration.setTestWhileIdle(true);
@@ -1074,14 +1096,13 @@ class TBRedisCacheConfigurationDiffblueTest {
   /**
    * Test {@link TBRedisCacheConfiguration#setBlockWhenExhausted(boolean)}.
    * <p>
-   * Method under test:
-   * {@link TBRedisCacheConfiguration#setBlockWhenExhausted(boolean)}
+   * Method under test: {@link TBRedisCacheConfiguration#setBlockWhenExhausted(boolean)}
    */
   @Test
   @DisplayName("Test setBlockWhenExhausted(boolean)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TBRedisCacheConfiguration.setBlockWhenExhausted(boolean)"})
   void testSetBlockWhenExhausted() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
 
@@ -1099,9 +1120,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test setEvictTtlInMs(int)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TBRedisCacheConfiguration.setEvictTtlInMs(int)"})
   void testSetEvictTtlInMs() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
 
@@ -1119,9 +1140,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test setEvictionRunsMs(long)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TBRedisCacheConfiguration.setEvictionRunsMs(long)"})
   void testSetEvictionRunsMs() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
 
@@ -1139,9 +1160,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test setMaxIdle(int)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TBRedisCacheConfiguration.setMaxIdle(int)"})
   void testSetMaxIdle() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
 
@@ -1159,9 +1180,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test setMaxTotal(int)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TBRedisCacheConfiguration.setMaxTotal(int)"})
   void testSetMaxTotal() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
 
@@ -1179,9 +1200,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test setMaxWaitMills(long)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TBRedisCacheConfiguration.setMaxWaitMills(long)"})
   void testSetMaxWaitMills() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
 
@@ -1199,9 +1220,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test setMinEvictableMs(long)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TBRedisCacheConfiguration.setMinEvictableMs(long)"})
   void testSetMinEvictableMs() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
 
@@ -1219,9 +1240,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test setMinIdle(int)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TBRedisCacheConfiguration.setMinIdle(int)"})
   void testSetMinIdle() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
 
@@ -1235,14 +1256,13 @@ class TBRedisCacheConfigurationDiffblueTest {
   /**
    * Test {@link TBRedisCacheConfiguration#setNumberTestsPerEvictionRun(int)}.
    * <p>
-   * Method under test:
-   * {@link TBRedisCacheConfiguration#setNumberTestsPerEvictionRun(int)}
+   * Method under test: {@link TBRedisCacheConfiguration#setNumberTestsPerEvictionRun(int)}
    */
   @Test
   @DisplayName("Test setNumberTestsPerEvictionRun(int)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TBRedisCacheConfiguration.setNumberTestsPerEvictionRun(int)"})
   void testSetNumberTestsPerEvictionRun() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
 
@@ -1254,30 +1274,28 @@ class TBRedisCacheConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link TBRedisCacheConfiguration#setRedisSslCredentials(RedisSslCredentials)}.
+   * Test {@link TBRedisCacheConfiguration#setRedisSslCredentials(RedisSslCredentials)}.
    * <p>
-   * Method under test:
-   * {@link TBRedisCacheConfiguration#setRedisSslCredentials(RedisSslCredentials)}
+   * Method under test: {@link TBRedisCacheConfiguration#setRedisSslCredentials(RedisSslCredentials)}
    */
   @Test
   @DisplayName("Test setRedisSslCredentials(RedisSslCredentials)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TBRedisCacheConfiguration.setRedisSslCredentials(RedisSslCredentials)"})
   void testSetRedisSslCredentials() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
 
-    RedisSslCredentials redisSslCredentials = new RedisSslCredentials();
-    redisSslCredentials.setCertFile("Cert File");
-    redisSslCredentials.setUserCertFile("User Cert File");
-    redisSslCredentials.setUserKeyFile("User Key File");
+    RedisSslCredentials redisSslCredentials2 = new RedisSslCredentials();
+    redisSslCredentials2.setCertFile("Cert File");
+    redisSslCredentials2.setUserCertFile("User Cert File");
+    redisSslCredentials2.setUserKeyFile("User Key File");
 
     // Act
-    tbRedisClusterConfiguration.setRedisSslCredentials(redisSslCredentials);
+    tbRedisClusterConfiguration.setRedisSslCredentials(redisSslCredentials2);
 
     // Assert
-    assertSame(redisSslCredentials, tbRedisClusterConfiguration.getRedisSslCredentials());
+    assertSame(redisSslCredentials2, tbRedisClusterConfiguration.getRedisSslCredentials());
   }
 
   /**
@@ -1287,9 +1305,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test setSslEnabled(boolean)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TBRedisCacheConfiguration.setSslEnabled(boolean)"})
   void testSetSslEnabled() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
 
@@ -1307,9 +1325,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test setTestOnBorrow(boolean)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TBRedisCacheConfiguration.setTestOnBorrow(boolean)"})
   void testSetTestOnBorrow() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
 
@@ -1327,9 +1345,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test setTestOnReturn(boolean)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TBRedisCacheConfiguration.setTestOnReturn(boolean)"})
   void testSetTestOnReturn() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
 
@@ -1343,14 +1361,13 @@ class TBRedisCacheConfigurationDiffblueTest {
   /**
    * Test {@link TBRedisCacheConfiguration#setTestWhileIdle(boolean)}.
    * <p>
-   * Method under test:
-   * {@link TBRedisCacheConfiguration#setTestWhileIdle(boolean)}
+   * Method under test: {@link TBRedisCacheConfiguration#setTestWhileIdle(boolean)}
    */
   @Test
   @DisplayName("Test setTestWhileIdle(boolean)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TBRedisCacheConfiguration.setTestWhileIdle(boolean)"})
   void testSetTestWhileIdle() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
 
@@ -1371,9 +1388,9 @@ class TBRedisCacheConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test toString(); given TBRedisClusterConfiguration (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String TBRedisCacheConfiguration.toString()"})
   void testToString_givenTBRedisClusterConfiguration() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertEquals(
         "TBRedisCacheConfiguration(evictTtlInMs=0, maxTotal=0, maxIdle=0, minIdle=0, testOnBorrow=false,"
@@ -1385,17 +1402,16 @@ class TBRedisCacheConfigurationDiffblueTest {
   /**
    * Test {@link TBRedisCacheConfiguration#toString()}.
    * <ul>
-   *   <li>Given {@link TBRedisClusterConfiguration} (default constructor)
-   * TestOnBorrow is {@code true}.</li>
+   *   <li>Given {@link TBRedisClusterConfiguration} (default constructor) TestOnBorrow is {@code true}.</li>
    * </ul>
    * <p>
    * Method under test: {@link TBRedisCacheConfiguration#toString()}
    */
   @Test
   @DisplayName("Test toString(); given TBRedisClusterConfiguration (default constructor) TestOnBorrow is 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String TBRedisCacheConfiguration.toString()"})
   void testToString_givenTBRedisClusterConfigurationTestOnBorrowIsTrue() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
     tbRedisClusterConfiguration.setTestOnBorrow(true);

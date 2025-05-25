@@ -4,10 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.DeviceTransportType;
 import org.thingsboard.server.common.data.device.profile.lwm2m.OtherConfiguration;
@@ -16,8 +17,7 @@ import org.thingsboard.server.common.data.device.profile.lwm2m.bootstrap.LwM2MBo
 
 class Lwm2mDeviceProfileTransportConfigurationDiffblueTest {
   /**
-   * Test {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}, and
-   * {@link Lwm2mDeviceProfileTransportConfiguration#hashCode()}.
+   * Test {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}, and {@link Lwm2mDeviceProfileTransportConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -31,6 +31,9 @@ class Lwm2mDeviceProfileTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Lwm2mDeviceProfileTransportConfiguration.equals(Object)",
+      "int Lwm2mDeviceProfileTransportConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     Lwm2mDeviceProfileTransportConfiguration lwm2mDeviceProfileTransportConfiguration = new Lwm2mDeviceProfileTransportConfiguration();
@@ -43,8 +46,7 @@ class Lwm2mDeviceProfileTransportConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}, and
-   * {@link Lwm2mDeviceProfileTransportConfiguration#hashCode()}.
+   * Test {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}, and {@link Lwm2mDeviceProfileTransportConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -58,6 +60,9 @@ class Lwm2mDeviceProfileTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Lwm2mDeviceProfileTransportConfiguration.equals(Object)",
+      "int Lwm2mDeviceProfileTransportConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     Lwm2mDeviceProfileTransportConfiguration lwm2mDeviceProfileTransportConfiguration = new Lwm2mDeviceProfileTransportConfiguration();
@@ -73,8 +78,7 @@ class Lwm2mDeviceProfileTransportConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}, and
-   * {@link Lwm2mDeviceProfileTransportConfiguration#hashCode()}.
+   * Test {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}, and {@link Lwm2mDeviceProfileTransportConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -88,6 +92,9 @@ class Lwm2mDeviceProfileTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Lwm2mDeviceProfileTransportConfiguration.equals(Object)",
+      "int Lwm2mDeviceProfileTransportConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     Lwm2mDeviceProfileTransportConfiguration lwm2mDeviceProfileTransportConfiguration = new Lwm2mDeviceProfileTransportConfiguration();
@@ -103,8 +110,7 @@ class Lwm2mDeviceProfileTransportConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}, and
-   * {@link Lwm2mDeviceProfileTransportConfiguration#hashCode()}.
+   * Test {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}, and {@link Lwm2mDeviceProfileTransportConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -118,6 +124,9 @@ class Lwm2mDeviceProfileTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Lwm2mDeviceProfileTransportConfiguration.equals(Object)",
+      "int Lwm2mDeviceProfileTransportConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     Lwm2mDeviceProfileTransportConfiguration lwm2mDeviceProfileTransportConfiguration = new Lwm2mDeviceProfileTransportConfiguration();
@@ -133,8 +142,7 @@ class Lwm2mDeviceProfileTransportConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}, and
-   * {@link Lwm2mDeviceProfileTransportConfiguration#hashCode()}.
+   * Test {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}, and {@link Lwm2mDeviceProfileTransportConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -148,6 +156,9 @@ class Lwm2mDeviceProfileTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Lwm2mDeviceProfileTransportConfiguration.equals(Object)",
+      "int Lwm2mDeviceProfileTransportConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     Lwm2mDeviceProfileTransportConfiguration lwm2mDeviceProfileTransportConfiguration = new Lwm2mDeviceProfileTransportConfiguration();
@@ -165,11 +176,13 @@ class Lwm2mDeviceProfileTransportConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}
+   * Method under test: {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Lwm2mDeviceProfileTransportConfiguration.equals(Object)",
+      "int Lwm2mDeviceProfileTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new Lwm2mDeviceProfileTransportConfiguration(), 1);
@@ -182,11 +195,13 @@ class Lwm2mDeviceProfileTransportConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}
+   * Method under test: {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Lwm2mDeviceProfileTransportConfiguration.equals(Object)",
+      "int Lwm2mDeviceProfileTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     Lwm2mDeviceProfileTransportConfiguration lwm2mDeviceProfileTransportConfiguration = new Lwm2mDeviceProfileTransportConfiguration();
@@ -203,11 +218,13 @@ class Lwm2mDeviceProfileTransportConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}
+   * Method under test: {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Lwm2mDeviceProfileTransportConfiguration.equals(Object)",
+      "int Lwm2mDeviceProfileTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     Lwm2mDeviceProfileTransportConfiguration lwm2mDeviceProfileTransportConfiguration = new Lwm2mDeviceProfileTransportConfiguration();
@@ -224,11 +241,13 @@ class Lwm2mDeviceProfileTransportConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}
+   * Method under test: {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Lwm2mDeviceProfileTransportConfiguration.equals(Object)",
+      "int Lwm2mDeviceProfileTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     Lwm2mDeviceProfileTransportConfiguration lwm2mDeviceProfileTransportConfiguration = new Lwm2mDeviceProfileTransportConfiguration();
@@ -245,11 +264,13 @@ class Lwm2mDeviceProfileTransportConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}
+   * Method under test: {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Lwm2mDeviceProfileTransportConfiguration.equals(Object)",
+      "int Lwm2mDeviceProfileTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     Lwm2mDeviceProfileTransportConfiguration lwm2mDeviceProfileTransportConfiguration = new Lwm2mDeviceProfileTransportConfiguration();
@@ -266,11 +287,13 @@ class Lwm2mDeviceProfileTransportConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}
+   * Method under test: {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Lwm2mDeviceProfileTransportConfiguration.equals(Object)",
+      "int Lwm2mDeviceProfileTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     Lwm2mDeviceProfileTransportConfiguration lwm2mDeviceProfileTransportConfiguration = new Lwm2mDeviceProfileTransportConfiguration();
@@ -289,11 +312,13 @@ class Lwm2mDeviceProfileTransportConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}
+   * Method under test: {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Lwm2mDeviceProfileTransportConfiguration.equals(Object)",
+      "int Lwm2mDeviceProfileTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     Lwm2mDeviceProfileTransportConfiguration lwm2mDeviceProfileTransportConfiguration = new Lwm2mDeviceProfileTransportConfiguration();
@@ -312,11 +337,13 @@ class Lwm2mDeviceProfileTransportConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}
+   * Method under test: {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Lwm2mDeviceProfileTransportConfiguration.equals(Object)",
+      "int Lwm2mDeviceProfileTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     Lwm2mDeviceProfileTransportConfiguration lwm2mDeviceProfileTransportConfiguration = new Lwm2mDeviceProfileTransportConfiguration();
@@ -331,36 +358,17 @@ class Lwm2mDeviceProfileTransportConfigurationDiffblueTest {
   /**
    * Test {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}.
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
-    // Arrange
-    Lwm2mDeviceProfileTransportConfiguration lwm2mDeviceProfileTransportConfiguration = new Lwm2mDeviceProfileTransportConfiguration();
-    lwm2mDeviceProfileTransportConfiguration.setObserveAttr(mock(TelemetryMappingConfiguration.class));
-
-    // Act and Assert
-    assertNotEquals(lwm2mDeviceProfileTransportConfiguration, new Lwm2mDeviceProfileTransportConfiguration());
-  }
-
-  /**
-   * Test {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}.
-   * <ul>
    *   <li>When other is {@code null}.</li>
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}
+   * Method under test: {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Lwm2mDeviceProfileTransportConfiguration.equals(Object)",
+      "int Lwm2mDeviceProfileTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new Lwm2mDeviceProfileTransportConfiguration(), null);
@@ -373,11 +381,13 @@ class Lwm2mDeviceProfileTransportConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}
+   * Method under test: {@link Lwm2mDeviceProfileTransportConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Lwm2mDeviceProfileTransportConfiguration.equals(Object)",
+      "int Lwm2mDeviceProfileTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new Lwm2mDeviceProfileTransportConfiguration(),
@@ -389,26 +399,33 @@ class Lwm2mDeviceProfileTransportConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link Lwm2mDeviceProfileTransportConfiguration}
+   *   <li>default or parameterless constructor of {@link Lwm2mDeviceProfileTransportConfiguration}
    *   <li>{@link Lwm2mDeviceProfileTransportConfiguration#setBootstrap(List)}
-   *   <li>
-   * {@link Lwm2mDeviceProfileTransportConfiguration#setBootstrapServerUpdateEnable(boolean)}
-   *   <li>
-   * {@link Lwm2mDeviceProfileTransportConfiguration#setClientLwM2mSettings(OtherConfiguration)}
-   *   <li>
-   * {@link Lwm2mDeviceProfileTransportConfiguration#setObserveAttr(TelemetryMappingConfiguration)}
+   *   <li>{@link Lwm2mDeviceProfileTransportConfiguration#setBootstrapServerUpdateEnable(boolean)}
+   *   <li>{@link Lwm2mDeviceProfileTransportConfiguration#setClientLwM2mSettings(OtherConfiguration)}
+   *   <li>{@link Lwm2mDeviceProfileTransportConfiguration#setObserveAttr(TelemetryMappingConfiguration)}
    *   <li>{@link Lwm2mDeviceProfileTransportConfiguration#toString()}
    *   <li>{@link Lwm2mDeviceProfileTransportConfiguration#getBootstrap()}
    *   <li>{@link Lwm2mDeviceProfileTransportConfiguration#getClientLwM2mSettings()}
    *   <li>{@link Lwm2mDeviceProfileTransportConfiguration#getObserveAttr()}
    *   <li>{@link Lwm2mDeviceProfileTransportConfiguration#getType()}
-   *   <li>
-   * {@link Lwm2mDeviceProfileTransportConfiguration#isBootstrapServerUpdateEnable()}
+   *   <li>{@link Lwm2mDeviceProfileTransportConfiguration#isBootstrapServerUpdateEnable()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Lwm2mDeviceProfileTransportConfiguration.<init>()",
+      "List Lwm2mDeviceProfileTransportConfiguration.getBootstrap()",
+      "OtherConfiguration Lwm2mDeviceProfileTransportConfiguration.getClientLwM2mSettings()",
+      "TelemetryMappingConfiguration Lwm2mDeviceProfileTransportConfiguration.getObserveAttr()",
+      "DeviceTransportType Lwm2mDeviceProfileTransportConfiguration.getType()",
+      "boolean Lwm2mDeviceProfileTransportConfiguration.isBootstrapServerUpdateEnable()",
+      "void Lwm2mDeviceProfileTransportConfiguration.setBootstrap(List)",
+      "void Lwm2mDeviceProfileTransportConfiguration.setBootstrapServerUpdateEnable(boolean)",
+      "void Lwm2mDeviceProfileTransportConfiguration.setClientLwM2mSettings(OtherConfiguration)",
+      "void Lwm2mDeviceProfileTransportConfiguration.setObserveAttr(TelemetryMappingConfiguration)",
+      "String Lwm2mDeviceProfileTransportConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     Lwm2mDeviceProfileTransportConfiguration actualLwm2mDeviceProfileTransportConfiguration = new Lwm2mDeviceProfileTransportConfiguration();
@@ -429,7 +446,7 @@ class Lwm2mDeviceProfileTransportConfigurationDiffblueTest {
     boolean actualIsBootstrapServerUpdateEnableResult = actualLwm2mDeviceProfileTransportConfiguration
         .isBootstrapServerUpdateEnable();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Lwm2mDeviceProfileTransportConfiguration(observeAttr=TelemetryMappingConfiguration(keyName=null,"
         + " observe=null, attribute=null, telemetry=null, attributeLwm2m=null), bootstrapServerUpdateEnable=true,"
         + " bootstrap=[], clientLwM2mSettings=OtherConfiguration(fwUpdateStrategy=null, swUpdateStrategy=null,"

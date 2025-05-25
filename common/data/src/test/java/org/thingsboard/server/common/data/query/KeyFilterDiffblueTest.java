@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class KeyFilterDiffblueTest {
@@ -23,6 +25,8 @@ class KeyFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean KeyFilter.equals(Object)", "int KeyFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     KeyFilter keyFilter = new KeyFilter();
@@ -56,6 +60,8 @@ class KeyFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean KeyFilter.equals(Object)", "int KeyFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     KeyFilter keyFilter = new KeyFilter();
@@ -80,6 +86,8 @@ class KeyFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean KeyFilter.equals(Object)", "int KeyFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     KeyFilter keyFilter = new KeyFilter();
@@ -107,6 +115,8 @@ class KeyFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean KeyFilter.equals(Object)", "int KeyFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     KeyFilter keyFilter = new KeyFilter();
@@ -134,6 +144,8 @@ class KeyFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean KeyFilter.equals(Object)", "int KeyFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     KeyFilter keyFilter = new KeyFilter();
@@ -161,6 +173,8 @@ class KeyFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean KeyFilter.equals(Object)", "int KeyFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     KeyFilter keyFilter = new KeyFilter();
@@ -188,6 +202,8 @@ class KeyFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean KeyFilter.equals(Object)", "int KeyFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     KeyFilter keyFilter = new KeyFilter();
@@ -215,6 +231,8 @@ class KeyFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean KeyFilter.equals(Object)", "int KeyFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     KeyFilter keyFilter = new KeyFilter();
@@ -242,6 +260,8 @@ class KeyFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean KeyFilter.equals(Object)", "int KeyFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     KeyFilter keyFilter = new KeyFilter();
@@ -269,6 +289,8 @@ class KeyFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean KeyFilter.equals(Object)", "int KeyFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     KeyFilter keyFilter = new KeyFilter();
@@ -296,6 +318,8 @@ class KeyFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean KeyFilter.equals(Object)", "int KeyFilter.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     KeyFilter keyFilter = new KeyFilter();
@@ -318,6 +342,8 @@ class KeyFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean KeyFilter.equals(Object)", "int KeyFilter.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     KeyFilter keyFilter = new KeyFilter();
@@ -346,6 +372,11 @@ class KeyFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void KeyFilter.<init>()", "EntityKey KeyFilter.getKey()",
+      "KeyFilterPredicate KeyFilter.getPredicate()", "EntityKeyValueType KeyFilter.getValueType()",
+      "void KeyFilter.setKey(EntityKey)", "void KeyFilter.setPredicate(KeyFilterPredicate)",
+      "void KeyFilter.setValueType(EntityKeyValueType)", "java.lang.String KeyFilter.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     KeyFilter actualKeyFilter = new KeyFilter();
@@ -359,7 +390,7 @@ class KeyFilterDiffblueTest {
     EntityKey actualKey = actualKeyFilter.getKey();
     KeyFilterPredicate actualPredicate = actualKeyFilter.getPredicate();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(EntityKeyValueType.STRING, actualKeyFilter.getValueType());
     assertSame(key, actualKey);
     assertSame(predicate, actualPredicate);

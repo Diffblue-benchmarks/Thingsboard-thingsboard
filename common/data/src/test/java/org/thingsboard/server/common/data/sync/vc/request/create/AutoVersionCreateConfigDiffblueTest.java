@@ -3,13 +3,14 @@ package org.thingsboard.server.common.data.sync.vc.request.create;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class AutoVersionCreateConfigDiffblueTest {
   /**
-   * Test {@link AutoVersionCreateConfig#equals(Object)}, and
-   * {@link AutoVersionCreateConfig#hashCode()}.
+   * Test {@link AutoVersionCreateConfig#equals(Object)}, and {@link AutoVersionCreateConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -23,6 +24,8 @@ class AutoVersionCreateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AutoVersionCreateConfig.equals(Object)", "int AutoVersionCreateConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AutoVersionCreateConfig autoVersionCreateConfig = new AutoVersionCreateConfig();
@@ -44,8 +47,44 @@ class AutoVersionCreateConfigDiffblueTest {
   }
 
   /**
-   * Test {@link AutoVersionCreateConfig#equals(Object)}, and
-   * {@link AutoVersionCreateConfig#hashCode()}.
+   * Test {@link AutoVersionCreateConfig#equals(Object)}, and {@link AutoVersionCreateConfig#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link AutoVersionCreateConfig#equals(Object)}
+   *   <li>{@link AutoVersionCreateConfig#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AutoVersionCreateConfig.equals(Object)", "int AutoVersionCreateConfig.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    AutoVersionCreateConfig autoVersionCreateConfig = new AutoVersionCreateConfig();
+    autoVersionCreateConfig.setBranch(null);
+    autoVersionCreateConfig.setSaveAttributes(true);
+    autoVersionCreateConfig.setSaveCredentials(true);
+    autoVersionCreateConfig.setSaveRelations(true);
+
+    AutoVersionCreateConfig autoVersionCreateConfig2 = new AutoVersionCreateConfig();
+    autoVersionCreateConfig2.setBranch(null);
+    autoVersionCreateConfig2.setSaveAttributes(true);
+    autoVersionCreateConfig2.setSaveCredentials(true);
+    autoVersionCreateConfig2.setSaveRelations(true);
+
+    // Act and Assert
+    assertEquals(autoVersionCreateConfig, autoVersionCreateConfig2);
+    int expectedHashCodeResult = autoVersionCreateConfig.hashCode();
+    assertEquals(expectedHashCodeResult, autoVersionCreateConfig2.hashCode());
+  }
+
+  /**
+   * Test {@link AutoVersionCreateConfig#equals(Object)}, and {@link AutoVersionCreateConfig#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -59,6 +98,8 @@ class AutoVersionCreateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AutoVersionCreateConfig.equals(Object)", "int AutoVersionCreateConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AutoVersionCreateConfig autoVersionCreateConfig = new AutoVersionCreateConfig();
@@ -84,6 +125,8 @@ class AutoVersionCreateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AutoVersionCreateConfig.equals(Object)", "int AutoVersionCreateConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AutoVersionCreateConfig autoVersionCreateConfig = new AutoVersionCreateConfig();
@@ -113,6 +156,8 @@ class AutoVersionCreateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AutoVersionCreateConfig.equals(Object)", "int AutoVersionCreateConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AutoVersionCreateConfig autoVersionCreateConfig = new AutoVersionCreateConfig();
@@ -142,6 +187,8 @@ class AutoVersionCreateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AutoVersionCreateConfig.equals(Object)", "int AutoVersionCreateConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AutoVersionCreateConfig autoVersionCreateConfig = new AutoVersionCreateConfig();
@@ -171,6 +218,8 @@ class AutoVersionCreateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AutoVersionCreateConfig.equals(Object)", "int AutoVersionCreateConfig.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     AutoVersionCreateConfig autoVersionCreateConfig = new AutoVersionCreateConfig();
@@ -194,6 +243,8 @@ class AutoVersionCreateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AutoVersionCreateConfig.equals(Object)", "int AutoVersionCreateConfig.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     AutoVersionCreateConfig autoVersionCreateConfig = new AutoVersionCreateConfig();
@@ -219,13 +270,16 @@ class AutoVersionCreateConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AutoVersionCreateConfig.<init>()", "String AutoVersionCreateConfig.getBranch()",
+      "void AutoVersionCreateConfig.setBranch(String)", "String AutoVersionCreateConfig.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     AutoVersionCreateConfig actualAutoVersionCreateConfig = new AutoVersionCreateConfig();
     actualAutoVersionCreateConfig.setBranch("janedoe/featurebranch");
     String actualToStringResult = actualAutoVersionCreateConfig.toString();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("AutoVersionCreateConfig(branch=janedoe/featurebranch)", actualToStringResult);
     assertEquals("janedoe/featurebranch", actualAutoVersionCreateConfig.getBranch());
     assertFalse(actualAutoVersionCreateConfig.isSaveAttributes());

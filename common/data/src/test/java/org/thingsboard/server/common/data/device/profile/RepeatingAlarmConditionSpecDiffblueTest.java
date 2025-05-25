@@ -3,8 +3,9 @@ package org.thingsboard.server.common.data.device.profile;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.query.DynamicValue;
 import org.thingsboard.server.common.data.query.DynamicValueSourceType;
@@ -12,8 +13,7 @@ import org.thingsboard.server.common.data.query.FilterPredicateValue;
 
 class RepeatingAlarmConditionSpecDiffblueTest {
   /**
-   * Test {@link RepeatingAlarmConditionSpec#equals(Object)}, and
-   * {@link RepeatingAlarmConditionSpec#hashCode()}.
+   * Test {@link RepeatingAlarmConditionSpec#equals(Object)}, and {@link RepeatingAlarmConditionSpec#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -27,6 +27,9 @@ class RepeatingAlarmConditionSpecDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RepeatingAlarmConditionSpec.equals(Object)",
+      "int RepeatingAlarmConditionSpec.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     RepeatingAlarmConditionSpec repeatingAlarmConditionSpec = new RepeatingAlarmConditionSpec();
@@ -44,8 +47,7 @@ class RepeatingAlarmConditionSpecDiffblueTest {
   }
 
   /**
-   * Test {@link RepeatingAlarmConditionSpec#equals(Object)}, and
-   * {@link RepeatingAlarmConditionSpec#hashCode()}.
+   * Test {@link RepeatingAlarmConditionSpec#equals(Object)}, and {@link RepeatingAlarmConditionSpec#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -59,6 +61,9 @@ class RepeatingAlarmConditionSpecDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RepeatingAlarmConditionSpec.equals(Object)",
+      "int RepeatingAlarmConditionSpec.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     RepeatingAlarmConditionSpec repeatingAlarmConditionSpec = new RepeatingAlarmConditionSpec();
@@ -74,8 +79,7 @@ class RepeatingAlarmConditionSpecDiffblueTest {
   }
 
   /**
-   * Test {@link RepeatingAlarmConditionSpec#equals(Object)}, and
-   * {@link RepeatingAlarmConditionSpec#hashCode()}.
+   * Test {@link RepeatingAlarmConditionSpec#equals(Object)}, and {@link RepeatingAlarmConditionSpec#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -89,6 +93,9 @@ class RepeatingAlarmConditionSpecDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RepeatingAlarmConditionSpec.equals(Object)",
+      "int RepeatingAlarmConditionSpec.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     RepeatingAlarmConditionSpec repeatingAlarmConditionSpec = new RepeatingAlarmConditionSpec();
@@ -112,6 +119,9 @@ class RepeatingAlarmConditionSpecDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RepeatingAlarmConditionSpec.equals(Object)",
+      "int RepeatingAlarmConditionSpec.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     RepeatingAlarmConditionSpec repeatingAlarmConditionSpec = new RepeatingAlarmConditionSpec();
@@ -137,31 +147,10 @@ class RepeatingAlarmConditionSpecDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RepeatingAlarmConditionSpec.equals(Object)",
+      "int RepeatingAlarmConditionSpec.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange
-    RepeatingAlarmConditionSpec repeatingAlarmConditionSpec = new RepeatingAlarmConditionSpec();
-    repeatingAlarmConditionSpec.setPredicate(new FilterPredicateValue<>(42, 42, mock(DynamicValue.class)));
-
-    RepeatingAlarmConditionSpec repeatingAlarmConditionSpec2 = new RepeatingAlarmConditionSpec();
-    repeatingAlarmConditionSpec2.setPredicate(new FilterPredicateValue<>(42, 42,
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
-
-    // Act and Assert
-    assertNotEquals(repeatingAlarmConditionSpec, repeatingAlarmConditionSpec2);
-  }
-
-  /**
-   * Test {@link RepeatingAlarmConditionSpec#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link RepeatingAlarmConditionSpec#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     RepeatingAlarmConditionSpec repeatingAlarmConditionSpec = new RepeatingAlarmConditionSpec();
     repeatingAlarmConditionSpec.setPredicate(null);
@@ -185,6 +174,9 @@ class RepeatingAlarmConditionSpecDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RepeatingAlarmConditionSpec.equals(Object)",
+      "int RepeatingAlarmConditionSpec.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     RepeatingAlarmConditionSpec repeatingAlarmConditionSpec = new RepeatingAlarmConditionSpec();
@@ -206,6 +198,9 @@ class RepeatingAlarmConditionSpecDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RepeatingAlarmConditionSpec.equals(Object)",
+      "int RepeatingAlarmConditionSpec.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     RepeatingAlarmConditionSpec repeatingAlarmConditionSpec = new RepeatingAlarmConditionSpec();
@@ -221,8 +216,7 @@ class RepeatingAlarmConditionSpecDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link RepeatingAlarmConditionSpec}
+   *   <li>default or parameterless constructor of {@link RepeatingAlarmConditionSpec}
    *   <li>{@link RepeatingAlarmConditionSpec#setPredicate(FilterPredicateValue)}
    *   <li>{@link RepeatingAlarmConditionSpec#toString()}
    *   <li>{@link RepeatingAlarmConditionSpec#getPredicate()}
@@ -231,6 +225,12 @@ class RepeatingAlarmConditionSpecDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void RepeatingAlarmConditionSpec.<init>()",
+      "FilterPredicateValue RepeatingAlarmConditionSpec.getPredicate()",
+      "AlarmConditionSpecType RepeatingAlarmConditionSpec.getType()",
+      "void RepeatingAlarmConditionSpec.setPredicate(FilterPredicateValue)",
+      "String RepeatingAlarmConditionSpec.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     RepeatingAlarmConditionSpec actualRepeatingAlarmConditionSpec = new RepeatingAlarmConditionSpec();
@@ -241,7 +241,7 @@ class RepeatingAlarmConditionSpecDiffblueTest {
     String actualToStringResult = actualRepeatingAlarmConditionSpec.toString();
     FilterPredicateValue<Integer> actualPredicate = actualRepeatingAlarmConditionSpec.getPredicate();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "RepeatingAlarmConditionSpec(predicate=FilterPredicateValue(defaultValue=42, userValue=42, dynamicValue"
             + "=DynamicValue(resolvedValue=null, sourceType=CURRENT_TENANT, sourceAttribute=Source Attribute,"

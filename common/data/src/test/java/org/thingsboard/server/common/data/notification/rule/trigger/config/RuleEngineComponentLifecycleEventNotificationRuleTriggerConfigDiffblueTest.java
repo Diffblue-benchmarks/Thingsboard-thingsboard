@@ -7,20 +7,28 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.anyBoolean;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.notification.rule.trigger.config.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder;
 import org.thingsboard.server.common.data.plugin.ComponentLifecycleEvent;
 
+@ContextConfiguration(classes = {RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder.class})
+@ExtendWith(SpringExtension.class)
 class RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigDiffblueTest {
+  @Autowired
+  private RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder;
+
   /**
-   * Test
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)},
-   * and
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#hashCode()}.
+   * Test {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}, and {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -28,35 +36,36 @@ class RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigDiffblueTest
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#hashCode()}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.equals(Object)",
+      "int RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
         .builder()
         .onlyRuleChainLifecycleFailures(true)
         .onlyRuleNodeLifecycleFailures(true);
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult = onlyRuleNodeLifecycleFailuresResult
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult = onlyRuleNodeLifecycleFailuresResult
         .ruleChainEvents(new HashSet<>());
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult = ruleChainEventsResult
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult = ruleChainEventsResult
         .ruleChains(new HashSet<>());
     RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig buildResult = ruleChainsResult
         .ruleNodeEvents(new HashSet<>())
         .trackRuleNodeEvents(true)
         .build();
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult2 = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult2 = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
         .builder()
         .onlyRuleChainLifecycleFailures(true)
         .onlyRuleNodeLifecycleFailures(true);
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult2 = onlyRuleNodeLifecycleFailuresResult2
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult2 = onlyRuleNodeLifecycleFailuresResult2
         .ruleChainEvents(new HashSet<>());
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult2 = ruleChainEventsResult2
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult2 = ruleChainEventsResult2
         .ruleChains(new HashSet<>());
     RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig buildResult2 = ruleChainsResult2
         .ruleNodeEvents(new HashSet<>())
@@ -70,10 +79,7 @@ class RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigDiffblueTest
   }
 
   /**
-   * Test
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)},
-   * and
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#hashCode()}.
+   * Test {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}, and {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -81,23 +87,24 @@ class RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigDiffblueTest
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#hashCode()}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.equals(Object)",
+      "int RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
         .builder()
         .onlyRuleChainLifecycleFailures(true)
         .onlyRuleNodeLifecycleFailures(true);
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult = onlyRuleNodeLifecycleFailuresResult
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult = onlyRuleNodeLifecycleFailuresResult
         .ruleChainEvents(new HashSet<>());
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult = ruleChainEventsResult
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult = ruleChainEventsResult
         .ruleChains(new HashSet<>());
     RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig buildResult = ruleChainsResult
         .ruleNodeEvents(new HashSet<>())
@@ -111,43 +118,44 @@ class RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigDiffblueTest
   }
 
   /**
-   * Test
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}.
+   * Test {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}.
    * <ul>
    *   <li>When other is different.</li>
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.equals(Object)",
+      "int RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder = mock(
-        RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder.class);
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder = mock(
+        RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder.class);
     when(ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder
         .onlyRuleChainLifecycleFailures(anyBoolean()))
         .thenReturn(RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.builder());
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult = ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult = ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder
         .onlyRuleChainLifecycleFailures(true)
         .onlyRuleNodeLifecycleFailures(true);
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult = onlyRuleNodeLifecycleFailuresResult
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult = onlyRuleNodeLifecycleFailuresResult
         .ruleChainEvents(new HashSet<>());
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult = ruleChainEventsResult
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult = ruleChainEventsResult
         .ruleChains(new HashSet<>());
     RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig buildResult = ruleChainsResult
         .ruleNodeEvents(new HashSet<>())
         .trackRuleNodeEvents(true)
         .build();
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult2 = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult2 = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
         .builder()
         .onlyRuleChainLifecycleFailures(true)
         .onlyRuleNodeLifecycleFailures(true);
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult2 = onlyRuleNodeLifecycleFailuresResult2
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult2 = onlyRuleNodeLifecycleFailuresResult2
         .ruleChainEvents(new HashSet<>());
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult2 = ruleChainEventsResult2
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult2 = ruleChainEventsResult2
         .ruleChains(new HashSet<>());
     RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig buildResult2 = ruleChainsResult2
         .ruleNodeEvents(new HashSet<>())
@@ -159,43 +167,44 @@ class RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigDiffblueTest
   }
 
   /**
-   * Test
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}.
+   * Test {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}.
    * <ul>
    *   <li>When other is different.</li>
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.equals(Object)",
+      "int RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder = mock(
-        RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder.class);
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder = mock(
+        RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder.class);
     when(ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder
         .onlyRuleChainLifecycleFailures(anyBoolean()))
         .thenReturn(RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.builder());
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult = ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult = ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder
         .onlyRuleChainLifecycleFailures(true)
         .onlyRuleNodeLifecycleFailures(false);
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult = onlyRuleNodeLifecycleFailuresResult
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult = onlyRuleNodeLifecycleFailuresResult
         .ruleChainEvents(new HashSet<>());
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult = ruleChainEventsResult
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult = ruleChainEventsResult
         .ruleChains(new HashSet<>());
     RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig buildResult = ruleChainsResult
         .ruleNodeEvents(new HashSet<>())
         .trackRuleNodeEvents(true)
         .build();
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult2 = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult2 = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
         .builder()
         .onlyRuleChainLifecycleFailures(false)
         .onlyRuleNodeLifecycleFailures(true);
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult2 = onlyRuleNodeLifecycleFailuresResult2
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult2 = onlyRuleNodeLifecycleFailuresResult2
         .ruleChainEvents(new HashSet<>());
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult2 = ruleChainEventsResult2
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult2 = ruleChainEventsResult2
         .ruleChains(new HashSet<>());
     RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig buildResult2 = ruleChainsResult2
         .ruleNodeEvents(new HashSet<>())
@@ -207,43 +216,44 @@ class RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigDiffblueTest
   }
 
   /**
-   * Test
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}.
+   * Test {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}.
    * <ul>
    *   <li>When other is different.</li>
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.equals(Object)",
+      "int RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder = mock(
-        RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder.class);
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder = mock(
+        RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder.class);
     when(ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder
         .onlyRuleChainLifecycleFailures(anyBoolean()))
         .thenReturn(RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.builder());
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult = ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult = ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder
         .onlyRuleChainLifecycleFailures(true)
         .onlyRuleNodeLifecycleFailures(false);
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult = onlyRuleNodeLifecycleFailuresResult
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult = onlyRuleNodeLifecycleFailuresResult
         .ruleChainEvents(new HashSet<>());
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult = ruleChainEventsResult
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult = ruleChainEventsResult
         .ruleChains(new HashSet<>());
     RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig buildResult = ruleChainsResult
         .ruleNodeEvents(new HashSet<>())
         .trackRuleNodeEvents(false)
         .build();
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult2 = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult2 = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
         .builder()
         .onlyRuleChainLifecycleFailures(false)
         .onlyRuleNodeLifecycleFailures(true);
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult2 = onlyRuleNodeLifecycleFailuresResult2
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult2 = onlyRuleNodeLifecycleFailuresResult2
         .ruleChainEvents(new HashSet<>());
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult2 = ruleChainEventsResult2
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult2 = ruleChainEventsResult2
         .ruleChains(new HashSet<>());
     RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig buildResult2 = ruleChainsResult2
         .ruleNodeEvents(new HashSet<>())
@@ -255,46 +265,47 @@ class RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigDiffblueTest
   }
 
   /**
-   * Test
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}.
+   * Test {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}.
    * <ul>
    *   <li>When other is different.</li>
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.equals(Object)",
+      "int RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder = mock(
-        RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder.class);
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder = mock(
+        RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder.class);
     when(ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder
         .onlyRuleChainLifecycleFailures(anyBoolean()))
         .thenReturn(RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.builder());
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult = ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult = ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder
         .onlyRuleChainLifecycleFailures(true)
         .onlyRuleNodeLifecycleFailures(true);
 
     HashSet<ComponentLifecycleEvent> ruleChainEvents = new HashSet<>();
     ruleChainEvents.add(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult = onlyRuleNodeLifecycleFailuresResult
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult = onlyRuleNodeLifecycleFailuresResult
         .ruleChainEvents(ruleChainEvents);
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult = ruleChainEventsResult
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult = ruleChainEventsResult
         .ruleChains(new HashSet<>());
     RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig buildResult = ruleChainsResult
         .ruleNodeEvents(new HashSet<>())
         .trackRuleNodeEvents(true)
         .build();
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult2 = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult2 = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
         .builder()
         .onlyRuleChainLifecycleFailures(false)
         .onlyRuleNodeLifecycleFailures(true);
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult2 = onlyRuleNodeLifecycleFailuresResult2
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult2 = onlyRuleNodeLifecycleFailuresResult2
         .ruleChainEvents(new HashSet<>());
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult2 = ruleChainEventsResult2
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult2 = ruleChainEventsResult2
         .ruleChains(new HashSet<>());
     RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig buildResult2 = ruleChainsResult2
         .ruleNodeEvents(new HashSet<>())
@@ -306,49 +317,50 @@ class RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigDiffblueTest
   }
 
   /**
-   * Test
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}.
+   * Test {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}.
    * <ul>
    *   <li>When other is different.</li>
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.equals(Object)",
+      "int RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder = mock(
-        RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder.class);
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder = mock(
+        RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder.class);
     when(ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder
         .onlyRuleChainLifecycleFailures(anyBoolean()))
         .thenReturn(RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.builder());
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult = ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult = ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder
         .onlyRuleChainLifecycleFailures(true)
         .onlyRuleNodeLifecycleFailures(true);
 
     HashSet<ComponentLifecycleEvent> ruleChainEvents = new HashSet<>();
     ruleChainEvents.add(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult = onlyRuleNodeLifecycleFailuresResult
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult = onlyRuleNodeLifecycleFailuresResult
         .ruleChainEvents(ruleChainEvents);
 
     HashSet<UUID> ruleChains = new HashSet<>();
     ruleChains.add(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult = ruleChainEventsResult
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult = ruleChainEventsResult
         .ruleChains(ruleChains);
     RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig buildResult = ruleChainsResult
         .ruleNodeEvents(new HashSet<>())
         .trackRuleNodeEvents(true)
         .build();
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult2 = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult2 = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
         .builder()
         .onlyRuleChainLifecycleFailures(false)
         .onlyRuleNodeLifecycleFailures(true);
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult2 = onlyRuleNodeLifecycleFailuresResult2
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult2 = onlyRuleNodeLifecycleFailuresResult2
         .ruleChainEvents(new HashSet<>());
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult2 = ruleChainEventsResult2
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult2 = ruleChainEventsResult2
         .ruleChains(new HashSet<>());
     RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig buildResult2 = ruleChainsResult2
         .ruleNodeEvents(new HashSet<>())
@@ -360,31 +372,32 @@ class RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigDiffblueTest
   }
 
   /**
-   * Test
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}.
+   * Test {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}.
    * <ul>
    *   <li>When other is different.</li>
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.equals(Object)",
+      "int RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder = mock(
-        RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder.class);
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder = mock(
+        RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder.class);
     when(ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder
         .onlyRuleChainLifecycleFailures(anyBoolean()))
         .thenReturn(RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.builder());
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult = ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult = ruleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder
         .onlyRuleChainLifecycleFailures(true)
         .onlyRuleNodeLifecycleFailures(true);
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult = onlyRuleNodeLifecycleFailuresResult
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult = onlyRuleNodeLifecycleFailuresResult
         .ruleChainEvents(new HashSet<>());
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult = ruleChainEventsResult
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult = ruleChainEventsResult
         .ruleChains(new HashSet<>());
 
     HashSet<ComponentLifecycleEvent> ruleNodeEvents = new HashSet<>();
@@ -393,13 +406,13 @@ class RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigDiffblueTest
         .ruleNodeEvents(ruleNodeEvents)
         .trackRuleNodeEvents(true)
         .build();
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult2 = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult2 = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
         .builder()
         .onlyRuleChainLifecycleFailures(false)
         .onlyRuleNodeLifecycleFailures(true);
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult2 = onlyRuleNodeLifecycleFailuresResult2
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult2 = onlyRuleNodeLifecycleFailuresResult2
         .ruleChainEvents(new HashSet<>());
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult2 = ruleChainEventsResult2
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult2 = ruleChainEventsResult2
         .ruleChains(new HashSet<>());
     RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig buildResult2 = ruleChainsResult2
         .ruleNodeEvents(new HashSet<>())
@@ -411,27 +424,28 @@ class RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigDiffblueTest
   }
 
   /**
-   * Test
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}.
+   * Test {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}.
    * <ul>
    *   <li>When other is {@code null}.</li>
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.equals(Object)",
+      "int RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
         .builder()
         .onlyRuleChainLifecycleFailures(true)
         .onlyRuleNodeLifecycleFailures(true);
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult = onlyRuleNodeLifecycleFailuresResult
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult = onlyRuleNodeLifecycleFailuresResult
         .ruleChainEvents(new HashSet<>());
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult = ruleChainEventsResult
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult = ruleChainEventsResult
         .ruleChains(new HashSet<>());
     RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig buildResult = ruleChainsResult
         .ruleNodeEvents(new HashSet<>())
@@ -443,27 +457,28 @@ class RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigDiffblueTest
   }
 
   /**
-   * Test
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}.
+   * Test {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}.
    * <ul>
    *   <li>When other is wrong type.</li>
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.equals(Object)",
+      "int RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
         .builder()
         .onlyRuleChainLifecycleFailures(true)
         .onlyRuleNodeLifecycleFailures(true);
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult = onlyRuleNodeLifecycleFailuresResult
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult = onlyRuleNodeLifecycleFailuresResult
         .ruleChainEvents(new HashSet<>());
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult = ruleChainEventsResult
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult = ruleChainEventsResult
         .ruleChains(new HashSet<>());
     RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig buildResult = ruleChainsResult
         .ruleNodeEvents(new HashSet<>())
@@ -479,40 +494,42 @@ class RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigDiffblueTest
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig()}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setOnlyRuleChainLifecycleFailures(boolean)}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setOnlyRuleNodeLifecycleFailures(boolean)}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setRuleChainEvents(Set)}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setRuleChains(Set)}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setRuleNodeEvents(Set)}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setTrackRuleNodeEvents(boolean)}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#toString()}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#getRuleChainEvents()}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#getRuleChains()}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#getRuleNodeEvents()}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#getTriggerType()}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#isOnlyRuleChainLifecycleFailures()}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#isOnlyRuleNodeLifecycleFailures()}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#isTrackRuleNodeEvents()}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig()}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setOnlyRuleChainLifecycleFailures(boolean)}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setOnlyRuleNodeLifecycleFailures(boolean)}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setRuleChainEvents(Set)}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setRuleChains(Set)}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setRuleNodeEvents(Set)}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setTrackRuleNodeEvents(boolean)}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#toString()}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#getRuleChainEvents()}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#getRuleChains()}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#getRuleNodeEvents()}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#getTriggerType()}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#isOnlyRuleChainLifecycleFailures()}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#isOnlyRuleNodeLifecycleFailures()}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#isTrackRuleNodeEvents()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.<init>()",
+      "void RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.<init>(Set, Set, boolean, boolean, Set, boolean)",
+      "Set RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.getRuleChainEvents()",
+      "Set RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.getRuleChains()",
+      "Set RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.getRuleNodeEvents()",
+      "NotificationRuleTriggerType RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.getTriggerType()",
+      "boolean RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.isOnlyRuleChainLifecycleFailures()",
+      "boolean RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.isOnlyRuleNodeLifecycleFailures()",
+      "boolean RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.isTrackRuleNodeEvents()",
+      "void RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.setOnlyRuleChainLifecycleFailures(boolean)",
+      "void RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.setOnlyRuleNodeLifecycleFailures(boolean)",
+      "void RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.setRuleChainEvents(Set)",
+      "void RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.setRuleChains(Set)",
+      "void RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.setRuleNodeEvents(Set)",
+      "void RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.setTrackRuleNodeEvents(boolean)",
+      "String RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig actualRuleEngineComponentLifecycleEventNotificationRuleTriggerConfig = new RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig();
@@ -540,7 +557,7 @@ class RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigDiffblueTest
     boolean actualIsTrackRuleNodeEventsResult = actualRuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
         .isTrackRuleNodeEvents();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig(ruleChains=[], ruleChainEvents=[],"
         + " onlyRuleChainLifecycleFailures=true, trackRuleNodeEvents=true, ruleNodeEvents=[], onlyRuleNodeLifec"
         + "ycleFailures=true)", actualToStringResult);
@@ -564,40 +581,42 @@ class RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigDiffblueTest
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig(Set, Set, boolean, boolean, Set, boolean)}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setOnlyRuleChainLifecycleFailures(boolean)}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setOnlyRuleNodeLifecycleFailures(boolean)}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setRuleChainEvents(Set)}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setRuleChains(Set)}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setRuleNodeEvents(Set)}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setTrackRuleNodeEvents(boolean)}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#toString()}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#getRuleChainEvents()}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#getRuleChains()}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#getRuleNodeEvents()}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#getTriggerType()}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#isOnlyRuleChainLifecycleFailures()}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#isOnlyRuleNodeLifecycleFailures()}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#isTrackRuleNodeEvents()}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig(Set, Set, boolean, boolean, Set, boolean)}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setOnlyRuleChainLifecycleFailures(boolean)}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setOnlyRuleNodeLifecycleFailures(boolean)}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setRuleChainEvents(Set)}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setRuleChains(Set)}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setRuleNodeEvents(Set)}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#setTrackRuleNodeEvents(boolean)}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#toString()}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#getRuleChainEvents()}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#getRuleChains()}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#getRuleNodeEvents()}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#getTriggerType()}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#isOnlyRuleChainLifecycleFailures()}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#isOnlyRuleNodeLifecycleFailures()}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig#isTrackRuleNodeEvents()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters; when HashSet()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.<init>()",
+      "void RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.<init>(Set, Set, boolean, boolean, Set, boolean)",
+      "Set RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.getRuleChainEvents()",
+      "Set RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.getRuleChains()",
+      "Set RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.getRuleNodeEvents()",
+      "NotificationRuleTriggerType RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.getTriggerType()",
+      "boolean RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.isOnlyRuleChainLifecycleFailures()",
+      "boolean RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.isOnlyRuleNodeLifecycleFailures()",
+      "boolean RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.isTrackRuleNodeEvents()",
+      "void RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.setOnlyRuleChainLifecycleFailures(boolean)",
+      "void RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.setOnlyRuleNodeLifecycleFailures(boolean)",
+      "void RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.setRuleChainEvents(Set)",
+      "void RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.setRuleChains(Set)",
+      "void RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.setRuleNodeEvents(Set)",
+      "void RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.setTrackRuleNodeEvents(boolean)",
+      "String RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.toString()"})
   void testGettersAndSetters_whenHashSet() {
     // Arrange
     HashSet<UUID> ruleChains = new HashSet<>();
@@ -630,7 +649,7 @@ class RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigDiffblueTest
     boolean actualIsTrackRuleNodeEventsResult = actualRuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
         .isTrackRuleNodeEvents();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig(ruleChains=[], ruleChainEvents=[],"
         + " onlyRuleChainLifecycleFailures=true, trackRuleNodeEvents=true, ruleNodeEvents=[], onlyRuleNodeLifec"
         + "ycleFailures=true)", actualToStringResult);
@@ -647,40 +666,42 @@ class RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigDiffblueTest
   }
 
   /**
-   * Test RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder#build()}.
+   * Test RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder#build()}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder#onlyRuleChainLifecycleFailures(boolean)}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder#onlyRuleNodeLifecycleFailures(boolean)}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder#ruleChainEvents(Set)}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder#ruleChains(Set)}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder#ruleNodeEvents(Set)}
-   *   <li>
-   * {@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder#trackRuleNodeEvents(boolean)}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder#build()}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder#onlyRuleChainLifecycleFailures(boolean)}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder#onlyRuleNodeLifecycleFailures(boolean)}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder#ruleChainEvents(Set)}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder#ruleChains(Set)}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder#ruleNodeEvents(Set)}
+   *   <li>{@link RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder#trackRuleNodeEvents(boolean)}
    * </ul>
    */
   @Test
   @DisplayName("Test RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder.<init>()",
+      "RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder.build()",
+      "RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder.onlyRuleChainLifecycleFailures(boolean)",
+      "RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder.onlyRuleNodeLifecycleFailures(boolean)",
+      "RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder.ruleChainEvents(Set)",
+      "RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder.ruleChains(Set)",
+      "RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder.ruleNodeEvents(Set)",
+      "String RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder.toString()",
+      "RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder.trackRuleNodeEvents(boolean)"})
   void testRuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilderBuild() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder onlyRuleNodeLifecycleFailuresResult = RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig
         .builder()
         .onlyRuleChainLifecycleFailures(true)
         .onlyRuleNodeLifecycleFailures(true);
     HashSet<ComponentLifecycleEvent> ruleChainEvents = new HashSet<>();
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult = onlyRuleNodeLifecycleFailuresResult
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainEventsResult = onlyRuleNodeLifecycleFailuresResult
         .ruleChainEvents(ruleChainEvents);
     HashSet<UUID> ruleChains = new HashSet<>();
-    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfig.RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult = ruleChainEventsResult
+    RuleEngineComponentLifecycleEventNotificationRuleTriggerConfigBuilder ruleChainsResult = ruleChainEventsResult
         .ruleChains(ruleChains);
     HashSet<ComponentLifecycleEvent> ruleNodeEvents = new HashSet<>();
 

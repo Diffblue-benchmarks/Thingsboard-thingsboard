@@ -1,11 +1,15 @@
 package org.thingsboard.server.common.data.device.profile;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.thingsboard.server.common.data.id.DashboardId;
 
 class AlarmRuleDiffblueTest {
   /**
@@ -26,6 +30,12 @@ class AlarmRuleDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmRule.<init>()", "String AlarmRule.getAlarmDetails()",
+      "AlarmCondition AlarmRule.getCondition()", "DashboardId AlarmRule.getDashboardId()",
+      "AlarmSchedule AlarmRule.getSchedule()", "void AlarmRule.setAlarmDetails(String)",
+      "void AlarmRule.setCondition(AlarmCondition)", "void AlarmRule.setDashboardId(DashboardId)",
+      "void AlarmRule.setSchedule(AlarmSchedule)", "String AlarmRule.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     AlarmRule actualAlarmRule = new AlarmRule();
@@ -39,10 +49,11 @@ class AlarmRuleDiffblueTest {
     actualAlarmRule.toString();
     String actualAlarmDetails = actualAlarmRule.getAlarmDetails();
     AlarmCondition actualCondition = actualAlarmRule.getCondition();
-    actualAlarmRule.getDashboardId();
+    DashboardId actualDashboardId = actualAlarmRule.getDashboardId();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Alarm Details", actualAlarmDetails);
+    assertNull(actualDashboardId);
     assertSame(condition, actualCondition);
     assertSame(schedule, actualAlarmRule.getSchedule());
   }

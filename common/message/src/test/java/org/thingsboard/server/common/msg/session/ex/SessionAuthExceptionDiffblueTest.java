@@ -2,7 +2,9 @@ package org.thingsboard.server.common.msg.session.ex;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class SessionAuthExceptionDiffblueTest {
@@ -13,6 +15,8 @@ class SessionAuthExceptionDiffblueTest {
    */
   @Test
   @DisplayName("Test new SessionAuthException(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SessionAuthException.<init>(String)"})
   void testNewSessionAuthException() {
     // Arrange and Act
     SessionAuthException actualSessionAuthException = new SessionAuthException("0123456789ABCDEF");

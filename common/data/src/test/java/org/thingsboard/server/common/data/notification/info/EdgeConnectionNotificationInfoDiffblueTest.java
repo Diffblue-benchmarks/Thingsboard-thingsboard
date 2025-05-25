@@ -2,9 +2,11 @@ package org.thingsboard.server.common.data.notification.info;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Map;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.EdgeId;
 
@@ -19,6 +21,8 @@ class EdgeConnectionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getTemplateData(); then return size is three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Map EdgeConnectionNotificationInfo.getTemplateData()"})
   void testGetTemplateData_thenReturnSizeIsThree() {
     // Arrange
     EdgeConnectionNotificationInfo edgeConnectionNotificationInfo = new EdgeConnectionNotificationInfo();

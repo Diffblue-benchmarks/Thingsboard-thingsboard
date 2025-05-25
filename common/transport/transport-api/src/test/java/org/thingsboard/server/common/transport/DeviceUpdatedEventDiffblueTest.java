@@ -1,7 +1,9 @@
 package org.thingsboard.server.common.transport;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.Device;
 
@@ -17,6 +19,8 @@ class DeviceUpdatedEventDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DeviceUpdatedEvent.<init>(Device)", "Device DeviceUpdatedEvent.getDevice()"})
   void testGettersAndSetters() {
     // Arrange
     Device device = new Device();

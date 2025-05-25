@@ -6,11 +6,13 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 import java.util.function.BiConsumer;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.EntityId;
 import org.thingsboard.server.common.data.id.TenantId;
@@ -23,19 +25,104 @@ import org.thingsboard.server.service.ws.telemetry.cmd.v2.CmdUpdateType;
 
 class NotificationsSubscriptionDiffblueTest {
   /**
-   * Test
-   * {@link NotificationsSubscription#NotificationsSubscription(String, String, int, TenantId, EntityId, BiConsumer, int, Set)}.
+   * Test {@link NotificationsSubscription#NotificationsSubscription(String, String, int, TenantId, EntityId, BiConsumer, int, Set)}.
+   * <ul>
+   *   <li>Given {@code ALARM}.</li>
+   *   <li>When {@link HashSet#HashSet()} add {@code ALARM}.</li>
+   * </ul>
    * <p>
-   * Method under test:
-   * {@link NotificationsSubscription#NotificationsSubscription(String, String, int, TenantId, EntityId, BiConsumer, int, Set)}
+   * Method under test: {@link NotificationsSubscription#NotificationsSubscription(String, String, int, TenantId, EntityId, BiConsumer, int, Set)}
    */
   @Test
-  @DisplayName("Test new NotificationsSubscription(String, String, int, TenantId, EntityId, BiConsumer, int, Set)")
-  void testNewNotificationsSubscription() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test new NotificationsSubscription(String, String, int, TenantId, EntityId, BiConsumer, int, Set); given 'ALARM'; when HashSet() add 'ALARM'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void NotificationsSubscription.<init>(String, String, int, TenantId, EntityId, BiConsumer, int, Set)"})
+  void testNewNotificationsSubscription_givenAlarm_whenHashSetAddAlarm() {
     // Arrange
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    BiConsumer<TbSubscription<NotificationsSubscriptionUpdate>, NotificationsSubscriptionUpdate> updateProcessor = mock(
+        BiConsumer.class);
+
+    HashSet<NotificationType> notificationTypes = new HashSet<>();
+    notificationTypes.add(NotificationType.ALARM);
+    notificationTypes.add(NotificationType.GENERAL);
+
+    // Act
+    NotificationsSubscription actualNotificationsSubscription = new NotificationsSubscription("42", "42", 1, tenantId,
+        null, updateProcessor, 1, notificationTypes);
+
+    // Assert
+    assertEquals("42", actualNotificationsSubscription.getServiceId());
+    assertEquals("42", actualNotificationsSubscription.getSessionId());
+    assertNull(actualNotificationsSubscription.getEntityId());
+    assertEquals(1, actualNotificationsSubscription.getSubscriptionId());
+    assertEquals(1, actualNotificationsSubscription.getLimit());
+    assertEquals(TbSubscriptionType.NOTIFICATIONS, actualNotificationsSubscription.getType());
+    assertTrue(actualNotificationsSubscription.getSortedNotifications().isEmpty());
+    assertTrue(actualNotificationsSubscription.getLatestUnreadNotifications().isEmpty());
+    assertSame(notificationTypes, actualNotificationsSubscription.getNotificationTypes());
+    assertSame(tenantId, actualNotificationsSubscription.getTenantId());
+    assertSame(updateProcessor, actualNotificationsSubscription.getUpdateProcessor());
+  }
+
+  /**
+   * Test {@link NotificationsSubscription#NotificationsSubscription(String, String, int, TenantId, EntityId, BiConsumer, int, Set)}.
+   * <ul>
+   *   <li>Then return NotificationTypes is {@link HashSet#HashSet()}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link NotificationsSubscription#NotificationsSubscription(String, String, int, TenantId, EntityId, BiConsumer, int, Set)}
+   */
+  @Test
+  @DisplayName("Test new NotificationsSubscription(String, String, int, TenantId, EntityId, BiConsumer, int, Set); then return NotificationTypes is HashSet()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void NotificationsSubscription.<init>(String, String, int, TenantId, EntityId, BiConsumer, int, Set)"})
+  void testNewNotificationsSubscription_thenReturnNotificationTypesIsHashSet() {
+    // Arrange
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    BiConsumer<TbSubscription<NotificationsSubscriptionUpdate>, NotificationsSubscriptionUpdate> updateProcessor = mock(
+        BiConsumer.class);
+
+    HashSet<NotificationType> notificationTypes = new HashSet<>();
+    notificationTypes.add(NotificationType.GENERAL);
+
+    // Act
+    NotificationsSubscription actualNotificationsSubscription = new NotificationsSubscription("42", "42", 1, tenantId,
+        null, updateProcessor, 1, notificationTypes);
+
+    // Assert
+    assertEquals("42", actualNotificationsSubscription.getServiceId());
+    assertEquals("42", actualNotificationsSubscription.getSessionId());
+    assertNull(actualNotificationsSubscription.getEntityId());
+    assertEquals(1, actualNotificationsSubscription.getSubscriptionId());
+    assertEquals(1, actualNotificationsSubscription.getLimit());
+    assertEquals(TbSubscriptionType.NOTIFICATIONS, actualNotificationsSubscription.getType());
+    assertTrue(actualNotificationsSubscription.getSortedNotifications().isEmpty());
+    assertTrue(actualNotificationsSubscription.getLatestUnreadNotifications().isEmpty());
+    assertSame(notificationTypes, actualNotificationsSubscription.getNotificationTypes());
+    assertSame(tenantId, actualNotificationsSubscription.getTenantId());
+    assertSame(updateProcessor, actualNotificationsSubscription.getUpdateProcessor());
+  }
+
+  /**
+   * Test {@link NotificationsSubscription#NotificationsSubscription(String, String, int, TenantId, EntityId, BiConsumer, int, Set)}.
+   * <ul>
+   *   <li>When {@link HashSet#HashSet()}.</li>
+   *   <li>Then return NotificationTypes Empty.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link NotificationsSubscription#NotificationsSubscription(String, String, int, TenantId, EntityId, BiConsumer, int, Set)}
+   */
+  @Test
+  @DisplayName("Test new NotificationsSubscription(String, String, int, TenantId, EntityId, BiConsumer, int, Set); when HashSet(); then return NotificationTypes Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void NotificationsSubscription.<init>(String, String, int, TenantId, EntityId, BiConsumer, int, Set)"})
+  void testNewNotificationsSubscription_whenHashSet_thenReturnNotificationTypesEmpty() {
+    // Arrange
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     BiConsumer<TbSubscription<NotificationsSubscriptionUpdate>, NotificationsSubscriptionUpdate> updateProcessor = mock(
         BiConsumer.class);
 
@@ -47,7 +134,6 @@ class NotificationsSubscriptionDiffblueTest {
     assertEquals("42", actualNotificationsSubscription.getServiceId());
     assertEquals("42", actualNotificationsSubscription.getSessionId());
     assertNull(actualNotificationsSubscription.getEntityId());
-    assertEquals(0, actualNotificationsSubscription.getSequence().get());
     assertEquals(1, actualNotificationsSubscription.getSubscriptionId());
     assertEquals(1, actualNotificationsSubscription.getLimit());
     assertEquals(TbSubscriptionType.NOTIFICATIONS, actualNotificationsSubscription.getType());
@@ -59,72 +145,84 @@ class NotificationsSubscriptionDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link NotificationsSubscription#checkNotificationType(NotificationType)}.
+   * Test {@link NotificationsSubscription#checkNotificationType(NotificationType)}.
+   * <p>
+   * Method under test: {@link NotificationsSubscription#checkNotificationType(NotificationType)}
+   */
+  @Test
+  @DisplayName("Test checkNotificationType(NotificationType)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationsSubscription.checkNotificationType(NotificationType)"})
+  void testCheckNotificationType() {
+    // Arrange, Act and Assert
+    assertTrue((new NotificationsSubscription("42", "42", 1,
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, mock(BiConsumer.class), 1, null))
+        .checkNotificationType(NotificationType.GENERAL));
+  }
+
+  /**
+   * Test {@link NotificationsSubscription#checkNotificationType(NotificationType)}.
    * <ul>
    *   <li>Given {@link HashSet#HashSet()} add {@code ALARM}.</li>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link NotificationsSubscription#checkNotificationType(NotificationType)}
+   * Method under test: {@link NotificationsSubscription#checkNotificationType(NotificationType)}
    */
   @Test
   @DisplayName("Test checkNotificationType(NotificationType); given HashSet() add 'ALARM'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationsSubscription.checkNotificationType(NotificationType)"})
   void testCheckNotificationType_givenHashSetAddAlarm_thenReturnFalse() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     HashSet<NotificationType> notificationTypes = new HashSet<>();
     notificationTypes.add(NotificationType.ALARM);
 
     // Act and Assert
-    assertFalse((new NotificationsSubscription("42", "42", 1, new TenantId(UUID.randomUUID()), null,
-        mock(BiConsumer.class), 1, notificationTypes)).checkNotificationType(NotificationType.GENERAL));
+    assertFalse((new NotificationsSubscription("42", "42", 1,
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, mock(BiConsumer.class), 1,
+        notificationTypes)).checkNotificationType(NotificationType.GENERAL));
   }
 
   /**
-   * Test
-   * {@link NotificationsSubscription#checkNotificationType(NotificationType)}.
+   * Test {@link NotificationsSubscription#checkNotificationType(NotificationType)}.
    * <ul>
    *   <li>Given {@link HashSet#HashSet()} add {@code GENERAL}.</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link NotificationsSubscription#checkNotificationType(NotificationType)}
+   * Method under test: {@link NotificationsSubscription#checkNotificationType(NotificationType)}
    */
   @Test
   @DisplayName("Test checkNotificationType(NotificationType); given HashSet() add 'GENERAL'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationsSubscription.checkNotificationType(NotificationType)"})
   void testCheckNotificationType_givenHashSetAddGeneral_thenReturnTrue() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     HashSet<NotificationType> notificationTypes = new HashSet<>();
     notificationTypes.add(NotificationType.GENERAL);
 
     // Act and Assert
-    assertTrue((new NotificationsSubscription("42", "42", 1, new TenantId(UUID.randomUUID()), null,
-        mock(BiConsumer.class), 1, notificationTypes)).checkNotificationType(NotificationType.GENERAL));
+    assertTrue((new NotificationsSubscription("42", "42", 1,
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, mock(BiConsumer.class), 1,
+        notificationTypes)).checkNotificationType(NotificationType.GENERAL));
   }
 
   /**
-   * Test
-   * {@link NotificationsSubscription#checkNotificationType(NotificationType)}.
+   * Test {@link NotificationsSubscription#checkNotificationType(NotificationType)}.
    * <ul>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link NotificationsSubscription#checkNotificationType(NotificationType)}
+   * Method under test: {@link NotificationsSubscription#checkNotificationType(NotificationType)}
    */
   @Test
   @DisplayName("Test checkNotificationType(NotificationType); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationsSubscription.checkNotificationType(NotificationType)"})
   void testCheckNotificationType_thenReturnTrue() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     BiConsumer<TbSubscription<NotificationsSubscriptionUpdate>, NotificationsSubscriptionUpdate> updateProcessor = mock(
         BiConsumer.class);
 
@@ -143,11 +241,11 @@ class NotificationsSubscriptionDiffblueTest {
    */
   @Test
   @DisplayName("Test createFullUpdate(); then return ErrorMsg is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"UnreadNotificationsUpdate NotificationsSubscription.createFullUpdate()"})
   void testCreateFullUpdate_thenReturnErrorMsgIsNull() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     BiConsumer<TbSubscription<NotificationsSubscriptionUpdate>, NotificationsSubscriptionUpdate> updateProcessor = mock(
         BiConsumer.class);
     NotificationsSubscription notificationsSubscription = new NotificationsSubscription("42", "42", 1, tenantId, null,
@@ -178,11 +276,11 @@ class NotificationsSubscriptionDiffblueTest {
    */
   @Test
   @DisplayName("Test getSortedNotifications(); then return Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.util.List NotificationsSubscription.getSortedNotifications()"})
   void testGetSortedNotifications_thenReturnEmpty() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     BiConsumer<TbSubscription<NotificationsSubscriptionUpdate>, NotificationsSubscriptionUpdate> updateProcessor = mock(
         BiConsumer.class);
 
@@ -198,16 +296,15 @@ class NotificationsSubscriptionDiffblueTest {
    *   <li>Then return ErrorMsg is {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link NotificationsSubscription#createPartialUpdate(Notification)}
+   * Method under test: {@link NotificationsSubscription#createPartialUpdate(Notification)}
    */
   @Test
   @DisplayName("Test createPartialUpdate(Notification); then return ErrorMsg is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"UnreadNotificationsUpdate NotificationsSubscription.createPartialUpdate(Notification)"})
   void testCreatePartialUpdate_thenReturnErrorMsgIsNull() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     BiConsumer<TbSubscription<NotificationsSubscriptionUpdate>, NotificationsSubscriptionUpdate> updateProcessor = mock(
         BiConsumer.class);
     NotificationsSubscription notificationsSubscription = new NotificationsSubscription("42", "42", 1, tenantId, null,
@@ -240,11 +337,11 @@ class NotificationsSubscriptionDiffblueTest {
    */
   @Test
   @DisplayName("Test createCountUpdate(); then return ErrorMsg is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"UnreadNotificationsUpdate NotificationsSubscription.createCountUpdate()"})
   void testCreateCountUpdate_thenReturnErrorMsgIsNull() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     BiConsumer<TbSubscription<NotificationsSubscriptionUpdate>, NotificationsSubscriptionUpdate> updateProcessor = mock(
         BiConsumer.class);
     NotificationsSubscription notificationsSubscription = new NotificationsSubscription("42", "42", 1, tenantId, null,

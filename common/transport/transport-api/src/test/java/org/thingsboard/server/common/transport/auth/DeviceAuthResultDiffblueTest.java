@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.DeviceId;
 
@@ -20,6 +22,8 @@ class DeviceAuthResultDiffblueTest {
    */
   @Test
   @DisplayName("Test of(DeviceId) with 'deviceId'; when 'null'; then return ErrorMsg is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DeviceAuthResult DeviceAuthResult.of(DeviceId)"})
   void testOfWithDeviceId_whenNull_thenReturnErrorMsgIsNull() {
     // Arrange and Act
     DeviceAuthResult actualOfResult = DeviceAuthResult.of((DeviceId) null);
@@ -37,6 +41,8 @@ class DeviceAuthResultDiffblueTest {
    */
   @Test
   @DisplayName("Test of(String) with 'errorMsg'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DeviceAuthResult DeviceAuthResult.of(String)"})
   void testOfWithErrorMsg() {
     // Arrange and Act
     DeviceAuthResult actualOfResult = DeviceAuthResult.of("An error occurred");
@@ -60,6 +66,9 @@ class DeviceAuthResultDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DeviceId DeviceAuthResult.getDeviceId()", "String DeviceAuthResult.getErrorMsg()",
+      "boolean DeviceAuthResult.isSuccess()", "String DeviceAuthResult.toString()"})
   void testGettersAndSetters() {
     // Arrange
     DeviceAuthResult ofResult = DeviceAuthResult.of("An error occurred");

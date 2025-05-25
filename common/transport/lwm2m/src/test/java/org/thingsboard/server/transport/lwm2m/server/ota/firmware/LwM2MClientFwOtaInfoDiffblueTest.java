@@ -3,16 +3,15 @@ package org.thingsboard.server.transport.lwm2m.server.ota.firmware;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.ota.OtaPackageType;
-import org.thingsboard.server.transport.lwm2m.server.ota.software.LwM2MClientSwOtaInfo;
 
 class LwM2MClientFwOtaInfoDiffblueTest {
   /**
-   * Test {@link LwM2MClientFwOtaInfo#equals(Object)}, and
-   * {@link LwM2MClientFwOtaInfo#hashCode()}.
+   * Test {@link LwM2MClientFwOtaInfo#equals(Object)}, and {@link LwM2MClientFwOtaInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -26,6 +25,8 @@ class LwM2MClientFwOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientFwOtaInfo.equals(Object)", "int LwM2MClientFwOtaInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -40,8 +41,7 @@ class LwM2MClientFwOtaInfoDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2MClientFwOtaInfo#equals(Object)}, and
-   * {@link LwM2MClientFwOtaInfo#hashCode()}.
+   * Test {@link LwM2MClientFwOtaInfo#equals(Object)}, and {@link LwM2MClientFwOtaInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -55,6 +55,8 @@ class LwM2MClientFwOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientFwOtaInfo.equals(Object)", "int LwM2MClientFwOtaInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -72,8 +74,7 @@ class LwM2MClientFwOtaInfoDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2MClientFwOtaInfo#equals(Object)}, and
-   * {@link LwM2MClientFwOtaInfo#hashCode()}.
+   * Test {@link LwM2MClientFwOtaInfo#equals(Object)}, and {@link LwM2MClientFwOtaInfo#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -87,6 +88,8 @@ class LwM2MClientFwOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientFwOtaInfo.equals(Object)", "int LwM2MClientFwOtaInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -109,6 +112,8 @@ class LwM2MClientFwOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientFwOtaInfo.equals(Object)", "int LwM2MClientFwOtaInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://example.org/example",
@@ -130,24 +135,9 @@ class LwM2MClientFwOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientFwOtaInfo.equals(Object)", "int LwM2MClientFwOtaInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange, Act and Assert
-    assertNotEquals(new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com", "https://example.org/example",
-        LwM2MFirmwareUpdateStrategy.OBJ_5_BINARY), mock(LwM2MClientSwOtaInfo.class));
-  }
-
-  /**
-   * Test {@link LwM2MClientFwOtaInfo#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link LwM2MClientFwOtaInfo#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
         "https://example.org/example", LwM2MFirmwareUpdateStrategy.OBJ_5_BINARY);
@@ -169,7 +159,9 @@ class LwM2MClientFwOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientFwOtaInfo.equals(Object)", "int LwM2MClientFwOtaInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
         "https://example.org/example", LwM2MFirmwareUpdateStrategy.OBJ_5_BINARY);
@@ -193,6 +185,8 @@ class LwM2MClientFwOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientFwOtaInfo.equals(Object)", "int LwM2MClientFwOtaInfo.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com", "https://example.org/example",
@@ -210,6 +204,8 @@ class LwM2MClientFwOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientFwOtaInfo.equals(Object)", "int LwM2MClientFwOtaInfo.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com", "https://example.org/example",
@@ -218,6 +214,9 @@ class LwM2MClientFwOtaInfoDiffblueTest {
 
   /**
    * Test getters and setters.
+   * <ul>
+   *   <li>Then return BaseUrl is {@code null}.</li>
+   * </ul>
    * <p>
    * Methods under test:
    * <ul>
@@ -229,8 +228,13 @@ class LwM2MClientFwOtaInfoDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters")
-  void testGettersAndSetters() {
+  @DisplayName("Test getters and setters; then return BaseUrl is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MClientFwOtaInfo.<init>()",
+      "void LwM2MClientFwOtaInfo.<init>(String, String, LwM2MFirmwareUpdateStrategy)",
+      "Integer LwM2MClientFwOtaInfo.getDeliveryMethod()", "OtaPackageType LwM2MClientFwOtaInfo.getType()",
+      "void LwM2MClientFwOtaInfo.setDeliveryMethod(Integer)", "String LwM2MClientFwOtaInfo.toString()"})
+  void testGettersAndSetters_thenReturnBaseUrlIsNull() {
     // Arrange and Act
     LwM2MClientFwOtaInfo actualLwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo();
     actualLwM2MClientFwOtaInfo.setDeliveryMethod(1);
@@ -238,11 +242,25 @@ class LwM2MClientFwOtaInfoDiffblueTest {
     Integer actualDeliveryMethod = actualLwM2MClientFwOtaInfo.getDeliveryMethod();
     OtaPackageType actualType = actualLwM2MClientFwOtaInfo.getType();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("LwM2MClientFwOtaInfo(super=LwM2MClientOtaInfo(endpoint=null, baseUrl=null, targetName=null,"
         + " targetVersion=null, targetTag=null, targetUrl=null, strategy=null, updateState=null, result=null,"
         + " status=null, failedPackageId=null, retryAttempts=0, currentName=null, currentVersion3=null,"
         + " currentVersion=null), deliveryMethod=1)", actualToStringResult);
+    assertNull(actualLwM2MClientFwOtaInfo.getBaseUrl());
+    assertNull(actualLwM2MClientFwOtaInfo.getCurrentName());
+    assertNull(actualLwM2MClientFwOtaInfo.getCurrentVersion());
+    assertNull(actualLwM2MClientFwOtaInfo.getCurrentVersion3());
+    assertNull(actualLwM2MClientFwOtaInfo.getEndpoint());
+    assertNull(actualLwM2MClientFwOtaInfo.getFailedPackageId());
+    assertNull(actualLwM2MClientFwOtaInfo.getTargetName());
+    assertNull(actualLwM2MClientFwOtaInfo.getTargetTag());
+    assertNull(actualLwM2MClientFwOtaInfo.getTargetUrl());
+    assertNull(actualLwM2MClientFwOtaInfo.getTargetVersion());
+    assertNull(actualLwM2MClientFwOtaInfo.getStatus());
+    assertNull(actualLwM2MClientFwOtaInfo.getResult());
+    assertNull(actualLwM2MClientFwOtaInfo.getUpdateState());
+    assertNull(actualLwM2MClientFwOtaInfo.getStrategy());
     assertEquals(0, actualLwM2MClientFwOtaInfo.getRetryAttempts());
     assertEquals(1, actualDeliveryMethod.intValue());
     assertEquals(OtaPackageType.FIRMWARE, actualType);
@@ -251,14 +269,12 @@ class LwM2MClientFwOtaInfoDiffblueTest {
   /**
    * Test getters and setters.
    * <ul>
-   *   <li>Then return Endpoint is
-   * {@code https://config.us-east-2.amazonaws.com}.</li>
+   *   <li>Then return Endpoint is {@code https://config.us-east-2.amazonaws.com}.</li>
    * </ul>
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link LwM2MClientFwOtaInfo#LwM2MClientFwOtaInfo(String, String, LwM2MFirmwareUpdateStrategy)}
+   *   <li>{@link LwM2MClientFwOtaInfo#LwM2MClientFwOtaInfo(String, String, LwM2MFirmwareUpdateStrategy)}
    *   <li>{@link LwM2MClientFwOtaInfo#setDeliveryMethod(Integer)}
    *   <li>{@link LwM2MClientFwOtaInfo#toString()}
    *   <li>{@link LwM2MClientFwOtaInfo#getDeliveryMethod()}
@@ -267,6 +283,11 @@ class LwM2MClientFwOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; then return Endpoint is 'https://config.us-east-2.amazonaws.com'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MClientFwOtaInfo.<init>()",
+      "void LwM2MClientFwOtaInfo.<init>(String, String, LwM2MFirmwareUpdateStrategy)",
+      "Integer LwM2MClientFwOtaInfo.getDeliveryMethod()", "OtaPackageType LwM2MClientFwOtaInfo.getType()",
+      "void LwM2MClientFwOtaInfo.setDeliveryMethod(Integer)", "String LwM2MClientFwOtaInfo.toString()"})
   void testGettersAndSetters_thenReturnEndpointIsHttpsConfigUsEast2AmazonawsCom() {
     // Arrange and Act
     LwM2MClientFwOtaInfo actualLwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -276,13 +297,24 @@ class LwM2MClientFwOtaInfoDiffblueTest {
     Integer actualDeliveryMethod = actualLwM2MClientFwOtaInfo.getDeliveryMethod();
     OtaPackageType actualType = actualLwM2MClientFwOtaInfo.getType();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("LwM2MClientFwOtaInfo(super=LwM2MClientOtaInfo(endpoint=https://config.us-east-2.amazonaws.com,"
         + " baseUrl=https://example.org/example, targetName=null, targetVersion=null, targetTag=null, targetUrl=null,"
         + " strategy=OBJ_5_BINARY, updateState=null, result=null, status=null, failedPackageId=null, retryAttempts=0,"
         + " currentName=null, currentVersion3=null, currentVersion=null), deliveryMethod=1)", actualToStringResult);
     assertEquals("https://config.us-east-2.amazonaws.com", actualLwM2MClientFwOtaInfo.getEndpoint());
     assertEquals("https://example.org/example", actualLwM2MClientFwOtaInfo.getBaseUrl());
+    assertNull(actualLwM2MClientFwOtaInfo.getCurrentName());
+    assertNull(actualLwM2MClientFwOtaInfo.getCurrentVersion());
+    assertNull(actualLwM2MClientFwOtaInfo.getCurrentVersion3());
+    assertNull(actualLwM2MClientFwOtaInfo.getFailedPackageId());
+    assertNull(actualLwM2MClientFwOtaInfo.getTargetName());
+    assertNull(actualLwM2MClientFwOtaInfo.getTargetTag());
+    assertNull(actualLwM2MClientFwOtaInfo.getTargetUrl());
+    assertNull(actualLwM2MClientFwOtaInfo.getTargetVersion());
+    assertNull(actualLwM2MClientFwOtaInfo.getStatus());
+    assertNull(actualLwM2MClientFwOtaInfo.getResult());
+    assertNull(actualLwM2MClientFwOtaInfo.getUpdateState());
     assertEquals(0, actualLwM2MClientFwOtaInfo.getRetryAttempts());
     assertEquals(1, actualDeliveryMethod.intValue());
     assertEquals(OtaPackageType.FIRMWARE, actualType);
@@ -290,13 +322,14 @@ class LwM2MClientFwOtaInfoDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2MClientFwOtaInfo#update(FirmwareUpdateResult)} with
-   * {@code FirmwareUpdateResult}.
+   * Test {@link LwM2MClientFwOtaInfo#update(FirmwareUpdateResult)} with {@code FirmwareUpdateResult}.
    * <p>
    * Method under test: {@link LwM2MClientFwOtaInfo#update(FirmwareUpdateResult)}
    */
   @Test
   @DisplayName("Test update(FirmwareUpdateResult) with 'FirmwareUpdateResult'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MClientFwOtaInfo.update(FirmwareUpdateResult)"})
   void testUpdateWithFirmwareUpdateResult() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -311,13 +344,14 @@ class LwM2MClientFwOtaInfoDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2MClientFwOtaInfo#update(FirmwareUpdateResult)} with
-   * {@code FirmwareUpdateResult}.
+   * Test {@link LwM2MClientFwOtaInfo#update(FirmwareUpdateResult)} with {@code FirmwareUpdateResult}.
    * <p>
    * Method under test: {@link LwM2MClientFwOtaInfo#update(FirmwareUpdateResult)}
    */
   @Test
   @DisplayName("Test update(FirmwareUpdateResult) with 'FirmwareUpdateResult'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MClientFwOtaInfo.update(FirmwareUpdateResult)"})
   void testUpdateWithFirmwareUpdateResult2() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -332,13 +366,14 @@ class LwM2MClientFwOtaInfoDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2MClientFwOtaInfo#update(FirmwareUpdateResult)} with
-   * {@code FirmwareUpdateResult}.
+   * Test {@link LwM2MClientFwOtaInfo#update(FirmwareUpdateResult)} with {@code FirmwareUpdateResult}.
    * <p>
    * Method under test: {@link LwM2MClientFwOtaInfo#update(FirmwareUpdateResult)}
    */
   @Test
   @DisplayName("Test update(FirmwareUpdateResult) with 'FirmwareUpdateResult'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MClientFwOtaInfo.update(FirmwareUpdateResult)"})
   void testUpdateWithFirmwareUpdateResult3() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -353,13 +388,14 @@ class LwM2MClientFwOtaInfoDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2MClientFwOtaInfo#update(FirmwareUpdateResult)} with
-   * {@code FirmwareUpdateResult}.
+   * Test {@link LwM2MClientFwOtaInfo#update(FirmwareUpdateResult)} with {@code FirmwareUpdateResult}.
    * <p>
    * Method under test: {@link LwM2MClientFwOtaInfo#update(FirmwareUpdateResult)}
    */
   @Test
   @DisplayName("Test update(FirmwareUpdateResult) with 'FirmwareUpdateResult'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MClientFwOtaInfo.update(FirmwareUpdateResult)"})
   void testUpdateWithFirmwareUpdateResult4() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -375,13 +411,14 @@ class LwM2MClientFwOtaInfoDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2MClientFwOtaInfo#update(FirmwareUpdateResult)} with
-   * {@code FirmwareUpdateResult}.
+   * Test {@link LwM2MClientFwOtaInfo#update(FirmwareUpdateResult)} with {@code FirmwareUpdateResult}.
    * <p>
    * Method under test: {@link LwM2MClientFwOtaInfo#update(FirmwareUpdateResult)}
    */
   @Test
   @DisplayName("Test update(FirmwareUpdateResult) with 'FirmwareUpdateResult'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MClientFwOtaInfo.update(FirmwareUpdateResult)"})
   void testUpdateWithFirmwareUpdateResult5() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -397,13 +434,14 @@ class LwM2MClientFwOtaInfoDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2MClientFwOtaInfo#update(FirmwareUpdateResult)} with
-   * {@code FirmwareUpdateResult}.
+   * Test {@link LwM2MClientFwOtaInfo#update(FirmwareUpdateResult)} with {@code FirmwareUpdateResult}.
    * <p>
    * Method under test: {@link LwM2MClientFwOtaInfo#update(FirmwareUpdateResult)}
    */
   @Test
   @DisplayName("Test update(FirmwareUpdateResult) with 'FirmwareUpdateResult'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MClientFwOtaInfo.update(FirmwareUpdateResult)"})
   void testUpdateWithFirmwareUpdateResult6() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",

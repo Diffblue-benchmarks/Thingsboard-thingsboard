@@ -2,16 +2,13 @@ package org.thingsboard.server.common.data.audit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.node.MissingNode;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.thingsboard.server.common.data.AdminSettings;
-import org.thingsboard.server.common.data.id.AuditLogId;
 import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.TenantId;
 
@@ -23,6 +20,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test new AuditLog(AuditLog)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AuditLog.<init>(AuditLog)"})
   void testNewAuditLog() {
     // Arrange
     AuditLog auditLog = new AuditLog();
@@ -38,6 +37,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test getCreatedTime()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long AuditLog.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
     assertEquals(0L, (new AuditLog()).getCreatedTime());
@@ -46,26 +47,18 @@ class AuditLogDiffblueTest {
   /**
    * Test {@link AuditLog#getId()}.
    * <ul>
-   *   <li>Then return Id is fromString
-   * {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>Then return {@code null}.</li>
    * </ul>
    * <p>
    * Method under test: {@link AuditLog#getId()}
    */
   @Test
-  @DisplayName("Test getId(); then return Id is fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
-  void testGetId_thenReturnIdIsFromString784f394c42b6435a983cB7beff2784f9() {
-    // Arrange
-    AuditLogId id = mock(AuditLogId.class);
-    UUID fromStringResult = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    when(id.getId()).thenReturn(fromStringResult);
-
-    // Act
-    UUID actualId = (new AuditLog(id)).getId().getId();
-
-    // Assert
-    verify(id).getId();
-    assertSame(fromStringResult, actualId);
+  @DisplayName("Test getId(); then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"org.thingsboard.server.common.data.id.AuditLogId AuditLog.getId()"})
+  void testGetId_thenReturnNull() {
+    // Arrange, Act and Assert
+    assertNull((new AuditLog()).getId());
   }
 
   /**
@@ -83,6 +76,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AuditLog auditLog = new AuditLog();
@@ -109,6 +104,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AuditLog auditLog = new AuditLog();
@@ -130,10 +127,11 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AuditLog(), 1);
-    assertNotEquals(new AuditLog(), mock(AdminSettings.class));
   }
 
   /**
@@ -147,6 +145,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AuditLog auditLog = new AuditLog();
@@ -167,6 +167,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AuditLog auditLog = new AuditLog();
@@ -187,6 +189,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AuditLog auditLog = new AuditLog();
@@ -207,6 +211,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     AuditLog auditLog = new AuditLog();
@@ -227,6 +233,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AuditLog auditLog = new AuditLog();
@@ -247,6 +255,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     AuditLog auditLog = new AuditLog();
@@ -267,6 +277,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     AuditLog auditLog = new AuditLog();
@@ -287,6 +299,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     AuditLog auditLog = new AuditLog();
@@ -307,6 +321,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     AuditLog auditLog = new AuditLog();
@@ -327,6 +343,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     AuditLog auditLog = new AuditLog();
@@ -347,6 +365,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     AuditLog auditLog = new AuditLog();
@@ -369,6 +389,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     AuditLog auditLog = new AuditLog();
@@ -391,6 +413,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     AuditLog auditLog = new AuditLog();
@@ -413,6 +437,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     AuditLog auditLog = new AuditLog();
@@ -435,6 +461,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     AuditLog auditLog = new AuditLog();
@@ -457,6 +485,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     AuditLog auditLog = new AuditLog();
@@ -479,6 +509,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     AuditLog auditLog = new AuditLog();
@@ -501,6 +533,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     AuditLog auditLog = new AuditLog();
@@ -523,6 +557,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     AuditLog auditLog = new AuditLog();
@@ -545,6 +581,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AuditLog(), null);
@@ -561,6 +599,8 @@ class AuditLogDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuditLog.equals(Object)", "int AuditLog.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AuditLog(), "Different type to AuditLog");

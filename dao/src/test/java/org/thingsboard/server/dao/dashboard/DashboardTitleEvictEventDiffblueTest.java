@@ -2,15 +2,16 @@ package org.thingsboard.server.dao.dashboard;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import java.util.UUID;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.common.data.id.DashboardId;
-import org.thingsboard.server.dao.model.ModelConstants;
 
 public class DashboardTitleEvictEventDiffblueTest {
   /**
-   * Test {@link DashboardTitleEvictEvent#equals(Object)}, and
-   * {@link DashboardTitleEvictEvent#hashCode()}.
+   * Test {@link DashboardTitleEvictEvent#equals(Object)}, and {@link DashboardTitleEvictEvent#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -23,6 +24,8 @@ public class DashboardTitleEvictEventDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DashboardTitleEvictEvent.equals(Object)", "int DashboardTitleEvictEvent.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DashboardTitleEvictEvent dashboardTitleEvictEvent = new DashboardTitleEvictEvent(null);
@@ -35,8 +38,7 @@ public class DashboardTitleEvictEventDiffblueTest {
   }
 
   /**
-   * Test {@link DashboardTitleEvictEvent#equals(Object)}, and
-   * {@link DashboardTitleEvictEvent#hashCode()}.
+   * Test {@link DashboardTitleEvictEvent#equals(Object)}, and {@link DashboardTitleEvictEvent#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -49,12 +51,14 @@ public class DashboardTitleEvictEventDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DashboardTitleEvictEvent.equals(Object)", "int DashboardTitleEvictEvent.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     DashboardTitleEvictEvent dashboardTitleEvictEvent = new DashboardTitleEvictEvent(
-        new DashboardId(ModelConstants.NULL_UUID));
+        new DashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     DashboardTitleEvictEvent dashboardTitleEvictEvent2 = new DashboardTitleEvictEvent(
-        new DashboardId(ModelConstants.NULL_UUID));
+        new DashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertEquals(dashboardTitleEvictEvent, dashboardTitleEvictEvent2);
@@ -72,9 +76,12 @@ public class DashboardTitleEvictEventDiffblueTest {
    * Method under test: {@link DashboardTitleEvictEvent#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DashboardTitleEvictEvent.equals(Object)", "int DashboardTitleEvictEvent.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    DashboardTitleEvictEvent dashboardTitleEvictEvent = new DashboardTitleEvictEvent(mock(DashboardId.class));
+    DashboardTitleEvictEvent dashboardTitleEvictEvent = new DashboardTitleEvictEvent(
+        new DashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(dashboardTitleEvictEvent, new DashboardTitleEvictEvent(null));
@@ -90,9 +97,11 @@ public class DashboardTitleEvictEventDiffblueTest {
    * Method under test: {@link DashboardTitleEvictEvent#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DashboardTitleEvictEvent.equals(Object)", "int DashboardTitleEvictEvent.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange, Act and Assert
-    assertNotEquals(new DashboardTitleEvictEvent(mock(DashboardId.class)), "42");
+    assertNotEquals(new DashboardTitleEvictEvent(null), 1);
   }
 
   /**
@@ -105,11 +114,14 @@ public class DashboardTitleEvictEventDiffblueTest {
    * Method under test: {@link DashboardTitleEvictEvent#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DashboardTitleEvictEvent.equals(Object)", "int DashboardTitleEvictEvent.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DashboardTitleEvictEvent dashboardTitleEvictEvent = new DashboardTitleEvictEvent(null);
 
     // Act and Assert
-    assertNotEquals(dashboardTitleEvictEvent, new DashboardTitleEvictEvent(new DashboardId(ModelConstants.NULL_UUID)));
+    assertNotEquals(dashboardTitleEvictEvent,
+        new DashboardTitleEvictEvent(new DashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
   }
 }

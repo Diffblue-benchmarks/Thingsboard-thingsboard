@@ -5,7 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TimeoutMsgDiffblueTest {
@@ -20,6 +22,8 @@ class TimeoutMsgDiffblueTest {
    */
   @Test
   @DisplayName("Test canEqual(Object); when 'Other'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TimeoutMsg.canEqual(Object)"})
   void testCanEqual_whenOther_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse((new DeviceActorServerSideRpcTimeoutMsg(1, 10L)).canEqual("Other"));
@@ -36,6 +40,8 @@ class TimeoutMsgDiffblueTest {
    */
   @Test
   @DisplayName("Test canEqual(Object); when TimeoutMsg; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TimeoutMsg.canEqual(Object)"})
   void testCanEqual_whenTimeoutMsg_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue((new DeviceActorServerSideRpcTimeoutMsg(1, 10L)).canEqual(mock(TimeoutMsg.class)));
@@ -56,6 +62,8 @@ class TimeoutMsgDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TimeoutMsg.equals(Object)", "int TimeoutMsg.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DeviceActorServerSideRpcTimeoutMsg deviceActorServerSideRpcTimeoutMsg = new DeviceActorServerSideRpcTimeoutMsg(1,
@@ -84,6 +92,8 @@ class TimeoutMsgDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TimeoutMsg.equals(Object)", "int TimeoutMsg.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     DeviceActorServerSideRpcTimeoutMsg deviceActorServerSideRpcTimeoutMsg = new DeviceActorServerSideRpcTimeoutMsg(null,
@@ -112,6 +122,8 @@ class TimeoutMsgDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TimeoutMsg.equals(Object)", "int TimeoutMsg.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DeviceActorServerSideRpcTimeoutMsg deviceActorServerSideRpcTimeoutMsg = new DeviceActorServerSideRpcTimeoutMsg(1,
@@ -134,6 +146,8 @@ class TimeoutMsgDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TimeoutMsg.equals(Object)", "int TimeoutMsg.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     DeviceActorServerSideRpcTimeoutMsg deviceActorServerSideRpcTimeoutMsg = new DeviceActorServerSideRpcTimeoutMsg(2,
@@ -154,6 +168,8 @@ class TimeoutMsgDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TimeoutMsg.equals(Object)", "int TimeoutMsg.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DeviceActorServerSideRpcTimeoutMsg deviceActorServerSideRpcTimeoutMsg = new DeviceActorServerSideRpcTimeoutMsg(null,
@@ -174,6 +190,8 @@ class TimeoutMsgDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TimeoutMsg.equals(Object)", "int TimeoutMsg.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DeviceActorServerSideRpcTimeoutMsg deviceActorServerSideRpcTimeoutMsg = new DeviceActorServerSideRpcTimeoutMsg(1,
@@ -194,6 +212,8 @@ class TimeoutMsgDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TimeoutMsg.equals(Object)", "int TimeoutMsg.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DeviceActorServerSideRpcTimeoutMsg(1, 10L), null);
@@ -210,6 +230,8 @@ class TimeoutMsgDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TimeoutMsg.equals(Object)", "int TimeoutMsg.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DeviceActorServerSideRpcTimeoutMsg(1, 10L), "Different type to TimeoutMsg");
@@ -222,6 +244,8 @@ class TimeoutMsgDiffblueTest {
    */
   @Test
   @DisplayName("Test getId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object TimeoutMsg.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
     assertEquals(1, (new DeviceActorServerSideRpcTimeoutMsg(1, 10L)).getId().intValue());
@@ -234,6 +258,8 @@ class TimeoutMsgDiffblueTest {
    */
   @Test
   @DisplayName("Test getTimeout()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long TimeoutMsg.getTimeout()"})
   void testGetTimeout() {
     // Arrange, Act and Assert
     assertEquals(10L, (new DeviceActorServerSideRpcTimeoutMsg(1, 10L)).getTimeout());
@@ -246,6 +272,8 @@ class TimeoutMsgDiffblueTest {
    */
   @Test
   @DisplayName("Test toString()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String TimeoutMsg.toString()"})
   void testToString() {
     // Arrange, Act and Assert
     assertEquals("TimeoutMsg(id=1, timeout=10)", (new DeviceActorServerSideRpcTimeoutMsg(1, 10L)).toString());

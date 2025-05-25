@@ -1,35 +1,31 @@
 package org.thingsboard.rule.engine.flow;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.ArgumentMatchers.isA;
-import static org.mockito.ArgumentMatchers.isNull;
-import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.MissingNode;
-import java.util.function.Consumer;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.thingsboard.rule.engine.api.TbContext;
 import org.thingsboard.rule.engine.api.TbNodeConfiguration;
 import org.thingsboard.rule.engine.api.TbNodeException;
-import org.thingsboard.server.common.data.util.TbPair;
-import org.thingsboard.server.common.msg.TbMsg;
 
 class TbCheckpointNodeDiffblueTest {
   /**
    * Test {@link TbCheckpointNode#init(TbContext, TbNodeConfiguration)}.
    * <p>
-   * Method under test:
-   * {@link TbCheckpointNode#init(TbContext, TbNodeConfiguration)}
+   * Method under test: {@link TbCheckpointNode#init(TbContext, TbNodeConfiguration)}
    */
   @Test
   @DisplayName("Test init(TbContext, TbNodeConfiguration)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbCheckpointNode.init(TbContext, TbNodeConfiguration)"})
   void testInit() throws TbNodeException {
     // Arrange
     TbCheckpointNode tbCheckpointNode = new TbCheckpointNode();
@@ -44,103 +40,67 @@ class TbCheckpointNodeDiffblueTest {
   }
 
   /**
-   * Test {@link TbCheckpointNode#onMsg(TbContext, TbMsg)}.
+   * Test {@link TbCheckpointNode#upgrade(int, JsonNode)}.
+   * <ul>
+   *   <li>Then return Second is {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is withExactBigDecimals {@code true}.</li>
+   * </ul>
    * <p>
-   * Method under test: {@link TbCheckpointNode#onMsg(TbContext, TbMsg)}
+   * Method under test: {@link TbCheckpointNode#upgrade(int, JsonNode)}
    */
   @Test
-  @DisplayName("Test onMsg(TbContext, TbMsg)")
-  void testOnMsg() {
+  @DisplayName("Test upgrade(int, JsonNode); then return Second is ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"org.thingsboard.server.common.data.util.TbPair TbCheckpointNode.upgrade(int, JsonNode)"})
+  void testUpgrade_thenReturnSecondIsArrayNodeWithNfIsWithExactBigDecimalsTrue() throws TbNodeException {
     // Arrange
     TbCheckpointNode tbCheckpointNode = new TbCheckpointNode();
-    TbContext ctx = mock(TbContext.class);
-    doNothing().when(ctx)
-        .enqueueForTellNext(Mockito.<TbMsg>any(), Mockito.<String>any(), Mockito.<String>any(), Mockito.<Runnable>any(),
-            Mockito.<Consumer<Throwable>>any());
+    ArrayNode oldConfiguration = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
 
-    // Act
-    tbCheckpointNode.onMsg(ctx, null);
-
-    // Assert
-    verify(ctx).enqueueForTellNext((TbMsg) isNull(), (String) isNull(), eq("Success"), isA(Runnable.class),
-        isA(Consumer.class));
+    // Act and Assert
+    assertSame(oldConfiguration, tbCheckpointNode.upgrade(0, oldConfiguration).getSecond());
   }
 
   /**
    * Test {@link TbCheckpointNode#upgrade(int, JsonNode)}.
    * <ul>
-   *   <li>Given {@link TbCheckpointNode} (default constructor).</li>
+   *   <li>When Instance.</li>
+   *   <li>Then return Second is Instance.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link TbCheckpointNode#upgrade(int, JsonNode)}
+   */
+  @Test
+  @DisplayName("Test upgrade(int, JsonNode); when Instance; then return Second is Instance")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"org.thingsboard.server.common.data.util.TbPair TbCheckpointNode.upgrade(int, JsonNode)"})
+  void testUpgrade_whenInstance_thenReturnSecondIsInstance() throws TbNodeException {
+    // Arrange
+    TbCheckpointNode tbCheckpointNode = new TbCheckpointNode();
+    MissingNode oldConfiguration = MissingNode.getInstance();
+
+    // Act and Assert
+    assertSame(oldConfiguration, tbCheckpointNode.upgrade(0, oldConfiguration).getSecond());
+  }
+
+  /**
+   * Test {@link TbCheckpointNode#upgrade(int, JsonNode)}.
+   * <ul>
    *   <li>When one.</li>
+   *   <li>Then return Second is Instance.</li>
    * </ul>
    * <p>
    * Method under test: {@link TbCheckpointNode#upgrade(int, JsonNode)}
    */
   @Test
-  @DisplayName("Test upgrade(int, JsonNode); given TbCheckpointNode (default constructor); when one")
-  void testUpgrade_givenTbCheckpointNode_whenOne() throws TbNodeException {
+  @DisplayName("Test upgrade(int, JsonNode); when one; then return Second is Instance")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"org.thingsboard.server.common.data.util.TbPair TbCheckpointNode.upgrade(int, JsonNode)"})
+  void testUpgrade_whenOne_thenReturnSecondIsInstance() throws TbNodeException {
     // Arrange
     TbCheckpointNode tbCheckpointNode = new TbCheckpointNode();
     MissingNode oldConfiguration = MissingNode.getInstance();
 
-    // Act
-    TbPair<Boolean, JsonNode> actualUpgradeResult = tbCheckpointNode.upgrade(1, oldConfiguration);
-
-    // Assert
-    assertFalse(actualUpgradeResult.getFirst());
-    assertSame(oldConfiguration, actualUpgradeResult.getSecond());
-  }
-
-  /**
-   * Test {@link TbCheckpointNode#upgrade(int, JsonNode)}.
-   * <ul>
-   *   <li>Given {@link TbCheckpointNode} (default constructor).</li>
-   *   <li>When zero.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbCheckpointNode#upgrade(int, JsonNode)}
-   */
-  @Test
-  @DisplayName("Test upgrade(int, JsonNode); given TbCheckpointNode (default constructor); when zero")
-  void testUpgrade_givenTbCheckpointNode_whenZero() throws TbNodeException {
-    // Arrange
-    TbCheckpointNode tbCheckpointNode = new TbCheckpointNode();
-    MissingNode oldConfiguration = MissingNode.getInstance();
-
-    // Act
-    TbPair<Boolean, JsonNode> actualUpgradeResult = tbCheckpointNode.upgrade(0, oldConfiguration);
-
-    // Assert
-    assertFalse(actualUpgradeResult.getFirst());
-    assertSame(oldConfiguration, actualUpgradeResult.getSecond());
-  }
-
-  /**
-   * Test {@link TbCheckpointNode#upgrade(int, JsonNode)}.
-   * <ul>
-   *   <li>Given {@link TbContext} {@link TbContext#getQueueName()} return
-   * {@code Queue Name}.</li>
-   *   <li>Then calls {@link TbContext#getQueueName()}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbCheckpointNode#upgrade(int, JsonNode)}
-   */
-  @Test
-  @DisplayName("Test upgrade(int, JsonNode); given TbContext getQueueName() return 'Queue Name'; then calls getQueueName()")
-  void testUpgrade_givenTbContextGetQueueNameReturnQueueName_thenCallsGetQueueName() throws TbNodeException {
-    // Arrange
-    TbContext ctx = mock(TbContext.class);
-    when(ctx.getQueueName()).thenReturn("Queue Name");
-
-    TbCheckpointNode tbCheckpointNode = new TbCheckpointNode();
-    tbCheckpointNode.init(ctx, new TbNodeConfiguration(MissingNode.getInstance()));
-    MissingNode oldConfiguration = MissingNode.getInstance();
-
-    // Act
-    TbPair<Boolean, JsonNode> actualUpgradeResult = tbCheckpointNode.upgrade(1, oldConfiguration);
-
-    // Assert
-    verify(ctx).getQueueName();
-    assertFalse(actualUpgradeResult.getFirst());
-    assertSame(oldConfiguration, actualUpgradeResult.getSecond());
+    // Act and Assert
+    assertSame(oldConfiguration, tbCheckpointNode.upgrade(1, oldConfiguration).getSecond());
   }
 }

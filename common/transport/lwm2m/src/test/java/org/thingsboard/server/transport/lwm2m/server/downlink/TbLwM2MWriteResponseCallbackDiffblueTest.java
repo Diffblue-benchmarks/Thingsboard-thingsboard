@@ -6,9 +6,11 @@ import static org.mockito.Mockito.anyInt;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.eclipse.leshan.core.request.WriteRequest;
 import org.eclipse.leshan.core.response.WriteResponse;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.thingsboard.server.transport.lwm2m.server.client.LwM2mClient;
@@ -17,19 +19,17 @@ import org.thingsboard.server.transport.lwm2m.server.uplink.LwM2mUplinkMsgHandle
 
 class TbLwM2MWriteResponseCallbackDiffblueTest {
   /**
-   * Test
-   * {@link TbLwM2MWriteResponseCallback#onSuccess(WriteRequest, WriteResponse)}
-   * with {@code WriteRequest}, {@code WriteResponse}.
+   * Test {@link TbLwM2MWriteResponseCallback#onSuccess(WriteRequest, WriteResponse)} with {@code WriteRequest}, {@code WriteResponse}.
    * <ul>
-   *   <li>Then calls
-   * {@link LwM2MTelemetryLogService#log(LwM2mClient, String)}.</li>
+   *   <li>Then calls {@link LwM2MTelemetryLogService#log(LwM2mClient, String)}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbLwM2MWriteResponseCallback#onSuccess(WriteRequest, WriteResponse)}
+   * Method under test: {@link TbLwM2MWriteResponseCallback#onSuccess(WriteRequest, WriteResponse)}
    */
   @Test
   @DisplayName("Test onSuccess(WriteRequest, WriteResponse) with 'WriteRequest', 'WriteResponse'; then calls log(LwM2mClient, String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbLwM2MWriteResponseCallback.onSuccess(WriteRequest, WriteResponse)"})
   void testOnSuccessWithWriteRequestWriteResponse_thenCallsLog() {
     // Arrange
     LwM2mUplinkMsgHandler handler = mock(LwM2mUplinkMsgHandler.class);

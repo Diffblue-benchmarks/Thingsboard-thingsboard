@@ -2,55 +2,20 @@ package org.thingsboard.server.service.sync.ie.exporting.impl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import java.util.HashMap;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Set;
-import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.thingsboard.server.common.data.EntityType;
-import org.thingsboard.server.common.data.EntityView;
-import org.thingsboard.server.common.data.User;
-import org.thingsboard.server.common.data.id.TenantId;
-import org.thingsboard.server.common.data.sync.ie.EntityExportData;
-import org.thingsboard.server.common.data.sync.vc.request.create.ComplexVersionCreateRequest;
-import org.thingsboard.server.service.sync.vc.data.CommitGitRequest;
-import org.thingsboard.server.service.sync.vc.data.ComplexEntitiesExportCtx;
-import org.thingsboard.server.service.sync.vc.data.EntitiesExportCtx;
 
+@ExtendWith(MockitoExtension.class)
 class EntityViewExportServiceDiffblueTest {
-  /**
-   * Test
-   * {@link EntityViewExportService#setRelatedEntities(EntitiesExportCtx, EntityView, EntityExportData)}
-   * with {@code EntitiesExportCtx}, {@code EntityView}, {@code EntityExportData}.
-   * <p>
-   * Method under test:
-   * {@link EntityViewExportService#setRelatedEntities(EntitiesExportCtx, EntityView, EntityExportData)}
-   */
-  @Test
-  @DisplayName("Test setRelatedEntities(EntitiesExportCtx, EntityView, EntityExportData) with 'EntitiesExportCtx', 'EntityView', 'EntityExportData'")
-  void testSetRelatedEntitiesWithEntitiesExportCtxEntityViewEntityExportData() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    EntityViewExportService entityViewExportService = new EntityViewExportService();
-    ComplexVersionCreateRequest request = mock(ComplexVersionCreateRequest.class);
-    when(request.getEntityTypes()).thenReturn(new HashMap<>());
-    User user = mock(User.class);
-    TenantId tenantId = new TenantId(UUID.randomUUID());
-    ComplexEntitiesExportCtx ctx = new ComplexEntitiesExportCtx(user,
-        new CommitGitRequest(tenantId, new ComplexVersionCreateRequest()), request);
-
-    EntityView entityView = new EntityView();
-
-    // Act
-    entityViewExportService.setRelatedEntities(ctx, entityView, new EntityExportData<>());
-
-    // Assert
-    verify(request).getEntityTypes();
-  }
+  @InjectMocks
+  private EntityViewExportService entityViewExportService;
 
   /**
    * Test {@link EntityViewExportService#getSupportedEntityTypes()}.
@@ -59,11 +24,11 @@ class EntityViewExportServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test getSupportedEntityTypes()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Set EntityViewExportService.getSupportedEntityTypes()"})
   void testGetSupportedEntityTypes() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    Set<EntityType> actualSupportedEntityTypes = (new EntityViewExportService()).getSupportedEntityTypes();
+    Set<EntityType> actualSupportedEntityTypes = entityViewExportService.getSupportedEntityTypes();
 
     // Assert
     assertEquals(1, actualSupportedEntityTypes.size());

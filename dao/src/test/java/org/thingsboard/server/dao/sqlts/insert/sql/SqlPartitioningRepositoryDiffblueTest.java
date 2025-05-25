@@ -6,17 +6,18 @@ import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
-import static org.mockito.ArgumentMatchers.isNull;
-import static org.mockito.Mockito.anyLong;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,15 +26,16 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.aot.DisabledInAotMode;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.thingsboard.server.dao.timeseries.SqlPartition;
 
-@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @ContextConfiguration(classes = {SqlPartitioningRepository.class})
-@RunWith(SpringJUnit4ClassRunner.class)
+@DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 @DisabledInAotMode
+@RunWith(SpringJUnit4ClassRunner.class)
 public class SqlPartitioningRepositoryDiffblueTest {
   @MockBean
   private JdbcTemplate jdbcTemplate;
@@ -47,6 +49,8 @@ public class SqlPartitioningRepositoryDiffblueTest {
    * Method under test: {@link SqlPartitioningRepository#save(SqlPartition)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void SqlPartitioningRepository.save(SqlPartition)"})
   public void testSave() throws DataAccessException {
     // Arrange
     doNothing().when(jdbcTemplate).execute(Mockito.<String>any());
@@ -54,7 +58,7 @@ public class SqlPartitioningRepositoryDiffblueTest {
     // Act
     sqlPartitioningRepository.save(new SqlPartition("Table", 1L, 1L, "2020-03-01"));
 
-    // Assert that nothing has changed
+    // Assert
     verify(jdbcTemplate)
         .execute(eq("CREATE TABLE IF NOT EXISTS Table_2020-03-01 PARTITION OF Table FOR VALUES FROM (1) TO (1)"));
   }
@@ -63,14 +67,15 @@ public class SqlPartitioningRepositoryDiffblueTest {
    * Test {@link SqlPartitioningRepository#save(SqlPartition)}.
    * <ul>
    *   <li>Given {@code Query}.</li>
-   *   <li>When {@link SqlPartition} {@link SqlPartition#getQuery()} return
-   * {@code Query}.</li>
+   *   <li>When {@link SqlPartition} {@link SqlPartition#getQuery()} return {@code Query}.</li>
    *   <li>Then calls {@link SqlPartition#getQuery()}.</li>
    * </ul>
    * <p>
    * Method under test: {@link SqlPartitioningRepository#save(SqlPartition)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void SqlPartitioningRepository.save(SqlPartition)"})
   public void testSave_givenQuery_whenSqlPartitionGetQueryReturnQuery_thenCallsGetQuery() throws DataAccessException {
     // Arrange
     doNothing().when(jdbcTemplate).execute(Mockito.<String>any());
@@ -80,7 +85,7 @@ public class SqlPartitioningRepositoryDiffblueTest {
     // Act
     sqlPartitioningRepository.save(partition);
 
-    // Assert that nothing has changed
+    // Assert
     verify(jdbcTemplate).execute(eq("Query"));
     verify(partition).getQuery();
   }
@@ -94,6 +99,8 @@ public class SqlPartitioningRepositoryDiffblueTest {
    * Method under test: {@link SqlPartitioningRepository#save(SqlPartition)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void SqlPartitioningRepository.save(SqlPartition)"})
   public void testSave_thenThrowEmptyResultDataAccessException() throws DataAccessException {
     // Arrange
     doThrow(new EmptyResultDataAccessException(3)).when(jdbcTemplate).execute(Mockito.<String>any());
@@ -106,17 +113,17 @@ public class SqlPartitioningRepositoryDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link SqlPartitioningRepository#createPartitionIfNotExists(String, long, long)}.
+   * Test {@link SqlPartitioningRepository#createPartitionIfNotExists(String, long, long)}.
    * <ul>
    *   <li>When {@code java.lang.Integer}.</li>
    *   <li>Then calls {@link JdbcTemplate#execute(String)}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SqlPartitioningRepository#createPartitionIfNotExists(String, long, long)}
+   * Method under test: {@link SqlPartitioningRepository#createPartitionIfNotExists(String, long, long)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void SqlPartitioningRepository.createPartitionIfNotExists(String, long, long)"})
   public void testCreatePartitionIfNotExists_whenJavaLangInteger_thenCallsExecute() throws DataAccessException {
     // Arrange
     doNothing().when(jdbcTemplate).execute(Mockito.<String>any());
@@ -130,17 +137,17 @@ public class SqlPartitioningRepositoryDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link SqlPartitioningRepository#createPartitionIfNotExists(String, long, long)}.
+   * Test {@link SqlPartitioningRepository#createPartitionIfNotExists(String, long, long)}.
    * <ul>
    *   <li>When {@code Table}.</li>
    *   <li>Then calls {@link JdbcTemplate#execute(String)}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SqlPartitioningRepository#createPartitionIfNotExists(String, long, long)}
+   * Method under test: {@link SqlPartitioningRepository#createPartitionIfNotExists(String, long, long)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void SqlPartitioningRepository.createPartitionIfNotExists(String, long, long)"})
   public void testCreatePartitionIfNotExists_whenTable_thenCallsExecute() throws DataAccessException {
     // Arrange
     doNothing().when(jdbcTemplate).execute(Mockito.<String>any());
@@ -154,13 +161,13 @@ public class SqlPartitioningRepositoryDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}.
+   * Test {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}.
    * <p>
-   * Method under test:
-   * {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}
+   * Method under test: {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"long SqlPartitioningRepository.dropPartitionsBefore(String, long, long)"})
   public void testDropPartitionsBefore() throws DataAccessException {
     // Arrange
     ArrayList<String> stringList = new ArrayList<>();
@@ -179,13 +186,13 @@ public class SqlPartitioningRepositoryDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}.
+   * Test {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}.
    * <p>
-   * Method under test:
-   * {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}
+   * Method under test: {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"long SqlPartitioningRepository.dropPartitionsBefore(String, long, long)"})
   public void testDropPartitionsBefore2() throws DataAccessException {
     // Arrange
     ArrayList<String> stringList = new ArrayList<>();
@@ -206,18 +213,18 @@ public class SqlPartitioningRepositoryDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}.
+   * Test {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}.
    * <ul>
    *   <li>Given {@link ArrayList#ArrayList()} add {@code 42}.</li>
    *   <li>When empty string.</li>
    *   <li>Then return minus one.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}
+   * Method under test: {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"long SqlPartitioningRepository.dropPartitionsBefore(String, long, long)"})
   public void testDropPartitionsBefore_givenArrayListAdd42_whenEmptyString_thenReturnMinusOne()
       throws DataAccessException {
     // Arrange
@@ -237,18 +244,17 @@ public class SqlPartitioningRepositoryDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}.
+   * Test {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}.
    * <ul>
-   *   <li>Given {@link JdbcTemplate} {@link JdbcTemplate#execute(String)} does
-   * nothing.</li>
+   *   <li>Given {@link JdbcTemplate} {@link JdbcTemplate#execute(String)} does nothing.</li>
    *   <li>Then return three.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}
+   * Method under test: {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"long SqlPartitioningRepository.dropPartitionsBefore(String, long, long)"})
   public void testDropPartitionsBefore_givenJdbcTemplateExecuteDoesNothing_thenReturnThree()
       throws DataAccessException {
     // Arrange
@@ -270,16 +276,16 @@ public class SqlPartitioningRepositoryDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}.
+   * Test {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}.
    * <ul>
    *   <li>Then throw {@link EmptyResultDataAccessException}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}
+   * Method under test: {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"long SqlPartitioningRepository.dropPartitionsBefore(String, long, long)"})
   public void testDropPartitionsBefore_thenThrowEmptyResultDataAccessException() throws DataAccessException {
     // Arrange
     when(jdbcTemplate.queryForList(Mockito.<String>any(), Mockito.<Class<String>>any(), isA(Object[].class)))
@@ -294,17 +300,17 @@ public class SqlPartitioningRepositoryDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}.
+   * Test {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}.
    * <ul>
    *   <li>When {@code Table}.</li>
    *   <li>Then return minus one.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}
+   * Method under test: {@link SqlPartitioningRepository#dropPartitionsBefore(String, long, long)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"long SqlPartitioningRepository.dropPartitionsBefore(String, long, long)"})
   public void testDropPartitionsBefore_whenTable_thenReturnMinusOne() throws DataAccessException {
     // Arrange
     when(jdbcTemplate.queryForList(Mockito.<String>any(), Mockito.<Class<String>>any(), isA(Object[].class)))
@@ -321,34 +327,6 @@ public class SqlPartitioningRepositoryDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link SqlPartitioningRepository#cleanupPartitionsCache(String, long, long)}.
-   * <ul>
-   *   <li>Then calls
-   * {@link SqlPartitioningRepository#cleanupPartitionsCache(String, long, long)}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link SqlPartitioningRepository#cleanupPartitionsCache(String, long, long)}
-   */
-  @Test
-  public void testCleanupPartitionsCache_thenCallsCleanupPartitionsCache() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DedicatedEventsSqlPartitioningRepository dedicatedEventsSqlPartitioningRepository = mock(
-        DedicatedEventsSqlPartitioningRepository.class);
-    doNothing().when(dedicatedEventsSqlPartitioningRepository)
-        .cleanupPartitionsCache(Mockito.<String>any(), anyLong(), anyLong());
-
-    // Act
-    dedicatedEventsSqlPartitioningRepository.cleanupPartitionsCache(null, 1L, 1L);
-
-    // Assert that nothing has changed
-    verify(dedicatedEventsSqlPartitioningRepository).cleanupPartitionsCache(isNull(), eq(1L), eq(1L));
-  }
-
-  /**
    * Test {@link SqlPartitioningRepository#fetchPartitions(String)}.
    * <ul>
    *   <li>Given {@link ArrayList#ArrayList()} add {@code 42}.</li>
@@ -359,6 +337,8 @@ public class SqlPartitioningRepositoryDiffblueTest {
    * Method under test: {@link SqlPartitioningRepository#fetchPartitions(String)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"List SqlPartitioningRepository.fetchPartitions(String)"})
   public void testFetchPartitions_givenArrayListAdd42_whenEmptyString_thenReturnSizeIsOne() throws DataAccessException {
     // Arrange
     ArrayList<String> stringList = new ArrayList<>();
@@ -386,6 +366,8 @@ public class SqlPartitioningRepositoryDiffblueTest {
    * Method under test: {@link SqlPartitioningRepository#fetchPartitions(String)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"List SqlPartitioningRepository.fetchPartitions(String)"})
   public void testFetchPartitions_thenReturnEmpty() throws DataAccessException {
     // Arrange
     ArrayList<String> stringList = new ArrayList<>();
@@ -412,6 +394,8 @@ public class SqlPartitioningRepositoryDiffblueTest {
    * Method under test: {@link SqlPartitioningRepository#fetchPartitions(String)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"List SqlPartitioningRepository.fetchPartitions(String)"})
   public void testFetchPartitions_thenThrowEmptyResultDataAccessException() throws DataAccessException {
     // Arrange
     when(jdbcTemplate.queryForList(Mockito.<String>any(), Mockito.<Class<String>>any(), isA(Object[].class)))
@@ -434,6 +418,8 @@ public class SqlPartitioningRepositoryDiffblueTest {
    * Method under test: {@link SqlPartitioningRepository#fetchPartitions(String)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"List SqlPartitioningRepository.fetchPartitions(String)"})
   public void testFetchPartitions_whenTable_thenReturnEmpty() throws DataAccessException {
     // Arrange
     when(jdbcTemplate.queryForList(Mockito.<String>any(), Mockito.<Class<String>>any(), isA(Object[].class)))
@@ -450,68 +436,68 @@ public class SqlPartitioningRepositoryDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link SqlPartitioningRepository#calculatePartitionStartTime(long, long)}.
+   * Test {@link SqlPartitioningRepository#calculatePartitionStartTime(long, long)}.
    * <ul>
    *   <li>When five.</li>
    *   <li>Then return five.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SqlPartitioningRepository#calculatePartitionStartTime(long, long)}
+   * Method under test: {@link SqlPartitioningRepository#calculatePartitionStartTime(long, long)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"long SqlPartitioningRepository.calculatePartitionStartTime(long, long)"})
   public void testCalculatePartitionStartTime_whenFive_thenReturnFive() {
     // Arrange, Act and Assert
     assertEquals(5L, sqlPartitioningRepository.calculatePartitionStartTime(5L, 5L));
   }
 
   /**
-   * Test
-   * {@link SqlPartitioningRepository#calculatePartitionStartTime(long, long)}.
+   * Test {@link SqlPartitioningRepository#calculatePartitionStartTime(long, long)}.
    * <ul>
    *   <li>When minus one.</li>
    *   <li>Then return zero.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SqlPartitioningRepository#calculatePartitionStartTime(long, long)}
+   * Method under test: {@link SqlPartitioningRepository#calculatePartitionStartTime(long, long)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"long SqlPartitioningRepository.calculatePartitionStartTime(long, long)"})
   public void testCalculatePartitionStartTime_whenMinusOne_thenReturnZero() {
     // Arrange, Act and Assert
     assertEquals(0L, sqlPartitioningRepository.calculatePartitionStartTime(-1L, 5L));
   }
 
   /**
-   * Test
-   * {@link SqlPartitioningRepository#calculatePartitionStartTime(long, long)}.
+   * Test {@link SqlPartitioningRepository#calculatePartitionStartTime(long, long)}.
    * <ul>
    *   <li>When one.</li>
    *   <li>Then return zero.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SqlPartitioningRepository#calculatePartitionStartTime(long, long)}
+   * Method under test: {@link SqlPartitioningRepository#calculatePartitionStartTime(long, long)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"long SqlPartitioningRepository.calculatePartitionStartTime(long, long)"})
   public void testCalculatePartitionStartTime_whenOne_thenReturnZero() {
     // Arrange, Act and Assert
     assertEquals(0L, sqlPartitioningRepository.calculatePartitionStartTime(1L, 5L));
   }
 
   /**
-   * Test
-   * {@link SqlPartitioningRepository#calculatePartitionStartTime(long, long)}.
+   * Test {@link SqlPartitioningRepository#calculatePartitionStartTime(long, long)}.
    * <ul>
    *   <li>When zero.</li>
    *   <li>Then return zero.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SqlPartitioningRepository#calculatePartitionStartTime(long, long)}
+   * Method under test: {@link SqlPartitioningRepository#calculatePartitionStartTime(long, long)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"long SqlPartitioningRepository.calculatePartitionStartTime(long, long)"})
   public void testCalculatePartitionStartTime_whenZero_thenReturnZero() {
     // Arrange, Act and Assert
     assertEquals(0L, sqlPartitioningRepository.calculatePartitionStartTime(0L, 5L));
@@ -523,6 +509,8 @@ public class SqlPartitioningRepositoryDiffblueTest {
    * Method under test: {@link SqlPartitioningRepository#getJdbcTemplate()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"JdbcTemplate SqlPartitioningRepository.getJdbcTemplate()"})
   public void testGetJdbcTemplate() {
     // Arrange, Act and Assert
     assertNull((new SqlPartitioningRepository()).getJdbcTemplate());

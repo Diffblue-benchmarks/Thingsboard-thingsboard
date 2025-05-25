@@ -2,7 +2,9 @@ package org.thingsboard.server.install;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ThingsboardInstallExceptionDiffblueTest {
@@ -11,13 +13,15 @@ class ThingsboardInstallExceptionDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link ThingsboardInstallException#ThingsboardInstallException(String, Throwable)}
+   *   <li>{@link ThingsboardInstallException#ThingsboardInstallException(String, Throwable)}
    *   <li>{@link ThingsboardInstallException#getExitCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ThingsboardInstallException.<init>(String, Throwable)",
+      "int ThingsboardInstallException.getExitCode()"})
   void testGettersAndSetters() {
     // Arrange
     Throwable cause = new Throwable();

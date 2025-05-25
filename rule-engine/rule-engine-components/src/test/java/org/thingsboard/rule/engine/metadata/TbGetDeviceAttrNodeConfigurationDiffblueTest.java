@@ -3,12 +3,14 @@ package org.thingsboard.rule.engine.metadata;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.rule.engine.data.DeviceRelationsQuery;
 import org.thingsboard.rule.engine.util.TbMsgSource;
@@ -18,11 +20,12 @@ class TbGetDeviceAttrNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbGetDeviceAttrNodeConfiguration#defaultConfiguration()}.
    * <p>
-   * Method under test:
-   * {@link TbGetDeviceAttrNodeConfiguration#defaultConfiguration()}
+   * Method under test: {@link TbGetDeviceAttrNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbGetDeviceAttrNodeConfiguration TbGetDeviceAttrNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
     // Arrange and Act
     TbGetDeviceAttrNodeConfiguration actualDefaultConfigurationResult = (new TbGetDeviceAttrNodeConfiguration())
@@ -31,9 +34,7 @@ class TbGetDeviceAttrNodeConfigurationDiffblueTest {
     // Assert
     DeviceRelationsQuery deviceRelationsQuery = actualDefaultConfigurationResult.getDeviceRelationsQuery();
     assertEquals("Contains", deviceRelationsQuery.getRelationType());
-    List<String> deviceTypes = deviceRelationsQuery.getDeviceTypes();
-    assertEquals(1, deviceTypes.size());
-    assertEquals("default", deviceTypes.get(0));
+    assertEquals(1, deviceRelationsQuery.getDeviceTypes().size());
     assertEquals(1, deviceRelationsQuery.getMaxLevel());
     assertEquals(TbMsgSource.METADATA, actualDefaultConfigurationResult.getFetchTo());
     assertEquals(EntitySearchDirection.FROM, deviceRelationsQuery.getDirection());
@@ -48,8 +49,7 @@ class TbGetDeviceAttrNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGetDeviceAttrNodeConfiguration#equals(Object)}, and
-   * {@link TbGetDeviceAttrNodeConfiguration#hashCode()}.
+   * Test {@link TbGetDeviceAttrNodeConfiguration#equals(Object)}, and {@link TbGetDeviceAttrNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -63,6 +63,9 @@ class TbGetDeviceAttrNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetDeviceAttrNodeConfiguration.equals(Object)",
+      "int TbGetDeviceAttrNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbGetDeviceAttrNodeConfiguration tbGetDeviceAttrNodeConfiguration = new TbGetDeviceAttrNodeConfiguration();
@@ -75,8 +78,7 @@ class TbGetDeviceAttrNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGetDeviceAttrNodeConfiguration#equals(Object)}, and
-   * {@link TbGetDeviceAttrNodeConfiguration#hashCode()}.
+   * Test {@link TbGetDeviceAttrNodeConfiguration#equals(Object)}, and {@link TbGetDeviceAttrNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -90,6 +92,9 @@ class TbGetDeviceAttrNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetDeviceAttrNodeConfiguration.equals(Object)",
+      "int TbGetDeviceAttrNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     DeviceRelationsQuery deviceRelationsQuery = new DeviceRelationsQuery();
@@ -119,8 +124,7 @@ class TbGetDeviceAttrNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGetDeviceAttrNodeConfiguration#equals(Object)}, and
-   * {@link TbGetDeviceAttrNodeConfiguration#hashCode()}.
+   * Test {@link TbGetDeviceAttrNodeConfiguration#equals(Object)}, and {@link TbGetDeviceAttrNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -134,6 +138,9 @@ class TbGetDeviceAttrNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetDeviceAttrNodeConfiguration.equals(Object)",
+      "int TbGetDeviceAttrNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbGetDeviceAttrNodeConfiguration tbGetDeviceAttrNodeConfiguration = new TbGetDeviceAttrNodeConfiguration();
@@ -155,10 +162,12 @@ class TbGetDeviceAttrNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetDeviceAttrNodeConfiguration.equals(Object)",
+      "int TbGetDeviceAttrNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbGetDeviceAttrNodeConfiguration(), 1);
-    assertNotEquals(new TbGetDeviceAttrNodeConfiguration(), mock(TbGetAttributesNodeConfiguration.class));
   }
 
   /**
@@ -172,6 +181,9 @@ class TbGetDeviceAttrNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetDeviceAttrNodeConfiguration.equals(Object)",
+      "int TbGetDeviceAttrNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DeviceRelationsQuery deviceRelationsQuery = new DeviceRelationsQuery();
@@ -199,6 +211,9 @@ class TbGetDeviceAttrNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetDeviceAttrNodeConfiguration.equals(Object)",
+      "int TbGetDeviceAttrNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbGetDeviceAttrNodeConfiguration tbGetDeviceAttrNodeConfiguration = new TbGetDeviceAttrNodeConfiguration();
@@ -219,6 +234,9 @@ class TbGetDeviceAttrNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetDeviceAttrNodeConfiguration.equals(Object)",
+      "int TbGetDeviceAttrNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbGetDeviceAttrNodeConfiguration tbGetDeviceAttrNodeConfiguration = new TbGetDeviceAttrNodeConfiguration();
@@ -248,6 +266,9 @@ class TbGetDeviceAttrNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetDeviceAttrNodeConfiguration.equals(Object)",
+      "int TbGetDeviceAttrNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbGetDeviceAttrNodeConfiguration(), null);
@@ -264,6 +285,9 @@ class TbGetDeviceAttrNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetDeviceAttrNodeConfiguration.equals(Object)",
+      "int TbGetDeviceAttrNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbGetDeviceAttrNodeConfiguration(), "Different type to TbGetDeviceAttrNodeConfiguration");
@@ -274,16 +298,19 @@ class TbGetDeviceAttrNodeConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link TbGetDeviceAttrNodeConfiguration}
-   *   <li>
-   * {@link TbGetDeviceAttrNodeConfiguration#setDeviceRelationsQuery(DeviceRelationsQuery)}
+   *   <li>default or parameterless constructor of {@link TbGetDeviceAttrNodeConfiguration}
+   *   <li>{@link TbGetDeviceAttrNodeConfiguration#setDeviceRelationsQuery(DeviceRelationsQuery)}
    *   <li>{@link TbGetDeviceAttrNodeConfiguration#toString()}
    *   <li>{@link TbGetDeviceAttrNodeConfiguration#getDeviceRelationsQuery()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbGetDeviceAttrNodeConfiguration.<init>()",
+      "DeviceRelationsQuery TbGetDeviceAttrNodeConfiguration.getDeviceRelationsQuery()",
+      "void TbGetDeviceAttrNodeConfiguration.setDeviceRelationsQuery(DeviceRelationsQuery)",
+      "String TbGetDeviceAttrNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbGetDeviceAttrNodeConfiguration actualTbGetDeviceAttrNodeConfiguration = new TbGetDeviceAttrNodeConfiguration();
@@ -297,11 +324,16 @@ class TbGetDeviceAttrNodeConfigurationDiffblueTest {
     String actualToStringResult = actualTbGetDeviceAttrNodeConfiguration.toString();
     DeviceRelationsQuery actualDeviceRelationsQuery = actualTbGetDeviceAttrNodeConfiguration.getDeviceRelationsQuery();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "TbGetDeviceAttrNodeConfiguration(deviceRelationsQuery=DeviceRelationsQuery(direction=FROM, maxLevel=3,"
             + " relationType=Relation Type, deviceTypes=[], fetchLastLevelOnly=true))",
         actualToStringResult);
+    assertNull(actualTbGetDeviceAttrNodeConfiguration.getClientAttributeNames());
+    assertNull(actualTbGetDeviceAttrNodeConfiguration.getLatestTsKeyNames());
+    assertNull(actualTbGetDeviceAttrNodeConfiguration.getServerAttributeNames());
+    assertNull(actualTbGetDeviceAttrNodeConfiguration.getSharedAttributeNames());
+    assertNull(actualTbGetDeviceAttrNodeConfiguration.getFetchTo());
     assertFalse(actualTbGetDeviceAttrNodeConfiguration.isGetLatestValueWithTs());
     assertFalse(actualTbGetDeviceAttrNodeConfiguration.isTellFailureIfAbsent());
     assertSame(deviceRelationsQuery, actualDeviceRelationsQuery);

@@ -2,16 +2,12 @@ package org.thingsboard.server.service.ws.telemetry.cmd.v2;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.aot.DisabledInAotMode;
 
-@DisabledInAotMode
 class EntityCountUpdateDiffblueTest {
-  @MockBean
-  private EntityCountUpdate entityCountUpdate;
-
   /**
    * Test getters and setters.
    * <ul>
@@ -28,6 +24,10 @@ class EntityCountUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; then return toString is 'EntityCountUpdate(count=0)'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityCountUpdate.<init>(int, int, int, String)",
+      "void EntityCountUpdate.<init>(int, int, String)", "CmdUpdateType EntityCountUpdate.getCmdUpdateType()",
+      "int EntityCountUpdate.getCount()", "String EntityCountUpdate.toString()"})
   void testGettersAndSetters_thenReturnToStringIsEntityCountUpdateCount0() {
     // Arrange and Act
     EntityCountUpdate actualEntityCountUpdate = new EntityCountUpdate(1, -1, "An error occurred");
@@ -61,6 +61,10 @@ class EntityCountUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when three; then return toString is 'EntityCountUpdate(count=3)'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityCountUpdate.<init>(int, int, int, String)",
+      "void EntityCountUpdate.<init>(int, int, String)", "CmdUpdateType EntityCountUpdate.getCmdUpdateType()",
+      "int EntityCountUpdate.getCount()", "String EntityCountUpdate.toString()"})
   void testGettersAndSetters_whenThree_thenReturnToStringIsEntityCountUpdateCount3() {
     // Arrange and Act
     EntityCountUpdate actualEntityCountUpdate = new EntityCountUpdate(1, 3, -1, "An error occurred");
@@ -79,12 +83,17 @@ class EntityCountUpdateDiffblueTest {
 
   /**
    * Test {@link EntityCountUpdate#EntityCountUpdate(int, int)}.
+   * <ul>
+   *   <li>Then return ErrorMsg is {@code null}.</li>
+   * </ul>
    * <p>
    * Method under test: {@link EntityCountUpdate#EntityCountUpdate(int, int)}
    */
   @Test
-  @DisplayName("Test new EntityCountUpdate(int, int)")
-  void testNewEntityCountUpdate() {
+  @DisplayName("Test new EntityCountUpdate(int, int); then return ErrorMsg is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityCountUpdate.<init>(int, int)"})
+  void testNewEntityCountUpdate_thenReturnErrorMsgIsNull() {
     // Arrange and Act
     EntityCountUpdate actualEntityCountUpdate = new EntityCountUpdate(1, 3);
 

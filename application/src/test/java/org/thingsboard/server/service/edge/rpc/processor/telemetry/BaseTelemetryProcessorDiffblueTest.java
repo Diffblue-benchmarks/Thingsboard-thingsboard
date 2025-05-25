@@ -1,11 +1,11 @@
 package org.thingsboard.server.service.edge.rpc.processor.telemetry;
 
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.DecimalNode;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.edge.EdgeEventActionType;
@@ -13,177 +13,194 @@ import org.thingsboard.server.common.data.id.TenantId;
 
 class BaseTelemetryProcessorDiffblueTest {
   /**
-   * Test
-   * {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}.
-   * <ul>
-   *   <li>When {@code ALARM}.</li>
-   *   <li>Then return {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}
-   */
-  @Test
-  @DisplayName("Test convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode); when 'ALARM'; then return 'null'")
-  void testConvertTelemetryEventToEntityDataProto_whenAlarm_thenReturnNull() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    TelemetryEdgeProcessor telemetryEdgeProcessor = new TelemetryEdgeProcessor();
-    TenantId tenantId = new TenantId(UUID.randomUUID());
-
-    // Act and Assert
-    assertNull(telemetryEdgeProcessor.convertTelemetryEventToEntityDataProto(tenantId, EntityType.ALARM,
-        UUID.randomUUID(), EdgeEventActionType.TIMESERIES_UPDATED, mock(DecimalNode.class)));
-  }
-
-  /**
-   * Test
-   * {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}.
+   * Test {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}.
    * <ul>
    *   <li>When {@code ASSET}.</li>
    *   <li>Then return {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}
+   * Method under test: {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}
    */
   @Test
   @DisplayName("Test convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode); when 'ASSET'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "org.thingsboard.server.gen.edge.v1.EntityDataProto BaseTelemetryProcessor.convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)"})
   void testConvertTelemetryEventToEntityDataProto_whenAsset_thenReturnNull() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TelemetryEdgeProcessor telemetryEdgeProcessor = new TelemetryEdgeProcessor();
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNull(telemetryEdgeProcessor.convertTelemetryEventToEntityDataProto(tenantId, EntityType.ASSET,
-        UUID.randomUUID(), EdgeEventActionType.TIMESERIES_UPDATED, null));
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), EdgeEventActionType.TIMESERIES_UPDATED, null));
   }
 
   /**
-   * Test
-   * {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}.
+   * Test {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}.
    * <ul>
    *   <li>When {@code CUSTOMER}.</li>
    *   <li>Then return {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}
+   * Method under test: {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}
    */
   @Test
   @DisplayName("Test convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode); when 'CUSTOMER'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "org.thingsboard.server.gen.edge.v1.EntityDataProto BaseTelemetryProcessor.convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)"})
   void testConvertTelemetryEventToEntityDataProto_whenCustomer_thenReturnNull() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TelemetryEdgeProcessor telemetryEdgeProcessor = new TelemetryEdgeProcessor();
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNull(telemetryEdgeProcessor.convertTelemetryEventToEntityDataProto(tenantId, EntityType.CUSTOMER,
-        UUID.randomUUID(), EdgeEventActionType.TIMESERIES_UPDATED, null));
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), EdgeEventActionType.TIMESERIES_UPDATED, null));
   }
 
   /**
-   * Test
-   * {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}.
+   * Test {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}.
    * <ul>
    *   <li>When {@code DASHBOARD}.</li>
    *   <li>Then return {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}
+   * Method under test: {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}
    */
   @Test
   @DisplayName("Test convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode); when 'DASHBOARD'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "org.thingsboard.server.gen.edge.v1.EntityDataProto BaseTelemetryProcessor.convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)"})
   void testConvertTelemetryEventToEntityDataProto_whenDashboard_thenReturnNull() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TelemetryEdgeProcessor telemetryEdgeProcessor = new TelemetryEdgeProcessor();
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNull(telemetryEdgeProcessor.convertTelemetryEventToEntityDataProto(tenantId, EntityType.DASHBOARD,
-        UUID.randomUUID(), EdgeEventActionType.TIMESERIES_UPDATED, null));
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), EdgeEventActionType.TIMESERIES_UPDATED, null));
   }
 
   /**
-   * Test
-   * {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}.
+   * Test {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}.
+   * <ul>
+   *   <li>When {@code DEVICE}.</li>
+   *   <li>Then return {@code null}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}
+   */
+  @Test
+  @DisplayName("Test convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode); when 'DEVICE'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "org.thingsboard.server.gen.edge.v1.EntityDataProto BaseTelemetryProcessor.convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)"})
+  void testConvertTelemetryEventToEntityDataProto_whenDevice_thenReturnNull() {
+    // Arrange
+    TelemetryEdgeProcessor telemetryEdgeProcessor = new TelemetryEdgeProcessor();
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertNull(telemetryEdgeProcessor.convertTelemetryEventToEntityDataProto(tenantId, EntityType.DEVICE,
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), EdgeEventActionType.TIMESERIES_UPDATED, null));
+  }
+
+  /**
+   * Test {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}.
    * <ul>
    *   <li>When {@code EDGE}.</li>
    *   <li>Then return {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}
+   * Method under test: {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}
    */
   @Test
   @DisplayName("Test convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode); when 'EDGE'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "org.thingsboard.server.gen.edge.v1.EntityDataProto BaseTelemetryProcessor.convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)"})
   void testConvertTelemetryEventToEntityDataProto_whenEdge_thenReturnNull() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TelemetryEdgeProcessor telemetryEdgeProcessor = new TelemetryEdgeProcessor();
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNull(telemetryEdgeProcessor.convertTelemetryEventToEntityDataProto(tenantId, EntityType.EDGE,
-        UUID.randomUUID(), EdgeEventActionType.TIMESERIES_UPDATED, null));
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), EdgeEventActionType.TIMESERIES_UPDATED, null));
   }
 
   /**
-   * Test
-   * {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}.
+   * Test {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}.
    * <ul>
    *   <li>When {@code ENTITY_VIEW}.</li>
    *   <li>Then return {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}
+   * Method under test: {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}
    */
   @Test
   @DisplayName("Test convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode); when 'ENTITY_VIEW'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "org.thingsboard.server.gen.edge.v1.EntityDataProto BaseTelemetryProcessor.convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)"})
   void testConvertTelemetryEventToEntityDataProto_whenEntityView_thenReturnNull() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TelemetryEdgeProcessor telemetryEdgeProcessor = new TelemetryEdgeProcessor();
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNull(telemetryEdgeProcessor.convertTelemetryEventToEntityDataProto(tenantId, EntityType.ENTITY_VIEW,
-        UUID.randomUUID(), EdgeEventActionType.TIMESERIES_UPDATED, null));
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), EdgeEventActionType.TIMESERIES_UPDATED, null));
   }
 
   /**
-   * Test
-   * {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}.
+   * Test {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}.
    * <ul>
-   *   <li>When {@code null}.</li>
+   *   <li>When {@code TENANT}.</li>
    *   <li>Then return {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}
+   * Method under test: {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}
    */
   @Test
-  @DisplayName("Test convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode); when 'null'; then return 'null'")
-  void testConvertTelemetryEventToEntityDataProto_whenNull_thenReturnNull() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode); when 'TENANT'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "org.thingsboard.server.gen.edge.v1.EntityDataProto BaseTelemetryProcessor.convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)"})
+  void testConvertTelemetryEventToEntityDataProto_whenTenant_thenReturnNull() {
     // Arrange
     TelemetryEdgeProcessor telemetryEdgeProcessor = new TelemetryEdgeProcessor();
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertNull(telemetryEdgeProcessor.convertTelemetryEventToEntityDataProto(tenantId, EntityType.DEVICE,
-        UUID.randomUUID(), EdgeEventActionType.TIMESERIES_UPDATED, null));
+    assertNull(telemetryEdgeProcessor.convertTelemetryEventToEntityDataProto(tenantId, EntityType.TENANT,
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), EdgeEventActionType.TIMESERIES_UPDATED, null));
+  }
+
+  /**
+   * Test {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}.
+   * <ul>
+   *   <li>When {@code USER}.</li>
+   *   <li>Then return {@code null}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link BaseTelemetryProcessor#convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)}
+   */
+  @Test
+  @DisplayName("Test convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode); when 'USER'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "org.thingsboard.server.gen.edge.v1.EntityDataProto BaseTelemetryProcessor.convertTelemetryEventToEntityDataProto(TenantId, EntityType, UUID, EdgeEventActionType, JsonNode)"})
+  void testConvertTelemetryEventToEntityDataProto_whenUser_thenReturnNull() {
+    // Arrange
+    TelemetryEdgeProcessor telemetryEdgeProcessor = new TelemetryEdgeProcessor();
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertNull(telemetryEdgeProcessor.convertTelemetryEventToEntityDataProto(tenantId, EntityType.USER,
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), EdgeEventActionType.TIMESERIES_UPDATED, null));
   }
 }

@@ -4,9 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.common.util.ThingsBoardThreadFactory;
 
@@ -18,9 +20,9 @@ class PubSubRuleNodeExecutorProviderDiffblueTest {
    */
   @Test
   @DisplayName("Test init()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PubSubRuleNodeExecutorProvider.init()"})
   void testInit() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     PubSubRuleNodeExecutorProvider pubSubRuleNodeExecutorProvider = new PubSubRuleNodeExecutorProvider();
 
@@ -51,6 +53,8 @@ class PubSubRuleNodeExecutorProviderDiffblueTest {
    */
   @Test
   @DisplayName("Test getExecutor()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ScheduledExecutorService PubSubRuleNodeExecutorProvider.getExecutor()"})
   void testGetExecutor() {
     // Arrange, Act and Assert
     assertNull((new PubSubRuleNodeExecutorProvider()).getExecutor());

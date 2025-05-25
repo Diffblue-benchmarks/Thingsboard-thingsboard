@@ -7,10 +7,16 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.HasName;
 import org.thingsboard.server.common.data.User;
 import org.thingsboard.server.common.data.audit.ActionType;
@@ -20,26 +26,39 @@ import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.notification.rule.trigger.EntityActionTrigger.EntityActionTriggerBuilder;
 import org.thingsboard.server.common.data.notification.rule.trigger.config.NotificationRuleTriggerType;
 
+@ContextConfiguration(classes = {EntityActionTriggerBuilder.class})
+@ExtendWith(SpringExtension.class)
 class EntityActionTriggerDiffblueTest {
+  @Autowired
+  private EntityActionTriggerBuilder entityActionTriggerBuilder;
+
   /**
    * Test EntityActionTriggerBuilder {@link EntityActionTriggerBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link EntityActionTrigger.EntityActionTriggerBuilder#build()}
-   *   <li>
-   * {@link EntityActionTrigger.EntityActionTriggerBuilder#actionType(ActionType)}
-   *   <li>{@link EntityActionTrigger.EntityActionTriggerBuilder#entity(HasName)}
-   *   <li>{@link EntityActionTrigger.EntityActionTriggerBuilder#entityId(EntityId)}
-   *   <li>{@link EntityActionTrigger.EntityActionTriggerBuilder#tenantId(TenantId)}
-   *   <li>{@link EntityActionTrigger.EntityActionTriggerBuilder#user(User)}
+   *   <li>{@link EntityActionTriggerBuilder#build()}
+   *   <li>{@link EntityActionTriggerBuilder#actionType(ActionType)}
+   *   <li>{@link EntityActionTriggerBuilder#entity(HasName)}
+   *   <li>{@link EntityActionTriggerBuilder#entityId(EntityId)}
+   *   <li>{@link EntityActionTriggerBuilder#tenantId(TenantId)}
+   *   <li>{@link EntityActionTriggerBuilder#user(User)}
    * </ul>
    */
   @Test
   @DisplayName("Test EntityActionTriggerBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityActionTriggerBuilder.<init>()",
+      "EntityActionTriggerBuilder EntityActionTriggerBuilder.actionType(ActionType)",
+      "EntityActionTrigger EntityActionTriggerBuilder.build()",
+      "EntityActionTriggerBuilder EntityActionTriggerBuilder.entity(HasName)",
+      "EntityActionTriggerBuilder EntityActionTriggerBuilder.entityId(EntityId)",
+      "EntityActionTriggerBuilder EntityActionTriggerBuilder.tenantId(TenantId)",
+      "java.lang.String EntityActionTriggerBuilder.toString()",
+      "EntityActionTriggerBuilder EntityActionTriggerBuilder.user(User)"})
   void testEntityActionTriggerBuilderBuild() {
     // Arrange
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult = EntityActionTrigger.builder()
+    EntityActionTriggerBuilder tenantIdResult = EntityActionTrigger.builder()
         .actionType(ActionType.ADDED)
         .entity(mock(HasName.class))
         .entityId(TenantId.SYS_TENANT_ID)
@@ -63,8 +82,7 @@ class EntityActionTriggerDiffblueTest {
   }
 
   /**
-   * Test {@link EntityActionTrigger#equals(Object)}, and
-   * {@link EntityActionTrigger#hashCode()}.
+   * Test {@link EntityActionTrigger#equals(Object)}, and {@link EntityActionTrigger#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -78,15 +96,17 @@ class EntityActionTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionTrigger.equals(Object)", "int EntityActionTrigger.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult = EntityActionTrigger.builder()
+    EntityActionTriggerBuilder tenantIdResult = EntityActionTrigger.builder()
         .actionType(ActionType.ADDED)
         .entity(null)
         .entityId(TenantId.SYS_TENANT_ID)
         .tenantId(TenantId.SYS_TENANT_ID);
     EntityActionTrigger buildResult = tenantIdResult.user(new User()).build();
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult2 = EntityActionTrigger.builder()
+    EntityActionTriggerBuilder tenantIdResult2 = EntityActionTrigger.builder()
         .actionType(ActionType.ADDED)
         .entity(null)
         .entityId(TenantId.SYS_TENANT_ID)
@@ -100,8 +120,7 @@ class EntityActionTriggerDiffblueTest {
   }
 
   /**
-   * Test {@link EntityActionTrigger#equals(Object)}, and
-   * {@link EntityActionTrigger#hashCode()}.
+   * Test {@link EntityActionTrigger#equals(Object)}, and {@link EntityActionTrigger#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -115,22 +134,20 @@ class EntityActionTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionTrigger.equals(Object)", "int EntityActionTrigger.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    EntityActionTrigger.EntityActionTriggerBuilder entityActionTriggerBuilder = mock(
-        EntityActionTrigger.EntityActionTriggerBuilder.class);
+    EntityActionTriggerBuilder entityActionTriggerBuilder = mock(EntityActionTriggerBuilder.class);
     when(entityActionTriggerBuilder.actionType(Mockito.<ActionType>any())).thenReturn(EntityActionTrigger.builder());
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult = entityActionTriggerBuilder
-        .actionType(ActionType.ADDED)
+    EntityActionTriggerBuilder tenantIdResult = entityActionTriggerBuilder.actionType(ActionType.ADDED)
         .entity(null)
         .entityId(TenantId.SYS_TENANT_ID)
         .tenantId(TenantId.SYS_TENANT_ID);
     EntityActionTrigger buildResult = tenantIdResult.user(new User()).build();
-    EntityActionTrigger.EntityActionTriggerBuilder entityActionTriggerBuilder2 = mock(
-        EntityActionTrigger.EntityActionTriggerBuilder.class);
+    EntityActionTriggerBuilder entityActionTriggerBuilder2 = mock(EntityActionTriggerBuilder.class);
     when(entityActionTriggerBuilder2.actionType(Mockito.<ActionType>any())).thenReturn(EntityActionTrigger.builder());
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult2 = entityActionTriggerBuilder2
-        .actionType(ActionType.ADDED)
+    EntityActionTriggerBuilder tenantIdResult2 = entityActionTriggerBuilder2.actionType(ActionType.ADDED)
         .entity(null)
         .entityId(TenantId.SYS_TENANT_ID)
         .tenantId(TenantId.SYS_TENANT_ID);
@@ -143,8 +160,7 @@ class EntityActionTriggerDiffblueTest {
   }
 
   /**
-   * Test {@link EntityActionTrigger#equals(Object)}, and
-   * {@link EntityActionTrigger#hashCode()}.
+   * Test {@link EntityActionTrigger#equals(Object)}, and {@link EntityActionTrigger#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -158,10 +174,11 @@ class EntityActionTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionTrigger.equals(Object)", "int EntityActionTrigger.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    EntityActionTrigger.EntityActionTriggerBuilder entityActionTriggerBuilder = mock(
-        EntityActionTrigger.EntityActionTriggerBuilder.class);
+    EntityActionTriggerBuilder entityActionTriggerBuilder = mock(EntityActionTriggerBuilder.class);
     when(entityActionTriggerBuilder.actionType(Mockito.<ActionType>any())).thenReturn(EntityActionTrigger.builder());
     EntityActionTrigger buildResult = entityActionTriggerBuilder.actionType(ActionType.ADDED)
         .entity(null)
@@ -169,8 +186,7 @@ class EntityActionTriggerDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .user(null)
         .build();
-    EntityActionTrigger.EntityActionTriggerBuilder entityActionTriggerBuilder2 = mock(
-        EntityActionTrigger.EntityActionTriggerBuilder.class);
+    EntityActionTriggerBuilder entityActionTriggerBuilder2 = mock(EntityActionTriggerBuilder.class);
     when(entityActionTriggerBuilder2.actionType(Mockito.<ActionType>any())).thenReturn(EntityActionTrigger.builder());
     EntityActionTrigger buildResult2 = entityActionTriggerBuilder2.actionType(ActionType.ADDED)
         .entity(null)
@@ -186,8 +202,7 @@ class EntityActionTriggerDiffblueTest {
   }
 
   /**
-   * Test {@link EntityActionTrigger#equals(Object)}, and
-   * {@link EntityActionTrigger#hashCode()}.
+   * Test {@link EntityActionTrigger#equals(Object)}, and {@link EntityActionTrigger#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -201,9 +216,11 @@ class EntityActionTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionTrigger.equals(Object)", "int EntityActionTrigger.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult = EntityActionTrigger.builder()
+    EntityActionTriggerBuilder tenantIdResult = EntityActionTrigger.builder()
         .actionType(ActionType.ADDED)
         .entity(mock(HasName.class))
         .entityId(TenantId.SYS_TENANT_ID)
@@ -227,15 +244,17 @@ class EntityActionTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionTrigger.equals(Object)", "int EntityActionTrigger.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult = EntityActionTrigger.builder()
+    EntityActionTriggerBuilder tenantIdResult = EntityActionTrigger.builder()
         .actionType(ActionType.ADDED)
         .entity(mock(HasName.class))
         .entityId(TenantId.SYS_TENANT_ID)
         .tenantId(TenantId.SYS_TENANT_ID);
     EntityActionTrigger buildResult = tenantIdResult.user(new User()).build();
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult2 = EntityActionTrigger.builder()
+    EntityActionTriggerBuilder tenantIdResult2 = EntityActionTrigger.builder()
         .actionType(ActionType.ADDED)
         .entity(mock(HasName.class))
         .entityId(TenantId.SYS_TENANT_ID)
@@ -257,15 +276,17 @@ class EntityActionTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionTrigger.equals(Object)", "int EntityActionTrigger.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult = EntityActionTrigger.builder()
+    EntityActionTriggerBuilder tenantIdResult = EntityActionTrigger.builder()
         .actionType(ActionType.ADDED)
         .entity(null)
         .entityId(TenantId.SYS_TENANT_ID)
         .tenantId(TenantId.SYS_TENANT_ID);
     EntityActionTrigger buildResult = tenantIdResult.user(new User()).build();
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult2 = EntityActionTrigger.builder()
+    EntityActionTriggerBuilder tenantIdResult2 = EntityActionTrigger.builder()
         .actionType(ActionType.ADDED)
         .entity(mock(HasName.class))
         .entityId(TenantId.SYS_TENANT_ID)
@@ -287,15 +308,17 @@ class EntityActionTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionTrigger.equals(Object)", "int EntityActionTrigger.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult = EntityActionTrigger.builder()
+    EntityActionTriggerBuilder tenantIdResult = EntityActionTrigger.builder()
         .actionType(ActionType.ADDED)
         .entity(mock(HasName.class))
         .entityId(null)
         .tenantId(TenantId.SYS_TENANT_ID);
     EntityActionTrigger buildResult = tenantIdResult.user(new User()).build();
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult2 = EntityActionTrigger.builder()
+    EntityActionTriggerBuilder tenantIdResult2 = EntityActionTrigger.builder()
         .actionType(ActionType.ADDED)
         .entity(mock(HasName.class))
         .entityId(TenantId.SYS_TENANT_ID)
@@ -317,16 +340,18 @@ class EntityActionTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionTrigger.equals(Object)", "int EntityActionTrigger.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    EntityActionTrigger.EntityActionTriggerBuilder entityResult = EntityActionTrigger.builder()
+    EntityActionTriggerBuilder entityResult = EntityActionTrigger.builder()
         .actionType(ActionType.ADDED)
         .entity(mock(HasName.class));
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult = entityResult
+    EntityActionTriggerBuilder tenantIdResult = entityResult
         .entityId(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
         .tenantId(TenantId.SYS_TENANT_ID);
     EntityActionTrigger buildResult = tenantIdResult.user(new User()).build();
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult2 = EntityActionTrigger.builder()
+    EntityActionTriggerBuilder tenantIdResult2 = EntityActionTrigger.builder()
         .actionType(ActionType.ADDED)
         .entity(mock(HasName.class))
         .entityId(TenantId.SYS_TENANT_ID)
@@ -348,16 +373,18 @@ class EntityActionTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionTrigger.equals(Object)", "int EntityActionTrigger.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    EntityActionTrigger.EntityActionTriggerBuilder entityIdResult = EntityActionTrigger.builder()
+    EntityActionTriggerBuilder entityIdResult = EntityActionTrigger.builder()
         .actionType(ActionType.ADDED)
         .entity(mock(HasName.class))
         .entityId(TenantId.SYS_TENANT_ID);
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult = entityIdResult
+    EntityActionTriggerBuilder tenantIdResult = entityIdResult
         .tenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     EntityActionTrigger buildResult = tenantIdResult.user(new User()).build();
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult2 = EntityActionTrigger.builder()
+    EntityActionTriggerBuilder tenantIdResult2 = EntityActionTrigger.builder()
         .actionType(ActionType.ADDED)
         .entity(mock(HasName.class))
         .entityId(TenantId.SYS_TENANT_ID)
@@ -379,15 +406,17 @@ class EntityActionTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionTrigger.equals(Object)", "int EntityActionTrigger.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult = EntityActionTrigger.builder()
+    EntityActionTriggerBuilder tenantIdResult = EntityActionTrigger.builder()
         .actionType(ActionType.ADDED)
         .entity(mock(HasName.class))
         .entityId(TenantId.SYS_TENANT_ID)
         .tenantId(null);
     EntityActionTrigger buildResult = tenantIdResult.user(new User()).build();
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult2 = EntityActionTrigger.builder()
+    EntityActionTriggerBuilder tenantIdResult2 = EntityActionTrigger.builder()
         .actionType(ActionType.ADDED)
         .entity(mock(HasName.class))
         .entityId(TenantId.SYS_TENANT_ID)
@@ -409,15 +438,17 @@ class EntityActionTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionTrigger.equals(Object)", "int EntityActionTrigger.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult = EntityActionTrigger.builder()
+    EntityActionTriggerBuilder tenantIdResult = EntityActionTrigger.builder()
         .actionType(ActionType.ADDED)
         .entity(mock(HasName.class))
         .entityId(null)
         .tenantId(TenantId.SYS_TENANT_ID);
     EntityActionTrigger buildResult = tenantIdResult.user(new User()).build();
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult2 = EntityActionTrigger.builder()
+    EntityActionTriggerBuilder tenantIdResult2 = EntityActionTrigger.builder()
         .actionType(ActionType.ADDED)
         .entity(mock(HasName.class))
         .entityId(null)
@@ -439,15 +470,17 @@ class EntityActionTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionTrigger.equals(Object)", "int EntityActionTrigger.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult = EntityActionTrigger.builder()
+    EntityActionTriggerBuilder tenantIdResult = EntityActionTrigger.builder()
         .actionType(ActionType.ADDED)
         .entity(mock(HasName.class))
         .entityId(TenantId.SYS_TENANT_ID)
         .tenantId(null);
     EntityActionTrigger buildResult = tenantIdResult.user(new User()).build();
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult2 = EntityActionTrigger.builder()
+    EntityActionTriggerBuilder tenantIdResult2 = EntityActionTrigger.builder()
         .actionType(ActionType.ADDED)
         .entity(mock(HasName.class))
         .entityId(TenantId.SYS_TENANT_ID)
@@ -469,18 +502,18 @@ class EntityActionTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionTrigger.equals(Object)", "int EntityActionTrigger.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
-    EntityActionTrigger.EntityActionTriggerBuilder entityActionTriggerBuilder = mock(
-        EntityActionTrigger.EntityActionTriggerBuilder.class);
+    EntityActionTriggerBuilder entityActionTriggerBuilder = mock(EntityActionTriggerBuilder.class);
     when(entityActionTriggerBuilder.actionType(Mockito.<ActionType>any())).thenReturn(EntityActionTrigger.builder());
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult = entityActionTriggerBuilder
-        .actionType(ActionType.ADDED)
+    EntityActionTriggerBuilder tenantIdResult = entityActionTriggerBuilder.actionType(ActionType.ADDED)
         .entity(null)
         .entityId(TenantId.SYS_TENANT_ID)
         .tenantId(TenantId.SYS_TENANT_ID);
     EntityActionTrigger buildResult = tenantIdResult.user(new User()).build();
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult2 = EntityActionTrigger.builder()
+    EntityActionTriggerBuilder tenantIdResult2 = EntityActionTrigger.builder()
         .actionType(ActionType.ADDED)
         .entity(null)
         .entityId(TenantId.SYS_TENANT_ID)
@@ -502,10 +535,11 @@ class EntityActionTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionTrigger.equals(Object)", "int EntityActionTrigger.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
-    EntityActionTrigger.EntityActionTriggerBuilder entityActionTriggerBuilder = mock(
-        EntityActionTrigger.EntityActionTriggerBuilder.class);
+    EntityActionTriggerBuilder entityActionTriggerBuilder = mock(EntityActionTriggerBuilder.class);
     when(entityActionTriggerBuilder.actionType(Mockito.<ActionType>any())).thenReturn(EntityActionTrigger.builder());
     EntityActionTrigger buildResult = entityActionTriggerBuilder.actionType(ActionType.ADDED)
         .entity(null)
@@ -513,11 +547,9 @@ class EntityActionTriggerDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .user(null)
         .build();
-    EntityActionTrigger.EntityActionTriggerBuilder entityActionTriggerBuilder2 = mock(
-        EntityActionTrigger.EntityActionTriggerBuilder.class);
+    EntityActionTriggerBuilder entityActionTriggerBuilder2 = mock(EntityActionTriggerBuilder.class);
     when(entityActionTriggerBuilder2.actionType(Mockito.<ActionType>any())).thenReturn(EntityActionTrigger.builder());
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult = entityActionTriggerBuilder2
-        .actionType(ActionType.ADDED)
+    EntityActionTriggerBuilder tenantIdResult = entityActionTriggerBuilder2.actionType(ActionType.ADDED)
         .entity(null)
         .entityId(TenantId.SYS_TENANT_ID)
         .tenantId(TenantId.SYS_TENANT_ID);
@@ -538,22 +570,20 @@ class EntityActionTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionTrigger.equals(Object)", "int EntityActionTrigger.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
-    EntityActionTrigger.EntityActionTriggerBuilder entityActionTriggerBuilder = mock(
-        EntityActionTrigger.EntityActionTriggerBuilder.class);
+    EntityActionTriggerBuilder entityActionTriggerBuilder = mock(EntityActionTriggerBuilder.class);
     when(entityActionTriggerBuilder.actionType(Mockito.<ActionType>any())).thenReturn(EntityActionTrigger.builder());
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult = entityActionTriggerBuilder
-        .actionType(ActionType.ADDED)
+    EntityActionTriggerBuilder tenantIdResult = entityActionTriggerBuilder.actionType(ActionType.ADDED)
         .entity(null)
         .entityId(TenantId.SYS_TENANT_ID)
         .tenantId(TenantId.SYS_TENANT_ID);
     EntityActionTrigger buildResult = tenantIdResult.user(new User(new User())).build();
-    EntityActionTrigger.EntityActionTriggerBuilder entityActionTriggerBuilder2 = mock(
-        EntityActionTrigger.EntityActionTriggerBuilder.class);
+    EntityActionTriggerBuilder entityActionTriggerBuilder2 = mock(EntityActionTriggerBuilder.class);
     when(entityActionTriggerBuilder2.actionType(Mockito.<ActionType>any())).thenReturn(EntityActionTrigger.builder());
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult2 = entityActionTriggerBuilder2
-        .actionType(ActionType.ADDED)
+    EntityActionTriggerBuilder tenantIdResult2 = entityActionTriggerBuilder2.actionType(ActionType.ADDED)
         .entity(null)
         .entityId(TenantId.SYS_TENANT_ID)
         .tenantId(TenantId.SYS_TENANT_ID);
@@ -574,24 +604,22 @@ class EntityActionTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionTrigger.equals(Object)", "int EntityActionTrigger.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
-    EntityActionTrigger.EntityActionTriggerBuilder builderResult = EntityActionTrigger.builder();
+    EntityActionTriggerBuilder builderResult = EntityActionTrigger.builder();
     builderResult.actionType(ActionType.ADDED);
-    EntityActionTrigger.EntityActionTriggerBuilder entityActionTriggerBuilder = mock(
-        EntityActionTrigger.EntityActionTriggerBuilder.class);
+    EntityActionTriggerBuilder entityActionTriggerBuilder = mock(EntityActionTriggerBuilder.class);
     when(entityActionTriggerBuilder.actionType(Mockito.<ActionType>any())).thenReturn(builderResult);
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult = entityActionTriggerBuilder
-        .actionType(ActionType.ADDED)
+    EntityActionTriggerBuilder tenantIdResult = entityActionTriggerBuilder.actionType(ActionType.ADDED)
         .entity(null)
         .entityId(TenantId.SYS_TENANT_ID)
         .tenantId(TenantId.SYS_TENANT_ID);
     EntityActionTrigger buildResult = tenantIdResult.user(new User()).build();
-    EntityActionTrigger.EntityActionTriggerBuilder entityActionTriggerBuilder2 = mock(
-        EntityActionTrigger.EntityActionTriggerBuilder.class);
+    EntityActionTriggerBuilder entityActionTriggerBuilder2 = mock(EntityActionTriggerBuilder.class);
     when(entityActionTriggerBuilder2.actionType(Mockito.<ActionType>any())).thenReturn(EntityActionTrigger.builder());
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult2 = entityActionTriggerBuilder2
-        .actionType(ActionType.ADDED)
+    EntityActionTriggerBuilder tenantIdResult2 = entityActionTriggerBuilder2.actionType(ActionType.ADDED)
         .entity(null)
         .entityId(TenantId.SYS_TENANT_ID)
         .tenantId(TenantId.SYS_TENANT_ID);
@@ -612,9 +640,11 @@ class EntityActionTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionTrigger.equals(Object)", "int EntityActionTrigger.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult = EntityActionTrigger.builder()
+    EntityActionTriggerBuilder tenantIdResult = EntityActionTrigger.builder()
         .actionType(ActionType.ADDED)
         .entity(mock(HasName.class))
         .entityId(TenantId.SYS_TENANT_ID)
@@ -636,9 +666,11 @@ class EntityActionTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionTrigger.equals(Object)", "int EntityActionTrigger.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    EntityActionTrigger.EntityActionTriggerBuilder tenantIdResult = EntityActionTrigger.builder()
+    EntityActionTriggerBuilder tenantIdResult = EntityActionTrigger.builder()
         .actionType(ActionType.ADDED)
         .entity(mock(HasName.class))
         .entityId(TenantId.SYS_TENANT_ID)
@@ -654,8 +686,7 @@ class EntityActionTriggerDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link EntityActionTrigger#EntityActionTrigger(TenantId, EntityId, HasName, ActionType, User)}
+   *   <li>{@link EntityActionTrigger#EntityActionTrigger(TenantId, EntityId, HasName, ActionType, User)}
    *   <li>{@link EntityActionTrigger#toString()}
    *   <li>{@link EntityActionTrigger#getActionType()}
    *   <li>{@link EntityActionTrigger#getEntity()}
@@ -668,6 +699,12 @@ class EntityActionTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityActionTrigger.<init>(TenantId, EntityId, HasName, ActionType, User)",
+      "ActionType EntityActionTrigger.getActionType()", "HasName EntityActionTrigger.getEntity()",
+      "EntityId EntityActionTrigger.getEntityId()", "EntityId EntityActionTrigger.getOriginatorEntityId()",
+      "TenantId EntityActionTrigger.getTenantId()", "NotificationRuleTriggerType EntityActionTrigger.getType()",
+      "User EntityActionTrigger.getUser()", "java.lang.String EntityActionTrigger.toString()"})
   void testGettersAndSetters() {
     // Arrange
     HasName entity = mock(HasName.class);

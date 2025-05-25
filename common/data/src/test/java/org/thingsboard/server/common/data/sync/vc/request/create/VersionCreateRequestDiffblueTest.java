@@ -7,43 +7,15 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
-import java.util.function.BiFunction;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.TenantId;
 
 class VersionCreateRequestDiffblueTest {
-  /**
-   * Test {@link VersionCreateRequest#canEqual(Object)}.
-   * <ul>
-   *   <li>Given {@link HashMap#HashMap()} computeIfPresent {@code TENANT} and
-   * {@link BiFunction}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link VersionCreateRequest#canEqual(Object)}
-   */
-  @Test
-  @DisplayName("Test canEqual(Object); given HashMap() computeIfPresent 'TENANT' and BiFunction")
-  void testCanEqual_givenHashMapComputeIfPresentTenantAndBiFunction() {
-    // Arrange
-    ComplexVersionCreateRequest complexVersionCreateRequest = new ComplexVersionCreateRequest();
-
-    HashMap<EntityType, EntityTypeVersionCreateConfig> entityTypes = new HashMap<>();
-    entityTypes.computeIfPresent(EntityType.TENANT, mock(BiFunction.class));
-
-    ComplexVersionCreateRequest complexVersionCreateRequest2 = new ComplexVersionCreateRequest();
-    complexVersionCreateRequest2.setBranch("janedoe/featurebranch");
-    complexVersionCreateRequest2.setEntityTypes(entityTypes);
-    complexVersionCreateRequest2.setSyncStrategy(SyncStrategy.MERGE);
-    complexVersionCreateRequest2.setVersionName("1.0.2");
-
-    // Act and Assert
-    assertTrue(complexVersionCreateRequest.canEqual(complexVersionCreateRequest2));
-  }
-
   /**
    * Test {@link VersionCreateRequest#canEqual(Object)}.
    * <ul>
@@ -55,6 +27,8 @@ class VersionCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test canEqual(Object); when ComplexVersionCreateRequest (default constructor); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionCreateRequest.canEqual(Object)"})
   void testCanEqual_whenComplexVersionCreateRequest_thenReturnTrue() {
     // Arrange
     ComplexVersionCreateRequest complexVersionCreateRequest = new ComplexVersionCreateRequest();
@@ -74,14 +48,15 @@ class VersionCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test canEqual(Object); when 'Other'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionCreateRequest.canEqual(Object)"})
   void testCanEqual_whenOther_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse((new ComplexVersionCreateRequest()).canEqual("Other"));
   }
 
   /**
-   * Test {@link VersionCreateRequest#equals(Object)}, and
-   * {@link VersionCreateRequest#hashCode()}.
+   * Test {@link VersionCreateRequest#equals(Object)}, and {@link VersionCreateRequest#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -91,6 +66,8 @@ class VersionCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionCreateRequest.equals(Object)", "int VersionCreateRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ComplexVersionCreateRequest complexVersionCreateRequest = new ComplexVersionCreateRequest();
@@ -103,8 +80,7 @@ class VersionCreateRequestDiffblueTest {
   }
 
   /**
-   * Test {@link VersionCreateRequest#equals(Object)}, and
-   * {@link VersionCreateRequest#hashCode()}.
+   * Test {@link VersionCreateRequest#equals(Object)}, and {@link VersionCreateRequest#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -114,6 +90,8 @@ class VersionCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionCreateRequest.equals(Object)", "int VersionCreateRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ComplexVersionCreateRequest complexVersionCreateRequest = new ComplexVersionCreateRequest();
@@ -135,6 +113,8 @@ class VersionCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionCreateRequest.equals(Object)", "int VersionCreateRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ComplexVersionCreateRequest complexVersionCreateRequest = new ComplexVersionCreateRequest();
@@ -165,6 +145,8 @@ class VersionCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionCreateRequest.equals(Object)", "int VersionCreateRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ComplexVersionCreateRequest complexVersionCreateRequest = new ComplexVersionCreateRequest();
@@ -190,6 +172,8 @@ class VersionCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionCreateRequest.equals(Object)", "int VersionCreateRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     ComplexVersionCreateRequest complexVersionCreateRequest = new ComplexVersionCreateRequest();
@@ -215,6 +199,8 @@ class VersionCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionCreateRequest.equals(Object)", "int VersionCreateRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     ComplexVersionCreateRequest complexVersionCreateRequest = new ComplexVersionCreateRequest();
@@ -241,6 +227,8 @@ class VersionCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionCreateRequest.equals(Object)", "int VersionCreateRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     ComplexVersionCreateRequest complexVersionCreateRequest = new ComplexVersionCreateRequest();
@@ -267,6 +255,8 @@ class VersionCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionCreateRequest.equals(Object)", "int VersionCreateRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     ComplexVersionCreateRequest complexVersionCreateRequest = new ComplexVersionCreateRequest();
@@ -293,6 +283,8 @@ class VersionCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionCreateRequest.equals(Object)", "int VersionCreateRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     ComplexVersionCreateRequest complexVersionCreateRequest = new ComplexVersionCreateRequest();
@@ -319,6 +311,8 @@ class VersionCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionCreateRequest.equals(Object)", "int VersionCreateRequest.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new ComplexVersionCreateRequest(), null);
@@ -335,6 +329,8 @@ class VersionCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionCreateRequest.equals(Object)", "int VersionCreateRequest.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new ComplexVersionCreateRequest(), "Different type to VersionCreateRequest");
@@ -342,91 +338,42 @@ class VersionCreateRequestDiffblueTest {
 
   /**
    * Test {@link VersionCreateRequest#getBranch()}.
-   * <ul>
-   *   <li>Given {@link ComplexVersionCreateRequest} (default constructor).</li>
-   * </ul>
    * <p>
    * Method under test: {@link VersionCreateRequest#getBranch()}
    */
   @Test
-  @DisplayName("Test getBranch(); given ComplexVersionCreateRequest (default constructor)")
-  void testGetBranch_givenComplexVersionCreateRequest() {
+  @DisplayName("Test getBranch()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String VersionCreateRequest.getBranch()"})
+  void testGetBranch() {
     // Arrange, Act and Assert
     assertNull((new ComplexVersionCreateRequest()).getBranch());
   }
 
   /**
-   * Test {@link VersionCreateRequest#getBranch()}.
-   * <ul>
-   *   <li>Given {@link HashMap#HashMap()} computeIfPresent {@code TENANT} and
-   * {@link BiFunction}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link VersionCreateRequest#getBranch()}
-   */
-  @Test
-  @DisplayName("Test getBranch(); given HashMap() computeIfPresent 'TENANT' and BiFunction")
-  void testGetBranch_givenHashMapComputeIfPresentTenantAndBiFunction() {
-    // Arrange
-    HashMap<EntityType, EntityTypeVersionCreateConfig> entityTypes = new HashMap<>();
-    entityTypes.computeIfPresent(EntityType.TENANT, mock(BiFunction.class));
-
-    ComplexVersionCreateRequest complexVersionCreateRequest = new ComplexVersionCreateRequest();
-    complexVersionCreateRequest.setEntityTypes(entityTypes);
-
-    // Act and Assert
-    assertNull(complexVersionCreateRequest.getBranch());
-  }
-
-  /**
    * Test {@link VersionCreateRequest#getVersionName()}.
-   * <ul>
-   *   <li>Given {@link ComplexVersionCreateRequest} (default constructor).</li>
-   * </ul>
    * <p>
    * Method under test: {@link VersionCreateRequest#getVersionName()}
    */
   @Test
-  @DisplayName("Test getVersionName(); given ComplexVersionCreateRequest (default constructor)")
-  void testGetVersionName_givenComplexVersionCreateRequest() {
+  @DisplayName("Test getVersionName()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String VersionCreateRequest.getVersionName()"})
+  void testGetVersionName() {
     // Arrange, Act and Assert
     assertNull((new ComplexVersionCreateRequest()).getVersionName());
   }
 
   /**
-   * Test {@link VersionCreateRequest#getVersionName()}.
-   * <ul>
-   *   <li>Given {@link HashMap#HashMap()} computeIfPresent {@code TENANT} and
-   * {@link BiFunction}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link VersionCreateRequest#getVersionName()}
-   */
-  @Test
-  @DisplayName("Test getVersionName(); given HashMap() computeIfPresent 'TENANT' and BiFunction")
-  void testGetVersionName_givenHashMapComputeIfPresentTenantAndBiFunction() {
-    // Arrange
-    HashMap<EntityType, EntityTypeVersionCreateConfig> entityTypes = new HashMap<>();
-    entityTypes.computeIfPresent(EntityType.TENANT, mock(BiFunction.class));
-
-    ComplexVersionCreateRequest complexVersionCreateRequest = new ComplexVersionCreateRequest();
-    complexVersionCreateRequest.setEntityTypes(entityTypes);
-
-    // Act and Assert
-    assertNull(complexVersionCreateRequest.getVersionName());
-  }
-
-  /**
    * Test {@link VersionCreateRequest#setBranch(String)}.
-   * <ul>
-   *   <li>Given {@link ComplexVersionCreateRequest} (default constructor).</li>
-   * </ul>
    * <p>
    * Method under test: {@link VersionCreateRequest#setBranch(String)}
    */
   @Test
-  @DisplayName("Test setBranch(String); given ComplexVersionCreateRequest (default constructor)")
-  void testSetBranch_givenComplexVersionCreateRequest() {
+  @DisplayName("Test setBranch(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void VersionCreateRequest.setBranch(String)"})
+  void testSetBranch() {
     // Arrange
     ComplexVersionCreateRequest complexVersionCreateRequest = new ComplexVersionCreateRequest();
 
@@ -438,70 +385,17 @@ class VersionCreateRequestDiffblueTest {
   }
 
   /**
-   * Test {@link VersionCreateRequest#setBranch(String)}.
-   * <ul>
-   *   <li>Given {@link HashMap#HashMap()} computeIfPresent {@code TENANT} and
-   * {@link BiFunction}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link VersionCreateRequest#setBranch(String)}
-   */
-  @Test
-  @DisplayName("Test setBranch(String); given HashMap() computeIfPresent 'TENANT' and BiFunction")
-  void testSetBranch_givenHashMapComputeIfPresentTenantAndBiFunction() {
-    // Arrange
-    HashMap<EntityType, EntityTypeVersionCreateConfig> entityTypes = new HashMap<>();
-    entityTypes.computeIfPresent(EntityType.TENANT, mock(BiFunction.class));
-
-    ComplexVersionCreateRequest complexVersionCreateRequest = new ComplexVersionCreateRequest();
-    complexVersionCreateRequest.setEntityTypes(entityTypes);
-
-    // Act
-    complexVersionCreateRequest.setBranch("janedoe/featurebranch");
-
-    // Assert
-    assertEquals("janedoe/featurebranch", complexVersionCreateRequest.getBranch());
-  }
-
-  /**
    * Test {@link VersionCreateRequest#setVersionName(String)}.
-   * <ul>
-   *   <li>Given {@link ComplexVersionCreateRequest} (default constructor).</li>
-   * </ul>
    * <p>
    * Method under test: {@link VersionCreateRequest#setVersionName(String)}
    */
   @Test
-  @DisplayName("Test setVersionName(String); given ComplexVersionCreateRequest (default constructor)")
-  void testSetVersionName_givenComplexVersionCreateRequest() {
+  @DisplayName("Test setVersionName(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void VersionCreateRequest.setVersionName(String)"})
+  void testSetVersionName() {
     // Arrange
     ComplexVersionCreateRequest complexVersionCreateRequest = new ComplexVersionCreateRequest();
-
-    // Act
-    complexVersionCreateRequest.setVersionName("1.0.2");
-
-    // Assert
-    assertEquals("1.0.2", complexVersionCreateRequest.getVersionName());
-  }
-
-  /**
-   * Test {@link VersionCreateRequest#setVersionName(String)}.
-   * <ul>
-   *   <li>Given {@link HashMap#HashMap()} computeIfPresent {@code TENANT} and
-   * {@link BiFunction}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link VersionCreateRequest#setVersionName(String)}
-   */
-  @Test
-  @DisplayName("Test setVersionName(String); given HashMap() computeIfPresent 'TENANT' and BiFunction")
-  void testSetVersionName_givenHashMapComputeIfPresentTenantAndBiFunction() {
-    // Arrange
-    HashMap<EntityType, EntityTypeVersionCreateConfig> entityTypes = new HashMap<>();
-    entityTypes.computeIfPresent(EntityType.TENANT, mock(BiFunction.class));
-
-    ComplexVersionCreateRequest complexVersionCreateRequest = new ComplexVersionCreateRequest();
-    complexVersionCreateRequest.setEntityTypes(entityTypes);
 
     // Act
     complexVersionCreateRequest.setVersionName("1.0.2");
@@ -517,33 +411,11 @@ class VersionCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test toString()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String VersionCreateRequest.toString()"})
   void testToString() {
     // Arrange, Act and Assert
     assertEquals("ComplexVersionCreateRequest(syncStrategy=null, entityTypes=null)",
         (new ComplexVersionCreateRequest()).toString());
-  }
-
-  /**
-   * Test {@link VersionCreateRequest#toString()}.
-   * <ul>
-   *   <li>Then return {@code ComplexVersionCreateRequest(syncStrategy=null,
-   * entityTypes={})}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link VersionCreateRequest#toString()}
-   */
-  @Test
-  @DisplayName("Test toString(); then return 'ComplexVersionCreateRequest(syncStrategy=null, entityTypes={})'")
-  void testToString_thenReturnComplexVersionCreateRequestSyncStrategyNullEntityTypes() {
-    // Arrange
-    HashMap<EntityType, EntityTypeVersionCreateConfig> entityTypes = new HashMap<>();
-    entityTypes.computeIfPresent(EntityType.TENANT, mock(BiFunction.class));
-
-    ComplexVersionCreateRequest complexVersionCreateRequest = new ComplexVersionCreateRequest();
-    complexVersionCreateRequest.setEntityTypes(entityTypes);
-
-    // Act and Assert
-    assertEquals("ComplexVersionCreateRequest(syncStrategy=null, entityTypes={})",
-        complexVersionCreateRequest.toString());
   }
 }

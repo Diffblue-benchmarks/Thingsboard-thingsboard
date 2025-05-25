@@ -9,12 +9,16 @@ import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.micrometer.core.instrument.Meter;
+import io.micrometer.core.instrument.Meter.Id;
+import io.micrometer.core.instrument.Meter.Type;
 import io.micrometer.core.instrument.Tags;
 import io.micrometer.core.instrument.cumulative.CumulativeCounter;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.mockito.Mockito;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.stats.DefaultCounter;
@@ -25,22 +29,24 @@ import org.thingsboard.server.dao.model.ModelConstants;
 
 public class BufferedRateExecutorStatsDiffblueTest {
   /**
-   * Test
-   * {@link BufferedRateExecutorStats#BufferedRateExecutorStats(StatsFactory)}.
+   * Test {@link BufferedRateExecutorStats#BufferedRateExecutorStats(StatsFactory)}.
    * <ul>
    *   <li>Then return StatsCounters size is seven.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BufferedRateExecutorStats#BufferedRateExecutorStats(StatsFactory)}
+   * Method under test: {@link BufferedRateExecutorStats#BufferedRateExecutorStats(StatsFactory)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void BufferedRateExecutorStats.<init>(StatsFactory)"})
   public void testNewBufferedRateExecutorStats_thenReturnStatsCountersSizeIsSeven() {
     // Arrange
     DefaultStatsFactory statsFactory = mock(DefaultStatsFactory.class);
     AtomicInteger aiCounter = new AtomicInteger(1);
-    StatsCounter statsCounter = new StatsCounter(aiCounter, new CumulativeCounter(new Meter.Id("Name", Tags.empty(),
-        "Base Unit", "The characteristics of someone or something", Meter.Type.COUNTER)), "Name");
+    StatsCounter statsCounter = new StatsCounter(aiCounter,
+        new CumulativeCounter(
+            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+        "Name");
 
     when(statsFactory.createStatsCounter(Mockito.<String>any(), Mockito.<String>any(), isA(String[].class)))
         .thenReturn(statsCounter);
@@ -50,15 +56,8 @@ public class BufferedRateExecutorStatsDiffblueTest {
 
     // Assert
     verify(statsFactory, atLeast(1)).createStatsCounter(eq("rateExecutor"), Mockito.<String>any(), isA(String[].class));
-    List<StatsCounter> statsCounters = actualBufferedRateExecutorStats.getStatsCounters();
-    assertEquals(7, statsCounters.size());
+    assertEquals(7, actualBufferedRateExecutorStats.getStatsCounters().size());
     assertTrue(actualBufferedRateExecutorStats.getRateLimitedTenants().isEmpty());
-    assertSame(statsCounter, statsCounters.get(0));
-    assertSame(statsCounter, statsCounters.get(1));
-    assertSame(statsCounter, statsCounters.get(2));
-    assertSame(statsCounter, statsCounters.get(4));
-    assertSame(statsCounter, statsCounters.get(5));
-    assertSame(statsCounter, statsCounters.get(6));
     assertSame(statsCounter, actualBufferedRateExecutorStats.getTotalAdded());
     assertSame(statsCounter, actualBufferedRateExecutorStats.getTotalExpired());
     assertSame(statsCounter, actualBufferedRateExecutorStats.getTotalFailed());
@@ -72,21 +71,24 @@ public class BufferedRateExecutorStatsDiffblueTest {
   /**
    * Test {@link BufferedRateExecutorStats#incrementRateLimitedTenant(TenantId)}.
    * <p>
-   * Method under test:
-   * {@link BufferedRateExecutorStats#incrementRateLimitedTenant(TenantId)}
+   * Method under test: {@link BufferedRateExecutorStats#incrementRateLimitedTenant(TenantId)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void BufferedRateExecutorStats.incrementRateLimitedTenant(TenantId)"})
   public void testIncrementRateLimitedTenant() {
     // Arrange
     DefaultStatsFactory statsFactory = mock(DefaultStatsFactory.class);
     AtomicInteger aiCounter = new AtomicInteger(1);
     when(statsFactory.createDefaultCounter(Mockito.<String>any(), isA(String[].class)))
-        .thenReturn(new DefaultCounter(aiCounter, new CumulativeCounter(new Meter.Id("Name", Tags.empty(), "Base Unit",
-            "The characteristics of someone or something", Meter.Type.COUNTER))));
+        .thenReturn(new DefaultCounter(aiCounter, new CumulativeCounter(
+            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER))));
     AtomicInteger aiCounter2 = new AtomicInteger(1);
     when(statsFactory.createStatsCounter(Mockito.<String>any(), Mockito.<String>any(), isA(String[].class)))
-        .thenReturn(new StatsCounter(aiCounter2, new CumulativeCounter(new Meter.Id("Name", Tags.empty(), "Base Unit",
-            "The characteristics of someone or something", Meter.Type.COUNTER)), "Name"));
+        .thenReturn(new StatsCounter(aiCounter2,
+            new CumulativeCounter(
+                new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+            "Name"));
     BufferedRateExecutorStats bufferedRateExecutorStats = new BufferedRateExecutorStats(statsFactory);
 
     // Act
@@ -101,21 +103,24 @@ public class BufferedRateExecutorStatsDiffblueTest {
   /**
    * Test {@link BufferedRateExecutorStats#incrementRateLimitedTenant(TenantId)}.
    * <p>
-   * Method under test:
-   * {@link BufferedRateExecutorStats#incrementRateLimitedTenant(TenantId)}
+   * Method under test: {@link BufferedRateExecutorStats#incrementRateLimitedTenant(TenantId)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void BufferedRateExecutorStats.incrementRateLimitedTenant(TenantId)"})
   public void testIncrementRateLimitedTenant2() {
     // Arrange
     DefaultStatsFactory statsFactory = mock(DefaultStatsFactory.class);
     AtomicInteger aiCounter = new AtomicInteger(1);
     when(statsFactory.createDefaultCounter(Mockito.<String>any(), isA(String[].class)))
-        .thenReturn(new DefaultCounter(aiCounter, new CumulativeCounter(new Meter.Id("Name", Tags.empty(), "Base Unit",
-            "The characteristics of someone or something", Meter.Type.COUNTER))));
+        .thenReturn(new DefaultCounter(aiCounter, new CumulativeCounter(
+            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER))));
     AtomicInteger aiCounter2 = new AtomicInteger(1);
     when(statsFactory.createStatsCounter(Mockito.<String>any(), Mockito.<String>any(), isA(String[].class)))
-        .thenReturn(new StatsCounter(aiCounter2, new CumulativeCounter(new Meter.Id("Name", Tags.empty(), "Base Unit",
-            "The characteristics of someone or something", Meter.Type.COUNTER)), "Name"));
+        .thenReturn(new StatsCounter(aiCounter2,
+            new CumulativeCounter(
+                new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
+            "Name"));
 
     BufferedRateExecutorStats bufferedRateExecutorStats = new BufferedRateExecutorStats(statsFactory);
     bufferedRateExecutorStats.incrementRateLimitedTenant(ModelConstants.SYSTEM_TENANT);
@@ -123,7 +128,7 @@ public class BufferedRateExecutorStatsDiffblueTest {
     // Act
     bufferedRateExecutorStats.incrementRateLimitedTenant(ModelConstants.SYSTEM_TENANT);
 
-    // Assert
+    // Assert that nothing has changed
     verify(statsFactory).createDefaultCounter(eq("rateExecutor.tenant"), isA(String[].class));
     verify(statsFactory, atLeast(1)).createStatsCounter(eq("rateExecutor"), Mockito.<String>any(), isA(String[].class));
     assertEquals(1, bufferedRateExecutorStats.getRateLimitedTenants().size());

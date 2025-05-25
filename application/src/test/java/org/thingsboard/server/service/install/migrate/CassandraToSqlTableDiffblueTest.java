@@ -9,57 +9,47 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
-import static org.mockito.ArgumentMatchers.isNull;
+import static org.mockito.Mockito.anyDouble;
 import static org.mockito.Mockito.anyInt;
+import static org.mockito.Mockito.anyLong;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.datastax.dse.driver.internal.core.session.DefaultDseSession;
 import com.datastax.oss.driver.api.core.cql.Statement;
 import com.datastax.oss.driver.internal.core.cql.DefaultSimpleStatement;
-import com.datastax.oss.driver.internal.core.session.SessionWrapper;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.nio.ByteBuffer;
 import java.sql.Connection;
-import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.postgresql.util.PSQLException;
-import org.postgresql.util.PSQLState;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.aot.DisabledInAotMode;
-import org.thingsboard.server.dao.cassandra.guava.DefaultGuavaSession;
-import org.thingsboard.server.dao.cassandra.guava.GuavaSession;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 
-@DisabledInAotMode
+@DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 class CassandraToSqlTableDiffblueTest {
-  @MockBean
-  private CassandraToSqlTable cassandraToSqlTable;
-
   /**
-   * Test
-   * {@link CassandraToSqlTable#CassandraToSqlTable(String, String, int, CassandraToSqlColumn[])}.
+   * Test {@link CassandraToSqlTable#CassandraToSqlTable(String, String, int, CassandraToSqlColumn[])}.
    * <ul>
    *   <li>Then return {@code Cassandra Cf}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#CassandraToSqlTable(String, String, int, CassandraToSqlColumn[])}
+   * Method under test: {@link CassandraToSqlTable#CassandraToSqlTable(String, String, int, CassandraToSqlColumn[])}
    */
   @Test
   @DisplayName("Test new CassandraToSqlTable(String, String, int, CassandraToSqlColumn[]); then return 'Cassandra Cf'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CassandraToSqlTable.<init>(String, String, int, CassandraToSqlColumn[])"})
   void testNewCassandraToSqlTable_thenReturnCassandraCf() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     CassandraToSqlColumn cassandraToSqlColumn = mock(CassandraToSqlColumn.class);
     doNothing().when(cassandraToSqlColumn).setIndex(anyInt());
@@ -75,22 +65,21 @@ class CassandraToSqlTableDiffblueTest {
     assertEquals("Cassandra Cf", actualCassandraToSqlTable.getCassandraCf());
     assertEquals("Sql Table Name", actualCassandraToSqlTable.getSqlTableName());
     assertNull(actualCassandraToSqlTable.getSqlInsertStatement());
-    assertEquals(1, actualCassandraToSqlTable.getColumns().size());
     assertEquals(3, actualCassandraToSqlTable.getBatchSize());
   }
 
   /**
-   * Test
-   * {@link CassandraToSqlTable#CassandraToSqlTable(String, int, CassandraToSqlColumn[])}.
+   * Test {@link CassandraToSqlTable#CassandraToSqlTable(String, int, CassandraToSqlColumn[])}.
    * <ul>
    *   <li>Then return CassandraCf is {@code Table Name}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#CassandraToSqlTable(String, int, CassandraToSqlColumn[])}
+   * Method under test: {@link CassandraToSqlTable#CassandraToSqlTable(String, int, CassandraToSqlColumn[])}
    */
   @Test
   @DisplayName("Test new CassandraToSqlTable(String, int, CassandraToSqlColumn[]); then return CassandraCf is 'Table Name'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CassandraToSqlTable.<init>(String, int, CassandraToSqlColumn[])"})
   void testNewCassandraToSqlTable_thenReturnCassandraCfIsTableName() {
     // Arrange
     CassandraToSqlColumn cassandraToSqlColumn = mock(CassandraToSqlColumn.class);
@@ -106,25 +95,22 @@ class CassandraToSqlTableDiffblueTest {
     assertEquals("Table Name", actualCassandraToSqlTable.getCassandraCf());
     assertEquals("Table Name", actualCassandraToSqlTable.getSqlTableName());
     assertNull(actualCassandraToSqlTable.getSqlInsertStatement());
-    assertEquals(1, actualCassandraToSqlTable.getColumns().size());
     assertEquals(3, actualCassandraToSqlTable.getBatchSize());
   }
 
   /**
-   * Test
-   * {@link CassandraToSqlTable#CassandraToSqlTable(String, CassandraToSqlColumn[])}.
+   * Test {@link CassandraToSqlTable#CassandraToSqlTable(String, CassandraToSqlColumn[])}.
    * <ul>
    *   <li>Then return CassandraCf is {@code Table Name}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#CassandraToSqlTable(String, CassandraToSqlColumn[])}
+   * Method under test: {@link CassandraToSqlTable#CassandraToSqlTable(String, CassandraToSqlColumn[])}
    */
   @Test
   @DisplayName("Test new CassandraToSqlTable(String, CassandraToSqlColumn[]); then return CassandraCf is 'Table Name'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CassandraToSqlTable.<init>(String, CassandraToSqlColumn[])"})
   void testNewCassandraToSqlTable_thenReturnCassandraCfIsTableName2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     CassandraToSqlColumn cassandraToSqlColumn = mock(CassandraToSqlColumn.class);
     doNothing().when(cassandraToSqlColumn).setIndex(anyInt());
@@ -139,121 +125,22 @@ class CassandraToSqlTableDiffblueTest {
     assertEquals("Table Name", actualCassandraToSqlTable.getCassandraCf());
     assertEquals("Table Name", actualCassandraToSqlTable.getSqlTableName());
     assertNull(actualCassandraToSqlTable.getSqlInsertStatement());
-    assertEquals(1, actualCassandraToSqlTable.getColumns().size());
     assertEquals(10000, actualCassandraToSqlTable.getBatchSize());
   }
 
   /**
-   * Test
-   * {@link CassandraToSqlTable#CassandraToSqlTable(String, int, CassandraToSqlColumn[])}.
-   * <ul>
-   *   <li>Then return Columns first is bigintColumn {@code Name}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#CassandraToSqlTable(String, int, CassandraToSqlColumn[])}
-   */
-  @Test
-  @DisplayName("Test new CassandraToSqlTable(String, int, CassandraToSqlColumn[]); then return Columns first is bigintColumn 'Name'")
-  void testNewCassandraToSqlTable_thenReturnColumnsFirstIsBigintColumnName() {
-    // Arrange
-    CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
-
-    // Act and Assert
-    List<CassandraToSqlColumn> columns = (new CassandraToSqlTable("Table Name", 3, bigintColumnResult)).getColumns();
-    assertEquals(1, columns.size());
-    assertSame(bigintColumnResult, columns.get(0));
-  }
-
-  /**
-   * Test
-   * {@link CassandraToSqlTable#CassandraToSqlTable(String, String, int, CassandraToSqlColumn[])}.
-   * <ul>
-   *   <li>Then return Columns first is bigintColumn {@code Name}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#CassandraToSqlTable(String, String, int, CassandraToSqlColumn[])}
-   */
-  @Test
-  @DisplayName("Test new CassandraToSqlTable(String, String, int, CassandraToSqlColumn[]); then return Columns first is bigintColumn 'Name'")
-  void testNewCassandraToSqlTable_thenReturnColumnsFirstIsBigintColumnName2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
-
-    // Act and Assert
-    List<CassandraToSqlColumn> columns = (new CassandraToSqlTable("Cassandra Cf", "Sql Table Name", 3,
-        bigintColumnResult)).getColumns();
-    assertEquals(1, columns.size());
-    assertSame(bigintColumnResult, columns.get(0));
-  }
-
-  /**
-   * Test
-   * {@link CassandraToSqlTable#CassandraToSqlTable(String, String, CassandraToSqlColumn[])}.
-   * <ul>
-   *   <li>Then return Columns first is bigintColumn {@code Name}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#CassandraToSqlTable(String, String, CassandraToSqlColumn[])}
-   */
-  @Test
-  @DisplayName("Test new CassandraToSqlTable(String, String, CassandraToSqlColumn[]); then return Columns first is bigintColumn 'Name'")
-  void testNewCassandraToSqlTable_thenReturnColumnsFirstIsBigintColumnName3() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
-
-    // Act and Assert
-    List<CassandraToSqlColumn> columns = (new CassandraToSqlTable("Table Name", "Sql Table Name", bigintColumnResult))
-        .getColumns();
-    assertEquals(1, columns.size());
-    assertSame(bigintColumnResult, columns.get(0));
-  }
-
-  /**
-   * Test
-   * {@link CassandraToSqlTable#CassandraToSqlTable(String, CassandraToSqlColumn[])}.
-   * <ul>
-   *   <li>Then return Columns first is bigintColumn {@code Name}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#CassandraToSqlTable(String, CassandraToSqlColumn[])}
-   */
-  @Test
-  @DisplayName("Test new CassandraToSqlTable(String, CassandraToSqlColumn[]); then return Columns first is bigintColumn 'Name'")
-  void testNewCassandraToSqlTable_thenReturnColumnsFirstIsBigintColumnName4() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
-
-    // Act and Assert
-    List<CassandraToSqlColumn> columns = (new CassandraToSqlTable("Table Name", bigintColumnResult)).getColumns();
-    assertEquals(1, columns.size());
-    assertSame(bigintColumnResult, columns.get(0));
-  }
-
-  /**
-   * Test
-   * {@link CassandraToSqlTable#CassandraToSqlTable(String, String, CassandraToSqlColumn[])}.
+   * Test {@link CassandraToSqlTable#CassandraToSqlTable(String, String, CassandraToSqlColumn[])}.
    * <ul>
    *   <li>Then return {@code Sql Table Name}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#CassandraToSqlTable(String, String, CassandraToSqlColumn[])}
+   * Method under test: {@link CassandraToSqlTable#CassandraToSqlTable(String, String, CassandraToSqlColumn[])}
    */
   @Test
   @DisplayName("Test new CassandraToSqlTable(String, String, CassandraToSqlColumn[]); then return 'Sql Table Name'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CassandraToSqlTable.<init>(String, String, CassandraToSqlColumn[])"})
   void testNewCassandraToSqlTable_thenReturnSqlTableName() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     CassandraToSqlColumn cassandraToSqlColumn = mock(CassandraToSqlColumn.class);
     doNothing().when(cassandraToSqlColumn).setIndex(anyInt());
@@ -269,58 +156,113 @@ class CassandraToSqlTableDiffblueTest {
     assertEquals("Sql Table Name", actualCassandraToSqlTable.getSqlTableName());
     assertEquals("Table Name", actualCassandraToSqlTable.getCassandraCf());
     assertNull(actualCassandraToSqlTable.getSqlInsertStatement());
-    assertEquals(1, actualCassandraToSqlTable.getColumns().size());
     assertEquals(10000, actualCassandraToSqlTable.getBatchSize());
   }
 
   /**
-   * Test {@link CassandraToSqlTable#migrateToSql(GuavaSession, Connection)}.
+   * Test {@link CassandraToSqlTable#CassandraToSqlTable(String, int, CassandraToSqlColumn[])}.
    * <ul>
-   *   <li>Then throw {@link PSQLException}.</li>
+   *   <li>When bigintColumn {@code Name}.</li>
+   *   <li>Then return Columns size is one.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#migrateToSql(GuavaSession, Connection)}
+   * Method under test: {@link CassandraToSqlTable#CassandraToSqlTable(String, int, CassandraToSqlColumn[])}
    */
   @Test
-  @DisplayName("Test migrateToSql(GuavaSession, Connection); then throw PSQLException")
-  void testMigrateToSql_thenThrowPSQLException() throws SQLException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test new CassandraToSqlTable(String, int, CassandraToSqlColumn[]); when bigintColumn 'Name'; then return Columns size is one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CassandraToSqlTable.<init>(String, int, CassandraToSqlColumn[])"})
+  void testNewCassandraToSqlTable_whenBigintColumnName_thenReturnColumnsSizeIsOne() {
     // Arrange
-    CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name",
-        CassandraToSqlColumn.bigintColumn("Name"));
-    DefaultGuavaSession session = new DefaultGuavaSession(new DefaultDseSession(new SessionWrapper(null)));
-    ResultSet resultSet = mock(ResultSet.class);
-    when(resultSet.getString(Mockito.<String>any())).thenThrow(new PSQLException(
-        "[{}] Migrating data from cassandra '{}' Column Family to '{}' SQL table...", PSQLState.UNKNOWN_STATE));
-    when(resultSet.next()).thenReturn(true).thenReturn(true).thenReturn(false);
-    DatabaseMetaData databaseMetaData = mock(DatabaseMetaData.class);
-    when(databaseMetaData.getColumns(Mockito.<String>any(), Mockito.<String>any(), Mockito.<String>any(),
-        Mockito.<String>any())).thenReturn(resultSet);
-    Connection conn = mock(Connection.class);
-    when(conn.getMetaData()).thenReturn(databaseMetaData);
+    CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
 
     // Act and Assert
-    assertThrows(PSQLException.class, () -> cassandraToSqlTable.migrateToSql(session, conn));
-    verify(conn).getMetaData();
-    verify(databaseMetaData).getColumns(isNull(), isNull(), eq("Table Name"), isNull());
-    verify(resultSet).getString(eq("COLUMN_NAME"));
-    verify(resultSet).next();
+    List<CassandraToSqlColumn> columns = (new CassandraToSqlTable("Table Name", 3, bigintColumnResult)).getColumns();
+    assertEquals(1, columns.size());
+    assertSame(bigintColumnResult, columns.get(0));
   }
 
   /**
-   * Test
-   * {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}.
+   * Test {@link CassandraToSqlTable#CassandraToSqlTable(String, String, int, CassandraToSqlColumn[])}.
+   * <ul>
+   *   <li>When bigintColumn {@code Name}.</li>
+   *   <li>Then return Columns size is one.</li>
+   * </ul>
    * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}
+   * Method under test: {@link CassandraToSqlTable#CassandraToSqlTable(String, String, int, CassandraToSqlColumn[])}
+   */
+  @Test
+  @DisplayName("Test new CassandraToSqlTable(String, String, int, CassandraToSqlColumn[]); when bigintColumn 'Name'; then return Columns size is one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CassandraToSqlTable.<init>(String, String, int, CassandraToSqlColumn[])"})
+  void testNewCassandraToSqlTable_whenBigintColumnName_thenReturnColumnsSizeIsOne2() {
+    // Arrange
+    CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
+
+    // Act and Assert
+    List<CassandraToSqlColumn> columns = (new CassandraToSqlTable("Cassandra Cf", "Sql Table Name", 3,
+        bigintColumnResult)).getColumns();
+    assertEquals(1, columns.size());
+    assertSame(bigintColumnResult, columns.get(0));
+  }
+
+  /**
+   * Test {@link CassandraToSqlTable#CassandraToSqlTable(String, String, CassandraToSqlColumn[])}.
+   * <ul>
+   *   <li>When bigintColumn {@code Name}.</li>
+   *   <li>Then return Columns size is one.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link CassandraToSqlTable#CassandraToSqlTable(String, String, CassandraToSqlColumn[])}
+   */
+  @Test
+  @DisplayName("Test new CassandraToSqlTable(String, String, CassandraToSqlColumn[]); when bigintColumn 'Name'; then return Columns size is one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CassandraToSqlTable.<init>(String, String, CassandraToSqlColumn[])"})
+  void testNewCassandraToSqlTable_whenBigintColumnName_thenReturnColumnsSizeIsOne3() {
+    // Arrange
+    CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
+
+    // Act and Assert
+    List<CassandraToSqlColumn> columns = (new CassandraToSqlTable("Table Name", "Sql Table Name", bigintColumnResult))
+        .getColumns();
+    assertEquals(1, columns.size());
+    assertSame(bigintColumnResult, columns.get(0));
+  }
+
+  /**
+   * Test {@link CassandraToSqlTable#CassandraToSqlTable(String, CassandraToSqlColumn[])}.
+   * <ul>
+   *   <li>When bigintColumn {@code Name}.</li>
+   *   <li>Then return Columns size is one.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link CassandraToSqlTable#CassandraToSqlTable(String, CassandraToSqlColumn[])}
+   */
+  @Test
+  @DisplayName("Test new CassandraToSqlTable(String, CassandraToSqlColumn[]); when bigintColumn 'Name'; then return Columns size is one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CassandraToSqlTable.<init>(String, CassandraToSqlColumn[])"})
+  void testNewCassandraToSqlTable_whenBigintColumnName_thenReturnColumnsSizeIsOne4() {
+    // Arrange
+    CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
+
+    // Act and Assert
+    List<CassandraToSqlColumn> columns = (new CassandraToSqlTable("Table Name", bigintColumnResult)).getColumns();
+    assertEquals(1, columns.size());
+    assertSame(bigintColumnResult, columns.get(0));
+  }
+
+  /**
+   * Test {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}.
+   * <p>
+   * Method under test: {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}
    */
   @Test
   @DisplayName("Test validateColumnData(CassandraToSqlColumnData[])")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"CassandraToSqlColumnData[] CassandraToSqlTable.validateColumnData(CassandraToSqlColumnData[])"})
   void testValidateColumnData() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name",
         CassandraToSqlColumn.bigintColumn("Name"));
@@ -331,17 +273,15 @@ class CassandraToSqlTableDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}.
+   * Test {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}.
    * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}
+   * Method under test: {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}
    */
   @Test
   @DisplayName("Test validateColumnData(CassandraToSqlColumnData[])")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"CassandraToSqlColumnData[] CassandraToSqlTable.validateColumnData(CassandraToSqlColumnData[])"})
   void testValidateColumnData2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     CassandraToSqlColumn cassandraToSqlColumn = mock(CassandraToSqlColumn.class);
     when(cassandraToSqlColumn.getType()).thenReturn(CassandraToSqlColumnType.STRING);
@@ -361,17 +301,15 @@ class CassandraToSqlTableDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}.
+   * Test {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}.
    * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}
+   * Method under test: {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}
    */
   @Test
   @DisplayName("Test validateColumnData(CassandraToSqlColumnData[])")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"CassandraToSqlColumnData[] CassandraToSqlTable.validateColumnData(CassandraToSqlColumnData[])"})
   void testValidateColumnData3() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     CassandraToSqlColumn cassandraToSqlColumn = mock(CassandraToSqlColumn.class);
     when(cassandraToSqlColumn.getSize()).thenReturn(3);
@@ -396,21 +334,18 @@ class CassandraToSqlTableDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}.
+   * Test {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}.
    * <ul>
-   *   <li>Given {@link CassandraToSqlColumn} {@link CassandraToSqlColumn#getSize()}
-   * return three.</li>
+   *   <li>Given {@link CassandraToSqlColumn} {@link CassandraToSqlColumn#getSize()} return three.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}
+   * Method under test: {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}
    */
   @Test
   @DisplayName("Test validateColumnData(CassandraToSqlColumnData[]); given CassandraToSqlColumn getSize() return three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"CassandraToSqlColumnData[] CassandraToSqlTable.validateColumnData(CassandraToSqlColumnData[])"})
   void testValidateColumnData_givenCassandraToSqlColumnGetSizeReturnThree() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     CassandraToSqlColumn cassandraToSqlColumn = mock(CassandraToSqlColumn.class);
     when(cassandraToSqlColumn.getSize()).thenReturn(3);
@@ -432,21 +367,18 @@ class CassandraToSqlTableDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}.
+   * Test {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}.
    * <ul>
-   *   <li>Given {@link CassandraToSqlColumn} {@link CassandraToSqlColumn#getType()}
-   * return {@code ID}.</li>
+   *   <li>Given {@link CassandraToSqlColumn} {@link CassandraToSqlColumn#getType()} return {@code ID}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}
+   * Method under test: {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}
    */
   @Test
   @DisplayName("Test validateColumnData(CassandraToSqlColumnData[]); given CassandraToSqlColumn getType() return 'ID'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"CassandraToSqlColumnData[] CassandraToSqlTable.validateColumnData(CassandraToSqlColumnData[])"})
   void testValidateColumnData_givenCassandraToSqlColumnGetTypeReturnId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     CassandraToSqlColumn cassandraToSqlColumn = mock(CassandraToSqlColumn.class);
     when(cassandraToSqlColumn.getType()).thenReturn(CassandraToSqlColumnType.ID);
@@ -466,20 +398,18 @@ class CassandraToSqlTableDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}.
+   * Test {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}.
    * <ul>
    *   <li>Then calls {@link CassandraToSqlColumnData#getLogValue()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}
+   * Method under test: {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}
    */
   @Test
   @DisplayName("Test validateColumnData(CassandraToSqlColumnData[]); then calls getLogValue()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"CassandraToSqlColumnData[] CassandraToSqlTable.validateColumnData(CassandraToSqlColumnData[])"})
   void testValidateColumnData_thenCallsGetLogValue() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     CassandraToSqlColumn cassandraToSqlColumn = mock(CassandraToSqlColumn.class);
     when(cassandraToSqlColumn.getSize()).thenReturn(1);
@@ -512,20 +442,18 @@ class CassandraToSqlTableDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}.
+   * Test {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}.
    * <ul>
    *   <li>Then calls {@link CassandraToSqlColumn#getSqlColumnName()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}
+   * Method under test: {@link CassandraToSqlTable#validateColumnData(CassandraToSqlColumnData[])}
    */
   @Test
   @DisplayName("Test validateColumnData(CassandraToSqlColumnData[]); then calls getSqlColumnName()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"CassandraToSqlColumnData[] CassandraToSqlTable.validateColumnData(CassandraToSqlColumnData[])"})
   void testValidateColumnData_thenCallsGetSqlColumnName() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     CassandraToSqlColumn cassandraToSqlColumn = mock(CassandraToSqlColumn.class);
     when(cassandraToSqlColumn.getSize()).thenReturn(1);
@@ -559,9 +487,9 @@ class CassandraToSqlTableDiffblueTest {
    */
   @Test
   @DisplayName("Test batchInsert(List, Connection); given SQLException(); then throw SQLException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CassandraToSqlTable.batchInsert(List, Connection)"})
   void testBatchInsert_givenSQLException_thenThrowSQLException() throws SQLException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name",
         CassandraToSqlColumn.bigintColumn("Name"));
@@ -577,16 +505,16 @@ class CassandraToSqlTableDiffblueTest {
   /**
    * Test {@link CassandraToSqlTable#batchInsert(List, Connection)}.
    * <ul>
-   *   <li>Then calls {@link PreparedStatement#executeUpdate()}.</li>
+   *   <li>Then calls {@link CassandraToSqlColumn#getIndex()}.</li>
    * </ul>
    * <p>
    * Method under test: {@link CassandraToSqlTable#batchInsert(List, Connection)}
    */
   @Test
-  @DisplayName("Test batchInsert(List, Connection); then calls executeUpdate()")
-  void testBatchInsert_thenCallsExecuteUpdate() throws SQLException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test batchInsert(List, Connection); then calls getIndex()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CassandraToSqlTable.batchInsert(List, Connection)"})
+  void testBatchInsert_thenCallsGetIndex() throws SQLException {
     // Arrange
     CassandraToSqlColumn cassandraToSqlColumn = mock(CassandraToSqlColumn.class);
     when(cassandraToSqlColumn.getIndex()).thenReturn(0);
@@ -607,7 +535,7 @@ class CassandraToSqlTableDiffblueTest {
     // Act
     cassandraToSqlTable.batchInsert(batchData, conn);
 
-    // Assert that nothing has changed
+    // Assert
     verify(conn).commit();
     verify(sqlInsertStatement).executeUpdate();
     verify(cassandraToSqlColumn).getIndex();
@@ -619,17 +547,170 @@ class CassandraToSqlTableDiffblueTest {
   /**
    * Test {@link CassandraToSqlTable#batchInsert(List, Connection)}.
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then calls {@link Connection#commit()}.</li>
+   *   <li>Then calls {@link CassandraToSqlColumnData#getValue()}.</li>
    * </ul>
    * <p>
    * Method under test: {@link CassandraToSqlTable#batchInsert(List, Connection)}
    */
   @Test
-  @DisplayName("Test batchInsert(List, Connection); when ArrayList(); then calls commit()")
-  void testBatchInsert_whenArrayList_thenCallsCommit() throws SQLException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+  @DisplayName("Test batchInsert(List, Connection); then calls getValue()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CassandraToSqlTable.batchInsert(List, Connection)"})
+  void testBatchInsert_thenCallsGetValue() throws SQLException {
+    // Arrange
+    PreparedStatement sqlInsertStatement = mock(PreparedStatement.class);
+    doNothing().when(sqlInsertStatement).setLong(anyInt(), anyLong());
+    when(sqlInsertStatement.executeUpdate()).thenReturn(1);
 
+    CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name",
+        CassandraToSqlColumn.bigintColumn("Name"));
+    cassandraToSqlTable.setSqlInsertStatement(sqlInsertStatement);
+    CassandraToSqlColumnData cassandraToSqlColumnData = mock(CassandraToSqlColumnData.class);
+    when(cassandraToSqlColumnData.getValue()).thenReturn("42");
+
+    ArrayList<CassandraToSqlColumnData[]> batchData = new ArrayList<>();
+    batchData.add(new CassandraToSqlColumnData[]{cassandraToSqlColumnData});
+    Connection conn = mock(Connection.class);
+    doNothing().when(conn).commit();
+
+    // Act
+    cassandraToSqlTable.batchInsert(batchData, conn);
+
+    // Assert
+    verify(conn).commit();
+    verify(sqlInsertStatement).executeUpdate();
+    verify(sqlInsertStatement).setLong(eq(1), eq(42L));
+    verify(cassandraToSqlColumnData).getValue();
+  }
+
+  /**
+   * Test {@link CassandraToSqlTable#batchInsert(List, Connection)}.
+   * <ul>
+   *   <li>Then calls {@link PreparedStatement#setDouble(int, double)}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link CassandraToSqlTable#batchInsert(List, Connection)}
+   */
+  @Test
+  @DisplayName("Test batchInsert(List, Connection); then calls setDouble(int, double)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CassandraToSqlTable.batchInsert(List, Connection)"})
+  void testBatchInsert_thenCallsSetDouble() throws SQLException {
+    // Arrange
+    PreparedStatement sqlInsertStatement = mock(PreparedStatement.class);
+    doNothing().when(sqlInsertStatement).setDouble(anyInt(), anyDouble());
+    when(sqlInsertStatement.executeUpdate()).thenReturn(1);
+
+    CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name",
+        CassandraToSqlColumn.doubleColumn("Name"));
+    cassandraToSqlTable.setSqlInsertStatement(sqlInsertStatement);
+    CassandraToSqlColumnData cassandraToSqlColumnData = mock(CassandraToSqlColumnData.class);
+    when(cassandraToSqlColumnData.getValue()).thenReturn("42");
+
+    ArrayList<CassandraToSqlColumnData[]> batchData = new ArrayList<>();
+    batchData.add(new CassandraToSqlColumnData[]{cassandraToSqlColumnData});
+    Connection conn = mock(Connection.class);
+    doNothing().when(conn).commit();
+
+    // Act
+    cassandraToSqlTable.batchInsert(batchData, conn);
+
+    // Assert
+    verify(conn).commit();
+    verify(sqlInsertStatement).executeUpdate();
+    verify(sqlInsertStatement).setDouble(eq(1), eq(42.0d));
+    verify(cassandraToSqlColumnData).getValue();
+  }
+
+  /**
+   * Test {@link CassandraToSqlTable#batchInsert(List, Connection)}.
+   * <ul>
+   *   <li>Then calls {@link PreparedStatement#setLong(int, long)}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link CassandraToSqlTable#batchInsert(List, Connection)}
+   */
+  @Test
+  @DisplayName("Test batchInsert(List, Connection); then calls setLong(int, long)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CassandraToSqlTable.batchInsert(List, Connection)"})
+  void testBatchInsert_thenCallsSetLong() throws SQLException {
+    // Arrange
+    PreparedStatement sqlInsertStatement = mock(PreparedStatement.class);
+    doNothing().when(sqlInsertStatement).setLong(anyInt(), anyLong());
+    when(sqlInsertStatement.executeUpdate()).thenReturn(1);
+
+    CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name",
+        CassandraToSqlColumn.bigintColumn("Name"));
+    cassandraToSqlTable.setSqlInsertStatement(sqlInsertStatement);
+
+    ArrayList<CassandraToSqlColumnData[]> batchData = new ArrayList<>();
+    batchData.add(new CassandraToSqlColumnData[]{new CassandraToSqlColumnData("42")});
+    Connection conn = mock(Connection.class);
+    doNothing().when(conn).commit();
+
+    // Act
+    cassandraToSqlTable.batchInsert(batchData, conn);
+
+    // Assert
+    verify(conn).commit();
+    verify(sqlInsertStatement).executeUpdate();
+    verify(sqlInsertStatement).setLong(eq(1), eq(42L));
+  }
+
+  /**
+   * Test {@link CassandraToSqlTable#batchInsert(List, Connection)}.
+   * <ul>
+   *   <li>Then calls {@link PreparedStatement#setString(int, String)}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link CassandraToSqlTable#batchInsert(List, Connection)}
+   */
+  @Test
+  @DisplayName("Test batchInsert(List, Connection); then calls setString(int, String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CassandraToSqlTable.batchInsert(List, Connection)"})
+  void testBatchInsert_thenCallsSetString() throws SQLException {
+    // Arrange
+    PreparedStatement sqlInsertStatement = mock(PreparedStatement.class);
+    doNothing().when(sqlInsertStatement).setString(anyInt(), Mockito.<String>any());
+    doNothing().when(sqlInsertStatement).setLong(anyInt(), anyLong());
+    when(sqlInsertStatement.executeUpdate()).thenReturn(1);
+    CassandraToSqlColumn idColumnResult = CassandraToSqlColumn.idColumn("Name");
+
+    CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name", idColumnResult,
+        CassandraToSqlColumn.bigintColumn("Name"));
+    cassandraToSqlTable.setSqlInsertStatement(sqlInsertStatement);
+
+    ArrayList<CassandraToSqlColumnData[]> batchData = new ArrayList<>();
+    CassandraToSqlColumnData cassandraToSqlColumnData = new CassandraToSqlColumnData("42");
+    batchData.add(new CassandraToSqlColumnData[]{cassandraToSqlColumnData, new CassandraToSqlColumnData("42")});
+    Connection conn = mock(Connection.class);
+    doNothing().when(conn).commit();
+
+    // Act
+    cassandraToSqlTable.batchInsert(batchData, conn);
+
+    // Assert
+    verify(conn).commit();
+    verify(sqlInsertStatement).executeUpdate();
+    verify(sqlInsertStatement).setLong(eq(2), eq(42L));
+    verify(sqlInsertStatement).setString(eq(1), eq("42"));
+  }
+
+  /**
+   * Test {@link CassandraToSqlTable#batchInsert(List, Connection)}.
+   * <ul>
+   *   <li>When {@link ArrayList#ArrayList()}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link CassandraToSqlTable#batchInsert(List, Connection)}
+   */
+  @Test
+  @DisplayName("Test batchInsert(List, Connection); when ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CassandraToSqlTable.batchInsert(List, Connection)"})
+  void testBatchInsert_whenArrayList() throws SQLException {
     // Arrange
     CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name",
         CassandraToSqlColumn.bigintColumn("Name"));
@@ -640,22 +721,68 @@ class CassandraToSqlTableDiffblueTest {
     // Act
     cassandraToSqlTable.batchInsert(batchData, conn);
 
-    // Assert that nothing has changed
+    // Assert
     verify(conn).commit();
   }
 
   /**
-   * Test
-   * {@link CassandraToSqlTable#onConstraintViolation(List, CassandraToSqlColumnData[], String)}.
+   * Test {@link CassandraToSqlTable#onConstraintViolation(List, CassandraToSqlColumnData[], String)}.
    * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#onConstraintViolation(List, CassandraToSqlColumnData[], String)}
+   * Method under test: {@link CassandraToSqlTable#onConstraintViolation(List, CassandraToSqlColumnData[], String)}
    */
   @Test
   @DisplayName("Test onConstraintViolation(List, CassandraToSqlColumnData[], String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CassandraToSqlTable.onConstraintViolation(List, CassandraToSqlColumnData[], String)"})
   void testOnConstraintViolation() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+    // Arrange
+    CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name",
+        CassandraToSqlColumn.bigintColumn("Name"));
 
+    ArrayList<CassandraToSqlColumnData[]> batchData = new ArrayList<>();
+    batchData.add(new CassandraToSqlColumnData[]{new CassandraToSqlColumnData("42")});
+
+    // Act and Assert
+    assertFalse(cassandraToSqlTable.onConstraintViolation(batchData,
+        new CassandraToSqlColumnData[]{new CassandraToSqlColumnData("42")}, "Constraint"));
+  }
+
+  /**
+   * Test {@link CassandraToSqlTable#onConstraintViolation(List, CassandraToSqlColumnData[], String)}.
+   * <p>
+   * Method under test: {@link CassandraToSqlTable#onConstraintViolation(List, CassandraToSqlColumnData[], String)}
+   */
+  @Test
+  @DisplayName("Test onConstraintViolation(List, CassandraToSqlColumnData[], String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CassandraToSqlTable.onConstraintViolation(List, CassandraToSqlColumnData[], String)"})
+  void testOnConstraintViolation2() {
+    // Arrange
+    CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name",
+        CassandraToSqlColumn.bigintColumn("Name"));
+
+    ArrayList<CassandraToSqlColumnData[]> batchData = new ArrayList<>();
+    batchData.add(new CassandraToSqlColumnData[]{new CassandraToSqlColumnData("42")});
+    batchData.add(new CassandraToSqlColumnData[]{new CassandraToSqlColumnData("42")});
+
+    // Act and Assert
+    assertFalse(cassandraToSqlTable.onConstraintViolation(batchData,
+        new CassandraToSqlColumnData[]{new CassandraToSqlColumnData("42")}, "Constraint"));
+  }
+
+  /**
+   * Test {@link CassandraToSqlTable#onConstraintViolation(List, CassandraToSqlColumnData[], String)}.
+   * <ul>
+   *   <li>When {@link ArrayList#ArrayList()}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link CassandraToSqlTable#onConstraintViolation(List, CassandraToSqlColumnData[], String)}
+   */
+  @Test
+  @DisplayName("Test onConstraintViolation(List, CassandraToSqlColumnData[], String); when ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CassandraToSqlTable.onConstraintViolation(List, CassandraToSqlColumnData[], String)"})
+  void testOnConstraintViolation_whenArrayList() {
     // Arrange
     CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name",
         CassandraToSqlColumn.bigintColumn("Name"));
@@ -667,19 +794,18 @@ class CassandraToSqlTableDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link CassandraToSqlTable#onConstraintViolation(List, CassandraToSqlColumnData[], String)}.
+   * Test {@link CassandraToSqlTable#ignoreRecord(List, CassandraToSqlColumnData[])}.
    * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#onConstraintViolation(List, CassandraToSqlColumnData[], String)}
+   * Method under test: {@link CassandraToSqlTable#ignoreRecord(List, CassandraToSqlColumnData[])}
    */
   @Test
-  @DisplayName("Test onConstraintViolation(List, CassandraToSqlColumnData[], String)")
-  void testOnConstraintViolation2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test ignoreRecord(List, CassandraToSqlColumnData[])")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CassandraToSqlTable.ignoreRecord(List, CassandraToSqlColumnData[])"})
+  void testIgnoreRecord() {
     // Arrange
     CassandraToSqlColumn cassandraToSqlColumn = mock(CassandraToSqlColumn.class);
+    when(cassandraToSqlColumn.getSqlColumnName()).thenReturn("Sql Column Name");
     doNothing().when(cassandraToSqlColumn).setIndex(anyInt());
     doNothing().when(cassandraToSqlColumn).setSqlIndex(anyInt());
     CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name", cassandraToSqlColumn);
@@ -688,29 +814,27 @@ class CassandraToSqlTableDiffblueTest {
     batchData.add(new CassandraToSqlColumnData[]{new CassandraToSqlColumnData("42")});
 
     // Act
-    boolean actualOnConstraintViolationResult = cassandraToSqlTable.onConstraintViolation(batchData,
-        new CassandraToSqlColumnData[]{new CassandraToSqlColumnData("42")}, "Constraint");
+    cassandraToSqlTable.ignoreRecord(batchData, new CassandraToSqlColumnData[]{new CassandraToSqlColumnData("42")});
 
     // Assert
+    verify(cassandraToSqlColumn).getSqlColumnName();
     verify(cassandraToSqlColumn).setIndex(eq(0));
     verify(cassandraToSqlColumn).setSqlIndex(eq(1));
-    assertFalse(actualOnConstraintViolationResult);
   }
 
   /**
-   * Test
-   * {@link CassandraToSqlTable#onConstraintViolation(List, CassandraToSqlColumnData[], String)}.
+   * Test {@link CassandraToSqlTable#ignoreRecord(List, CassandraToSqlColumnData[])}.
    * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#onConstraintViolation(List, CassandraToSqlColumnData[], String)}
+   * Method under test: {@link CassandraToSqlTable#ignoreRecord(List, CassandraToSqlColumnData[])}
    */
   @Test
-  @DisplayName("Test onConstraintViolation(List, CassandraToSqlColumnData[], String)")
-  void testOnConstraintViolation3() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test ignoreRecord(List, CassandraToSqlColumnData[])")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CassandraToSqlTable.ignoreRecord(List, CassandraToSqlColumnData[])"})
+  void testIgnoreRecord2() {
     // Arrange
     CassandraToSqlColumn cassandraToSqlColumn = mock(CassandraToSqlColumn.class);
+    when(cassandraToSqlColumn.getSqlColumnName()).thenReturn("Sql Column Name");
     doNothing().when(cassandraToSqlColumn).setIndex(anyInt());
     doNothing().when(cassandraToSqlColumn).setSqlIndex(anyInt());
     CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name", cassandraToSqlColumn);
@@ -720,64 +844,28 @@ class CassandraToSqlTableDiffblueTest {
     batchData.add(new CassandraToSqlColumnData[]{new CassandraToSqlColumnData("42")});
 
     // Act
-    boolean actualOnConstraintViolationResult = cassandraToSqlTable.onConstraintViolation(batchData,
-        new CassandraToSqlColumnData[]{new CassandraToSqlColumnData("42")}, "Constraint");
+    cassandraToSqlTable.ignoreRecord(batchData, new CassandraToSqlColumnData[]{new CassandraToSqlColumnData("42")});
 
     // Assert
+    verify(cassandraToSqlColumn).getSqlColumnName();
     verify(cassandraToSqlColumn).setIndex(eq(0));
     verify(cassandraToSqlColumn).setSqlIndex(eq(1));
-    assertFalse(actualOnConstraintViolationResult);
   }
 
   /**
-   * Test
-   * {@link CassandraToSqlTable#onConstraintViolation(List, CassandraToSqlColumnData[], String)}.
-   * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then calls {@link CassandraToSqlColumn#setIndex(int)}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#onConstraintViolation(List, CassandraToSqlColumnData[], String)}
-   */
-  @Test
-  @DisplayName("Test onConstraintViolation(List, CassandraToSqlColumnData[], String); when ArrayList(); then calls setIndex(int)")
-  void testOnConstraintViolation_whenArrayList_thenCallsSetIndex() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    CassandraToSqlColumn cassandraToSqlColumn = mock(CassandraToSqlColumn.class);
-    doNothing().when(cassandraToSqlColumn).setIndex(anyInt());
-    doNothing().when(cassandraToSqlColumn).setSqlIndex(anyInt());
-    CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name", cassandraToSqlColumn);
-    ArrayList<CassandraToSqlColumnData[]> batchData = new ArrayList<>();
-
-    // Act
-    boolean actualOnConstraintViolationResult = cassandraToSqlTable.onConstraintViolation(batchData,
-        new CassandraToSqlColumnData[]{new CassandraToSqlColumnData("42")}, "Constraint");
-
-    // Assert
-    verify(cassandraToSqlColumn).setIndex(eq(0));
-    verify(cassandraToSqlColumn).setSqlIndex(eq(1));
-    assertFalse(actualOnConstraintViolationResult);
-  }
-
-  /**
-   * Test
-   * {@link CassandraToSqlTable#ignoreRecord(List, CassandraToSqlColumnData[])}.
+   * Test {@link CassandraToSqlTable#ignoreRecord(List, CassandraToSqlColumnData[])}.
    * <ul>
    *   <li>Given {@code 42}.</li>
    *   <li>Then calls {@link CassandraToSqlColumnData#getLogValue()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#ignoreRecord(List, CassandraToSqlColumnData[])}
+   * Method under test: {@link CassandraToSqlTable#ignoreRecord(List, CassandraToSqlColumnData[])}
    */
   @Test
   @DisplayName("Test ignoreRecord(List, CassandraToSqlColumnData[]); given '42'; then calls getLogValue()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CassandraToSqlTable.ignoreRecord(List, CassandraToSqlColumnData[])"})
   void testIgnoreRecord_given42_thenCallsGetLogValue() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     CassandraToSqlColumn cassandraToSqlColumn = mock(CassandraToSqlColumn.class);
     when(cassandraToSqlColumn.getSqlColumnName()).thenReturn("Sql Column Name");
@@ -799,58 +887,18 @@ class CassandraToSqlTableDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link CassandraToSqlTable#ignoreRecord(List, CassandraToSqlColumnData[])}.
-   * <ul>
-   *   <li>Then calls {@link CassandraToSqlColumnData#getLogValue()}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#ignoreRecord(List, CassandraToSqlColumnData[])}
-   */
-  @Test
-  @DisplayName("Test ignoreRecord(List, CassandraToSqlColumnData[]); then calls getLogValue()")
-  void testIgnoreRecord_thenCallsGetLogValue() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    CassandraToSqlColumn cassandraToSqlColumn = mock(CassandraToSqlColumn.class);
-    when(cassandraToSqlColumn.getSqlColumnName()).thenReturn("Sql Column Name");
-    doNothing().when(cassandraToSqlColumn).setIndex(anyInt());
-    doNothing().when(cassandraToSqlColumn).setSqlIndex(anyInt());
-    CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name", cassandraToSqlColumn);
-
-    ArrayList<CassandraToSqlColumnData[]> batchData = new ArrayList<>();
-    batchData.add(new CassandraToSqlColumnData[]{new CassandraToSqlColumnData("42")});
-    batchData.add(new CassandraToSqlColumnData[]{new CassandraToSqlColumnData("42")});
-    CassandraToSqlColumnData cassandraToSqlColumnData = mock(CassandraToSqlColumnData.class);
-    when(cassandraToSqlColumnData.getLogValue()).thenReturn("42");
-
-    // Act
-    cassandraToSqlTable.ignoreRecord(batchData, new CassandraToSqlColumnData[]{cassandraToSqlColumnData});
-
-    // Assert
-    verify(cassandraToSqlColumn).getSqlColumnName();
-    verify(cassandraToSqlColumn).setIndex(eq(0));
-    verify(cassandraToSqlColumn).setSqlIndex(eq(1));
-    verify(cassandraToSqlColumnData).getLogValue();
-  }
-
-  /**
-   * Test
-   * {@link CassandraToSqlTable#ignoreRecord(List, CassandraToSqlColumnData[])}.
+   * Test {@link CassandraToSqlTable#ignoreRecord(List, CassandraToSqlColumnData[])}.
    * <ul>
    *   <li>Then calls {@link CassandraToSqlColumn#getSqlColumnName()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#ignoreRecord(List, CassandraToSqlColumnData[])}
+   * Method under test: {@link CassandraToSqlTable#ignoreRecord(List, CassandraToSqlColumnData[])}
    */
   @Test
   @DisplayName("Test ignoreRecord(List, CassandraToSqlColumnData[]); then calls getSqlColumnName()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CassandraToSqlTable.ignoreRecord(List, CassandraToSqlColumnData[])"})
   void testIgnoreRecord_thenCallsGetSqlColumnName() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     CassandraToSqlColumn cassandraToSqlColumn = mock(CassandraToSqlColumn.class);
     when(cassandraToSqlColumn.getSqlColumnName()).thenReturn("Sql Column Name");
@@ -875,9 +923,9 @@ class CassandraToSqlTableDiffblueTest {
    */
   @Test
   @DisplayName("Test getColumn(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"CassandraToSqlColumn CassandraToSqlTable.getColumn(String)"})
   void testGetColumn() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Sql Column Name");
 
@@ -893,9 +941,9 @@ class CassandraToSqlTableDiffblueTest {
    */
   @Test
   @DisplayName("Test getColumn(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"CassandraToSqlColumn CassandraToSqlTable.getColumn(String)"})
   void testGetColumn2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
     CassandraToSqlColumn bigintColumnResult2 = CassandraToSqlColumn.bigintColumn("Sql Column Name");
@@ -915,9 +963,9 @@ class CassandraToSqlTableDiffblueTest {
    */
   @Test
   @DisplayName("Test getColumn(String); then calls getSqlColumnName()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"CassandraToSqlColumn CassandraToSqlTable.getColumn(String)"})
   void testGetColumn_thenCallsGetSqlColumnName() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     CassandraToSqlColumn cassandraToSqlColumn = mock(CassandraToSqlColumn.class);
     when(cassandraToSqlColumn.getSqlColumnName()).thenReturn("Sql Column Name");
@@ -934,22 +982,15 @@ class CassandraToSqlTableDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link CassandraToSqlTable#getColumnData(CassandraToSqlColumnData[], String)}.
-   * <ul>
-   *   <li>Then return
-   * {@link CassandraToSqlColumnData#CassandraToSqlColumnData(String)} with value
-   * is {@code 42}.</li>
-   * </ul>
+   * Test {@link CassandraToSqlTable#getColumnData(CassandraToSqlColumnData[], String)}.
    * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#getColumnData(CassandraToSqlColumnData[], String)}
+   * Method under test: {@link CassandraToSqlTable#getColumnData(CassandraToSqlColumnData[], String)}
    */
   @Test
-  @DisplayName("Test getColumnData(CassandraToSqlColumnData[], String); then return CassandraToSqlColumnData(String) with value is '42'")
-  void testGetColumnData_thenReturnCassandraToSqlColumnDataWithValueIs42() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test getColumnData(CassandraToSqlColumnData[], String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"CassandraToSqlColumnData CassandraToSqlTable.getColumnData(CassandraToSqlColumnData[], String)"})
+  void testGetColumnData() {
     // Arrange
     CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name",
         CassandraToSqlColumn.bigintColumn("Sql Column Name"));
@@ -961,59 +1002,50 @@ class CassandraToSqlTableDiffblueTest {
   }
 
   /**
-   * Test {@link CassandraToSqlTable#createCassandraSelectStatement()}.
+   * Test {@link CassandraToSqlTable#getColumnData(CassandraToSqlColumnData[], String)}.
+   * <ul>
+   *   <li>Given {@link CassandraToSqlColumn} {@link CassandraToSqlColumn#getIndex()} return zero.</li>
+   *   <li>Then calls {@link CassandraToSqlColumn#getIndex()}.</li>
+   * </ul>
    * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#createCassandraSelectStatement()}
+   * Method under test: {@link CassandraToSqlTable#getColumnData(CassandraToSqlColumnData[], String)}
    */
   @Test
-  @DisplayName("Test createCassandraSelectStatement()")
-  void testCreateCassandraSelectStatement() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+  @DisplayName("Test getColumnData(CassandraToSqlColumnData[], String); given CassandraToSqlColumn getIndex() return zero; then calls getIndex()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"CassandraToSqlColumnData CassandraToSqlTable.getColumnData(CassandraToSqlColumnData[], String)"})
+  void testGetColumnData_givenCassandraToSqlColumnGetIndexReturnZero_thenCallsGetIndex() {
+    // Arrange
+    CassandraToSqlColumn cassandraToSqlColumn = mock(CassandraToSqlColumn.class);
+    when(cassandraToSqlColumn.getIndex()).thenReturn(0);
+    when(cassandraToSqlColumn.getSqlColumnName()).thenReturn("Sql Column Name");
+    doNothing().when(cassandraToSqlColumn).setIndex(anyInt());
+    doNothing().when(cassandraToSqlColumn).setSqlIndex(anyInt());
+    CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name", cassandraToSqlColumn);
+    CassandraToSqlColumnData cassandraToSqlColumnData = new CassandraToSqlColumnData("42");
 
-    // Arrange and Act
-    Statement actualCreateCassandraSelectStatementResult = (new CassandraToSqlTable("Table Name",
-        CassandraToSqlColumn.bigintColumn("Name"))).createCassandraSelectStatement();
+    // Act
+    CassandraToSqlColumnData actualColumnData = cassandraToSqlTable
+        .getColumnData(new CassandraToSqlColumnData[]{cassandraToSqlColumnData}, "Sql Column Name");
 
     // Assert
-    assertTrue(actualCreateCassandraSelectStatementResult instanceof DefaultSimpleStatement);
-    assertEquals("SELECT Name FROM Table Name",
-        ((DefaultSimpleStatement) actualCreateCassandraSelectStatementResult).getQuery());
-    assertNull(actualCreateCassandraSelectStatementResult.getConsistencyLevel());
-    assertNull(actualCreateCassandraSelectStatementResult.getSerialConsistencyLevel());
-    assertNull(actualCreateCassandraSelectStatementResult.getKeyspace());
-    assertNull(actualCreateCassandraSelectStatementResult.getRoutingKeyspace());
-    assertNull(actualCreateCassandraSelectStatementResult.getExecutionProfile());
-    assertNull(actualCreateCassandraSelectStatementResult.getNode());
-    assertNull(actualCreateCassandraSelectStatementResult.getRoutingToken());
-    assertNull(actualCreateCassandraSelectStatementResult.isIdempotent());
-    assertNull(actualCreateCassandraSelectStatementResult.getExecutionProfileName());
-    assertNull(actualCreateCassandraSelectStatementResult.getPagingState());
-    assertNull(actualCreateCassandraSelectStatementResult.getRoutingKey());
-    assertNull(actualCreateCassandraSelectStatementResult.getTimeout());
-    assertFalse(actualCreateCassandraSelectStatementResult.isTracing());
-    assertTrue(((DefaultSimpleStatement) actualCreateCassandraSelectStatementResult).getPositionalValues().isEmpty());
-    Map<String, ByteBuffer> customPayload = actualCreateCassandraSelectStatementResult.getCustomPayload();
-    assertTrue(customPayload.isEmpty());
-    assertEquals(Integer.MIN_VALUE, actualCreateCassandraSelectStatementResult.getFetchSize());
-    assertEquals(Integer.MIN_VALUE, actualCreateCassandraSelectStatementResult.getNowInSeconds());
-    assertEquals(Integer.MIN_VALUE, actualCreateCassandraSelectStatementResult.getPageSize());
-    assertEquals(Long.MIN_VALUE, actualCreateCassandraSelectStatementResult.getDefaultTimestamp());
-    assertEquals(Long.MIN_VALUE, actualCreateCassandraSelectStatementResult.getQueryTimestamp());
-    assertSame(customPayload, ((DefaultSimpleStatement) actualCreateCassandraSelectStatementResult).getNamedValues());
+    verify(cassandraToSqlColumn).getIndex();
+    verify(cassandraToSqlColumn).getSqlColumnName();
+    verify(cassandraToSqlColumn).setIndex(eq(0));
+    verify(cassandraToSqlColumn).setSqlIndex(eq(1));
+    assertSame(cassandraToSqlColumnData, actualColumnData);
   }
 
   /**
    * Test {@link CassandraToSqlTable#createCassandraSelectStatement()}.
    * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#createCassandraSelectStatement()}
+   * Method under test: {@link CassandraToSqlTable#createCassandraSelectStatement()}
    */
   @Test
   @DisplayName("Test createCassandraSelectStatement()")
-  void testCreateCassandraSelectStatement2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Statement CassandraToSqlTable.createCassandraSelectStatement()"})
+  void testCreateCassandraSelectStatement() {
     // Arrange
     CassandraToSqlColumn cassandraToSqlColumn = mock(CassandraToSqlColumn.class);
     when(cassandraToSqlColumn.getCassandraColumnName()).thenReturn("Cassandra Column Name");
@@ -1058,27 +1090,64 @@ class CassandraToSqlTableDiffblueTest {
   /**
    * Test {@link CassandraToSqlTable#createCassandraSelectStatement()}.
    * <ul>
-   *   <li>Given {@link ArrayList#ArrayList()} add bigintColumn {@code Name}.</li>
+   *   <li>Then return Query is {@code SELECT Name FROM SELECT}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link CassandraToSqlTable#createCassandraSelectStatement()}
+   * Method under test: {@link CassandraToSqlTable#createCassandraSelectStatement()}
    */
   @Test
-  @DisplayName("Test createCassandraSelectStatement(); given ArrayList() add bigintColumn 'Name'")
-  void testCreateCassandraSelectStatement_givenArrayListAddBigintColumnName() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+  @DisplayName("Test createCassandraSelectStatement(); then return Query is 'SELECT Name FROM SELECT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Statement CassandraToSqlTable.createCassandraSelectStatement()"})
+  void testCreateCassandraSelectStatement_thenReturnQueryIsSelectNameFromSelect() {
+    // Arrange and Act
+    Statement actualCreateCassandraSelectStatementResult = (new CassandraToSqlTable("SELECT ",
+        CassandraToSqlColumn.bigintColumn("Name"))).createCassandraSelectStatement();
 
-    // Arrange
-    ArrayList<CassandraToSqlColumn> columns = new ArrayList<>();
-    columns.add(CassandraToSqlColumn.bigintColumn("Name"));
+    // Assert
+    assertTrue(actualCreateCassandraSelectStatementResult instanceof DefaultSimpleStatement);
+    assertEquals("SELECT Name FROM SELECT ",
+        ((DefaultSimpleStatement) actualCreateCassandraSelectStatementResult).getQuery());
+    assertNull(actualCreateCassandraSelectStatementResult.getConsistencyLevel());
+    assertNull(actualCreateCassandraSelectStatementResult.getSerialConsistencyLevel());
+    assertNull(actualCreateCassandraSelectStatementResult.getKeyspace());
+    assertNull(actualCreateCassandraSelectStatementResult.getRoutingKeyspace());
+    assertNull(actualCreateCassandraSelectStatementResult.getExecutionProfile());
+    assertNull(actualCreateCassandraSelectStatementResult.getNode());
+    assertNull(actualCreateCassandraSelectStatementResult.getRoutingToken());
+    assertNull(actualCreateCassandraSelectStatementResult.isIdempotent());
+    assertNull(actualCreateCassandraSelectStatementResult.getExecutionProfileName());
+    assertNull(actualCreateCassandraSelectStatementResult.getPagingState());
+    assertNull(actualCreateCassandraSelectStatementResult.getRoutingKey());
+    assertNull(actualCreateCassandraSelectStatementResult.getTimeout());
+    assertFalse(actualCreateCassandraSelectStatementResult.isTracing());
+    assertTrue(((DefaultSimpleStatement) actualCreateCassandraSelectStatementResult).getPositionalValues().isEmpty());
+    Map<String, ByteBuffer> customPayload = actualCreateCassandraSelectStatementResult.getCustomPayload();
+    assertTrue(customPayload.isEmpty());
+    assertEquals(Integer.MIN_VALUE, actualCreateCassandraSelectStatementResult.getFetchSize());
+    assertEquals(Integer.MIN_VALUE, actualCreateCassandraSelectStatementResult.getNowInSeconds());
+    assertEquals(Integer.MIN_VALUE, actualCreateCassandraSelectStatementResult.getPageSize());
+    assertEquals(Long.MIN_VALUE, actualCreateCassandraSelectStatementResult.getDefaultTimestamp());
+    assertEquals(Long.MIN_VALUE, actualCreateCassandraSelectStatementResult.getQueryTimestamp());
+    assertSame(customPayload, ((DefaultSimpleStatement) actualCreateCassandraSelectStatementResult).getNamedValues());
+  }
 
-    CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name",
-        CassandraToSqlColumn.bigintColumn("Name"));
-    cassandraToSqlTable.setColumns(columns);
-
-    // Act
-    Statement actualCreateCassandraSelectStatementResult = cassandraToSqlTable.createCassandraSelectStatement();
+  /**
+   * Test {@link CassandraToSqlTable#createCassandraSelectStatement()}.
+   * <ul>
+   *   <li>Then return Query is {@code SELECT Name FROM Table Name}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link CassandraToSqlTable#createCassandraSelectStatement()}
+   */
+  @Test
+  @DisplayName("Test createCassandraSelectStatement(); then return Query is 'SELECT Name FROM Table Name'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Statement CassandraToSqlTable.createCassandraSelectStatement()"})
+  void testCreateCassandraSelectStatement_thenReturnQueryIsSelectNameFromTableName() {
+    // Arrange and Act
+    Statement actualCreateCassandraSelectStatementResult = (new CassandraToSqlTable("Table Name",
+        CassandraToSqlColumn.bigintColumn("Name"))).createCassandraSelectStatement();
 
     // Assert
     assertTrue(actualCreateCassandraSelectStatementResult instanceof DefaultSimpleStatement);
@@ -1109,8 +1178,7 @@ class CassandraToSqlTableDiffblueTest {
   }
 
   /**
-   * Test {@link CassandraToSqlTable#equals(Object)}, and
-   * {@link CassandraToSqlTable#hashCode()}.
+   * Test {@link CassandraToSqlTable#equals(Object)}, and {@link CassandraToSqlTable#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -1124,6 +1192,8 @@ class CassandraToSqlTableDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CassandraToSqlTable.equals(Object)", "int CassandraToSqlTable.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name",
@@ -1138,8 +1208,35 @@ class CassandraToSqlTableDiffblueTest {
   }
 
   /**
-   * Test {@link CassandraToSqlTable#equals(Object)}, and
-   * {@link CassandraToSqlTable#hashCode()}.
+   * Test {@link CassandraToSqlTable#equals(Object)}, and {@link CassandraToSqlTable#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link CassandraToSqlTable#equals(Object)}
+   *   <li>{@link CassandraToSqlTable#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CassandraToSqlTable.equals(Object)", "int CassandraToSqlTable.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable(null, CassandraToSqlColumn.bigintColumn("Name"));
+    CassandraToSqlTable cassandraToSqlTable2 = new CassandraToSqlTable(null, CassandraToSqlColumn.bigintColumn("Name"));
+
+    // Act and Assert
+    assertEquals(cassandraToSqlTable, cassandraToSqlTable2);
+    int expectedHashCodeResult = cassandraToSqlTable.hashCode();
+    assertEquals(expectedHashCodeResult, cassandraToSqlTable2.hashCode());
+  }
+
+  /**
+   * Test {@link CassandraToSqlTable#equals(Object)}, and {@link CassandraToSqlTable#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -1153,6 +1250,8 @@ class CassandraToSqlTableDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CassandraToSqlTable.equals(Object)", "int CassandraToSqlTable.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name",
@@ -1175,6 +1274,8 @@ class CassandraToSqlTableDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CassandraToSqlTable.equals(Object)", "int CassandraToSqlTable.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Name",
@@ -1196,6 +1297,8 @@ class CassandraToSqlTableDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CassandraToSqlTable.equals(Object)", "int CassandraToSqlTable.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable(null, CassandraToSqlColumn.bigintColumn("Name"));
@@ -1216,6 +1319,8 @@ class CassandraToSqlTableDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CassandraToSqlTable.equals(Object)", "int CassandraToSqlTable.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name",
@@ -1237,12 +1342,12 @@ class CassandraToSqlTableDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CassandraToSqlTable.equals(Object)", "int CassandraToSqlTable.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    CassandraToSqlColumn cassandraToSqlColumn = mock(CassandraToSqlColumn.class);
-    doNothing().when(cassandraToSqlColumn).setIndex(anyInt());
-    doNothing().when(cassandraToSqlColumn).setSqlIndex(anyInt());
-    CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name", cassandraToSqlColumn);
+    CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name", 3,
+        CassandraToSqlColumn.bigintColumn("Table Name"));
 
     // Act and Assert
     assertNotEquals(cassandraToSqlTable,
@@ -1260,14 +1365,93 @@ class CassandraToSqlTableDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CassandraToSqlTable.equals(Object)", "int CassandraToSqlTable.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name", 3,
+    CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name",
         CassandraToSqlColumn.bigintColumn("Name"));
+    cassandraToSqlTable.setSqlInsertStatement(mock(PreparedStatement.class));
 
     // Act and Assert
     assertNotEquals(cassandraToSqlTable,
         new CassandraToSqlTable("Table Name", CassandraToSqlColumn.bigintColumn("Name")));
+  }
+
+  /**
+   * Test {@link CassandraToSqlTable#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link CassandraToSqlTable#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CassandraToSqlTable.equals(Object)", "int CassandraToSqlTable.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+    // Arrange
+    CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name",
+        CassandraToSqlColumn.bigintColumn("Name"));
+
+    CassandraToSqlTable cassandraToSqlTable2 = new CassandraToSqlTable("Table Name",
+        CassandraToSqlColumn.bigintColumn("Name"));
+    cassandraToSqlTable2.setSqlInsertStatement(mock(PreparedStatement.class));
+
+    // Act and Assert
+    assertNotEquals(cassandraToSqlTable, cassandraToSqlTable2);
+  }
+
+  /**
+   * Test {@link CassandraToSqlTable#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link CassandraToSqlTable#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CassandraToSqlTable.equals(Object)", "int CassandraToSqlTable.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+    // Arrange
+    CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Name",
+        CassandraToSqlColumn.bigintColumn("Name"));
+
+    CassandraToSqlTable cassandraToSqlTable2 = new CassandraToSqlTable("Table Name",
+        CassandraToSqlColumn.bigintColumn("Name"));
+    cassandraToSqlTable2.setCassandraCf("Name");
+
+    // Act and Assert
+    assertNotEquals(cassandraToSqlTable, cassandraToSqlTable2);
+  }
+
+  /**
+   * Test {@link CassandraToSqlTable#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link CassandraToSqlTable#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CassandraToSqlTable.equals(Object)", "int CassandraToSqlTable.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+    // Arrange
+    CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable(null, CassandraToSqlColumn.bigintColumn("Name"));
+
+    CassandraToSqlTable cassandraToSqlTable2 = new CassandraToSqlTable(null, CassandraToSqlColumn.bigintColumn("Name"));
+    cassandraToSqlTable2.setSqlTableName("Name");
+
+    // Act and Assert
+    assertNotEquals(cassandraToSqlTable, cassandraToSqlTable2);
   }
 
   /**
@@ -1281,6 +1465,8 @@ class CassandraToSqlTableDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CassandraToSqlTable.equals(Object)", "int CassandraToSqlTable.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new CassandraToSqlTable("Table Name", CassandraToSqlColumn.bigintColumn("Name")), null);
@@ -1297,6 +1483,8 @@ class CassandraToSqlTableDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CassandraToSqlTable.equals(Object)", "int CassandraToSqlTable.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new CassandraToSqlTable("Table Name", CassandraToSqlColumn.bigintColumn("Name")),
@@ -1323,6 +1511,13 @@ class CassandraToSqlTableDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int CassandraToSqlTable.getBatchSize()", "String CassandraToSqlTable.getCassandraCf()",
+      "List CassandraToSqlTable.getColumns()", "PreparedStatement CassandraToSqlTable.getSqlInsertStatement()",
+      "String CassandraToSqlTable.getSqlTableName()", "void CassandraToSqlTable.setBatchSize(int)",
+      "void CassandraToSqlTable.setCassandraCf(String)", "void CassandraToSqlTable.setColumns(List)",
+      "void CassandraToSqlTable.setSqlInsertStatement(PreparedStatement)",
+      "void CassandraToSqlTable.setSqlTableName(String)", "String CassandraToSqlTable.toString()"})
   void testGettersAndSetters() {
     // Arrange
     CassandraToSqlTable cassandraToSqlTable = new CassandraToSqlTable("Table Name",
@@ -1342,7 +1537,7 @@ class CassandraToSqlTableDiffblueTest {
     List<CassandraToSqlColumn> actualColumns = cassandraToSqlTable.getColumns();
     PreparedStatement actualSqlInsertStatement = cassandraToSqlTable.getSqlInsertStatement();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Cassandra Cf", actualCassandraCf);
     assertEquals("Sql Table Name", cassandraToSqlTable.getSqlTableName());
     assertEquals(3, actualBatchSize);

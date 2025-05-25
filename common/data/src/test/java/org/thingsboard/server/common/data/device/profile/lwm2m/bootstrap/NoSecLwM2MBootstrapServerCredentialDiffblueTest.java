@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.device.credentials.lwm2m.LwM2MSecurityMode;
 
@@ -14,13 +16,15 @@ class NoSecLwM2MBootstrapServerCredentialDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link NoSecLwM2MBootstrapServerCredential}
+   *   <li>default or parameterless constructor of {@link NoSecLwM2MBootstrapServerCredential}
    *   <li>{@link NoSecLwM2MBootstrapServerCredential#getSecurityMode()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NoSecLwM2MBootstrapServerCredential.<init>()",
+      "LwM2MSecurityMode NoSecLwM2MBootstrapServerCredential.getSecurityMode()"})
   void testGettersAndSetters() {
     // Arrange and Act
     NoSecLwM2MBootstrapServerCredential actualNoSecLwM2MBootstrapServerCredential = new NoSecLwM2MBootstrapServerCredential();

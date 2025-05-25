@@ -5,19 +5,19 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.EntityId;
 import org.thingsboard.server.common.data.id.TenantId;
 
 class AlarmsDeletionHousekeeperTaskDiffblueTest {
   /**
-   * Test {@link AlarmsDeletionHousekeeperTask#equals(Object)}, and
-   * {@link AlarmsDeletionHousekeeperTask#hashCode()}.
+   * Test {@link AlarmsDeletionHousekeeperTask#equals(Object)}, and {@link AlarmsDeletionHousekeeperTask#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -31,6 +31,9 @@ class AlarmsDeletionHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmsDeletionHousekeeperTask.equals(Object)",
+      "int AlarmsDeletionHousekeeperTask.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AlarmsDeletionHousekeeperTask alarmsDeletionHousekeeperTask = new AlarmsDeletionHousekeeperTask();
@@ -43,8 +46,7 @@ class AlarmsDeletionHousekeeperTaskDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmsDeletionHousekeeperTask#equals(Object)}, and
-   * {@link AlarmsDeletionHousekeeperTask#hashCode()}.
+   * Test {@link AlarmsDeletionHousekeeperTask#equals(Object)}, and {@link AlarmsDeletionHousekeeperTask#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -58,6 +60,9 @@ class AlarmsDeletionHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmsDeletionHousekeeperTask.equals(Object)",
+      "int AlarmsDeletionHousekeeperTask.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AlarmsDeletionHousekeeperTask alarmsDeletionHousekeeperTask = new AlarmsDeletionHousekeeperTask(
@@ -72,8 +77,7 @@ class AlarmsDeletionHousekeeperTaskDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmsDeletionHousekeeperTask#equals(Object)}, and
-   * {@link AlarmsDeletionHousekeeperTask#hashCode()}.
+   * Test {@link AlarmsDeletionHousekeeperTask#equals(Object)}, and {@link AlarmsDeletionHousekeeperTask#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -87,6 +91,9 @@ class AlarmsDeletionHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmsDeletionHousekeeperTask.equals(Object)",
+      "int AlarmsDeletionHousekeeperTask.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AlarmsDeletionHousekeeperTask alarmsDeletionHousekeeperTask = new AlarmsDeletionHousekeeperTask();
@@ -108,6 +115,9 @@ class AlarmsDeletionHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmsDeletionHousekeeperTask.equals(Object)",
+      "int AlarmsDeletionHousekeeperTask.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AlarmsDeletionHousekeeperTask alarmsDeletionHousekeeperTask = new AlarmsDeletionHousekeeperTask(
@@ -128,23 +138,10 @@ class AlarmsDeletionHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmsDeletionHousekeeperTask.equals(Object)",
+      "int AlarmsDeletionHousekeeperTask.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange, Act and Assert
-    assertNotEquals(new AlarmsDeletionHousekeeperTask(), mock(AlarmsUnassignHousekeeperTask.class));
-  }
-
-  /**
-   * Test {@link AlarmsDeletionHousekeeperTask#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link AlarmsDeletionHousekeeperTask#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AlarmsDeletionHousekeeperTask alarmsDeletionHousekeeperTask = new AlarmsDeletionHousekeeperTask();
     alarmsDeletionHousekeeperTask.setAlarms(new ArrayList<>());
@@ -164,7 +161,10 @@ class AlarmsDeletionHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmsDeletionHousekeeperTask.equals(Object)",
+      "int AlarmsDeletionHousekeeperTask.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AlarmsDeletionHousekeeperTask alarmsDeletionHousekeeperTask = new AlarmsDeletionHousekeeperTask(
         TenantId.SYS_TENANT_ID, TenantId.SYS_TENANT_ID);
@@ -185,6 +185,9 @@ class AlarmsDeletionHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmsDeletionHousekeeperTask.equals(Object)",
+      "int AlarmsDeletionHousekeeperTask.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlarmsDeletionHousekeeperTask(), null);
@@ -201,6 +204,9 @@ class AlarmsDeletionHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmsDeletionHousekeeperTask.equals(Object)",
+      "int AlarmsDeletionHousekeeperTask.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlarmsDeletionHousekeeperTask(), "Different type to AlarmsDeletionHousekeeperTask");
@@ -219,6 +225,9 @@ class AlarmsDeletionHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmsDeletionHousekeeperTask.<init>()", "List AlarmsDeletionHousekeeperTask.getAlarms()",
+      "void AlarmsDeletionHousekeeperTask.setAlarms(List)", "String AlarmsDeletionHousekeeperTask.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     AlarmsDeletionHousekeeperTask actualAlarmsDeletionHousekeeperTask = new AlarmsDeletionHousekeeperTask();
@@ -227,25 +236,28 @@ class AlarmsDeletionHousekeeperTaskDiffblueTest {
     String actualToStringResult = actualAlarmsDeletionHousekeeperTask.toString();
     List<UUID> actualAlarms = actualAlarmsDeletionHousekeeperTask.getAlarms();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "AlarmsDeletionHousekeeperTask(super=HousekeeperTask(tenantId=null, entityId=null, taskType=null, ts=0),"
             + " alarms=[])",
         actualToStringResult);
+    assertNull(actualAlarmsDeletionHousekeeperTask.getTaskType());
+    assertNull(actualAlarmsDeletionHousekeeperTask.getEntityId());
+    assertNull(actualAlarmsDeletionHousekeeperTask.getTenantId());
     assertEquals(0L, actualAlarmsDeletionHousekeeperTask.getTs());
     assertTrue(actualAlarms.isEmpty());
     assertSame(alarms, actualAlarms);
   }
 
   /**
-   * Test
-   * {@link AlarmsDeletionHousekeeperTask#AlarmsDeletionHousekeeperTask(TenantId, EntityId)}.
+   * Test {@link AlarmsDeletionHousekeeperTask#AlarmsDeletionHousekeeperTask(TenantId, EntityId)}.
    * <p>
-   * Method under test:
-   * {@link AlarmsDeletionHousekeeperTask#AlarmsDeletionHousekeeperTask(TenantId, EntityId)}
+   * Method under test: {@link AlarmsDeletionHousekeeperTask#AlarmsDeletionHousekeeperTask(TenantId, EntityId)}
    */
   @Test
   @DisplayName("Test new AlarmsDeletionHousekeeperTask(TenantId, EntityId)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmsDeletionHousekeeperTask.<init>(TenantId, EntityId)"})
   void testNewAlarmsDeletionHousekeeperTask() {
     // Arrange
     TenantId entityId = TenantId.SYS_TENANT_ID;
@@ -265,14 +277,14 @@ class AlarmsDeletionHousekeeperTaskDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AlarmsDeletionHousekeeperTask#AlarmsDeletionHousekeeperTask(TenantId, EntityId, List)}.
+   * Test {@link AlarmsDeletionHousekeeperTask#AlarmsDeletionHousekeeperTask(TenantId, EntityId, List)}.
    * <p>
-   * Method under test:
-   * {@link AlarmsDeletionHousekeeperTask#AlarmsDeletionHousekeeperTask(TenantId, EntityId, List)}
+   * Method under test: {@link AlarmsDeletionHousekeeperTask#AlarmsDeletionHousekeeperTask(TenantId, EntityId, List)}
    */
   @Test
   @DisplayName("Test new AlarmsDeletionHousekeeperTask(TenantId, EntityId, List)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmsDeletionHousekeeperTask.<init>(TenantId, EntityId, List)"})
   void testNewAlarmsDeletionHousekeeperTask2() {
     // Arrange
     TenantId entityId = TenantId.SYS_TENANT_ID;
@@ -292,17 +304,17 @@ class AlarmsDeletionHousekeeperTaskDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AlarmsDeletionHousekeeperTask#AlarmsDeletionHousekeeperTask(TenantId, EntityId, List)}.
+   * Test {@link AlarmsDeletionHousekeeperTask#AlarmsDeletionHousekeeperTask(TenantId, EntityId, List)}.
    * <ul>
    *   <li>Then return Alarms is {@link ArrayList#ArrayList()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmsDeletionHousekeeperTask#AlarmsDeletionHousekeeperTask(TenantId, EntityId, List)}
+   * Method under test: {@link AlarmsDeletionHousekeeperTask#AlarmsDeletionHousekeeperTask(TenantId, EntityId, List)}
    */
   @Test
   @DisplayName("Test new AlarmsDeletionHousekeeperTask(TenantId, EntityId, List); then return Alarms is ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmsDeletionHousekeeperTask.<init>(TenantId, EntityId, List)"})
   void testNewAlarmsDeletionHousekeeperTask_thenReturnAlarmsIsArrayList() {
     // Arrange
     ArrayList<UUID> alarms = new ArrayList<>();
@@ -320,17 +332,17 @@ class AlarmsDeletionHousekeeperTaskDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AlarmsDeletionHousekeeperTask#AlarmsDeletionHousekeeperTask(TenantId, EntityId, List)}.
+   * Test {@link AlarmsDeletionHousekeeperTask#AlarmsDeletionHousekeeperTask(TenantId, EntityId, List)}.
    * <ul>
    *   <li>Then return Alarms size is two.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmsDeletionHousekeeperTask#AlarmsDeletionHousekeeperTask(TenantId, EntityId, List)}
+   * Method under test: {@link AlarmsDeletionHousekeeperTask#AlarmsDeletionHousekeeperTask(TenantId, EntityId, List)}
    */
   @Test
   @DisplayName("Test new AlarmsDeletionHousekeeperTask(TenantId, EntityId, List); then return Alarms size is two")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmsDeletionHousekeeperTask.<init>(TenantId, EntityId, List)"})
   void testNewAlarmsDeletionHousekeeperTask_thenReturnAlarmsSizeIsTwo() {
     // Arrange
     ArrayList<UUID> alarms = new ArrayList<>();
@@ -361,10 +373,25 @@ class AlarmsDeletionHousekeeperTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test getDescription()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String AlarmsDeletionHousekeeperTask.getDescription()"})
   void testGetDescription() {
     // Arrange, Act and Assert
     assertEquals("alarms deletion for tenant 13814000-1dd2-11b2-8080-808080808080",
         (new AlarmsDeletionHousekeeperTask(TenantId.SYS_TENANT_ID, TenantId.SYS_TENANT_ID)).getDescription());
+  }
+
+  /**
+   * Test {@link AlarmsDeletionHousekeeperTask#getDescription()}.
+   * <p>
+   * Method under test: {@link AlarmsDeletionHousekeeperTask#getDescription()}
+   */
+  @Test
+  @DisplayName("Test getDescription()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String AlarmsDeletionHousekeeperTask.getDescription()"})
+  void testGetDescription2() {
+    // Arrange, Act and Assert
     assertEquals("alarms deletion for tenant 13814000-1dd2-11b2-8080-808080808080 ([])",
         (new AlarmsDeletionHousekeeperTask(TenantId.SYS_TENANT_ID, TenantId.SYS_TENANT_ID, new ArrayList<>()))
             .getDescription());

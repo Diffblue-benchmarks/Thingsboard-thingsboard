@@ -2,10 +2,31 @@ package org.thingsboard.server.common.data;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ApiUsageRecordStateDiffblueTest {
+  /**
+   * Test {@link ApiUsageRecordState#getValueAsString()}.
+   * <ul>
+   *   <li>Then return {@code 1M}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ApiUsageRecordState#getValueAsString()}
+   */
+  @Test
+  @DisplayName("Test getValueAsString(); then return '1M'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String ApiUsageRecordState.getValueAsString()"})
+  void testGetValueAsString_thenReturn1m() {
+    // Arrange, Act and Assert
+    assertEquals("1M",
+        (new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 1000001L))
+            .getValueAsString());
+  }
+
   /**
    * Test {@link ApiUsageRecordState#getValueAsString()}.
    * <ul>
@@ -16,6 +37,8 @@ class ApiUsageRecordStateDiffblueTest {
    */
   @Test
   @DisplayName("Test getValueAsString(); then return '42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String ApiUsageRecordState.getValueAsString()"})
   void testGetValueAsString_thenReturn42() {
     // Arrange, Act and Assert
     assertEquals("42", (new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
@@ -32,6 +55,8 @@ class ApiUsageRecordStateDiffblueTest {
    */
   @Test
   @DisplayName("Test getValueAsString(); then return '1.00M'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String ApiUsageRecordState.getValueAsString()"})
   void testGetValueAsString_thenReturn100m() {
     // Arrange, Act and Assert
     assertEquals("1.00M",
@@ -49,6 +74,8 @@ class ApiUsageRecordStateDiffblueTest {
    */
   @Test
   @DisplayName("Test getValueAsString(); then return '9223372036854.78M'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String ApiUsageRecordState.getValueAsString()"})
   void testGetValueAsString_thenReturn922337203685478m() {
     // Arrange, Act and Assert
     assertEquals("9223372036854.78M",
@@ -66,10 +93,31 @@ class ApiUsageRecordStateDiffblueTest {
    */
   @Test
   @DisplayName("Test getThresholdAsString(); then return '1'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String ApiUsageRecordState.getThresholdAsString()"})
   void testGetThresholdAsString_thenReturn1() {
     // Arrange, Act and Assert
     assertEquals("1", (new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
         .getThresholdAsString());
+  }
+
+  /**
+   * Test {@link ApiUsageRecordState#getThresholdAsString()}.
+   * <ul>
+   *   <li>Then return {@code 1M}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ApiUsageRecordState#getThresholdAsString()}
+   */
+  @Test
+  @DisplayName("Test getThresholdAsString(); then return '1M'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String ApiUsageRecordState.getThresholdAsString()"})
+  void testGetThresholdAsString_thenReturn1m() {
+    // Arrange, Act and Assert
+    assertEquals("1M",
+        (new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1000001L, 42L))
+            .getThresholdAsString());
   }
 
   /**
@@ -82,6 +130,8 @@ class ApiUsageRecordStateDiffblueTest {
    */
   @Test
   @DisplayName("Test getThresholdAsString(); then return '1.00M'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String ApiUsageRecordState.getThresholdAsString()"})
   void testGetThresholdAsString_thenReturn100m() {
     // Arrange, Act and Assert
     assertEquals("1.00M",
@@ -99,6 +149,8 @@ class ApiUsageRecordStateDiffblueTest {
    */
   @Test
   @DisplayName("Test getThresholdAsString(); then return '9223372036854.78M'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String ApiUsageRecordState.getThresholdAsString()"})
   void testGetThresholdAsString_thenReturn922337203685478m() {
     // Arrange, Act and Assert
     assertEquals("9223372036854.78M",
@@ -107,8 +159,7 @@ class ApiUsageRecordStateDiffblueTest {
   }
 
   /**
-   * Test {@link ApiUsageRecordState#equals(Object)}, and
-   * {@link ApiUsageRecordState#hashCode()}.
+   * Test {@link ApiUsageRecordState#equals(Object)}, and {@link ApiUsageRecordState#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -122,6 +173,8 @@ class ApiUsageRecordStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageRecordState.equals(Object)", "int ApiUsageRecordState.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ApiUsageRecordState apiUsageRecordState = new ApiUsageRecordState(ApiFeature.TRANSPORT,
@@ -136,8 +189,7 @@ class ApiUsageRecordStateDiffblueTest {
   }
 
   /**
-   * Test {@link ApiUsageRecordState#equals(Object)}, and
-   * {@link ApiUsageRecordState#hashCode()}.
+   * Test {@link ApiUsageRecordState#equals(Object)}, and {@link ApiUsageRecordState#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -151,6 +203,8 @@ class ApiUsageRecordStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageRecordState.equals(Object)", "int ApiUsageRecordState.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     ApiUsageRecordState apiUsageRecordState = new ApiUsageRecordState(null, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L,
@@ -165,8 +219,7 @@ class ApiUsageRecordStateDiffblueTest {
   }
 
   /**
-   * Test {@link ApiUsageRecordState#equals(Object)}, and
-   * {@link ApiUsageRecordState#hashCode()}.
+   * Test {@link ApiUsageRecordState#equals(Object)}, and {@link ApiUsageRecordState#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -180,6 +233,8 @@ class ApiUsageRecordStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageRecordState.equals(Object)", "int ApiUsageRecordState.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     ApiUsageRecordState apiUsageRecordState = new ApiUsageRecordState(ApiFeature.TRANSPORT, null, 1L, 42L);
@@ -192,8 +247,7 @@ class ApiUsageRecordStateDiffblueTest {
   }
 
   /**
-   * Test {@link ApiUsageRecordState#equals(Object)}, and
-   * {@link ApiUsageRecordState#hashCode()}.
+   * Test {@link ApiUsageRecordState#equals(Object)}, and {@link ApiUsageRecordState#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -207,6 +261,8 @@ class ApiUsageRecordStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageRecordState.equals(Object)", "int ApiUsageRecordState.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ApiUsageRecordState apiUsageRecordState = new ApiUsageRecordState(ApiFeature.TRANSPORT,
@@ -229,6 +285,8 @@ class ApiUsageRecordStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageRecordState.equals(Object)", "int ApiUsageRecordState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ApiUsageRecordState apiUsageRecordState = new ApiUsageRecordState(null, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L,
@@ -250,6 +308,8 @@ class ApiUsageRecordStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageRecordState.equals(Object)", "int ApiUsageRecordState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ApiUsageRecordState apiUsageRecordState = new ApiUsageRecordState(ApiFeature.DB,
@@ -271,6 +331,8 @@ class ApiUsageRecordStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageRecordState.equals(Object)", "int ApiUsageRecordState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     ApiUsageRecordState apiUsageRecordState = new ApiUsageRecordState(ApiFeature.TRANSPORT, null, 1L, 42L);
@@ -291,6 +353,8 @@ class ApiUsageRecordStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageRecordState.equals(Object)", "int ApiUsageRecordState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     ApiUsageRecordState apiUsageRecordState = new ApiUsageRecordState(ApiFeature.TRANSPORT,
@@ -312,6 +376,8 @@ class ApiUsageRecordStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageRecordState.equals(Object)", "int ApiUsageRecordState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     ApiUsageRecordState apiUsageRecordState = new ApiUsageRecordState(ApiFeature.TRANSPORT,
@@ -333,6 +399,8 @@ class ApiUsageRecordStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageRecordState.equals(Object)", "int ApiUsageRecordState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     ApiUsageRecordState apiUsageRecordState = new ApiUsageRecordState(ApiFeature.TRANSPORT,
@@ -354,6 +422,8 @@ class ApiUsageRecordStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageRecordState.equals(Object)", "int ApiUsageRecordState.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L),
@@ -371,6 +441,8 @@ class ApiUsageRecordStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageRecordState.equals(Object)", "int ApiUsageRecordState.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L),
@@ -391,6 +463,10 @@ class ApiUsageRecordStateDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ApiFeature ApiUsageRecordState.getApiFeature()", "ApiUsageRecordKey ApiUsageRecordState.getKey()",
+      "long ApiUsageRecordState.getThreshold()", "long ApiUsageRecordState.getValue()",
+      "String ApiUsageRecordState.toString()"})
   void testGettersAndSetters() {
     // Arrange
     ApiUsageRecordState apiUsageRecordState = new ApiUsageRecordState(ApiFeature.TRANSPORT,
@@ -412,14 +488,14 @@ class ApiUsageRecordStateDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link ApiUsageRecordState#ApiUsageRecordState(ApiFeature, ApiUsageRecordKey, long, long)}.
+   * Test {@link ApiUsageRecordState#ApiUsageRecordState(ApiFeature, ApiUsageRecordKey, long, long)}.
    * <p>
-   * Method under test:
-   * {@link ApiUsageRecordState#ApiUsageRecordState(ApiFeature, ApiUsageRecordKey, long, long)}
+   * Method under test: {@link ApiUsageRecordState#ApiUsageRecordState(ApiFeature, ApiUsageRecordKey, long, long)}
    */
   @Test
   @DisplayName("Test new ApiUsageRecordState(ApiFeature, ApiUsageRecordKey, long, long)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ApiUsageRecordState.<init>(ApiFeature, ApiUsageRecordKey, long, long)"})
   void testNewApiUsageRecordState() {
     // Arrange and Act
     ApiUsageRecordState actualApiUsageRecordState = new ApiUsageRecordState(ApiFeature.TRANSPORT,

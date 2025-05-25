@@ -2,7 +2,9 @@ package org.thingsboard.server.transport.lwm2m.server.client;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class LwM2MClientStateExceptionDiffblueTest {
@@ -11,13 +13,15 @@ class LwM2MClientStateExceptionDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link LwM2MClientStateException#LwM2MClientStateException(LwM2MClientState, String)}
+   *   <li>{@link LwM2MClientStateException#LwM2MClientStateException(LwM2MClientState, String)}
    *   <li>{@link LwM2MClientStateException#getState()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MClientStateException.<init>(LwM2MClientState, String)",
+      "LwM2MClientState LwM2MClientStateException.getState()"})
   void testGettersAndSetters() {
     // Arrange and Act
     LwM2MClientStateException actualLwM2MClientStateException = new LwM2MClientStateException(LwM2MClientState.CREATED,

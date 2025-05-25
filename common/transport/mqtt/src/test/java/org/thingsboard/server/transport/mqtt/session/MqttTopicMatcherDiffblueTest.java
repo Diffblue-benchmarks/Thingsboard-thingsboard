@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class MqttTopicMatcherDiffblueTest {
@@ -19,6 +21,8 @@ class MqttTopicMatcherDiffblueTest {
    */
   @Test
   @DisplayName("Test new MqttTopicMatcher(String); when 'Topic'; then return 'Topic'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttTopicMatcher.<init>(String)"})
   void testNewMqttTopicMatcher_whenTopic_thenReturnTopic() {
     // Arrange, Act and Assert
     assertEquals("Topic", (new MqttTopicMatcher("Topic")).getTopic());
@@ -31,6 +35,8 @@ class MqttTopicMatcherDiffblueTest {
    */
   @Test
   @DisplayName("Test getTopic()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String MqttTopicMatcher.getTopic()"})
   void testGetTopic() {
     // Arrange, Act and Assert
     assertEquals("Topic", (new MqttTopicMatcher("Topic")).getTopic());
@@ -39,8 +45,7 @@ class MqttTopicMatcherDiffblueTest {
   /**
    * Test {@link MqttTopicMatcher#matches(String)}.
    * <ul>
-   *   <li>Given {@link MqttTopicMatcher#MqttTopicMatcher(String)} with topic is
-   * {@code 42}.</li>
+   *   <li>Given {@link MqttTopicMatcher#MqttTopicMatcher(String)} with topic is {@code 42}.</li>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
@@ -48,6 +53,8 @@ class MqttTopicMatcherDiffblueTest {
    */
   @Test
   @DisplayName("Test matches(String); given MqttTopicMatcher(String) with topic is '42'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MqttTopicMatcher.matches(String)"})
   void testMatches_givenMqttTopicMatcherWithTopicIs42_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse((new MqttTopicMatcher("42")).matches("Topic"));
@@ -56,8 +63,7 @@ class MqttTopicMatcherDiffblueTest {
   /**
    * Test {@link MqttTopicMatcher#matches(String)}.
    * <ul>
-   *   <li>Given {@link MqttTopicMatcher#MqttTopicMatcher(String)} with
-   * {@code Topic}.</li>
+   *   <li>Given {@link MqttTopicMatcher#MqttTopicMatcher(String)} with {@code Topic}.</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
@@ -65,14 +71,15 @@ class MqttTopicMatcherDiffblueTest {
    */
   @Test
   @DisplayName("Test matches(String); given MqttTopicMatcher(String) with 'Topic'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MqttTopicMatcher.matches(String)"})
   void testMatches_givenMqttTopicMatcherWithTopic_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue((new MqttTopicMatcher("Topic")).matches("Topic"));
   }
 
   /**
-   * Test {@link MqttTopicMatcher#equals(Object)}, and
-   * {@link MqttTopicMatcher#hashCode()}.
+   * Test {@link MqttTopicMatcher#equals(Object)}, and {@link MqttTopicMatcher#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -86,6 +93,8 @@ class MqttTopicMatcherDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MqttTopicMatcher.equals(Object)", "int MqttTopicMatcher.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     MqttTopicMatcher mqttTopicMatcher = new MqttTopicMatcher("Topic");
@@ -98,8 +107,7 @@ class MqttTopicMatcherDiffblueTest {
   }
 
   /**
-   * Test {@link MqttTopicMatcher#equals(Object)}, and
-   * {@link MqttTopicMatcher#hashCode()}.
+   * Test {@link MqttTopicMatcher#equals(Object)}, and {@link MqttTopicMatcher#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -113,6 +121,8 @@ class MqttTopicMatcherDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MqttTopicMatcher.equals(Object)", "int MqttTopicMatcher.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     MqttTopicMatcher mqttTopicMatcher = new MqttTopicMatcher("Topic");
@@ -134,6 +144,8 @@ class MqttTopicMatcherDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MqttTopicMatcher.equals(Object)", "int MqttTopicMatcher.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     MqttTopicMatcher mqttTopicMatcher = new MqttTopicMatcher("#");
@@ -153,6 +165,8 @@ class MqttTopicMatcherDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MqttTopicMatcher.equals(Object)", "int MqttTopicMatcher.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MqttTopicMatcher("Topic"), null);
@@ -169,6 +183,8 @@ class MqttTopicMatcherDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MqttTopicMatcher.equals(Object)", "int MqttTopicMatcher.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MqttTopicMatcher("Topic"), "Different type to MqttTopicMatcher");

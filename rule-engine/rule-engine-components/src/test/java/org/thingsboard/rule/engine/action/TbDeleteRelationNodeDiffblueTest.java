@@ -2,83 +2,66 @@ package org.thingsboard.rule.engine.action;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.atLeast;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import java.util.ArrayList;
-import java.util.Map;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import com.fasterxml.jackson.databind.node.POJONode;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.rule.engine.api.TbNodeConfiguration;
 import org.thingsboard.rule.engine.api.TbNodeException;
+import org.thingsboard.server.common.data.EntityType;
 
 class TbDeleteRelationNodeDiffblueTest {
   /**
-   * Test
-   * {@link TbDeleteRelationNode#loadEntityNodeActionConfig(TbNodeConfiguration)}.
+   * Test {@link TbDeleteRelationNode#loadEntityNodeActionConfig(TbNodeConfiguration)}.
    * <ul>
-   *   <li>Given {@code START_ARRAY}.</li>
-   *   <li>Then throw {@link RuntimeException}.</li>
+   *   <li>Given {@code false}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbDeleteRelationNode#loadEntityNodeActionConfig(TbNodeConfiguration)}
+   * Method under test: {@link TbDeleteRelationNode#loadEntityNodeActionConfig(TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test loadEntityNodeActionConfig(TbNodeConfiguration); given 'START_ARRAY'; then throw RuntimeException")
-  void testLoadEntityNodeActionConfig_givenStartArray_thenThrowRuntimeException() throws TbNodeException {
+  @DisplayName("Test loadEntityNodeActionConfig(TbNodeConfiguration); given 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "TbDeleteRelationNodeConfiguration TbDeleteRelationNode.loadEntityNodeActionConfig(TbNodeConfiguration)"})
+  void testLoadEntityNodeActionConfig_givenFalse() throws TbNodeException {
     // Arrange
     TbDeleteRelationNode tbDeleteRelationNode = new TbDeleteRelationNode();
-    ArrayNode data = mock(ArrayNode.class);
-    when(data.elements()).thenThrow(new RuntimeException("foo"));
-    when(data.asToken()).thenReturn(JsonToken.START_ARRAY);
+
+    TbDeleteRelationNodeConfiguration tbDeleteRelationNodeConfiguration = new TbDeleteRelationNodeConfiguration();
+    tbDeleteRelationNodeConfiguration.setDeleteForSingleEntity(false);
 
     // Act and Assert
-    assertThrows(RuntimeException.class,
-        () -> tbDeleteRelationNode.loadEntityNodeActionConfig(new TbNodeConfiguration(data)));
-    verify(data, atLeast(1)).asToken();
-    verify(data).elements();
+    assertSame(tbDeleteRelationNodeConfiguration, tbDeleteRelationNode
+        .loadEntityNodeActionConfig(new TbNodeConfiguration(new POJONode(tbDeleteRelationNodeConfiguration))));
   }
 
   /**
-   * Test
-   * {@link TbDeleteRelationNode#loadEntityNodeActionConfig(TbNodeConfiguration)}.
+   * Test {@link TbDeleteRelationNode#loadEntityNodeActionConfig(TbNodeConfiguration)}.
    * <ul>
-   *   <li>Then return EntityNamePattern is {@code null}.</li>
+   *   <li>Given {@code TENANT}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbDeleteRelationNode#loadEntityNodeActionConfig(TbNodeConfiguration)}
+   * Method under test: {@link TbDeleteRelationNode#loadEntityNodeActionConfig(TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test loadEntityNodeActionConfig(TbNodeConfiguration); then return EntityNamePattern is 'null'")
-  void testLoadEntityNodeActionConfig_thenReturnEntityNamePatternIsNull() throws TbNodeException {
+  @DisplayName("Test loadEntityNodeActionConfig(TbNodeConfiguration); given 'TENANT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "TbDeleteRelationNodeConfiguration TbDeleteRelationNode.loadEntityNodeActionConfig(TbNodeConfiguration)"})
+  void testLoadEntityNodeActionConfig_givenTenant() throws TbNodeException {
     // Arrange
     TbDeleteRelationNode tbDeleteRelationNode = new TbDeleteRelationNode();
-    ArrayNode data = mock(ArrayNode.class);
 
-    ArrayList<Map.Entry<String, JsonNode>> entryList = new ArrayList<>();
-    when(data.fields()).thenReturn(entryList.iterator());
-    when(data.asToken()).thenReturn(JsonToken.START_OBJECT);
+    TbDeleteRelationNodeConfiguration tbDeleteRelationNodeConfiguration = new TbDeleteRelationNodeConfiguration();
+    tbDeleteRelationNodeConfiguration.setEntityType(EntityType.TENANT);
+    tbDeleteRelationNodeConfiguration.setDeleteForSingleEntity(true);
 
-    // Act
-    TbDeleteRelationNodeConfiguration actualLoadEntityNodeActionConfigResult = tbDeleteRelationNode
-        .loadEntityNodeActionConfig(new TbNodeConfiguration(data));
-
-    // Assert
-    verify(data).fields();
-    verify(data, atLeast(1)).asToken();
-    assertNull(actualLoadEntityNodeActionConfigResult.getEntityNamePattern());
-    assertNull(actualLoadEntityNodeActionConfigResult.getEntityTypePattern());
-    assertNull(actualLoadEntityNodeActionConfigResult.getRelationType());
-    assertNull(actualLoadEntityNodeActionConfigResult.getEntityType());
-    assertNull(actualLoadEntityNodeActionConfigResult.getDirection());
-    assertFalse(actualLoadEntityNodeActionConfigResult.isDeleteForSingleEntity());
+    // Act and Assert
+    assertSame(tbDeleteRelationNodeConfiguration, tbDeleteRelationNode
+        .loadEntityNodeActionConfig(new TbNodeConfiguration(new POJONode(tbDeleteRelationNodeConfiguration))));
   }
 
   /**
@@ -88,6 +71,8 @@ class TbDeleteRelationNodeDiffblueTest {
    */
   @Test
   @DisplayName("Test createEntityIfNotExists()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbDeleteRelationNode.createEntityIfNotExists()"})
   void testCreateEntityIfNotExists() {
     // Arrange, Act and Assert
     assertFalse((new TbDeleteRelationNode()).createEntityIfNotExists());
@@ -96,11 +81,12 @@ class TbDeleteRelationNodeDiffblueTest {
   /**
    * Test new {@link TbDeleteRelationNode} (default constructor).
    * <p>
-   * Method under test: default or parameterless constructor of
-   * {@link TbDeleteRelationNode}
+   * Method under test: default or parameterless constructor of {@link TbDeleteRelationNode}
    */
   @Test
   @DisplayName("Test new TbDeleteRelationNode (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbDeleteRelationNode.<init>()"})
   void testNewTbDeleteRelationNode() {
     // Arrange, Act and Assert
     assertNull((new TbDeleteRelationNode()).config);

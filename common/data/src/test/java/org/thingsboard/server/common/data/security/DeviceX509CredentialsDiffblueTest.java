@@ -1,7 +1,9 @@
 package org.thingsboard.server.common.data.security;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class DeviceX509CredentialsDiffblueTest {
@@ -18,6 +20,9 @@ class DeviceX509CredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DeviceX509Credentials.<init>(String)", "String DeviceX509Credentials.getCredentialsId()",
+      "DeviceCredentialsType DeviceX509Credentials.getCredentialsType()", "String DeviceX509Credentials.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     DeviceX509Credentials actualDeviceX509Credentials = new DeviceX509Credentials("Sha3 Hash");

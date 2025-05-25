@@ -4,15 +4,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.query.EntityKeyValueType;
 import org.thingsboard.server.common.data.query.KeyFilterPredicate;
 
 class AlarmConditionFilterDiffblueTest {
   /**
-   * Test {@link AlarmConditionFilter#equals(Object)}, and
-   * {@link AlarmConditionFilter#hashCode()}.
+   * Test {@link AlarmConditionFilter#equals(Object)}, and {@link AlarmConditionFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -26,6 +27,8 @@ class AlarmConditionFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmConditionFilter.equals(Object)", "int AlarmConditionFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AlarmConditionFilter alarmConditionFilter = new AlarmConditionFilter();
@@ -47,8 +50,7 @@ class AlarmConditionFilterDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmConditionFilter#equals(Object)}, and
-   * {@link AlarmConditionFilter#hashCode()}.
+   * Test {@link AlarmConditionFilter#equals(Object)}, and {@link AlarmConditionFilter#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -62,6 +64,8 @@ class AlarmConditionFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmConditionFilter.equals(Object)", "int AlarmConditionFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AlarmConditionFilter alarmConditionFilter = new AlarmConditionFilter();
@@ -87,6 +91,8 @@ class AlarmConditionFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmConditionFilter.equals(Object)", "int AlarmConditionFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AlarmConditionFilter alarmConditionFilter = new AlarmConditionFilter();
@@ -116,6 +122,8 @@ class AlarmConditionFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmConditionFilter.equals(Object)", "int AlarmConditionFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AlarmConditionFilter alarmConditionFilter = new AlarmConditionFilter();
@@ -145,6 +153,8 @@ class AlarmConditionFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmConditionFilter.equals(Object)", "int AlarmConditionFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AlarmConditionFilter alarmConditionFilter = new AlarmConditionFilter();
@@ -174,6 +184,8 @@ class AlarmConditionFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmConditionFilter.equals(Object)", "int AlarmConditionFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AlarmConditionFilter alarmConditionFilter = new AlarmConditionFilter();
@@ -203,6 +215,8 @@ class AlarmConditionFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmConditionFilter.equals(Object)", "int AlarmConditionFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     AlarmConditionFilter alarmConditionFilter = new AlarmConditionFilter();
@@ -238,6 +252,8 @@ class AlarmConditionFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmConditionFilter.equals(Object)", "int AlarmConditionFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AlarmConditionFilter alarmConditionFilter = new AlarmConditionFilter();
@@ -267,6 +283,8 @@ class AlarmConditionFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmConditionFilter.equals(Object)", "int AlarmConditionFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     AlarmConditionFilter alarmConditionFilter = new AlarmConditionFilter();
@@ -296,6 +314,8 @@ class AlarmConditionFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmConditionFilter.equals(Object)", "int AlarmConditionFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     AlarmConditionFilter alarmConditionFilter = new AlarmConditionFilter();
@@ -325,6 +345,8 @@ class AlarmConditionFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmConditionFilter.equals(Object)", "int AlarmConditionFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     AlarmConditionFilter alarmConditionFilter = new AlarmConditionFilter();
@@ -354,6 +376,8 @@ class AlarmConditionFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmConditionFilter.equals(Object)", "int AlarmConditionFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     AlarmConditionFilter alarmConditionFilter = new AlarmConditionFilter();
@@ -383,6 +407,8 @@ class AlarmConditionFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmConditionFilter.equals(Object)", "int AlarmConditionFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     AlarmConditionFilter alarmConditionFilter = new AlarmConditionFilter();
@@ -412,6 +438,8 @@ class AlarmConditionFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmConditionFilter.equals(Object)", "int AlarmConditionFilter.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     AlarmConditionFilter alarmConditionFilter = new AlarmConditionFilter();
@@ -435,6 +463,8 @@ class AlarmConditionFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmConditionFilter.equals(Object)", "int AlarmConditionFilter.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     AlarmConditionFilter alarmConditionFilter = new AlarmConditionFilter();
@@ -466,6 +496,13 @@ class AlarmConditionFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmConditionFilter.<init>()", "AlarmConditionFilterKey AlarmConditionFilter.getKey()",
+      "KeyFilterPredicate AlarmConditionFilter.getPredicate()", "Object AlarmConditionFilter.getValue()",
+      "EntityKeyValueType AlarmConditionFilter.getValueType()",
+      "void AlarmConditionFilter.setKey(AlarmConditionFilterKey)",
+      "void AlarmConditionFilter.setPredicate(KeyFilterPredicate)", "void AlarmConditionFilter.setValue(Object)",
+      "void AlarmConditionFilter.setValueType(EntityKeyValueType)", "java.lang.String AlarmConditionFilter.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     AlarmConditionFilter actualAlarmConditionFilter = new AlarmConditionFilter();
@@ -481,7 +518,7 @@ class AlarmConditionFilterDiffblueTest {
     KeyFilterPredicate actualPredicate = actualAlarmConditionFilter.getPredicate();
     Object actualValue = actualAlarmConditionFilter.getValue();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Value", actualValue);
     assertEquals(EntityKeyValueType.STRING, actualAlarmConditionFilter.getValueType());
     assertSame(key, actualKey);

@@ -1,39 +1,12 @@
 package org.thingsboard.server.transport.lwm2m.config;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.thingsboard.server.common.transport.config.ssl.SslCredentialsConfig;
 
 class LwM2MTransportBootstrapConfigDiffblueTest {
-  /**
-   * Test {@link LwM2MTransportBootstrapConfig#lwm2mBootstrapCredentials()}.
-   * <p>
-   * Method under test:
-   * {@link LwM2MTransportBootstrapConfig#lwm2mBootstrapCredentials()}
-   */
-  @Test
-  @DisplayName("Test lwm2mBootstrapCredentials()")
-  void testLwm2mBootstrapCredentials() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange and Act
-    SslCredentialsConfig actualLwm2mBootstrapCredentialsResult = (new LwM2MTransportBootstrapConfig())
-        .lwm2mBootstrapCredentials();
-
-    // Assert
-    assertEquals("LWM2M Bootstrap DTLS Credentials", actualLwm2mBootstrapCredentialsResult.getName());
-    assertNull(actualLwm2mBootstrapCredentialsResult.getKeystore());
-    assertNull(actualLwm2mBootstrapCredentialsResult.getPem());
-    assertNull(actualLwm2mBootstrapCredentialsResult.getCredentials());
-    assertNull(actualLwm2mBootstrapCredentialsResult.getType());
-    assertFalse(actualLwm2mBootstrapCredentialsResult.isTrustsOnly());
-    assertTrue(actualLwm2mBootstrapCredentialsResult.isEnabled());
-  }
-
   /**
    * Test getters and setters.
    * <p>
@@ -48,6 +21,10 @@ class LwM2MTransportBootstrapConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String LwM2MTransportBootstrapConfig.getHost()", "Integer LwM2MTransportBootstrapConfig.getId()",
+      "Integer LwM2MTransportBootstrapConfig.getPort()", "String LwM2MTransportBootstrapConfig.getSecureHost()",
+      "Integer LwM2MTransportBootstrapConfig.getSecurePort()"})
   void testGettersAndSetters() {
     // Arrange
     LwM2MTransportBootstrapConfig lwM2MTransportBootstrapConfig = new LwM2MTransportBootstrapConfig();

@@ -4,11 +4,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.EntityId;
 import org.thingsboard.server.common.data.id.RuleChainId;
@@ -16,8 +17,7 @@ import org.thingsboard.server.common.data.id.RuleNodeId;
 
 class RuleChainOutputLabelsUsageDiffblueTest {
   /**
-   * Test {@link RuleChainOutputLabelsUsage#equals(Object)}, and
-   * {@link RuleChainOutputLabelsUsage#hashCode()}.
+   * Test {@link RuleChainOutputLabelsUsage#equals(Object)}, and {@link RuleChainOutputLabelsUsage#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -31,6 +31,8 @@ class RuleChainOutputLabelsUsageDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainOutputLabelsUsage.equals(Object)", "int RuleChainOutputLabelsUsage.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     RuleChainOutputLabelsUsage ruleChainOutputLabelsUsage = new RuleChainOutputLabelsUsage();
@@ -55,8 +57,7 @@ class RuleChainOutputLabelsUsageDiffblueTest {
   }
 
   /**
-   * Test {@link RuleChainOutputLabelsUsage#equals(Object)}, and
-   * {@link RuleChainOutputLabelsUsage#hashCode()}.
+   * Test {@link RuleChainOutputLabelsUsage#equals(Object)}, and {@link RuleChainOutputLabelsUsage#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -70,6 +71,8 @@ class RuleChainOutputLabelsUsageDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainOutputLabelsUsage.equals(Object)", "int RuleChainOutputLabelsUsage.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     RuleChainOutputLabelsUsage ruleChainOutputLabelsUsage = new RuleChainOutputLabelsUsage();
@@ -93,8 +96,7 @@ class RuleChainOutputLabelsUsageDiffblueTest {
   }
 
   /**
-   * Test {@link RuleChainOutputLabelsUsage#equals(Object)}, and
-   * {@link RuleChainOutputLabelsUsage#hashCode()}.
+   * Test {@link RuleChainOutputLabelsUsage#equals(Object)}, and {@link RuleChainOutputLabelsUsage#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -108,6 +110,8 @@ class RuleChainOutputLabelsUsageDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainOutputLabelsUsage.equals(Object)", "int RuleChainOutputLabelsUsage.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     RuleChainOutputLabelsUsage ruleChainOutputLabelsUsage = new RuleChainOutputLabelsUsage();
@@ -132,8 +136,87 @@ class RuleChainOutputLabelsUsageDiffblueTest {
   }
 
   /**
-   * Test {@link RuleChainOutputLabelsUsage#equals(Object)}, and
-   * {@link RuleChainOutputLabelsUsage#hashCode()}.
+   * Test {@link RuleChainOutputLabelsUsage#equals(Object)}, and {@link RuleChainOutputLabelsUsage#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link RuleChainOutputLabelsUsage#equals(Object)}
+   *   <li>{@link RuleChainOutputLabelsUsage#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainOutputLabelsUsage.equals(Object)", "int RuleChainOutputLabelsUsage.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
+    // Arrange
+    RuleChainOutputLabelsUsage ruleChainOutputLabelsUsage = new RuleChainOutputLabelsUsage();
+    ruleChainOutputLabelsUsage.setLabels(new HashSet<>());
+    ruleChainOutputLabelsUsage.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainOutputLabelsUsage.setRuleChainName("Rule Chain Name");
+    ruleChainOutputLabelsUsage.setRuleNodeId(null);
+    ruleChainOutputLabelsUsage.setRuleNodeName("Rule Node Name");
+
+    RuleChainOutputLabelsUsage ruleChainOutputLabelsUsage2 = new RuleChainOutputLabelsUsage();
+    ruleChainOutputLabelsUsage2.setLabels(new HashSet<>());
+    ruleChainOutputLabelsUsage2
+        .setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainOutputLabelsUsage2.setRuleChainName("Rule Chain Name");
+    ruleChainOutputLabelsUsage2.setRuleNodeId(null);
+    ruleChainOutputLabelsUsage2.setRuleNodeName("Rule Node Name");
+
+    // Act and Assert
+    assertEquals(ruleChainOutputLabelsUsage, ruleChainOutputLabelsUsage2);
+    int expectedHashCodeResult = ruleChainOutputLabelsUsage.hashCode();
+    assertEquals(expectedHashCodeResult, ruleChainOutputLabelsUsage2.hashCode());
+  }
+
+  /**
+   * Test {@link RuleChainOutputLabelsUsage#equals(Object)}, and {@link RuleChainOutputLabelsUsage#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link RuleChainOutputLabelsUsage#equals(Object)}
+   *   <li>{@link RuleChainOutputLabelsUsage#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainOutputLabelsUsage.equals(Object)", "int RuleChainOutputLabelsUsage.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
+    // Arrange
+    RuleChainOutputLabelsUsage ruleChainOutputLabelsUsage = new RuleChainOutputLabelsUsage();
+    ruleChainOutputLabelsUsage.setLabels(new HashSet<>());
+    ruleChainOutputLabelsUsage.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainOutputLabelsUsage.setRuleChainName("Rule Chain Name");
+    ruleChainOutputLabelsUsage.setRuleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainOutputLabelsUsage.setRuleNodeName(null);
+
+    RuleChainOutputLabelsUsage ruleChainOutputLabelsUsage2 = new RuleChainOutputLabelsUsage();
+    ruleChainOutputLabelsUsage2.setLabels(new HashSet<>());
+    ruleChainOutputLabelsUsage2
+        .setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainOutputLabelsUsage2.setRuleChainName("Rule Chain Name");
+    ruleChainOutputLabelsUsage2.setRuleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainOutputLabelsUsage2.setRuleNodeName(null);
+
+    // Act and Assert
+    assertEquals(ruleChainOutputLabelsUsage, ruleChainOutputLabelsUsage2);
+    int expectedHashCodeResult = ruleChainOutputLabelsUsage.hashCode();
+    assertEquals(expectedHashCodeResult, ruleChainOutputLabelsUsage2.hashCode());
+  }
+
+  /**
+   * Test {@link RuleChainOutputLabelsUsage#equals(Object)}, and {@link RuleChainOutputLabelsUsage#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -147,6 +230,8 @@ class RuleChainOutputLabelsUsageDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainOutputLabelsUsage.equals(Object)", "int RuleChainOutputLabelsUsage.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     RuleChainOutputLabelsUsage ruleChainOutputLabelsUsage = new RuleChainOutputLabelsUsage();
@@ -173,6 +258,8 @@ class RuleChainOutputLabelsUsageDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainOutputLabelsUsage.equals(Object)", "int RuleChainOutputLabelsUsage.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     HashSet<String> labels = new HashSet<>();
@@ -208,6 +295,8 @@ class RuleChainOutputLabelsUsageDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainOutputLabelsUsage.equals(Object)", "int RuleChainOutputLabelsUsage.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     RuleChainOutputLabelsUsage ruleChainOutputLabelsUsage = new RuleChainOutputLabelsUsage();
@@ -240,6 +329,8 @@ class RuleChainOutputLabelsUsageDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainOutputLabelsUsage.equals(Object)", "int RuleChainOutputLabelsUsage.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     RuleChainOutputLabelsUsage ruleChainOutputLabelsUsage = new RuleChainOutputLabelsUsage();
@@ -272,39 +363,9 @@ class RuleChainOutputLabelsUsageDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainOutputLabelsUsage.equals(Object)", "int RuleChainOutputLabelsUsage.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
-    // Arrange
-    RuleChainOutputLabelsUsage ruleChainOutputLabelsUsage = new RuleChainOutputLabelsUsage();
-    ruleChainOutputLabelsUsage.setLabels(new HashSet<>());
-    ruleChainOutputLabelsUsage.setRuleChainId(mock(RuleChainId.class));
-    ruleChainOutputLabelsUsage.setRuleChainName("Rule Chain Name");
-    ruleChainOutputLabelsUsage.setRuleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    ruleChainOutputLabelsUsage.setRuleNodeName("Rule Node Name");
-
-    RuleChainOutputLabelsUsage ruleChainOutputLabelsUsage2 = new RuleChainOutputLabelsUsage();
-    ruleChainOutputLabelsUsage2.setLabels(new HashSet<>());
-    ruleChainOutputLabelsUsage2
-        .setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    ruleChainOutputLabelsUsage2.setRuleChainName("Rule Chain Name");
-    ruleChainOutputLabelsUsage2.setRuleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    ruleChainOutputLabelsUsage2.setRuleNodeName("Rule Node Name");
-
-    // Act and Assert
-    assertNotEquals(ruleChainOutputLabelsUsage, ruleChainOutputLabelsUsage2);
-  }
-
-  /**
-   * Test {@link RuleChainOutputLabelsUsage#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link RuleChainOutputLabelsUsage#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     RuleChainOutputLabelsUsage ruleChainOutputLabelsUsage = new RuleChainOutputLabelsUsage();
     ruleChainOutputLabelsUsage.setLabels(new HashSet<>());
@@ -336,7 +397,9 @@ class RuleChainOutputLabelsUsageDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainOutputLabelsUsage.equals(Object)", "int RuleChainOutputLabelsUsage.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     RuleChainOutputLabelsUsage ruleChainOutputLabelsUsage = new RuleChainOutputLabelsUsage();
     ruleChainOutputLabelsUsage.setLabels(new HashSet<>());
@@ -368,7 +431,9 @@ class RuleChainOutputLabelsUsageDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainOutputLabelsUsage.equals(Object)", "int RuleChainOutputLabelsUsage.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     RuleChainOutputLabelsUsage ruleChainOutputLabelsUsage = new RuleChainOutputLabelsUsage();
     ruleChainOutputLabelsUsage.setLabels(new HashSet<>());
@@ -400,7 +465,9 @@ class RuleChainOutputLabelsUsageDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainOutputLabelsUsage.equals(Object)", "int RuleChainOutputLabelsUsage.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     RuleChainOutputLabelsUsage ruleChainOutputLabelsUsage = new RuleChainOutputLabelsUsage();
     ruleChainOutputLabelsUsage.setLabels(new HashSet<>());
@@ -432,7 +499,9 @@ class RuleChainOutputLabelsUsageDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainOutputLabelsUsage.equals(Object)", "int RuleChainOutputLabelsUsage.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     RuleChainOutputLabelsUsage ruleChainOutputLabelsUsage = new RuleChainOutputLabelsUsage();
     ruleChainOutputLabelsUsage.setLabels(new HashSet<>());
@@ -464,7 +533,9 @@ class RuleChainOutputLabelsUsageDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainOutputLabelsUsage.equals(Object)", "int RuleChainOutputLabelsUsage.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     RuleChainOutputLabelsUsage ruleChainOutputLabelsUsage = new RuleChainOutputLabelsUsage();
     ruleChainOutputLabelsUsage.setLabels(new HashSet<>());
@@ -496,6 +567,8 @@ class RuleChainOutputLabelsUsageDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainOutputLabelsUsage.equals(Object)", "int RuleChainOutputLabelsUsage.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     RuleChainOutputLabelsUsage ruleChainOutputLabelsUsage = new RuleChainOutputLabelsUsage();
@@ -520,6 +593,8 @@ class RuleChainOutputLabelsUsageDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainOutputLabelsUsage.equals(Object)", "int RuleChainOutputLabelsUsage.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     RuleChainOutputLabelsUsage ruleChainOutputLabelsUsage = new RuleChainOutputLabelsUsage();
@@ -538,8 +613,7 @@ class RuleChainOutputLabelsUsageDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link RuleChainOutputLabelsUsage}
+   *   <li>default or parameterless constructor of {@link RuleChainOutputLabelsUsage}
    *   <li>{@link RuleChainOutputLabelsUsage#setLabels(Set)}
    *   <li>{@link RuleChainOutputLabelsUsage#setRuleChainId(RuleChainId)}
    *   <li>{@link RuleChainOutputLabelsUsage#setRuleChainName(String)}
@@ -555,6 +629,14 @@ class RuleChainOutputLabelsUsageDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void RuleChainOutputLabelsUsage.<init>()", "Set RuleChainOutputLabelsUsage.getLabels()",
+      "RuleChainId RuleChainOutputLabelsUsage.getRuleChainId()", "String RuleChainOutputLabelsUsage.getRuleChainName()",
+      "RuleNodeId RuleChainOutputLabelsUsage.getRuleNodeId()", "String RuleChainOutputLabelsUsage.getRuleNodeName()",
+      "void RuleChainOutputLabelsUsage.setLabels(Set)", "void RuleChainOutputLabelsUsage.setRuleChainId(RuleChainId)",
+      "void RuleChainOutputLabelsUsage.setRuleChainName(String)",
+      "void RuleChainOutputLabelsUsage.setRuleNodeId(RuleNodeId)",
+      "void RuleChainOutputLabelsUsage.setRuleNodeName(String)", "String RuleChainOutputLabelsUsage.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     RuleChainOutputLabelsUsage actualRuleChainOutputLabelsUsage = new RuleChainOutputLabelsUsage();
@@ -572,7 +654,7 @@ class RuleChainOutputLabelsUsageDiffblueTest {
     String actualRuleChainName = actualRuleChainOutputLabelsUsage.getRuleChainName();
     RuleNodeId actualRuleNodeId = actualRuleChainOutputLabelsUsage.getRuleNodeId();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Rule Chain Name", actualRuleChainName);
     assertEquals("Rule Node Name", actualRuleChainOutputLabelsUsage.getRuleNodeName());
     assertEquals(

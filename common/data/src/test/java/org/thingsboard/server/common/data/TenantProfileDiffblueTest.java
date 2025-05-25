@@ -1,24 +1,24 @@
 package org.thingsboard.server.common.data;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.node.MissingNode;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Optional;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.queue.ProcessingStrategy;
 import org.thingsboard.server.common.data.queue.ProcessingStrategyType;
 import org.thingsboard.server.common.data.queue.SubmitStrategy;
 import org.thingsboard.server.common.data.queue.SubmitStrategyType;
 import org.thingsboard.server.common.data.tenant.profile.DefaultTenantProfileConfiguration;
-import org.thingsboard.server.common.data.tenant.profile.TenantProfileConfiguration;
 import org.thingsboard.server.common.data.tenant.profile.TenantProfileData;
 import org.thingsboard.server.common.data.tenant.profile.TenantProfileQueueConfiguration;
 
@@ -33,6 +33,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test new TenantProfile(TenantProfile); given array of byte with 'A' and three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TenantProfile.<init>(TenantProfile)"})
   void testNewTenantProfile_givenArrayOfByteWithAAndThree() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -42,134 +44,14 @@ class TenantProfileDiffblueTest {
     TenantProfile actualTenantProfile = new TenantProfile(tenantProfile);
 
     // Assert
-    DefaultTenantProfileConfiguration defaultProfileConfiguration = actualTenantProfile
-        .getDefaultProfileConfiguration();
-    assertNull(defaultProfileConfiguration.getSmsEnabled());
     assertNull(actualTenantProfile.getDescription());
     assertNull(actualTenantProfile.getName());
-    assertNull(defaultProfileConfiguration.getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getCustomerServerRestLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getEdgeEventRateLimits());
-    assertNull(defaultProfileConfiguration.getEdgeEventRateLimitsPerEdge());
-    assertNull(defaultProfileConfiguration.getEdgeUplinkMessagesRateLimits());
-    assertNull(defaultProfileConfiguration.getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(defaultProfileConfiguration.getTenantEntityExportRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantEntityImportRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantNotificationRequestsRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantServerRestLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getTransportDeviceMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getWsUpdatesPerSessionRateLimit());
-    TenantProfileData profileData = actualTenantProfile.getProfileData();
-    assertNull(profileData.getQueueConfiguration());
     assertNull(actualTenantProfile.getUuidId());
     assertNull(actualTenantProfile.getId());
-    assertEquals(0, defaultProfileConfiguration.getAlarmsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getDefaultStorageTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0, defaultProfileConfiguration.getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerCustomer());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerPublicUser());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerRegularUser());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerTenant());
-    assertEquals(0, defaultProfileConfiguration.getQueueStatsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getRpcTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getRuleEngineExceptionsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getWsMsgQueueLimitPerSession());
-    assertEquals(0.0d, defaultProfileConfiguration.getWarnThreshold());
     assertEquals(0L, actualTenantProfile.getCreatedTime());
-    assertEquals(0L, defaultProfileConfiguration.getMaxAssets());
-    assertEquals(0L, defaultProfileConfiguration.getMaxCreatedAlarms());
-    assertEquals(0L, defaultProfileConfiguration.getMaxCustomers());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDPStorageDays());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDashboards());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDevices());
-    assertEquals(0L, defaultProfileConfiguration.getMaxEmails());
-    assertEquals(0L, defaultProfileConfiguration.getMaxJSExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxOtaPackagesInBytes());
-    assertEquals(0L, defaultProfileConfiguration.getMaxREExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxResourceSize());
-    assertEquals(0L, defaultProfileConfiguration.getMaxResourcesInBytes());
-    assertEquals(0L, defaultProfileConfiguration.getMaxRuleChains());
-    assertEquals(0L, defaultProfileConfiguration.getMaxSms());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTbelExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTransportDataPoints());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTransportMessages());
-    assertEquals(0L, defaultProfileConfiguration.getMaxUsers());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerTenant());
-    byte[] profileDataBytes = actualTenantProfile.getProfileDataBytes();
-    assertEquals(1905, profileDataBytes.length);
-    assertEquals(TenantProfileType.DEFAULT, defaultProfileConfiguration.getType());
+    assertEquals(1905, actualTenantProfile.getProfileDataBytes().length);
     assertFalse(actualTenantProfile.isDefault());
     assertFalse(actualTenantProfile.isIsolatedTbRuleEngine());
-    Optional<DefaultTenantProfileConfiguration> profileConfiguration = actualTenantProfile.getProfileConfiguration();
-    assertTrue(profileConfiguration.isPresent());
-    assertEquals(':', profileDataBytes[1899]);
-    assertEquals(':', profileDataBytes[24]);
-    assertEquals(':', profileDataBytes[Short.SIZE]);
-    assertEquals('C', profileDataBytes[1885]);
-    assertEquals('"', profileDataBytes[1]);
-    assertEquals('"', profileDataBytes[15]);
-    assertEquals('"', profileDataBytes[18]);
-    assertEquals('"', profileDataBytes[1898]);
-    assertEquals('"', profileDataBytes[23]);
-    assertEquals('a', profileDataBytes[10]);
-    assertEquals('a', profileDataBytes[1893]);
-    assertEquals('c', profileDataBytes[2]);
-    assertEquals('e', profileDataBytes[1882]);
-    assertEquals('e', profileDataBytes[1884]);
-    assertEquals('e', profileDataBytes[22]);
-    assertEquals('f', profileDataBytes[1888]);
-    assertEquals('f', profileDataBytes[5]);
-    assertEquals('g', profileDataBytes[1890]);
-    assertEquals('g', profileDataBytes[7]);
-    assertEquals('i', profileDataBytes[12]);
-    assertEquals('i', profileDataBytes[1889]);
-    assertEquals('i', profileDataBytes[1895]);
-    assertEquals('i', profileDataBytes[6]);
-    assertEquals('l', profileDataBytes[1902]);
-    assertEquals('l', profileDataBytes[1903]);
-    assertEquals('n', profileDataBytes[14]);
-    assertEquals('n', profileDataBytes[1887]);
-    assertEquals('n', profileDataBytes[1897]);
-    assertEquals('n', profileDataBytes[1900]);
-    assertEquals('n', profileDataBytes[4]);
-    assertEquals('o', profileDataBytes[13]);
-    assertEquals('o', profileDataBytes[1886]);
-    assertEquals('o', profileDataBytes[1896]);
-    assertEquals('o', profileDataBytes[3]);
-    assertEquals('p', profileDataBytes[21]);
-    assertEquals('q', profileDataBytes[1880]);
-    assertEquals('r', profileDataBytes[1892]);
-    assertEquals('r', profileDataBytes[9]);
-    assertEquals('t', profileDataBytes[11]);
-    assertEquals('t', profileDataBytes[1894]);
-    assertEquals('t', profileDataBytes[19]);
-    assertEquals('u', profileDataBytes[1881]);
-    assertEquals('u', profileDataBytes[1883]);
-    assertEquals('u', profileDataBytes[1891]);
-    assertEquals('u', profileDataBytes[1901]);
-    assertEquals('u', profileDataBytes[8]);
-    assertEquals('y', profileDataBytes[20]);
-    assertEquals('{', profileDataBytes[0]);
-    assertEquals('{', profileDataBytes[17]);
-    assertEquals('}', profileDataBytes[1904]);
-    assertSame(defaultProfileConfiguration, profileConfiguration.get());
-    assertSame(defaultProfileConfiguration, profileData.getConfiguration());
   }
 
   /**
@@ -182,6 +64,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test new TenantProfile(TenantProfile); given array of byte with 'A' and zero")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TenantProfile.<init>(TenantProfile)"})
   void testNewTenantProfile_givenArrayOfByteWithAAndZero() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -191,134 +75,14 @@ class TenantProfileDiffblueTest {
     TenantProfile actualTenantProfile = new TenantProfile(tenantProfile);
 
     // Assert
-    DefaultTenantProfileConfiguration defaultProfileConfiguration = actualTenantProfile
-        .getDefaultProfileConfiguration();
-    assertNull(defaultProfileConfiguration.getSmsEnabled());
     assertNull(actualTenantProfile.getDescription());
     assertNull(actualTenantProfile.getName());
-    assertNull(defaultProfileConfiguration.getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getCustomerServerRestLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getEdgeEventRateLimits());
-    assertNull(defaultProfileConfiguration.getEdgeEventRateLimitsPerEdge());
-    assertNull(defaultProfileConfiguration.getEdgeUplinkMessagesRateLimits());
-    assertNull(defaultProfileConfiguration.getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(defaultProfileConfiguration.getTenantEntityExportRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantEntityImportRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantNotificationRequestsRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantServerRestLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getTransportDeviceMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getWsUpdatesPerSessionRateLimit());
-    TenantProfileData profileData = actualTenantProfile.getProfileData();
-    assertNull(profileData.getQueueConfiguration());
     assertNull(actualTenantProfile.getUuidId());
     assertNull(actualTenantProfile.getId());
-    assertEquals(0, defaultProfileConfiguration.getAlarmsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getDefaultStorageTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0, defaultProfileConfiguration.getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerCustomer());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerPublicUser());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerRegularUser());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerTenant());
-    assertEquals(0, defaultProfileConfiguration.getQueueStatsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getRpcTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getRuleEngineExceptionsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getWsMsgQueueLimitPerSession());
-    assertEquals(0.0d, defaultProfileConfiguration.getWarnThreshold());
     assertEquals(0L, actualTenantProfile.getCreatedTime());
-    assertEquals(0L, defaultProfileConfiguration.getMaxAssets());
-    assertEquals(0L, defaultProfileConfiguration.getMaxCreatedAlarms());
-    assertEquals(0L, defaultProfileConfiguration.getMaxCustomers());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDPStorageDays());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDashboards());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDevices());
-    assertEquals(0L, defaultProfileConfiguration.getMaxEmails());
-    assertEquals(0L, defaultProfileConfiguration.getMaxJSExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxOtaPackagesInBytes());
-    assertEquals(0L, defaultProfileConfiguration.getMaxREExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxResourceSize());
-    assertEquals(0L, defaultProfileConfiguration.getMaxResourcesInBytes());
-    assertEquals(0L, defaultProfileConfiguration.getMaxRuleChains());
-    assertEquals(0L, defaultProfileConfiguration.getMaxSms());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTbelExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTransportDataPoints());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTransportMessages());
-    assertEquals(0L, defaultProfileConfiguration.getMaxUsers());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerTenant());
-    byte[] profileDataBytes = actualTenantProfile.getProfileDataBytes();
-    assertEquals(1905, profileDataBytes.length);
-    assertEquals(TenantProfileType.DEFAULT, defaultProfileConfiguration.getType());
+    assertEquals(1905, actualTenantProfile.getProfileDataBytes().length);
     assertFalse(actualTenantProfile.isDefault());
     assertFalse(actualTenantProfile.isIsolatedTbRuleEngine());
-    Optional<DefaultTenantProfileConfiguration> profileConfiguration = actualTenantProfile.getProfileConfiguration();
-    assertTrue(profileConfiguration.isPresent());
-    assertEquals(':', profileDataBytes[1899]);
-    assertEquals(':', profileDataBytes[24]);
-    assertEquals(':', profileDataBytes[Short.SIZE]);
-    assertEquals('C', profileDataBytes[1885]);
-    assertEquals('"', profileDataBytes[1]);
-    assertEquals('"', profileDataBytes[15]);
-    assertEquals('"', profileDataBytes[18]);
-    assertEquals('"', profileDataBytes[1898]);
-    assertEquals('"', profileDataBytes[23]);
-    assertEquals('a', profileDataBytes[10]);
-    assertEquals('a', profileDataBytes[1893]);
-    assertEquals('c', profileDataBytes[2]);
-    assertEquals('e', profileDataBytes[1882]);
-    assertEquals('e', profileDataBytes[1884]);
-    assertEquals('e', profileDataBytes[22]);
-    assertEquals('f', profileDataBytes[1888]);
-    assertEquals('f', profileDataBytes[5]);
-    assertEquals('g', profileDataBytes[1890]);
-    assertEquals('g', profileDataBytes[7]);
-    assertEquals('i', profileDataBytes[12]);
-    assertEquals('i', profileDataBytes[1889]);
-    assertEquals('i', profileDataBytes[1895]);
-    assertEquals('i', profileDataBytes[6]);
-    assertEquals('l', profileDataBytes[1902]);
-    assertEquals('l', profileDataBytes[1903]);
-    assertEquals('n', profileDataBytes[14]);
-    assertEquals('n', profileDataBytes[1887]);
-    assertEquals('n', profileDataBytes[1897]);
-    assertEquals('n', profileDataBytes[1900]);
-    assertEquals('n', profileDataBytes[4]);
-    assertEquals('o', profileDataBytes[13]);
-    assertEquals('o', profileDataBytes[1886]);
-    assertEquals('o', profileDataBytes[1896]);
-    assertEquals('o', profileDataBytes[3]);
-    assertEquals('p', profileDataBytes[21]);
-    assertEquals('q', profileDataBytes[1880]);
-    assertEquals('r', profileDataBytes[1892]);
-    assertEquals('r', profileDataBytes[9]);
-    assertEquals('t', profileDataBytes[11]);
-    assertEquals('t', profileDataBytes[1894]);
-    assertEquals('t', profileDataBytes[19]);
-    assertEquals('u', profileDataBytes[1881]);
-    assertEquals('u', profileDataBytes[1883]);
-    assertEquals('u', profileDataBytes[1891]);
-    assertEquals('u', profileDataBytes[1901]);
-    assertEquals('u', profileDataBytes[8]);
-    assertEquals('y', profileDataBytes[20]);
-    assertEquals('{', profileDataBytes[0]);
-    assertEquals('{', profileDataBytes[17]);
-    assertEquals('}', profileDataBytes[1904]);
-    assertSame(defaultProfileConfiguration, profileConfiguration.get());
-    assertSame(defaultProfileConfiguration, profileData.getConfiguration());
   }
 
   /**
@@ -331,6 +95,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test new TenantProfile(TenantProfile); given array of byte with ';' and three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TenantProfile.<init>(TenantProfile)"})
   void testNewTenantProfile_givenArrayOfByteWithSemicolonAndThree() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -340,134 +106,14 @@ class TenantProfileDiffblueTest {
     TenantProfile actualTenantProfile = new TenantProfile(tenantProfile);
 
     // Assert
-    DefaultTenantProfileConfiguration defaultProfileConfiguration = actualTenantProfile
-        .getDefaultProfileConfiguration();
-    assertNull(defaultProfileConfiguration.getSmsEnabled());
     assertNull(actualTenantProfile.getDescription());
     assertNull(actualTenantProfile.getName());
-    assertNull(defaultProfileConfiguration.getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getCustomerServerRestLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getEdgeEventRateLimits());
-    assertNull(defaultProfileConfiguration.getEdgeEventRateLimitsPerEdge());
-    assertNull(defaultProfileConfiguration.getEdgeUplinkMessagesRateLimits());
-    assertNull(defaultProfileConfiguration.getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(defaultProfileConfiguration.getTenantEntityExportRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantEntityImportRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantNotificationRequestsRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantServerRestLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getTransportDeviceMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getWsUpdatesPerSessionRateLimit());
-    TenantProfileData profileData = actualTenantProfile.getProfileData();
-    assertNull(profileData.getQueueConfiguration());
     assertNull(actualTenantProfile.getUuidId());
     assertNull(actualTenantProfile.getId());
-    assertEquals(0, defaultProfileConfiguration.getAlarmsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getDefaultStorageTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0, defaultProfileConfiguration.getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerCustomer());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerPublicUser());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerRegularUser());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerTenant());
-    assertEquals(0, defaultProfileConfiguration.getQueueStatsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getRpcTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getRuleEngineExceptionsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getWsMsgQueueLimitPerSession());
-    assertEquals(0.0d, defaultProfileConfiguration.getWarnThreshold());
     assertEquals(0L, actualTenantProfile.getCreatedTime());
-    assertEquals(0L, defaultProfileConfiguration.getMaxAssets());
-    assertEquals(0L, defaultProfileConfiguration.getMaxCreatedAlarms());
-    assertEquals(0L, defaultProfileConfiguration.getMaxCustomers());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDPStorageDays());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDashboards());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDevices());
-    assertEquals(0L, defaultProfileConfiguration.getMaxEmails());
-    assertEquals(0L, defaultProfileConfiguration.getMaxJSExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxOtaPackagesInBytes());
-    assertEquals(0L, defaultProfileConfiguration.getMaxREExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxResourceSize());
-    assertEquals(0L, defaultProfileConfiguration.getMaxResourcesInBytes());
-    assertEquals(0L, defaultProfileConfiguration.getMaxRuleChains());
-    assertEquals(0L, defaultProfileConfiguration.getMaxSms());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTbelExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTransportDataPoints());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTransportMessages());
-    assertEquals(0L, defaultProfileConfiguration.getMaxUsers());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerTenant());
-    byte[] profileDataBytes = actualTenantProfile.getProfileDataBytes();
-    assertEquals(1905, profileDataBytes.length);
-    assertEquals(TenantProfileType.DEFAULT, defaultProfileConfiguration.getType());
+    assertEquals(1905, actualTenantProfile.getProfileDataBytes().length);
     assertFalse(actualTenantProfile.isDefault());
     assertFalse(actualTenantProfile.isIsolatedTbRuleEngine());
-    Optional<DefaultTenantProfileConfiguration> profileConfiguration = actualTenantProfile.getProfileConfiguration();
-    assertTrue(profileConfiguration.isPresent());
-    assertEquals(':', profileDataBytes[1899]);
-    assertEquals(':', profileDataBytes[24]);
-    assertEquals(':', profileDataBytes[Short.SIZE]);
-    assertEquals('C', profileDataBytes[1885]);
-    assertEquals('"', profileDataBytes[1]);
-    assertEquals('"', profileDataBytes[15]);
-    assertEquals('"', profileDataBytes[18]);
-    assertEquals('"', profileDataBytes[1898]);
-    assertEquals('"', profileDataBytes[23]);
-    assertEquals('a', profileDataBytes[10]);
-    assertEquals('a', profileDataBytes[1893]);
-    assertEquals('c', profileDataBytes[2]);
-    assertEquals('e', profileDataBytes[1882]);
-    assertEquals('e', profileDataBytes[1884]);
-    assertEquals('e', profileDataBytes[22]);
-    assertEquals('f', profileDataBytes[1888]);
-    assertEquals('f', profileDataBytes[5]);
-    assertEquals('g', profileDataBytes[1890]);
-    assertEquals('g', profileDataBytes[7]);
-    assertEquals('i', profileDataBytes[12]);
-    assertEquals('i', profileDataBytes[1889]);
-    assertEquals('i', profileDataBytes[1895]);
-    assertEquals('i', profileDataBytes[6]);
-    assertEquals('l', profileDataBytes[1902]);
-    assertEquals('l', profileDataBytes[1903]);
-    assertEquals('n', profileDataBytes[14]);
-    assertEquals('n', profileDataBytes[1887]);
-    assertEquals('n', profileDataBytes[1897]);
-    assertEquals('n', profileDataBytes[1900]);
-    assertEquals('n', profileDataBytes[4]);
-    assertEquals('o', profileDataBytes[13]);
-    assertEquals('o', profileDataBytes[1886]);
-    assertEquals('o', profileDataBytes[1896]);
-    assertEquals('o', profileDataBytes[3]);
-    assertEquals('p', profileDataBytes[21]);
-    assertEquals('q', profileDataBytes[1880]);
-    assertEquals('r', profileDataBytes[1892]);
-    assertEquals('r', profileDataBytes[9]);
-    assertEquals('t', profileDataBytes[11]);
-    assertEquals('t', profileDataBytes[1894]);
-    assertEquals('t', profileDataBytes[19]);
-    assertEquals('u', profileDataBytes[1881]);
-    assertEquals('u', profileDataBytes[1883]);
-    assertEquals('u', profileDataBytes[1891]);
-    assertEquals('u', profileDataBytes[1901]);
-    assertEquals('u', profileDataBytes[8]);
-    assertEquals('y', profileDataBytes[20]);
-    assertEquals('{', profileDataBytes[0]);
-    assertEquals('{', profileDataBytes[17]);
-    assertEquals('}', profileDataBytes[1904]);
-    assertSame(defaultProfileConfiguration, profileConfiguration.get());
-    assertSame(defaultProfileConfiguration, profileData.getConfiguration());
   }
 
   /**
@@ -480,6 +126,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test new TenantProfile(TenantProfile); given array of byte with three and three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TenantProfile.<init>(TenantProfile)"})
   void testNewTenantProfile_givenArrayOfByteWithThreeAndThree() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -489,134 +137,14 @@ class TenantProfileDiffblueTest {
     TenantProfile actualTenantProfile = new TenantProfile(tenantProfile);
 
     // Assert
-    DefaultTenantProfileConfiguration defaultProfileConfiguration = actualTenantProfile
-        .getDefaultProfileConfiguration();
-    assertNull(defaultProfileConfiguration.getSmsEnabled());
     assertNull(actualTenantProfile.getDescription());
     assertNull(actualTenantProfile.getName());
-    assertNull(defaultProfileConfiguration.getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getCustomerServerRestLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getEdgeEventRateLimits());
-    assertNull(defaultProfileConfiguration.getEdgeEventRateLimitsPerEdge());
-    assertNull(defaultProfileConfiguration.getEdgeUplinkMessagesRateLimits());
-    assertNull(defaultProfileConfiguration.getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(defaultProfileConfiguration.getTenantEntityExportRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantEntityImportRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantNotificationRequestsRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantServerRestLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getTransportDeviceMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getWsUpdatesPerSessionRateLimit());
-    TenantProfileData profileData = actualTenantProfile.getProfileData();
-    assertNull(profileData.getQueueConfiguration());
     assertNull(actualTenantProfile.getUuidId());
     assertNull(actualTenantProfile.getId());
-    assertEquals(0, defaultProfileConfiguration.getAlarmsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getDefaultStorageTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0, defaultProfileConfiguration.getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerCustomer());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerPublicUser());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerRegularUser());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerTenant());
-    assertEquals(0, defaultProfileConfiguration.getQueueStatsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getRpcTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getRuleEngineExceptionsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getWsMsgQueueLimitPerSession());
-    assertEquals(0.0d, defaultProfileConfiguration.getWarnThreshold());
     assertEquals(0L, actualTenantProfile.getCreatedTime());
-    assertEquals(0L, defaultProfileConfiguration.getMaxAssets());
-    assertEquals(0L, defaultProfileConfiguration.getMaxCreatedAlarms());
-    assertEquals(0L, defaultProfileConfiguration.getMaxCustomers());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDPStorageDays());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDashboards());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDevices());
-    assertEquals(0L, defaultProfileConfiguration.getMaxEmails());
-    assertEquals(0L, defaultProfileConfiguration.getMaxJSExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxOtaPackagesInBytes());
-    assertEquals(0L, defaultProfileConfiguration.getMaxREExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxResourceSize());
-    assertEquals(0L, defaultProfileConfiguration.getMaxResourcesInBytes());
-    assertEquals(0L, defaultProfileConfiguration.getMaxRuleChains());
-    assertEquals(0L, defaultProfileConfiguration.getMaxSms());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTbelExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTransportDataPoints());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTransportMessages());
-    assertEquals(0L, defaultProfileConfiguration.getMaxUsers());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerTenant());
-    byte[] profileDataBytes = actualTenantProfile.getProfileDataBytes();
-    assertEquals(1905, profileDataBytes.length);
-    assertEquals(TenantProfileType.DEFAULT, defaultProfileConfiguration.getType());
+    assertEquals(1905, actualTenantProfile.getProfileDataBytes().length);
     assertFalse(actualTenantProfile.isDefault());
     assertFalse(actualTenantProfile.isIsolatedTbRuleEngine());
-    Optional<DefaultTenantProfileConfiguration> profileConfiguration = actualTenantProfile.getProfileConfiguration();
-    assertTrue(profileConfiguration.isPresent());
-    assertEquals(':', profileDataBytes[1899]);
-    assertEquals(':', profileDataBytes[24]);
-    assertEquals(':', profileDataBytes[Short.SIZE]);
-    assertEquals('C', profileDataBytes[1885]);
-    assertEquals('"', profileDataBytes[1]);
-    assertEquals('"', profileDataBytes[15]);
-    assertEquals('"', profileDataBytes[18]);
-    assertEquals('"', profileDataBytes[1898]);
-    assertEquals('"', profileDataBytes[23]);
-    assertEquals('a', profileDataBytes[10]);
-    assertEquals('a', profileDataBytes[1893]);
-    assertEquals('c', profileDataBytes[2]);
-    assertEquals('e', profileDataBytes[1882]);
-    assertEquals('e', profileDataBytes[1884]);
-    assertEquals('e', profileDataBytes[22]);
-    assertEquals('f', profileDataBytes[1888]);
-    assertEquals('f', profileDataBytes[5]);
-    assertEquals('g', profileDataBytes[1890]);
-    assertEquals('g', profileDataBytes[7]);
-    assertEquals('i', profileDataBytes[12]);
-    assertEquals('i', profileDataBytes[1889]);
-    assertEquals('i', profileDataBytes[1895]);
-    assertEquals('i', profileDataBytes[6]);
-    assertEquals('l', profileDataBytes[1902]);
-    assertEquals('l', profileDataBytes[1903]);
-    assertEquals('n', profileDataBytes[14]);
-    assertEquals('n', profileDataBytes[1887]);
-    assertEquals('n', profileDataBytes[1897]);
-    assertEquals('n', profileDataBytes[1900]);
-    assertEquals('n', profileDataBytes[4]);
-    assertEquals('o', profileDataBytes[13]);
-    assertEquals('o', profileDataBytes[1886]);
-    assertEquals('o', profileDataBytes[1896]);
-    assertEquals('o', profileDataBytes[3]);
-    assertEquals('p', profileDataBytes[21]);
-    assertEquals('q', profileDataBytes[1880]);
-    assertEquals('r', profileDataBytes[1892]);
-    assertEquals('r', profileDataBytes[9]);
-    assertEquals('t', profileDataBytes[11]);
-    assertEquals('t', profileDataBytes[1894]);
-    assertEquals('t', profileDataBytes[19]);
-    assertEquals('u', profileDataBytes[1881]);
-    assertEquals('u', profileDataBytes[1883]);
-    assertEquals('u', profileDataBytes[1891]);
-    assertEquals('u', profileDataBytes[1901]);
-    assertEquals('u', profileDataBytes[8]);
-    assertEquals('y', profileDataBytes[20]);
-    assertEquals('{', profileDataBytes[0]);
-    assertEquals('{', profileDataBytes[17]);
-    assertEquals('}', profileDataBytes[1904]);
-    assertSame(defaultProfileConfiguration, profileConfiguration.get());
-    assertSame(defaultProfileConfiguration, profileData.getConfiguration());
   }
 
   /**
@@ -629,6 +157,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test new TenantProfile(TenantProfile); given array of byte with zero and three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TenantProfile.<init>(TenantProfile)"})
   void testNewTenantProfile_givenArrayOfByteWithZeroAndThree() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -638,134 +168,14 @@ class TenantProfileDiffblueTest {
     TenantProfile actualTenantProfile = new TenantProfile(tenantProfile);
 
     // Assert
-    DefaultTenantProfileConfiguration defaultProfileConfiguration = actualTenantProfile
-        .getDefaultProfileConfiguration();
-    assertNull(defaultProfileConfiguration.getSmsEnabled());
     assertNull(actualTenantProfile.getDescription());
     assertNull(actualTenantProfile.getName());
-    assertNull(defaultProfileConfiguration.getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getCustomerServerRestLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getEdgeEventRateLimits());
-    assertNull(defaultProfileConfiguration.getEdgeEventRateLimitsPerEdge());
-    assertNull(defaultProfileConfiguration.getEdgeUplinkMessagesRateLimits());
-    assertNull(defaultProfileConfiguration.getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(defaultProfileConfiguration.getTenantEntityExportRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantEntityImportRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantNotificationRequestsRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantServerRestLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getTransportDeviceMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getWsUpdatesPerSessionRateLimit());
-    TenantProfileData profileData = actualTenantProfile.getProfileData();
-    assertNull(profileData.getQueueConfiguration());
     assertNull(actualTenantProfile.getUuidId());
     assertNull(actualTenantProfile.getId());
-    assertEquals(0, defaultProfileConfiguration.getAlarmsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getDefaultStorageTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0, defaultProfileConfiguration.getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerCustomer());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerPublicUser());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerRegularUser());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerTenant());
-    assertEquals(0, defaultProfileConfiguration.getQueueStatsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getRpcTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getRuleEngineExceptionsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getWsMsgQueueLimitPerSession());
-    assertEquals(0.0d, defaultProfileConfiguration.getWarnThreshold());
     assertEquals(0L, actualTenantProfile.getCreatedTime());
-    assertEquals(0L, defaultProfileConfiguration.getMaxAssets());
-    assertEquals(0L, defaultProfileConfiguration.getMaxCreatedAlarms());
-    assertEquals(0L, defaultProfileConfiguration.getMaxCustomers());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDPStorageDays());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDashboards());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDevices());
-    assertEquals(0L, defaultProfileConfiguration.getMaxEmails());
-    assertEquals(0L, defaultProfileConfiguration.getMaxJSExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxOtaPackagesInBytes());
-    assertEquals(0L, defaultProfileConfiguration.getMaxREExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxResourceSize());
-    assertEquals(0L, defaultProfileConfiguration.getMaxResourcesInBytes());
-    assertEquals(0L, defaultProfileConfiguration.getMaxRuleChains());
-    assertEquals(0L, defaultProfileConfiguration.getMaxSms());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTbelExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTransportDataPoints());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTransportMessages());
-    assertEquals(0L, defaultProfileConfiguration.getMaxUsers());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerTenant());
-    byte[] profileDataBytes = actualTenantProfile.getProfileDataBytes();
-    assertEquals(1905, profileDataBytes.length);
-    assertEquals(TenantProfileType.DEFAULT, defaultProfileConfiguration.getType());
+    assertEquals(1905, actualTenantProfile.getProfileDataBytes().length);
     assertFalse(actualTenantProfile.isDefault());
     assertFalse(actualTenantProfile.isIsolatedTbRuleEngine());
-    Optional<DefaultTenantProfileConfiguration> profileConfiguration = actualTenantProfile.getProfileConfiguration();
-    assertTrue(profileConfiguration.isPresent());
-    assertEquals(':', profileDataBytes[1899]);
-    assertEquals(':', profileDataBytes[24]);
-    assertEquals(':', profileDataBytes[Short.SIZE]);
-    assertEquals('C', profileDataBytes[1885]);
-    assertEquals('"', profileDataBytes[1]);
-    assertEquals('"', profileDataBytes[15]);
-    assertEquals('"', profileDataBytes[18]);
-    assertEquals('"', profileDataBytes[1898]);
-    assertEquals('"', profileDataBytes[23]);
-    assertEquals('a', profileDataBytes[10]);
-    assertEquals('a', profileDataBytes[1893]);
-    assertEquals('c', profileDataBytes[2]);
-    assertEquals('e', profileDataBytes[1882]);
-    assertEquals('e', profileDataBytes[1884]);
-    assertEquals('e', profileDataBytes[22]);
-    assertEquals('f', profileDataBytes[1888]);
-    assertEquals('f', profileDataBytes[5]);
-    assertEquals('g', profileDataBytes[1890]);
-    assertEquals('g', profileDataBytes[7]);
-    assertEquals('i', profileDataBytes[12]);
-    assertEquals('i', profileDataBytes[1889]);
-    assertEquals('i', profileDataBytes[1895]);
-    assertEquals('i', profileDataBytes[6]);
-    assertEquals('l', profileDataBytes[1902]);
-    assertEquals('l', profileDataBytes[1903]);
-    assertEquals('n', profileDataBytes[14]);
-    assertEquals('n', profileDataBytes[1887]);
-    assertEquals('n', profileDataBytes[1897]);
-    assertEquals('n', profileDataBytes[1900]);
-    assertEquals('n', profileDataBytes[4]);
-    assertEquals('o', profileDataBytes[13]);
-    assertEquals('o', profileDataBytes[1886]);
-    assertEquals('o', profileDataBytes[1896]);
-    assertEquals('o', profileDataBytes[3]);
-    assertEquals('p', profileDataBytes[21]);
-    assertEquals('q', profileDataBytes[1880]);
-    assertEquals('r', profileDataBytes[1892]);
-    assertEquals('r', profileDataBytes[9]);
-    assertEquals('t', profileDataBytes[11]);
-    assertEquals('t', profileDataBytes[1894]);
-    assertEquals('t', profileDataBytes[19]);
-    assertEquals('u', profileDataBytes[1881]);
-    assertEquals('u', profileDataBytes[1883]);
-    assertEquals('u', profileDataBytes[1891]);
-    assertEquals('u', profileDataBytes[1901]);
-    assertEquals('u', profileDataBytes[8]);
-    assertEquals('y', profileDataBytes[20]);
-    assertEquals('{', profileDataBytes[0]);
-    assertEquals('{', profileDataBytes[17]);
-    assertEquals('}', profileDataBytes[1904]);
-    assertSame(defaultProfileConfiguration, profileConfiguration.get());
-    assertSame(defaultProfileConfiguration, profileData.getConfiguration());
   }
 
   /**
@@ -778,6 +188,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test new TenantProfile(TenantProfile); given empty array of byte")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TenantProfile.<init>(TenantProfile)"})
   void testNewTenantProfile_givenEmptyArrayOfByte() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -787,134 +199,14 @@ class TenantProfileDiffblueTest {
     TenantProfile actualTenantProfile = new TenantProfile(tenantProfile);
 
     // Assert
-    DefaultTenantProfileConfiguration defaultProfileConfiguration = actualTenantProfile
-        .getDefaultProfileConfiguration();
-    assertNull(defaultProfileConfiguration.getSmsEnabled());
     assertNull(actualTenantProfile.getDescription());
     assertNull(actualTenantProfile.getName());
-    assertNull(defaultProfileConfiguration.getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getCustomerServerRestLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getEdgeEventRateLimits());
-    assertNull(defaultProfileConfiguration.getEdgeEventRateLimitsPerEdge());
-    assertNull(defaultProfileConfiguration.getEdgeUplinkMessagesRateLimits());
-    assertNull(defaultProfileConfiguration.getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(defaultProfileConfiguration.getTenantEntityExportRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantEntityImportRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantNotificationRequestsRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantServerRestLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getTransportDeviceMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getWsUpdatesPerSessionRateLimit());
-    TenantProfileData profileData = actualTenantProfile.getProfileData();
-    assertNull(profileData.getQueueConfiguration());
     assertNull(actualTenantProfile.getUuidId());
     assertNull(actualTenantProfile.getId());
-    assertEquals(0, defaultProfileConfiguration.getAlarmsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getDefaultStorageTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0, defaultProfileConfiguration.getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerCustomer());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerPublicUser());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerRegularUser());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerTenant());
-    assertEquals(0, defaultProfileConfiguration.getQueueStatsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getRpcTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getRuleEngineExceptionsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getWsMsgQueueLimitPerSession());
-    assertEquals(0.0d, defaultProfileConfiguration.getWarnThreshold());
     assertEquals(0L, actualTenantProfile.getCreatedTime());
-    assertEquals(0L, defaultProfileConfiguration.getMaxAssets());
-    assertEquals(0L, defaultProfileConfiguration.getMaxCreatedAlarms());
-    assertEquals(0L, defaultProfileConfiguration.getMaxCustomers());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDPStorageDays());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDashboards());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDevices());
-    assertEquals(0L, defaultProfileConfiguration.getMaxEmails());
-    assertEquals(0L, defaultProfileConfiguration.getMaxJSExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxOtaPackagesInBytes());
-    assertEquals(0L, defaultProfileConfiguration.getMaxREExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxResourceSize());
-    assertEquals(0L, defaultProfileConfiguration.getMaxResourcesInBytes());
-    assertEquals(0L, defaultProfileConfiguration.getMaxRuleChains());
-    assertEquals(0L, defaultProfileConfiguration.getMaxSms());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTbelExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTransportDataPoints());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTransportMessages());
-    assertEquals(0L, defaultProfileConfiguration.getMaxUsers());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerTenant());
-    byte[] profileDataBytes = actualTenantProfile.getProfileDataBytes();
-    assertEquals(1905, profileDataBytes.length);
-    assertEquals(TenantProfileType.DEFAULT, defaultProfileConfiguration.getType());
+    assertEquals(1905, actualTenantProfile.getProfileDataBytes().length);
     assertFalse(actualTenantProfile.isDefault());
     assertFalse(actualTenantProfile.isIsolatedTbRuleEngine());
-    Optional<DefaultTenantProfileConfiguration> profileConfiguration = actualTenantProfile.getProfileConfiguration();
-    assertTrue(profileConfiguration.isPresent());
-    assertEquals(':', profileDataBytes[1899]);
-    assertEquals(':', profileDataBytes[24]);
-    assertEquals(':', profileDataBytes[Short.SIZE]);
-    assertEquals('C', profileDataBytes[1885]);
-    assertEquals('"', profileDataBytes[1]);
-    assertEquals('"', profileDataBytes[15]);
-    assertEquals('"', profileDataBytes[18]);
-    assertEquals('"', profileDataBytes[1898]);
-    assertEquals('"', profileDataBytes[23]);
-    assertEquals('a', profileDataBytes[10]);
-    assertEquals('a', profileDataBytes[1893]);
-    assertEquals('c', profileDataBytes[2]);
-    assertEquals('e', profileDataBytes[1882]);
-    assertEquals('e', profileDataBytes[1884]);
-    assertEquals('e', profileDataBytes[22]);
-    assertEquals('f', profileDataBytes[1888]);
-    assertEquals('f', profileDataBytes[5]);
-    assertEquals('g', profileDataBytes[1890]);
-    assertEquals('g', profileDataBytes[7]);
-    assertEquals('i', profileDataBytes[12]);
-    assertEquals('i', profileDataBytes[1889]);
-    assertEquals('i', profileDataBytes[1895]);
-    assertEquals('i', profileDataBytes[6]);
-    assertEquals('l', profileDataBytes[1902]);
-    assertEquals('l', profileDataBytes[1903]);
-    assertEquals('n', profileDataBytes[14]);
-    assertEquals('n', profileDataBytes[1887]);
-    assertEquals('n', profileDataBytes[1897]);
-    assertEquals('n', profileDataBytes[1900]);
-    assertEquals('n', profileDataBytes[4]);
-    assertEquals('o', profileDataBytes[13]);
-    assertEquals('o', profileDataBytes[1886]);
-    assertEquals('o', profileDataBytes[1896]);
-    assertEquals('o', profileDataBytes[3]);
-    assertEquals('p', profileDataBytes[21]);
-    assertEquals('q', profileDataBytes[1880]);
-    assertEquals('r', profileDataBytes[1892]);
-    assertEquals('r', profileDataBytes[9]);
-    assertEquals('t', profileDataBytes[11]);
-    assertEquals('t', profileDataBytes[1894]);
-    assertEquals('t', profileDataBytes[19]);
-    assertEquals('u', profileDataBytes[1881]);
-    assertEquals('u', profileDataBytes[1883]);
-    assertEquals('u', profileDataBytes[1891]);
-    assertEquals('u', profileDataBytes[1901]);
-    assertEquals('u', profileDataBytes[8]);
-    assertEquals('y', profileDataBytes[20]);
-    assertEquals('{', profileDataBytes[0]);
-    assertEquals('{', profileDataBytes[17]);
-    assertEquals('}', profileDataBytes[1904]);
-    assertSame(defaultProfileConfiguration, profileConfiguration.get());
-    assertSame(defaultProfileConfiguration, profileData.getConfiguration());
   }
 
   /**
@@ -929,6 +221,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test new TenantProfile(TenantProfile); given 'true'; when TenantProfile() Default is 'true'; then return Default")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TenantProfile.<init>(TenantProfile)"})
   void testNewTenantProfile_givenTrue_whenTenantProfileDefaultIsTrue_thenReturnDefault() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -938,147 +232,28 @@ class TenantProfileDiffblueTest {
     TenantProfile actualTenantProfile = new TenantProfile(tenantProfile);
 
     // Assert
-    DefaultTenantProfileConfiguration defaultProfileConfiguration = actualTenantProfile
-        .getDefaultProfileConfiguration();
-    assertNull(defaultProfileConfiguration.getSmsEnabled());
     assertNull(actualTenantProfile.getDescription());
     assertNull(actualTenantProfile.getName());
-    assertNull(defaultProfileConfiguration.getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getCustomerServerRestLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getEdgeEventRateLimits());
-    assertNull(defaultProfileConfiguration.getEdgeEventRateLimitsPerEdge());
-    assertNull(defaultProfileConfiguration.getEdgeUplinkMessagesRateLimits());
-    assertNull(defaultProfileConfiguration.getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(defaultProfileConfiguration.getTenantEntityExportRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantEntityImportRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantNotificationRequestsRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantServerRestLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getTransportDeviceMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getWsUpdatesPerSessionRateLimit());
-    TenantProfileData profileData = actualTenantProfile.getProfileData();
-    assertNull(profileData.getQueueConfiguration());
     assertNull(actualTenantProfile.getUuidId());
     assertNull(actualTenantProfile.getId());
-    assertEquals(0, defaultProfileConfiguration.getAlarmsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getDefaultStorageTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0, defaultProfileConfiguration.getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerCustomer());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerPublicUser());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerRegularUser());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerTenant());
-    assertEquals(0, defaultProfileConfiguration.getQueueStatsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getRpcTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getRuleEngineExceptionsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getWsMsgQueueLimitPerSession());
-    assertEquals(0.0d, defaultProfileConfiguration.getWarnThreshold());
     assertEquals(0L, actualTenantProfile.getCreatedTime());
-    assertEquals(0L, defaultProfileConfiguration.getMaxAssets());
-    assertEquals(0L, defaultProfileConfiguration.getMaxCreatedAlarms());
-    assertEquals(0L, defaultProfileConfiguration.getMaxCustomers());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDPStorageDays());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDashboards());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDevices());
-    assertEquals(0L, defaultProfileConfiguration.getMaxEmails());
-    assertEquals(0L, defaultProfileConfiguration.getMaxJSExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxOtaPackagesInBytes());
-    assertEquals(0L, defaultProfileConfiguration.getMaxREExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxResourceSize());
-    assertEquals(0L, defaultProfileConfiguration.getMaxResourcesInBytes());
-    assertEquals(0L, defaultProfileConfiguration.getMaxRuleChains());
-    assertEquals(0L, defaultProfileConfiguration.getMaxSms());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTbelExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTransportDataPoints());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTransportMessages());
-    assertEquals(0L, defaultProfileConfiguration.getMaxUsers());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerTenant());
-    byte[] profileDataBytes = actualTenantProfile.getProfileDataBytes();
-    assertEquals(1905, profileDataBytes.length);
-    assertEquals(TenantProfileType.DEFAULT, defaultProfileConfiguration.getType());
+    assertEquals(1905, actualTenantProfile.getProfileDataBytes().length);
     assertFalse(actualTenantProfile.isIsolatedTbRuleEngine());
-    Optional<DefaultTenantProfileConfiguration> profileConfiguration = actualTenantProfile.getProfileConfiguration();
-    assertTrue(profileConfiguration.isPresent());
     assertTrue(actualTenantProfile.isDefault());
-    assertEquals(':', profileDataBytes[1899]);
-    assertEquals(':', profileDataBytes[24]);
-    assertEquals(':', profileDataBytes[Short.SIZE]);
-    assertEquals('C', profileDataBytes[1885]);
-    assertEquals('"', profileDataBytes[1]);
-    assertEquals('"', profileDataBytes[15]);
-    assertEquals('"', profileDataBytes[18]);
-    assertEquals('"', profileDataBytes[1898]);
-    assertEquals('"', profileDataBytes[23]);
-    assertEquals('a', profileDataBytes[10]);
-    assertEquals('a', profileDataBytes[1893]);
-    assertEquals('c', profileDataBytes[2]);
-    assertEquals('e', profileDataBytes[1882]);
-    assertEquals('e', profileDataBytes[1884]);
-    assertEquals('e', profileDataBytes[22]);
-    assertEquals('f', profileDataBytes[1888]);
-    assertEquals('f', profileDataBytes[5]);
-    assertEquals('g', profileDataBytes[1890]);
-    assertEquals('g', profileDataBytes[7]);
-    assertEquals('i', profileDataBytes[12]);
-    assertEquals('i', profileDataBytes[1889]);
-    assertEquals('i', profileDataBytes[1895]);
-    assertEquals('i', profileDataBytes[6]);
-    assertEquals('l', profileDataBytes[1902]);
-    assertEquals('l', profileDataBytes[1903]);
-    assertEquals('n', profileDataBytes[14]);
-    assertEquals('n', profileDataBytes[1887]);
-    assertEquals('n', profileDataBytes[1897]);
-    assertEquals('n', profileDataBytes[1900]);
-    assertEquals('n', profileDataBytes[4]);
-    assertEquals('o', profileDataBytes[13]);
-    assertEquals('o', profileDataBytes[1886]);
-    assertEquals('o', profileDataBytes[1896]);
-    assertEquals('o', profileDataBytes[3]);
-    assertEquals('p', profileDataBytes[21]);
-    assertEquals('q', profileDataBytes[1880]);
-    assertEquals('r', profileDataBytes[1892]);
-    assertEquals('r', profileDataBytes[9]);
-    assertEquals('t', profileDataBytes[11]);
-    assertEquals('t', profileDataBytes[1894]);
-    assertEquals('t', profileDataBytes[19]);
-    assertEquals('u', profileDataBytes[1881]);
-    assertEquals('u', profileDataBytes[1883]);
-    assertEquals('u', profileDataBytes[1891]);
-    assertEquals('u', profileDataBytes[1901]);
-    assertEquals('u', profileDataBytes[8]);
-    assertEquals('y', profileDataBytes[20]);
-    assertEquals('{', profileDataBytes[0]);
-    assertEquals('{', profileDataBytes[17]);
-    assertEquals('}', profileDataBytes[1904]);
-    assertSame(defaultProfileConfiguration, profileConfiguration.get());
-    assertSame(defaultProfileConfiguration, profileData.getConfiguration());
   }
 
   /**
    * Test {@link TenantProfile#TenantProfile(TenantProfile)}.
    * <ul>
-   *   <li>Then return {@link TenantProfile#TenantProfile(TenantProfile)} with
-   * tenantProfile is {@link TenantProfile#TenantProfile()}.</li>
+   *   <li>Then return {@link TenantProfile#TenantProfile(TenantProfile)} with tenantProfile is {@link TenantProfile#TenantProfile()}.</li>
    * </ul>
    * <p>
    * Method under test: {@link TenantProfile#TenantProfile(TenantProfile)}
    */
   @Test
   @DisplayName("Test new TenantProfile(TenantProfile); then return TenantProfile(TenantProfile) with tenantProfile is TenantProfile()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TenantProfile.<init>(TenantProfile)"})
   void testNewTenantProfile_thenReturnTenantProfileWithTenantProfileIsTenantProfile() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile(new TenantProfile());
@@ -1098,139 +273,21 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test new TenantProfile(TenantProfile); when TenantProfile(); then return not Default")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TenantProfile.<init>(TenantProfile)"})
   void testNewTenantProfile_whenTenantProfile_thenReturnNotDefault() {
     // Arrange and Act
     TenantProfile actualTenantProfile = new TenantProfile(new TenantProfile());
 
     // Assert
-    DefaultTenantProfileConfiguration defaultProfileConfiguration = actualTenantProfile
-        .getDefaultProfileConfiguration();
-    assertNull(defaultProfileConfiguration.getSmsEnabled());
     assertNull(actualTenantProfile.getDescription());
     assertNull(actualTenantProfile.getName());
-    assertNull(defaultProfileConfiguration.getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getCustomerServerRestLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getEdgeEventRateLimits());
-    assertNull(defaultProfileConfiguration.getEdgeEventRateLimitsPerEdge());
-    assertNull(defaultProfileConfiguration.getEdgeUplinkMessagesRateLimits());
-    assertNull(defaultProfileConfiguration.getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(defaultProfileConfiguration.getTenantEntityExportRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantEntityImportRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantNotificationRequestsRateLimit());
-    assertNull(defaultProfileConfiguration.getTenantServerRestLimitsConfiguration());
-    assertNull(defaultProfileConfiguration.getTransportDeviceMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(defaultProfileConfiguration.getTransportTenantTelemetryMsgRateLimit());
-    assertNull(defaultProfileConfiguration.getWsUpdatesPerSessionRateLimit());
-    TenantProfileData profileData = actualTenantProfile.getProfileData();
-    assertNull(profileData.getQueueConfiguration());
     assertNull(actualTenantProfile.getUuidId());
     assertNull(actualTenantProfile.getId());
-    assertEquals(0, defaultProfileConfiguration.getAlarmsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getDefaultStorageTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0, defaultProfileConfiguration.getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerCustomer());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerPublicUser());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerRegularUser());
-    assertEquals(0, defaultProfileConfiguration.getMaxWsSessionsPerTenant());
-    assertEquals(0, defaultProfileConfiguration.getQueueStatsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getRpcTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getRuleEngineExceptionsTtlDays());
-    assertEquals(0, defaultProfileConfiguration.getWsMsgQueueLimitPerSession());
-    assertEquals(0.0d, defaultProfileConfiguration.getWarnThreshold());
     assertEquals(0L, actualTenantProfile.getCreatedTime());
-    assertEquals(0L, defaultProfileConfiguration.getMaxAssets());
-    assertEquals(0L, defaultProfileConfiguration.getMaxCreatedAlarms());
-    assertEquals(0L, defaultProfileConfiguration.getMaxCustomers());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDPStorageDays());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDashboards());
-    assertEquals(0L, defaultProfileConfiguration.getMaxDevices());
-    assertEquals(0L, defaultProfileConfiguration.getMaxEmails());
-    assertEquals(0L, defaultProfileConfiguration.getMaxJSExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxOtaPackagesInBytes());
-    assertEquals(0L, defaultProfileConfiguration.getMaxREExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxResourceSize());
-    assertEquals(0L, defaultProfileConfiguration.getMaxResourcesInBytes());
-    assertEquals(0L, defaultProfileConfiguration.getMaxRuleChains());
-    assertEquals(0L, defaultProfileConfiguration.getMaxSms());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTbelExecutions());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTransportDataPoints());
-    assertEquals(0L, defaultProfileConfiguration.getMaxTransportMessages());
-    assertEquals(0L, defaultProfileConfiguration.getMaxUsers());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, defaultProfileConfiguration.getMaxWsSubscriptionsPerTenant());
-    byte[] profileDataBytes = actualTenantProfile.getProfileDataBytes();
-    assertEquals(1905, profileDataBytes.length);
-    assertEquals(TenantProfileType.DEFAULT, defaultProfileConfiguration.getType());
+    assertEquals(1905, actualTenantProfile.getProfileDataBytes().length);
     assertFalse(actualTenantProfile.isDefault());
     assertFalse(actualTenantProfile.isIsolatedTbRuleEngine());
-    Optional<DefaultTenantProfileConfiguration> profileConfiguration = actualTenantProfile.getProfileConfiguration();
-    assertTrue(profileConfiguration.isPresent());
-    assertEquals(':', profileDataBytes[1899]);
-    assertEquals(':', profileDataBytes[24]);
-    assertEquals(':', profileDataBytes[Short.SIZE]);
-    assertEquals('C', profileDataBytes[1885]);
-    assertEquals('"', profileDataBytes[1]);
-    assertEquals('"', profileDataBytes[15]);
-    assertEquals('"', profileDataBytes[18]);
-    assertEquals('"', profileDataBytes[1898]);
-    assertEquals('"', profileDataBytes[23]);
-    assertEquals('a', profileDataBytes[10]);
-    assertEquals('a', profileDataBytes[1893]);
-    assertEquals('c', profileDataBytes[2]);
-    assertEquals('e', profileDataBytes[1882]);
-    assertEquals('e', profileDataBytes[1884]);
-    assertEquals('e', profileDataBytes[22]);
-    assertEquals('f', profileDataBytes[1888]);
-    assertEquals('f', profileDataBytes[5]);
-    assertEquals('g', profileDataBytes[1890]);
-    assertEquals('g', profileDataBytes[7]);
-    assertEquals('i', profileDataBytes[12]);
-    assertEquals('i', profileDataBytes[1889]);
-    assertEquals('i', profileDataBytes[1895]);
-    assertEquals('i', profileDataBytes[6]);
-    assertEquals('l', profileDataBytes[1902]);
-    assertEquals('l', profileDataBytes[1903]);
-    assertEquals('n', profileDataBytes[14]);
-    assertEquals('n', profileDataBytes[1887]);
-    assertEquals('n', profileDataBytes[1897]);
-    assertEquals('n', profileDataBytes[1900]);
-    assertEquals('n', profileDataBytes[4]);
-    assertEquals('o', profileDataBytes[13]);
-    assertEquals('o', profileDataBytes[1886]);
-    assertEquals('o', profileDataBytes[1896]);
-    assertEquals('o', profileDataBytes[3]);
-    assertEquals('p', profileDataBytes[21]);
-    assertEquals('q', profileDataBytes[1880]);
-    assertEquals('r', profileDataBytes[1892]);
-    assertEquals('r', profileDataBytes[9]);
-    assertEquals('t', profileDataBytes[11]);
-    assertEquals('t', profileDataBytes[1894]);
-    assertEquals('t', profileDataBytes[19]);
-    assertEquals('u', profileDataBytes[1881]);
-    assertEquals('u', profileDataBytes[1883]);
-    assertEquals('u', profileDataBytes[1891]);
-    assertEquals('u', profileDataBytes[1901]);
-    assertEquals('u', profileDataBytes[8]);
-    assertEquals('y', profileDataBytes[20]);
-    assertEquals('{', profileDataBytes[0]);
-    assertEquals('{', profileDataBytes[17]);
-    assertEquals('}', profileDataBytes[1904]);
-    assertSame(defaultProfileConfiguration, profileConfiguration.get());
-    assertSame(defaultProfileConfiguration, profileData.getConfiguration());
   }
 
   /**
@@ -1240,6 +297,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test getId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"org.thingsboard.server.common.data.id.TenantProfileId TenantProfile.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
     assertNull((new TenantProfile()).getId());
@@ -1252,6 +311,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test getCreatedTime()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long TenantProfile.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
     assertEquals(0L, (new TenantProfile()).getCreatedTime());
@@ -1264,6 +325,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test getProfileData()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TenantProfileData TenantProfile.getProfileData()"})
   void testGetProfileData() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -1273,71 +336,8 @@ class TenantProfileDiffblueTest {
     TenantProfileData actualProfileData = tenantProfile.getProfileData();
 
     // Assert
-    TenantProfileConfiguration configuration = actualProfileData.getConfiguration();
-    assertTrue(configuration instanceof DefaultTenantProfileConfiguration);
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getSmsEnabled());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getCustomerServerRestLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeEventRateLimits());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeEventRateLimitsPerEdge());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeUplinkMessagesRateLimits());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantEntityExportRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantEntityImportRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantNotificationRequestsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantServerRestLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceMsgRateLimit());
-    assertNull(
-        ((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getWsUpdatesPerSessionRateLimit());
+    assertTrue(actualProfileData.getConfiguration() instanceof DefaultTenantProfileConfiguration);
     assertNull(actualProfileData.getQueueConfiguration());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getAlarmsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getDefaultStorageTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerCustomer());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerPublicUser());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerRegularUser());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerTenant());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getQueueStatsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getRpcTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getRuleEngineExceptionsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getWsMsgQueueLimitPerSession());
-    assertEquals(0, configuration.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0.0d, ((DefaultTenantProfileConfiguration) configuration).getWarnThreshold());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxAssets());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxCreatedAlarms());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxCustomers());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDPStorageDays());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDashboards());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDevices());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxEmails());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxJSExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxOtaPackagesInBytes());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxREExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxResourceSize());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxResourcesInBytes());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxRuleChains());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxSms());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTbelExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTransportDataPoints());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTransportMessages());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxUsers());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerTenant());
-    assertEquals(TenantProfileType.DEFAULT, configuration.getType());
   }
 
   /**
@@ -1347,6 +347,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test getProfileData()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TenantProfileData TenantProfile.getProfileData()"})
   void testGetProfileData2() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -1356,71 +358,8 @@ class TenantProfileDiffblueTest {
     TenantProfileData actualProfileData = tenantProfile.getProfileData();
 
     // Assert
-    TenantProfileConfiguration configuration = actualProfileData.getConfiguration();
-    assertTrue(configuration instanceof DefaultTenantProfileConfiguration);
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getSmsEnabled());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getCustomerServerRestLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeEventRateLimits());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeEventRateLimitsPerEdge());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeUplinkMessagesRateLimits());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantEntityExportRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantEntityImportRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantNotificationRequestsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantServerRestLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceMsgRateLimit());
-    assertNull(
-        ((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getWsUpdatesPerSessionRateLimit());
+    assertTrue(actualProfileData.getConfiguration() instanceof DefaultTenantProfileConfiguration);
     assertNull(actualProfileData.getQueueConfiguration());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getAlarmsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getDefaultStorageTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerCustomer());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerPublicUser());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerRegularUser());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerTenant());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getQueueStatsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getRpcTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getRuleEngineExceptionsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getWsMsgQueueLimitPerSession());
-    assertEquals(0, configuration.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0.0d, ((DefaultTenantProfileConfiguration) configuration).getWarnThreshold());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxAssets());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxCreatedAlarms());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxCustomers());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDPStorageDays());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDashboards());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDevices());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxEmails());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxJSExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxOtaPackagesInBytes());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxREExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxResourceSize());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxResourcesInBytes());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxRuleChains());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxSms());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTbelExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTransportDataPoints());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTransportMessages());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxUsers());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerTenant());
-    assertEquals(TenantProfileType.DEFAULT, configuration.getType());
   }
 
   /**
@@ -1430,6 +369,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test getProfileData()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TenantProfileData TenantProfile.getProfileData()"})
   void testGetProfileData3() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -1439,71 +380,8 @@ class TenantProfileDiffblueTest {
     TenantProfileData actualProfileData = tenantProfile.getProfileData();
 
     // Assert
-    TenantProfileConfiguration configuration = actualProfileData.getConfiguration();
-    assertTrue(configuration instanceof DefaultTenantProfileConfiguration);
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getSmsEnabled());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getCustomerServerRestLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeEventRateLimits());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeEventRateLimitsPerEdge());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeUplinkMessagesRateLimits());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantEntityExportRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantEntityImportRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantNotificationRequestsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantServerRestLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceMsgRateLimit());
-    assertNull(
-        ((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getWsUpdatesPerSessionRateLimit());
+    assertTrue(actualProfileData.getConfiguration() instanceof DefaultTenantProfileConfiguration);
     assertNull(actualProfileData.getQueueConfiguration());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getAlarmsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getDefaultStorageTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerCustomer());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerPublicUser());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerRegularUser());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerTenant());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getQueueStatsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getRpcTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getRuleEngineExceptionsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getWsMsgQueueLimitPerSession());
-    assertEquals(0, configuration.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0.0d, ((DefaultTenantProfileConfiguration) configuration).getWarnThreshold());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxAssets());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxCreatedAlarms());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxCustomers());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDPStorageDays());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDashboards());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDevices());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxEmails());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxJSExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxOtaPackagesInBytes());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxREExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxResourceSize());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxResourcesInBytes());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxRuleChains());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxSms());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTbelExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTransportDataPoints());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTransportMessages());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxUsers());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerTenant());
-    assertEquals(TenantProfileType.DEFAULT, configuration.getType());
   }
 
   /**
@@ -1516,89 +394,29 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test getProfileData(); given TenantProfile()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TenantProfileData TenantProfile.getProfileData()"})
   void testGetProfileData_givenTenantProfile() {
     // Arrange and Act
     TenantProfileData actualProfileData = (new TenantProfile()).getProfileData();
 
     // Assert
-    TenantProfileConfiguration configuration = actualProfileData.getConfiguration();
-    assertTrue(configuration instanceof DefaultTenantProfileConfiguration);
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getSmsEnabled());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getCustomerServerRestLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeEventRateLimits());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeEventRateLimitsPerEdge());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeUplinkMessagesRateLimits());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantEntityExportRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantEntityImportRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantNotificationRequestsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantServerRestLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceMsgRateLimit());
-    assertNull(
-        ((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getWsUpdatesPerSessionRateLimit());
+    assertTrue(actualProfileData.getConfiguration() instanceof DefaultTenantProfileConfiguration);
     assertNull(actualProfileData.getQueueConfiguration());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getAlarmsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getDefaultStorageTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerCustomer());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerPublicUser());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerRegularUser());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerTenant());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getQueueStatsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getRpcTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getRuleEngineExceptionsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getWsMsgQueueLimitPerSession());
-    assertEquals(0, configuration.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0.0d, ((DefaultTenantProfileConfiguration) configuration).getWarnThreshold());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxAssets());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxCreatedAlarms());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxCustomers());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDPStorageDays());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDashboards());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDevices());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxEmails());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxJSExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxOtaPackagesInBytes());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxREExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxResourceSize());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxResourcesInBytes());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxRuleChains());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxSms());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTbelExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTransportDataPoints());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTransportMessages());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxUsers());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerTenant());
-    assertEquals(TenantProfileType.DEFAULT, configuration.getType());
   }
 
   /**
    * Test {@link TenantProfile#getProfileData()}.
    * <ul>
-   *   <li>Given {@link TenantProfile#TenantProfile()} ProfileDataBytes is array of
-   * {@code byte} with zero and {@code X}.</li>
+   *   <li>Given {@link TenantProfile#TenantProfile()} ProfileDataBytes is array of {@code byte} with zero and {@code X}.</li>
    * </ul>
    * <p>
    * Method under test: {@link TenantProfile#getProfileData()}
    */
   @Test
   @DisplayName("Test getProfileData(); given TenantProfile() ProfileDataBytes is array of byte with zero and 'X'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TenantProfileData TenantProfile.getProfileData()"})
   void testGetProfileData_givenTenantProfileProfileDataBytesIsArrayOfByteWithZeroAndX() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -1608,84 +426,22 @@ class TenantProfileDiffblueTest {
     TenantProfileData actualProfileData = tenantProfile.getProfileData();
 
     // Assert
-    TenantProfileConfiguration configuration = actualProfileData.getConfiguration();
-    assertTrue(configuration instanceof DefaultTenantProfileConfiguration);
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getSmsEnabled());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getCustomerServerRestLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeEventRateLimits());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeEventRateLimitsPerEdge());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeUplinkMessagesRateLimits());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantEntityExportRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantEntityImportRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantNotificationRequestsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantServerRestLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceMsgRateLimit());
-    assertNull(
-        ((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getWsUpdatesPerSessionRateLimit());
+    assertTrue(actualProfileData.getConfiguration() instanceof DefaultTenantProfileConfiguration);
     assertNull(actualProfileData.getQueueConfiguration());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getAlarmsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getDefaultStorageTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerCustomer());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerPublicUser());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerRegularUser());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerTenant());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getQueueStatsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getRpcTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getRuleEngineExceptionsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getWsMsgQueueLimitPerSession());
-    assertEquals(0, configuration.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0.0d, ((DefaultTenantProfileConfiguration) configuration).getWarnThreshold());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxAssets());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxCreatedAlarms());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxCustomers());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDPStorageDays());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDashboards());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDevices());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxEmails());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxJSExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxOtaPackagesInBytes());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxREExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxResourceSize());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxResourcesInBytes());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxRuleChains());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxSms());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTbelExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTransportDataPoints());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTransportMessages());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxUsers());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerTenant());
-    assertEquals(TenantProfileType.DEFAULT, configuration.getType());
   }
 
   /**
    * Test {@link TenantProfile#getProfileData()}.
    * <ul>
-   *   <li>Given {@link TenantProfile#TenantProfile()} ProfileDataBytes is
-   * {@code AXAXAXAX} Bytes is {@code UTF-8}.</li>
+   *   <li>Given {@link TenantProfile#TenantProfile()} ProfileDataBytes is {@code AXAXAXAX} Bytes is {@code UTF-8}.</li>
    * </ul>
    * <p>
    * Method under test: {@link TenantProfile#getProfileData()}
    */
   @Test
   @DisplayName("Test getProfileData(); given TenantProfile() ProfileDataBytes is 'AXAXAXAX' Bytes is 'UTF-8'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TenantProfileData TenantProfile.getProfileData()"})
   void testGetProfileData_givenTenantProfileProfileDataBytesIsAxaxaxaxBytesIsUtf8()
       throws UnsupportedEncodingException {
     // Arrange
@@ -1696,84 +452,22 @@ class TenantProfileDiffblueTest {
     TenantProfileData actualProfileData = tenantProfile.getProfileData();
 
     // Assert
-    TenantProfileConfiguration configuration = actualProfileData.getConfiguration();
-    assertTrue(configuration instanceof DefaultTenantProfileConfiguration);
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getSmsEnabled());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getCustomerServerRestLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeEventRateLimits());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeEventRateLimitsPerEdge());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeUplinkMessagesRateLimits());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantEntityExportRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantEntityImportRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantNotificationRequestsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantServerRestLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceMsgRateLimit());
-    assertNull(
-        ((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getWsUpdatesPerSessionRateLimit());
+    assertTrue(actualProfileData.getConfiguration() instanceof DefaultTenantProfileConfiguration);
     assertNull(actualProfileData.getQueueConfiguration());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getAlarmsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getDefaultStorageTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerCustomer());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerPublicUser());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerRegularUser());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerTenant());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getQueueStatsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getRpcTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getRuleEngineExceptionsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getWsMsgQueueLimitPerSession());
-    assertEquals(0, configuration.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0.0d, ((DefaultTenantProfileConfiguration) configuration).getWarnThreshold());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxAssets());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxCreatedAlarms());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxCustomers());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDPStorageDays());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDashboards());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDevices());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxEmails());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxJSExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxOtaPackagesInBytes());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxREExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxResourceSize());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxResourcesInBytes());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxRuleChains());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxSms());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTbelExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTransportDataPoints());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTransportMessages());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxUsers());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerTenant());
-    assertEquals(TenantProfileType.DEFAULT, configuration.getType());
   }
 
   /**
    * Test {@link TenantProfile#getProfileData()}.
    * <ul>
-   *   <li>Given {@link TenantProfile#TenantProfile()} ProfileDataBytes is empty
-   * array of {@code byte}.</li>
+   *   <li>Given {@link TenantProfile#TenantProfile()} ProfileDataBytes is empty array of {@code byte}.</li>
    * </ul>
    * <p>
    * Method under test: {@link TenantProfile#getProfileData()}
    */
   @Test
   @DisplayName("Test getProfileData(); given TenantProfile() ProfileDataBytes is empty array of byte")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TenantProfileData TenantProfile.getProfileData()"})
   void testGetProfileData_givenTenantProfileProfileDataBytesIsEmptyArrayOfByte() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -1783,84 +477,22 @@ class TenantProfileDiffblueTest {
     TenantProfileData actualProfileData = tenantProfile.getProfileData();
 
     // Assert
-    TenantProfileConfiguration configuration = actualProfileData.getConfiguration();
-    assertTrue(configuration instanceof DefaultTenantProfileConfiguration);
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getSmsEnabled());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getCustomerServerRestLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeEventRateLimits());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeEventRateLimitsPerEdge());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeUplinkMessagesRateLimits());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantEntityExportRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantEntityImportRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantNotificationRequestsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantServerRestLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceMsgRateLimit());
-    assertNull(
-        ((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getWsUpdatesPerSessionRateLimit());
+    assertTrue(actualProfileData.getConfiguration() instanceof DefaultTenantProfileConfiguration);
     assertNull(actualProfileData.getQueueConfiguration());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getAlarmsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getDefaultStorageTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerCustomer());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerPublicUser());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerRegularUser());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerTenant());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getQueueStatsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getRpcTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getRuleEngineExceptionsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getWsMsgQueueLimitPerSession());
-    assertEquals(0, configuration.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0.0d, ((DefaultTenantProfileConfiguration) configuration).getWarnThreshold());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxAssets());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxCreatedAlarms());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxCustomers());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDPStorageDays());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDashboards());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDevices());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxEmails());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxJSExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxOtaPackagesInBytes());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxREExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxResourceSize());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxResourcesInBytes());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxRuleChains());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxSms());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTbelExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTransportDataPoints());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTransportMessages());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxUsers());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerTenant());
-    assertEquals(TenantProfileType.DEFAULT, configuration.getType());
   }
 
   /**
    * Test {@link TenantProfile#getProfileData()}.
    * <ul>
-   *   <li>Given {@link TenantProfile#TenantProfile()} ProfileDataBytes is
-   * {@code ;XAXAXAX} Bytes is {@code UTF-8}.</li>
+   *   <li>Given {@link TenantProfile#TenantProfile()} ProfileDataBytes is {@code ;XAXAXAX} Bytes is {@code UTF-8}.</li>
    * </ul>
    * <p>
    * Method under test: {@link TenantProfile#getProfileData()}
    */
   @Test
   @DisplayName("Test getProfileData(); given TenantProfile() ProfileDataBytes is ';XAXAXAX' Bytes is 'UTF-8'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TenantProfileData TenantProfile.getProfileData()"})
   void testGetProfileData_givenTenantProfileProfileDataBytesIsXaxaxaxBytesIsUtf8() throws UnsupportedEncodingException {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -1870,154 +502,29 @@ class TenantProfileDiffblueTest {
     TenantProfileData actualProfileData = tenantProfile.getProfileData();
 
     // Assert
-    TenantProfileConfiguration configuration = actualProfileData.getConfiguration();
-    assertTrue(configuration instanceof DefaultTenantProfileConfiguration);
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getSmsEnabled());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getCustomerServerRestLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeEventRateLimits());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeEventRateLimitsPerEdge());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeUplinkMessagesRateLimits());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantEntityExportRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantEntityImportRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantNotificationRequestsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantServerRestLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceMsgRateLimit());
-    assertNull(
-        ((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getWsUpdatesPerSessionRateLimit());
+    assertTrue(actualProfileData.getConfiguration() instanceof DefaultTenantProfileConfiguration);
     assertNull(actualProfileData.getQueueConfiguration());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getAlarmsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getDefaultStorageTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerCustomer());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerPublicUser());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerRegularUser());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerTenant());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getQueueStatsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getRpcTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getRuleEngineExceptionsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getWsMsgQueueLimitPerSession());
-    assertEquals(0, configuration.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0.0d, ((DefaultTenantProfileConfiguration) configuration).getWarnThreshold());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxAssets());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxCreatedAlarms());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxCustomers());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDPStorageDays());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDashboards());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDevices());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxEmails());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxJSExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxOtaPackagesInBytes());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxREExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxResourceSize());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxResourcesInBytes());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxRuleChains());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxSms());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTbelExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTransportDataPoints());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTransportMessages());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxUsers());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerTenant());
-    assertEquals(TenantProfileType.DEFAULT, configuration.getType());
   }
 
   /**
    * Test {@link TenantProfile#getProfileData()}.
    * <ul>
-   *   <li>Given {@link TenantProfile#TenantProfile(TenantProfile)} with
-   * tenantProfile is {@link TenantProfile#TenantProfile()}.</li>
+   *   <li>Given {@link TenantProfile#TenantProfile(TenantProfile)} with tenantProfile is {@link TenantProfile#TenantProfile()}.</li>
    * </ul>
    * <p>
    * Method under test: {@link TenantProfile#getProfileData()}
    */
   @Test
   @DisplayName("Test getProfileData(); given TenantProfile(TenantProfile) with tenantProfile is TenantProfile()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TenantProfileData TenantProfile.getProfileData()"})
   void testGetProfileData_givenTenantProfileWithTenantProfileIsTenantProfile() {
     // Arrange and Act
     TenantProfileData actualProfileData = (new TenantProfile(new TenantProfile())).getProfileData();
 
     // Assert
-    TenantProfileConfiguration configuration = actualProfileData.getConfiguration();
-    assertTrue(configuration instanceof DefaultTenantProfileConfiguration);
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getSmsEnabled());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getCustomerServerRestLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeEventRateLimits());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeEventRateLimitsPerEdge());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeUplinkMessagesRateLimits());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantEntityExportRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantEntityImportRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantNotificationRequestsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantServerRestLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceMsgRateLimit());
-    assertNull(
-        ((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getWsUpdatesPerSessionRateLimit());
+    assertTrue(actualProfileData.getConfiguration() instanceof DefaultTenantProfileConfiguration);
     assertNull(actualProfileData.getQueueConfiguration());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getAlarmsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getDefaultStorageTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerCustomer());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerPublicUser());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerRegularUser());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerTenant());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getQueueStatsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getRpcTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getRuleEngineExceptionsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getWsMsgQueueLimitPerSession());
-    assertEquals(0, configuration.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0.0d, ((DefaultTenantProfileConfiguration) configuration).getWarnThreshold());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxAssets());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxCreatedAlarms());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxCustomers());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDPStorageDays());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDashboards());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDevices());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxEmails());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxJSExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxOtaPackagesInBytes());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxREExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxResourceSize());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxResourcesInBytes());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxRuleChains());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxSms());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTbelExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTransportDataPoints());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTransportMessages());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxUsers());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerTenant());
-    assertEquals(TenantProfileType.DEFAULT, configuration.getType());
   }
 
   /**
@@ -2027,78 +534,15 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test getProfileConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.util.Optional TenantProfile.getProfileConfiguration()"})
   void testGetProfileConfiguration() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
     tenantProfile.setProfileDataBytes(new byte[]{'A', 3, 'A', 3, 'A', 3, 'A', 3});
 
-    // Act
-    Optional<DefaultTenantProfileConfiguration> actualProfileConfiguration = tenantProfile.getProfileConfiguration();
-
-    // Assert
-    DefaultTenantProfileConfiguration getResult = actualProfileConfiguration.get();
-    assertNull(getResult.getSmsEnabled());
-    assertNull(getResult.getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(getResult.getCustomerServerRestLimitsConfiguration());
-    assertNull(getResult.getEdgeEventRateLimits());
-    assertNull(getResult.getEdgeEventRateLimitsPerEdge());
-    assertNull(getResult.getEdgeUplinkMessagesRateLimits());
-    assertNull(getResult.getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(getResult.getTenantEntityExportRateLimit());
-    assertNull(getResult.getTenantEntityImportRateLimit());
-    assertNull(getResult.getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(getResult.getTenantNotificationRequestsRateLimit());
-    assertNull(getResult.getTenantServerRestLimitsConfiguration());
-    assertNull(getResult.getTransportDeviceMsgRateLimit());
-    assertNull(getResult.getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportGatewayMsgRateLimit());
-    assertNull(getResult.getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportTenantMsgRateLimit());
-    assertNull(getResult.getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportTenantTelemetryMsgRateLimit());
-    assertNull(getResult.getWsUpdatesPerSessionRateLimit());
-    assertEquals(0, getResult.getAlarmsTtlDays());
-    assertEquals(0, getResult.getDefaultStorageTtlDays());
-    assertEquals(0, getResult.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0, getResult.getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, getResult.getMaxWsSessionsPerCustomer());
-    assertEquals(0, getResult.getMaxWsSessionsPerPublicUser());
-    assertEquals(0, getResult.getMaxWsSessionsPerRegularUser());
-    assertEquals(0, getResult.getMaxWsSessionsPerTenant());
-    assertEquals(0, getResult.getQueueStatsTtlDays());
-    assertEquals(0, getResult.getRpcTtlDays());
-    assertEquals(0, getResult.getRuleEngineExceptionsTtlDays());
-    assertEquals(0, getResult.getWsMsgQueueLimitPerSession());
-    assertEquals(0.0d, getResult.getWarnThreshold());
-    assertEquals(0L, getResult.getMaxAssets());
-    assertEquals(0L, getResult.getMaxCreatedAlarms());
-    assertEquals(0L, getResult.getMaxCustomers());
-    assertEquals(0L, getResult.getMaxDPStorageDays());
-    assertEquals(0L, getResult.getMaxDashboards());
-    assertEquals(0L, getResult.getMaxDevices());
-    assertEquals(0L, getResult.getMaxEmails());
-    assertEquals(0L, getResult.getMaxJSExecutions());
-    assertEquals(0L, getResult.getMaxOtaPackagesInBytes());
-    assertEquals(0L, getResult.getMaxREExecutions());
-    assertEquals(0L, getResult.getMaxResourceSize());
-    assertEquals(0L, getResult.getMaxResourcesInBytes());
-    assertEquals(0L, getResult.getMaxRuleChains());
-    assertEquals(0L, getResult.getMaxSms());
-    assertEquals(0L, getResult.getMaxTbelExecutions());
-    assertEquals(0L, getResult.getMaxTransportDataPoints());
-    assertEquals(0L, getResult.getMaxTransportMessages());
-    assertEquals(0L, getResult.getMaxUsers());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerTenant());
-    assertEquals(TenantProfileType.DEFAULT, getResult.getType());
-    assertTrue(actualProfileConfiguration.isPresent());
+    // Act and Assert
+    assertTrue(tenantProfile.getProfileConfiguration().isPresent());
   }
 
   /**
@@ -2108,78 +552,15 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test getProfileConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.util.Optional TenantProfile.getProfileConfiguration()"})
   void testGetProfileConfiguration2() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
     tenantProfile.setProfileDataBytes(new byte[]{3, 3, 'A', 3, 'A', 3, 'A', 3});
 
-    // Act
-    Optional<DefaultTenantProfileConfiguration> actualProfileConfiguration = tenantProfile.getProfileConfiguration();
-
-    // Assert
-    DefaultTenantProfileConfiguration getResult = actualProfileConfiguration.get();
-    assertNull(getResult.getSmsEnabled());
-    assertNull(getResult.getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(getResult.getCustomerServerRestLimitsConfiguration());
-    assertNull(getResult.getEdgeEventRateLimits());
-    assertNull(getResult.getEdgeEventRateLimitsPerEdge());
-    assertNull(getResult.getEdgeUplinkMessagesRateLimits());
-    assertNull(getResult.getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(getResult.getTenantEntityExportRateLimit());
-    assertNull(getResult.getTenantEntityImportRateLimit());
-    assertNull(getResult.getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(getResult.getTenantNotificationRequestsRateLimit());
-    assertNull(getResult.getTenantServerRestLimitsConfiguration());
-    assertNull(getResult.getTransportDeviceMsgRateLimit());
-    assertNull(getResult.getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportGatewayMsgRateLimit());
-    assertNull(getResult.getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportTenantMsgRateLimit());
-    assertNull(getResult.getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportTenantTelemetryMsgRateLimit());
-    assertNull(getResult.getWsUpdatesPerSessionRateLimit());
-    assertEquals(0, getResult.getAlarmsTtlDays());
-    assertEquals(0, getResult.getDefaultStorageTtlDays());
-    assertEquals(0, getResult.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0, getResult.getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, getResult.getMaxWsSessionsPerCustomer());
-    assertEquals(0, getResult.getMaxWsSessionsPerPublicUser());
-    assertEquals(0, getResult.getMaxWsSessionsPerRegularUser());
-    assertEquals(0, getResult.getMaxWsSessionsPerTenant());
-    assertEquals(0, getResult.getQueueStatsTtlDays());
-    assertEquals(0, getResult.getRpcTtlDays());
-    assertEquals(0, getResult.getRuleEngineExceptionsTtlDays());
-    assertEquals(0, getResult.getWsMsgQueueLimitPerSession());
-    assertEquals(0.0d, getResult.getWarnThreshold());
-    assertEquals(0L, getResult.getMaxAssets());
-    assertEquals(0L, getResult.getMaxCreatedAlarms());
-    assertEquals(0L, getResult.getMaxCustomers());
-    assertEquals(0L, getResult.getMaxDPStorageDays());
-    assertEquals(0L, getResult.getMaxDashboards());
-    assertEquals(0L, getResult.getMaxDevices());
-    assertEquals(0L, getResult.getMaxEmails());
-    assertEquals(0L, getResult.getMaxJSExecutions());
-    assertEquals(0L, getResult.getMaxOtaPackagesInBytes());
-    assertEquals(0L, getResult.getMaxREExecutions());
-    assertEquals(0L, getResult.getMaxResourceSize());
-    assertEquals(0L, getResult.getMaxResourcesInBytes());
-    assertEquals(0L, getResult.getMaxRuleChains());
-    assertEquals(0L, getResult.getMaxSms());
-    assertEquals(0L, getResult.getMaxTbelExecutions());
-    assertEquals(0L, getResult.getMaxTransportDataPoints());
-    assertEquals(0L, getResult.getMaxTransportMessages());
-    assertEquals(0L, getResult.getMaxUsers());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerTenant());
-    assertEquals(TenantProfileType.DEFAULT, getResult.getType());
-    assertTrue(actualProfileConfiguration.isPresent());
+    // Act and Assert
+    assertTrue(tenantProfile.getProfileConfiguration().isPresent());
   }
 
   /**
@@ -2189,78 +570,15 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test getProfileConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.util.Optional TenantProfile.getProfileConfiguration()"})
   void testGetProfileConfiguration3() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
     tenantProfile.setProfileDataBytes(new byte[]{0, 3, 'A', 3, 'A', 3, 'A', 3});
 
-    // Act
-    Optional<DefaultTenantProfileConfiguration> actualProfileConfiguration = tenantProfile.getProfileConfiguration();
-
-    // Assert
-    DefaultTenantProfileConfiguration getResult = actualProfileConfiguration.get();
-    assertNull(getResult.getSmsEnabled());
-    assertNull(getResult.getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(getResult.getCustomerServerRestLimitsConfiguration());
-    assertNull(getResult.getEdgeEventRateLimits());
-    assertNull(getResult.getEdgeEventRateLimitsPerEdge());
-    assertNull(getResult.getEdgeUplinkMessagesRateLimits());
-    assertNull(getResult.getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(getResult.getTenantEntityExportRateLimit());
-    assertNull(getResult.getTenantEntityImportRateLimit());
-    assertNull(getResult.getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(getResult.getTenantNotificationRequestsRateLimit());
-    assertNull(getResult.getTenantServerRestLimitsConfiguration());
-    assertNull(getResult.getTransportDeviceMsgRateLimit());
-    assertNull(getResult.getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportGatewayMsgRateLimit());
-    assertNull(getResult.getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportTenantMsgRateLimit());
-    assertNull(getResult.getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportTenantTelemetryMsgRateLimit());
-    assertNull(getResult.getWsUpdatesPerSessionRateLimit());
-    assertEquals(0, getResult.getAlarmsTtlDays());
-    assertEquals(0, getResult.getDefaultStorageTtlDays());
-    assertEquals(0, getResult.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0, getResult.getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, getResult.getMaxWsSessionsPerCustomer());
-    assertEquals(0, getResult.getMaxWsSessionsPerPublicUser());
-    assertEquals(0, getResult.getMaxWsSessionsPerRegularUser());
-    assertEquals(0, getResult.getMaxWsSessionsPerTenant());
-    assertEquals(0, getResult.getQueueStatsTtlDays());
-    assertEquals(0, getResult.getRpcTtlDays());
-    assertEquals(0, getResult.getRuleEngineExceptionsTtlDays());
-    assertEquals(0, getResult.getWsMsgQueueLimitPerSession());
-    assertEquals(0.0d, getResult.getWarnThreshold());
-    assertEquals(0L, getResult.getMaxAssets());
-    assertEquals(0L, getResult.getMaxCreatedAlarms());
-    assertEquals(0L, getResult.getMaxCustomers());
-    assertEquals(0L, getResult.getMaxDPStorageDays());
-    assertEquals(0L, getResult.getMaxDashboards());
-    assertEquals(0L, getResult.getMaxDevices());
-    assertEquals(0L, getResult.getMaxEmails());
-    assertEquals(0L, getResult.getMaxJSExecutions());
-    assertEquals(0L, getResult.getMaxOtaPackagesInBytes());
-    assertEquals(0L, getResult.getMaxREExecutions());
-    assertEquals(0L, getResult.getMaxResourceSize());
-    assertEquals(0L, getResult.getMaxResourcesInBytes());
-    assertEquals(0L, getResult.getMaxRuleChains());
-    assertEquals(0L, getResult.getMaxSms());
-    assertEquals(0L, getResult.getMaxTbelExecutions());
-    assertEquals(0L, getResult.getMaxTransportDataPoints());
-    assertEquals(0L, getResult.getMaxTransportMessages());
-    assertEquals(0L, getResult.getMaxUsers());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerTenant());
-    assertEquals(TenantProfileType.DEFAULT, getResult.getType());
-    assertTrue(actualProfileConfiguration.isPresent());
+    // Act and Assert
+    assertTrue(tenantProfile.getProfileConfiguration().isPresent());
   }
 
   /**
@@ -2270,78 +588,15 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test getProfileConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.util.Optional TenantProfile.getProfileConfiguration()"})
   void testGetProfileConfiguration4() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
     tenantProfile.setProfileDataBytes(new byte[]{';', 3, 'A', 3, 'A', 3, 'A', 3});
 
-    // Act
-    Optional<DefaultTenantProfileConfiguration> actualProfileConfiguration = tenantProfile.getProfileConfiguration();
-
-    // Assert
-    DefaultTenantProfileConfiguration getResult = actualProfileConfiguration.get();
-    assertNull(getResult.getSmsEnabled());
-    assertNull(getResult.getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(getResult.getCustomerServerRestLimitsConfiguration());
-    assertNull(getResult.getEdgeEventRateLimits());
-    assertNull(getResult.getEdgeEventRateLimitsPerEdge());
-    assertNull(getResult.getEdgeUplinkMessagesRateLimits());
-    assertNull(getResult.getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(getResult.getTenantEntityExportRateLimit());
-    assertNull(getResult.getTenantEntityImportRateLimit());
-    assertNull(getResult.getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(getResult.getTenantNotificationRequestsRateLimit());
-    assertNull(getResult.getTenantServerRestLimitsConfiguration());
-    assertNull(getResult.getTransportDeviceMsgRateLimit());
-    assertNull(getResult.getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportGatewayMsgRateLimit());
-    assertNull(getResult.getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportTenantMsgRateLimit());
-    assertNull(getResult.getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportTenantTelemetryMsgRateLimit());
-    assertNull(getResult.getWsUpdatesPerSessionRateLimit());
-    assertEquals(0, getResult.getAlarmsTtlDays());
-    assertEquals(0, getResult.getDefaultStorageTtlDays());
-    assertEquals(0, getResult.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0, getResult.getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, getResult.getMaxWsSessionsPerCustomer());
-    assertEquals(0, getResult.getMaxWsSessionsPerPublicUser());
-    assertEquals(0, getResult.getMaxWsSessionsPerRegularUser());
-    assertEquals(0, getResult.getMaxWsSessionsPerTenant());
-    assertEquals(0, getResult.getQueueStatsTtlDays());
-    assertEquals(0, getResult.getRpcTtlDays());
-    assertEquals(0, getResult.getRuleEngineExceptionsTtlDays());
-    assertEquals(0, getResult.getWsMsgQueueLimitPerSession());
-    assertEquals(0.0d, getResult.getWarnThreshold());
-    assertEquals(0L, getResult.getMaxAssets());
-    assertEquals(0L, getResult.getMaxCreatedAlarms());
-    assertEquals(0L, getResult.getMaxCustomers());
-    assertEquals(0L, getResult.getMaxDPStorageDays());
-    assertEquals(0L, getResult.getMaxDashboards());
-    assertEquals(0L, getResult.getMaxDevices());
-    assertEquals(0L, getResult.getMaxEmails());
-    assertEquals(0L, getResult.getMaxJSExecutions());
-    assertEquals(0L, getResult.getMaxOtaPackagesInBytes());
-    assertEquals(0L, getResult.getMaxREExecutions());
-    assertEquals(0L, getResult.getMaxResourceSize());
-    assertEquals(0L, getResult.getMaxResourcesInBytes());
-    assertEquals(0L, getResult.getMaxRuleChains());
-    assertEquals(0L, getResult.getMaxSms());
-    assertEquals(0L, getResult.getMaxTbelExecutions());
-    assertEquals(0L, getResult.getMaxTransportDataPoints());
-    assertEquals(0L, getResult.getMaxTransportMessages());
-    assertEquals(0L, getResult.getMaxUsers());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerTenant());
-    assertEquals(TenantProfileType.DEFAULT, getResult.getType());
-    assertTrue(actualProfileConfiguration.isPresent());
+    // Act and Assert
+    assertTrue(tenantProfile.getProfileConfiguration().isPresent());
   }
 
   /**
@@ -2351,78 +606,15 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test getProfileConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.util.Optional TenantProfile.getProfileConfiguration()"})
   void testGetProfileConfiguration5() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
     tenantProfile.setProfileDataBytes(new byte[]{'A', 0, 'A', 3, 'A', 3, 'A', 3});
 
-    // Act
-    Optional<DefaultTenantProfileConfiguration> actualProfileConfiguration = tenantProfile.getProfileConfiguration();
-
-    // Assert
-    DefaultTenantProfileConfiguration getResult = actualProfileConfiguration.get();
-    assertNull(getResult.getSmsEnabled());
-    assertNull(getResult.getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(getResult.getCustomerServerRestLimitsConfiguration());
-    assertNull(getResult.getEdgeEventRateLimits());
-    assertNull(getResult.getEdgeEventRateLimitsPerEdge());
-    assertNull(getResult.getEdgeUplinkMessagesRateLimits());
-    assertNull(getResult.getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(getResult.getTenantEntityExportRateLimit());
-    assertNull(getResult.getTenantEntityImportRateLimit());
-    assertNull(getResult.getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(getResult.getTenantNotificationRequestsRateLimit());
-    assertNull(getResult.getTenantServerRestLimitsConfiguration());
-    assertNull(getResult.getTransportDeviceMsgRateLimit());
-    assertNull(getResult.getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportGatewayMsgRateLimit());
-    assertNull(getResult.getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportTenantMsgRateLimit());
-    assertNull(getResult.getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportTenantTelemetryMsgRateLimit());
-    assertNull(getResult.getWsUpdatesPerSessionRateLimit());
-    assertEquals(0, getResult.getAlarmsTtlDays());
-    assertEquals(0, getResult.getDefaultStorageTtlDays());
-    assertEquals(0, getResult.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0, getResult.getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, getResult.getMaxWsSessionsPerCustomer());
-    assertEquals(0, getResult.getMaxWsSessionsPerPublicUser());
-    assertEquals(0, getResult.getMaxWsSessionsPerRegularUser());
-    assertEquals(0, getResult.getMaxWsSessionsPerTenant());
-    assertEquals(0, getResult.getQueueStatsTtlDays());
-    assertEquals(0, getResult.getRpcTtlDays());
-    assertEquals(0, getResult.getRuleEngineExceptionsTtlDays());
-    assertEquals(0, getResult.getWsMsgQueueLimitPerSession());
-    assertEquals(0.0d, getResult.getWarnThreshold());
-    assertEquals(0L, getResult.getMaxAssets());
-    assertEquals(0L, getResult.getMaxCreatedAlarms());
-    assertEquals(0L, getResult.getMaxCustomers());
-    assertEquals(0L, getResult.getMaxDPStorageDays());
-    assertEquals(0L, getResult.getMaxDashboards());
-    assertEquals(0L, getResult.getMaxDevices());
-    assertEquals(0L, getResult.getMaxEmails());
-    assertEquals(0L, getResult.getMaxJSExecutions());
-    assertEquals(0L, getResult.getMaxOtaPackagesInBytes());
-    assertEquals(0L, getResult.getMaxREExecutions());
-    assertEquals(0L, getResult.getMaxResourceSize());
-    assertEquals(0L, getResult.getMaxResourcesInBytes());
-    assertEquals(0L, getResult.getMaxRuleChains());
-    assertEquals(0L, getResult.getMaxSms());
-    assertEquals(0L, getResult.getMaxTbelExecutions());
-    assertEquals(0L, getResult.getMaxTransportDataPoints());
-    assertEquals(0L, getResult.getMaxTransportMessages());
-    assertEquals(0L, getResult.getMaxUsers());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerTenant());
-    assertEquals(TenantProfileType.DEFAULT, getResult.getType());
-    assertTrue(actualProfileConfiguration.isPresent());
+    // Act and Assert
+    assertTrue(tenantProfile.getProfileConfiguration().isPresent());
   }
 
   /**
@@ -2435,242 +627,49 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test getProfileConfiguration(); given TenantProfile()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.util.Optional TenantProfile.getProfileConfiguration()"})
   void testGetProfileConfiguration_givenTenantProfile() {
-    // Arrange and Act
-    Optional<DefaultTenantProfileConfiguration> actualProfileConfiguration = (new TenantProfile())
-        .getProfileConfiguration();
-
-    // Assert
-    DefaultTenantProfileConfiguration getResult = actualProfileConfiguration.get();
-    assertNull(getResult.getSmsEnabled());
-    assertNull(getResult.getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(getResult.getCustomerServerRestLimitsConfiguration());
-    assertNull(getResult.getEdgeEventRateLimits());
-    assertNull(getResult.getEdgeEventRateLimitsPerEdge());
-    assertNull(getResult.getEdgeUplinkMessagesRateLimits());
-    assertNull(getResult.getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(getResult.getTenantEntityExportRateLimit());
-    assertNull(getResult.getTenantEntityImportRateLimit());
-    assertNull(getResult.getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(getResult.getTenantNotificationRequestsRateLimit());
-    assertNull(getResult.getTenantServerRestLimitsConfiguration());
-    assertNull(getResult.getTransportDeviceMsgRateLimit());
-    assertNull(getResult.getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportGatewayMsgRateLimit());
-    assertNull(getResult.getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportTenantMsgRateLimit());
-    assertNull(getResult.getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportTenantTelemetryMsgRateLimit());
-    assertNull(getResult.getWsUpdatesPerSessionRateLimit());
-    assertEquals(0, getResult.getAlarmsTtlDays());
-    assertEquals(0, getResult.getDefaultStorageTtlDays());
-    assertEquals(0, getResult.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0, getResult.getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, getResult.getMaxWsSessionsPerCustomer());
-    assertEquals(0, getResult.getMaxWsSessionsPerPublicUser());
-    assertEquals(0, getResult.getMaxWsSessionsPerRegularUser());
-    assertEquals(0, getResult.getMaxWsSessionsPerTenant());
-    assertEquals(0, getResult.getQueueStatsTtlDays());
-    assertEquals(0, getResult.getRpcTtlDays());
-    assertEquals(0, getResult.getRuleEngineExceptionsTtlDays());
-    assertEquals(0, getResult.getWsMsgQueueLimitPerSession());
-    assertEquals(0.0d, getResult.getWarnThreshold());
-    assertEquals(0L, getResult.getMaxAssets());
-    assertEquals(0L, getResult.getMaxCreatedAlarms());
-    assertEquals(0L, getResult.getMaxCustomers());
-    assertEquals(0L, getResult.getMaxDPStorageDays());
-    assertEquals(0L, getResult.getMaxDashboards());
-    assertEquals(0L, getResult.getMaxDevices());
-    assertEquals(0L, getResult.getMaxEmails());
-    assertEquals(0L, getResult.getMaxJSExecutions());
-    assertEquals(0L, getResult.getMaxOtaPackagesInBytes());
-    assertEquals(0L, getResult.getMaxREExecutions());
-    assertEquals(0L, getResult.getMaxResourceSize());
-    assertEquals(0L, getResult.getMaxResourcesInBytes());
-    assertEquals(0L, getResult.getMaxRuleChains());
-    assertEquals(0L, getResult.getMaxSms());
-    assertEquals(0L, getResult.getMaxTbelExecutions());
-    assertEquals(0L, getResult.getMaxTransportDataPoints());
-    assertEquals(0L, getResult.getMaxTransportMessages());
-    assertEquals(0L, getResult.getMaxUsers());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerTenant());
-    assertEquals(TenantProfileType.DEFAULT, getResult.getType());
-    assertTrue(actualProfileConfiguration.isPresent());
+    // Arrange, Act and Assert
+    assertTrue((new TenantProfile()).getProfileConfiguration().isPresent());
   }
 
   /**
    * Test {@link TenantProfile#getProfileConfiguration()}.
    * <ul>
-   *   <li>Given {@link TenantProfile#TenantProfile()} ProfileDataBytes is empty
-   * array of {@code byte}.</li>
+   *   <li>Given {@link TenantProfile#TenantProfile()} ProfileDataBytes is empty array of {@code byte}.</li>
    * </ul>
    * <p>
    * Method under test: {@link TenantProfile#getProfileConfiguration()}
    */
   @Test
   @DisplayName("Test getProfileConfiguration(); given TenantProfile() ProfileDataBytes is empty array of byte")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.util.Optional TenantProfile.getProfileConfiguration()"})
   void testGetProfileConfiguration_givenTenantProfileProfileDataBytesIsEmptyArrayOfByte() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
     tenantProfile.setProfileDataBytes(new byte[]{});
 
-    // Act
-    Optional<DefaultTenantProfileConfiguration> actualProfileConfiguration = tenantProfile.getProfileConfiguration();
-
-    // Assert
-    DefaultTenantProfileConfiguration getResult = actualProfileConfiguration.get();
-    assertNull(getResult.getSmsEnabled());
-    assertNull(getResult.getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(getResult.getCustomerServerRestLimitsConfiguration());
-    assertNull(getResult.getEdgeEventRateLimits());
-    assertNull(getResult.getEdgeEventRateLimitsPerEdge());
-    assertNull(getResult.getEdgeUplinkMessagesRateLimits());
-    assertNull(getResult.getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(getResult.getTenantEntityExportRateLimit());
-    assertNull(getResult.getTenantEntityImportRateLimit());
-    assertNull(getResult.getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(getResult.getTenantNotificationRequestsRateLimit());
-    assertNull(getResult.getTenantServerRestLimitsConfiguration());
-    assertNull(getResult.getTransportDeviceMsgRateLimit());
-    assertNull(getResult.getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportGatewayMsgRateLimit());
-    assertNull(getResult.getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportTenantMsgRateLimit());
-    assertNull(getResult.getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportTenantTelemetryMsgRateLimit());
-    assertNull(getResult.getWsUpdatesPerSessionRateLimit());
-    assertEquals(0, getResult.getAlarmsTtlDays());
-    assertEquals(0, getResult.getDefaultStorageTtlDays());
-    assertEquals(0, getResult.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0, getResult.getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, getResult.getMaxWsSessionsPerCustomer());
-    assertEquals(0, getResult.getMaxWsSessionsPerPublicUser());
-    assertEquals(0, getResult.getMaxWsSessionsPerRegularUser());
-    assertEquals(0, getResult.getMaxWsSessionsPerTenant());
-    assertEquals(0, getResult.getQueueStatsTtlDays());
-    assertEquals(0, getResult.getRpcTtlDays());
-    assertEquals(0, getResult.getRuleEngineExceptionsTtlDays());
-    assertEquals(0, getResult.getWsMsgQueueLimitPerSession());
-    assertEquals(0.0d, getResult.getWarnThreshold());
-    assertEquals(0L, getResult.getMaxAssets());
-    assertEquals(0L, getResult.getMaxCreatedAlarms());
-    assertEquals(0L, getResult.getMaxCustomers());
-    assertEquals(0L, getResult.getMaxDPStorageDays());
-    assertEquals(0L, getResult.getMaxDashboards());
-    assertEquals(0L, getResult.getMaxDevices());
-    assertEquals(0L, getResult.getMaxEmails());
-    assertEquals(0L, getResult.getMaxJSExecutions());
-    assertEquals(0L, getResult.getMaxOtaPackagesInBytes());
-    assertEquals(0L, getResult.getMaxREExecutions());
-    assertEquals(0L, getResult.getMaxResourceSize());
-    assertEquals(0L, getResult.getMaxResourcesInBytes());
-    assertEquals(0L, getResult.getMaxRuleChains());
-    assertEquals(0L, getResult.getMaxSms());
-    assertEquals(0L, getResult.getMaxTbelExecutions());
-    assertEquals(0L, getResult.getMaxTransportDataPoints());
-    assertEquals(0L, getResult.getMaxTransportMessages());
-    assertEquals(0L, getResult.getMaxUsers());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerTenant());
-    assertEquals(TenantProfileType.DEFAULT, getResult.getType());
-    assertTrue(actualProfileConfiguration.isPresent());
+    // Act and Assert
+    assertTrue(tenantProfile.getProfileConfiguration().isPresent());
   }
 
   /**
    * Test {@link TenantProfile#getProfileConfiguration()}.
    * <ul>
-   *   <li>Given {@link TenantProfile#TenantProfile(TenantProfile)} with
-   * tenantProfile is {@link TenantProfile#TenantProfile()}.</li>
+   *   <li>Given {@link TenantProfile#TenantProfile(TenantProfile)} with tenantProfile is {@link TenantProfile#TenantProfile()}.</li>
    * </ul>
    * <p>
    * Method under test: {@link TenantProfile#getProfileConfiguration()}
    */
   @Test
   @DisplayName("Test getProfileConfiguration(); given TenantProfile(TenantProfile) with tenantProfile is TenantProfile()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.util.Optional TenantProfile.getProfileConfiguration()"})
   void testGetProfileConfiguration_givenTenantProfileWithTenantProfileIsTenantProfile() {
-    // Arrange and Act
-    Optional<DefaultTenantProfileConfiguration> actualProfileConfiguration = (new TenantProfile(new TenantProfile()))
-        .getProfileConfiguration();
-
-    // Assert
-    DefaultTenantProfileConfiguration getResult = actualProfileConfiguration.get();
-    assertNull(getResult.getSmsEnabled());
-    assertNull(getResult.getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(getResult.getCustomerServerRestLimitsConfiguration());
-    assertNull(getResult.getEdgeEventRateLimits());
-    assertNull(getResult.getEdgeEventRateLimitsPerEdge());
-    assertNull(getResult.getEdgeUplinkMessagesRateLimits());
-    assertNull(getResult.getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(getResult.getTenantEntityExportRateLimit());
-    assertNull(getResult.getTenantEntityImportRateLimit());
-    assertNull(getResult.getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(getResult.getTenantNotificationRequestsRateLimit());
-    assertNull(getResult.getTenantServerRestLimitsConfiguration());
-    assertNull(getResult.getTransportDeviceMsgRateLimit());
-    assertNull(getResult.getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportGatewayMsgRateLimit());
-    assertNull(getResult.getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(getResult.getTransportTenantMsgRateLimit());
-    assertNull(getResult.getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(getResult.getTransportTenantTelemetryMsgRateLimit());
-    assertNull(getResult.getWsUpdatesPerSessionRateLimit());
-    assertEquals(0, getResult.getAlarmsTtlDays());
-    assertEquals(0, getResult.getDefaultStorageTtlDays());
-    assertEquals(0, getResult.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0, getResult.getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, getResult.getMaxWsSessionsPerCustomer());
-    assertEquals(0, getResult.getMaxWsSessionsPerPublicUser());
-    assertEquals(0, getResult.getMaxWsSessionsPerRegularUser());
-    assertEquals(0, getResult.getMaxWsSessionsPerTenant());
-    assertEquals(0, getResult.getQueueStatsTtlDays());
-    assertEquals(0, getResult.getRpcTtlDays());
-    assertEquals(0, getResult.getRuleEngineExceptionsTtlDays());
-    assertEquals(0, getResult.getWsMsgQueueLimitPerSession());
-    assertEquals(0.0d, getResult.getWarnThreshold());
-    assertEquals(0L, getResult.getMaxAssets());
-    assertEquals(0L, getResult.getMaxCreatedAlarms());
-    assertEquals(0L, getResult.getMaxCustomers());
-    assertEquals(0L, getResult.getMaxDPStorageDays());
-    assertEquals(0L, getResult.getMaxDashboards());
-    assertEquals(0L, getResult.getMaxDevices());
-    assertEquals(0L, getResult.getMaxEmails());
-    assertEquals(0L, getResult.getMaxJSExecutions());
-    assertEquals(0L, getResult.getMaxOtaPackagesInBytes());
-    assertEquals(0L, getResult.getMaxREExecutions());
-    assertEquals(0L, getResult.getMaxResourceSize());
-    assertEquals(0L, getResult.getMaxResourcesInBytes());
-    assertEquals(0L, getResult.getMaxRuleChains());
-    assertEquals(0L, getResult.getMaxSms());
-    assertEquals(0L, getResult.getMaxTbelExecutions());
-    assertEquals(0L, getResult.getMaxTransportDataPoints());
-    assertEquals(0L, getResult.getMaxTransportMessages());
-    assertEquals(0L, getResult.getMaxUsers());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, getResult.getMaxWsSubscriptionsPerTenant());
-    assertEquals(TenantProfileType.DEFAULT, getResult.getType());
-    assertTrue(actualProfileConfiguration.isPresent());
+    // Arrange, Act and Assert
+    assertTrue((new TenantProfile(new TenantProfile())).getProfileConfiguration().isPresent());
   }
 
   /**
@@ -2680,6 +679,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test getDefaultProfileConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"})
   void testGetDefaultProfileConfiguration() {
     // Arrange and Act
     DefaultTenantProfileConfiguration actualDefaultProfileConfiguration = (new TenantProfile(new TenantProfile()))
@@ -2756,6 +757,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test getDefaultProfileConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"})
   void testGetDefaultProfileConfiguration2() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -2836,6 +839,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test getDefaultProfileConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"})
   void testGetDefaultProfileConfiguration3() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -2916,6 +921,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test getDefaultProfileConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"})
   void testGetDefaultProfileConfiguration4() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -2996,6 +1003,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test getDefaultProfileConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"})
   void testGetDefaultProfileConfiguration5() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -3076,6 +1085,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test getDefaultProfileConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"})
   void testGetDefaultProfileConfiguration6() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -3156,6 +1167,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test getDefaultProfileConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"})
   void testGetDefaultProfileConfiguration7() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -3239,6 +1252,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test getDefaultProfileConfiguration(); given TenantProfile()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"})
   void testGetDefaultProfileConfiguration_givenTenantProfile() {
     // Arrange and Act
     DefaultTenantProfileConfiguration actualDefaultProfileConfiguration = (new TenantProfile())
@@ -3315,84 +1330,23 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test createDefaultTenantProfileData()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TenantProfileData TenantProfile.createDefaultTenantProfileData()"})
   void testCreateDefaultTenantProfileData() {
     // Arrange and Act
     TenantProfileData actualCreateDefaultTenantProfileDataResult = (new TenantProfile())
         .createDefaultTenantProfileData();
 
     // Assert
-    TenantProfileConfiguration configuration = actualCreateDefaultTenantProfileDataResult.getConfiguration();
-    assertTrue(configuration instanceof DefaultTenantProfileConfiguration);
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getSmsEnabled());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getCassandraQueryTenantRateLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getCustomerServerRestLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeEventRateLimits());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeEventRateLimitsPerEdge());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeUplinkMessagesRateLimits());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getEdgeUplinkMessagesRateLimitsPerEdge());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantEntityExportRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantEntityImportRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantNotificationRequestsPerRuleRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantNotificationRequestsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTenantServerRestLimitsConfiguration());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportDeviceTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceMsgRateLimit());
-    assertNull(
-        ((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayDeviceTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportGatewayTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantTelemetryDataPointsRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getTransportTenantTelemetryMsgRateLimit());
-    assertNull(((DefaultTenantProfileConfiguration) configuration).getWsUpdatesPerSessionRateLimit());
+    assertTrue(
+        actualCreateDefaultTenantProfileDataResult.getConfiguration() instanceof DefaultTenantProfileConfiguration);
     assertNull(actualCreateDefaultTenantProfileDataResult.getQueueConfiguration());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getAlarmsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getDefaultStorageTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxRuleNodeExecutionsPerMessage());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerCustomer());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerPublicUser());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerRegularUser());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSessionsPerTenant());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getQueueStatsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getRpcTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getRuleEngineExceptionsTtlDays());
-    assertEquals(0, ((DefaultTenantProfileConfiguration) configuration).getWsMsgQueueLimitPerSession());
-    assertEquals(0, configuration.getMaxRuleNodeExecsPerMessage());
-    assertEquals(0.0d, ((DefaultTenantProfileConfiguration) configuration).getWarnThreshold());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxAssets());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxCreatedAlarms());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxCustomers());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDPStorageDays());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDashboards());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxDevices());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxEmails());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxJSExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxOtaPackagesInBytes());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxREExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxResourceSize());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxResourcesInBytes());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxRuleChains());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxSms());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTbelExecutions());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTransportDataPoints());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxTransportMessages());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxUsers());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerCustomer());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerPublicUser());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerRegularUser());
-    assertEquals(0L, ((DefaultTenantProfileConfiguration) configuration).getMaxWsSubscriptionsPerTenant());
-    assertEquals(TenantProfileType.DEFAULT, configuration.getType());
   }
 
   /**
    * Test {@link TenantProfile#setProfileData(TenantProfileData)}.
    * <ul>
-   *   <li>Given
-   * {@link DefaultTenantProfileConfiguration#DefaultTenantProfileConfiguration()}.</li>
+   *   <li>Given {@link DefaultTenantProfileConfiguration#DefaultTenantProfileConfiguration()}.</li>
    *   <li>Then {@code 1900} element is {@code :}.</li>
    * </ul>
    * <p>
@@ -3400,6 +1354,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test setProfileData(TenantProfileData); given DefaultTenantProfileConfiguration(); then '1900' element is ':'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TenantProfile.setProfileData(TenantProfileData)"})
   void testSetProfileData_givenDefaultTenantProfileConfiguration_then1900ElementIsColon() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -3440,15 +1396,17 @@ class TenantProfileDiffblueTest {
    * Test {@link TenantProfile#setProfileData(TenantProfileData)}.
    * <ul>
    *   <li>Given {@code null}.</li>
-   *   <li>Then {@link TenantProfile#TenantProfile()} DefaultProfileConfiguration is
-   * {@code null}.</li>
+   *   <li>Then {@link TenantProfile#TenantProfile()} DefaultProfileConfiguration is {@code null}.</li>
    * </ul>
    * <p>
    * Method under test: {@link TenantProfile#setProfileData(TenantProfileData)}
    */
   @Test
   @DisplayName("Test setProfileData(TenantProfileData); given 'null'; then TenantProfile() DefaultProfileConfiguration is 'null'")
-  void testSetProfileData_givenNull_thenTenantProfileDefaultProfileConfigurationIsNull() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TenantProfile.setProfileData(TenantProfileData)"})
+  void testSetProfileData_givenNull_thenTenantProfileDefaultProfileConfigurationIsNull()
+      throws UnsupportedEncodingException {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
 
@@ -3461,38 +1419,10 @@ class TenantProfileDiffblueTest {
 
     // Assert
     assertNull(tenantProfile.getDefaultProfileConfiguration());
-    byte[] profileDataBytes = tenantProfile.getProfileDataBytes();
-    assertEquals(46, profileDataBytes.length);
     assertFalse(tenantProfile.getProfileConfiguration().isPresent());
-    assertEquals(',', profileDataBytes[21]);
-    assertEquals(':', profileDataBytes[42]);
-    assertEquals('C', profileDataBytes[28]);
-    assertEquals('[', profileDataBytes[43]);
-    assertEquals('"', profileDataBytes[22]);
-    assertEquals('"', profileDataBytes[41]);
-    assertEquals(']', profileDataBytes[44]);
-    assertEquals('a', profileDataBytes[36]);
-    assertEquals('e', profileDataBytes[25]);
-    assertEquals('e', profileDataBytes[27]);
-    assertEquals('f', profileDataBytes[31]);
-    assertEquals('g', profileDataBytes[33]);
-    assertEquals('i', profileDataBytes[38]);
-    assertEquals('i', profileDataBytes[Integer.SIZE]);
-    assertEquals('l', profileDataBytes[19]);
-    assertEquals('l', profileDataBytes[20]);
-    assertEquals('n', profileDataBytes[17]);
-    assertEquals('n', profileDataBytes[30]);
-    assertEquals('n', profileDataBytes[40]);
-    assertEquals('o', profileDataBytes[29]);
-    assertEquals('o', profileDataBytes[39]);
-    assertEquals('q', profileDataBytes[23]);
-    assertEquals('r', profileDataBytes[35]);
-    assertEquals('t', profileDataBytes[37]);
-    assertEquals('u', profileDataBytes[18]);
-    assertEquals('u', profileDataBytes[24]);
-    assertEquals('u', profileDataBytes[26]);
-    assertEquals('u', profileDataBytes[34]);
-    assertEquals('}', profileDataBytes[45]);
+    assertSame(data, tenantProfile.getProfileData());
+    byte[] expectedProfileDataBytes = "{\"configuration\":null,\"queueConfiguration\":[]}".getBytes("UTF-8");
+    assertArrayEquals(expectedProfileDataBytes, tenantProfile.getProfileDataBytes());
   }
 
   /**
@@ -3505,6 +1435,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test setProfileData(TenantProfileData); then '1879' element is ','")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TenantProfile.setProfileData(TenantProfileData)"})
   void testSetProfileData_then1879ElementIsComma() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile(new TenantProfile());
@@ -3520,34 +1452,9 @@ class TenantProfileDiffblueTest {
     byte[] profileDataBytes = tenantProfile.getProfileDataBytes();
     assertEquals(1903, profileDataBytes.length);
     assertEquals(',', profileDataBytes[1878]);
-    assertEquals(':', profileDataBytes[24]);
-    assertEquals(':', profileDataBytes[Short.SIZE]);
     assertEquals('[', profileDataBytes[1900]);
-    assertEquals('"', profileDataBytes[1]);
-    assertEquals('"', profileDataBytes[15]);
-    assertEquals('"', profileDataBytes[18]);
     assertEquals('"', profileDataBytes[1879]);
-    assertEquals('"', profileDataBytes[23]);
     assertEquals(']', profileDataBytes[1901]);
-    assertEquals('a', profileDataBytes[10]);
-    assertEquals('c', profileDataBytes[2]);
-    assertEquals('e', profileDataBytes[22]);
-    assertEquals('f', profileDataBytes[5]);
-    assertEquals('g', profileDataBytes[7]);
-    assertEquals('i', profileDataBytes[12]);
-    assertEquals('i', profileDataBytes[6]);
-    assertEquals('n', profileDataBytes[14]);
-    assertEquals('n', profileDataBytes[4]);
-    assertEquals('o', profileDataBytes[13]);
-    assertEquals('o', profileDataBytes[3]);
-    assertEquals('p', profileDataBytes[21]);
-    assertEquals('r', profileDataBytes[9]);
-    assertEquals('t', profileDataBytes[11]);
-    assertEquals('t', profileDataBytes[19]);
-    assertEquals('u', profileDataBytes[8]);
-    assertEquals('y', profileDataBytes[20]);
-    assertEquals('{', profileDataBytes[0]);
-    assertEquals('{', profileDataBytes[17]);
     assertEquals('}', profileDataBytes[1902]);
   }
 
@@ -3561,6 +1468,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test setProfileData(TenantProfileData); then array length is '2229'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TenantProfile.setProfileData(TenantProfileData)"})
   void testSetProfileData_thenArrayLengthIs2229() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -3598,33 +1507,7 @@ class TenantProfileDiffblueTest {
     tenantProfile.setProfileData(data);
 
     // Assert
-    byte[] profileDataBytes = tenantProfile.getProfileDataBytes();
-    assertEquals(2229, profileDataBytes.length);
-    assertEquals(',', profileDataBytes[2204]);
-    assertEquals(':', profileDataBytes[2221]);
-    assertEquals('I', profileDataBytes[2216]);
-    assertEquals('"', profileDataBytes[2205]);
-    assertEquals('"', profileDataBytes[2220]);
-    assertEquals(']', profileDataBytes[2227]);
-    assertEquals('a', profileDataBytes[2206]);
-    assertEquals('a', profileDataBytes[2214]);
-    assertEquals('d', profileDataBytes[2207]);
-    assertEquals('d', profileDataBytes[2208]);
-    assertEquals('f', profileDataBytes[2218]);
-    assertEquals('i', profileDataBytes[2209]);
-    assertEquals('i', profileDataBytes[2211]);
-    assertEquals('l', profileDataBytes[2215]);
-    assertEquals('l', profileDataBytes[2224]);
-    assertEquals('l', profileDataBytes[2225]);
-    assertEquals('n', profileDataBytes[2213]);
-    assertEquals('n', profileDataBytes[2217]);
-    assertEquals('n', profileDataBytes[2222]);
-    assertEquals('o', profileDataBytes[2212]);
-    assertEquals('o', profileDataBytes[2219]);
-    assertEquals('t', profileDataBytes[2210]);
-    assertEquals('u', profileDataBytes[2223]);
-    assertEquals('}', profileDataBytes[2226]);
-    assertEquals('}', profileDataBytes[2228]);
+    assertEquals(2229, tenantProfile.getProfileDataBytes().length);
   }
 
   /**
@@ -3637,6 +1520,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test setProfileData(TenantProfileData); then array length is '2780'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TenantProfile.setProfileData(TenantProfileData)"})
   void testSetProfileData_thenArrayLengthIs2780() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -3710,47 +1595,22 @@ class TenantProfileDiffblueTest {
     tenantProfile.setProfileData(data);
 
     // Assert
-    byte[] profileDataBytes = tenantProfile.getProfileDataBytes();
-    assertEquals(2780, profileDataBytes.length);
-    assertEquals(',', profileDataBytes[2755]);
-    assertEquals(':', profileDataBytes[2776]);
-    assertEquals('C', profileDataBytes[2762]);
-    assertEquals('[', profileDataBytes[2777]);
-    assertEquals('"', profileDataBytes[2756]);
-    assertEquals('"', profileDataBytes[2775]);
-    assertEquals(']', profileDataBytes[2778]);
-    assertEquals('a', profileDataBytes[2770]);
-    assertEquals('e', profileDataBytes[2759]);
-    assertEquals('e', profileDataBytes[2761]);
-    assertEquals('f', profileDataBytes[2765]);
-    assertEquals('g', profileDataBytes[2767]);
-    assertEquals('i', profileDataBytes[2766]);
-    assertEquals('i', profileDataBytes[2772]);
-    assertEquals('n', profileDataBytes[2764]);
-    assertEquals('n', profileDataBytes[2774]);
-    assertEquals('o', profileDataBytes[2763]);
-    assertEquals('o', profileDataBytes[2773]);
-    assertEquals('q', profileDataBytes[2757]);
-    assertEquals('r', profileDataBytes[2769]);
-    assertEquals('t', profileDataBytes[2771]);
-    assertEquals('u', profileDataBytes[2758]);
-    assertEquals('u', profileDataBytes[2760]);
-    assertEquals('u', profileDataBytes[2768]);
-    assertEquals('}', profileDataBytes[2779]);
+    assertEquals(2780, tenantProfile.getProfileDataBytes().length);
   }
 
   /**
    * Test {@link TenantProfile#setProfileData(TenantProfileData)}.
    * <ul>
    *   <li>When {@code null}.</li>
-   *   <li>Then {@link TenantProfile#TenantProfile()} ProfileDataBytes is
-   * {@code null}.</li>
+   *   <li>Then {@link TenantProfile#TenantProfile()} ProfileDataBytes is {@code null}.</li>
    * </ul>
    * <p>
    * Method under test: {@link TenantProfile#setProfileData(TenantProfileData)}
    */
   @Test
   @DisplayName("Test setProfileData(TenantProfileData); when 'null'; then TenantProfile() ProfileDataBytes is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TenantProfile.setProfileData(TenantProfileData)"})
   void testSetProfileData_whenNull_thenTenantProfileProfileDataBytesIsNull() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -3758,13 +1618,12 @@ class TenantProfileDiffblueTest {
     // Act
     tenantProfile.setProfileData(null);
 
-    // Assert
+    // Assert that nothing has changed
     assertNull(tenantProfile.getProfileDataBytes());
   }
 
   /**
-   * Test {@link TenantProfile#equals(Object)}, and
-   * {@link TenantProfile#hashCode()}.
+   * Test {@link TenantProfile#equals(Object)}, and {@link TenantProfile#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -3778,6 +1637,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfile.equals(Object)", "int TenantProfile.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -3790,8 +1651,7 @@ class TenantProfileDiffblueTest {
   }
 
   /**
-   * Test {@link TenantProfile#equals(Object)}, and
-   * {@link TenantProfile#hashCode()}.
+   * Test {@link TenantProfile#equals(Object)}, and {@link TenantProfile#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -3805,6 +1665,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfile.equals(Object)", "int TenantProfile.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -3820,8 +1682,7 @@ class TenantProfileDiffblueTest {
   }
 
   /**
-   * Test {@link TenantProfile#equals(Object)}, and
-   * {@link TenantProfile#hashCode()}.
+   * Test {@link TenantProfile#equals(Object)}, and {@link TenantProfile#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -3835,6 +1696,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfile.equals(Object)", "int TenantProfile.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -3850,8 +1713,7 @@ class TenantProfileDiffblueTest {
   }
 
   /**
-   * Test {@link TenantProfile#equals(Object)}, and
-   * {@link TenantProfile#hashCode()}.
+   * Test {@link TenantProfile#equals(Object)}, and {@link TenantProfile#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -3865,6 +1727,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfile.equals(Object)", "int TenantProfile.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
@@ -3886,6 +1750,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfile.equals(Object)", "int TenantProfile.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile(new TenantProfile());
@@ -3905,23 +1771,9 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfile.equals(Object)", "int TenantProfile.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange, Act and Assert
-    assertNotEquals(new TenantProfile(), mock(AdminSettings.class));
-  }
-
-  /**
-   * Test {@link TenantProfile#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
     tenantProfile.setName("Name");
@@ -3941,7 +1793,9 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfile.equals(Object)", "int TenantProfile.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
     tenantProfile.setDescription("The characteristics of someone or something");
@@ -3961,7 +1815,9 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfile.equals(Object)", "int TenantProfile.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
     tenantProfile.setDefault(true);
@@ -3981,7 +1837,9 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfile.equals(Object)", "int TenantProfile.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
     tenantProfile.setIsolatedTbRuleEngine(true);
@@ -4001,7 +1859,9 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfile.equals(Object)", "int TenantProfile.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
     tenantProfile.setCreatedTime(1L);
@@ -4021,7 +1881,9 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfile.equals(Object)", "int TenantProfile.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
 
@@ -4043,7 +1905,9 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfile.equals(Object)", "int TenantProfile.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
 
@@ -4065,6 +1929,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfile.equals(Object)", "int TenantProfile.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TenantProfile(), null);
@@ -4081,6 +1947,8 @@ class TenantProfileDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfile.equals(Object)", "int TenantProfile.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TenantProfile(), "Different type to TenantProfile");

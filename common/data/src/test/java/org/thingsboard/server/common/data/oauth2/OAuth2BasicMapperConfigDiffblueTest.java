@@ -6,14 +6,24 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.anyBoolean;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig.OAuth2BasicMapperConfigBuilder;
 
+@ContextConfiguration(classes = {OAuth2BasicMapperConfigBuilder.class})
+@ExtendWith(SpringExtension.class)
 class OAuth2BasicMapperConfigDiffblueTest {
+  @Autowired
+  private OAuth2BasicMapperConfigBuilder oAuth2BasicMapperConfigBuilder;
+
   /**
-   * Test {@link OAuth2BasicMapperConfig#equals(Object)}, and
-   * {@link OAuth2BasicMapperConfig#hashCode()}.
+   * Test {@link OAuth2BasicMapperConfig#equals(Object)}, and {@link OAuth2BasicMapperConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -27,6 +37,8 @@ class OAuth2BasicMapperConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2BasicMapperConfig.equals(Object)", "int OAuth2BasicMapperConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     OAuth2BasicMapperConfig buildResult = OAuth2BasicMapperConfig.builder()
@@ -57,8 +69,7 @@ class OAuth2BasicMapperConfigDiffblueTest {
   }
 
   /**
-   * Test {@link OAuth2BasicMapperConfig#equals(Object)}, and
-   * {@link OAuth2BasicMapperConfig#hashCode()}.
+   * Test {@link OAuth2BasicMapperConfig#equals(Object)}, and {@link OAuth2BasicMapperConfig#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -72,6 +83,8 @@ class OAuth2BasicMapperConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2BasicMapperConfig.equals(Object)", "int OAuth2BasicMapperConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     OAuth2BasicMapperConfig buildResult = OAuth2BasicMapperConfig.builder()
@@ -102,10 +115,11 @@ class OAuth2BasicMapperConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2BasicMapperConfig.equals(Object)", "int OAuth2BasicMapperConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    OAuth2BasicMapperConfig.OAuth2BasicMapperConfigBuilder oAuth2BasicMapperConfigBuilder = mock(
-        OAuth2BasicMapperConfig.OAuth2BasicMapperConfigBuilder.class);
+    OAuth2BasicMapperConfigBuilder oAuth2BasicMapperConfigBuilder = mock(OAuth2BasicMapperConfigBuilder.class);
     when(oAuth2BasicMapperConfigBuilder.alwaysFullScreen(anyBoolean())).thenReturn(OAuth2BasicMapperConfig.builder());
     OAuth2BasicMapperConfig buildResult = oAuth2BasicMapperConfigBuilder.alwaysFullScreen(true)
         .customerNamePattern("Customer Name Pattern")
@@ -142,6 +156,8 @@ class OAuth2BasicMapperConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2BasicMapperConfig.equals(Object)", "int OAuth2BasicMapperConfig.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     OAuth2BasicMapperConfig buildResult = OAuth2BasicMapperConfig.builder()
@@ -170,6 +186,8 @@ class OAuth2BasicMapperConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2BasicMapperConfig.equals(Object)", "int OAuth2BasicMapperConfig.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     OAuth2BasicMapperConfig buildResult = OAuth2BasicMapperConfig.builder()
@@ -192,8 +210,7 @@ class OAuth2BasicMapperConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link OAuth2BasicMapperConfig#OAuth2BasicMapperConfig(String, String, String, TenantNameStrategyType, String, String, String, boolean)}
+   *   <li>{@link OAuth2BasicMapperConfig#OAuth2BasicMapperConfig(String, String, String, TenantNameStrategyType, String, String, String, boolean)}
    *   <li>{@link OAuth2BasicMapperConfig#toString()}
    *   <li>{@link OAuth2BasicMapperConfig#getCustomerNamePattern()}
    *   <li>{@link OAuth2BasicMapperConfig#getDefaultDashboardName()}
@@ -208,6 +225,19 @@ class OAuth2BasicMapperConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void OAuth2BasicMapperConfig.<init>(String, String, String, TenantNameStrategyType, String, String, String, boolean)",
+      "String OAuth2BasicMapperConfig.getCustomerNamePattern()",
+      "String OAuth2BasicMapperConfig.getDefaultDashboardName()",
+      "String OAuth2BasicMapperConfig.getEmailAttributeKey()",
+      "String OAuth2BasicMapperConfig.getFirstNameAttributeKey()",
+      "String OAuth2BasicMapperConfig.getLastNameAttributeKey()",
+      "String OAuth2BasicMapperConfig.getTenantNamePattern()",
+      "TenantNameStrategyType OAuth2BasicMapperConfig.getTenantNameStrategy()",
+      "boolean OAuth2BasicMapperConfig.isAlwaysFullScreen()",
+      "OAuth2BasicMapperConfigBuilder OAuth2BasicMapperConfig.toBuilder()",
+      "String OAuth2BasicMapperConfig.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     OAuth2BasicMapperConfig actualOAuth2BasicMapperConfig = new OAuth2BasicMapperConfig("jane.doe@example.org", "Jane",
@@ -240,32 +270,35 @@ class OAuth2BasicMapperConfigDiffblueTest {
   }
 
   /**
-   * Test OAuth2BasicMapperConfigBuilder
-   * {@link OAuth2BasicMapperConfigBuilder#build()}.
+   * Test OAuth2BasicMapperConfigBuilder {@link OAuth2BasicMapperConfigBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link OAuth2BasicMapperConfig.OAuth2BasicMapperConfigBuilder#build()}
-   *   <li>
-   * {@link OAuth2BasicMapperConfig.OAuth2BasicMapperConfigBuilder#alwaysFullScreen(boolean)}
-   *   <li>
-   * {@link OAuth2BasicMapperConfig.OAuth2BasicMapperConfigBuilder#customerNamePattern(String)}
-   *   <li>
-   * {@link OAuth2BasicMapperConfig.OAuth2BasicMapperConfigBuilder#defaultDashboardName(String)}
-   *   <li>
-   * {@link OAuth2BasicMapperConfig.OAuth2BasicMapperConfigBuilder#emailAttributeKey(String)}
-   *   <li>
-   * {@link OAuth2BasicMapperConfig.OAuth2BasicMapperConfigBuilder#firstNameAttributeKey(String)}
-   *   <li>
-   * {@link OAuth2BasicMapperConfig.OAuth2BasicMapperConfigBuilder#lastNameAttributeKey(String)}
-   *   <li>
-   * {@link OAuth2BasicMapperConfig.OAuth2BasicMapperConfigBuilder#tenantNamePattern(String)}
-   *   <li>
-   * {@link OAuth2BasicMapperConfig.OAuth2BasicMapperConfigBuilder#tenantNameStrategy(TenantNameStrategyType)}
+   *   <li>{@link OAuth2BasicMapperConfigBuilder#build()}
+   *   <li>{@link OAuth2BasicMapperConfigBuilder#alwaysFullScreen(boolean)}
+   *   <li>{@link OAuth2BasicMapperConfigBuilder#customerNamePattern(String)}
+   *   <li>{@link OAuth2BasicMapperConfigBuilder#defaultDashboardName(String)}
+   *   <li>{@link OAuth2BasicMapperConfigBuilder#emailAttributeKey(String)}
+   *   <li>{@link OAuth2BasicMapperConfigBuilder#firstNameAttributeKey(String)}
+   *   <li>{@link OAuth2BasicMapperConfigBuilder#lastNameAttributeKey(String)}
+   *   <li>{@link OAuth2BasicMapperConfigBuilder#tenantNamePattern(String)}
+   *   <li>{@link OAuth2BasicMapperConfigBuilder#tenantNameStrategy(TenantNameStrategyType)}
    * </ul>
    */
   @Test
   @DisplayName("Test OAuth2BasicMapperConfigBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void OAuth2BasicMapperConfigBuilder.<init>()",
+      "OAuth2BasicMapperConfigBuilder OAuth2BasicMapperConfigBuilder.alwaysFullScreen(boolean)",
+      "OAuth2BasicMapperConfig OAuth2BasicMapperConfigBuilder.build()",
+      "OAuth2BasicMapperConfigBuilder OAuth2BasicMapperConfigBuilder.customerNamePattern(String)",
+      "OAuth2BasicMapperConfigBuilder OAuth2BasicMapperConfigBuilder.defaultDashboardName(String)",
+      "OAuth2BasicMapperConfigBuilder OAuth2BasicMapperConfigBuilder.emailAttributeKey(String)",
+      "OAuth2BasicMapperConfigBuilder OAuth2BasicMapperConfigBuilder.firstNameAttributeKey(String)",
+      "OAuth2BasicMapperConfigBuilder OAuth2BasicMapperConfigBuilder.lastNameAttributeKey(String)",
+      "OAuth2BasicMapperConfigBuilder OAuth2BasicMapperConfigBuilder.tenantNamePattern(String)",
+      "OAuth2BasicMapperConfigBuilder OAuth2BasicMapperConfigBuilder.tenantNameStrategy(TenantNameStrategyType)",
+      "String OAuth2BasicMapperConfigBuilder.toString()"})
   void testOAuth2BasicMapperConfigBuilderBuild() {
     // Arrange and Act
     OAuth2BasicMapperConfig actualBuildResult = OAuth2BasicMapperConfig.builder()

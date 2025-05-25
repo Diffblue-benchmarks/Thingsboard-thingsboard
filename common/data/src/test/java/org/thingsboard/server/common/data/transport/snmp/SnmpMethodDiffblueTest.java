@@ -1,7 +1,9 @@
 package org.thingsboard.server.common.data.transport.snmp;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class SnmpMethodDiffblueTest {
@@ -12,6 +14,8 @@ class SnmpMethodDiffblueTest {
    */
   @Test
   @DisplayName("Test getCode()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int SnmpMethod.getCode()"})
   void testGetCode() {
     // Arrange, Act and Assert
     assertEquals(-96, SnmpMethod.valueOf("GET").getCode());

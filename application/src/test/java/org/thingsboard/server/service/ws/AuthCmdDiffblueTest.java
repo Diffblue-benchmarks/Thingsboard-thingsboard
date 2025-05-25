@@ -2,7 +2,9 @@ package org.thingsboard.server.service.ws;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class AuthCmdDiffblueTest {
@@ -21,6 +23,8 @@ class AuthCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuthCmd.equals(Object)", "int AuthCmd.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AuthCmd authCmd = new AuthCmd(1, "ABC123");
@@ -47,6 +51,8 @@ class AuthCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuthCmd.equals(Object)", "int AuthCmd.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AuthCmd authCmd = new AuthCmd(1, null);
@@ -73,6 +79,8 @@ class AuthCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuthCmd.equals(Object)", "int AuthCmd.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AuthCmd authCmd = new AuthCmd(1, "ABC123");
@@ -94,6 +102,8 @@ class AuthCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuthCmd.equals(Object)", "int AuthCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AuthCmd authCmd = new AuthCmd(2, "ABC123");
@@ -113,6 +123,8 @@ class AuthCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuthCmd.equals(Object)", "int AuthCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AuthCmd authCmd = new AuthCmd(1, "Token");
@@ -132,6 +144,8 @@ class AuthCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuthCmd.equals(Object)", "int AuthCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AuthCmd authCmd = new AuthCmd(1, null);
@@ -151,6 +165,8 @@ class AuthCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuthCmd.equals(Object)", "int AuthCmd.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AuthCmd(1, "ABC123"), null);
@@ -167,6 +183,8 @@ class AuthCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AuthCmd.equals(Object)", "int AuthCmd.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AuthCmd(1, "ABC123"), "Different type to AuthCmd");
@@ -188,6 +206,10 @@ class AuthCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AuthCmd.<init>()", "void AuthCmd.<init>(int, String)", "int AuthCmd.getCmdId()",
+      "String AuthCmd.getToken()", "WsCmdType AuthCmd.getType()", "void AuthCmd.setCmdId(int)",
+      "void AuthCmd.setToken(String)", "String AuthCmd.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     AuthCmd actualAuthCmd = new AuthCmd();
@@ -197,7 +219,7 @@ class AuthCmdDiffblueTest {
     int actualCmdId = actualAuthCmd.getCmdId();
     String actualToken = actualAuthCmd.getToken();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("ABC123", actualToken);
     assertEquals("AuthCmd(cmdId=1, token=ABC123)", actualToStringResult);
     assertEquals(1, actualCmdId);
@@ -223,6 +245,10 @@ class AuthCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AuthCmd.<init>()", "void AuthCmd.<init>(int, String)", "int AuthCmd.getCmdId()",
+      "String AuthCmd.getToken()", "WsCmdType AuthCmd.getType()", "void AuthCmd.setCmdId(int)",
+      "void AuthCmd.setToken(String)", "String AuthCmd.toString()"})
   void testGettersAndSetters_whenOne() {
     // Arrange and Act
     AuthCmd actualAuthCmd = new AuthCmd(1, "ABC123");
@@ -232,7 +258,7 @@ class AuthCmdDiffblueTest {
     int actualCmdId = actualAuthCmd.getCmdId();
     String actualToken = actualAuthCmd.getToken();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("ABC123", actualToken);
     assertEquals("AuthCmd(cmdId=1, token=ABC123)", actualToStringResult);
     assertEquals(1, actualCmdId);

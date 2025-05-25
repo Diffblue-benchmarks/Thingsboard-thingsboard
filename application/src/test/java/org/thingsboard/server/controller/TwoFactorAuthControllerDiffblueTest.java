@@ -6,17 +6,27 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.security.model.mfa.provider.TwoFaProviderType;
 import org.thingsboard.server.controller.TwoFactorAuthController.TwoFaProviderInfo;
 import org.thingsboard.server.controller.TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder;
 
+@ContextConfiguration(classes = {TwoFaProviderInfoBuilder.class})
+@ExtendWith(SpringExtension.class)
 class TwoFactorAuthControllerDiffblueTest {
+  @Autowired
+  private TwoFaProviderInfoBuilder twoFaProviderInfoBuilder;
+
   /**
-   * Test TwoFaProviderInfo {@link TwoFaProviderInfo#equals(Object)}, and
-   * {@link TwoFaProviderInfo#hashCode()}.
+   * Test TwoFaProviderInfo {@link TwoFaProviderInfo#equals(Object)}, and {@link TwoFaProviderInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -24,20 +34,22 @@ class TwoFactorAuthControllerDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TwoFactorAuthController.TwoFaProviderInfo#equals(Object)}
-   *   <li>{@link TwoFactorAuthController.TwoFaProviderInfo#hashCode()}
+   *   <li>{@link TwoFaProviderInfo#equals(Object)}
+   *   <li>{@link TwoFaProviderInfo#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test TwoFaProviderInfo equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwoFaProviderInfo.equals(Object)", "int TwoFaProviderInfo.hashCode()"})
   void testTwoFaProviderInfoEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TwoFactorAuthController.TwoFaProviderInfo buildResult = TwoFactorAuthController.TwoFaProviderInfo.builder()
+    TwoFaProviderInfo buildResult = TwoFaProviderInfo.builder()
         .contact("Contact")
         .minVerificationCodeSendPeriod(3)
         .type(TwoFaProviderType.TOTP)
         .build();
-    TwoFactorAuthController.TwoFaProviderInfo buildResult2 = TwoFactorAuthController.TwoFaProviderInfo.builder()
+    TwoFaProviderInfo buildResult2 = TwoFaProviderInfo.builder()
         .contact("Contact")
         .minVerificationCodeSendPeriod(3)
         .type(TwoFaProviderType.TOTP)
@@ -50,8 +62,7 @@ class TwoFactorAuthControllerDiffblueTest {
   }
 
   /**
-   * Test TwoFaProviderInfo {@link TwoFaProviderInfo#equals(Object)}, and
-   * {@link TwoFaProviderInfo#hashCode()}.
+   * Test TwoFaProviderInfo {@link TwoFaProviderInfo#equals(Object)}, and {@link TwoFaProviderInfo#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -59,15 +70,17 @@ class TwoFactorAuthControllerDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TwoFactorAuthController.TwoFaProviderInfo#equals(Object)}
-   *   <li>{@link TwoFactorAuthController.TwoFaProviderInfo#hashCode()}
+   *   <li>{@link TwoFaProviderInfo#equals(Object)}
+   *   <li>{@link TwoFaProviderInfo#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test TwoFaProviderInfo equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwoFaProviderInfo.equals(Object)", "int TwoFaProviderInfo.hashCode()"})
   void testTwoFaProviderInfoEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TwoFactorAuthController.TwoFaProviderInfo buildResult = TwoFactorAuthController.TwoFaProviderInfo.builder()
+    TwoFaProviderInfo buildResult = TwoFaProviderInfo.builder()
         .contact("Contact")
         .minVerificationCodeSendPeriod(3)
         .type(TwoFaProviderType.TOTP)
@@ -86,22 +99,21 @@ class TwoFactorAuthControllerDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TwoFactorAuthController.TwoFaProviderInfo#equals(Object)}
+   * Method under test: {@link TwoFaProviderInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test TwoFaProviderInfo equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwoFaProviderInfo.equals(Object)", "int TwoFaProviderInfo.hashCode()"})
   void testTwoFaProviderInfoEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder twoFaProviderInfoBuilder = mock(
-        TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder.class);
-    when(twoFaProviderInfoBuilder.contact(Mockito.<String>any()))
-        .thenReturn(TwoFactorAuthController.TwoFaProviderInfo.builder());
-    TwoFactorAuthController.TwoFaProviderInfo buildResult = twoFaProviderInfoBuilder.contact("Contact")
+    TwoFaProviderInfoBuilder twoFaProviderInfoBuilder = mock(TwoFaProviderInfoBuilder.class);
+    when(twoFaProviderInfoBuilder.contact(Mockito.<String>any())).thenReturn(TwoFaProviderInfo.builder());
+    TwoFaProviderInfo buildResult = twoFaProviderInfoBuilder.contact("Contact")
         .minVerificationCodeSendPeriod(3)
         .type(TwoFaProviderType.TOTP)
         .build();
-    TwoFactorAuthController.TwoFaProviderInfo buildResult2 = TwoFactorAuthController.TwoFaProviderInfo.builder()
+    TwoFaProviderInfo buildResult2 = TwoFaProviderInfo.builder()
         .contact("Contact")
         .minVerificationCodeSendPeriod(3)
         .type(TwoFaProviderType.TOTP)
@@ -118,25 +130,24 @@ class TwoFactorAuthControllerDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TwoFactorAuthController.TwoFaProviderInfo#equals(Object)}
+   * Method under test: {@link TwoFaProviderInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test TwoFaProviderInfo equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwoFaProviderInfo.equals(Object)", "int TwoFaProviderInfo.hashCode()"})
   void testTwoFaProviderInfoEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder twoFaProviderInfoBuilder = mock(
-        TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder.class);
+    TwoFaProviderInfoBuilder twoFaProviderInfoBuilder = mock(TwoFaProviderInfoBuilder.class);
     when(twoFaProviderInfoBuilder.minVerificationCodeSendPeriod(Mockito.<Integer>any()))
-        .thenReturn(TwoFactorAuthController.TwoFaProviderInfo.builder());
-    TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder twoFaProviderInfoBuilder2 = mock(
-        TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder.class);
+        .thenReturn(TwoFaProviderInfo.builder());
+    TwoFaProviderInfoBuilder twoFaProviderInfoBuilder2 = mock(TwoFaProviderInfoBuilder.class);
     when(twoFaProviderInfoBuilder2.contact(Mockito.<String>any())).thenReturn(twoFaProviderInfoBuilder);
-    TwoFactorAuthController.TwoFaProviderInfo buildResult = twoFaProviderInfoBuilder2.contact("Contact")
+    TwoFaProviderInfo buildResult = twoFaProviderInfoBuilder2.contact("Contact")
         .minVerificationCodeSendPeriod(3)
         .type(TwoFaProviderType.TOTP)
         .build();
-    TwoFactorAuthController.TwoFaProviderInfo buildResult2 = TwoFactorAuthController.TwoFaProviderInfo.builder()
+    TwoFaProviderInfo buildResult2 = TwoFaProviderInfo.builder()
         .contact("Contact")
         .minVerificationCodeSendPeriod(3)
         .type(TwoFaProviderType.TOTP)
@@ -153,25 +164,24 @@ class TwoFactorAuthControllerDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TwoFactorAuthController.TwoFaProviderInfo#equals(Object)}
+   * Method under test: {@link TwoFaProviderInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test TwoFaProviderInfo equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwoFaProviderInfo.equals(Object)", "int TwoFaProviderInfo.hashCode()"})
   void testTwoFaProviderInfoEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder twoFaProviderInfoBuilder = mock(
-        TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder.class);
+    TwoFaProviderInfoBuilder twoFaProviderInfoBuilder = mock(TwoFaProviderInfoBuilder.class);
     when(twoFaProviderInfoBuilder.minVerificationCodeSendPeriod(Mockito.<Integer>any()))
-        .thenReturn(TwoFactorAuthController.TwoFaProviderInfo.builder());
-    TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder twoFaProviderInfoBuilder2 = mock(
-        TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder.class);
+        .thenReturn(TwoFaProviderInfo.builder());
+    TwoFaProviderInfoBuilder twoFaProviderInfoBuilder2 = mock(TwoFaProviderInfoBuilder.class);
     when(twoFaProviderInfoBuilder2.contact(Mockito.<String>any())).thenReturn(twoFaProviderInfoBuilder);
-    TwoFactorAuthController.TwoFaProviderInfo buildResult = twoFaProviderInfoBuilder2.contact("Contact")
+    TwoFaProviderInfo buildResult = twoFaProviderInfoBuilder2.contact("Contact")
         .minVerificationCodeSendPeriod(3)
         .type(TwoFaProviderType.TOTP)
         .build();
-    TwoFactorAuthController.TwoFaProviderInfo buildResult2 = TwoFactorAuthController.TwoFaProviderInfo.builder()
+    TwoFaProviderInfo buildResult2 = TwoFaProviderInfo.builder()
         .contact("Contact")
         .minVerificationCodeSendPeriod(null)
         .type(TwoFaProviderType.TOTP)
@@ -188,29 +198,26 @@ class TwoFactorAuthControllerDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TwoFactorAuthController.TwoFaProviderInfo#equals(Object)}
+   * Method under test: {@link TwoFaProviderInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test TwoFaProviderInfo equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwoFaProviderInfo.equals(Object)", "int TwoFaProviderInfo.hashCode()"})
   void testTwoFaProviderInfoEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder twoFaProviderInfoBuilder = mock(
-        TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder.class);
-    when(twoFaProviderInfoBuilder.type(Mockito.<TwoFaProviderType>any()))
-        .thenReturn(TwoFactorAuthController.TwoFaProviderInfo.builder());
-    TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder twoFaProviderInfoBuilder2 = mock(
-        TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder.class);
+    TwoFaProviderInfoBuilder twoFaProviderInfoBuilder = mock(TwoFaProviderInfoBuilder.class);
+    when(twoFaProviderInfoBuilder.type(Mockito.<TwoFaProviderType>any())).thenReturn(TwoFaProviderInfo.builder());
+    TwoFaProviderInfoBuilder twoFaProviderInfoBuilder2 = mock(TwoFaProviderInfoBuilder.class);
     when(twoFaProviderInfoBuilder2.minVerificationCodeSendPeriod(Mockito.<Integer>any()))
         .thenReturn(twoFaProviderInfoBuilder);
-    TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder twoFaProviderInfoBuilder3 = mock(
-        TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder.class);
+    TwoFaProviderInfoBuilder twoFaProviderInfoBuilder3 = mock(TwoFaProviderInfoBuilder.class);
     when(twoFaProviderInfoBuilder3.contact(Mockito.<String>any())).thenReturn(twoFaProviderInfoBuilder2);
-    TwoFactorAuthController.TwoFaProviderInfo buildResult = twoFaProviderInfoBuilder3.contact("Contact")
+    TwoFaProviderInfo buildResult = twoFaProviderInfoBuilder3.contact("Contact")
         .minVerificationCodeSendPeriod(3)
         .type(TwoFaProviderType.TOTP)
         .build();
-    TwoFactorAuthController.TwoFaProviderInfo buildResult2 = TwoFactorAuthController.TwoFaProviderInfo.builder()
+    TwoFaProviderInfo buildResult2 = TwoFaProviderInfo.builder()
         .contact("Contact")
         .minVerificationCodeSendPeriod(null)
         .type(TwoFaProviderType.TOTP)
@@ -227,36 +234,33 @@ class TwoFactorAuthControllerDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TwoFactorAuthController.TwoFaProviderInfo#equals(Object)}
+   * Method under test: {@link TwoFaProviderInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test TwoFaProviderInfo equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwoFaProviderInfo.equals(Object)", "int TwoFaProviderInfo.hashCode()"})
   void testTwoFaProviderInfoEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder twoFaProviderInfoBuilder = mock(
-        TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder.class);
-    TwoFactorAuthController.TwoFaProviderInfo buildResult = TwoFactorAuthController.TwoFaProviderInfo.builder()
+    TwoFaProviderInfoBuilder twoFaProviderInfoBuilder = mock(TwoFaProviderInfoBuilder.class);
+    TwoFaProviderInfo buildResult = TwoFaProviderInfo.builder()
         .contact("Contact")
         .minVerificationCodeSendPeriod(3)
         .type(TwoFaProviderType.TOTP)
         .build();
     when(twoFaProviderInfoBuilder.build()).thenReturn(buildResult);
-    TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder twoFaProviderInfoBuilder2 = mock(
-        TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder.class);
+    TwoFaProviderInfoBuilder twoFaProviderInfoBuilder2 = mock(TwoFaProviderInfoBuilder.class);
     when(twoFaProviderInfoBuilder2.type(Mockito.<TwoFaProviderType>any())).thenReturn(twoFaProviderInfoBuilder);
-    TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder twoFaProviderInfoBuilder3 = mock(
-        TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder.class);
+    TwoFaProviderInfoBuilder twoFaProviderInfoBuilder3 = mock(TwoFaProviderInfoBuilder.class);
     when(twoFaProviderInfoBuilder3.minVerificationCodeSendPeriod(Mockito.<Integer>any()))
         .thenReturn(twoFaProviderInfoBuilder2);
-    TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder twoFaProviderInfoBuilder4 = mock(
-        TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder.class);
+    TwoFaProviderInfoBuilder twoFaProviderInfoBuilder4 = mock(TwoFaProviderInfoBuilder.class);
     when(twoFaProviderInfoBuilder4.contact(Mockito.<String>any())).thenReturn(twoFaProviderInfoBuilder3);
-    TwoFactorAuthController.TwoFaProviderInfo buildResult2 = twoFaProviderInfoBuilder4.contact("Contact")
+    TwoFaProviderInfo buildResult2 = twoFaProviderInfoBuilder4.contact("Contact")
         .minVerificationCodeSendPeriod(3)
         .type(TwoFaProviderType.TOTP)
         .build();
-    TwoFactorAuthController.TwoFaProviderInfo buildResult3 = TwoFactorAuthController.TwoFaProviderInfo.builder()
+    TwoFaProviderInfo buildResult3 = TwoFaProviderInfo.builder()
         .contact("Contact")
         .minVerificationCodeSendPeriod(null)
         .type(TwoFaProviderType.TOTP)
@@ -273,36 +277,33 @@ class TwoFactorAuthControllerDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TwoFactorAuthController.TwoFaProviderInfo#equals(Object)}
+   * Method under test: {@link TwoFaProviderInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test TwoFaProviderInfo equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwoFaProviderInfo.equals(Object)", "int TwoFaProviderInfo.hashCode()"})
   void testTwoFaProviderInfoEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder twoFaProviderInfoBuilder = mock(
-        TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder.class);
-    TwoFactorAuthController.TwoFaProviderInfo buildResult = TwoFactorAuthController.TwoFaProviderInfo.builder()
+    TwoFaProviderInfoBuilder twoFaProviderInfoBuilder = mock(TwoFaProviderInfoBuilder.class);
+    TwoFaProviderInfo buildResult = TwoFaProviderInfo.builder()
         .contact("42")
         .minVerificationCodeSendPeriod(3)
         .type(TwoFaProviderType.TOTP)
         .build();
     when(twoFaProviderInfoBuilder.build()).thenReturn(buildResult);
-    TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder twoFaProviderInfoBuilder2 = mock(
-        TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder.class);
+    TwoFaProviderInfoBuilder twoFaProviderInfoBuilder2 = mock(TwoFaProviderInfoBuilder.class);
     when(twoFaProviderInfoBuilder2.type(Mockito.<TwoFaProviderType>any())).thenReturn(twoFaProviderInfoBuilder);
-    TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder twoFaProviderInfoBuilder3 = mock(
-        TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder.class);
+    TwoFaProviderInfoBuilder twoFaProviderInfoBuilder3 = mock(TwoFaProviderInfoBuilder.class);
     when(twoFaProviderInfoBuilder3.minVerificationCodeSendPeriod(Mockito.<Integer>any()))
         .thenReturn(twoFaProviderInfoBuilder2);
-    TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder twoFaProviderInfoBuilder4 = mock(
-        TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder.class);
+    TwoFaProviderInfoBuilder twoFaProviderInfoBuilder4 = mock(TwoFaProviderInfoBuilder.class);
     when(twoFaProviderInfoBuilder4.contact(Mockito.<String>any())).thenReturn(twoFaProviderInfoBuilder3);
-    TwoFactorAuthController.TwoFaProviderInfo buildResult2 = twoFaProviderInfoBuilder4.contact("Contact")
+    TwoFaProviderInfo buildResult2 = twoFaProviderInfoBuilder4.contact("Contact")
         .minVerificationCodeSendPeriod(3)
         .type(TwoFaProviderType.TOTP)
         .build();
-    TwoFactorAuthController.TwoFaProviderInfo buildResult3 = TwoFactorAuthController.TwoFaProviderInfo.builder()
+    TwoFaProviderInfo buildResult3 = TwoFaProviderInfo.builder()
         .contact("Contact")
         .minVerificationCodeSendPeriod(3)
         .type(TwoFaProviderType.TOTP)
@@ -319,36 +320,33 @@ class TwoFactorAuthControllerDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TwoFactorAuthController.TwoFaProviderInfo#equals(Object)}
+   * Method under test: {@link TwoFaProviderInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test TwoFaProviderInfo equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwoFaProviderInfo.equals(Object)", "int TwoFaProviderInfo.hashCode()"})
   void testTwoFaProviderInfoEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder twoFaProviderInfoBuilder = mock(
-        TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder.class);
-    TwoFactorAuthController.TwoFaProviderInfo buildResult = TwoFactorAuthController.TwoFaProviderInfo.builder()
+    TwoFaProviderInfoBuilder twoFaProviderInfoBuilder = mock(TwoFaProviderInfoBuilder.class);
+    TwoFaProviderInfo buildResult = TwoFaProviderInfo.builder()
         .contact("42")
         .minVerificationCodeSendPeriod(3)
         .type(TwoFaProviderType.SMS)
         .build();
     when(twoFaProviderInfoBuilder.build()).thenReturn(buildResult);
-    TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder twoFaProviderInfoBuilder2 = mock(
-        TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder.class);
+    TwoFaProviderInfoBuilder twoFaProviderInfoBuilder2 = mock(TwoFaProviderInfoBuilder.class);
     when(twoFaProviderInfoBuilder2.type(Mockito.<TwoFaProviderType>any())).thenReturn(twoFaProviderInfoBuilder);
-    TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder twoFaProviderInfoBuilder3 = mock(
-        TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder.class);
+    TwoFaProviderInfoBuilder twoFaProviderInfoBuilder3 = mock(TwoFaProviderInfoBuilder.class);
     when(twoFaProviderInfoBuilder3.minVerificationCodeSendPeriod(Mockito.<Integer>any()))
         .thenReturn(twoFaProviderInfoBuilder2);
-    TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder twoFaProviderInfoBuilder4 = mock(
-        TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder.class);
+    TwoFaProviderInfoBuilder twoFaProviderInfoBuilder4 = mock(TwoFaProviderInfoBuilder.class);
     when(twoFaProviderInfoBuilder4.contact(Mockito.<String>any())).thenReturn(twoFaProviderInfoBuilder3);
-    TwoFactorAuthController.TwoFaProviderInfo buildResult2 = twoFaProviderInfoBuilder4.contact("Contact")
+    TwoFaProviderInfo buildResult2 = twoFaProviderInfoBuilder4.contact("Contact")
         .minVerificationCodeSendPeriod(3)
         .type(TwoFaProviderType.TOTP)
         .build();
-    TwoFactorAuthController.TwoFaProviderInfo buildResult3 = TwoFactorAuthController.TwoFaProviderInfo.builder()
+    TwoFaProviderInfo buildResult3 = TwoFaProviderInfo.builder()
         .contact("Contact")
         .minVerificationCodeSendPeriod(3)
         .type(TwoFaProviderType.TOTP)
@@ -365,14 +363,15 @@ class TwoFactorAuthControllerDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TwoFactorAuthController.TwoFaProviderInfo#equals(Object)}
+   * Method under test: {@link TwoFaProviderInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test TwoFaProviderInfo equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwoFaProviderInfo.equals(Object)", "int TwoFaProviderInfo.hashCode()"})
   void testTwoFaProviderInfoEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    TwoFactorAuthController.TwoFaProviderInfo buildResult = TwoFactorAuthController.TwoFaProviderInfo.builder()
+    TwoFaProviderInfo buildResult = TwoFaProviderInfo.builder()
         .contact("Contact")
         .minVerificationCodeSendPeriod(3)
         .type(TwoFaProviderType.TOTP)
@@ -389,14 +388,15 @@ class TwoFactorAuthControllerDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TwoFactorAuthController.TwoFaProviderInfo#equals(Object)}
+   * Method under test: {@link TwoFaProviderInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test TwoFaProviderInfo equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwoFaProviderInfo.equals(Object)", "int TwoFaProviderInfo.hashCode()"})
   void testTwoFaProviderInfoEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    TwoFactorAuthController.TwoFaProviderInfo buildResult = TwoFactorAuthController.TwoFaProviderInfo.builder()
+    TwoFaProviderInfo buildResult = TwoFaProviderInfo.builder()
         .contact("Contact")
         .minVerificationCodeSendPeriod(3)
         .type(TwoFaProviderType.TOTP)
@@ -411,28 +411,30 @@ class TwoFactorAuthControllerDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link TwoFactorAuthController.TwoFaProviderInfo#TwoFaProviderInfo(TwoFaProviderType, boolean, String, Integer)}
-   *   <li>{@link TwoFactorAuthController.TwoFaProviderInfo#setContact(String)}
-   *   <li>{@link TwoFactorAuthController.TwoFaProviderInfo#setDefault(boolean)}
-   *   <li>
-   * {@link TwoFactorAuthController.TwoFaProviderInfo#setMinVerificationCodeSendPeriod(Integer)}
-   *   <li>
-   * {@link TwoFactorAuthController.TwoFaProviderInfo#setType(TwoFaProviderType)}
-   *   <li>{@link TwoFactorAuthController.TwoFaProviderInfo#toString()}
-   *   <li>{@link TwoFactorAuthController.TwoFaProviderInfo#getContact()}
-   *   <li>
-   * {@link TwoFactorAuthController.TwoFaProviderInfo#getMinVerificationCodeSendPeriod()}
-   *   <li>{@link TwoFactorAuthController.TwoFaProviderInfo#getType()}
-   *   <li>{@link TwoFactorAuthController.TwoFaProviderInfo#isDefault()}
+   *   <li>{@link TwoFaProviderInfo#TwoFaProviderInfo(TwoFaProviderType, boolean, String, Integer)}
+   *   <li>{@link TwoFaProviderInfo#setContact(String)}
+   *   <li>{@link TwoFaProviderInfo#setDefault(boolean)}
+   *   <li>{@link TwoFaProviderInfo#setMinVerificationCodeSendPeriod(Integer)}
+   *   <li>{@link TwoFaProviderInfo#setType(TwoFaProviderType)}
+   *   <li>{@link TwoFaProviderInfo#toString()}
+   *   <li>{@link TwoFaProviderInfo#getContact()}
+   *   <li>{@link TwoFaProviderInfo#getMinVerificationCodeSendPeriod()}
+   *   <li>{@link TwoFaProviderInfo#getType()}
+   *   <li>{@link TwoFaProviderInfo#isDefault()}
    * </ul>
    */
   @Test
   @DisplayName("Test TwoFaProviderInfo getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TwoFaProviderInfo.<init>(TwoFaProviderType, boolean, String, Integer)",
+      "String TwoFaProviderInfo.getContact()", "Integer TwoFaProviderInfo.getMinVerificationCodeSendPeriod()",
+      "TwoFaProviderType TwoFaProviderInfo.getType()", "boolean TwoFaProviderInfo.isDefault()",
+      "void TwoFaProviderInfo.setContact(String)", "void TwoFaProviderInfo.setDefault(boolean)",
+      "void TwoFaProviderInfo.setMinVerificationCodeSendPeriod(Integer)",
+      "void TwoFaProviderInfo.setType(TwoFaProviderType)", "String TwoFaProviderInfo.toString()"})
   void testTwoFaProviderInfoGettersAndSetters() {
     // Arrange and Act
-    TwoFactorAuthController.TwoFaProviderInfo actualTwoFaProviderInfo = new TwoFactorAuthController.TwoFaProviderInfo(
-        TwoFaProviderType.TOTP, true, "Contact", 3);
+    TwoFaProviderInfo actualTwoFaProviderInfo = new TwoFaProviderInfo(TwoFaProviderType.TOTP, true, "Contact", 3);
     actualTwoFaProviderInfo.setContact("Contact");
     actualTwoFaProviderInfo.setDefault(true);
     actualTwoFaProviderInfo.setMinVerificationCodeSendPeriod(3);
@@ -443,7 +445,7 @@ class TwoFactorAuthControllerDiffblueTest {
     TwoFaProviderType actualType = actualTwoFaProviderInfo.getType();
     boolean actualIsDefaultResult = actualTwoFaProviderInfo.isDefault();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Contact", actualContact);
     assertEquals("TwoFactorAuthController.TwoFaProviderInfo(type=TOTP, isDefault=true, contact=Contact, minVerificatio"
         + "nCodeSendPeriod=3)", actualToStringResult);
@@ -453,26 +455,29 @@ class TwoFactorAuthControllerDiffblueTest {
   }
 
   /**
-   * Test TwoFaProviderInfo_TwoFaProviderInfoBuilder
-   * {@link TwoFaProviderInfoBuilder#build()}.
+   * Test TwoFaProviderInfo_TwoFaProviderInfoBuilder {@link TwoFaProviderInfo.TwoFaProviderInfoBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder#build()}
-   *   <li>
-   * {@link TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder#contact(String)}
-   *   <li>
-   * {@link TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder#minVerificationCodeSendPeriod(Integer)}
-   *   <li>
-   * {@link TwoFactorAuthController.TwoFaProviderInfo.TwoFaProviderInfoBuilder#type(TwoFaProviderType)}
+   *   <li>{@link TwoFaProviderInfo.TwoFaProviderInfoBuilder#build()}
+   *   <li>{@link TwoFaProviderInfo.TwoFaProviderInfoBuilder#contact(String)}
+   *   <li>{@link TwoFaProviderInfo.TwoFaProviderInfoBuilder#minVerificationCodeSendPeriod(Integer)}
+   *   <li>{@link TwoFaProviderInfo.TwoFaProviderInfoBuilder#type(TwoFaProviderType)}
    * </ul>
    */
   @Test
   @DisplayName("Test TwoFaProviderInfo_TwoFaProviderInfoBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TwoFaProviderInfo.TwoFaProviderInfoBuilder.<init>()",
+      "TwoFaProviderInfo TwoFaProviderInfo.TwoFaProviderInfoBuilder.build()",
+      "TwoFaProviderInfo.TwoFaProviderInfoBuilder TwoFaProviderInfo.TwoFaProviderInfoBuilder.contact(String)",
+      "TwoFaProviderInfo.TwoFaProviderInfoBuilder TwoFaProviderInfo.TwoFaProviderInfoBuilder.isDefault(boolean)",
+      "TwoFaProviderInfo.TwoFaProviderInfoBuilder TwoFaProviderInfo.TwoFaProviderInfoBuilder.minVerificationCodeSendPeriod(Integer)",
+      "String TwoFaProviderInfo.TwoFaProviderInfoBuilder.toString()",
+      "TwoFaProviderInfo.TwoFaProviderInfoBuilder TwoFaProviderInfo.TwoFaProviderInfoBuilder.type(TwoFaProviderType)"})
   void testTwoFaProviderInfo_TwoFaProviderInfoBuilderBuild() {
     // Arrange and Act
-    TwoFactorAuthController.TwoFaProviderInfo actualBuildResult = TwoFactorAuthController.TwoFaProviderInfo.builder()
+    TwoFaProviderInfo actualBuildResult = TwoFaProviderInfo.builder()
         .contact("Contact")
         .minVerificationCodeSendPeriod(3)
         .type(TwoFaProviderType.TOTP)

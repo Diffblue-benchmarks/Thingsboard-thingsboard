@@ -4,8 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,7 @@ class TimeseriesSubscriptionCmdDiffblueTest {
   private TimeseriesSubscriptionCmd timeseriesSubscriptionCmd;
 
   /**
-   * Test {@link TimeseriesSubscriptionCmd#equals(Object)}, and
-   * {@link TimeseriesSubscriptionCmd#hashCode()}.
+   * Test {@link TimeseriesSubscriptionCmd#equals(Object)}, and {@link TimeseriesSubscriptionCmd#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -35,6 +35,8 @@ class TimeseriesSubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TimeseriesSubscriptionCmd.equals(Object)", "int TimeseriesSubscriptionCmd.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TimeseriesSubscriptionCmd timeseriesSubscriptionCmd = new TimeseriesSubscriptionCmd(1L, 10L, 42L, 1, "Agg");
@@ -47,8 +49,7 @@ class TimeseriesSubscriptionCmdDiffblueTest {
   }
 
   /**
-   * Test {@link TimeseriesSubscriptionCmd#equals(Object)}, and
-   * {@link TimeseriesSubscriptionCmd#hashCode()}.
+   * Test {@link TimeseriesSubscriptionCmd#equals(Object)}, and {@link TimeseriesSubscriptionCmd#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -62,6 +63,8 @@ class TimeseriesSubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TimeseriesSubscriptionCmd.equals(Object)", "int TimeseriesSubscriptionCmd.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TimeseriesSubscriptionCmd timeseriesSubscriptionCmd = new TimeseriesSubscriptionCmd(1L, 10L, 42L, 1, null);
@@ -74,8 +77,7 @@ class TimeseriesSubscriptionCmdDiffblueTest {
   }
 
   /**
-   * Test {@link TimeseriesSubscriptionCmd#equals(Object)}, and
-   * {@link TimeseriesSubscriptionCmd#hashCode()}.
+   * Test {@link TimeseriesSubscriptionCmd#equals(Object)}, and {@link TimeseriesSubscriptionCmd#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -89,6 +91,8 @@ class TimeseriesSubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TimeseriesSubscriptionCmd.equals(Object)", "int TimeseriesSubscriptionCmd.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TimeseriesSubscriptionCmd timeseriesSubscriptionCmd = new TimeseriesSubscriptionCmd(1L, 10L, 42L, 1, "Agg");
@@ -110,6 +114,8 @@ class TimeseriesSubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TimeseriesSubscriptionCmd.equals(Object)", "int TimeseriesSubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TimeseriesSubscriptionCmd timeseriesSubscriptionCmd = new TimeseriesSubscriptionCmd(3L, 10L, 42L, 1, "Agg");
@@ -129,6 +135,8 @@ class TimeseriesSubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TimeseriesSubscriptionCmd.equals(Object)", "int TimeseriesSubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TimeseriesSubscriptionCmd timeseriesSubscriptionCmd = new TimeseriesSubscriptionCmd(1L, 1L, 42L, 1, "Agg");
@@ -148,6 +156,8 @@ class TimeseriesSubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TimeseriesSubscriptionCmd.equals(Object)", "int TimeseriesSubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TimeseriesSubscriptionCmd timeseriesSubscriptionCmd = new TimeseriesSubscriptionCmd(1L, 10L, 1L, 1, "Agg");
@@ -167,6 +177,8 @@ class TimeseriesSubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TimeseriesSubscriptionCmd.equals(Object)", "int TimeseriesSubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TimeseriesSubscriptionCmd timeseriesSubscriptionCmd = new TimeseriesSubscriptionCmd(1L, 10L, 42L, 3, "Agg");
@@ -186,6 +198,8 @@ class TimeseriesSubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TimeseriesSubscriptionCmd.equals(Object)", "int TimeseriesSubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TimeseriesSubscriptionCmd timeseriesSubscriptionCmd = new TimeseriesSubscriptionCmd(1L, 10L, 42L, 1, null);
@@ -205,6 +219,8 @@ class TimeseriesSubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TimeseriesSubscriptionCmd.equals(Object)", "int TimeseriesSubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TimeseriesSubscriptionCmd timeseriesSubscriptionCmd = new TimeseriesSubscriptionCmd(1L, 10L, 42L, 1,
@@ -225,23 +241,9 @@ class TimeseriesSubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TimeseriesSubscriptionCmd.equals(Object)", "int TimeseriesSubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
-    // Arrange, Act and Assert
-    assertNotEquals(new TimeseriesSubscriptionCmd(1L, 10L, 42L, 1, "Agg"), mock(AttributesSubscriptionCmd.class));
-  }
-
-  /**
-   * Test {@link TimeseriesSubscriptionCmd#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TimeseriesSubscriptionCmd#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TimeseriesSubscriptionCmd timeseriesSubscriptionCmd = new TimeseriesSubscriptionCmd(1L, 10L, 42L, 1, "Agg");
     timeseriesSubscriptionCmd.setCmdId(1);
@@ -261,6 +263,8 @@ class TimeseriesSubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TimeseriesSubscriptionCmd.equals(Object)", "int TimeseriesSubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TimeseriesSubscriptionCmd(1L, 10L, 42L, 1, "Agg"), null);
@@ -277,6 +281,8 @@ class TimeseriesSubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TimeseriesSubscriptionCmd.equals(Object)", "int TimeseriesSubscriptionCmd.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TimeseriesSubscriptionCmd(1L, 10L, 42L, 1, "Agg"),
@@ -305,6 +311,14 @@ class TimeseriesSubscriptionCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TimeseriesSubscriptionCmd.<init>()", "String TimeseriesSubscriptionCmd.getAgg()",
+      "long TimeseriesSubscriptionCmd.getInterval()", "int TimeseriesSubscriptionCmd.getLimit()",
+      "long TimeseriesSubscriptionCmd.getStartTs()", "long TimeseriesSubscriptionCmd.getTimeWindow()",
+      "WsCmdType TimeseriesSubscriptionCmd.getType()", "void TimeseriesSubscriptionCmd.setAgg(String)",
+      "void TimeseriesSubscriptionCmd.setInterval(long)", "void TimeseriesSubscriptionCmd.setLimit(int)",
+      "void TimeseriesSubscriptionCmd.setStartTs(long)", "void TimeseriesSubscriptionCmd.setTimeWindow(long)",
+      "String TimeseriesSubscriptionCmd.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TimeseriesSubscriptionCmd actualTimeseriesSubscriptionCmd = new TimeseriesSubscriptionCmd();
@@ -321,10 +335,14 @@ class TimeseriesSubscriptionCmdDiffblueTest {
     long actualTimeWindow = actualTimeseriesSubscriptionCmd.getTimeWindow();
     WsCmdType actualType = actualTimeseriesSubscriptionCmd.getType();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Agg", actualAgg);
     assertEquals("TimeseriesSubscriptionCmd(startTs=1, timeWindow=10, interval=42, limit=1, agg=Agg)",
         actualToStringResult);
+    assertNull(actualTimeseriesSubscriptionCmd.getEntityId());
+    assertNull(actualTimeseriesSubscriptionCmd.getEntityType());
+    assertNull(actualTimeseriesSubscriptionCmd.getKeys());
+    assertNull(actualTimeseriesSubscriptionCmd.getScope());
     assertEquals(0, actualTimeseriesSubscriptionCmd.getCmdId());
     assertEquals(1, actualLimit);
     assertEquals(10L, actualTimeWindow);
@@ -335,14 +353,14 @@ class TimeseriesSubscriptionCmdDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link TimeseriesSubscriptionCmd#TimeseriesSubscriptionCmd(long, long, long, int, String)}.
+   * Test {@link TimeseriesSubscriptionCmd#TimeseriesSubscriptionCmd(long, long, long, int, String)}.
    * <p>
-   * Method under test:
-   * {@link TimeseriesSubscriptionCmd#TimeseriesSubscriptionCmd(long, long, long, int, String)}
+   * Method under test: {@link TimeseriesSubscriptionCmd#TimeseriesSubscriptionCmd(long, long, long, int, String)}
    */
   @Test
   @DisplayName("Test new TimeseriesSubscriptionCmd(long, long, long, int, String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TimeseriesSubscriptionCmd.<init>(long, long, long, int, String)"})
   void testNewTimeseriesSubscriptionCmd() {
     // Arrange and Act
     TimeseriesSubscriptionCmd actualTimeseriesSubscriptionCmd = new TimeseriesSubscriptionCmd(1L, 10L, 42L, 1, "Agg");

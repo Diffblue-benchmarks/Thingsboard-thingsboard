@@ -5,20 +5,24 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TbMsgDeleteAttributesNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbMsgDeleteAttributesNodeConfiguration#defaultConfiguration()}.
    * <p>
-   * Method under test:
-   * {@link TbMsgDeleteAttributesNodeConfiguration#defaultConfiguration()}
+   * Method under test: {@link TbMsgDeleteAttributesNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "TbMsgDeleteAttributesNodeConfiguration TbMsgDeleteAttributesNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
     // Arrange and Act
     TbMsgDeleteAttributesNodeConfiguration actualDefaultConfigurationResult = (new TbMsgDeleteAttributesNodeConfiguration())
@@ -32,8 +36,7 @@ class TbMsgDeleteAttributesNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}, and
-   * {@link TbMsgDeleteAttributesNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}, and {@link TbMsgDeleteAttributesNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -47,6 +50,9 @@ class TbMsgDeleteAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeleteAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgDeleteAttributesNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbMsgDeleteAttributesNodeConfiguration tbMsgDeleteAttributesNodeConfiguration = new TbMsgDeleteAttributesNodeConfiguration();
@@ -59,8 +65,7 @@ class TbMsgDeleteAttributesNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}, and
-   * {@link TbMsgDeleteAttributesNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}, and {@link TbMsgDeleteAttributesNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -74,6 +79,9 @@ class TbMsgDeleteAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeleteAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgDeleteAttributesNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbMsgDeleteAttributesNodeConfiguration tbMsgDeleteAttributesNodeConfiguration = new TbMsgDeleteAttributesNodeConfiguration();
@@ -89,8 +97,7 @@ class TbMsgDeleteAttributesNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}, and
-   * {@link TbMsgDeleteAttributesNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}, and {@link TbMsgDeleteAttributesNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -104,6 +111,9 @@ class TbMsgDeleteAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeleteAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgDeleteAttributesNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TbMsgDeleteAttributesNodeConfiguration tbMsgDeleteAttributesNodeConfiguration = new TbMsgDeleteAttributesNodeConfiguration();
@@ -119,8 +129,7 @@ class TbMsgDeleteAttributesNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}, and
-   * {@link TbMsgDeleteAttributesNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}, and {@link TbMsgDeleteAttributesNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -134,6 +143,9 @@ class TbMsgDeleteAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeleteAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgDeleteAttributesNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbMsgDeleteAttributesNodeConfiguration tbMsgDeleteAttributesNodeConfiguration = new TbMsgDeleteAttributesNodeConfiguration();
@@ -151,11 +163,13 @@ class TbMsgDeleteAttributesNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeleteAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgDeleteAttributesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMsgDeleteAttributesNodeConfiguration(), 1);
@@ -168,11 +182,13 @@ class TbMsgDeleteAttributesNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeleteAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgDeleteAttributesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbMsgDeleteAttributesNodeConfiguration tbMsgDeleteAttributesNodeConfiguration = new TbMsgDeleteAttributesNodeConfiguration();
@@ -189,11 +205,13 @@ class TbMsgDeleteAttributesNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeleteAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgDeleteAttributesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbMsgDeleteAttributesNodeConfiguration tbMsgDeleteAttributesNodeConfiguration = new TbMsgDeleteAttributesNodeConfiguration();
@@ -210,11 +228,13 @@ class TbMsgDeleteAttributesNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeleteAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgDeleteAttributesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbMsgDeleteAttributesNodeConfiguration tbMsgDeleteAttributesNodeConfiguration = new TbMsgDeleteAttributesNodeConfiguration();
@@ -231,11 +251,13 @@ class TbMsgDeleteAttributesNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeleteAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgDeleteAttributesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbMsgDeleteAttributesNodeConfiguration tbMsgDeleteAttributesNodeConfiguration = new TbMsgDeleteAttributesNodeConfiguration();
@@ -252,11 +274,13 @@ class TbMsgDeleteAttributesNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeleteAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgDeleteAttributesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbMsgDeleteAttributesNodeConfiguration tbMsgDeleteAttributesNodeConfiguration = new TbMsgDeleteAttributesNodeConfiguration();
@@ -275,11 +299,13 @@ class TbMsgDeleteAttributesNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeleteAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgDeleteAttributesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TbMsgDeleteAttributesNodeConfiguration tbMsgDeleteAttributesNodeConfiguration = new TbMsgDeleteAttributesNodeConfiguration();
@@ -298,11 +324,13 @@ class TbMsgDeleteAttributesNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeleteAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgDeleteAttributesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMsgDeleteAttributesNodeConfiguration(), null);
@@ -315,11 +343,13 @@ class TbMsgDeleteAttributesNodeConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}
+   * Method under test: {@link TbMsgDeleteAttributesNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeleteAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgDeleteAttributesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMsgDeleteAttributesNodeConfiguration(),
@@ -331,23 +361,31 @@ class TbMsgDeleteAttributesNodeConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link TbMsgDeleteAttributesNodeConfiguration}
+   *   <li>default or parameterless constructor of {@link TbMsgDeleteAttributesNodeConfiguration}
    *   <li>{@link TbMsgDeleteAttributesNodeConfiguration#setKeys(List)}
    *   <li>{@link TbMsgDeleteAttributesNodeConfiguration#setNotifyDevice(boolean)}
    *   <li>{@link TbMsgDeleteAttributesNodeConfiguration#setScope(String)}
-   *   <li>
-   * {@link TbMsgDeleteAttributesNodeConfiguration#setSendAttributesDeletedNotification(boolean)}
+   *   <li>{@link TbMsgDeleteAttributesNodeConfiguration#setSendAttributesDeletedNotification(boolean)}
    *   <li>{@link TbMsgDeleteAttributesNodeConfiguration#toString()}
    *   <li>{@link TbMsgDeleteAttributesNodeConfiguration#getKeys()}
    *   <li>{@link TbMsgDeleteAttributesNodeConfiguration#getScope()}
    *   <li>{@link TbMsgDeleteAttributesNodeConfiguration#isNotifyDevice()}
-   *   <li>
-   * {@link TbMsgDeleteAttributesNodeConfiguration#isSendAttributesDeletedNotification()}
+   *   <li>{@link TbMsgDeleteAttributesNodeConfiguration#isSendAttributesDeletedNotification()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbMsgDeleteAttributesNodeConfiguration.<init>()",
+      "List TbMsgDeleteAttributesNodeConfiguration.getKeys()",
+      "String TbMsgDeleteAttributesNodeConfiguration.getScope()",
+      "boolean TbMsgDeleteAttributesNodeConfiguration.isNotifyDevice()",
+      "boolean TbMsgDeleteAttributesNodeConfiguration.isSendAttributesDeletedNotification()",
+      "void TbMsgDeleteAttributesNodeConfiguration.setKeys(List)",
+      "void TbMsgDeleteAttributesNodeConfiguration.setNotifyDevice(boolean)",
+      "void TbMsgDeleteAttributesNodeConfiguration.setScope(String)",
+      "void TbMsgDeleteAttributesNodeConfiguration.setSendAttributesDeletedNotification(boolean)",
+      "String TbMsgDeleteAttributesNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbMsgDeleteAttributesNodeConfiguration actualTbMsgDeleteAttributesNodeConfiguration = new TbMsgDeleteAttributesNodeConfiguration();
@@ -363,7 +401,7 @@ class TbMsgDeleteAttributesNodeConfigurationDiffblueTest {
     boolean actualIsSendAttributesDeletedNotificationResult = actualTbMsgDeleteAttributesNodeConfiguration
         .isSendAttributesDeletedNotification();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Scope", actualScope);
     assertEquals("TbMsgDeleteAttributesNodeConfiguration(scope=Scope, keys=[], sendAttributesDeletedNotification=true,"
         + " notifyDevice=true)", actualToStringResult);

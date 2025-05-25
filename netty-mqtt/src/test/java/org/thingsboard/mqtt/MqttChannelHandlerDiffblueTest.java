@@ -6,6 +6,7 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.netty.buffer.DuplicatedByteBuf;
 import io.netty.buffer.EmptyByteBuf;
 import io.netty.buffer.PooledByteBufAllocator;
@@ -25,24 +26,24 @@ import io.netty.handler.codec.mqtt.MqttQoS;
 import io.netty.util.concurrent.DefaultProgressivePromise;
 import java.util.concurrent.Executor;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.thingsboard.common.util.ListeningExecutor;
 
 class MqttChannelHandlerDiffblueTest {
   /**
-   * Test
-   * {@link MqttChannelHandler#channelRead0(ChannelHandlerContext, MqttMessage)}
-   * with {@code ChannelHandlerContext}, {@code MqttMessage}.
+   * Test {@link MqttChannelHandler#channelRead0(ChannelHandlerContext, MqttMessage)} with {@code ChannelHandlerContext}, {@code MqttMessage}.
    * <ul>
    *   <li>Then calls {@link ChannelOutboundInvoker#close()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MqttChannelHandler#channelRead0(ChannelHandlerContext, MqttMessage)}
+   * Method under test: {@link MqttChannelHandler#channelRead0(ChannelHandlerContext, MqttMessage)}
    */
   @Test
   @DisplayName("Test channelRead0(ChannelHandlerContext, MqttMessage) with 'ChannelHandlerContext', 'MqttMessage'; then calls close()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttChannelHandler.channelRead0(ChannelHandlerContext, MqttMessage)"})
   void testChannelRead0WithChannelHandlerContextMqttMessage_thenCallsClose() throws Exception {
     // Arrange
     MqttClientImpl client = new MqttClientImpl(mock(MqttHandler.class), mock(ListeningExecutor.class));
@@ -60,7 +61,7 @@ class MqttChannelHandlerDiffblueTest {
     // Act
     mqttChannelHandler.channelRead0(ctx, msg);
 
-    // Assert that nothing has changed
+    // Assert
     verify(ctx).close();
     verify(decoderResult).cause();
     verify(decoderResult).isSuccess();
@@ -68,18 +69,17 @@ class MqttChannelHandlerDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link MqttChannelHandler#channelRead0(ChannelHandlerContext, MqttMessage)}
-   * with {@code ChannelHandlerContext}, {@code MqttMessage}.
+   * Test {@link MqttChannelHandler#channelRead0(ChannelHandlerContext, MqttMessage)} with {@code ChannelHandlerContext}, {@code MqttMessage}.
    * <ul>
    *   <li>Then calls {@link MqttMessage#fixedHeader()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MqttChannelHandler#channelRead0(ChannelHandlerContext, MqttMessage)}
+   * Method under test: {@link MqttChannelHandler#channelRead0(ChannelHandlerContext, MqttMessage)}
    */
   @Test
   @DisplayName("Test channelRead0(ChannelHandlerContext, MqttMessage) with 'ChannelHandlerContext', 'MqttMessage'; then calls fixedHeader()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttChannelHandler.channelRead0(ChannelHandlerContext, MqttMessage)"})
   void testChannelRead0WithChannelHandlerContextMqttMessage_thenCallsFixedHeader() throws Exception {
     // Arrange
     MqttClientImpl client = new MqttClientImpl(mock(MqttHandler.class), mock(ListeningExecutor.class));
@@ -97,7 +97,7 @@ class MqttChannelHandlerDiffblueTest {
     // Act
     mqttChannelHandler.channelRead0(ctx, msg);
 
-    // Assert that nothing has changed
+    // Assert
     verify(decoderResult).isSuccess();
     verify(msg).decoderResult();
     verify(msg).fixedHeader();
@@ -110,11 +110,12 @@ class MqttChannelHandlerDiffblueTest {
    *   <li>Then calls {@link ChannelHandlerContext#channel()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MqttChannelHandler#channelActive(ChannelHandlerContext)}
+   * Method under test: {@link MqttChannelHandler#channelActive(ChannelHandlerContext)}
    */
   @Test
   @DisplayName("Test channelActive(ChannelHandlerContext); given EmbeddedChannel(); then calls channel()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttChannelHandler.channelActive(ChannelHandlerContext)"})
   void testChannelActive_givenEmbeddedChannel_thenCallsChannel() throws Exception {
     // Arrange
     MqttClientImpl client = new MqttClientImpl(mock(MqttHandler.class), mock(ListeningExecutor.class));
@@ -139,11 +140,12 @@ class MqttChannelHandlerDiffblueTest {
    *   <li>Then calls {@link AbstractChannel#writeAndFlush(Object)}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MqttChannelHandler#channelActive(ChannelHandlerContext)}
+   * Method under test: {@link MqttChannelHandler#channelActive(ChannelHandlerContext)}
    */
   @Test
   @DisplayName("Test channelActive(ChannelHandlerContext); then calls writeAndFlush(Object)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttChannelHandler.channelActive(ChannelHandlerContext)"})
   void testChannelActive_thenCallsWriteAndFlush() throws Exception {
     // Arrange
     MqttClientImpl client = new MqttClientImpl(mock(MqttHandler.class), mock(ListeningExecutor.class));
@@ -167,17 +169,18 @@ class MqttChannelHandlerDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link MqttChannelHandler#invokeHandlersForIncomingPublish(MqttPublishMessage)}.
+   * Test {@link MqttChannelHandler#invokeHandlersForIncomingPublish(MqttPublishMessage)}.
    * <ul>
    *   <li>Then calls {@link Executor#execute(Runnable)}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MqttChannelHandler#invokeHandlersForIncomingPublish(MqttPublishMessage)}
+   * Method under test: {@link MqttChannelHandler#invokeHandlersForIncomingPublish(MqttPublishMessage)}
    */
   @Test
   @DisplayName("Test invokeHandlersForIncomingPublish(MqttPublishMessage); then calls execute(Runnable)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "com.google.common.util.concurrent.ListenableFuture MqttChannelHandler.invokeHandlersForIncomingPublish(MqttPublishMessage)"})
   void testInvokeHandlersForIncomingPublish_thenCallsExecute() {
     // Arrange
     ListeningExecutor handlerExecutor = mock(ListeningExecutor.class);

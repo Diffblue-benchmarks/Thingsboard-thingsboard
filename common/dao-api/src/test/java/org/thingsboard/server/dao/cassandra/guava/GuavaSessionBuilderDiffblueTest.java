@@ -9,8 +9,10 @@ import com.datastax.dse.driver.internal.core.session.DefaultDseSession;
 import com.datastax.oss.driver.api.core.CqlIdentifier;
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.session.Session;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Optional;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class GuavaSessionBuilderDiffblueTest {
@@ -21,6 +23,8 @@ class GuavaSessionBuilderDiffblueTest {
    */
   @Test
   @DisplayName("Test wrap(CqlSession)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"GuavaSession GuavaSessionBuilder.wrap(CqlSession)"})
   void testWrap() {
     // Arrange
     GuavaSessionBuilder builderResult = GuavaSessionUtils.builder();
@@ -44,11 +48,12 @@ class GuavaSessionBuilderDiffblueTest {
   /**
    * Test new {@link GuavaSessionBuilder} (default constructor).
    * <p>
-   * Method under test: default or parameterless constructor of
-   * {@link GuavaSessionBuilder}
+   * Method under test: default or parameterless constructor of {@link GuavaSessionBuilder}
    */
   @Test
   @DisplayName("Test new GuavaSessionBuilder (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void GuavaSessionBuilder.<init>()"})
   void testNewGuavaSessionBuilder() {
     // Arrange, Act and Assert
     GuavaSession wrapResult = (new GuavaSessionBuilder()).wrap(null);

@@ -4,23 +4,38 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.netty.handler.codec.mqtt.MqttQoS;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.mqtt.MqttLastWill.Builder;
 
+@ContextConfiguration(classes = {Builder.class})
+@ExtendWith(SpringExtension.class)
 class MqttLastWillDiffblueTest {
+  @Autowired
+  private Builder builder;
+
   /**
    * Test Builder {@link Builder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link MqttLastWill.Builder#build()}
-   *   <li>{@link MqttLastWill.Builder#setRetain(boolean)}
+   *   <li>{@link Builder#build()}
+   *   <li>{@link Builder#setRetain(boolean)}
    * </ul>
    */
   @Test
   @DisplayName("Test Builder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Builder.<init>()", "MqttLastWill Builder.build()", "String Builder.getMessage()",
+      "MqttQoS Builder.getQos()", "String Builder.getTopic()", "boolean Builder.isRetain()",
+      "Builder Builder.setRetain(boolean)"})
   void testBuilderBuild() {
     // Arrange and Act
     MqttLastWill actualBuildResult = MqttLastWill.builder()
@@ -43,16 +58,18 @@ class MqttLastWillDiffblueTest {
    *   <li>Then builder Message is {@code Not all who wander are lost}.</li>
    * </ul>
    * <p>
-   * Method under test: {@link MqttLastWill.Builder#setMessage(String)}
+   * Method under test: {@link Builder#setMessage(String)}
    */
   @Test
   @DisplayName("Test Builder setMessage(String); then builder Message is 'Not all who wander are lost'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Builder Builder.setMessage(String)"})
   void testBuilderSetMessage_thenBuilderMessageIsNotAllWhoWanderAreLost() {
     // Arrange
-    MqttLastWill.Builder builderResult = MqttLastWill.builder();
+    Builder builderResult = MqttLastWill.builder();
 
     // Act
-    MqttLastWill.Builder actualSetMessageResult = builderResult.setMessage("Not all who wander are lost");
+    Builder actualSetMessageResult = builderResult.setMessage("Not all who wander are lost");
 
     // Assert
     assertEquals("Not all who wander are lost", builderResult.getMessage());
@@ -66,16 +83,18 @@ class MqttLastWillDiffblueTest {
    *   <li>Then builder Qos is {@code AT_MOST_ONCE}.</li>
    * </ul>
    * <p>
-   * Method under test: {@link MqttLastWill.Builder#setQos(MqttQoS)}
+   * Method under test: {@link Builder#setQos(MqttQoS)}
    */
   @Test
   @DisplayName("Test Builder setQos(MqttQoS); when 'AT_MOST_ONCE'; then builder Qos is 'AT_MOST_ONCE'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Builder Builder.setQos(MqttQoS)"})
   void testBuilderSetQos_whenAtMostOnce_thenBuilderQosIsAtMostOnce() {
     // Arrange
-    MqttLastWill.Builder builderResult = MqttLastWill.builder();
+    Builder builderResult = MqttLastWill.builder();
 
     // Act
-    MqttLastWill.Builder actualSetQosResult = builderResult.setQos(MqttQoS.AT_MOST_ONCE);
+    Builder actualSetQosResult = builderResult.setQos(MqttQoS.AT_MOST_ONCE);
 
     // Assert
     assertEquals(MqttQoS.AT_MOST_ONCE, builderResult.getQos());
@@ -89,16 +108,18 @@ class MqttLastWillDiffblueTest {
    *   <li>Then builder Topic is {@code Topic}.</li>
    * </ul>
    * <p>
-   * Method under test: {@link MqttLastWill.Builder#setTopic(String)}
+   * Method under test: {@link Builder#setTopic(String)}
    */
   @Test
   @DisplayName("Test Builder setTopic(String); when 'Topic'; then builder Topic is 'Topic'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Builder Builder.setTopic(String)"})
   void testBuilderSetTopic_whenTopic_thenBuilderTopicIsTopic() {
     // Arrange
-    MqttLastWill.Builder builderResult = MqttLastWill.builder();
+    Builder builderResult = MqttLastWill.builder();
 
     // Act
-    MqttLastWill.Builder actualSetTopicResult = builderResult.setTopic("Topic");
+    Builder actualSetTopicResult = builderResult.setTopic("Topic");
 
     // Assert
     assertEquals("Topic", builderResult.getTopic());
@@ -112,11 +133,12 @@ class MqttLastWillDiffblueTest {
    *   <li>Then return Message is {@code Not all who wander are lost}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MqttLastWill#MqttLastWill(String, String, boolean, MqttQoS)}
+   * Method under test: {@link MqttLastWill#MqttLastWill(String, String, boolean, MqttQoS)}
    */
   @Test
   @DisplayName("Test new MqttLastWill(String, String, boolean, MqttQoS); when 'AT_MOST_ONCE'; then return Message is 'Not all who wander are lost'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttLastWill.<init>(String, String, boolean, MqttQoS)"})
   void testNewMqttLastWill_whenAtMostOnce_thenReturnMessageIsNotAllWhoWanderAreLost() {
     // Arrange and Act
     MqttLastWill actualMqttLastWill = new MqttLastWill("Topic", "Not all who wander are lost", true,
@@ -143,6 +165,9 @@ class MqttLastWillDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String MqttLastWill.getMessage()", "MqttQoS MqttLastWill.getQos()",
+      "String MqttLastWill.getTopic()", "boolean MqttLastWill.isRetain()", "String MqttLastWill.toString()"})
   void testGettersAndSetters() {
     // Arrange
     MqttLastWill buildResult = MqttLastWill.builder()
@@ -168,8 +193,7 @@ class MqttLastWillDiffblueTest {
   }
 
   /**
-   * Test {@link MqttLastWill#equals(Object)}, and
-   * {@link MqttLastWill#hashCode()}.
+   * Test {@link MqttLastWill#equals(Object)}, and {@link MqttLastWill#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -183,6 +207,8 @@ class MqttLastWillDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MqttLastWill.equals(Object)", "int MqttLastWill.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     MqttLastWill buildResult = MqttLastWill.builder()
@@ -205,8 +231,7 @@ class MqttLastWillDiffblueTest {
   }
 
   /**
-   * Test {@link MqttLastWill#equals(Object)}, and
-   * {@link MqttLastWill#hashCode()}.
+   * Test {@link MqttLastWill#equals(Object)}, and {@link MqttLastWill#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -220,6 +245,8 @@ class MqttLastWillDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MqttLastWill.equals(Object)", "int MqttLastWill.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     MqttLastWill buildResult = MqttLastWill.builder()
@@ -246,6 +273,8 @@ class MqttLastWillDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MqttLastWill.equals(Object)", "int MqttLastWill.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     MqttLastWill buildResult = MqttLastWill.builder()
@@ -276,6 +305,8 @@ class MqttLastWillDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MqttLastWill.equals(Object)", "int MqttLastWill.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     MqttLastWill buildResult = MqttLastWill.builder()
@@ -306,6 +337,8 @@ class MqttLastWillDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MqttLastWill.equals(Object)", "int MqttLastWill.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     MqttLastWill buildResult = MqttLastWill.builder()
@@ -336,6 +369,8 @@ class MqttLastWillDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MqttLastWill.equals(Object)", "int MqttLastWill.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     MqttLastWill buildResult = MqttLastWill.builder()
@@ -366,6 +401,8 @@ class MqttLastWillDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MqttLastWill.equals(Object)", "int MqttLastWill.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     MqttLastWill buildResult = MqttLastWill.builder()
@@ -390,6 +427,8 @@ class MqttLastWillDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MqttLastWill.equals(Object)", "int MqttLastWill.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     MqttLastWill buildResult = MqttLastWill.builder()

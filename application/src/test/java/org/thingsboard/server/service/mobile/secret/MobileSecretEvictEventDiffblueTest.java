@@ -2,13 +2,14 @@ package org.thingsboard.server.service.mobile.secret;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class MobileSecretEvictEventDiffblueTest {
   /**
-   * Test {@link MobileSecretEvictEvent#equals(Object)}, and
-   * {@link MobileSecretEvictEvent#hashCode()}.
+   * Test {@link MobileSecretEvictEvent#equals(Object)}, and {@link MobileSecretEvictEvent#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -22,6 +23,8 @@ class MobileSecretEvictEventDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileSecretEvictEvent.equals(Object)", "int MobileSecretEvictEvent.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     MobileSecretEvictEvent mobileSecretEvictEvent = new MobileSecretEvictEvent("Secret");
@@ -34,8 +37,7 @@ class MobileSecretEvictEventDiffblueTest {
   }
 
   /**
-   * Test {@link MobileSecretEvictEvent#equals(Object)}, and
-   * {@link MobileSecretEvictEvent#hashCode()}.
+   * Test {@link MobileSecretEvictEvent#equals(Object)}, and {@link MobileSecretEvictEvent#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -49,6 +51,8 @@ class MobileSecretEvictEventDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileSecretEvictEvent.equals(Object)", "int MobileSecretEvictEvent.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     MobileSecretEvictEvent mobileSecretEvictEvent = new MobileSecretEvictEvent(null);
@@ -61,8 +65,7 @@ class MobileSecretEvictEventDiffblueTest {
   }
 
   /**
-   * Test {@link MobileSecretEvictEvent#equals(Object)}, and
-   * {@link MobileSecretEvictEvent#hashCode()}.
+   * Test {@link MobileSecretEvictEvent#equals(Object)}, and {@link MobileSecretEvictEvent#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -76,6 +79,8 @@ class MobileSecretEvictEventDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileSecretEvictEvent.equals(Object)", "int MobileSecretEvictEvent.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     MobileSecretEvictEvent mobileSecretEvictEvent = new MobileSecretEvictEvent("Secret");
@@ -97,6 +102,8 @@ class MobileSecretEvictEventDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileSecretEvictEvent.equals(Object)", "int MobileSecretEvictEvent.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     MobileSecretEvictEvent mobileSecretEvictEvent = new MobileSecretEvictEvent(null);
@@ -116,6 +123,8 @@ class MobileSecretEvictEventDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileSecretEvictEvent.equals(Object)", "int MobileSecretEvictEvent.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     MobileSecretEvictEvent mobileSecretEvictEvent = new MobileSecretEvictEvent(
@@ -136,6 +145,8 @@ class MobileSecretEvictEventDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileSecretEvictEvent.equals(Object)", "int MobileSecretEvictEvent.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MobileSecretEvictEvent("Secret"), null);
@@ -152,6 +163,8 @@ class MobileSecretEvictEventDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileSecretEvictEvent.equals(Object)", "int MobileSecretEvictEvent.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MobileSecretEvictEvent("Secret"), "Different type to MobileSecretEvictEvent");
@@ -169,6 +182,9 @@ class MobileSecretEvictEventDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MobileSecretEvictEvent.<init>(String)", "String MobileSecretEvictEvent.getSecret()",
+      "String MobileSecretEvictEvent.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     MobileSecretEvictEvent actualMobileSecretEvictEvent = new MobileSecretEvictEvent("Secret");

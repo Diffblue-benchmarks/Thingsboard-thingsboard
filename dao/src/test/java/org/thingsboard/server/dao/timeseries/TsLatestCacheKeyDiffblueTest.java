@@ -4,8 +4,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.EntityId;
 import org.thingsboard.server.dao.entity.BaseEntityService;
@@ -13,8 +15,7 @@ import org.thingsboard.server.dao.model.ModelConstants;
 
 public class TsLatestCacheKeyDiffblueTest {
   /**
-   * Test {@link TsLatestCacheKey#equals(Object)}, and
-   * {@link TsLatestCacheKey#hashCode()}.
+   * Test {@link TsLatestCacheKey#equals(Object)}, and {@link TsLatestCacheKey#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -27,6 +28,8 @@ public class TsLatestCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsLatestCacheKey.equals(Object)", "int TsLatestCacheKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TsLatestCacheKey tsLatestCacheKey = new TsLatestCacheKey(BaseEntityService.NULL_CUSTOMER_ID, "Key");
@@ -39,8 +42,7 @@ public class TsLatestCacheKeyDiffblueTest {
   }
 
   /**
-   * Test {@link TsLatestCacheKey#equals(Object)}, and
-   * {@link TsLatestCacheKey#hashCode()}.
+   * Test {@link TsLatestCacheKey#equals(Object)}, and {@link TsLatestCacheKey#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -53,6 +55,8 @@ public class TsLatestCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsLatestCacheKey.equals(Object)", "int TsLatestCacheKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TsLatestCacheKey tsLatestCacheKey = new TsLatestCacheKey(null, "Key");
@@ -65,8 +69,7 @@ public class TsLatestCacheKeyDiffblueTest {
   }
 
   /**
-   * Test {@link TsLatestCacheKey#equals(Object)}, and
-   * {@link TsLatestCacheKey#hashCode()}.
+   * Test {@link TsLatestCacheKey#equals(Object)}, and {@link TsLatestCacheKey#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -79,6 +82,8 @@ public class TsLatestCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsLatestCacheKey.equals(Object)", "int TsLatestCacheKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TsLatestCacheKey tsLatestCacheKey = new TsLatestCacheKey(BaseEntityService.NULL_CUSTOMER_ID, null);
@@ -91,8 +96,7 @@ public class TsLatestCacheKeyDiffblueTest {
   }
 
   /**
-   * Test {@link TsLatestCacheKey#equals(Object)}, and
-   * {@link TsLatestCacheKey#hashCode()}.
+   * Test {@link TsLatestCacheKey#equals(Object)}, and {@link TsLatestCacheKey#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -105,6 +109,8 @@ public class TsLatestCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsLatestCacheKey.equals(Object)", "int TsLatestCacheKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TsLatestCacheKey tsLatestCacheKey = new TsLatestCacheKey(BaseEntityService.NULL_CUSTOMER_ID, "Key");
@@ -125,6 +131,8 @@ public class TsLatestCacheKeyDiffblueTest {
    * Method under test: {@link TsLatestCacheKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsLatestCacheKey.equals(Object)", "int TsLatestCacheKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TsLatestCacheKey tsLatestCacheKey = new TsLatestCacheKey(ModelConstants.SYSTEM_TENANT, "Key");
@@ -143,6 +151,8 @@ public class TsLatestCacheKeyDiffblueTest {
    * Method under test: {@link TsLatestCacheKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsLatestCacheKey.equals(Object)", "int TsLatestCacheKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TsLatestCacheKey tsLatestCacheKey = new TsLatestCacheKey(null, "Key");
@@ -161,25 +171,9 @@ public class TsLatestCacheKeyDiffblueTest {
    * Method under test: {@link TsLatestCacheKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsLatestCacheKey.equals(Object)", "int TsLatestCacheKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
-    // Arrange
-    TsLatestCacheKey tsLatestCacheKey = new TsLatestCacheKey(mock(EntityId.class), "Key");
-
-    // Act and Assert
-    assertNotEquals(tsLatestCacheKey, new TsLatestCacheKey(BaseEntityService.NULL_CUSTOMER_ID, "Key"));
-  }
-
-  /**
-   * Test {@link TsLatestCacheKey#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TsLatestCacheKey#equals(Object)}
-   */
-  @Test
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TsLatestCacheKey tsLatestCacheKey = new TsLatestCacheKey(BaseEntityService.NULL_CUSTOMER_ID, null);
 
@@ -197,7 +191,9 @@ public class TsLatestCacheKeyDiffblueTest {
    * Method under test: {@link TsLatestCacheKey#equals(Object)}
    */
   @Test
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsLatestCacheKey.equals(Object)", "int TsLatestCacheKey.hashCode()"})
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TsLatestCacheKey tsLatestCacheKey = new TsLatestCacheKey(BaseEntityService.NULL_CUSTOMER_ID,
         "org.thingsboard.server.dao.timeseries.TsLatestCacheKey");
@@ -216,6 +212,8 @@ public class TsLatestCacheKeyDiffblueTest {
    * Method under test: {@link TsLatestCacheKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsLatestCacheKey.equals(Object)", "int TsLatestCacheKey.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TsLatestCacheKey(BaseEntityService.NULL_CUSTOMER_ID, "Key"), null);
@@ -231,6 +229,8 @@ public class TsLatestCacheKeyDiffblueTest {
    * Method under test: {@link TsLatestCacheKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsLatestCacheKey.equals(Object)", "int TsLatestCacheKey.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TsLatestCacheKey(BaseEntityService.NULL_CUSTOMER_ID, "Key"),
@@ -250,6 +250,10 @@ public class TsLatestCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void TsLatestCacheKey.<init>(EntityId, String)", "EntityId TsLatestCacheKey.getEntityId()",
+      "String TsLatestCacheKey.getKey()", "boolean TsLatestCacheKey.isVersioned()",
+      "String TsLatestCacheKey.toString()"})
   public void testGettersAndSetters() {
     // Arrange
     CustomerId entityId = BaseEntityService.NULL_CUSTOMER_ID;

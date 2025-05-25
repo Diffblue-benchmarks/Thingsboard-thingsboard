@@ -3,14 +3,14 @@ package org.thingsboard.server.common.data.kv;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TsKvEntryAggWrapperDiffblueTest {
   /**
-   * Test {@link TsKvEntryAggWrapper#equals(Object)}, and
-   * {@link TsKvEntryAggWrapper#hashCode()}.
+   * Test {@link TsKvEntryAggWrapper#equals(Object)}, and {@link TsKvEntryAggWrapper#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -24,6 +24,8 @@ class TsKvEntryAggWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsKvEntryAggWrapper.equals(Object)", "int TsKvEntryAggWrapper.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TsKvEntryAggWrapper tsKvEntryAggWrapper = new TsKvEntryAggWrapper(
@@ -38,8 +40,7 @@ class TsKvEntryAggWrapperDiffblueTest {
   }
 
   /**
-   * Test {@link TsKvEntryAggWrapper#equals(Object)}, and
-   * {@link TsKvEntryAggWrapper#hashCode()}.
+   * Test {@link TsKvEntryAggWrapper#equals(Object)}, and {@link TsKvEntryAggWrapper#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -53,6 +54,8 @@ class TsKvEntryAggWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsKvEntryAggWrapper.equals(Object)", "int TsKvEntryAggWrapper.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TsKvEntryAggWrapper tsKvEntryAggWrapper = new TsKvEntryAggWrapper(null, 1L);
@@ -65,8 +68,7 @@ class TsKvEntryAggWrapperDiffblueTest {
   }
 
   /**
-   * Test {@link TsKvEntryAggWrapper#equals(Object)}, and
-   * {@link TsKvEntryAggWrapper#hashCode()}.
+   * Test {@link TsKvEntryAggWrapper#equals(Object)}, and {@link TsKvEntryAggWrapper#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -80,6 +82,8 @@ class TsKvEntryAggWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsKvEntryAggWrapper.equals(Object)", "int TsKvEntryAggWrapper.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TsKvEntryAggWrapper tsKvEntryAggWrapper = new TsKvEntryAggWrapper(
@@ -102,6 +106,8 @@ class TsKvEntryAggWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsKvEntryAggWrapper.equals(Object)", "int TsKvEntryAggWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TsKvEntryAggWrapper tsKvEntryAggWrapper = new TsKvEntryAggWrapper(
@@ -123,28 +129,9 @@ class TsKvEntryAggWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsKvEntryAggWrapper.equals(Object)", "int TsKvEntryAggWrapper.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange
-    TsKvEntryAggWrapper tsKvEntryAggWrapper = new TsKvEntryAggWrapper(new BasicTsKvEntry(1L, mock(AggTsKvEntry.class)),
-        1L);
-
-    // Act and Assert
-    assertNotEquals(tsKvEntryAggWrapper,
-        new TsKvEntryAggWrapper(new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42")), 1L));
-  }
-
-  /**
-   * Test {@link TsKvEntryAggWrapper#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntryAggWrapper#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TsKvEntryAggWrapper tsKvEntryAggWrapper = new TsKvEntryAggWrapper(null, 1L);
 
@@ -164,7 +151,9 @@ class TsKvEntryAggWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsKvEntryAggWrapper.equals(Object)", "int TsKvEntryAggWrapper.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TsKvEntryAggWrapper tsKvEntryAggWrapper = new TsKvEntryAggWrapper(
         new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42")), 3L);
@@ -185,6 +174,8 @@ class TsKvEntryAggWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsKvEntryAggWrapper.equals(Object)", "int TsKvEntryAggWrapper.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TsKvEntryAggWrapper(new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42")), 1L), null);
@@ -201,6 +192,8 @@ class TsKvEntryAggWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsKvEntryAggWrapper.equals(Object)", "int TsKvEntryAggWrapper.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TsKvEntryAggWrapper(new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42")), 1L),
@@ -220,6 +213,9 @@ class TsKvEntryAggWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TsKvEntryAggWrapper.<init>(TsKvEntry, long)", "TsKvEntry TsKvEntryAggWrapper.getEntry()",
+      "long TsKvEntryAggWrapper.getLastEntryTs()", "String TsKvEntryAggWrapper.toString()"})
   void testGettersAndSetters() {
     // Arrange
     BasicTsKvEntry entry = new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42"));

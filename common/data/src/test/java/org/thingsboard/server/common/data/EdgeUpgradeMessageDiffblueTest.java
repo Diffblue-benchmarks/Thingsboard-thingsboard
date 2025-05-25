@@ -4,17 +4,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.BiFunction;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class EdgeUpgradeMessageDiffblueTest {
   /**
-   * Test {@link EdgeUpgradeMessage#equals(Object)}, and
-   * {@link EdgeUpgradeMessage#hashCode()}.
+   * Test {@link EdgeUpgradeMessage#equals(Object)}, and {@link EdgeUpgradeMessage#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -28,6 +27,8 @@ class EdgeUpgradeMessageDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeUpgradeMessage.equals(Object)", "int EdgeUpgradeMessage.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EdgeUpgradeMessage edgeUpgradeMessage = new EdgeUpgradeMessage(new HashMap<>());
@@ -40,8 +41,7 @@ class EdgeUpgradeMessageDiffblueTest {
   }
 
   /**
-   * Test {@link EdgeUpgradeMessage#equals(Object)}, and
-   * {@link EdgeUpgradeMessage#hashCode()}.
+   * Test {@link EdgeUpgradeMessage#equals(Object)}, and {@link EdgeUpgradeMessage#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -55,6 +55,8 @@ class EdgeUpgradeMessageDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeUpgradeMessage.equals(Object)", "int EdgeUpgradeMessage.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EdgeUpgradeMessage edgeUpgradeMessage = new EdgeUpgradeMessage(new HashMap<>());
@@ -76,31 +78,11 @@ class EdgeUpgradeMessageDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeUpgradeMessage.equals(Object)", "int EdgeUpgradeMessage.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     HashMap<String, EdgeUpgradeInfo> edgeVersions = new HashMap<>();
-    edgeVersions.put("foo", new EdgeUpgradeInfo(true, "1.0.2"));
-    EdgeUpgradeMessage edgeUpgradeMessage = new EdgeUpgradeMessage(edgeVersions);
-
-    // Act and Assert
-    assertNotEquals(edgeUpgradeMessage, new EdgeUpgradeMessage(new HashMap<>()));
-  }
-
-  /**
-   * Test {@link EdgeUpgradeMessage#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link EdgeUpgradeMessage#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange
-    HashMap<String, EdgeUpgradeInfo> edgeVersions = new HashMap<>();
-    edgeVersions.computeIfPresent("foo", mock(BiFunction.class));
     edgeVersions.put("foo", new EdgeUpgradeInfo(true, "1.0.2"));
     EdgeUpgradeMessage edgeUpgradeMessage = new EdgeUpgradeMessage(edgeVersions);
 
@@ -119,6 +101,8 @@ class EdgeUpgradeMessageDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeUpgradeMessage.equals(Object)", "int EdgeUpgradeMessage.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EdgeUpgradeMessage(new HashMap<>()), null);
@@ -135,6 +119,8 @@ class EdgeUpgradeMessageDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeUpgradeMessage.equals(Object)", "int EdgeUpgradeMessage.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EdgeUpgradeMessage(new HashMap<>()), "Different type to EdgeUpgradeMessage");
@@ -152,6 +138,9 @@ class EdgeUpgradeMessageDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EdgeUpgradeMessage.<init>(Map)", "Map EdgeUpgradeMessage.getEdgeVersions()",
+      "String EdgeUpgradeMessage.toString()"})
   void testGettersAndSetters() {
     // Arrange
     HashMap<String, EdgeUpgradeInfo> edgeVersions = new HashMap<>();

@@ -1,106 +1,235 @@
 package org.thingsboard.server.controller;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.thingsboard.server.common.data.exception.ThingsboardException;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.thingsboard.server.common.data.ClaimRequest;
+import org.thingsboard.server.common.data.Device;
+import org.thingsboard.server.common.data.SaveDeviceWithCredentialsRequest;
+import org.thingsboard.server.common.data.id.DeviceCredentialsId;
 import org.thingsboard.server.common.data.security.DeviceCredentials;
-import org.thingsboard.server.dao.device.DeviceCredentialsServiceImpl;
-import org.thingsboard.server.dao.device.DeviceProfileServiceImpl;
-import org.thingsboard.server.dao.device.DeviceServiceImpl;
-import org.thingsboard.server.dao.entity.BaseEntityCountService;
-import org.thingsboard.server.dao.event.BaseEventService;
-import org.thingsboard.server.dao.exception.IncorrectParameterException;
-import org.thingsboard.server.dao.service.validator.DeviceCredentialsDataValidator;
-import org.thingsboard.server.dao.service.validator.DeviceDataValidator;
-import org.thingsboard.server.dao.sql.JpaExecutorService;
-import org.thingsboard.server.dao.sql.device.JpaDeviceCredentialsDao;
-import org.thingsboard.server.dao.sql.device.JpaDeviceDao;
-import org.thingsboard.server.dao.tenant.TenantServiceImpl;
-import org.thingsboard.server.service.device.ClaimDevicesServiceImpl;
-import org.thingsboard.server.service.device.DeviceBulkImportService;
-import org.thingsboard.server.service.entitiy.device.DefaultTbDeviceService;
+import org.thingsboard.server.common.data.security.DeviceCredentialsType;
+import org.thingsboard.server.exception.ThingsboardErrorResponseHandler;
 
+@ExtendWith(MockitoExtension.class)
 class DeviceControllerDiffblueTest {
+  @InjectMocks
+  private DeviceController deviceController;
+
+  @Mock
+  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+
+  /**
+   * Test {@link DeviceController#saveDeviceWithCredentials(SaveDeviceWithCredentialsRequest)}.
+   * <ul>
+   *   <li>Then status four hundred.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceController#saveDeviceWithCredentials(SaveDeviceWithCredentialsRequest)}
+   */
+  @Test
+  @DisplayName("Test saveDeviceWithCredentials(SaveDeviceWithCredentialsRequest); then status four hundred")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Device DeviceController.saveDeviceWithCredentials(SaveDeviceWithCredentialsRequest)"})
+  void testSaveDeviceWithCredentials_thenStatusFourHundred() throws Exception {
+    // Arrange
+    MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/api/device-with-credentials")
+        .contentType(MediaType.APPLICATION_JSON);
+
+    ObjectMapper objectMapper = new ObjectMapper();
+    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
+        .content(objectMapper.writeValueAsString(new SaveDeviceWithCredentialsRequest(null, new DeviceCredentials())));
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(deviceController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().is(400));
+  }
+
+  /**
+   * Test {@link DeviceController#saveDeviceWithCredentials(SaveDeviceWithCredentialsRequest)}.
+   * <ul>
+   *   <li>Then status four hundred.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceController#saveDeviceWithCredentials(SaveDeviceWithCredentialsRequest)}
+   */
+  @Test
+  @DisplayName("Test saveDeviceWithCredentials(SaveDeviceWithCredentialsRequest); then status four hundred")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Device DeviceController.saveDeviceWithCredentials(SaveDeviceWithCredentialsRequest)"})
+  void testSaveDeviceWithCredentials_thenStatusFourHundred2() throws Exception {
+    // Arrange
+    MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/api/device-with-credentials")
+        .contentType(MediaType.APPLICATION_JSON);
+
+    ObjectMapper objectMapper = new ObjectMapper();
+    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
+        .content(objectMapper.writeValueAsString(new SaveDeviceWithCredentialsRequest(null, new DeviceCredentials())));
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(deviceController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().is(400));
+  }
+
+  /**
+   * Test {@link DeviceController#saveDeviceWithCredentials(SaveDeviceWithCredentialsRequest)}.
+   * <ul>
+   *   <li>Then status four hundred fifteen.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceController#saveDeviceWithCredentials(SaveDeviceWithCredentialsRequest)}
+   */
+  @Test
+  @DisplayName("Test saveDeviceWithCredentials(SaveDeviceWithCredentialsRequest); then status four hundred fifteen")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Device DeviceController.saveDeviceWithCredentials(SaveDeviceWithCredentialsRequest)"})
+  void testSaveDeviceWithCredentials_thenStatusFourHundredFifteen() throws Exception {
+    // Arrange
+    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/device-with-credentials");
+    postResult.characterEncoding("https://example.org/example");
+    MockHttpServletRequestBuilder contentTypeResult = postResult.contentType(MediaType.APPLICATION_JSON);
+
+    ObjectMapper objectMapper = new ObjectMapper();
+    Device device = new Device();
+    MockHttpServletRequestBuilder requestBuilder = contentTypeResult.content(
+        objectMapper.writeValueAsString(new SaveDeviceWithCredentialsRequest(device, new DeviceCredentials())));
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(deviceController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().is(415));
+  }
+
   /**
    * Test {@link DeviceController#updateDeviceCredentials(DeviceCredentials)}.
    * <ul>
-   *   <li>Then throw {@link IncorrectParameterException}.</li>
+   *   <li>Then status four hundred fifteen.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DeviceController#updateDeviceCredentials(DeviceCredentials)}
+   * Method under test: {@link DeviceController#updateDeviceCredentials(DeviceCredentials)}
    */
   @Test
-  @DisplayName("Test updateDeviceCredentials(DeviceCredentials); then throw IncorrectParameterException")
-  void testUpdateDeviceCredentials_thenThrowIncorrectParameterException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test updateDeviceCredentials(DeviceCredentials); then status four hundred fifteen")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DeviceCredentials DeviceController.updateDeviceCredentials(DeviceCredentials)"})
+  void testUpdateDeviceCredentials_thenStatusFourHundredFifteen() throws Exception {
     // Arrange
-    JpaDeviceDao deviceDao = new JpaDeviceDao();
-    JpaDeviceCredentialsDao deviceCredentialsDao = new JpaDeviceCredentialsDao();
-    DeviceCredentialsServiceImpl deviceCredentialsService = new DeviceCredentialsServiceImpl(deviceCredentialsDao,
-        new DeviceCredentialsDataValidator());
+    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/device/credentials");
+    postResult.characterEncoding("https://example.org/example");
 
-    DeviceProfileServiceImpl deviceProfileService = new DeviceProfileServiceImpl();
-    BaseEventService eventService = new BaseEventService();
-    TenantServiceImpl tenantService = new TenantServiceImpl();
-    DeviceDataValidator deviceValidator = new DeviceDataValidator();
-    BaseEntityCountService countService = new BaseEntityCountService();
-    DeviceServiceImpl deviceService = new DeviceServiceImpl(deviceDao, deviceCredentialsService, deviceProfileService,
-        eventService, tenantService, deviceValidator, countService, new JpaExecutorService());
-
-    JpaDeviceDao deviceDao2 = new JpaDeviceDao();
-    DeviceProfileServiceImpl deviceProfileService2 = new DeviceProfileServiceImpl();
-    BaseEventService eventService2 = new BaseEventService();
-    TenantServiceImpl tenantService2 = new TenantServiceImpl();
-    DeviceDataValidator deviceValidator2 = new DeviceDataValidator();
-    BaseEntityCountService countService2 = new BaseEntityCountService();
-    DeviceServiceImpl deviceService2 = new DeviceServiceImpl(deviceDao2, null, deviceProfileService2, eventService2,
-        tenantService2, deviceValidator2, countService2, new JpaExecutorService());
-
-    JpaDeviceCredentialsDao deviceCredentialsDao2 = new JpaDeviceCredentialsDao();
-    DeviceCredentialsServiceImpl deviceCredentialsService2 = new DeviceCredentialsServiceImpl(deviceCredentialsDao2,
-        new DeviceCredentialsDataValidator());
-
-    DefaultTbDeviceService tbDeviceService = new DefaultTbDeviceService(deviceService2, deviceCredentialsService2,
-        new ClaimDevicesServiceImpl());
-
-    JpaDeviceCredentialsDao deviceCredentialsDao3 = new JpaDeviceCredentialsDao();
-    DeviceCredentialsServiceImpl deviceCredentialsService3 = new DeviceCredentialsServiceImpl(deviceCredentialsDao3,
-        new DeviceCredentialsDataValidator());
-
-    DeviceBulkImportService deviceBulkImportService = new DeviceBulkImportService(deviceService, tbDeviceService,
-        deviceCredentialsService3, new DeviceProfileServiceImpl());
-
-    JpaDeviceDao deviceDao3 = new JpaDeviceDao();
-    JpaDeviceCredentialsDao deviceCredentialsDao4 = new JpaDeviceCredentialsDao();
-    DeviceCredentialsServiceImpl deviceCredentialsService4 = new DeviceCredentialsServiceImpl(deviceCredentialsDao4,
-        new DeviceCredentialsDataValidator());
-
-    DeviceProfileServiceImpl deviceProfileService3 = new DeviceProfileServiceImpl();
-    BaseEventService eventService3 = new BaseEventService();
-    TenantServiceImpl tenantService3 = new TenantServiceImpl();
-    DeviceDataValidator deviceValidator3 = new DeviceDataValidator();
-    BaseEntityCountService countService3 = new BaseEntityCountService();
-    DeviceServiceImpl deviceService3 = new DeviceServiceImpl(deviceDao3, deviceCredentialsService4,
-        deviceProfileService3, eventService3, tenantService3, deviceValidator3, countService3,
-        new JpaExecutorService());
-
-    JpaDeviceCredentialsDao deviceCredentialsDao5 = new JpaDeviceCredentialsDao();
-    DeviceCredentialsServiceImpl deviceCredentialsService5 = new DeviceCredentialsServiceImpl(deviceCredentialsDao5,
-        new DeviceCredentialsDataValidator());
-
-    DeviceController deviceController = new DeviceController(deviceBulkImportService,
-        new DefaultTbDeviceService(deviceService3, deviceCredentialsService5, new ClaimDevicesServiceImpl()));
-    DeviceCredentials deviceCredentials = mock(DeviceCredentials.class);
-    when(deviceCredentials.getDeviceId()).thenThrow(new IncorrectParameterException("An error occurred"));
+    DeviceCredentials deviceCredentials = new DeviceCredentials();
+    deviceCredentials.setCreatedTime(1L);
+    deviceCredentials.setCredentialsId("42");
+    deviceCredentials.setCredentialsType(DeviceCredentialsType.ACCESS_TOKEN);
+    deviceCredentials.setCredentialsValue("42");
+    deviceCredentials.setDeviceId(null);
+    deviceCredentials.setId(new DeviceCredentialsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    deviceCredentials.setVersion(1L);
+    String content = (new ObjectMapper()).writeValueAsString(deviceCredentials);
+    MockHttpServletRequestBuilder requestBuilder = postResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
     // Act and Assert
-    assertThrows(IncorrectParameterException.class, () -> deviceController.updateDeviceCredentials(deviceCredentials));
-    verify(deviceCredentials).getDeviceId();
+    MockMvcBuilders.standaloneSetup(deviceController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().is(415));
+  }
+
+  /**
+   * Test {@link DeviceController#getTenantDevices(int, int, String, String, String, String)}.
+   * <p>
+   * Method under test: {@link DeviceController#getTenantDevices(int, int, String, String, String, String)}
+   */
+  @Test
+  @DisplayName("Test getTenantDevices(int, int, String, String, String, String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "org.thingsboard.server.common.data.page.PageData DeviceController.getTenantDevices(int, int, String, String, String, String)"})
+  void testGetTenantDevices() throws Exception {
+    // Arrange
+    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.get("/api/tenant/devices")
+        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(deviceController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().is(400));
+  }
+
+  /**
+   * Test {@link DeviceController#getTenantDeviceInfos(int, int, String, String, Boolean, String, String, String)}.
+   * <p>
+   * Method under test: {@link DeviceController#getTenantDeviceInfos(int, int, String, String, Boolean, String, String, String)}
+   */
+  @Test
+  @DisplayName("Test getTenantDeviceInfos(int, int, String, String, Boolean, String, String, String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "org.thingsboard.server.common.data.page.PageData DeviceController.getTenantDeviceInfos(int, int, String, String, Boolean, String, String, String)"})
+  void testGetTenantDeviceInfos() throws Exception {
+    // Arrange
+    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.get("/api/tenant/deviceInfos")
+        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(deviceController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().is(400));
+  }
+
+  /**
+   * Test {@link DeviceController#claimDevice(String, ClaimRequest)}.
+   * <p>
+   * Method under test: {@link DeviceController#claimDevice(String, ClaimRequest)}
+   */
+  @Test
+  @DisplayName("Test claimDevice(String, ClaimRequest)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "org.springframework.web.context.request.async.DeferredResult DeviceController.claimDevice(String, ClaimRequest)"})
+  void testClaimDevice() throws Exception {
+    // Arrange
+    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/customer/device/{deviceName}/claim",
+        "Device Name");
+    postResult.characterEncoding("https://example.org/example");
+    MockHttpServletRequestBuilder contentTypeResult = postResult.contentType(MediaType.APPLICATION_JSON);
+
+    ObjectMapper objectMapper = new ObjectMapper();
+    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
+        .content(objectMapper.writeValueAsString(new ClaimRequest(null)));
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(deviceController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().is(415));
   }
 }

@@ -1,7 +1,9 @@
 package org.thingsboard.server.controller.plugin;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,8 @@ class TbWebSocketTextMsgDiffblueTest {
    */
   @Test
   @DisplayName("Test getMsg()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String TbWebSocketTextMsg.getMsg()"})
   void testGetMsg() {
     // Arrange, Act and Assert
     assertEquals("", tbWebSocketTextMsg.getMsg());
@@ -37,6 +41,8 @@ class TbWebSocketTextMsgDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbWebSocketTextMsg.<init>(String)", "TbWebSocketMsgType TbWebSocketTextMsg.getType()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbWebSocketTextMsg actualTbWebSocketTextMsg = new TbWebSocketTextMsg("42");

@@ -4,14 +4,25 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Optional;
 import org.eclipse.leshan.core.request.ContentFormat;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.transport.lwm2m.server.LwM2MOperationType;
 import org.thingsboard.server.transport.lwm2m.server.downlink.TbLwM2MObserveRequest.TbLwM2MObserveRequestBuilder;
 
+@ContextConfiguration(classes = {TbLwM2MObserveRequestBuilder.class})
+@ExtendWith(SpringExtension.class)
 class TbLwM2MObserveRequestDiffblueTest {
+  @Autowired
+  private TbLwM2MObserveRequestBuilder tbLwM2MObserveRequestBuilder;
+
   /**
    * Test getters and setters.
    * <p>
@@ -23,9 +34,12 @@ class TbLwM2MObserveRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Optional TbLwM2MObserveRequest.getRequestContentFormat()",
+      "LwM2MOperationType TbLwM2MObserveRequest.getType()"})
   void testGettersAndSetters() {
     // Arrange
-    TbLwM2MObserveRequest.TbLwM2MObserveRequestBuilder builderResult = TbLwM2MObserveRequest.builder();
+    TbLwM2MObserveRequestBuilder builderResult = TbLwM2MObserveRequest.builder();
     ContentFormat requestContentFormat = ContentFormat.fromCode(1);
     TbLwM2MObserveRequest buildResult = builderResult.requestContentFormat(requestContentFormat)
         .timeout(10L)
@@ -42,24 +56,28 @@ class TbLwM2MObserveRequestDiffblueTest {
   }
 
   /**
-   * Test TbLwM2MObserveRequestBuilder
-   * {@link TbLwM2MObserveRequestBuilder#build()}.
+   * Test TbLwM2MObserveRequestBuilder {@link TbLwM2MObserveRequestBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TbLwM2MObserveRequest.TbLwM2MObserveRequestBuilder#build()}
-   *   <li>
-   * {@link TbLwM2MObserveRequest.TbLwM2MObserveRequestBuilder#requestContentFormat(ContentFormat)}
-   *   <li>{@link TbLwM2MObserveRequest.TbLwM2MObserveRequestBuilder#timeout(long)}
-   *   <li>
-   * {@link TbLwM2MObserveRequest.TbLwM2MObserveRequestBuilder#versionedId(String)}
+   *   <li>{@link TbLwM2MObserveRequestBuilder#build()}
+   *   <li>{@link TbLwM2MObserveRequestBuilder#requestContentFormat(ContentFormat)}
+   *   <li>{@link TbLwM2MObserveRequestBuilder#timeout(long)}
+   *   <li>{@link TbLwM2MObserveRequestBuilder#versionedId(String)}
    * </ul>
    */
   @Test
   @DisplayName("Test TbLwM2MObserveRequestBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbLwM2MObserveRequestBuilder.<init>()",
+      "TbLwM2MObserveRequest TbLwM2MObserveRequestBuilder.build()",
+      "TbLwM2MObserveRequestBuilder TbLwM2MObserveRequestBuilder.requestContentFormat(ContentFormat)",
+      "TbLwM2MObserveRequestBuilder TbLwM2MObserveRequestBuilder.timeout(long)",
+      "String TbLwM2MObserveRequestBuilder.toString()",
+      "TbLwM2MObserveRequestBuilder TbLwM2MObserveRequestBuilder.versionedId(String)"})
   void testTbLwM2MObserveRequestBuilderBuild() {
     // Arrange
-    TbLwM2MObserveRequest.TbLwM2MObserveRequestBuilder builderResult = TbLwM2MObserveRequest.builder();
+    TbLwM2MObserveRequestBuilder builderResult = TbLwM2MObserveRequest.builder();
     ContentFormat requestContentFormat = ContentFormat.fromCode(1);
 
     // Act

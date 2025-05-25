@@ -2,63 +2,40 @@ package org.thingsboard.server.service.security;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.atLeast;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.google.common.util.concurrent.FutureCallback;
-import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.aot.DisabledInAotMode;
-import org.thingsboard.script.api.ScriptStatCallback;
 import org.thingsboard.server.exception.AccessDeniedException;
 import org.thingsboard.server.exception.EntityNotFoundException;
 import org.thingsboard.server.exception.InternalErrorException;
 import org.thingsboard.server.exception.UnauthorizedException;
 
-@DisabledInAotMode
+@ExtendWith(MockitoExtension.class)
 class ValidationCallbackDiffblueTest {
-  @MockBean
+  @Mock
   private FutureCallback<Object> futureCallback;
 
-  /**
-   * Test {@link ValidationCallback#onSuccess(ValidationResult)} with
-   * {@code ValidationResult}.
-   * <ul>
-   *   <li>Given {@code OK}.</li>
-   *   <li>Then calls {@link ValidationResult#getResultCode()}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ValidationCallback#onSuccess(ValidationResult)}
-   */
-  @Test
-  @DisplayName("Test onSuccess(ValidationResult) with 'ValidationResult'; given 'OK'; then calls getResultCode()")
-  void testOnSuccessWithValidationResult_givenOk_thenCallsGetResultCode() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    AtomicInteger successMsgs = new AtomicInteger(1);
-    AtomicInteger timeoutMsgs = new AtomicInteger(1);
-    ValidationCallback<Object> validationCallback = new ValidationCallback<>("Response",
-        new ScriptStatCallback<>(successMsgs, timeoutMsgs, new AtomicInteger(1)));
-    ValidationResult result = mock(ValidationResult.class);
-    when(result.getResultCode()).thenReturn(ValidationResultCode.OK);
-
-    // Act
-    validationCallback.onSuccess(result);
-
-    // Assert
-    verify(result).getResultCode();
-  }
+  @InjectMocks
+  private ValidationCallback<Object> validationCallback;
 
   /**
-   * Test {@link ValidationCallback#onSuccess(ValidationResult)} with
-   * {@code ValidationResult}.
+   * Test {@link ValidationCallback#onSuccess(ValidationResult)} with {@code ValidationResult}.
    * <ul>
    *   <li>Then calls {@link ValidationResult#getMessage()}.</li>
    * </ul>
@@ -67,14 +44,11 @@ class ValidationCallbackDiffblueTest {
    */
   @Test
   @DisplayName("Test onSuccess(ValidationResult) with 'ValidationResult'; then calls getMessage()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ValidationCallback.onSuccess(ValidationResult)"})
   void testOnSuccessWithValidationResult_thenCallsGetMessage() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    AtomicInteger successMsgs = new AtomicInteger(1);
-    AtomicInteger timeoutMsgs = new AtomicInteger(1);
-    ValidationCallback<Object> validationCallback = new ValidationCallback<>("Response",
-        new ScriptStatCallback<>(successMsgs, timeoutMsgs, new AtomicInteger(1)));
+    doNothing().when(futureCallback).onFailure(Mockito.<Throwable>any());
     ValidationResult result = mock(ValidationResult.class);
     when(result.getMessage()).thenReturn("Not all who wander are lost");
     when(result.getResultCode()).thenReturn(ValidationResultCode.UNAUTHORIZED);
@@ -83,8 +57,127 @@ class ValidationCallbackDiffblueTest {
     validationCallback.onSuccess(result);
 
     // Assert
+    verify(futureCallback).onFailure(isA(Throwable.class));
     verify(result).getMessage();
     verify(result, atLeast(1)).getResultCode();
+  }
+
+  /**
+   * Test {@link ValidationCallback#onSuccess(ValidationResult)} with {@code ValidationResult}.
+   * <ul>
+   *   <li>Then calls {@link FutureCallback#onSuccess(Object)}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ValidationCallback#onSuccess(ValidationResult)}
+   */
+  @Test
+  @DisplayName("Test onSuccess(ValidationResult) with 'ValidationResult'; then calls onSuccess(Object)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ValidationCallback.onSuccess(ValidationResult)"})
+  void testOnSuccessWithValidationResult_thenCallsOnSuccess() {
+    // Arrange
+    doNothing().when(futureCallback).onSuccess(Mockito.<Object>any());
+    ValidationResult result = mock(ValidationResult.class);
+    when(result.getResultCode()).thenReturn(ValidationResultCode.OK);
+
+    // Act
+    validationCallback.onSuccess(result);
+
+    // Assert
+    verify(futureCallback).onSuccess(isA(Object.class));
+    verify(result).getResultCode();
+  }
+
+  /**
+   * Test {@link ValidationCallback#onSuccess(ValidationResult)} with {@code ValidationResult}.
+   * <ul>
+   *   <li>When accessDenied {@code Not all who wander are lost}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ValidationCallback#onSuccess(ValidationResult)}
+   */
+  @Test
+  @DisplayName("Test onSuccess(ValidationResult) with 'ValidationResult'; when accessDenied 'Not all who wander are lost'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ValidationCallback.onSuccess(ValidationResult)"})
+  void testOnSuccessWithValidationResult_whenAccessDeniedNotAllWhoWanderAreLost() {
+    // Arrange
+    doNothing().when(futureCallback).onFailure(Mockito.<Throwable>any());
+    ValidationResult<Object> result = ValidationResult.accessDenied("Not all who wander are lost");
+
+    // Act
+    validationCallback.onSuccess(result);
+
+    // Assert
+    verify(futureCallback).onFailure(isA(Throwable.class));
+  }
+
+  /**
+   * Test {@link ValidationCallback#onSuccess(ValidationResult)} with {@code ValidationResult}.
+   * <ul>
+   *   <li>When entityNotFound {@code Not all who wander are lost}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ValidationCallback#onSuccess(ValidationResult)}
+   */
+  @Test
+  @DisplayName("Test onSuccess(ValidationResult) with 'ValidationResult'; when entityNotFound 'Not all who wander are lost'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ValidationCallback.onSuccess(ValidationResult)"})
+  void testOnSuccessWithValidationResult_whenEntityNotFoundNotAllWhoWanderAreLost() {
+    // Arrange
+    doNothing().when(futureCallback).onFailure(Mockito.<Throwable>any());
+    ValidationResult<Object> result = ValidationResult.entityNotFound("Not all who wander are lost");
+
+    // Act
+    validationCallback.onSuccess(result);
+
+    // Assert
+    verify(futureCallback).onFailure(isA(Throwable.class));
+  }
+
+  /**
+   * Test {@link ValidationCallback#onSuccess(ValidationResult)} with {@code ValidationResult}.
+   * <ul>
+   *   <li>When internalError {@code Not all who wander are lost}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ValidationCallback#onSuccess(ValidationResult)}
+   */
+  @Test
+  @DisplayName("Test onSuccess(ValidationResult) with 'ValidationResult'; when internalError 'Not all who wander are lost'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ValidationCallback.onSuccess(ValidationResult)"})
+  void testOnSuccessWithValidationResult_whenInternalErrorNotAllWhoWanderAreLost() {
+    // Arrange
+    doNothing().when(futureCallback).onFailure(Mockito.<Throwable>any());
+    ValidationResult<Object> result = ValidationResult.internalError("Not all who wander are lost");
+
+    // Act
+    validationCallback.onSuccess(result);
+
+    // Assert
+    verify(futureCallback).onFailure(isA(Throwable.class));
+  }
+
+  /**
+   * Test {@link ValidationCallback#onFailure(Throwable)}.
+   * <p>
+   * Method under test: {@link ValidationCallback#onFailure(Throwable)}
+   */
+  @Test
+  @DisplayName("Test onFailure(Throwable)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ValidationCallback.onFailure(Throwable)"})
+  void testOnFailure() {
+    // Arrange
+    doNothing().when(futureCallback).onFailure(Mockito.<Throwable>any());
+
+    // Act
+    validationCallback.onFailure(new Throwable());
+
+    // Assert
+    verify(futureCallback).onFailure(isA(Throwable.class));
   }
 
   /**
@@ -98,6 +191,8 @@ class ValidationCallbackDiffblueTest {
    */
   @Test
   @DisplayName("Test getException(ValidationResult); given 'Not all who wander are lost'; then calls getMessage()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Exception ValidationCallback.getException(ValidationResult)"})
   void testGetException_givenNotAllWhoWanderAreLost_thenCallsGetMessage() {
     // Arrange
     ValidationResult result = mock(ValidationResult.class);
@@ -133,6 +228,8 @@ class ValidationCallbackDiffblueTest {
    */
   @Test
   @DisplayName("Test getException(ValidationResult); given 'OK'; then return LocalizedMessage is 'Permission denied.'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Exception ValidationCallback.getException(ValidationResult)"})
   void testGetException_givenOk_thenReturnLocalizedMessageIsPermissionDenied() {
     // Arrange
     ValidationResult result = mock(ValidationResult.class);
@@ -167,6 +264,8 @@ class ValidationCallbackDiffblueTest {
    */
   @Test
   @DisplayName("Test getException(ValidationResult); then return AccessDeniedException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Exception ValidationCallback.getException(ValidationResult)"})
   void testGetException_thenReturnAccessDeniedException() {
     // Arrange
     ValidationResult<Object> result = ValidationResult.accessDenied("Not all who wander are lost");
@@ -197,6 +296,8 @@ class ValidationCallbackDiffblueTest {
    */
   @Test
   @DisplayName("Test getException(ValidationResult); then return EntityNotFoundException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Exception ValidationCallback.getException(ValidationResult)"})
   void testGetException_thenReturnEntityNotFoundException() {
     // Arrange
     ValidationResult<Object> result = ValidationResult.entityNotFound("Not all who wander are lost");
@@ -227,6 +328,8 @@ class ValidationCallbackDiffblueTest {
    */
   @Test
   @DisplayName("Test getException(ValidationResult); then return InternalErrorException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Exception ValidationCallback.getException(ValidationResult)"})
   void testGetException_thenReturnInternalErrorException() {
     // Arrange
     ValidationResult<Object> result = ValidationResult.internalError("Not all who wander are lost");

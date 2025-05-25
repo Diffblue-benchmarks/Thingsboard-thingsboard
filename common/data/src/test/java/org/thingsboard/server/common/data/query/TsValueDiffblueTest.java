@@ -3,7 +3,9 @@ package org.thingsboard.server.common.data.query;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TsValueDiffblueTest {
@@ -14,6 +16,8 @@ class TsValueDiffblueTest {
    */
   @Test
   @DisplayName("Test new TsValue(long, String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TsValue.<init>(long, String)"})
   void testNewTsValue() {
     // Arrange and Act
     TsValue actualTsValue = new TsValue(1L, "42");
@@ -31,6 +35,8 @@ class TsValueDiffblueTest {
    */
   @Test
   @DisplayName("Test new TsValue(long, String, Long)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TsValue.<init>(long, String, Long)"})
   void testNewTsValue2() {
     // Arrange and Act
     TsValue actualTsValue = new TsValue(1L, "42", 3L);
@@ -56,6 +62,8 @@ class TsValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsValue.equals(Object)", "int TsValue.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TsValue tsValue = TsValue.EMPTY;
@@ -82,6 +90,8 @@ class TsValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsValue.equals(Object)", "int TsValue.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TsValue tsValue = new TsValue(1L, "42");
@@ -108,6 +118,8 @@ class TsValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsValue.equals(Object)", "int TsValue.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TsValue tsValue = new TsValue(1L, "42", 3L);
@@ -134,6 +146,8 @@ class TsValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsValue.equals(Object)", "int TsValue.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TsValue tsValue = TsValue.EMPTY;
@@ -155,11 +169,11 @@ class TsValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsValue.equals(Object)", "int TsValue.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TsValue(1L, "42"), TsValue.EMPTY);
-    assertNotEquals(new TsValue(0L, "42"), TsValue.EMPTY);
-    assertNotEquals(new TsValue(0L, null), TsValue.EMPTY);
   }
 
   /**
@@ -173,7 +187,27 @@ class TsValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsValue.equals(Object)", "int TsValue.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange, Act and Assert
+    assertNotEquals(new TsValue(0L, "42"), TsValue.EMPTY);
+  }
+
+  /**
+   * Test {@link TsValue#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link TsValue#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsValue.equals(Object)", "int TsValue.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TsValue tsValue = new TsValue(1L, "42");
 
@@ -192,7 +226,27 @@ class TsValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsValue.equals(Object)", "int TsValue.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+    // Arrange, Act and Assert
+    assertNotEquals(new TsValue(0L, null), TsValue.EMPTY);
+  }
+
+  /**
+   * Test {@link TsValue#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link TsValue#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsValue.equals(Object)", "int TsValue.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TsValue tsValue = new TsValue(1L, "42", 3L);
 
@@ -211,6 +265,8 @@ class TsValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsValue.equals(Object)", "int TsValue.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(TsValue.EMPTY, null);
@@ -227,6 +283,8 @@ class TsValueDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TsValue.equals(Object)", "int TsValue.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(TsValue.EMPTY, "Different type to TsValue");
@@ -245,6 +303,9 @@ class TsValueDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Long TsValue.getCount()", "long TsValue.getTs()", "String TsValue.getValue()",
+      "String TsValue.toString()"})
   void testGettersAndSetters() {
     // Arrange
     TsValue tsValue = new TsValue(1L, "42");

@@ -5,11 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.thingsboard.server.common.data.notification.targets.slack.SlackConversation;
 import org.thingsboard.server.common.data.notification.targets.slack.SlackConversationType;
 
@@ -21,6 +20,8 @@ class TbSlackNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbSlackNodeConfiguration TbSlackNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
     // Arrange and Act
     TbSlackNodeConfiguration actualDefaultConfigurationResult = (new TbSlackNodeConfiguration()).defaultConfiguration();
@@ -35,8 +36,7 @@ class TbSlackNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSlackNodeConfiguration#equals(Object)}, and
-   * {@link TbSlackNodeConfiguration#hashCode()}.
+   * Test {@link TbSlackNodeConfiguration#equals(Object)}, and {@link TbSlackNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -50,6 +50,8 @@ class TbSlackNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSlackNodeConfiguration.equals(Object)", "int TbSlackNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbSlackNodeConfiguration tbSlackNodeConfiguration = new TbSlackNodeConfiguration();
@@ -62,8 +64,145 @@ class TbSlackNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSlackNodeConfiguration#equals(Object)}, and
-   * {@link TbSlackNodeConfiguration#hashCode()}.
+   * Test {@link TbSlackNodeConfiguration#equals(Object)}, and {@link TbSlackNodeConfiguration#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link TbSlackNodeConfiguration#equals(Object)}
+   *   <li>{@link TbSlackNodeConfiguration#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSlackNodeConfiguration.equals(Object)", "int TbSlackNodeConfiguration.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    TbSlackNodeConfiguration tbSlackNodeConfiguration = new TbSlackNodeConfiguration();
+    tbSlackNodeConfiguration.setBotToken("ABC123");
+
+    TbSlackNodeConfiguration tbSlackNodeConfiguration2 = new TbSlackNodeConfiguration();
+    tbSlackNodeConfiguration2.setBotToken("ABC123");
+
+    // Act and Assert
+    assertEquals(tbSlackNodeConfiguration, tbSlackNodeConfiguration2);
+    int expectedHashCodeResult = tbSlackNodeConfiguration.hashCode();
+    assertEquals(expectedHashCodeResult, tbSlackNodeConfiguration2.hashCode());
+  }
+
+  /**
+   * Test {@link TbSlackNodeConfiguration#equals(Object)}, and {@link TbSlackNodeConfiguration#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link TbSlackNodeConfiguration#equals(Object)}
+   *   <li>{@link TbSlackNodeConfiguration#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSlackNodeConfiguration.equals(Object)", "int TbSlackNodeConfiguration.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+    // Arrange
+    TbSlackNodeConfiguration tbSlackNodeConfiguration = new TbSlackNodeConfiguration();
+    tbSlackNodeConfiguration.setMessageTemplate("Message Template");
+
+    TbSlackNodeConfiguration tbSlackNodeConfiguration2 = new TbSlackNodeConfiguration();
+    tbSlackNodeConfiguration2.setMessageTemplate("Message Template");
+
+    // Act and Assert
+    assertEquals(tbSlackNodeConfiguration, tbSlackNodeConfiguration2);
+    int expectedHashCodeResult = tbSlackNodeConfiguration.hashCode();
+    assertEquals(expectedHashCodeResult, tbSlackNodeConfiguration2.hashCode());
+  }
+
+  /**
+   * Test {@link TbSlackNodeConfiguration#equals(Object)}, and {@link TbSlackNodeConfiguration#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link TbSlackNodeConfiguration#equals(Object)}
+   *   <li>{@link TbSlackNodeConfiguration#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSlackNodeConfiguration.equals(Object)", "int TbSlackNodeConfiguration.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
+    // Arrange
+    TbSlackNodeConfiguration tbSlackNodeConfiguration = new TbSlackNodeConfiguration();
+    tbSlackNodeConfiguration.setConversationType(SlackConversationType.DIRECT);
+
+    TbSlackNodeConfiguration tbSlackNodeConfiguration2 = new TbSlackNodeConfiguration();
+    tbSlackNodeConfiguration2.setConversationType(SlackConversationType.DIRECT);
+
+    // Act and Assert
+    assertEquals(tbSlackNodeConfiguration, tbSlackNodeConfiguration2);
+    int expectedHashCodeResult = tbSlackNodeConfiguration.hashCode();
+    assertEquals(expectedHashCodeResult, tbSlackNodeConfiguration2.hashCode());
+  }
+
+  /**
+   * Test {@link TbSlackNodeConfiguration#equals(Object)}, and {@link TbSlackNodeConfiguration#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link TbSlackNodeConfiguration#equals(Object)}
+   *   <li>{@link TbSlackNodeConfiguration#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSlackNodeConfiguration.equals(Object)", "int TbSlackNodeConfiguration.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
+    // Arrange
+    TbSlackNodeConfiguration tbSlackNodeConfiguration = new TbSlackNodeConfiguration();
+    SlackConversation conversation = SlackConversation.builder()
+        .email("jane.doe@example.org")
+        .id("42")
+        .name("Name")
+        .type(SlackConversationType.DIRECT)
+        .wholeName("Whole Name")
+        .build();
+    tbSlackNodeConfiguration.setConversation(conversation);
+
+    TbSlackNodeConfiguration tbSlackNodeConfiguration2 = new TbSlackNodeConfiguration();
+    SlackConversation conversation2 = SlackConversation.builder()
+        .email("jane.doe@example.org")
+        .id("42")
+        .name("Name")
+        .type(SlackConversationType.DIRECT)
+        .wholeName("Whole Name")
+        .build();
+    tbSlackNodeConfiguration2.setConversation(conversation2);
+
+    // Act and Assert
+    assertEquals(tbSlackNodeConfiguration, tbSlackNodeConfiguration2);
+    int expectedHashCodeResult = tbSlackNodeConfiguration.hashCode();
+    assertEquals(expectedHashCodeResult, tbSlackNodeConfiguration2.hashCode());
+  }
+
+  /**
+   * Test {@link TbSlackNodeConfiguration#equals(Object)}, and {@link TbSlackNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -77,6 +216,8 @@ class TbSlackNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSlackNodeConfiguration.equals(Object)", "int TbSlackNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbSlackNodeConfiguration tbSlackNodeConfiguration = new TbSlackNodeConfiguration();
@@ -98,6 +239,8 @@ class TbSlackNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSlackNodeConfiguration.equals(Object)", "int TbSlackNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbSlackNodeConfiguration(), 1);
@@ -114,6 +257,8 @@ class TbSlackNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSlackNodeConfiguration.equals(Object)", "int TbSlackNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbSlackNodeConfiguration tbSlackNodeConfiguration = new TbSlackNodeConfiguration();
@@ -134,6 +279,8 @@ class TbSlackNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSlackNodeConfiguration.equals(Object)", "int TbSlackNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbSlackNodeConfiguration tbSlackNodeConfiguration = new TbSlackNodeConfiguration();
@@ -154,6 +301,8 @@ class TbSlackNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSlackNodeConfiguration.equals(Object)", "int TbSlackNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbSlackNodeConfiguration tbSlackNodeConfiguration = new TbSlackNodeConfiguration();
@@ -174,6 +323,8 @@ class TbSlackNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSlackNodeConfiguration.equals(Object)", "int TbSlackNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbSlackNodeConfiguration tbSlackNodeConfiguration = new TbSlackNodeConfiguration();
@@ -194,6 +345,8 @@ class TbSlackNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSlackNodeConfiguration.equals(Object)", "int TbSlackNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbSlackNodeConfiguration tbSlackNodeConfiguration = new TbSlackNodeConfiguration();
@@ -221,6 +374,8 @@ class TbSlackNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSlackNodeConfiguration.equals(Object)", "int TbSlackNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TbSlackNodeConfiguration tbSlackNodeConfiguration = new TbSlackNodeConfiguration();
@@ -243,6 +398,8 @@ class TbSlackNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSlackNodeConfiguration.equals(Object)", "int TbSlackNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TbSlackNodeConfiguration tbSlackNodeConfiguration = new TbSlackNodeConfiguration();
@@ -265,6 +422,8 @@ class TbSlackNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSlackNodeConfiguration.equals(Object)", "int TbSlackNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     TbSlackNodeConfiguration tbSlackNodeConfiguration = new TbSlackNodeConfiguration();
@@ -287,6 +446,8 @@ class TbSlackNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSlackNodeConfiguration.equals(Object)", "int TbSlackNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     TbSlackNodeConfiguration tbSlackNodeConfiguration = new TbSlackNodeConfiguration();
@@ -308,36 +469,6 @@ class TbSlackNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbSlackNodeConfiguration#equals(Object)}.
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbSlackNodeConfiguration#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
-    // Arrange
-    SlackConversation.SlackConversationBuilder slackConversationBuilder = mock(
-        SlackConversation.SlackConversationBuilder.class);
-    when(slackConversationBuilder.email(Mockito.<String>any())).thenReturn(SlackConversation.builder());
-    SlackConversation conversation = slackConversationBuilder.email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
-
-    TbSlackNodeConfiguration tbSlackNodeConfiguration = new TbSlackNodeConfiguration();
-    tbSlackNodeConfiguration.setConversation(conversation);
-
-    // Act and Assert
-    assertNotEquals(tbSlackNodeConfiguration, new TbSlackNodeConfiguration());
-  }
-
-  /**
-   * Test {@link TbSlackNodeConfiguration#equals(Object)}.
-   * <ul>
    *   <li>When other is {@code null}.</li>
    *   <li>Then return not equal.</li>
    * </ul>
@@ -346,6 +477,8 @@ class TbSlackNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSlackNodeConfiguration.equals(Object)", "int TbSlackNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbSlackNodeConfiguration(), null);
@@ -362,6 +495,8 @@ class TbSlackNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSlackNodeConfiguration.equals(Object)", "int TbSlackNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbSlackNodeConfiguration(), "Different type to TbSlackNodeConfiguration");
@@ -375,8 +510,7 @@ class TbSlackNodeConfigurationDiffblueTest {
    *   <li>default or parameterless constructor of {@link TbSlackNodeConfiguration}
    *   <li>{@link TbSlackNodeConfiguration#setBotToken(String)}
    *   <li>{@link TbSlackNodeConfiguration#setConversation(SlackConversation)}
-   *   <li>
-   * {@link TbSlackNodeConfiguration#setConversationType(SlackConversationType)}
+   *   <li>{@link TbSlackNodeConfiguration#setConversationType(SlackConversationType)}
    *   <li>{@link TbSlackNodeConfiguration#setMessageTemplate(String)}
    *   <li>{@link TbSlackNodeConfiguration#setUseSystemSettings(boolean)}
    *   <li>{@link TbSlackNodeConfiguration#toString()}
@@ -389,6 +523,16 @@ class TbSlackNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbSlackNodeConfiguration.<init>()", "String TbSlackNodeConfiguration.getBotToken()",
+      "SlackConversation TbSlackNodeConfiguration.getConversation()",
+      "SlackConversationType TbSlackNodeConfiguration.getConversationType()",
+      "String TbSlackNodeConfiguration.getMessageTemplate()", "boolean TbSlackNodeConfiguration.isUseSystemSettings()",
+      "void TbSlackNodeConfiguration.setBotToken(String)",
+      "void TbSlackNodeConfiguration.setConversation(SlackConversation)",
+      "void TbSlackNodeConfiguration.setConversationType(SlackConversationType)",
+      "void TbSlackNodeConfiguration.setMessageTemplate(String)",
+      "void TbSlackNodeConfiguration.setUseSystemSettings(boolean)", "String TbSlackNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbSlackNodeConfiguration actualTbSlackNodeConfiguration = new TbSlackNodeConfiguration();
@@ -410,7 +554,7 @@ class TbSlackNodeConfigurationDiffblueTest {
     SlackConversationType actualConversationType = actualTbSlackNodeConfiguration.getConversationType();
     String actualMessageTemplate = actualTbSlackNodeConfiguration.getMessageTemplate();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("ABC123", actualBotToken);
     assertEquals("Message Template", actualMessageTemplate);
     assertEquals("TbSlackNodeConfiguration(botToken=ABC123, useSystemSettings=true, messageTemplate=Message Template,"

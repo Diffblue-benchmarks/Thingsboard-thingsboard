@@ -2,7 +2,9 @@ package org.thingsboard.rule.engine.geo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class PerimeterDiffblueTest {
@@ -21,6 +23,8 @@ class PerimeterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Perimeter.equals(Object)", "int Perimeter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     Perimeter perimeter = new Perimeter();
@@ -60,6 +64,8 @@ class PerimeterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Perimeter.equals(Object)", "int Perimeter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     Perimeter perimeter = new Perimeter();
@@ -99,6 +105,8 @@ class PerimeterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Perimeter.equals(Object)", "int Perimeter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     Perimeter perimeter = new Perimeter();
@@ -138,6 +146,8 @@ class PerimeterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Perimeter.equals(Object)", "int Perimeter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     Perimeter perimeter = new Perimeter();
@@ -177,6 +187,8 @@ class PerimeterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Perimeter.equals(Object)", "int Perimeter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     Perimeter perimeter = new Perimeter();
@@ -216,6 +228,8 @@ class PerimeterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Perimeter.equals(Object)", "int Perimeter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual6() {
     // Arrange
     Perimeter perimeter = new Perimeter();
@@ -243,6 +257,47 @@ class PerimeterDiffblueTest {
   /**
    * Test {@link Perimeter#equals(Object)}, and {@link Perimeter#hashCode()}.
    * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link Perimeter#equals(Object)}
+   *   <li>{@link Perimeter#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Perimeter.equals(Object)", "int Perimeter.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual7() {
+    // Arrange
+    Perimeter perimeter = new Perimeter();
+    perimeter.setCenterLatitude(10.0d);
+    perimeter.setCenterLongitude(10.0d);
+    perimeter.setPerimeterType(PerimeterType.CIRCLE);
+    perimeter.setPolygonsDefinition("Polygons Definition");
+    perimeter.setRange(10.0d);
+    perimeter.setRangeUnit(null);
+
+    Perimeter perimeter2 = new Perimeter();
+    perimeter2.setCenterLatitude(10.0d);
+    perimeter2.setCenterLongitude(10.0d);
+    perimeter2.setPerimeterType(PerimeterType.CIRCLE);
+    perimeter2.setPolygonsDefinition("Polygons Definition");
+    perimeter2.setRange(10.0d);
+    perimeter2.setRangeUnit(null);
+
+    // Act and Assert
+    assertEquals(perimeter, perimeter2);
+    int expectedHashCodeResult = perimeter.hashCode();
+    assertEquals(expectedHashCodeResult, perimeter2.hashCode());
+  }
+
+  /**
+   * Test {@link Perimeter#equals(Object)}, and {@link Perimeter#hashCode()}.
+   * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
    * </ul>
@@ -255,6 +310,8 @@ class PerimeterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Perimeter.equals(Object)", "int Perimeter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     Perimeter perimeter = new Perimeter();
@@ -282,6 +339,8 @@ class PerimeterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Perimeter.equals(Object)", "int Perimeter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     Perimeter perimeter = new Perimeter();
@@ -315,6 +374,8 @@ class PerimeterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Perimeter.equals(Object)", "int Perimeter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     Perimeter perimeter = new Perimeter();
@@ -348,6 +409,8 @@ class PerimeterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Perimeter.equals(Object)", "int Perimeter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     Perimeter perimeter = new Perimeter();
@@ -381,6 +444,8 @@ class PerimeterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Perimeter.equals(Object)", "int Perimeter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     Perimeter perimeter = new Perimeter();
@@ -414,6 +479,8 @@ class PerimeterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Perimeter.equals(Object)", "int Perimeter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     Perimeter perimeter = new Perimeter();
@@ -447,6 +514,8 @@ class PerimeterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Perimeter.equals(Object)", "int Perimeter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     Perimeter perimeter = new Perimeter();
@@ -480,6 +549,8 @@ class PerimeterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Perimeter.equals(Object)", "int Perimeter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     Perimeter perimeter = new Perimeter();
@@ -513,6 +584,8 @@ class PerimeterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Perimeter.equals(Object)", "int Perimeter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     Perimeter perimeter = new Perimeter();
@@ -546,6 +619,8 @@ class PerimeterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Perimeter.equals(Object)", "int Perimeter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     Perimeter perimeter = new Perimeter();
@@ -579,6 +654,8 @@ class PerimeterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Perimeter.equals(Object)", "int Perimeter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     Perimeter perimeter = new Perimeter();
@@ -612,6 +689,8 @@ class PerimeterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Perimeter.equals(Object)", "int Perimeter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     Perimeter perimeter = new Perimeter();
@@ -645,6 +724,8 @@ class PerimeterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Perimeter.equals(Object)", "int Perimeter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     Perimeter perimeter = new Perimeter();
@@ -678,6 +759,8 @@ class PerimeterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Perimeter.equals(Object)", "int Perimeter.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     Perimeter perimeter = new Perimeter();
@@ -703,6 +786,8 @@ class PerimeterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Perimeter.equals(Object)", "int Perimeter.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     Perimeter perimeter = new Perimeter();
@@ -740,6 +825,13 @@ class PerimeterDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Perimeter.<init>()", "Double Perimeter.getCenterLatitude()",
+      "Double Perimeter.getCenterLongitude()", "PerimeterType Perimeter.getPerimeterType()",
+      "String Perimeter.getPolygonsDefinition()", "Double Perimeter.getRange()", "RangeUnit Perimeter.getRangeUnit()",
+      "void Perimeter.setCenterLatitude(Double)", "void Perimeter.setCenterLongitude(Double)",
+      "void Perimeter.setPerimeterType(PerimeterType)", "void Perimeter.setPolygonsDefinition(String)",
+      "void Perimeter.setRange(Double)", "void Perimeter.setRangeUnit(RangeUnit)", "String Perimeter.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     Perimeter actualPerimeter = new Perimeter();
@@ -757,7 +849,7 @@ class PerimeterDiffblueTest {
     Double actualRange = actualPerimeter.getRange();
     RangeUnit actualRangeUnit = actualPerimeter.getRangeUnit();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Perimeter(perimeterType=CIRCLE, polygonsDefinition=Polygons Definition, centerLatitude=10.0,"
         + " centerLongitude=10.0, range=10.0, rangeUnit=METER)", actualToStringResult);
     assertEquals("Polygons Definition", actualPolygonsDefinition);

@@ -6,11 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.EntityId;
@@ -21,14 +22,15 @@ class DashboardInfoDiffblueTest {
    * Test {@link DashboardInfo#DashboardInfo(DashboardInfo)}.
    * <ul>
    *   <li>Given {@code true}.</li>
-   *   <li>When {@link DashboardInfo#DashboardInfo()} MobileHide is
-   * {@code true}.</li>
+   *   <li>When {@link DashboardInfo#DashboardInfo()} MobileHide is {@code true}.</li>
    * </ul>
    * <p>
    * Method under test: {@link DashboardInfo#DashboardInfo(DashboardInfo)}
    */
   @Test
   @DisplayName("Test new DashboardInfo(DashboardInfo); given 'true'; when DashboardInfo() MobileHide is 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DashboardInfo.<init>(DashboardInfo)"})
   void testNewDashboardInfo_givenTrue_whenDashboardInfoMobileHideIsTrue() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
@@ -48,6 +50,8 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test new DashboardInfo(DashboardInfo); when DashboardInfo()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DashboardInfo.<init>(DashboardInfo)"})
   void testNewDashboardInfo_whenDashboardInfo() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
@@ -63,6 +67,8 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"org.thingsboard.server.common.data.id.DashboardId DashboardInfo.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
     assertNull((new DashboardInfo()).getId());
@@ -75,6 +81,8 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getCreatedTime()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DashboardInfo.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
     assertEquals(0L, (new DashboardInfo()).getCreatedTime());
@@ -91,6 +99,8 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isAssignedToCustomer(CustomerId); given DashboardInfo(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.isAssignedToCustomer(CustomerId)"})
   void testIsAssignedToCustomer_givenDashboardInfo_thenReturnFalse() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
@@ -110,6 +120,8 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isAssignedToCustomer(CustomerId); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.isAssignedToCustomer(CustomerId)"})
   void testIsAssignedToCustomer_thenReturnFalse() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
@@ -130,6 +142,8 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isAssignedToCustomer(CustomerId); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.isAssignedToCustomer(CustomerId)"})
   void testIsAssignedToCustomer_thenReturnTrue() {
     // Arrange
     HashSet<ShortCustomerInfo> assignedCustomers = new HashSet<>();
@@ -151,6 +165,8 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getAssignedCustomerInfo(CustomerId)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ShortCustomerInfo DashboardInfo.getAssignedCustomerInfo(CustomerId)"})
   void testGetAssignedCustomerInfo() {
     // Arrange
     HashSet<ShortCustomerInfo> assignedCustomers = new HashSet<>();
@@ -170,8 +186,7 @@ class DashboardInfoDiffblueTest {
   /**
    * Test {@link DashboardInfo#getAssignedCustomerInfo(CustomerId)}.
    * <ul>
-   *   <li>Given {@link CustomerId#CustomerId(UUID)} with id is
-   * {@link EntityId#NULL_UUID}.</li>
+   *   <li>Given {@link CustomerId#CustomerId(UUID)} with id is {@link EntityId#NULL_UUID}.</li>
    *   <li>Then return {@code null}.</li>
    * </ul>
    * <p>
@@ -179,6 +194,8 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getAssignedCustomerInfo(CustomerId); given CustomerId(UUID) with id is NULL_UUID; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ShortCustomerInfo DashboardInfo.getAssignedCustomerInfo(CustomerId)"})
   void testGetAssignedCustomerInfo_givenCustomerIdWithIdIsNull_uuid_thenReturnNull() {
     // Arrange
     HashSet<ShortCustomerInfo> assignedCustomers = new HashSet<>();
@@ -203,6 +220,8 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getAssignedCustomerInfo(CustomerId); given DashboardInfo(); then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ShortCustomerInfo DashboardInfo.getAssignedCustomerInfo(CustomerId)"})
   void testGetAssignedCustomerInfo_givenDashboardInfo_thenReturnNull() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
@@ -222,6 +241,8 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getAssignedCustomerInfo(CustomerId); then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ShortCustomerInfo DashboardInfo.getAssignedCustomerInfo(CustomerId)"})
   void testGetAssignedCustomerInfo_thenReturnNull() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
@@ -234,9 +255,30 @@ class DashboardInfoDiffblueTest {
 
   /**
    * Test {@link DashboardInfo#addAssignedCustomer(Customer)}.
+   * <p>
+   * Method under test: {@link DashboardInfo#addAssignedCustomer(Customer)}
+   */
+  @Test
+  @DisplayName("Test addAssignedCustomer(Customer)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.addAssignedCustomer(Customer)"})
+  void testAddAssignedCustomer() {
+    // Arrange
+    DashboardInfo dashboardInfo = new DashboardInfo();
+
+    // Act
+    boolean actualAddAssignedCustomerResult = dashboardInfo.addAssignedCustomer(
+        new Customer(new Customer(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))));
+
+    // Assert
+    assertEquals(1, dashboardInfo.getAssignedCustomers().size());
+    assertTrue(actualAddAssignedCustomerResult);
+  }
+
+  /**
+   * Test {@link DashboardInfo#addAssignedCustomer(Customer)}.
    * <ul>
-   *   <li>Given {@link DashboardInfo#DashboardInfo()} AssignedCustomers is
-   * {@code null}.</li>
+   *   <li>Given {@link DashboardInfo#DashboardInfo()} AssignedCustomers is {@code null}.</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
@@ -244,6 +286,8 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test addAssignedCustomer(Customer); given DashboardInfo() AssignedCustomers is 'null'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.addAssignedCustomer(Customer)"})
   void testAddAssignedCustomer_givenDashboardInfoAssignedCustomersIsNull_thenReturnTrue() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
@@ -263,6 +307,37 @@ class DashboardInfoDiffblueTest {
   /**
    * Test {@link DashboardInfo#addAssignedCustomer(Customer)}.
    * <ul>
+   *   <li>Then {@link DashboardInfo#DashboardInfo()} AssignedCustomers is {@link HashSet#HashSet()}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DashboardInfo#addAssignedCustomer(Customer)}
+   */
+  @Test
+  @DisplayName("Test addAssignedCustomer(Customer); then DashboardInfo() AssignedCustomers is HashSet()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.addAssignedCustomer(Customer)"})
+  void testAddAssignedCustomer_thenDashboardInfoAssignedCustomersIsHashSet() {
+    // Arrange
+    DashboardInfo dashboardInfo = new DashboardInfo();
+    HashSet<ShortCustomerInfo> assignedCustomers = new HashSet<>();
+    dashboardInfo.setAssignedCustomers(assignedCustomers);
+
+    Customer customer = new Customer();
+    customer.setId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    // Act
+    boolean actualAddAssignedCustomerResult = dashboardInfo.addAssignedCustomer(customer);
+
+    // Assert
+    Set<ShortCustomerInfo> assignedCustomers2 = dashboardInfo.getAssignedCustomers();
+    assertEquals(1, assignedCustomers2.size());
+    assertTrue(actualAddAssignedCustomerResult);
+    assertSame(assignedCustomers, assignedCustomers2);
+  }
+
+  /**
+   * Test {@link DashboardInfo#addAssignedCustomer(Customer)}.
+   * <ul>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
@@ -270,6 +345,8 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test addAssignedCustomer(Customer); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.addAssignedCustomer(Customer)"})
   void testAddAssignedCustomer_thenReturnFalse() {
     // Arrange
     HashSet<ShortCustomerInfo> assignedCustomers = new HashSet<>();
@@ -293,41 +370,14 @@ class DashboardInfoDiffblueTest {
   }
 
   /**
-   * Test {@link DashboardInfo#addAssignedCustomer(Customer)}.
-   * <ul>
-   *   <li>Then return {@code true}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link DashboardInfo#addAssignedCustomer(Customer)}
-   */
-  @Test
-  @DisplayName("Test addAssignedCustomer(Customer); then return 'true'")
-  void testAddAssignedCustomer_thenReturnTrue() {
-    // Arrange
-    DashboardInfo dashboardInfo = new DashboardInfo();
-    HashSet<ShortCustomerInfo> assignedCustomers = new HashSet<>();
-    dashboardInfo.setAssignedCustomers(assignedCustomers);
-
-    Customer customer = new Customer();
-    customer.setId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-
-    // Act
-    boolean actualAddAssignedCustomerResult = dashboardInfo.addAssignedCustomer(customer);
-
-    // Assert
-    Set<ShortCustomerInfo> assignedCustomers2 = dashboardInfo.getAssignedCustomers();
-    assertEquals(1, assignedCustomers2.size());
-    assertTrue(actualAddAssignedCustomerResult);
-    assertSame(assignedCustomers, assignedCustomers2);
-  }
-
-  /**
    * Test {@link DashboardInfo#updateAssignedCustomer(Customer)}.
    * <p>
    * Method under test: {@link DashboardInfo#updateAssignedCustomer(Customer)}
    */
   @Test
   @DisplayName("Test updateAssignedCustomer(Customer)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.updateAssignedCustomer(Customer)"})
   void testUpdateAssignedCustomer() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
@@ -352,6 +402,8 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test updateAssignedCustomer(Customer); given DashboardInfo(); when Customer(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.updateAssignedCustomer(Customer)"})
   void testUpdateAssignedCustomer_givenDashboardInfo_whenCustomer_thenReturnFalse() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
@@ -370,6 +422,8 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test updateAssignedCustomer(Customer); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.updateAssignedCustomer(Customer)"})
   void testUpdateAssignedCustomer_thenReturnTrue() {
     // Arrange
     HashSet<ShortCustomerInfo> assignedCustomers = new HashSet<>();
@@ -389,8 +443,7 @@ class DashboardInfoDiffblueTest {
   /**
    * Test {@link DashboardInfo#updateAssignedCustomer(Customer)}.
    * <ul>
-   *   <li>When {@link Customer#Customer(Customer)} with customer is
-   * {@link Customer#Customer()}.</li>
+   *   <li>When {@link Customer#Customer(Customer)} with customer is {@link Customer#Customer()}.</li>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
@@ -398,6 +451,8 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test updateAssignedCustomer(Customer); when Customer(Customer) with customer is Customer(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.updateAssignedCustomer(Customer)"})
   void testUpdateAssignedCustomer_whenCustomerWithCustomerIsCustomer_thenReturnFalse() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
@@ -416,6 +471,8 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test removeAssignedCustomer(Customer); then DashboardInfo() AssignedCustomers Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.removeAssignedCustomer(Customer)"})
   void testRemoveAssignedCustomer_thenDashboardInfoAssignedCustomersEmpty() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
@@ -439,6 +496,8 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test removeAssignedCustomer(Customer); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.removeAssignedCustomer(Customer)"})
   void testRemoveAssignedCustomer_thenReturnTrue() {
     // Arrange
     HashSet<ShortCustomerInfo> assignedCustomers = new HashSet<>();
@@ -462,14 +521,15 @@ class DashboardInfoDiffblueTest {
   /**
    * Test {@link DashboardInfo#removeAssignedCustomer(Customer)}.
    * <ul>
-   *   <li>When {@link Customer#Customer(Customer)} with customer is
-   * {@link Customer#Customer()}.</li>
+   *   <li>When {@link Customer#Customer(Customer)} with customer is {@link Customer#Customer()}.</li>
    * </ul>
    * <p>
    * Method under test: {@link DashboardInfo#removeAssignedCustomer(Customer)}
    */
   @Test
   @DisplayName("Test removeAssignedCustomer(Customer); when Customer(Customer) with customer is Customer()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.removeAssignedCustomer(Customer)"})
   void testRemoveAssignedCustomer_whenCustomerWithCustomerIsCustomer() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
@@ -486,14 +546,15 @@ class DashboardInfoDiffblueTest {
    * Test {@link DashboardInfo#removeAssignedCustomer(Customer)}.
    * <ul>
    *   <li>When {@link Customer#Customer()}.</li>
-   *   <li>Then {@link DashboardInfo#DashboardInfo()} AssignedCustomers is
-   * {@code null}.</li>
+   *   <li>Then {@link DashboardInfo#DashboardInfo()} AssignedCustomers is {@code null}.</li>
    * </ul>
    * <p>
    * Method under test: {@link DashboardInfo#removeAssignedCustomer(Customer)}
    */
   @Test
   @DisplayName("Test removeAssignedCustomer(Customer); when Customer(); then DashboardInfo() AssignedCustomers is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.removeAssignedCustomer(Customer)"})
   void testRemoveAssignedCustomer_whenCustomer_thenDashboardInfoAssignedCustomersIsNull() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
@@ -507,8 +568,7 @@ class DashboardInfoDiffblueTest {
   }
 
   /**
-   * Test {@link DashboardInfo#equals(Object)}, and
-   * {@link DashboardInfo#hashCode()}.
+   * Test {@link DashboardInfo#equals(Object)}, and {@link DashboardInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -522,6 +582,8 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.equals(Object)", "int DashboardInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
@@ -534,8 +596,7 @@ class DashboardInfoDiffblueTest {
   }
 
   /**
-   * Test {@link DashboardInfo#equals(Object)}, and
-   * {@link DashboardInfo#hashCode()}.
+   * Test {@link DashboardInfo#equals(Object)}, and {@link DashboardInfo#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -549,6 +610,8 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.equals(Object)", "int DashboardInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
@@ -570,6 +633,8 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.equals(Object)", "int DashboardInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     Dashboard dashboard = new Dashboard();
@@ -589,23 +654,9 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.equals(Object)", "int DashboardInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange, Act and Assert
-    assertNotEquals(new DashboardInfo(), mock(AdminSettings.class));
-  }
-
-  /**
-   * Test {@link DashboardInfo#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link DashboardInfo#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
     dashboardInfo.setTenantId(TenantId.SYS_TENANT_ID);
@@ -625,7 +676,9 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.equals(Object)", "int DashboardInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
     dashboardInfo.setTitle("Dr");
@@ -645,7 +698,9 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.equals(Object)", "int DashboardInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
     dashboardInfo.setImage("Image");
@@ -665,7 +720,9 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.equals(Object)", "int DashboardInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
     dashboardInfo.setAssignedCustomers(new HashSet<>());
@@ -685,7 +742,9 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.equals(Object)", "int DashboardInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
     dashboardInfo.setMobileHide(true);
@@ -705,7 +764,9 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.equals(Object)", "int DashboardInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
     dashboardInfo.setMobileOrder(1);
@@ -725,7 +786,9 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.equals(Object)", "int DashboardInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     DashboardInfo dashboardInfo = new DashboardInfo();
     dashboardInfo.setCreatedTime(1L);
@@ -745,6 +808,8 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.equals(Object)", "int DashboardInfo.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DashboardInfo(), null);
@@ -761,6 +826,8 @@ class DashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DashboardInfo.equals(Object)", "int DashboardInfo.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DashboardInfo(), "Different type to DashboardInfo");

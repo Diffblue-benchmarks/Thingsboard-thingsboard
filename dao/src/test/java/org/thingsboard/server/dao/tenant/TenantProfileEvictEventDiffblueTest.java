@@ -2,15 +2,16 @@ package org.thingsboard.server.dao.tenant;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import java.util.UUID;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.common.data.id.TenantProfileId;
-import org.thingsboard.server.dao.model.ModelConstants;
 
 public class TenantProfileEvictEventDiffblueTest {
   /**
-   * Test {@link TenantProfileEvictEvent#equals(Object)}, and
-   * {@link TenantProfileEvictEvent#hashCode()}.
+   * Test {@link TenantProfileEvictEvent#equals(Object)}, and {@link TenantProfileEvictEvent#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -23,6 +24,8 @@ public class TenantProfileEvictEventDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TenantProfileEvictEvent.equals(Object)", "int TenantProfileEvictEvent.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TenantProfileEvictEvent tenantProfileEvictEvent = new TenantProfileEvictEvent(null, true);
@@ -35,8 +38,7 @@ public class TenantProfileEvictEventDiffblueTest {
   }
 
   /**
-   * Test {@link TenantProfileEvictEvent#equals(Object)}, and
-   * {@link TenantProfileEvictEvent#hashCode()}.
+   * Test {@link TenantProfileEvictEvent#equals(Object)}, and {@link TenantProfileEvictEvent#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -49,12 +51,14 @@ public class TenantProfileEvictEventDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TenantProfileEvictEvent.equals(Object)", "int TenantProfileEvictEvent.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TenantProfileEvictEvent tenantProfileEvictEvent = new TenantProfileEvictEvent(
-        new TenantProfileId(ModelConstants.NULL_UUID), true);
+        new TenantProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), true);
     TenantProfileEvictEvent tenantProfileEvictEvent2 = new TenantProfileEvictEvent(
-        new TenantProfileId(ModelConstants.NULL_UUID), true);
+        new TenantProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), true);
 
     // Act and Assert
     assertEquals(tenantProfileEvictEvent, tenantProfileEvictEvent2);
@@ -72,9 +76,12 @@ public class TenantProfileEvictEventDiffblueTest {
    * Method under test: {@link TenantProfileEvictEvent#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TenantProfileEvictEvent.equals(Object)", "int TenantProfileEvictEvent.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    TenantProfileEvictEvent tenantProfileEvictEvent = new TenantProfileEvictEvent(mock(TenantProfileId.class), true);
+    TenantProfileEvictEvent tenantProfileEvictEvent = new TenantProfileEvictEvent(
+        new TenantProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), true);
 
     // Act and Assert
     assertNotEquals(tenantProfileEvictEvent, new TenantProfileEvictEvent(null, true));
@@ -90,24 +97,11 @@ public class TenantProfileEvictEventDiffblueTest {
    * Method under test: {@link TenantProfileEvictEvent#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TenantProfileEvictEvent.equals(Object)", "int TenantProfileEvictEvent.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange, Act and Assert
-    assertNotEquals(new TenantProfileEvictEvent(mock(TenantProfileId.class), true), "42");
-  }
-
-  /**
-   * Test {@link TenantProfileEvictEvent#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TenantProfileEvictEvent#equals(Object)}
-   */
-  @Test
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TenantProfileEvictEvent tenantProfileEvictEvent = new TenantProfileEvictEvent(mock(TenantProfileId.class), false);
+    TenantProfileEvictEvent tenantProfileEvictEvent = new TenantProfileEvictEvent(null, false);
 
     // Act and Assert
     assertNotEquals(tenantProfileEvictEvent, new TenantProfileEvictEvent(null, true));
@@ -123,12 +117,31 @@ public class TenantProfileEvictEventDiffblueTest {
    * Method under test: {@link TenantProfileEvictEvent#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TenantProfileEvictEvent.equals(Object)", "int TenantProfileEvictEvent.hashCode()"})
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+    // Arrange, Act and Assert
+    assertNotEquals(new TenantProfileEvictEvent(null, true), 1);
+  }
+
+  /**
+   * Test {@link TenantProfileEvictEvent#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link TenantProfileEvictEvent#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TenantProfileEvictEvent.equals(Object)", "int TenantProfileEvictEvent.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TenantProfileEvictEvent tenantProfileEvictEvent = new TenantProfileEvictEvent(null, true);
 
     // Act and Assert
-    assertNotEquals(tenantProfileEvictEvent,
-        new TenantProfileEvictEvent(new TenantProfileId(ModelConstants.NULL_UUID), true));
+    assertNotEquals(tenantProfileEvictEvent, new TenantProfileEvictEvent(
+        new TenantProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), true));
   }
 }

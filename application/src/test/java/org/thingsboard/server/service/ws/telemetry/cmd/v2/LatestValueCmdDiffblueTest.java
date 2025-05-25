@@ -4,18 +4,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.query.EntityKey;
 import org.thingsboard.server.common.data.query.EntityKeyType;
 
 class LatestValueCmdDiffblueTest {
   /**
-   * Test {@link LatestValueCmd#equals(Object)}, and
-   * {@link LatestValueCmd#hashCode()}.
+   * Test {@link LatestValueCmd#equals(Object)}, and {@link LatestValueCmd#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -29,6 +29,8 @@ class LatestValueCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LatestValueCmd.equals(Object)", "int LatestValueCmd.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     LatestValueCmd latestValueCmd = new LatestValueCmd();
@@ -44,8 +46,7 @@ class LatestValueCmdDiffblueTest {
   }
 
   /**
-   * Test {@link LatestValueCmd#equals(Object)}, and
-   * {@link LatestValueCmd#hashCode()}.
+   * Test {@link LatestValueCmd#equals(Object)}, and {@link LatestValueCmd#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -59,6 +60,8 @@ class LatestValueCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LatestValueCmd.equals(Object)", "int LatestValueCmd.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     LatestValueCmd latestValueCmd = new LatestValueCmd();
@@ -81,36 +84,12 @@ class LatestValueCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LatestValueCmd.equals(Object)", "int LatestValueCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ArrayList<EntityKey> keys = new ArrayList<>();
     keys.add(new EntityKey(EntityKeyType.ATTRIBUTE, "Key"));
-
-    LatestValueCmd latestValueCmd = new LatestValueCmd();
-    latestValueCmd.setKeys(keys);
-
-    LatestValueCmd latestValueCmd2 = new LatestValueCmd();
-    latestValueCmd2.setKeys(new ArrayList<>());
-
-    // Act and Assert
-    assertNotEquals(latestValueCmd, latestValueCmd2);
-  }
-
-  /**
-   * Test {@link LatestValueCmd#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link LatestValueCmd#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange
-    ArrayList<EntityKey> keys = new ArrayList<>();
-    keys.add(mock(EntityKey.class));
 
     LatestValueCmd latestValueCmd = new LatestValueCmd();
     latestValueCmd.setKeys(keys);
@@ -133,6 +112,8 @@ class LatestValueCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LatestValueCmd.equals(Object)", "int LatestValueCmd.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     LatestValueCmd latestValueCmd = new LatestValueCmd();
@@ -153,6 +134,8 @@ class LatestValueCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LatestValueCmd.equals(Object)", "int LatestValueCmd.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     LatestValueCmd latestValueCmd = new LatestValueCmd();
@@ -175,6 +158,9 @@ class LatestValueCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LatestValueCmd.<init>()", "List LatestValueCmd.getKeys()",
+      "void LatestValueCmd.setKeys(List)", "String LatestValueCmd.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     LatestValueCmd actualLatestValueCmd = new LatestValueCmd();
@@ -183,7 +169,7 @@ class LatestValueCmdDiffblueTest {
     String actualToStringResult = actualLatestValueCmd.toString();
     List<EntityKey> actualKeys = actualLatestValueCmd.getKeys();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("LatestValueCmd(keys=[])", actualToStringResult);
     assertTrue(actualKeys.isEmpty());
     assertSame(keys, actualKeys);

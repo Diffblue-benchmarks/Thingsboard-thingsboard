@@ -3,8 +3,12 @@ package org.thingsboard.server.dao.aspect;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import java.util.UUID;
 import java.util.concurrent.ConcurrentMap;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.dao.model.ModelConstants;
@@ -13,13 +17,14 @@ public class DbCallStatsDiffblueTest {
   /**
    * Test {@link DbCallStats#onMethodCall(String, boolean, long)}.
    * <ul>
-   *   <li>Then {@link DbCallStats#DbCallStats(TenantId)} with tenantId is
-   * {@link ModelConstants#SYSTEM_TENANT} SuccessCalls is one.</li>
+   *   <li>Then {@link DbCallStats#DbCallStats(TenantId)} with tenantId is {@link ModelConstants#SYSTEM_TENANT} SuccessCalls is one.</li>
    * </ul>
    * <p>
    * Method under test: {@link DbCallStats#onMethodCall(String, boolean, long)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DbCallStats.onMethodCall(String, boolean, long)"})
   public void testOnMethodCall_thenDbCallStatsWithTenantIdIsSystem_tenantSuccessCallsIsOne() {
     // Arrange
     DbCallStats dbCallStats = new DbCallStats(ModelConstants.SYSTEM_TENANT);
@@ -37,13 +42,14 @@ public class DbCallStatsDiffblueTest {
   /**
    * Test {@link DbCallStats#onMethodCall(String, boolean, long)}.
    * <ul>
-   *   <li>Then {@link DbCallStats#DbCallStats(TenantId)} with tenantId is
-   * {@link ModelConstants#SYSTEM_TENANT} SuccessCalls is zero.</li>
+   *   <li>Then {@link DbCallStats#DbCallStats(TenantId)} with tenantId is {@link ModelConstants#SYSTEM_TENANT} SuccessCalls is zero.</li>
    * </ul>
    * <p>
    * Method under test: {@link DbCallStats#onMethodCall(String, boolean, long)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DbCallStats.onMethodCall(String, boolean, long)"})
   public void testOnMethodCall_thenDbCallStatsWithTenantIdIsSystem_tenantSuccessCallsIsZero() {
     // Arrange
     DbCallStats dbCallStats = new DbCallStats(ModelConstants.SYSTEM_TENANT);
@@ -64,6 +70,8 @@ public class DbCallStatsDiffblueTest {
    * Method under test: {@link DbCallStats#snapshot()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"DbCallStatsSnapshot DbCallStats.snapshot()"})
   public void testSnapshot() {
     // Arrange and Act
     DbCallStatsSnapshot actualSnapshotResult = (new DbCallStats(ModelConstants.SYSTEM_TENANT)).snapshot();
@@ -95,6 +103,8 @@ public class DbCallStatsDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DbCallStats.equals(Object)", "int DbCallStats.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DbCallStats dbCallStats = new DbCallStats(ModelConstants.SYSTEM_TENANT);
@@ -115,6 +125,8 @@ public class DbCallStatsDiffblueTest {
    * Method under test: {@link DbCallStats#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DbCallStats.equals(Object)", "int DbCallStats.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     DbCallStats dbCallStats = new DbCallStats(ModelConstants.SYSTEM_TENANT);
@@ -133,7 +145,29 @@ public class DbCallStatsDiffblueTest {
    * Method under test: {@link DbCallStats#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DbCallStats.equals(Object)", "int DbCallStats.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    DbCallStats dbCallStats = new DbCallStats(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    // Act and Assert
+    assertNotEquals(dbCallStats, new DbCallStats(ModelConstants.SYSTEM_TENANT));
+  }
+
+  /**
+   * Test {@link DbCallStats#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DbCallStats#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DbCallStats.equals(Object)", "int DbCallStats.hashCode()"})
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DbCallStats dbCallStats = new DbCallStats(null);
 
@@ -151,24 +185,8 @@ public class DbCallStatsDiffblueTest {
    * Method under test: {@link DbCallStats#equals(Object)}
    */
   @Test
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
-    // Arrange
-    DbCallStats dbCallStats = new DbCallStats(ModelConstants.SYSTEM_TENANT);
-
-    // Act and Assert
-    assertNotEquals(dbCallStats, new DbCallStats(null));
-  }
-
-  /**
-   * Test {@link DbCallStats#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link DbCallStats#equals(Object)}
-   */
-  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DbCallStats.equals(Object)", "int DbCallStats.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     DbCallStats dbCallStats = new DbCallStats(null);
@@ -187,6 +205,8 @@ public class DbCallStatsDiffblueTest {
    * Method under test: {@link DbCallStats#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DbCallStats.equals(Object)", "int DbCallStats.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DbCallStats(ModelConstants.SYSTEM_TENANT), null);
@@ -202,6 +222,8 @@ public class DbCallStatsDiffblueTest {
    * Method under test: {@link DbCallStats#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DbCallStats.equals(Object)", "int DbCallStats.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DbCallStats(ModelConstants.SYSTEM_TENANT), "Different type to DbCallStats");

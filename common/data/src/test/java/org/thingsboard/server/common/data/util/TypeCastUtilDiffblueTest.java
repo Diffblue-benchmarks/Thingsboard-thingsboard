@@ -1,36 +1,18 @@
 package org.thingsboard.server.common.data.util;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.kv.DataType;
 
 class TypeCastUtilDiffblueTest {
-  /**
-   * Test {@link TypeCastUtil#castValue(String)}.
-   * <ul>
-   *   <li>When {@code 42}.</li>
-   *   <li>Then return Key is {@code LONG}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castValue(String)}
-   */
-  @Test
-  @DisplayName("Test castValue(String); when '42'; then return Key is 'LONG'")
-  void testCastValue_when42_thenReturnKeyIsLong() {
-    // Arrange and Act
-    Pair<DataType, Object> actualCastValueResult = TypeCastUtil.castValue("42");
-
-    // Assert
-    assertTrue(actualCastValueResult instanceof ImmutablePair);
-    assertEquals(DataType.LONG, actualCastValueResult.getKey());
-    assertEquals(DataType.LONG, actualCastValueResult.getLeft());
-  }
-
   /**
    * Test {@link TypeCastUtil#castValue(String)}.
    * <ul>
@@ -42,6 +24,8 @@ class TypeCastUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test castValue(String); when '.42'; then return Right doubleValue is '0.42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castValue(String)"})
   void testCastValue_when42_thenReturnRightDoubleValueIs042() {
     // Arrange and Act
     Pair<DataType, Object> actualCastValueResult = TypeCastUtil.castValue(".42");
@@ -65,6 +49,8 @@ class TypeCastUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test castValue(String); when '42.'; then return Right doubleValue is forty-two")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castValue(String)"})
   void testCastValue_when42_thenReturnRightDoubleValueIsFortyTwo() {
     // Arrange and Act
     Pair<DataType, Object> actualCastValueResult = TypeCastUtil.castValue("42.");
@@ -88,6 +74,8 @@ class TypeCastUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test castValue(String); when '..42'; then return Right is '..42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castValue(String)"})
   void testCastValue_when42_thenReturnRightIs42() {
     // Arrange and Act
     Pair<DataType, Object> actualCastValueResult = TypeCastUtil.castValue("..42");
@@ -103,6 +91,31 @@ class TypeCastUtilDiffblueTest {
   /**
    * Test {@link TypeCastUtil#castValue(String)}.
    * <ul>
+   *   <li>When {@code 42}.</li>
+   *   <li>Then return Right longValue is forty-two.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link TypeCastUtil#castValue(String)}
+   */
+  @Test
+  @DisplayName("Test castValue(String); when '42'; then return Right longValue is forty-two")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castValue(String)"})
+  void testCastValue_when42_thenReturnRightLongValueIsFortyTwo() {
+    // Arrange and Act
+    Pair<DataType, Object> actualCastValueResult = TypeCastUtil.castValue("42");
+
+    // Assert
+    assertTrue(actualCastValueResult instanceof ImmutablePair);
+    assertEquals(42L, ((Long) actualCastValueResult.getRight()).longValue());
+    assertEquals(42L, ((Long) actualCastValueResult.getValue()).longValue());
+    assertEquals(DataType.LONG, actualCastValueResult.getKey());
+    assertEquals(DataType.LONG, actualCastValueResult.getLeft());
+  }
+
+  /**
+   * Test {@link TypeCastUtil#castValue(String)}.
+   * <ul>
    *   <li>When {@code 42E42}.</li>
    *   <li>Then return Right is {@code 42E42}.</li>
    * </ul>
@@ -111,6 +124,8 @@ class TypeCastUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test castValue(String); when '42E42'; then return Right is '42E42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castValue(String)"})
   void testCastValue_when42e42_thenReturnRightIs42e42() {
     // Arrange and Act
     Pair<DataType, Object> actualCastValueResult = TypeCastUtil.castValue("42E42");
@@ -134,6 +149,8 @@ class TypeCastUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test castValue(String); when '42E.'; then return Right is '42E.'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castValue(String)"})
   void testCastValue_when42e_thenReturnRightIs42e() {
     // Arrange and Act
     Pair<DataType, Object> actualCastValueResult = TypeCastUtil.castValue("42E.");
@@ -157,6 +174,8 @@ class TypeCastUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test castValue(String); when '..'; then return Right is '..'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castValue(String)"})
   void testCastValue_whenDotDot_thenReturnRightIsDotDot() {
     // Arrange and Act
     Pair<DataType, Object> actualCastValueResult = TypeCastUtil.castValue("..");
@@ -180,6 +199,8 @@ class TypeCastUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test castValue(String); when '.'; then return Right is '.'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castValue(String)"})
   void testCastValue_whenDot_thenReturnRightIsDot() {
     // Arrange and Act
     Pair<DataType, Object> actualCastValueResult = TypeCastUtil.castValue(".");
@@ -203,6 +224,8 @@ class TypeCastUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test castValue(String); when 'E42'; then return Right is 'E42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castValue(String)"})
   void testCastValue_whenE42_thenReturnRightIsE42() {
     // Arrange and Act
     Pair<DataType, Object> actualCastValueResult = TypeCastUtil.castValue("E42");
@@ -226,6 +249,8 @@ class TypeCastUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test castValue(String); when 'e42'; then return Right is 'e42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castValue(String)"})
   void testCastValue_whenE42_thenReturnRightIsE422() {
     // Arrange and Act
     Pair<DataType, Object> actualCastValueResult = TypeCastUtil.castValue("e42");
@@ -249,6 +274,8 @@ class TypeCastUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test castValue(String); when 'E'; then return Right is 'E'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castValue(String)"})
   void testCastValue_whenE_thenReturnRightIsE() {
     // Arrange and Act
     Pair<DataType, Object> actualCastValueResult = TypeCastUtil.castValue("E");
@@ -272,6 +299,8 @@ class TypeCastUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test castValue(String); when 'e'; then return Right is 'e'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castValue(String)"})
   void testCastValue_whenE_thenReturnRightIsE2() {
     // Arrange and Act
     Pair<DataType, Object> actualCastValueResult = TypeCastUtil.castValue("e");
@@ -295,6 +324,8 @@ class TypeCastUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test castValue(String); when empty string; then return Right is empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castValue(String)"})
   void testCastValue_whenEmptyString_thenReturnRightIsEmptyString() {
     // Arrange and Act
     Pair<DataType, Object> actualCastValueResult = TypeCastUtil.castValue("");
@@ -311,14 +342,16 @@ class TypeCastUtilDiffblueTest {
    * Test {@link TypeCastUtil#castValue(String)}.
    * <ul>
    *   <li>When {@link Boolean#FALSE} toString.</li>
-   *   <li>Then return Key is {@code BOOLEAN}.</li>
+   *   <li>Then return not Right.</li>
    * </ul>
    * <p>
    * Method under test: {@link TypeCastUtil#castValue(String)}
    */
   @Test
-  @DisplayName("Test castValue(String); when FALSE toString; then return Key is 'BOOLEAN'")
-  void testCastValue_whenFalseToString_thenReturnKeyIsBoolean() {
+  @DisplayName("Test castValue(String); when FALSE toString; then return not Right")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castValue(String)"})
+  void testCastValue_whenFalseToString_thenReturnNotRight() {
     // Arrange and Act
     Pair<DataType, Object> actualCastValueResult = TypeCastUtil.castValue(Boolean.FALSE.toString());
 
@@ -326,20 +359,24 @@ class TypeCastUtilDiffblueTest {
     assertTrue(actualCastValueResult instanceof ImmutablePair);
     assertEquals(DataType.BOOLEAN, actualCastValueResult.getKey());
     assertEquals(DataType.BOOLEAN, actualCastValueResult.getLeft());
+    assertFalse((Boolean) actualCastValueResult.getRight());
+    assertFalse((Boolean) actualCastValueResult.getValue());
   }
 
   /**
    * Test {@link TypeCastUtil#castValue(String)}.
    * <ul>
    *   <li>When {@link Boolean#TRUE} toString.</li>
-   *   <li>Then return Key is {@code BOOLEAN}.</li>
+   *   <li>Then return Right.</li>
    * </ul>
    * <p>
    * Method under test: {@link TypeCastUtil#castValue(String)}
    */
   @Test
-  @DisplayName("Test castValue(String); when TRUE toString; then return Key is 'BOOLEAN'")
-  void testCastValue_whenTrueToString_thenReturnKeyIsBoolean() {
+  @DisplayName("Test castValue(String); when TRUE toString; then return Right")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castValue(String)"})
+  void testCastValue_whenTrueToString_thenReturnRight() {
     // Arrange and Act
     Pair<DataType, Object> actualCastValueResult = TypeCastUtil.castValue(Boolean.TRUE.toString());
 
@@ -347,27 +384,8 @@ class TypeCastUtilDiffblueTest {
     assertTrue(actualCastValueResult instanceof ImmutablePair);
     assertEquals(DataType.BOOLEAN, actualCastValueResult.getKey());
     assertEquals(DataType.BOOLEAN, actualCastValueResult.getLeft());
-  }
-
-  /**
-   * Test {@link TypeCastUtil#castToNumber(String)}.
-   * <ul>
-   *   <li>When {@code 42}.</li>
-   *   <li>Then return Key is {@code LONG}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castToNumber(String)}
-   */
-  @Test
-  @DisplayName("Test castToNumber(String); when '42'; then return Key is 'LONG'")
-  void testCastToNumber_when42_thenReturnKeyIsLong() {
-    // Arrange and Act
-    Pair<DataType, Number> actualCastToNumberResult = TypeCastUtil.castToNumber("42");
-
-    // Assert
-    assertTrue(actualCastToNumberResult instanceof ImmutablePair);
-    assertEquals(DataType.LONG, actualCastToNumberResult.getKey());
-    assertEquals(DataType.LONG, actualCastToNumberResult.getLeft());
+    assertTrue((Boolean) actualCastValueResult.getRight());
+    assertTrue((Boolean) actualCastValueResult.getValue());
   }
 
   /**
@@ -381,6 +399,8 @@ class TypeCastUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test castToNumber(String); when '.42'; then return Right doubleValue is '0.42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castToNumber(String)"})
   void testCastToNumber_when42_thenReturnRightDoubleValueIs042() {
     // Arrange and Act
     Pair<DataType, Number> actualCastToNumberResult = TypeCastUtil.castToNumber(".42");
@@ -404,6 +424,8 @@ class TypeCastUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test castToNumber(String); when '42.'; then return Right doubleValue is forty-two")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castToNumber(String)"})
   void testCastToNumber_when42_thenReturnRightDoubleValueIsFortyTwo() {
     // Arrange and Act
     Pair<DataType, Number> actualCastToNumberResult = TypeCastUtil.castToNumber("42.");
@@ -419,6 +441,31 @@ class TypeCastUtilDiffblueTest {
   /**
    * Test {@link TypeCastUtil#castToNumber(String)}.
    * <ul>
+   *   <li>When {@code 42}.</li>
+   *   <li>Then return Right longValue is forty-two.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link TypeCastUtil#castToNumber(String)}
+   */
+  @Test
+  @DisplayName("Test castToNumber(String); when '42'; then return Right longValue is forty-two")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castToNumber(String)"})
+  void testCastToNumber_when42_thenReturnRightLongValueIsFortyTwo() {
+    // Arrange and Act
+    Pair<DataType, Number> actualCastToNumberResult = TypeCastUtil.castToNumber("42");
+
+    // Assert
+    assertTrue(actualCastToNumberResult instanceof ImmutablePair);
+    assertEquals(42L, actualCastToNumberResult.getRight().longValue());
+    assertEquals(42L, actualCastToNumberResult.getValue().longValue());
+    assertEquals(DataType.LONG, actualCastToNumberResult.getKey());
+    assertEquals(DataType.LONG, actualCastToNumberResult.getLeft());
+  }
+
+  /**
+   * Test {@link TypeCastUtil#castToNumber(String)}.
+   * <ul>
    *   <li>When {@code ..42}.</li>
    *   <li>Then throw {@link IllegalArgumentException}.</li>
    * </ul>
@@ -427,6 +474,8 @@ class TypeCastUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test castToNumber(String); when '..42'; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castToNumber(String)"})
   void testCastToNumber_when42_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class, () -> TypeCastUtil.castToNumber("..42"));
@@ -443,6 +492,8 @@ class TypeCastUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test castToNumber(String); when '42E.'; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castToNumber(String)"})
   void testCastToNumber_when42e_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class, () -> TypeCastUtil.castToNumber("42E."));
@@ -452,19 +503,23 @@ class TypeCastUtilDiffblueTest {
    * Test {@link TypeCastUtil#castToNumber(String)}.
    * <ul>
    *   <li>When {@code 4242}.</li>
-   *   <li>Then return Key is {@code LONG}.</li>
+   *   <li>Then return Right longValue is {@code 4242}.</li>
    * </ul>
    * <p>
    * Method under test: {@link TypeCastUtil#castToNumber(String)}
    */
   @Test
-  @DisplayName("Test castToNumber(String); when '4242'; then return Key is 'LONG'")
-  void testCastToNumber_when4242_thenReturnKeyIsLong() {
+  @DisplayName("Test castToNumber(String); when '4242'; then return Right longValue is '4242'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castToNumber(String)"})
+  void testCastToNumber_when4242_thenReturnRightLongValueIs4242() {
     // Arrange and Act
     Pair<DataType, Number> actualCastToNumberResult = TypeCastUtil.castToNumber("4242");
 
     // Assert
     assertTrue(actualCastToNumberResult instanceof ImmutablePair);
+    assertEquals(4242L, actualCastToNumberResult.getRight().longValue());
+    assertEquals(4242L, actualCastToNumberResult.getValue().longValue());
     assertEquals(DataType.LONG, actualCastToNumberResult.getKey());
     assertEquals(DataType.LONG, actualCastToNumberResult.getLeft());
   }
@@ -480,6 +535,8 @@ class TypeCastUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test castToNumber(String); when '..'; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castToNumber(String)"})
   void testCastToNumber_whenDotDot_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class, () -> TypeCastUtil.castToNumber(".."));
@@ -496,6 +553,8 @@ class TypeCastUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test castToNumber(String); when '.'; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castToNumber(String)"})
   void testCastToNumber_whenDot_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class, () -> TypeCastUtil.castToNumber("."));
@@ -512,9 +571,28 @@ class TypeCastUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test castToNumber(String); when 'E42'; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castToNumber(String)"})
   void testCastToNumber_whenE42_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class, () -> TypeCastUtil.castToNumber("E42"));
+  }
+
+  /**
+   * Test {@link TypeCastUtil#castToNumber(String)}.
+   * <ul>
+   *   <li>When {@code e42}.</li>
+   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link TypeCastUtil#castToNumber(String)}
+   */
+  @Test
+  @DisplayName("Test castToNumber(String); when 'e42'; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castToNumber(String)"})
+  void testCastToNumber_whenE42_thenThrowIllegalArgumentException2() {
+    // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class, () -> TypeCastUtil.castToNumber("e42"));
   }
 
@@ -529,9 +607,28 @@ class TypeCastUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test castToNumber(String); when 'E'; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castToNumber(String)"})
   void testCastToNumber_whenE_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class, () -> TypeCastUtil.castToNumber("E"));
+  }
+
+  /**
+   * Test {@link TypeCastUtil#castToNumber(String)}.
+   * <ul>
+   *   <li>When {@code e}.</li>
+   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link TypeCastUtil#castToNumber(String)}
+   */
+  @Test
+  @DisplayName("Test castToNumber(String); when 'e'; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castToNumber(String)"})
+  void testCastToNumber_whenE_thenThrowIllegalArgumentException2() {
+    // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class, () -> TypeCastUtil.castToNumber("e"));
   }
 
@@ -546,6 +643,8 @@ class TypeCastUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test castToNumber(String); when empty string; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castToNumber(String)"})
   void testCastToNumber_whenEmptyString_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class, () -> TypeCastUtil.castToNumber(""));
@@ -562,6 +661,8 @@ class TypeCastUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test castToNumber(String); when 'Value'; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Pair TypeCastUtil.castToNumber(String)"})
   void testCastToNumber_whenValue_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class, () -> TypeCastUtil.castToNumber("Value"));

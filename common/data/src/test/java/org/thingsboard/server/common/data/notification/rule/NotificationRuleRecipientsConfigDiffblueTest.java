@@ -7,9 +7,11 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.thingsboard.server.common.data.notification.rule.trigger.config.NotificationRuleTriggerType;
@@ -18,8 +20,7 @@ class NotificationRuleRecipientsConfigDiffblueTest {
   /**
    * Test {@link NotificationRuleRecipientsConfig#canEqual(Object)}.
    * <ul>
-   *   <li>When {@link DefaultNotificationRuleRecipientsConfig} (default
-   * constructor).</li>
+   *   <li>When {@link DefaultNotificationRuleRecipientsConfig} (default constructor).</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
@@ -27,6 +28,8 @@ class NotificationRuleRecipientsConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test canEqual(Object); when DefaultNotificationRuleRecipientsConfig (default constructor); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationRuleRecipientsConfig.canEqual(Object)"})
   void testCanEqual_whenDefaultNotificationRuleRecipientsConfig_thenReturnTrue() {
     // Arrange
     DefaultNotificationRuleRecipientsConfig defaultNotificationRuleRecipientsConfig = new DefaultNotificationRuleRecipientsConfig();
@@ -46,14 +49,15 @@ class NotificationRuleRecipientsConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test canEqual(Object); when 'Other'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationRuleRecipientsConfig.canEqual(Object)"})
   void testCanEqual_whenOther_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse((new DefaultNotificationRuleRecipientsConfig()).canEqual("Other"));
   }
 
   /**
-   * Test {@link NotificationRuleRecipientsConfig#equals(Object)}, and
-   * {@link NotificationRuleRecipientsConfig#hashCode()}.
+   * Test {@link NotificationRuleRecipientsConfig#equals(Object)}, and {@link NotificationRuleRecipientsConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -63,6 +67,9 @@ class NotificationRuleRecipientsConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationRuleRecipientsConfig.equals(Object)",
+      "int NotificationRuleRecipientsConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DefaultNotificationRuleRecipientsConfig defaultNotificationRuleRecipientsConfig = new DefaultNotificationRuleRecipientsConfig();
@@ -75,8 +82,7 @@ class NotificationRuleRecipientsConfigDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationRuleRecipientsConfig#equals(Object)}, and
-   * {@link NotificationRuleRecipientsConfig#hashCode()}.
+   * Test {@link NotificationRuleRecipientsConfig#equals(Object)}, and {@link NotificationRuleRecipientsConfig#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -86,6 +92,9 @@ class NotificationRuleRecipientsConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationRuleRecipientsConfig.equals(Object)",
+      "int NotificationRuleRecipientsConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DefaultNotificationRuleRecipientsConfig defaultNotificationRuleRecipientsConfig = new DefaultNotificationRuleRecipientsConfig();
@@ -107,6 +116,9 @@ class NotificationRuleRecipientsConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationRuleRecipientsConfig.equals(Object)",
+      "int NotificationRuleRecipientsConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     DefaultNotificationRuleRecipientsConfig defaultNotificationRuleRecipientsConfig = new DefaultNotificationRuleRecipientsConfig();
@@ -130,6 +142,9 @@ class NotificationRuleRecipientsConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationRuleRecipientsConfig.equals(Object)",
+      "int NotificationRuleRecipientsConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DefaultNotificationRuleRecipientsConfig defaultNotificationRuleRecipientsConfig = new DefaultNotificationRuleRecipientsConfig();
@@ -155,6 +170,9 @@ class NotificationRuleRecipientsConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationRuleRecipientsConfig.equals(Object)",
+      "int NotificationRuleRecipientsConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DefaultNotificationRuleRecipientsConfig defaultNotificationRuleRecipientsConfig = new DefaultNotificationRuleRecipientsConfig();
@@ -181,6 +199,9 @@ class NotificationRuleRecipientsConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationRuleRecipientsConfig.equals(Object)",
+      "int NotificationRuleRecipientsConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     DefaultNotificationRuleRecipientsConfig defaultNotificationRuleRecipientsConfig = new DefaultNotificationRuleRecipientsConfig();
@@ -207,6 +228,9 @@ class NotificationRuleRecipientsConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationRuleRecipientsConfig.equals(Object)",
+      "int NotificationRuleRecipientsConfig.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DefaultNotificationRuleRecipientsConfig(), null);
@@ -223,6 +247,9 @@ class NotificationRuleRecipientsConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationRuleRecipientsConfig.equals(Object)",
+      "int NotificationRuleRecipientsConfig.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DefaultNotificationRuleRecipientsConfig(),
@@ -236,20 +263,22 @@ class NotificationRuleRecipientsConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getTriggerType()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"NotificationRuleTriggerType NotificationRuleRecipientsConfig.getTriggerType()"})
   void testGetTriggerType() {
     // Arrange, Act and Assert
     assertNull((new DefaultNotificationRuleRecipientsConfig()).getTriggerType());
   }
 
   /**
-   * Test
-   * {@link NotificationRuleRecipientsConfig#setTriggerType(NotificationRuleTriggerType)}.
+   * Test {@link NotificationRuleRecipientsConfig#setTriggerType(NotificationRuleTriggerType)}.
    * <p>
-   * Method under test:
-   * {@link NotificationRuleRecipientsConfig#setTriggerType(NotificationRuleTriggerType)}
+   * Method under test: {@link NotificationRuleRecipientsConfig#setTriggerType(NotificationRuleTriggerType)}
    */
   @Test
   @DisplayName("Test setTriggerType(NotificationRuleTriggerType)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NotificationRuleRecipientsConfig.setTriggerType(NotificationRuleTriggerType)"})
   void testSetTriggerType() {
     // Arrange
     DefaultNotificationRuleRecipientsConfig defaultNotificationRuleRecipientsConfig = new DefaultNotificationRuleRecipientsConfig();
@@ -268,6 +297,8 @@ class NotificationRuleRecipientsConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test toString()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String NotificationRuleRecipientsConfig.toString()"})
   void testToString() {
     // Arrange, Act and Assert
     assertEquals("DefaultNotificationRuleRecipientsConfig(targets=null)",

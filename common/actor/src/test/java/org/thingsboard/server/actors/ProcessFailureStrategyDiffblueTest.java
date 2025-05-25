@@ -3,7 +3,9 @@ package org.thingsboard.server.actors;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ProcessFailureStrategyDiffblueTest {
@@ -14,6 +16,8 @@ class ProcessFailureStrategyDiffblueTest {
    */
   @Test
   @DisplayName("Test stop()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ProcessFailureStrategy ProcessFailureStrategy.stop()"})
   void testStop() {
     // Arrange, Act and Assert
     assertTrue(ProcessFailureStrategy.stop().isStop());
@@ -26,6 +30,8 @@ class ProcessFailureStrategyDiffblueTest {
    */
   @Test
   @DisplayName("Test resume()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ProcessFailureStrategy ProcessFailureStrategy.resume()"})
   void testResume() {
     // Arrange, Act and Assert
     assertFalse(ProcessFailureStrategy.resume().isStop());
@@ -42,6 +48,8 @@ class ProcessFailureStrategyDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ProcessFailureStrategy.isStop()", "String ProcessFailureStrategy.toString()"})
   void testGettersAndSetters() {
     // Arrange
     ProcessFailureStrategy resumeResult = ProcessFailureStrategy.resume();

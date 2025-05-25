@@ -6,18 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
-import com.fasterxml.jackson.core.JsonLocation;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonStreamContext;
-import com.fasterxml.jackson.core.Version;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.JsonNodeType;
 import com.fasterxml.jackson.databind.node.NullNode;
-import com.fasterxml.jackson.databind.node.TreeTraversingParser;
-import java.io.IOException;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.EntityId;
@@ -35,40 +29,15 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test new User(User); when User()")
-  void testNewUser_whenUser() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void User.<init>(User)"})
+  void testNewUser_whenUser() {
     // Arrange and Act
     User actualUser = new User(new User());
 
     // Assert
-    JsonNode additionalInfo = actualUser.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
+    assertTrue(actualUser.getAdditionalInfo() instanceof NullNode);
     assertNull(actualUser.getVersion());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
     assertNull(actualUser.getEmail());
     assertNull(actualUser.getFirstName());
     assertNull(actualUser.getLastName());
@@ -80,66 +49,10 @@ class UserDiffblueTest {
     assertNull(actualUser.getTenantId());
     assertNull(actualUser.getId());
     assertNull(actualUser.getAuthority());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
     assertEquals(0L, actualUser.getCreatedTime());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
     assertFalse(actualUser.isCustomerUser());
     assertFalse(actualUser.isTenantAdmin());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
     assertTrue(actualUser.isSystemAdmin());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getColumnNr());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getLineNr());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
   }
 
   /**
@@ -152,40 +65,15 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test new User(User); when User(User) with user is User()")
-  void testNewUser_whenUserWithUserIsUser() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void User.<init>(User)"})
+  void testNewUser_whenUserWithUserIsUser() {
     // Arrange and Act
     User actualUser = new User(new User(new User()));
 
     // Assert
-    JsonNode additionalInfo = actualUser.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
+    assertTrue(actualUser.getAdditionalInfo() instanceof NullNode);
     assertNull(actualUser.getVersion());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
     assertNull(actualUser.getEmail());
     assertNull(actualUser.getFirstName());
     assertNull(actualUser.getLastName());
@@ -197,66 +85,10 @@ class UserDiffblueTest {
     assertNull(actualUser.getTenantId());
     assertNull(actualUser.getId());
     assertNull(actualUser.getAuthority());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
     assertEquals(0L, actualUser.getCreatedTime());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
     assertFalse(actualUser.isCustomerUser());
     assertFalse(actualUser.isTenantAdmin());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
     assertTrue(actualUser.isSystemAdmin());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getColumnNr());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getLineNr());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
   }
 
   /**
@@ -269,40 +101,15 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test new User(User); when User(User) with user is User(User)")
-  void testNewUser_whenUserWithUserIsUser2() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void User.<init>(User)"})
+  void testNewUser_whenUserWithUserIsUser2() {
     // Arrange and Act
     User actualUser = new User(new User(new User(new User())));
 
     // Assert
-    JsonNode additionalInfo = actualUser.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
+    assertTrue(actualUser.getAdditionalInfo() instanceof NullNode);
     assertNull(actualUser.getVersion());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
     assertNull(actualUser.getEmail());
     assertNull(actualUser.getFirstName());
     assertNull(actualUser.getLastName());
@@ -314,66 +121,10 @@ class UserDiffblueTest {
     assertNull(actualUser.getTenantId());
     assertNull(actualUser.getId());
     assertNull(actualUser.getAuthority());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
     assertEquals(0L, actualUser.getCreatedTime());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
     assertFalse(actualUser.isCustomerUser());
     assertFalse(actualUser.isTenantAdmin());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
     assertTrue(actualUser.isSystemAdmin());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getColumnNr());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getLineNr());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
   }
 
   /**
@@ -383,6 +134,8 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test getId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"org.thingsboard.server.common.data.id.UserId User.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
     assertNull((new User()).getId());
@@ -395,6 +148,8 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test getCreatedTime()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long User.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
     assertEquals(0L, (new User()).getCreatedTime());
@@ -411,6 +166,8 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test getAdditionalInfo(); given User(User) with user is User(); then return instance")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode User.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenUserWithUserIsUser_thenReturnInstance() {
     // Arrange and Act
     JsonNode actualAdditionalInfo = (new User(new User())).getAdditionalInfo();
@@ -430,6 +187,8 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test getAdditionalInfo(); given User(User) with user is User(User); then return instance")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode User.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenUserWithUserIsUser_thenReturnInstance2() {
     // Arrange and Act
     JsonNode actualAdditionalInfo = (new User(new User(new User()))).getAdditionalInfo();
@@ -449,31 +208,33 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test getAdditionalInfo(); given User(); then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode User.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenUser_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull((new User()).getAdditionalInfo());
   }
 
   /**
-   * Test {@link User#getTitle(String, String, String)} with {@code String},
-   * {@code String}, {@code String}.
+   * Test {@link User#getTitle(String, String, String)} with {@code String}, {@code String}, {@code String}.
    * <ul>
    *   <li>When {@link DataConstants#DEFAULT_SECRET_KEY}.</li>
-   *   <li>Then return {@code Doe}.</li>
+   *   <li>Then return {@code not empty}.</li>
    * </ul>
    * <p>
    * Method under test: {@link User#getTitle(String, String, String)}
    */
   @Test
-  @DisplayName("Test getTitle(String, String, String) with 'String', 'String', 'String'; when DEFAULT_SECRET_KEY; then return 'Doe'")
-  void testGetTitleWithStringStringString_whenDefault_secret_key_thenReturnDoe() {
+  @DisplayName("Test getTitle(String, String, String) with 'String', 'String', 'String'; when DEFAULT_SECRET_KEY; then return 'not empty'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String User.getTitle(String, String, String)"})
+  void testGetTitleWithStringStringString_whenDefault_secret_key_thenReturnNotEmpty() {
     // Arrange, Act and Assert
-    assertEquals("Doe", User.getTitle("jane.doe@example.org", DataConstants.DEFAULT_SECRET_KEY, "Doe"));
+    assertEquals("not empty", User.getTitle("jane.doe@example.org", "not empty", DataConstants.DEFAULT_SECRET_KEY));
   }
 
   /**
-   * Test {@link User#getTitle(String, String, String)} with {@code String},
-   * {@code String}, {@code String}.
+   * Test {@link User#getTitle(String, String, String)} with {@code String}, {@code String}, {@code String}.
    * <ul>
    *   <li>When {@code Jane}.</li>
    *   <li>Then return {@code Jane Doe}.</li>
@@ -483,31 +244,33 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test getTitle(String, String, String) with 'String', 'String', 'String'; when 'Jane'; then return 'Jane Doe'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String User.getTitle(String, String, String)"})
   void testGetTitleWithStringStringString_whenJane_thenReturnJaneDoe() {
     // Arrange, Act and Assert
     assertEquals("Jane Doe", User.getTitle("jane.doe@example.org", "Jane", "Doe"));
   }
 
   /**
-   * Test {@link User#getTitle(String, String, String)} with {@code String},
-   * {@code String}, {@code String}.
+   * Test {@link User#getTitle(String, String, String)} with {@code String}, {@code String}, {@code String}.
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return {@code Doe}.</li>
+   *   <li>When {@code not empty}.</li>
+   *   <li>Then return {@code not empty}.</li>
    * </ul>
    * <p>
    * Method under test: {@link User#getTitle(String, String, String)}
    */
   @Test
-  @DisplayName("Test getTitle(String, String, String) with 'String', 'String', 'String'; when 'null'; then return 'Doe'")
-  void testGetTitleWithStringStringString_whenNull_thenReturnDoe() {
+  @DisplayName("Test getTitle(String, String, String) with 'String', 'String', 'String'; when 'not empty'; then return 'not empty'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String User.getTitle(String, String, String)"})
+  void testGetTitleWithStringStringString_whenNotEmpty_thenReturnNotEmpty() {
     // Arrange, Act and Assert
-    assertEquals("Doe", User.getTitle("jane.doe@example.org", null, "Doe"));
+    assertEquals("not empty", User.getTitle("jane.doe@example.org", "not empty", null));
   }
 
   /**
-   * Test {@link User#getTitle(String, String, String)} with {@code String},
-   * {@code String}, {@code String}.
+   * Test {@link User#getTitle(String, String, String)} with {@code String}, {@code String}, {@code String}.
    * <ul>
    *   <li>When {@code null}.</li>
    *   <li>Then return {@code jane.doe@example.org}.</li>
@@ -517,94 +280,121 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test getTitle(String, String, String) with 'String', 'String', 'String'; when 'null'; then return 'jane.doe@example.org'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String User.getTitle(String, String, String)"})
   void testGetTitleWithStringStringString_whenNull_thenReturnJaneDoeExampleOrg() {
     // Arrange, Act and Assert
     assertEquals("jane.doe@example.org", User.getTitle("jane.doe@example.org", null, null));
   }
 
   /**
+   * Test {@link User#getTitle(String, String, String)} with {@code String}, {@code String}, {@code String}.
+   * <ul>
+   *   <li>When {@code null}.</li>
+   *   <li>Then return {@code not empty}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link User#getTitle(String, String, String)}
+   */
+  @Test
+  @DisplayName("Test getTitle(String, String, String) with 'String', 'String', 'String'; when 'null'; then return 'not empty'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String User.getTitle(String, String, String)"})
+  void testGetTitleWithStringStringString_whenNull_thenReturnNotEmpty() {
+    // Arrange, Act and Assert
+    assertEquals("not empty", User.getTitle("jane.doe@example.org", null, "not empty"));
+  }
+
+  /**
+   * Test {@link User#getTitle()}.
+   * <ul>
+   *   <li>Given {@link User#User()} FirstName is {@code not empty}.</li>
+   *   <li>Then return {@code not empty not empty}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link User#getTitle()}
+   */
+  @Test
+  @DisplayName("Test getTitle(); given User() FirstName is 'not empty'; then return 'not empty not empty'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String User.getTitle()"})
+  void testGetTitle_givenUserFirstNameIsNotEmpty_thenReturnNotEmptyNotEmpty() {
+    // Arrange
+    User user = new User();
+    user.setFirstName("not empty");
+    user.setLastName("not empty");
+
+    // Act and Assert
+    assertEquals("not empty not empty", user.getTitle());
+  }
+
+  /**
    * Test {@link User#getTitle()}.
    * <ul>
    *   <li>Given {@link User#User()} FirstName is {@code null}.</li>
-   *   <li>Then return {@code foo}.</li>
+   *   <li>Then return {@code not empty}.</li>
    * </ul>
    * <p>
    * Method under test: {@link User#getTitle()}
    */
   @Test
-  @DisplayName("Test getTitle(); given User() FirstName is 'null'; then return 'foo'")
-  void testGetTitle_givenUserFirstNameIsNull_thenReturnFoo() {
+  @DisplayName("Test getTitle(); given User() FirstName is 'null'; then return 'not empty'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String User.getTitle()"})
+  void testGetTitle_givenUserFirstNameIsNull_thenReturnNotEmpty() {
     // Arrange
     User user = new User();
-    user.setLastName("foo");
     user.setFirstName(null);
+    user.setLastName("not empty");
 
     // Act and Assert
-    assertEquals("foo", user.getTitle());
+    assertEquals("not empty", user.getTitle());
   }
 
   /**
    * Test {@link User#getTitle()}.
    * <ul>
-   *   <li>Given {@link User#User()} LastName is
-   * {@link DataConstants#DEFAULT_SECRET_KEY}.</li>
-   *   <li>Then return {@code foo}.</li>
+   *   <li>Given {@link User#User()} LastName is {@link DataConstants#DEFAULT_SECRET_KEY}.</li>
+   *   <li>Then return {@code null}.</li>
    * </ul>
    * <p>
    * Method under test: {@link User#getTitle()}
    */
   @Test
-  @DisplayName("Test getTitle(); given User() LastName is DEFAULT_SECRET_KEY; then return 'foo'")
-  void testGetTitle_givenUserLastNameIsDefault_secret_key_thenReturnFoo() {
+  @DisplayName("Test getTitle(); given User() LastName is DEFAULT_SECRET_KEY; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String User.getTitle()"})
+  void testGetTitle_givenUserLastNameIsDefault_secret_key_thenReturnNull() {
     // Arrange
     User user = new User();
+    user.setFirstName(null);
     user.setLastName(DataConstants.DEFAULT_SECRET_KEY);
-    user.setFirstName("foo");
 
     // Act and Assert
-    assertEquals("foo", user.getTitle());
-  }
-
-  /**
-   * Test {@link User#getTitle()}.
-   * <ul>
-   *   <li>Given {@link User#User()} LastName is {@code foo}.</li>
-   *   <li>Then return {@code foo foo}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link User#getTitle()}
-   */
-  @Test
-  @DisplayName("Test getTitle(); given User() LastName is 'foo'; then return 'foo foo'")
-  void testGetTitle_givenUserLastNameIsFoo_thenReturnFooFoo() {
-    // Arrange
-    User user = new User();
-    user.setLastName("foo");
-    user.setFirstName("foo");
-
-    // Act and Assert
-    assertEquals("foo foo", user.getTitle());
+    assertNull(user.getTitle());
   }
 
   /**
    * Test {@link User#getTitle()}.
    * <ul>
    *   <li>Given {@link User#User()} LastName is {@code null}.</li>
-   *   <li>Then return {@code foo}.</li>
+   *   <li>Then return {@code not empty}.</li>
    * </ul>
    * <p>
    * Method under test: {@link User#getTitle()}
    */
   @Test
-  @DisplayName("Test getTitle(); given User() LastName is 'null'; then return 'foo'")
-  void testGetTitle_givenUserLastNameIsNull_thenReturnFoo() {
+  @DisplayName("Test getTitle(); given User() LastName is 'null'; then return 'not empty'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String User.getTitle()"})
+  void testGetTitle_givenUserLastNameIsNull_thenReturnNotEmpty() {
     // Arrange
     User user = new User();
+    user.setFirstName("not empty");
     user.setLastName(null);
-    user.setFirstName("foo");
 
     // Act and Assert
-    assertEquals("foo", user.getTitle());
+    assertEquals("not empty", user.getTitle());
   }
 
   /**
@@ -618,6 +408,8 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test getTitle(); given User(); then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String User.getTitle()"})
   void testGetTitle_givenUser_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull((new User()).getTitle());
@@ -626,8 +418,7 @@ class UserDiffblueTest {
   /**
    * Test {@link User#isSystemAdmin()}.
    * <ul>
-   *   <li>Given {@link User#User()} TenantId is
-   * {@link TenantId#SYS_TENANT_ID}.</li>
+   *   <li>Given {@link User#User()} TenantId is {@link TenantId#SYS_TENANT_ID}.</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
@@ -635,6 +426,8 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test isSystemAdmin(); given User() TenantId is SYS_TENANT_ID; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.isSystemAdmin()"})
   void testIsSystemAdmin_givenUserTenantIdIsSys_tenant_id_thenReturnTrue() {
     // Arrange
     User user = new User();
@@ -655,6 +448,8 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test isSystemAdmin(); given User(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.isSystemAdmin()"})
   void testIsSystemAdmin_givenUser_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue((new User()).isSystemAdmin());
@@ -670,6 +465,8 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test isSystemAdmin(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.isSystemAdmin()"})
   void testIsSystemAdmin_thenReturnFalse() {
     // Arrange
     User user = new User();
@@ -686,6 +483,8 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test isTenantAdmin()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.isTenantAdmin()"})
   void testIsTenantAdmin() {
     // Arrange
     User user = new User();
@@ -699,15 +498,15 @@ class UserDiffblueTest {
   /**
    * Test {@link User#isTenantAdmin()}.
    * <ul>
-   *   <li>Given {@link User#User()} CustomerId is
-   * {@link CustomerId#CustomerId(UUID)} with id is
-   * {@link EntityId#NULL_UUID}.</li>
+   *   <li>Given {@link User#User()} CustomerId is {@link CustomerId#CustomerId(UUID)} with id is {@link EntityId#NULL_UUID}.</li>
    * </ul>
    * <p>
    * Method under test: {@link User#isTenantAdmin()}
    */
   @Test
   @DisplayName("Test isTenantAdmin(); given User() CustomerId is CustomerId(UUID) with id is NULL_UUID")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.isTenantAdmin()"})
   void testIsTenantAdmin_givenUserCustomerIdIsCustomerIdWithIdIsNull_uuid() {
     // Arrange
     User user = new User();
@@ -721,8 +520,7 @@ class UserDiffblueTest {
   /**
    * Test {@link User#isTenantAdmin()}.
    * <ul>
-   *   <li>Given {@link User#User()} TenantId is
-   * {@link TenantId#SYS_TENANT_ID}.</li>
+   *   <li>Given {@link User#User()} TenantId is {@link TenantId#SYS_TENANT_ID}.</li>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
@@ -730,6 +528,8 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test isTenantAdmin(); given User() TenantId is SYS_TENANT_ID; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.isTenantAdmin()"})
   void testIsTenantAdmin_givenUserTenantIdIsSys_tenant_id_thenReturnFalse() {
     // Arrange
     User user = new User();
@@ -750,6 +550,8 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test isTenantAdmin(); given User(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.isTenantAdmin()"})
   void testIsTenantAdmin_givenUser_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse((new User()).isTenantAdmin());
@@ -765,6 +567,8 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test isTenantAdmin(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.isTenantAdmin()"})
   void testIsTenantAdmin_thenReturnTrue() {
     // Arrange
     User user = new User();
@@ -781,6 +585,8 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test isCustomerUser()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.isCustomerUser()"})
   void testIsCustomerUser() {
     // Arrange
     User user = new User();
@@ -793,15 +599,15 @@ class UserDiffblueTest {
   /**
    * Test {@link User#isCustomerUser()}.
    * <ul>
-   *   <li>Given {@link User#User()} CustomerId is
-   * {@link CustomerId#CustomerId(UUID)} with id is
-   * {@link EntityId#NULL_UUID}.</li>
+   *   <li>Given {@link User#User()} CustomerId is {@link CustomerId#CustomerId(UUID)} with id is {@link EntityId#NULL_UUID}.</li>
    * </ul>
    * <p>
    * Method under test: {@link User#isCustomerUser()}
    */
   @Test
   @DisplayName("Test isCustomerUser(); given User() CustomerId is CustomerId(UUID) with id is NULL_UUID")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.isCustomerUser()"})
   void testIsCustomerUser_givenUserCustomerIdIsCustomerIdWithIdIsNull_uuid() {
     // Arrange
     User user = new User();
@@ -815,8 +621,7 @@ class UserDiffblueTest {
   /**
    * Test {@link User#isCustomerUser()}.
    * <ul>
-   *   <li>Given {@link User#User()} TenantId is
-   * {@link TenantId#SYS_TENANT_ID}.</li>
+   *   <li>Given {@link User#User()} TenantId is {@link TenantId#SYS_TENANT_ID}.</li>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
@@ -824,6 +629,8 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test isCustomerUser(); given User() TenantId is SYS_TENANT_ID; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.isCustomerUser()"})
   void testIsCustomerUser_givenUserTenantIdIsSys_tenant_id_thenReturnFalse() {
     // Arrange
     User user = new User();
@@ -844,6 +651,8 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test isCustomerUser(); given User(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.isCustomerUser()"})
   void testIsCustomerUser_givenUser_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse((new User()).isCustomerUser());
@@ -859,6 +668,8 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test isCustomerUser(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.isCustomerUser()"})
   void testIsCustomerUser_thenReturnTrue() {
     // Arrange
     User user = new User();
@@ -884,6 +695,8 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.equals(Object)", "int User.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     User user = new User();
@@ -910,6 +723,8 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.equals(Object)", "int User.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     User user = new User();
@@ -931,6 +746,8 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.equals(Object)", "int User.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     User user = new User(new User());
@@ -950,23 +767,9 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.equals(Object)", "int User.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange, Act and Assert
-    assertNotEquals(new User(), mock(AdminSettings.class));
-  }
-
-  /**
-   * Test {@link User#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link User#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     User user = new User();
     user.setTenantId(TenantId.SYS_TENANT_ID);
@@ -986,7 +789,9 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.equals(Object)", "int User.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     User user = new User();
     user.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
@@ -1006,7 +811,9 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.equals(Object)", "int User.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     User user = new User();
     user.setEmail("jane.doe@example.org");
@@ -1026,7 +833,9 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.equals(Object)", "int User.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     User user = new User();
     user.setAuthority(Authority.SYS_ADMIN);
@@ -1046,7 +855,9 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.equals(Object)", "int User.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     User user = new User();
     user.setFirstName("Jane");
@@ -1066,7 +877,9 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.equals(Object)", "int User.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     User user = new User();
     user.setLastName("Doe");
@@ -1086,7 +899,9 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.equals(Object)", "int User.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     User user = new User();
     user.setPhone("6625550144");
@@ -1106,7 +921,9 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.equals(Object)", "int User.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     User user = new User();
     user.setVersion(1L);
@@ -1126,7 +943,9 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.equals(Object)", "int User.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     User user = new User();
 
@@ -1148,7 +967,9 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.equals(Object)", "int User.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     User user = new User();
 
@@ -1170,7 +991,9 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.equals(Object)", "int User.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     User user = new User();
 
@@ -1192,7 +1015,9 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.equals(Object)", "int User.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     User user = new User();
 
@@ -1214,7 +1039,9 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.equals(Object)", "int User.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     User user = new User();
 
@@ -1236,7 +1063,9 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.equals(Object)", "int User.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     User user = new User();
 
@@ -1258,7 +1087,9 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.equals(Object)", "int User.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     User user = new User();
 
@@ -1280,7 +1111,9 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.equals(Object)", "int User.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     User user = new User();
 
@@ -1302,6 +1135,8 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.equals(Object)", "int User.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new User(), null);
@@ -1318,6 +1153,8 @@ class UserDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.equals(Object)", "int User.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new User(), "Different type to User");

@@ -1,7 +1,9 @@
 package org.thingsboard.server.queue.kafka;
 
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TbKafkaConsumerStatisticConfigDiffblueTest {
@@ -17,6 +19,10 @@ class TbKafkaConsumerStatisticConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Boolean TbKafkaConsumerStatisticConfig.getEnabled()",
+      "Long TbKafkaConsumerStatisticConfig.getKafkaResponseTimeoutMs()",
+      "Long TbKafkaConsumerStatisticConfig.getPrintIntervalMs()"})
   void testGettersAndSetters() {
     // Arrange
     TbKafkaConsumerStatisticConfig tbKafkaConsumerStatisticConfig = new TbKafkaConsumerStatisticConfig();

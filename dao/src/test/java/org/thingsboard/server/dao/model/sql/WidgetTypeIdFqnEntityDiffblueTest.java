@@ -3,14 +3,16 @@ package org.thingsboard.server.dao.model.sql;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertSame;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.dao.model.ModelConstants;
 
 public class WidgetTypeIdFqnEntityDiffblueTest {
   /**
-   * Test {@link WidgetTypeIdFqnEntity#equals(Object)}, and
-   * {@link WidgetTypeIdFqnEntity#hashCode()}.
+   * Test {@link WidgetTypeIdFqnEntity#equals(Object)}, and {@link WidgetTypeIdFqnEntity#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -23,10 +25,14 @@ public class WidgetTypeIdFqnEntityDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean WidgetTypeIdFqnEntity.equals(Object)", "int WidgetTypeIdFqnEntity.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    WidgetTypeIdFqnEntity widgetTypeIdFqnEntity = new WidgetTypeIdFqnEntity(ModelConstants.NULL_UUID, "Fqn");
-    WidgetTypeIdFqnEntity widgetTypeIdFqnEntity2 = new WidgetTypeIdFqnEntity(ModelConstants.NULL_UUID, "Fqn");
+    WidgetTypeIdFqnEntity widgetTypeIdFqnEntity = new WidgetTypeIdFqnEntity(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Fqn");
+    WidgetTypeIdFqnEntity widgetTypeIdFqnEntity2 = new WidgetTypeIdFqnEntity(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Fqn");
 
     // Act and Assert
     assertEquals(widgetTypeIdFqnEntity, widgetTypeIdFqnEntity2);
@@ -35,8 +41,7 @@ public class WidgetTypeIdFqnEntityDiffblueTest {
   }
 
   /**
-   * Test {@link WidgetTypeIdFqnEntity#equals(Object)}, and
-   * {@link WidgetTypeIdFqnEntity#hashCode()}.
+   * Test {@link WidgetTypeIdFqnEntity#equals(Object)}, and {@link WidgetTypeIdFqnEntity#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -49,6 +54,8 @@ public class WidgetTypeIdFqnEntityDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean WidgetTypeIdFqnEntity.equals(Object)", "int WidgetTypeIdFqnEntity.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     WidgetTypeIdFqnEntity widgetTypeIdFqnEntity = new WidgetTypeIdFqnEntity(null, "Fqn");
@@ -61,8 +68,7 @@ public class WidgetTypeIdFqnEntityDiffblueTest {
   }
 
   /**
-   * Test {@link WidgetTypeIdFqnEntity#equals(Object)}, and
-   * {@link WidgetTypeIdFqnEntity#hashCode()}.
+   * Test {@link WidgetTypeIdFqnEntity#equals(Object)}, and {@link WidgetTypeIdFqnEntity#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -75,10 +81,14 @@ public class WidgetTypeIdFqnEntityDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean WidgetTypeIdFqnEntity.equals(Object)", "int WidgetTypeIdFqnEntity.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    WidgetTypeIdFqnEntity widgetTypeIdFqnEntity = new WidgetTypeIdFqnEntity(ModelConstants.NULL_UUID, null);
-    WidgetTypeIdFqnEntity widgetTypeIdFqnEntity2 = new WidgetTypeIdFqnEntity(ModelConstants.NULL_UUID, null);
+    WidgetTypeIdFqnEntity widgetTypeIdFqnEntity = new WidgetTypeIdFqnEntity(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), null);
+    WidgetTypeIdFqnEntity widgetTypeIdFqnEntity2 = new WidgetTypeIdFqnEntity(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), null);
 
     // Act and Assert
     assertEquals(widgetTypeIdFqnEntity, widgetTypeIdFqnEntity2);
@@ -87,8 +97,7 @@ public class WidgetTypeIdFqnEntityDiffblueTest {
   }
 
   /**
-   * Test {@link WidgetTypeIdFqnEntity#equals(Object)}, and
-   * {@link WidgetTypeIdFqnEntity#hashCode()}.
+   * Test {@link WidgetTypeIdFqnEntity#equals(Object)}, and {@link WidgetTypeIdFqnEntity#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -101,9 +110,12 @@ public class WidgetTypeIdFqnEntityDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean WidgetTypeIdFqnEntity.equals(Object)", "int WidgetTypeIdFqnEntity.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    WidgetTypeIdFqnEntity widgetTypeIdFqnEntity = new WidgetTypeIdFqnEntity(ModelConstants.NULL_UUID, "Fqn");
+    WidgetTypeIdFqnEntity widgetTypeIdFqnEntity = new WidgetTypeIdFqnEntity(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Fqn");
 
     // Act and Assert
     assertEquals(widgetTypeIdFqnEntity, widgetTypeIdFqnEntity);
@@ -121,12 +133,15 @@ public class WidgetTypeIdFqnEntityDiffblueTest {
    * Method under test: {@link WidgetTypeIdFqnEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean WidgetTypeIdFqnEntity.equals(Object)", "int WidgetTypeIdFqnEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    WidgetTypeIdFqnEntity widgetTypeIdFqnEntity = new WidgetTypeIdFqnEntity(UUID.randomUUID(), "Fqn");
+    WidgetTypeIdFqnEntity widgetTypeIdFqnEntity = new WidgetTypeIdFqnEntity(ModelConstants.NULL_UUID, "Fqn");
 
     // Act and Assert
-    assertNotEquals(widgetTypeIdFqnEntity, new WidgetTypeIdFqnEntity(ModelConstants.NULL_UUID, "Fqn"));
+    assertNotEquals(widgetTypeIdFqnEntity,
+        new WidgetTypeIdFqnEntity(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Fqn"));
   }
 
   /**
@@ -139,12 +154,15 @@ public class WidgetTypeIdFqnEntityDiffblueTest {
    * Method under test: {@link WidgetTypeIdFqnEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean WidgetTypeIdFqnEntity.equals(Object)", "int WidgetTypeIdFqnEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     WidgetTypeIdFqnEntity widgetTypeIdFqnEntity = new WidgetTypeIdFqnEntity(null, "Fqn");
 
     // Act and Assert
-    assertNotEquals(widgetTypeIdFqnEntity, new WidgetTypeIdFqnEntity(ModelConstants.NULL_UUID, "Fqn"));
+    assertNotEquals(widgetTypeIdFqnEntity,
+        new WidgetTypeIdFqnEntity(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Fqn"));
   }
 
   /**
@@ -157,12 +175,16 @@ public class WidgetTypeIdFqnEntityDiffblueTest {
    * Method under test: {@link WidgetTypeIdFqnEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean WidgetTypeIdFqnEntity.equals(Object)", "int WidgetTypeIdFqnEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    WidgetTypeIdFqnEntity widgetTypeIdFqnEntity = new WidgetTypeIdFqnEntity(ModelConstants.NULL_UUID, null);
+    WidgetTypeIdFqnEntity widgetTypeIdFqnEntity = new WidgetTypeIdFqnEntity(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), null);
 
     // Act and Assert
-    assertNotEquals(widgetTypeIdFqnEntity, new WidgetTypeIdFqnEntity(ModelConstants.NULL_UUID, "Fqn"));
+    assertNotEquals(widgetTypeIdFqnEntity,
+        new WidgetTypeIdFqnEntity(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Fqn"));
   }
 
   /**
@@ -175,13 +197,17 @@ public class WidgetTypeIdFqnEntityDiffblueTest {
    * Method under test: {@link WidgetTypeIdFqnEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean WidgetTypeIdFqnEntity.equals(Object)", "int WidgetTypeIdFqnEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    WidgetTypeIdFqnEntity widgetTypeIdFqnEntity = new WidgetTypeIdFqnEntity(ModelConstants.NULL_UUID,
+    WidgetTypeIdFqnEntity widgetTypeIdFqnEntity = new WidgetTypeIdFqnEntity(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"),
         "org.thingsboard.server.dao.model.sql.WidgetTypeIdFqnEntity");
 
     // Act and Assert
-    assertNotEquals(widgetTypeIdFqnEntity, new WidgetTypeIdFqnEntity(ModelConstants.NULL_UUID, "Fqn"));
+    assertNotEquals(widgetTypeIdFqnEntity,
+        new WidgetTypeIdFqnEntity(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Fqn"));
   }
 
   /**
@@ -194,9 +220,11 @@ public class WidgetTypeIdFqnEntityDiffblueTest {
    * Method under test: {@link WidgetTypeIdFqnEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean WidgetTypeIdFqnEntity.equals(Object)", "int WidgetTypeIdFqnEntity.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new WidgetTypeIdFqnEntity(ModelConstants.NULL_UUID, "Fqn"), null);
+    assertNotEquals(new WidgetTypeIdFqnEntity(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Fqn"), null);
   }
 
   /**
@@ -209,9 +237,11 @@ public class WidgetTypeIdFqnEntityDiffblueTest {
    * Method under test: {@link WidgetTypeIdFqnEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean WidgetTypeIdFqnEntity.equals(Object)", "int WidgetTypeIdFqnEntity.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new WidgetTypeIdFqnEntity(ModelConstants.NULL_UUID, "Fqn"),
+    assertNotEquals(new WidgetTypeIdFqnEntity(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Fqn"),
         "Different type to WidgetTypeIdFqnEntity");
   }
 
@@ -229,20 +259,25 @@ public class WidgetTypeIdFqnEntityDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void WidgetTypeIdFqnEntity.<init>(UUID, String)", "String WidgetTypeIdFqnEntity.getFqn()",
+      "UUID WidgetTypeIdFqnEntity.getId()", "void WidgetTypeIdFqnEntity.setFqn(String)",
+      "void WidgetTypeIdFqnEntity.setId(UUID)", "String WidgetTypeIdFqnEntity.toString()"})
   public void testGettersAndSetters() {
     // Arrange and Act
-    WidgetTypeIdFqnEntity actualWidgetTypeIdFqnEntity = new WidgetTypeIdFqnEntity(ModelConstants.NULL_UUID, "Fqn");
+    WidgetTypeIdFqnEntity actualWidgetTypeIdFqnEntity = new WidgetTypeIdFqnEntity(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Fqn");
     actualWidgetTypeIdFqnEntity.setFqn("Fqn");
-    UUID id = ModelConstants.NULL_UUID;
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     actualWidgetTypeIdFqnEntity.setId(id);
     String actualToStringResult = actualWidgetTypeIdFqnEntity.toString();
     String actualFqn = actualWidgetTypeIdFqnEntity.getFqn();
     UUID actualId = actualWidgetTypeIdFqnEntity.getId();
 
-    // Assert that nothing has changed
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualId.toString());
+    // Assert
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualId.toString());
     assertEquals("Fqn", actualFqn);
-    assertEquals("WidgetTypeIdFqnEntity(id=13814000-1dd2-11b2-8080-808080808080, fqn=Fqn)", actualToStringResult);
+    assertEquals("WidgetTypeIdFqnEntity(id=784f394c-42b6-435a-983c-b7beff2784f9, fqn=Fqn)", actualToStringResult);
     assertSame(id, actualId);
   }
 }

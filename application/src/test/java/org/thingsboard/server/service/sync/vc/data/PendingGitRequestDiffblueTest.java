@@ -1,14 +1,62 @@
 package org.thingsboard.server.service.sync.vc.data;
 
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import java.util.concurrent.ScheduledFuture;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.aot.DisabledInAotMode;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.id.TenantId;
 
+@ContextConfiguration(classes = {PendingGitRequest.class, TenantId.class})
+@DisabledInAotMode
+@ExtendWith(MockitoExtension.class)
+@ExtendWith(SpringExtension.class)
 class PendingGitRequestDiffblueTest {
+  @Autowired
+  private PendingGitRequest<Object> pendingGitRequest;
+
+  @InjectMocks
+  private TenantId tenantId;
+
+  @MockBean
+  private UUID uUID;
+
+  /**
+   * Test {@link PendingGitRequest#PendingGitRequest(TenantId)}.
+   * <ul>
+   *   <li>Then return TimeoutTask is {@code null}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link PendingGitRequest#PendingGitRequest(TenantId)}
+   */
+  @Test
+  @DisplayName("Test new PendingGitRequest(TenantId); then return TimeoutTask is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PendingGitRequest.<init>(TenantId)"})
+  void testNewPendingGitRequest_thenReturnTimeoutTaskIsNull() {
+    // Arrange
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act
+    PendingGitRequest<Object> actualPendingGitRequest = new PendingGitRequest<>(tenantId);
+
+    // Assert
+    assertNull(actualPendingGitRequest.getTimeoutTask());
+    assertSame(tenantId, actualPendingGitRequest.getTenantId());
+  }
+
   /**
    * Test {@link PendingGitRequest#requiresSettings()}.
    * <p>
@@ -16,13 +64,10 @@ class PendingGitRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test requiresSettings()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PendingGitRequest.requiresSettings()"})
   void testRequiresSettings() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    PendingGitRequest<Object> pendingGitRequest = new PendingGitRequest<>(new TenantId(UUID.randomUUID()));
-
-    // Act and Assert
+    // Arrange, Act and Assert
     assertTrue(pendingGitRequest.requiresSettings());
   }
 
@@ -41,9 +86,14 @@ class PendingGitRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long PendingGitRequest.getCreatedTime()",
+      "com.google.common.util.concurrent.SettableFuture PendingGitRequest.getFuture()",
+      "UUID PendingGitRequest.getRequestId()", "TenantId PendingGitRequest.getTenantId()",
+      "ScheduledFuture PendingGitRequest.getTimeoutTask()", "void PendingGitRequest.setTimeoutTask(ScheduledFuture)"})
   void testGettersAndSetters() {
     // Arrange
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     PendingGitRequest<Object> pendingGitRequest = new PendingGitRequest<>(tenantId);
 
     // Act
@@ -52,9 +102,9 @@ class PendingGitRequestDiffblueTest {
     pendingGitRequest.getFuture();
     pendingGitRequest.getRequestId();
     TenantId actualTenantId = pendingGitRequest.getTenantId();
-    pendingGitRequest.getTimeoutTask();
 
-    // Assert that nothing has changed
+    // Assert
+    assertNull(pendingGitRequest.getTimeoutTask());
     assertSame(tenantId, actualTenantId);
   }
 }

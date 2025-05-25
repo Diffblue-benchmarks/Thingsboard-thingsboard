@@ -3,22 +3,27 @@ package org.thingsboard.mqtt;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ChannelClosedExceptionDiffblueTest {
   /**
-   * Test
-   * {@link ChannelClosedException#ChannelClosedException(String, Throwable)}.
+   * Test {@link ChannelClosedException#ChannelClosedException(String, Throwable)}.
    * <ul>
    *   <li>Then return Message is {@code An error occurred}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ChannelClosedException#ChannelClosedException(String, Throwable)}
+   * Method under test: {@link ChannelClosedException#ChannelClosedException(String, Throwable)}
    */
   @Test
   @DisplayName("Test new ChannelClosedException(String, Throwable); then return Message is 'An error occurred'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ChannelClosedException.<init>()", "void ChannelClosedException.<init>(String)",
+      "void ChannelClosedException.<init>(String, Throwable)",
+      "void ChannelClosedException.<init>(String, Throwable, boolean, boolean)",
+      "void ChannelClosedException.<init>(Throwable)"})
   void testNewChannelClosedException_thenReturnMessageIsAnErrorOccurred() {
     // Arrange
     Throwable cause = new Throwable();
@@ -42,6 +47,11 @@ class ChannelClosedExceptionDiffblueTest {
    */
   @Test
   @DisplayName("Test new ChannelClosedException(); then return Message is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ChannelClosedException.<init>()", "void ChannelClosedException.<init>(String)",
+      "void ChannelClosedException.<init>(String, Throwable)",
+      "void ChannelClosedException.<init>(String, Throwable, boolean, boolean)",
+      "void ChannelClosedException.<init>(Throwable)"})
   void testNewChannelClosedException_thenReturnMessageIsNull() {
     // Arrange and Act
     ChannelClosedException actualChannelClosedException = new ChannelClosedException();
@@ -59,11 +69,15 @@ class ChannelClosedExceptionDiffblueTest {
    *   <li>Then return Cause is {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ChannelClosedException#ChannelClosedException(String)}
+   * Method under test: {@link ChannelClosedException#ChannelClosedException(String)}
    */
   @Test
   @DisplayName("Test new ChannelClosedException(String); when 'An error occurred'; then return Cause is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ChannelClosedException.<init>()", "void ChannelClosedException.<init>(String)",
+      "void ChannelClosedException.<init>(String, Throwable)",
+      "void ChannelClosedException.<init>(String, Throwable, boolean, boolean)",
+      "void ChannelClosedException.<init>(Throwable)"})
   void testNewChannelClosedException_whenAnErrorOccurred_thenReturnCauseIsNull() {
     // Arrange and Act
     ChannelClosedException actualChannelClosedException = new ChannelClosedException("An error occurred");
@@ -78,14 +92,18 @@ class ChannelClosedExceptionDiffblueTest {
    * Test {@link ChannelClosedException#ChannelClosedException(Throwable)}.
    * <ul>
    *   <li>When {@link Throwable#Throwable()}.</li>
-   *   <li>Then return Message is {@code java.lang.Throwable}.</li>
+   *   <li>Then return Message is {@code Throwable}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ChannelClosedException#ChannelClosedException(Throwable)}
+   * Method under test: {@link ChannelClosedException#ChannelClosedException(Throwable)}
    */
   @Test
   @DisplayName("Test new ChannelClosedException(Throwable); when Throwable(); then return Message is 'java.lang.Throwable'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ChannelClosedException.<init>()", "void ChannelClosedException.<init>(String)",
+      "void ChannelClosedException.<init>(String, Throwable)",
+      "void ChannelClosedException.<init>(String, Throwable, boolean, boolean)",
+      "void ChannelClosedException.<init>(Throwable)"})
   void testNewChannelClosedException_whenThrowable_thenReturnMessageIsJavaLangThrowable() {
     // Arrange
     Throwable cause = new Throwable();
@@ -100,18 +118,21 @@ class ChannelClosedExceptionDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link ChannelClosedException#ChannelClosedException(String, Throwable, boolean, boolean)}.
+   * Test {@link ChannelClosedException#ChannelClosedException(String, Throwable, boolean, boolean)}.
    * <ul>
    *   <li>When {@code true}.</li>
    *   <li>Then return Message is {@code An error occurred}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ChannelClosedException#ChannelClosedException(String, Throwable, boolean, boolean)}
+   * Method under test: {@link ChannelClosedException#ChannelClosedException(String, Throwable, boolean, boolean)}
    */
   @Test
   @DisplayName("Test new ChannelClosedException(String, Throwable, boolean, boolean); when 'true'; then return Message is 'An error occurred'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ChannelClosedException.<init>()", "void ChannelClosedException.<init>(String)",
+      "void ChannelClosedException.<init>(String, Throwable)",
+      "void ChannelClosedException.<init>(String, Throwable, boolean, boolean)",
+      "void ChannelClosedException.<init>(Throwable)"})
   void testNewChannelClosedException_whenTrue_thenReturnMessageIsAnErrorOccurred() {
     // Arrange
     Throwable cause = new Throwable();

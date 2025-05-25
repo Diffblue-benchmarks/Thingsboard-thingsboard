@@ -3,19 +3,21 @@ package org.thingsboard.server.common.transport.config.ssl;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class PemSslCredentialsDiffblueTest {
   /**
    * Test {@link PemSslCredentials#canUse()}.
    * <ul>
-   *   <li>Given {@link PemSslCredentials} (default constructor) CertFile is
-   * {@code Cert File}.</li>
+   *   <li>Given {@link PemSslCredentials} (default constructor) CertFile is {@code Cert File}.</li>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
@@ -23,6 +25,8 @@ class PemSslCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test canUse(); given PemSslCredentials (default constructor) CertFile is 'Cert File'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PemSslCredentials.canUse()"})
   void testCanUse_givenPemSslCredentialsCertFileIsCertFile_thenReturnFalse() {
     // Arrange
     PemSslCredentials pemSslCredentials = new PemSslCredentials();
@@ -35,8 +39,7 @@ class PemSslCredentialsDiffblueTest {
   /**
    * Test {@link PemSslCredentials#canUse()}.
    * <ul>
-   *   <li>Given {@link PemSslCredentials} (default constructor) CertFile is
-   * {@code classpath:}.</li>
+   *   <li>Given {@link PemSslCredentials} (default constructor) CertFile is {@code classpath:}.</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
@@ -44,6 +47,8 @@ class PemSslCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test canUse(); given PemSslCredentials (default constructor) CertFile is 'classpath:'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PemSslCredentials.canUse()"})
   void testCanUse_givenPemSslCredentialsCertFileIsClasspath_thenReturnTrue() {
     // Arrange
     PemSslCredentials pemSslCredentials = new PemSslCredentials();
@@ -56,14 +61,15 @@ class PemSslCredentialsDiffblueTest {
   /**
    * Test {@link PemSslCredentials#loadKeyStore(boolean, char[])}.
    * <ul>
-   *   <li>Given {@link PemSslCredentials} (default constructor) KeyFile is
-   * {@code BC}.</li>
+   *   <li>Given {@link PemSslCredentials} (default constructor) KeyFile is {@code BC}.</li>
    * </ul>
    * <p>
    * Method under test: {@link PemSslCredentials#loadKeyStore(boolean, char[])}
    */
   @Test
   @DisplayName("Test loadKeyStore(boolean, char[]); given PemSslCredentials (default constructor) KeyFile is 'BC'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.security.KeyStore PemSslCredentials.loadKeyStore(boolean, char[])"})
   void testLoadKeyStore_givenPemSslCredentialsKeyFileIsBc() throws IOException, GeneralSecurityException {
     // Arrange
     PemSslCredentials pemSslCredentials = new PemSslCredentials();
@@ -77,14 +83,15 @@ class PemSslCredentialsDiffblueTest {
   /**
    * Test {@link PemSslCredentials#loadKeyStore(boolean, char[])}.
    * <ul>
-   *   <li>Given {@link PemSslCredentials} (default constructor) KeyFile is
-   * {@code classpath:}.</li>
+   *   <li>Given {@link PemSslCredentials} (default constructor) KeyFile is {@code classpath:}.</li>
    * </ul>
    * <p>
    * Method under test: {@link PemSslCredentials#loadKeyStore(boolean, char[])}
    */
   @Test
   @DisplayName("Test loadKeyStore(boolean, char[]); given PemSslCredentials (default constructor) KeyFile is 'classpath:'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.security.KeyStore PemSslCredentials.loadKeyStore(boolean, char[])"})
   void testLoadKeyStore_givenPemSslCredentialsKeyFileIsClasspath() throws IOException, GeneralSecurityException {
     // Arrange
     PemSslCredentials pemSslCredentials = new PemSslCredentials();
@@ -98,14 +105,15 @@ class PemSslCredentialsDiffblueTest {
   /**
    * Test {@link PemSslCredentials#loadKeyStore(boolean, char[])}.
    * <ul>
-   *   <li>Given {@link PemSslCredentials} (default constructor) KeyFile is empty
-   * string.</li>
+   *   <li>Given {@link PemSslCredentials} (default constructor) KeyFile is empty string.</li>
    * </ul>
    * <p>
    * Method under test: {@link PemSslCredentials#loadKeyStore(boolean, char[])}
    */
   @Test
   @DisplayName("Test loadKeyStore(boolean, char[]); given PemSslCredentials (default constructor) KeyFile is empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.security.KeyStore PemSslCredentials.loadKeyStore(boolean, char[])"})
   void testLoadKeyStore_givenPemSslCredentialsKeyFileIsEmptyString() throws IOException, GeneralSecurityException {
     // Arrange
     PemSslCredentials pemSslCredentials = new PemSslCredentials();
@@ -126,6 +134,8 @@ class PemSslCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test loadKeyStore(boolean, char[]); then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.security.KeyStore PemSslCredentials.loadKeyStore(boolean, char[])"})
   void testLoadKeyStore_thenThrowIllegalArgumentException() throws IOException, GeneralSecurityException {
     // Arrange
     PemSslCredentials pemSslCredentials = new PemSslCredentials();
@@ -136,8 +146,7 @@ class PemSslCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link PemSslCredentials#equals(Object)}, and
-   * {@link PemSslCredentials#hashCode()}.
+   * Test {@link PemSslCredentials#equals(Object)}, and {@link PemSslCredentials#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -151,6 +160,8 @@ class PemSslCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PemSslCredentials.equals(Object)", "int PemSslCredentials.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     PemSslCredentials pemSslCredentials = new PemSslCredentials();
@@ -163,8 +174,7 @@ class PemSslCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link PemSslCredentials#equals(Object)}, and
-   * {@link PemSslCredentials#hashCode()}.
+   * Test {@link PemSslCredentials#equals(Object)}, and {@link PemSslCredentials#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -178,6 +188,8 @@ class PemSslCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PemSslCredentials.equals(Object)", "int PemSslCredentials.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     PemSslCredentials pemSslCredentials = new PemSslCredentials();
@@ -193,8 +205,7 @@ class PemSslCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link PemSslCredentials#equals(Object)}, and
-   * {@link PemSslCredentials#hashCode()}.
+   * Test {@link PemSslCredentials#equals(Object)}, and {@link PemSslCredentials#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -208,6 +219,8 @@ class PemSslCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PemSslCredentials.equals(Object)", "int PemSslCredentials.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     PemSslCredentials pemSslCredentials = new PemSslCredentials();
@@ -223,8 +236,7 @@ class PemSslCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link PemSslCredentials#equals(Object)}, and
-   * {@link PemSslCredentials#hashCode()}.
+   * Test {@link PemSslCredentials#equals(Object)}, and {@link PemSslCredentials#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -238,6 +250,8 @@ class PemSslCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PemSslCredentials.equals(Object)", "int PemSslCredentials.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     PemSslCredentials pemSslCredentials = new PemSslCredentials();
@@ -253,8 +267,7 @@ class PemSslCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link PemSslCredentials#equals(Object)}, and
-   * {@link PemSslCredentials#hashCode()}.
+   * Test {@link PemSslCredentials#equals(Object)}, and {@link PemSslCredentials#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -268,6 +281,8 @@ class PemSslCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PemSslCredentials.equals(Object)", "int PemSslCredentials.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     PemSslCredentials pemSslCredentials = new PemSslCredentials();
@@ -289,6 +304,8 @@ class PemSslCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PemSslCredentials.equals(Object)", "int PemSslCredentials.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new PemSslCredentials(), 1);
@@ -305,6 +322,8 @@ class PemSslCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PemSslCredentials.equals(Object)", "int PemSslCredentials.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     PemSslCredentials pemSslCredentials = new PemSslCredentials();
@@ -325,6 +344,8 @@ class PemSslCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PemSslCredentials.equals(Object)", "int PemSslCredentials.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     PemSslCredentials pemSslCredentials = new PemSslCredentials();
@@ -345,6 +366,8 @@ class PemSslCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PemSslCredentials.equals(Object)", "int PemSslCredentials.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     PemSslCredentials pemSslCredentials = new PemSslCredentials();
@@ -365,6 +388,8 @@ class PemSslCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PemSslCredentials.equals(Object)", "int PemSslCredentials.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     PemSslCredentials pemSslCredentials = new PemSslCredentials();
@@ -387,6 +412,8 @@ class PemSslCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PemSslCredentials.equals(Object)", "int PemSslCredentials.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     PemSslCredentials pemSslCredentials = new PemSslCredentials();
@@ -409,6 +436,8 @@ class PemSslCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PemSslCredentials.equals(Object)", "int PemSslCredentials.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     PemSslCredentials pemSslCredentials = new PemSslCredentials();
@@ -431,6 +460,8 @@ class PemSslCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PemSslCredentials.equals(Object)", "int PemSslCredentials.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new PemSslCredentials(), null);
@@ -447,6 +478,8 @@ class PemSslCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PemSslCredentials.equals(Object)", "int PemSslCredentials.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new PemSslCredentials(), "Different type to PemSslCredentials");
@@ -471,6 +504,12 @@ class PemSslCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PemSslCredentials.<init>()", "String PemSslCredentials.getCertFile()",
+      "String PemSslCredentials.getKeyAlias()", "String PemSslCredentials.getKeyFile()",
+      "String PemSslCredentials.getKeyPassword()", "void PemSslCredentials.setCertFile(String)",
+      "void PemSslCredentials.setKeyFile(String)", "void PemSslCredentials.setKeyPassword(String)",
+      "String PemSslCredentials.toString()", "void PemSslCredentials.updateKeyAlias(String)"})
   void testGettersAndSetters() {
     // Arrange and Act
     PemSslCredentials actualPemSslCredentials = new PemSslCredentials();
@@ -483,11 +522,16 @@ class PemSslCredentialsDiffblueTest {
     String actualKeyAlias = actualPemSslCredentials.getKeyAlias();
     String actualKeyFile = actualPemSslCredentials.getKeyFile();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Cert File", actualCertFile);
     assertEquals("Key File", actualKeyFile);
     assertEquals("PemSslCredentials(certFile=Cert File, keyFile=Key File, keyPassword=iloveyou)", actualToStringResult);
     assertEquals("iloveyou", actualPemSslCredentials.getKeyPassword());
     assertEquals("server", actualKeyAlias);
+    assertNull(actualPemSslCredentials.getKeyStore());
+    assertNull(actualPemSslCredentials.getPrivateKey());
+    assertNull(actualPemSslCredentials.getPublicKey());
+    assertNull(actualPemSslCredentials.getCertificateChain());
+    assertNull(actualPemSslCredentials.getTrustedCertificates());
   }
 }

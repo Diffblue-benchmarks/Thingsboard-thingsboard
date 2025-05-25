@@ -7,144 +7,157 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.ApiUsageRecordKey;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.TenantProfileType;
 import org.thingsboard.server.common.data.tenant.profile.DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder;
 
+@ContextConfiguration(classes = {DefaultTenantProfileConfigurationBuilder.class})
+@ExtendWith(SpringExtension.class)
 class DefaultTenantProfileConfigurationDiffblueTest {
+  @Autowired
+  private DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder;
+
   /**
-   * Test DefaultTenantProfileConfigurationBuilder
-   * {@link DefaultTenantProfileConfigurationBuilder#build()}.
+   * Test DefaultTenantProfileConfigurationBuilder {@link DefaultTenantProfileConfigurationBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#build()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#alarmsTtlDays(int)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#cassandraQueryTenantRateLimitsConfiguration(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#customerServerRestLimitsConfiguration(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#defaultStorageTtlDays(int)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#edgeEventRateLimits(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#edgeEventRateLimitsPerEdge(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#edgeUplinkMessagesRateLimits(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#edgeUplinkMessagesRateLimitsPerEdge(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxAssets(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxCreatedAlarms(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxCustomers(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxDPStorageDays(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxDashboards(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxDevices(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxEmails(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxJSExecutions(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxOtaPackagesInBytes(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxREExecutions(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxResourceSize(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxResourcesInBytes(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxRuleChains(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxRuleNodeExecutionsPerMessage(int)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxSms(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxTbelExecutions(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxTransportDataPoints(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxTransportMessages(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxUsers(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxWsSessionsPerCustomer(int)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxWsSessionsPerPublicUser(int)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxWsSessionsPerRegularUser(int)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxWsSessionsPerTenant(int)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxWsSubscriptionsPerCustomer(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxWsSubscriptionsPerPublicUser(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxWsSubscriptionsPerRegularUser(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#maxWsSubscriptionsPerTenant(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#queueStatsTtlDays(int)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#rpcTtlDays(int)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#ruleEngineExceptionsTtlDays(int)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#smsEnabled(Boolean)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#tenantEntityExportRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#tenantEntityImportRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#tenantNotificationRequestsPerRuleRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#tenantNotificationRequestsRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#tenantServerRestLimitsConfiguration(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#transportDeviceMsgRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#transportDeviceTelemetryDataPointsRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#transportDeviceTelemetryMsgRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#transportGatewayDeviceMsgRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#transportGatewayDeviceTelemetryDataPointsRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#transportGatewayDeviceTelemetryMsgRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#transportGatewayMsgRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#transportGatewayTelemetryDataPointsRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#transportGatewayTelemetryMsgRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#transportTenantMsgRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#transportTenantTelemetryDataPointsRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#transportTenantTelemetryMsgRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#warnThreshold(double)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#wsMsgQueueLimitPerSession(int)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder#wsUpdatesPerSessionRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#build()}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#alarmsTtlDays(int)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#cassandraQueryTenantRateLimitsConfiguration(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#customerServerRestLimitsConfiguration(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#defaultStorageTtlDays(int)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#edgeEventRateLimits(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#edgeEventRateLimitsPerEdge(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#edgeUplinkMessagesRateLimits(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#edgeUplinkMessagesRateLimitsPerEdge(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxAssets(long)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxCreatedAlarms(long)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxCustomers(long)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxDPStorageDays(long)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxDashboards(long)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxDevices(long)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxEmails(long)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxJSExecutions(long)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxOtaPackagesInBytes(long)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxREExecutions(long)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxResourceSize(long)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxResourcesInBytes(long)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxRuleChains(long)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxRuleNodeExecutionsPerMessage(int)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxSms(long)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxTbelExecutions(long)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxTransportDataPoints(long)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxTransportMessages(long)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxUsers(long)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxWsSessionsPerCustomer(int)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxWsSessionsPerPublicUser(int)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxWsSessionsPerRegularUser(int)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxWsSessionsPerTenant(int)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxWsSubscriptionsPerCustomer(long)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxWsSubscriptionsPerPublicUser(long)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxWsSubscriptionsPerRegularUser(long)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#maxWsSubscriptionsPerTenant(long)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#queueStatsTtlDays(int)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#rpcTtlDays(int)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#ruleEngineExceptionsTtlDays(int)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#smsEnabled(Boolean)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#tenantEntityExportRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#tenantEntityImportRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#tenantNotificationRequestsPerRuleRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#tenantNotificationRequestsRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#tenantServerRestLimitsConfiguration(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#transportDeviceMsgRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#transportDeviceTelemetryDataPointsRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#transportDeviceTelemetryMsgRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#transportGatewayDeviceMsgRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#transportGatewayDeviceTelemetryDataPointsRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#transportGatewayDeviceTelemetryMsgRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#transportGatewayMsgRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#transportGatewayTelemetryDataPointsRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#transportGatewayTelemetryMsgRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#transportTenantMsgRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#transportTenantTelemetryDataPointsRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#transportTenantTelemetryMsgRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#warnThreshold(double)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#wsMsgQueueLimitPerSession(int)}
+   *   <li>{@link DefaultTenantProfileConfigurationBuilder#wsUpdatesPerSessionRateLimit(String)}
    * </ul>
    */
   @Test
   @DisplayName("Test DefaultTenantProfileConfigurationBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultTenantProfileConfigurationBuilder.<init>()",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.alarmsTtlDays(int)",
+      "DefaultTenantProfileConfiguration DefaultTenantProfileConfigurationBuilder.build()",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.cassandraQueryTenantRateLimitsConfiguration(String)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.customerServerRestLimitsConfiguration(String)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.defaultStorageTtlDays(int)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.edgeEventRateLimits(String)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.edgeEventRateLimitsPerEdge(String)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.edgeUplinkMessagesRateLimits(String)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.edgeUplinkMessagesRateLimitsPerEdge(String)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxAssets(long)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxCreatedAlarms(long)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxCustomers(long)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxDPStorageDays(long)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxDashboards(long)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxDevices(long)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxEmails(long)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxJSExecutions(long)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxOtaPackagesInBytes(long)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxREExecutions(long)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxResourceSize(long)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxResourcesInBytes(long)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxRuleChains(long)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxRuleNodeExecutionsPerMessage(int)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxSms(long)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxTbelExecutions(long)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxTransportDataPoints(long)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxTransportMessages(long)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxUsers(long)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxWsSessionsPerCustomer(int)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxWsSessionsPerPublicUser(int)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxWsSessionsPerRegularUser(int)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxWsSessionsPerTenant(int)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxWsSubscriptionsPerCustomer(long)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxWsSubscriptionsPerPublicUser(long)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxWsSubscriptionsPerRegularUser(long)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.maxWsSubscriptionsPerTenant(long)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.queueStatsTtlDays(int)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.rpcTtlDays(int)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.ruleEngineExceptionsTtlDays(int)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.smsEnabled(Boolean)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.tenantEntityExportRateLimit(String)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.tenantEntityImportRateLimit(String)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.tenantNotificationRequestsPerRuleRateLimit(String)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.tenantNotificationRequestsRateLimit(String)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.tenantServerRestLimitsConfiguration(String)",
+      "String DefaultTenantProfileConfigurationBuilder.toString()",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.transportDeviceMsgRateLimit(String)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.transportDeviceTelemetryDataPointsRateLimit(String)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.transportDeviceTelemetryMsgRateLimit(String)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.transportGatewayDeviceMsgRateLimit(String)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.transportGatewayDeviceTelemetryDataPointsRateLimit(String)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.transportGatewayDeviceTelemetryMsgRateLimit(String)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.transportGatewayMsgRateLimit(String)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.transportGatewayTelemetryDataPointsRateLimit(String)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.transportGatewayTelemetryMsgRateLimit(String)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.transportTenantMsgRateLimit(String)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.transportTenantTelemetryDataPointsRateLimit(String)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.transportTenantTelemetryMsgRateLimit(String)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.warnThreshold(double)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.wsMsgQueueLimitPerSession(int)",
+      "DefaultTenantProfileConfigurationBuilder DefaultTenantProfileConfigurationBuilder.wsUpdatesPerSessionRateLimit(String)"})
   void testDefaultTenantProfileConfigurationBuilderBuild() {
     // Arrange and Act
     DefaultTenantProfileConfiguration actualBuildResult = DefaultTenantProfileConfiguration.builder()
@@ -286,17 +299,17 @@ class DefaultTenantProfileConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}.
+   * Test {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}.
    * <ul>
    *   <li>When {@code CREATED_ALARMS_COUNT}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getProfileThreshold(ApiUsageRecordKey); when 'CREATED_ALARMS_COUNT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getProfileThreshold(ApiUsageRecordKey)"})
   void testGetProfileThreshold_whenCreatedAlarmsCount() {
     // Arrange, Act and Assert
     assertEquals(0L,
@@ -304,119 +317,119 @@ class DefaultTenantProfileConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}.
+   * Test {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}.
    * <ul>
    *   <li>When {@code EMAIL_EXEC_COUNT}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getProfileThreshold(ApiUsageRecordKey); when 'EMAIL_EXEC_COUNT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getProfileThreshold(ApiUsageRecordKey)"})
   void testGetProfileThreshold_whenEmailExecCount() {
     // Arrange, Act and Assert
     assertEquals(0L, (new DefaultTenantProfileConfiguration()).getProfileThreshold(ApiUsageRecordKey.EMAIL_EXEC_COUNT));
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}.
+   * Test {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}.
    * <ul>
    *   <li>When {@code JS_EXEC_COUNT}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getProfileThreshold(ApiUsageRecordKey); when 'JS_EXEC_COUNT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getProfileThreshold(ApiUsageRecordKey)"})
   void testGetProfileThreshold_whenJsExecCount() {
     // Arrange, Act and Assert
     assertEquals(0L, (new DefaultTenantProfileConfiguration()).getProfileThreshold(ApiUsageRecordKey.JS_EXEC_COUNT));
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}.
+   * Test {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}.
    * <ul>
    *   <li>When {@code RE_EXEC_COUNT}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getProfileThreshold(ApiUsageRecordKey); when 'RE_EXEC_COUNT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getProfileThreshold(ApiUsageRecordKey)"})
   void testGetProfileThreshold_whenReExecCount() {
     // Arrange, Act and Assert
     assertEquals(0L, (new DefaultTenantProfileConfiguration()).getProfileThreshold(ApiUsageRecordKey.RE_EXEC_COUNT));
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}.
+   * Test {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}.
    * <ul>
    *   <li>When {@code SMS_EXEC_COUNT}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getProfileThreshold(ApiUsageRecordKey); when 'SMS_EXEC_COUNT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getProfileThreshold(ApiUsageRecordKey)"})
   void testGetProfileThreshold_whenSmsExecCount() {
     // Arrange, Act and Assert
     assertEquals(0L, (new DefaultTenantProfileConfiguration()).getProfileThreshold(ApiUsageRecordKey.SMS_EXEC_COUNT));
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}.
+   * Test {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}.
    * <ul>
    *   <li>When {@code STORAGE_DP_COUNT}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getProfileThreshold(ApiUsageRecordKey); when 'STORAGE_DP_COUNT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getProfileThreshold(ApiUsageRecordKey)"})
   void testGetProfileThreshold_whenStorageDpCount() {
     // Arrange, Act and Assert
     assertEquals(0L, (new DefaultTenantProfileConfiguration()).getProfileThreshold(ApiUsageRecordKey.STORAGE_DP_COUNT));
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}.
+   * Test {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}.
    * <ul>
    *   <li>When {@code TBEL_EXEC_COUNT}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getProfileThreshold(ApiUsageRecordKey); when 'TBEL_EXEC_COUNT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getProfileThreshold(ApiUsageRecordKey)"})
   void testGetProfileThreshold_whenTbelExecCount() {
     // Arrange, Act and Assert
     assertEquals(0L, (new DefaultTenantProfileConfiguration()).getProfileThreshold(ApiUsageRecordKey.TBEL_EXEC_COUNT));
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}.
+   * Test {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}.
    * <ul>
    *   <li>When {@code TRANSPORT_DP_COUNT}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getProfileThreshold(ApiUsageRecordKey); when 'TRANSPORT_DP_COUNT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getProfileThreshold(ApiUsageRecordKey)"})
   void testGetProfileThreshold_whenTransportDpCount() {
     // Arrange, Act and Assert
     assertEquals(0L,
@@ -424,17 +437,17 @@ class DefaultTenantProfileConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}.
+   * Test {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}.
    * <ul>
    *   <li>When {@code TRANSPORT_MSG_COUNT}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getProfileThreshold(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getProfileThreshold(ApiUsageRecordKey); when 'TRANSPORT_MSG_COUNT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getProfileThreshold(ApiUsageRecordKey)"})
   void testGetProfileThreshold_whenTransportMsgCount() {
     // Arrange, Act and Assert
     assertEquals(0L,
@@ -442,14 +455,14 @@ class DefaultTenantProfileConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#getProfileFeatureEnabled(ApiUsageRecordKey)}.
+   * Test {@link DefaultTenantProfileConfiguration#getProfileFeatureEnabled(ApiUsageRecordKey)}.
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getProfileFeatureEnabled(ApiUsageRecordKey)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getProfileFeatureEnabled(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getProfileFeatureEnabled(ApiUsageRecordKey)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.getProfileFeatureEnabled(ApiUsageRecordKey)"})
   void testGetProfileFeatureEnabled() {
     // Arrange
     DefaultTenantProfileConfiguration buildResult = DefaultTenantProfileConfiguration.builder()
@@ -519,35 +532,34 @@ class DefaultTenantProfileConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#getProfileFeatureEnabled(ApiUsageRecordKey)}.
+   * Test {@link DefaultTenantProfileConfiguration#getProfileFeatureEnabled(ApiUsageRecordKey)}.
    * <ul>
-   *   <li>Given
-   * {@link DefaultTenantProfileConfiguration#DefaultTenantProfileConfiguration()}.</li>
+   *   <li>Given {@link DefaultTenantProfileConfiguration#DefaultTenantProfileConfiguration()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getProfileFeatureEnabled(ApiUsageRecordKey)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getProfileFeatureEnabled(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getProfileFeatureEnabled(ApiUsageRecordKey); given DefaultTenantProfileConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.getProfileFeatureEnabled(ApiUsageRecordKey)"})
   void testGetProfileFeatureEnabled_givenDefaultTenantProfileConfiguration() {
     // Arrange, Act and Assert
     assertTrue((new DefaultTenantProfileConfiguration()).getProfileFeatureEnabled(ApiUsageRecordKey.SMS_EXEC_COUNT));
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#getProfileFeatureEnabled(ApiUsageRecordKey)}.
+   * Test {@link DefaultTenantProfileConfiguration#getProfileFeatureEnabled(ApiUsageRecordKey)}.
    * <ul>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getProfileFeatureEnabled(ApiUsageRecordKey)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getProfileFeatureEnabled(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getProfileFeatureEnabled(ApiUsageRecordKey); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.getProfileFeatureEnabled(ApiUsageRecordKey)"})
   void testGetProfileFeatureEnabled_thenReturnFalse() {
     // Arrange
     DefaultTenantProfileConfiguration buildResult = DefaultTenantProfileConfiguration.builder()
@@ -617,17 +629,17 @@ class DefaultTenantProfileConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#getProfileFeatureEnabled(ApiUsageRecordKey)}.
+   * Test {@link DefaultTenantProfileConfiguration#getProfileFeatureEnabled(ApiUsageRecordKey)}.
    * <ul>
    *   <li>When {@code TRANSPORT_MSG_COUNT}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getProfileFeatureEnabled(ApiUsageRecordKey)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getProfileFeatureEnabled(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getProfileFeatureEnabled(ApiUsageRecordKey); when 'TRANSPORT_MSG_COUNT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.getProfileFeatureEnabled(ApiUsageRecordKey)"})
   void testGetProfileFeatureEnabled_whenTransportMsgCount() {
     // Arrange, Act and Assert
     assertTrue(
@@ -635,37 +647,34 @@ class DefaultTenantProfileConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
-   * with {@code ApiUsageRecordKey}.
+   * Test {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)} with {@code ApiUsageRecordKey}.
    * <ul>
-   *   <li>Given
-   * {@link DefaultTenantProfileConfiguration#DefaultTenantProfileConfiguration()}.</li>
+   *   <li>Given {@link DefaultTenantProfileConfiguration#DefaultTenantProfileConfiguration()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getWarnThreshold(ApiUsageRecordKey) with 'ApiUsageRecordKey'; given DefaultTenantProfileConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getWarnThreshold(ApiUsageRecordKey)"})
   void testGetWarnThresholdWithApiUsageRecordKey_givenDefaultTenantProfileConfiguration() {
     // Arrange, Act and Assert
     assertEquals(0L, (new DefaultTenantProfileConfiguration()).getWarnThreshold(ApiUsageRecordKey.TRANSPORT_MSG_COUNT));
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
-   * with {@code ApiUsageRecordKey}.
+   * Test {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)} with {@code ApiUsageRecordKey}.
    * <ul>
    *   <li>Then return ten.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getWarnThreshold(ApiUsageRecordKey) with 'ApiUsageRecordKey'; then return ten")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getWarnThreshold(ApiUsageRecordKey)"})
   void testGetWarnThresholdWithApiUsageRecordKey_thenReturnTen() {
     // Arrange
     DefaultTenantProfileConfiguration buildResult = DefaultTenantProfileConfiguration.builder()
@@ -735,18 +744,17 @@ class DefaultTenantProfileConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
-   * with {@code ApiUsageRecordKey}.
+   * Test {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)} with {@code ApiUsageRecordKey}.
    * <ul>
    *   <li>When {@code CREATED_ALARMS_COUNT}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getWarnThreshold(ApiUsageRecordKey) with 'ApiUsageRecordKey'; when 'CREATED_ALARMS_COUNT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getWarnThreshold(ApiUsageRecordKey)"})
   void testGetWarnThresholdWithApiUsageRecordKey_whenCreatedAlarmsCount() {
     // Arrange
     DefaultTenantProfileConfiguration defaultTenantProfileConfiguration = new DefaultTenantProfileConfiguration();
@@ -757,18 +765,17 @@ class DefaultTenantProfileConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
-   * with {@code ApiUsageRecordKey}.
+   * Test {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)} with {@code ApiUsageRecordKey}.
    * <ul>
    *   <li>When {@code EMAIL_EXEC_COUNT}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getWarnThreshold(ApiUsageRecordKey) with 'ApiUsageRecordKey'; when 'EMAIL_EXEC_COUNT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getWarnThreshold(ApiUsageRecordKey)"})
   void testGetWarnThresholdWithApiUsageRecordKey_whenEmailExecCount() {
     // Arrange
     DefaultTenantProfileConfiguration defaultTenantProfileConfiguration = new DefaultTenantProfileConfiguration();
@@ -779,18 +786,17 @@ class DefaultTenantProfileConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
-   * with {@code ApiUsageRecordKey}.
+   * Test {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)} with {@code ApiUsageRecordKey}.
    * <ul>
    *   <li>When {@code JS_EXEC_COUNT}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getWarnThreshold(ApiUsageRecordKey) with 'ApiUsageRecordKey'; when 'JS_EXEC_COUNT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getWarnThreshold(ApiUsageRecordKey)"})
   void testGetWarnThresholdWithApiUsageRecordKey_whenJsExecCount() {
     // Arrange
     DefaultTenantProfileConfiguration defaultTenantProfileConfiguration = new DefaultTenantProfileConfiguration();
@@ -801,18 +807,17 @@ class DefaultTenantProfileConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
-   * with {@code ApiUsageRecordKey}.
+   * Test {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)} with {@code ApiUsageRecordKey}.
    * <ul>
    *   <li>When {@code RE_EXEC_COUNT}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getWarnThreshold(ApiUsageRecordKey) with 'ApiUsageRecordKey'; when 'RE_EXEC_COUNT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getWarnThreshold(ApiUsageRecordKey)"})
   void testGetWarnThresholdWithApiUsageRecordKey_whenReExecCount() {
     // Arrange
     DefaultTenantProfileConfiguration defaultTenantProfileConfiguration = new DefaultTenantProfileConfiguration();
@@ -823,18 +828,17 @@ class DefaultTenantProfileConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
-   * with {@code ApiUsageRecordKey}.
+   * Test {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)} with {@code ApiUsageRecordKey}.
    * <ul>
    *   <li>When {@code SMS_EXEC_COUNT}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getWarnThreshold(ApiUsageRecordKey) with 'ApiUsageRecordKey'; when 'SMS_EXEC_COUNT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getWarnThreshold(ApiUsageRecordKey)"})
   void testGetWarnThresholdWithApiUsageRecordKey_whenSmsExecCount() {
     // Arrange
     DefaultTenantProfileConfiguration defaultTenantProfileConfiguration = new DefaultTenantProfileConfiguration();
@@ -845,18 +849,17 @@ class DefaultTenantProfileConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
-   * with {@code ApiUsageRecordKey}.
+   * Test {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)} with {@code ApiUsageRecordKey}.
    * <ul>
    *   <li>When {@code STORAGE_DP_COUNT}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getWarnThreshold(ApiUsageRecordKey) with 'ApiUsageRecordKey'; when 'STORAGE_DP_COUNT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getWarnThreshold(ApiUsageRecordKey)"})
   void testGetWarnThresholdWithApiUsageRecordKey_whenStorageDpCount() {
     // Arrange
     DefaultTenantProfileConfiguration defaultTenantProfileConfiguration = new DefaultTenantProfileConfiguration();
@@ -867,18 +870,17 @@ class DefaultTenantProfileConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
-   * with {@code ApiUsageRecordKey}.
+   * Test {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)} with {@code ApiUsageRecordKey}.
    * <ul>
    *   <li>When {@code TBEL_EXEC_COUNT}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getWarnThreshold(ApiUsageRecordKey) with 'ApiUsageRecordKey'; when 'TBEL_EXEC_COUNT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getWarnThreshold(ApiUsageRecordKey)"})
   void testGetWarnThresholdWithApiUsageRecordKey_whenTbelExecCount() {
     // Arrange
     DefaultTenantProfileConfiguration defaultTenantProfileConfiguration = new DefaultTenantProfileConfiguration();
@@ -889,18 +891,17 @@ class DefaultTenantProfileConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
-   * with {@code ApiUsageRecordKey}.
+   * Test {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)} with {@code ApiUsageRecordKey}.
    * <ul>
    *   <li>When {@code TRANSPORT_DP_COUNT}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getWarnThreshold(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getWarnThreshold(ApiUsageRecordKey) with 'ApiUsageRecordKey'; when 'TRANSPORT_DP_COUNT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getWarnThreshold(ApiUsageRecordKey)"})
   void testGetWarnThresholdWithApiUsageRecordKey_whenTransportDpCount() {
     // Arrange
     DefaultTenantProfileConfiguration defaultTenantProfileConfiguration = new DefaultTenantProfileConfiguration();
@@ -916,11 +917,12 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    *   <li>When {@code ASSET}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getEntitiesLimit(EntityType)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getEntitiesLimit(EntityType)}
    */
   @Test
   @DisplayName("Test getEntitiesLimit(EntityType); when 'ASSET'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getEntitiesLimit(EntityType)"})
   void testGetEntitiesLimit_whenAsset() {
     // Arrange, Act and Assert
     assertEquals(0L, (new DefaultTenantProfileConfiguration()).getEntitiesLimit(EntityType.ASSET));
@@ -932,11 +934,12 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    *   <li>When {@code CUSTOMER}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getEntitiesLimit(EntityType)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getEntitiesLimit(EntityType)}
    */
   @Test
   @DisplayName("Test getEntitiesLimit(EntityType); when 'CUSTOMER'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getEntitiesLimit(EntityType)"})
   void testGetEntitiesLimit_whenCustomer() {
     // Arrange, Act and Assert
     assertEquals(0L, (new DefaultTenantProfileConfiguration()).getEntitiesLimit(EntityType.CUSTOMER));
@@ -948,11 +951,12 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    *   <li>When {@code DASHBOARD}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getEntitiesLimit(EntityType)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getEntitiesLimit(EntityType)}
    */
   @Test
   @DisplayName("Test getEntitiesLimit(EntityType); when 'DASHBOARD'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getEntitiesLimit(EntityType)"})
   void testGetEntitiesLimit_whenDashboard() {
     // Arrange, Act and Assert
     assertEquals(0L, (new DefaultTenantProfileConfiguration()).getEntitiesLimit(EntityType.DASHBOARD));
@@ -964,11 +968,12 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    *   <li>When {@code DEVICE}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getEntitiesLimit(EntityType)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getEntitiesLimit(EntityType)}
    */
   @Test
   @DisplayName("Test getEntitiesLimit(EntityType); when 'DEVICE'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getEntitiesLimit(EntityType)"})
   void testGetEntitiesLimit_whenDevice() {
     // Arrange, Act and Assert
     assertEquals(0L, (new DefaultTenantProfileConfiguration()).getEntitiesLimit(EntityType.DEVICE));
@@ -980,11 +985,12 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    *   <li>When {@code RULE_CHAIN}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getEntitiesLimit(EntityType)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getEntitiesLimit(EntityType)}
    */
   @Test
   @DisplayName("Test getEntitiesLimit(EntityType); when 'RULE_CHAIN'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getEntitiesLimit(EntityType)"})
   void testGetEntitiesLimit_whenRuleChain() {
     // Arrange, Act and Assert
     assertEquals(0L, (new DefaultTenantProfileConfiguration()).getEntitiesLimit(EntityType.RULE_CHAIN));
@@ -996,11 +1002,12 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    *   <li>When {@code TENANT}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getEntitiesLimit(EntityType)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getEntitiesLimit(EntityType)}
    */
   @Test
   @DisplayName("Test getEntitiesLimit(EntityType); when 'TENANT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getEntitiesLimit(EntityType)"})
   void testGetEntitiesLimit_whenTenant() {
     // Arrange, Act and Assert
     assertEquals(0L, (new DefaultTenantProfileConfiguration()).getEntitiesLimit(EntityType.TENANT));
@@ -1012,19 +1019,19 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    *   <li>When {@code USER}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#getEntitiesLimit(EntityType)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#getEntitiesLimit(EntityType)}
    */
   @Test
   @DisplayName("Test getEntitiesLimit(EntityType); when 'USER'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long DefaultTenantProfileConfiguration.getEntitiesLimit(EntityType)"})
   void testGetEntitiesLimit_whenUser() {
     // Arrange, Act and Assert
     assertEquals(0L, (new DefaultTenantProfileConfiguration()).getEntitiesLimit(EntityType.USER));
   }
 
   /**
-   * Test {@link DefaultTenantProfileConfiguration#equals(Object)}, and
-   * {@link DefaultTenantProfileConfiguration#hashCode()}.
+   * Test {@link DefaultTenantProfileConfiguration#equals(Object)}, and {@link DefaultTenantProfileConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -1038,6 +1045,9 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DefaultTenantProfileConfiguration buildResult = DefaultTenantProfileConfiguration.builder()
@@ -1170,8 +1180,7 @@ class DefaultTenantProfileConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link DefaultTenantProfileConfiguration#equals(Object)}, and
-   * {@link DefaultTenantProfileConfiguration#hashCode()}.
+   * Test {@link DefaultTenantProfileConfiguration#equals(Object)}, and {@link DefaultTenantProfileConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -1185,6 +1194,9 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DefaultTenantProfileConfiguration buildResult = DefaultTenantProfileConfiguration.builder()
@@ -1266,10 +1278,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -1409,10 +1424,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -1552,10 +1570,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -1695,10 +1716,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -1838,10 +1862,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -1981,10 +2008,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -2124,10 +2154,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -2267,10 +2300,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -2410,10 +2446,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -2553,10 +2592,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -2696,10 +2738,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -2839,10 +2884,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -2982,10 +3030,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -3125,10 +3176,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -3268,10 +3322,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -3411,10 +3468,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -3554,10 +3614,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -3697,10 +3760,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -3840,10 +3906,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -3983,10 +4052,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -4126,10 +4198,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -4269,10 +4344,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -4412,10 +4490,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -4555,10 +4636,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -4698,10 +4782,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -4841,10 +4928,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -4984,10 +5074,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual27() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -5127,10 +5220,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual28() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -5270,10 +5366,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual29() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -5413,10 +5512,13 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual30() {
     // Arrange
-    DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
-        DefaultTenantProfileConfiguration.DefaultTenantProfileConfigurationBuilder.class);
+    DefaultTenantProfileConfigurationBuilder defaultTenantProfileConfigurationBuilder = mock(
+        DefaultTenantProfileConfigurationBuilder.class);
     when(defaultTenantProfileConfigurationBuilder.alarmsTtlDays(anyInt()))
         .thenReturn(DefaultTenantProfileConfiguration.builder());
     DefaultTenantProfileConfiguration buildResult = defaultTenantProfileConfigurationBuilder.alarmsTtlDays(1)
@@ -5556,6 +5658,9 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     DefaultTenantProfileConfiguration buildResult = DefaultTenantProfileConfiguration.builder()
@@ -5635,6 +5740,9 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTenantProfileConfiguration.equals(Object)",
+      "int DefaultTenantProfileConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     DefaultTenantProfileConfiguration buildResult = DefaultTenantProfileConfiguration.builder()
@@ -5708,21 +5816,15 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#DefaultTenantProfileConfiguration()}
+   *   <li>{@link DefaultTenantProfileConfiguration#DefaultTenantProfileConfiguration()}
    *   <li>{@link DefaultTenantProfileConfiguration#setAlarmsTtlDays(int)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setCassandraQueryTenantRateLimitsConfiguration(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setCustomerServerRestLimitsConfiguration(String)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setCassandraQueryTenantRateLimitsConfiguration(String)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setCustomerServerRestLimitsConfiguration(String)}
    *   <li>{@link DefaultTenantProfileConfiguration#setDefaultStorageTtlDays(int)}
    *   <li>{@link DefaultTenantProfileConfiguration#setEdgeEventRateLimits(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setEdgeEventRateLimitsPerEdge(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setEdgeUplinkMessagesRateLimits(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setEdgeUplinkMessagesRateLimitsPerEdge(String)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setEdgeEventRateLimitsPerEdge(String)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setEdgeUplinkMessagesRateLimits(String)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setEdgeUplinkMessagesRateLimitsPerEdge(String)}
    *   <li>{@link DefaultTenantProfileConfiguration#setMaxAssets(long)}
    *   <li>{@link DefaultTenantProfileConfiguration#setMaxCreatedAlarms(long)}
    *   <li>{@link DefaultTenantProfileConfiguration#setMaxCustomers(long)}
@@ -5736,85 +5838,53 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    *   <li>{@link DefaultTenantProfileConfiguration#setMaxResourceSize(long)}
    *   <li>{@link DefaultTenantProfileConfiguration#setMaxResourcesInBytes(long)}
    *   <li>{@link DefaultTenantProfileConfiguration#setMaxRuleChains(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setMaxRuleNodeExecutionsPerMessage(int)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setMaxRuleNodeExecutionsPerMessage(int)}
    *   <li>{@link DefaultTenantProfileConfiguration#setMaxSms(long)}
    *   <li>{@link DefaultTenantProfileConfiguration#setMaxTbelExecutions(long)}
    *   <li>{@link DefaultTenantProfileConfiguration#setMaxTransportDataPoints(long)}
    *   <li>{@link DefaultTenantProfileConfiguration#setMaxTransportMessages(long)}
    *   <li>{@link DefaultTenantProfileConfiguration#setMaxUsers(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setMaxWsSessionsPerCustomer(int)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setMaxWsSessionsPerPublicUser(int)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setMaxWsSessionsPerRegularUser(int)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setMaxWsSessionsPerCustomer(int)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setMaxWsSessionsPerPublicUser(int)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setMaxWsSessionsPerRegularUser(int)}
    *   <li>{@link DefaultTenantProfileConfiguration#setMaxWsSessionsPerTenant(int)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setMaxWsSubscriptionsPerCustomer(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setMaxWsSubscriptionsPerPublicUser(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setMaxWsSubscriptionsPerRegularUser(long)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setMaxWsSubscriptionsPerTenant(long)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setMaxWsSubscriptionsPerCustomer(long)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setMaxWsSubscriptionsPerPublicUser(long)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setMaxWsSubscriptionsPerRegularUser(long)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setMaxWsSubscriptionsPerTenant(long)}
    *   <li>{@link DefaultTenantProfileConfiguration#setQueueStatsTtlDays(int)}
    *   <li>{@link DefaultTenantProfileConfiguration#setRpcTtlDays(int)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setRuleEngineExceptionsTtlDays(int)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setRuleEngineExceptionsTtlDays(int)}
    *   <li>{@link DefaultTenantProfileConfiguration#setSmsEnabled(Boolean)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setTenantEntityExportRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setTenantEntityImportRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setTenantNotificationRequestsPerRuleRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setTenantNotificationRequestsRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setTenantServerRestLimitsConfiguration(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setTransportDeviceMsgRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setTransportDeviceTelemetryDataPointsRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setTransportDeviceTelemetryMsgRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setTransportGatewayDeviceMsgRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setTransportGatewayDeviceTelemetryDataPointsRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setTransportGatewayDeviceTelemetryMsgRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setTransportGatewayMsgRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setTransportGatewayTelemetryDataPointsRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setTransportGatewayTelemetryMsgRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setTransportTenantMsgRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setTransportTenantTelemetryDataPointsRateLimit(String)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setTransportTenantTelemetryMsgRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setTenantEntityExportRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setTenantEntityImportRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setTenantNotificationRequestsPerRuleRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setTenantNotificationRequestsRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setTenantServerRestLimitsConfiguration(String)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setTransportDeviceMsgRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setTransportDeviceTelemetryDataPointsRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setTransportDeviceTelemetryMsgRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setTransportGatewayDeviceMsgRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setTransportGatewayDeviceTelemetryDataPointsRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setTransportGatewayDeviceTelemetryMsgRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setTransportGatewayMsgRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setTransportGatewayTelemetryDataPointsRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setTransportGatewayTelemetryMsgRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setTransportTenantMsgRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setTransportTenantTelemetryDataPointsRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setTransportTenantTelemetryMsgRateLimit(String)}
    *   <li>{@link DefaultTenantProfileConfiguration#setWarnThreshold(double)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setWsMsgQueueLimitPerSession(int)}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#setWsUpdatesPerSessionRateLimit(String)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setWsMsgQueueLimitPerSession(int)}
+   *   <li>{@link DefaultTenantProfileConfiguration#setWsUpdatesPerSessionRateLimit(String)}
    *   <li>{@link DefaultTenantProfileConfiguration#toString()}
    *   <li>{@link DefaultTenantProfileConfiguration#getAlarmsTtlDays()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getCassandraQueryTenantRateLimitsConfiguration()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getCustomerServerRestLimitsConfiguration()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getCassandraQueryTenantRateLimitsConfiguration()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getCustomerServerRestLimitsConfiguration()}
    *   <li>{@link DefaultTenantProfileConfiguration#getDefaultStorageTtlDays()}
    *   <li>{@link DefaultTenantProfileConfiguration#getEdgeEventRateLimits()}
    *   <li>{@link DefaultTenantProfileConfiguration#getEdgeEventRateLimitsPerEdge()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getEdgeUplinkMessagesRateLimits()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getEdgeUplinkMessagesRateLimitsPerEdge()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getEdgeUplinkMessagesRateLimits()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getEdgeUplinkMessagesRateLimitsPerEdge()}
    *   <li>{@link DefaultTenantProfileConfiguration#getMaxAssets()}
    *   <li>{@link DefaultTenantProfileConfiguration#getMaxCreatedAlarms()}
    *   <li>{@link DefaultTenantProfileConfiguration#getMaxCustomers()}
@@ -5829,8 +5899,7 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    *   <li>{@link DefaultTenantProfileConfiguration#getMaxResourcesInBytes()}
    *   <li>{@link DefaultTenantProfileConfiguration#getMaxRuleChains()}
    *   <li>{@link DefaultTenantProfileConfiguration#getMaxRuleNodeExecsPerMessage()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getMaxRuleNodeExecutionsPerMessage()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getMaxRuleNodeExecutionsPerMessage()}
    *   <li>{@link DefaultTenantProfileConfiguration#getMaxSms()}
    *   <li>{@link DefaultTenantProfileConfiguration#getMaxTbelExecutions()}
    *   <li>{@link DefaultTenantProfileConfiguration#getMaxTransportDataPoints()}
@@ -5838,65 +5907,163 @@ class DefaultTenantProfileConfigurationDiffblueTest {
    *   <li>{@link DefaultTenantProfileConfiguration#getMaxUsers()}
    *   <li>{@link DefaultTenantProfileConfiguration#getMaxWsSessionsPerCustomer()}
    *   <li>{@link DefaultTenantProfileConfiguration#getMaxWsSessionsPerPublicUser()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getMaxWsSessionsPerRegularUser()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getMaxWsSessionsPerRegularUser()}
    *   <li>{@link DefaultTenantProfileConfiguration#getMaxWsSessionsPerTenant()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getMaxWsSubscriptionsPerCustomer()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getMaxWsSubscriptionsPerPublicUser()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getMaxWsSubscriptionsPerRegularUser()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getMaxWsSubscriptionsPerTenant()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getMaxWsSubscriptionsPerCustomer()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getMaxWsSubscriptionsPerPublicUser()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getMaxWsSubscriptionsPerRegularUser()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getMaxWsSubscriptionsPerTenant()}
    *   <li>{@link DefaultTenantProfileConfiguration#getQueueStatsTtlDays()}
    *   <li>{@link DefaultTenantProfileConfiguration#getRpcTtlDays()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getRuleEngineExceptionsTtlDays()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getRuleEngineExceptionsTtlDays()}
    *   <li>{@link DefaultTenantProfileConfiguration#getSmsEnabled()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getTenantEntityExportRateLimit()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getTenantEntityImportRateLimit()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getTenantNotificationRequestsPerRuleRateLimit()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getTenantNotificationRequestsRateLimit()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getTenantServerRestLimitsConfiguration()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getTransportDeviceMsgRateLimit()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getTransportDeviceTelemetryDataPointsRateLimit()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getTransportDeviceTelemetryMsgRateLimit()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getTransportGatewayDeviceMsgRateLimit()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getTransportGatewayDeviceTelemetryDataPointsRateLimit()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getTransportGatewayDeviceTelemetryMsgRateLimit()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getTransportGatewayMsgRateLimit()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getTransportGatewayTelemetryDataPointsRateLimit()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getTransportGatewayTelemetryMsgRateLimit()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getTransportTenantMsgRateLimit()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getTransportTenantTelemetryDataPointsRateLimit()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getTransportTenantTelemetryMsgRateLimit()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getTenantEntityExportRateLimit()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getTenantEntityImportRateLimit()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getTenantNotificationRequestsPerRuleRateLimit()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getTenantNotificationRequestsRateLimit()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getTenantServerRestLimitsConfiguration()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getTransportDeviceMsgRateLimit()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getTransportDeviceTelemetryDataPointsRateLimit()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getTransportDeviceTelemetryMsgRateLimit()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getTransportGatewayDeviceMsgRateLimit()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getTransportGatewayDeviceTelemetryDataPointsRateLimit()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getTransportGatewayDeviceTelemetryMsgRateLimit()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getTransportGatewayMsgRateLimit()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getTransportGatewayTelemetryDataPointsRateLimit()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getTransportGatewayTelemetryMsgRateLimit()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getTransportTenantMsgRateLimit()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getTransportTenantTelemetryDataPointsRateLimit()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getTransportTenantTelemetryMsgRateLimit()}
    *   <li>{@link DefaultTenantProfileConfiguration#getType()}
    *   <li>{@link DefaultTenantProfileConfiguration#getWarnThreshold()}
    *   <li>{@link DefaultTenantProfileConfiguration#getWsMsgQueueLimitPerSession()}
-   *   <li>
-   * {@link DefaultTenantProfileConfiguration#getWsUpdatesPerSessionRateLimit()}
+   *   <li>{@link DefaultTenantProfileConfiguration#getWsUpdatesPerSessionRateLimit()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultTenantProfileConfiguration.<init>()",
+      "int DefaultTenantProfileConfiguration.getAlarmsTtlDays()",
+      "String DefaultTenantProfileConfiguration.getCassandraQueryTenantRateLimitsConfiguration()",
+      "String DefaultTenantProfileConfiguration.getCustomerServerRestLimitsConfiguration()",
+      "int DefaultTenantProfileConfiguration.getDefaultStorageTtlDays()",
+      "String DefaultTenantProfileConfiguration.getEdgeEventRateLimits()",
+      "String DefaultTenantProfileConfiguration.getEdgeEventRateLimitsPerEdge()",
+      "String DefaultTenantProfileConfiguration.getEdgeUplinkMessagesRateLimits()",
+      "String DefaultTenantProfileConfiguration.getEdgeUplinkMessagesRateLimitsPerEdge()",
+      "long DefaultTenantProfileConfiguration.getMaxAssets()",
+      "long DefaultTenantProfileConfiguration.getMaxCreatedAlarms()",
+      "long DefaultTenantProfileConfiguration.getMaxCustomers()",
+      "long DefaultTenantProfileConfiguration.getMaxDPStorageDays()",
+      "long DefaultTenantProfileConfiguration.getMaxDashboards()",
+      "long DefaultTenantProfileConfiguration.getMaxDevices()", "long DefaultTenantProfileConfiguration.getMaxEmails()",
+      "long DefaultTenantProfileConfiguration.getMaxJSExecutions()",
+      "long DefaultTenantProfileConfiguration.getMaxOtaPackagesInBytes()",
+      "long DefaultTenantProfileConfiguration.getMaxREExecutions()",
+      "long DefaultTenantProfileConfiguration.getMaxResourceSize()",
+      "long DefaultTenantProfileConfiguration.getMaxResourcesInBytes()",
+      "long DefaultTenantProfileConfiguration.getMaxRuleChains()",
+      "int DefaultTenantProfileConfiguration.getMaxRuleNodeExecsPerMessage()",
+      "int DefaultTenantProfileConfiguration.getMaxRuleNodeExecutionsPerMessage()",
+      "long DefaultTenantProfileConfiguration.getMaxSms()",
+      "long DefaultTenantProfileConfiguration.getMaxTbelExecutions()",
+      "long DefaultTenantProfileConfiguration.getMaxTransportDataPoints()",
+      "long DefaultTenantProfileConfiguration.getMaxTransportMessages()",
+      "long DefaultTenantProfileConfiguration.getMaxUsers()",
+      "int DefaultTenantProfileConfiguration.getMaxWsSessionsPerCustomer()",
+      "int DefaultTenantProfileConfiguration.getMaxWsSessionsPerPublicUser()",
+      "int DefaultTenantProfileConfiguration.getMaxWsSessionsPerRegularUser()",
+      "int DefaultTenantProfileConfiguration.getMaxWsSessionsPerTenant()",
+      "long DefaultTenantProfileConfiguration.getMaxWsSubscriptionsPerCustomer()",
+      "long DefaultTenantProfileConfiguration.getMaxWsSubscriptionsPerPublicUser()",
+      "long DefaultTenantProfileConfiguration.getMaxWsSubscriptionsPerRegularUser()",
+      "long DefaultTenantProfileConfiguration.getMaxWsSubscriptionsPerTenant()",
+      "int DefaultTenantProfileConfiguration.getQueueStatsTtlDays()",
+      "int DefaultTenantProfileConfiguration.getRpcTtlDays()",
+      "int DefaultTenantProfileConfiguration.getRuleEngineExceptionsTtlDays()",
+      "Boolean DefaultTenantProfileConfiguration.getSmsEnabled()",
+      "String DefaultTenantProfileConfiguration.getTenantEntityExportRateLimit()",
+      "String DefaultTenantProfileConfiguration.getTenantEntityImportRateLimit()",
+      "String DefaultTenantProfileConfiguration.getTenantNotificationRequestsPerRuleRateLimit()",
+      "String DefaultTenantProfileConfiguration.getTenantNotificationRequestsRateLimit()",
+      "String DefaultTenantProfileConfiguration.getTenantServerRestLimitsConfiguration()",
+      "String DefaultTenantProfileConfiguration.getTransportDeviceMsgRateLimit()",
+      "String DefaultTenantProfileConfiguration.getTransportDeviceTelemetryDataPointsRateLimit()",
+      "String DefaultTenantProfileConfiguration.getTransportDeviceTelemetryMsgRateLimit()",
+      "String DefaultTenantProfileConfiguration.getTransportGatewayDeviceMsgRateLimit()",
+      "String DefaultTenantProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit()",
+      "String DefaultTenantProfileConfiguration.getTransportGatewayDeviceTelemetryMsgRateLimit()",
+      "String DefaultTenantProfileConfiguration.getTransportGatewayMsgRateLimit()",
+      "String DefaultTenantProfileConfiguration.getTransportGatewayTelemetryDataPointsRateLimit()",
+      "String DefaultTenantProfileConfiguration.getTransportGatewayTelemetryMsgRateLimit()",
+      "String DefaultTenantProfileConfiguration.getTransportTenantMsgRateLimit()",
+      "String DefaultTenantProfileConfiguration.getTransportTenantTelemetryDataPointsRateLimit()",
+      "String DefaultTenantProfileConfiguration.getTransportTenantTelemetryMsgRateLimit()",
+      "TenantProfileType DefaultTenantProfileConfiguration.getType()",
+      "double DefaultTenantProfileConfiguration.getWarnThreshold()",
+      "int DefaultTenantProfileConfiguration.getWsMsgQueueLimitPerSession()",
+      "String DefaultTenantProfileConfiguration.getWsUpdatesPerSessionRateLimit()",
+      "void DefaultTenantProfileConfiguration.setAlarmsTtlDays(int)",
+      "void DefaultTenantProfileConfiguration.setCassandraQueryTenantRateLimitsConfiguration(String)",
+      "void DefaultTenantProfileConfiguration.setCustomerServerRestLimitsConfiguration(String)",
+      "void DefaultTenantProfileConfiguration.setDefaultStorageTtlDays(int)",
+      "void DefaultTenantProfileConfiguration.setEdgeEventRateLimits(String)",
+      "void DefaultTenantProfileConfiguration.setEdgeEventRateLimitsPerEdge(String)",
+      "void DefaultTenantProfileConfiguration.setEdgeUplinkMessagesRateLimits(String)",
+      "void DefaultTenantProfileConfiguration.setEdgeUplinkMessagesRateLimitsPerEdge(String)",
+      "void DefaultTenantProfileConfiguration.setMaxAssets(long)",
+      "void DefaultTenantProfileConfiguration.setMaxCreatedAlarms(long)",
+      "void DefaultTenantProfileConfiguration.setMaxCustomers(long)",
+      "void DefaultTenantProfileConfiguration.setMaxDPStorageDays(long)",
+      "void DefaultTenantProfileConfiguration.setMaxDashboards(long)",
+      "void DefaultTenantProfileConfiguration.setMaxDevices(long)",
+      "void DefaultTenantProfileConfiguration.setMaxEmails(long)",
+      "void DefaultTenantProfileConfiguration.setMaxJSExecutions(long)",
+      "void DefaultTenantProfileConfiguration.setMaxOtaPackagesInBytes(long)",
+      "void DefaultTenantProfileConfiguration.setMaxREExecutions(long)",
+      "void DefaultTenantProfileConfiguration.setMaxResourceSize(long)",
+      "void DefaultTenantProfileConfiguration.setMaxResourcesInBytes(long)",
+      "void DefaultTenantProfileConfiguration.setMaxRuleChains(long)",
+      "void DefaultTenantProfileConfiguration.setMaxRuleNodeExecutionsPerMessage(int)",
+      "void DefaultTenantProfileConfiguration.setMaxSms(long)",
+      "void DefaultTenantProfileConfiguration.setMaxTbelExecutions(long)",
+      "void DefaultTenantProfileConfiguration.setMaxTransportDataPoints(long)",
+      "void DefaultTenantProfileConfiguration.setMaxTransportMessages(long)",
+      "void DefaultTenantProfileConfiguration.setMaxUsers(long)",
+      "void DefaultTenantProfileConfiguration.setMaxWsSessionsPerCustomer(int)",
+      "void DefaultTenantProfileConfiguration.setMaxWsSessionsPerPublicUser(int)",
+      "void DefaultTenantProfileConfiguration.setMaxWsSessionsPerRegularUser(int)",
+      "void DefaultTenantProfileConfiguration.setMaxWsSessionsPerTenant(int)",
+      "void DefaultTenantProfileConfiguration.setMaxWsSubscriptionsPerCustomer(long)",
+      "void DefaultTenantProfileConfiguration.setMaxWsSubscriptionsPerPublicUser(long)",
+      "void DefaultTenantProfileConfiguration.setMaxWsSubscriptionsPerRegularUser(long)",
+      "void DefaultTenantProfileConfiguration.setMaxWsSubscriptionsPerTenant(long)",
+      "void DefaultTenantProfileConfiguration.setQueueStatsTtlDays(int)",
+      "void DefaultTenantProfileConfiguration.setRpcTtlDays(int)",
+      "void DefaultTenantProfileConfiguration.setRuleEngineExceptionsTtlDays(int)",
+      "void DefaultTenantProfileConfiguration.setSmsEnabled(Boolean)",
+      "void DefaultTenantProfileConfiguration.setTenantEntityExportRateLimit(String)",
+      "void DefaultTenantProfileConfiguration.setTenantEntityImportRateLimit(String)",
+      "void DefaultTenantProfileConfiguration.setTenantNotificationRequestsPerRuleRateLimit(String)",
+      "void DefaultTenantProfileConfiguration.setTenantNotificationRequestsRateLimit(String)",
+      "void DefaultTenantProfileConfiguration.setTenantServerRestLimitsConfiguration(String)",
+      "void DefaultTenantProfileConfiguration.setTransportDeviceMsgRateLimit(String)",
+      "void DefaultTenantProfileConfiguration.setTransportDeviceTelemetryDataPointsRateLimit(String)",
+      "void DefaultTenantProfileConfiguration.setTransportDeviceTelemetryMsgRateLimit(String)",
+      "void DefaultTenantProfileConfiguration.setTransportGatewayDeviceMsgRateLimit(String)",
+      "void DefaultTenantProfileConfiguration.setTransportGatewayDeviceTelemetryDataPointsRateLimit(String)",
+      "void DefaultTenantProfileConfiguration.setTransportGatewayDeviceTelemetryMsgRateLimit(String)",
+      "void DefaultTenantProfileConfiguration.setTransportGatewayMsgRateLimit(String)",
+      "void DefaultTenantProfileConfiguration.setTransportGatewayTelemetryDataPointsRateLimit(String)",
+      "void DefaultTenantProfileConfiguration.setTransportGatewayTelemetryMsgRateLimit(String)",
+      "void DefaultTenantProfileConfiguration.setTransportTenantMsgRateLimit(String)",
+      "void DefaultTenantProfileConfiguration.setTransportTenantTelemetryDataPointsRateLimit(String)",
+      "void DefaultTenantProfileConfiguration.setTransportTenantTelemetryMsgRateLimit(String)",
+      "void DefaultTenantProfileConfiguration.setWarnThreshold(double)",
+      "void DefaultTenantProfileConfiguration.setWsMsgQueueLimitPerSession(int)",
+      "void DefaultTenantProfileConfiguration.setWsUpdatesPerSessionRateLimit(String)",
+      "String DefaultTenantProfileConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     DefaultTenantProfileConfiguration actualDefaultTenantProfileConfiguration = new DefaultTenantProfileConfiguration();
@@ -6057,7 +6224,7 @@ class DefaultTenantProfileConfigurationDiffblueTest {
     double actualWarnThreshold = actualDefaultTenantProfileConfiguration.getWarnThreshold();
     int actualWsMsgQueueLimitPerSession = actualDefaultTenantProfileConfiguration.getWsMsgQueueLimitPerSession();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("2020-03-01", actualDefaultTenantProfileConfiguration.getWsUpdatesPerSessionRateLimit());
     assertEquals("Cassandra Query Tenant Rate Limits Configuration", actualCassandraQueryTenantRateLimitsConfiguration);
     assertEquals("Customer Server Rest Limits Configuration", actualCustomerServerRestLimitsConfiguration);
@@ -6156,14 +6323,15 @@ class DefaultTenantProfileConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultTenantProfileConfiguration#DefaultTenantProfileConfiguration(long, long, long, long, long, long, long, long, long, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, long, long, long, long, long, long, int, long, Boolean, long, long, String, String, int, int, int, int, int, long, long, long, long, String, String, String, String, String, String, int, int, int, int, int, double)}.
+   * Test {@link DefaultTenantProfileConfiguration#DefaultTenantProfileConfiguration(long, long, long, long, long, long, long, long, long, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, long, long, long, long, long, long, int, long, Boolean, long, long, String, String, int, int, int, int, int, long, long, long, long, String, String, String, String, String, String, int, int, int, int, int, double)}.
    * <p>
-   * Method under test:
-   * {@link DefaultTenantProfileConfiguration#DefaultTenantProfileConfiguration(long, long, long, long, long, long, long, long, long, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, long, long, long, long, long, long, int, long, Boolean, long, long, String, String, int, int, int, int, int, long, long, long, long, String, String, String, String, String, String, int, int, int, int, int, double)}
+   * Method under test: {@link DefaultTenantProfileConfiguration#DefaultTenantProfileConfiguration(long, long, long, long, long, long, long, long, long, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, long, long, long, long, long, long, int, long, Boolean, long, long, String, String, int, int, int, int, int, long, long, long, long, String, String, String, String, String, String, int, int, int, int, int, double)}
    */
   @Test
   @DisplayName("Test new DefaultTenantProfileConfiguration(long, long, long, long, long, long, long, long, long, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, long, long, long, long, long, long, int, long, Boolean, long, long, String, String, int, int, int, int, int, long, long, long, long, String, String, String, String, String, String, int, int, int, int, int, double)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void DefaultTenantProfileConfiguration.<init>(long, long, long, long, long, long, long, long, long, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, long, long, long, long, long, long, int, long, Boolean, long, long, String, String, int, int, int, int, int, long, long, long, long, String, String, String, String, String, String, int, int, int, int, int, double)"})
   void testNewDefaultTenantProfileConfiguration() {
     // Arrange and Act
     DefaultTenantProfileConfiguration actualDefaultTenantProfileConfiguration = new DefaultTenantProfileConfiguration(

@@ -3,27 +3,27 @@ package org.thingsboard.server.service.ws;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.net.InetSocketAddress;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.aot.DisabledInAotMode;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.thingsboard.server.common.data.User;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.service.security.model.SecurityUser;
+import org.thingsboard.server.service.ws.WebSocketSessionRef.WebSocketSessionRefBuilder;
 
-@ContextConfiguration(classes = {WebSocketSessionRef.class, String.class})
-@ExtendWith(SpringExtension.class)
+@ContextConfiguration(classes = {WebSocketSessionRef.class, String.class, WebSocketSessionType.class})
 @DisabledInAotMode
+@ExtendWith(SpringExtension.class)
 class WebSocketSessionRefDiffblueTest {
   @MockBean
   private InetSocketAddress inetSocketAddress;
@@ -44,9 +44,11 @@ class WebSocketSessionRefDiffblueTest {
    */
   @Test
   @DisplayName("Test getTenantId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TenantId WebSocketSessionRef.getTenantId()"})
   void testGetTenantId() {
     // Arrange
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     when(securityUser.getTenantId()).thenReturn(tenantId);
 
     // Act
@@ -58,8 +60,31 @@ class WebSocketSessionRefDiffblueTest {
   }
 
   /**
-   * Test {@link WebSocketSessionRef#equals(Object)}, and
-   * {@link WebSocketSessionRef#hashCode()}.
+   * Test {@link WebSocketSessionRef#getTenantId()}.
+   * <ul>
+   *   <li>Then return {@link TenantId#SYS_TENANT_ID}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link WebSocketSessionRef#getTenantId()}
+   */
+  @Test
+  @DisplayName("Test getTenantId(); then return SYS_TENANT_ID")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TenantId WebSocketSessionRef.getTenantId()"})
+  void testGetTenantId_thenReturnSys_tenant_id() {
+    // Arrange
+    InetSocketAddress localAddress = InetSocketAddress.createUnresolved("foo", 1);
+
+    // Act
+    TenantId actualTenantId = (new WebSocketSessionRef("42", null, localAddress,
+        InetSocketAddress.createUnresolved("foo", 1), WebSocketSessionType.GENERAL)).getTenantId();
+
+    // Assert
+    assertSame(actualTenantId.SYS_TENANT_ID, actualTenantId);
+  }
+
+  /**
+   * Test {@link WebSocketSessionRef#equals(Object)}, and {@link WebSocketSessionRef#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -73,21 +98,23 @@ class WebSocketSessionRefDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WebSocketSessionRef.equals(Object)", "int WebSocketSessionRef.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    WebSocketSessionRef.WebSocketSessionRefBuilder builderResult = WebSocketSessionRef.builder();
-    WebSocketSessionRef.WebSocketSessionRefBuilder localAddressResult = builderResult
+    WebSocketSessionRefBuilder builderResult = WebSocketSessionRef.builder();
+    WebSocketSessionRefBuilder localAddressResult = builderResult
         .localAddress(InetSocketAddress.createUnresolved("foo", 1));
-    WebSocketSessionRef.WebSocketSessionRefBuilder remoteAddressResult = localAddressResult
+    WebSocketSessionRefBuilder remoteAddressResult = localAddressResult
         .remoteAddress(InetSocketAddress.createUnresolved("foo", 1));
     WebSocketSessionRef buildResult = remoteAddressResult.securityCtx(new SecurityUser())
         .sessionId("42")
         .sessionType(WebSocketSessionType.GENERAL)
         .build();
-    WebSocketSessionRef.WebSocketSessionRefBuilder builderResult2 = WebSocketSessionRef.builder();
-    WebSocketSessionRef.WebSocketSessionRefBuilder localAddressResult2 = builderResult2
+    WebSocketSessionRefBuilder builderResult2 = WebSocketSessionRef.builder();
+    WebSocketSessionRefBuilder localAddressResult2 = builderResult2
         .localAddress(InetSocketAddress.createUnresolved("foo", 1));
-    WebSocketSessionRef.WebSocketSessionRefBuilder remoteAddressResult2 = localAddressResult2
+    WebSocketSessionRefBuilder remoteAddressResult2 = localAddressResult2
         .remoteAddress(InetSocketAddress.createUnresolved("foo", 1));
     WebSocketSessionRef buildResult2 = remoteAddressResult2.securityCtx(new SecurityUser())
         .sessionId("42")
@@ -101,54 +128,7 @@ class WebSocketSessionRefDiffblueTest {
   }
 
   /**
-   * Test {@link WebSocketSessionRef#equals(Object)}, and
-   * {@link WebSocketSessionRef#hashCode()}.
-   * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
-   * </ul>
-   * <p>
-   * Methods under test:
-   * <ul>
-   *   <li>{@link WebSocketSessionRef#equals(Object)}
-   *   <li>{@link WebSocketSessionRef#hashCode()}
-   * </ul>
-   */
-  @Test
-  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
-  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
-    // Arrange
-    WebSocketSessionRef.WebSocketSessionRefBuilder webSocketSessionRefBuilder = mock(
-        WebSocketSessionRef.WebSocketSessionRefBuilder.class);
-    when(webSocketSessionRefBuilder.localAddress(Mockito.<InetSocketAddress>any()))
-        .thenReturn(WebSocketSessionRef.builder());
-    WebSocketSessionRef.WebSocketSessionRefBuilder localAddressResult = webSocketSessionRefBuilder
-        .localAddress(InetSocketAddress.createUnresolved("foo", 1));
-    WebSocketSessionRef.WebSocketSessionRefBuilder remoteAddressResult = localAddressResult
-        .remoteAddress(InetSocketAddress.createUnresolved("foo", 1));
-    WebSocketSessionRef buildResult = remoteAddressResult.securityCtx(new SecurityUser())
-        .sessionId("42")
-        .sessionType(WebSocketSessionType.GENERAL)
-        .build();
-    WebSocketSessionRef.WebSocketSessionRefBuilder builderResult = WebSocketSessionRef.builder();
-    WebSocketSessionRef.WebSocketSessionRefBuilder localAddressResult2 = builderResult
-        .localAddress(InetSocketAddress.createUnresolved("foo", 1));
-    WebSocketSessionRef.WebSocketSessionRefBuilder remoteAddressResult2 = localAddressResult2
-        .remoteAddress(InetSocketAddress.createUnresolved("foo", 1));
-    WebSocketSessionRef buildResult2 = remoteAddressResult2.securityCtx(new SecurityUser())
-        .sessionId("42")
-        .sessionType(WebSocketSessionType.GENERAL)
-        .build();
-
-    // Act and Assert
-    assertEquals(buildResult, buildResult2);
-    int expectedHashCodeResult = buildResult.hashCode();
-    assertEquals(expectedHashCodeResult, buildResult2.hashCode());
-  }
-
-  /**
-   * Test {@link WebSocketSessionRef#equals(Object)}, and
-   * {@link WebSocketSessionRef#hashCode()}.
+   * Test {@link WebSocketSessionRef#equals(Object)}, and {@link WebSocketSessionRef#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -162,12 +142,14 @@ class WebSocketSessionRefDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WebSocketSessionRef.equals(Object)", "int WebSocketSessionRef.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    WebSocketSessionRef.WebSocketSessionRefBuilder builderResult = WebSocketSessionRef.builder();
-    WebSocketSessionRef.WebSocketSessionRefBuilder localAddressResult = builderResult
+    WebSocketSessionRefBuilder builderResult = WebSocketSessionRef.builder();
+    WebSocketSessionRefBuilder localAddressResult = builderResult
         .localAddress(InetSocketAddress.createUnresolved("foo", 1));
-    WebSocketSessionRef.WebSocketSessionRefBuilder remoteAddressResult = localAddressResult
+    WebSocketSessionRefBuilder remoteAddressResult = localAddressResult
         .remoteAddress(InetSocketAddress.createUnresolved("foo", 1));
     WebSocketSessionRef buildResult = remoteAddressResult.securityCtx(new SecurityUser())
         .sessionId("42")
@@ -191,24 +173,23 @@ class WebSocketSessionRefDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WebSocketSessionRef.equals(Object)", "int WebSocketSessionRef.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    WebSocketSessionRef.WebSocketSessionRefBuilder webSocketSessionRefBuilder = mock(
-        WebSocketSessionRef.WebSocketSessionRefBuilder.class);
-    when(webSocketSessionRefBuilder.localAddress(Mockito.<InetSocketAddress>any()))
-        .thenReturn(WebSocketSessionRef.builder());
-    WebSocketSessionRef.WebSocketSessionRefBuilder localAddressResult = webSocketSessionRefBuilder
+    WebSocketSessionRefBuilder builderResult = WebSocketSessionRef.builder();
+    WebSocketSessionRefBuilder localAddressResult = builderResult
         .localAddress(InetSocketAddress.createUnresolved("foo", 1));
-    WebSocketSessionRef.WebSocketSessionRefBuilder remoteAddressResult = localAddressResult
+    WebSocketSessionRefBuilder remoteAddressResult = localAddressResult
         .remoteAddress(InetSocketAddress.createUnresolved("foo", 1));
     WebSocketSessionRef buildResult = remoteAddressResult.securityCtx(new SecurityUser())
         .sessionId("Session Id")
         .sessionType(WebSocketSessionType.GENERAL)
         .build();
-    WebSocketSessionRef.WebSocketSessionRefBuilder builderResult = WebSocketSessionRef.builder();
-    WebSocketSessionRef.WebSocketSessionRefBuilder localAddressResult2 = builderResult
+    WebSocketSessionRefBuilder builderResult2 = WebSocketSessionRef.builder();
+    WebSocketSessionRefBuilder localAddressResult2 = builderResult2
         .localAddress(InetSocketAddress.createUnresolved("foo", 1));
-    WebSocketSessionRef.WebSocketSessionRefBuilder remoteAddressResult2 = localAddressResult2
+    WebSocketSessionRefBuilder remoteAddressResult2 = localAddressResult2
         .remoteAddress(InetSocketAddress.createUnresolved("foo", 1));
     WebSocketSessionRef buildResult2 = remoteAddressResult2.securityCtx(new SecurityUser())
         .sessionId("42")
@@ -230,12 +211,14 @@ class WebSocketSessionRefDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WebSocketSessionRef.equals(Object)", "int WebSocketSessionRef.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    WebSocketSessionRef.WebSocketSessionRefBuilder builderResult = WebSocketSessionRef.builder();
-    WebSocketSessionRef.WebSocketSessionRefBuilder localAddressResult = builderResult
+    WebSocketSessionRefBuilder builderResult = WebSocketSessionRef.builder();
+    WebSocketSessionRefBuilder localAddressResult = builderResult
         .localAddress(InetSocketAddress.createUnresolved("foo", 1));
-    WebSocketSessionRef.WebSocketSessionRefBuilder remoteAddressResult = localAddressResult
+    WebSocketSessionRefBuilder remoteAddressResult = localAddressResult
         .remoteAddress(InetSocketAddress.createUnresolved("foo", 1));
     WebSocketSessionRef buildResult = remoteAddressResult.securityCtx(new SecurityUser())
         .sessionId("42")
@@ -257,12 +240,14 @@ class WebSocketSessionRefDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WebSocketSessionRef.equals(Object)", "int WebSocketSessionRef.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    WebSocketSessionRef.WebSocketSessionRefBuilder builderResult = WebSocketSessionRef.builder();
-    WebSocketSessionRef.WebSocketSessionRefBuilder localAddressResult = builderResult
+    WebSocketSessionRefBuilder builderResult = WebSocketSessionRef.builder();
+    WebSocketSessionRefBuilder localAddressResult = builderResult
         .localAddress(InetSocketAddress.createUnresolved("foo", 1));
-    WebSocketSessionRef.WebSocketSessionRefBuilder remoteAddressResult = localAddressResult
+    WebSocketSessionRefBuilder remoteAddressResult = localAddressResult
         .remoteAddress(InetSocketAddress.createUnresolved("foo", 1));
     WebSocketSessionRef buildResult = remoteAddressResult.securityCtx(new SecurityUser())
         .sessionId("42")
@@ -275,56 +260,23 @@ class WebSocketSessionRefDiffblueTest {
 
   /**
    * Test {@link WebSocketSessionRef#toString()}.
-   * <p>
-   * Method under test: {@link WebSocketSessionRef#toString()}
-   */
-  @Test
-  @DisplayName("Test toString()")
-  void testToString() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    SecurityUser securityCtx = new SecurityUser();
-    InetSocketAddress localAddress = InetSocketAddress.createUnresolved("foo", 1);
-
-    WebSocketSessionRef webSocketSessionRef = new WebSocketSessionRef("42", securityCtx, localAddress,
-        InetSocketAddress.createUnresolved("foo", 1), WebSocketSessionType.GENERAL);
-    webSocketSessionRef.setSecurityCtx(null);
-
-    // Act
-    String actualToStringResult = webSocketSessionRef.toString();
-
-    // Assert
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", webSocketSessionRef.getTenantId().getId().toString());
-    assertEquals("[42]", actualToStringResult);
-  }
-
-  /**
-   * Test {@link WebSocketSessionRef#toString()}.
    * <ul>
-   *   <li>Then calls {@link User#getId()}.</li>
+   *   <li>Then return {@code [42]}.</li>
    * </ul>
    * <p>
    * Method under test: {@link WebSocketSessionRef#toString()}
    */
   @Test
-  @DisplayName("Test toString(); then calls getId()")
-  void testToString_thenCallsGetId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test toString(); then return '[42]'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String WebSocketSessionRef.toString()"})
+  void testToString_thenReturn42() {
     // Arrange
-    SecurityUser securityCtx = mock(SecurityUser.class);
-    when(securityCtx.getTenantId()).thenReturn(new TenantId(UUID.randomUUID()));
-    when(securityCtx.getId()).thenReturn(null);
     InetSocketAddress localAddress = InetSocketAddress.createUnresolved("foo", 1);
 
-    // Act
-    (new WebSocketSessionRef("42", securityCtx, localAddress, InetSocketAddress.createUnresolved("foo", 1),
-        WebSocketSessionType.GENERAL)).toString();
-
-    // Assert
-    verify(securityCtx).getId();
-    verify(securityCtx).getTenantId();
+    // Act and Assert
+    assertEquals("[42]", (new WebSocketSessionRef("42", null, localAddress,
+        InetSocketAddress.createUnresolved("foo", 1), WebSocketSessionType.GENERAL)).toString());
   }
 
   /**
@@ -337,9 +289,9 @@ class WebSocketSessionRefDiffblueTest {
    */
   @Test
   @DisplayName("Test toString(); then return '[null][null][42]'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String WebSocketSessionRef.toString()"})
   void testToString_thenReturnNullNull42() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     SecurityUser securityCtx = new SecurityUser();
     InetSocketAddress localAddress = InetSocketAddress.createUnresolved("foo", 1);

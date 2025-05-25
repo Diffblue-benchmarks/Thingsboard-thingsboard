@@ -2,7 +2,11 @@ package org.thingsboard.server.dao.sql.query;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import java.util.UUID;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -10,24 +14,23 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.thingsboard.server.dao.model.ModelConstants;
 
 @ContextConfiguration(classes = {DefaultQueryLogComponent.class})
-@RunWith(SpringJUnit4ClassRunner.class)
-@PropertySource("classpath:application-test.properties")
 @EnableConfigurationProperties
+@PropertySource("classpath:application-test.properties")
+@RunWith(SpringJUnit4ClassRunner.class)
 public class DefaultQueryLogComponentDiffblueTest {
   @Autowired
   private DefaultQueryLogComponent defaultQueryLogComponent;
 
   /**
-   * Test
-   * {@link DefaultQueryLogComponent#substituteParametersInSqlString(String, SqlParameterSource)}.
+   * Test {@link DefaultQueryLogComponent#substituteParametersInSqlString(String, SqlParameterSource)}.
    * <p>
-   * Method under test:
-   * {@link DefaultQueryLogComponent#substituteParametersInSqlString(String, SqlParameterSource)}
+   * Method under test: {@link DefaultQueryLogComponent#substituteParametersInSqlString(String, SqlParameterSource)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"String DefaultQueryLogComponent.substituteParametersInSqlString(String, SqlParameterSource)"})
   public void testSubstituteParametersInSqlString() {
     // Arrange, Act and Assert
     assertEquals("Sql",
@@ -37,10 +40,11 @@ public class DefaultQueryLogComponentDiffblueTest {
   /**
    * Test {@link DefaultQueryLogComponent#getValueForSQLQuery(Object)}.
    * <p>
-   * Method under test:
-   * {@link DefaultQueryLogComponent#getValueForSQLQuery(Object)}
+   * Method under test: {@link DefaultQueryLogComponent#getValueForSQLQuery(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"String DefaultQueryLogComponent.getValueForSQLQuery(Object)"})
   public void testGetValueForSQLQuery() {
     // Arrange, Act and Assert
     assertEquals("''''''", defaultQueryLogComponent.getValueForSQLQuery("''"));
@@ -49,13 +53,31 @@ public class DefaultQueryLogComponentDiffblueTest {
   /**
    * Test {@link DefaultQueryLogComponent#getValueForSQLQuery(Object)}.
    * <ul>
+   *   <li>Then return {@code '784f394c-42b6-435a-983c-b7beff2784f9'}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DefaultQueryLogComponent#getValueForSQLQuery(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"String DefaultQueryLogComponent.getValueForSQLQuery(Object)"})
+  public void testGetValueForSQLQuery_thenReturn784f394c42b6435a983cB7beff2784f9() {
+    // Arrange, Act and Assert
+    assertEquals("'784f394c-42b6-435a-983c-b7beff2784f9'",
+        defaultQueryLogComponent.getValueForSQLQuery(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+  }
+
+  /**
+   * Test {@link DefaultQueryLogComponent#getValueForSQLQuery(Object)}.
+   * <ul>
    *   <li>Then return {@code ''''}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultQueryLogComponent#getValueForSQLQuery(Object)}
+   * Method under test: {@link DefaultQueryLogComponent#getValueForSQLQuery(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"String DefaultQueryLogComponent.getValueForSQLQuery(Object)"})
   public void testGetValueForSQLQuery_thenReturnApostropheApostropheApostropheApostrophe() {
     // Arrange, Act and Assert
     assertEquals("''''", defaultQueryLogComponent.getValueForSQLQuery("'"));
@@ -68,30 +90,14 @@ public class DefaultQueryLogComponentDiffblueTest {
    *   <li>Then return {@code 42}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultQueryLogComponent#getValueForSQLQuery(Object)}
+   * Method under test: {@link DefaultQueryLogComponent#getValueForSQLQuery(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"String DefaultQueryLogComponent.getValueForSQLQuery(Object)"})
   public void testGetValueForSQLQuery_whenFortyTwo_thenReturn42() {
     // Arrange, Act and Assert
     assertEquals("42", defaultQueryLogComponent.getValueForSQLQuery(42));
-  }
-
-  /**
-   * Test {@link DefaultQueryLogComponent#getValueForSQLQuery(Object)}.
-   * <ul>
-   *   <li>When {@link ModelConstants#NULL_UUID}.</li>
-   *   <li>Then return {@code '13814000-1dd2-11b2-8080-808080808080'}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link DefaultQueryLogComponent#getValueForSQLQuery(Object)}
-   */
-  @Test
-  public void testGetValueForSQLQuery_whenNull_uuid_thenReturn138140001dd211b28080808080808080() {
-    // Arrange, Act and Assert
-    assertEquals("'13814000-1dd2-11b2-8080-808080808080'",
-        defaultQueryLogComponent.getValueForSQLQuery(ModelConstants.NULL_UUID));
   }
 
   /**
@@ -101,10 +107,11 @@ public class DefaultQueryLogComponentDiffblueTest {
    *   <li>Then return {@code 'Value Parameter'}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultQueryLogComponent#getValueForSQLQuery(Object)}
+   * Method under test: {@link DefaultQueryLogComponent#getValueForSQLQuery(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"String DefaultQueryLogComponent.getValueForSQLQuery(Object)"})
   public void testGetValueForSQLQuery_whenValueParameter_thenReturnValueParameter() {
     // Arrange, Act and Assert
     assertEquals("'Value Parameter'", defaultQueryLogComponent.getValueForSQLQuery("Value Parameter"));

@@ -1,7 +1,9 @@
 package org.thingsboard.monitoring.util;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ResourceUtilsDiffblueTest {
@@ -16,6 +18,8 @@ class ResourceUtilsDiffblueTest {
    */
   @Test
   @DisplayName("Test getResource(String, Class); when 'Path'; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object ResourceUtils.getResource(String, Class)"})
   void testGetResource_whenPath_thenThrowIllegalArgumentException() {
     // Arrange
     Class<Object> type = Object.class;
@@ -35,6 +39,8 @@ class ResourceUtilsDiffblueTest {
    */
   @Test
   @DisplayName("Test getResourceAsStream(String); when 'Path'; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.io.InputStream ResourceUtils.getResourceAsStream(String)"})
   void testGetResourceAsStream_whenPath_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class, () -> ResourceUtils.getResourceAsStream("Path"));

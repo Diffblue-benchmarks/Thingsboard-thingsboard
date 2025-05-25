@@ -3,7 +3,9 @@ package org.thingsboard.server.exception;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +24,12 @@ class InternalErrorExceptionDiffblueTest {
   /**
    * Test {@link InternalErrorException#InternalErrorException(String)}.
    * <p>
-   * Method under test:
-   * {@link InternalErrorException#InternalErrorException(String)}
+   * Method under test: {@link InternalErrorException#InternalErrorException(String)}
    */
   @Test
   @DisplayName("Test new InternalErrorException(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void InternalErrorException.<init>(String)"})
   void testNewInternalErrorException() {
     // Arrange and Act
     InternalErrorException actualInternalErrorException = new InternalErrorException("An error occurred");
@@ -44,6 +47,8 @@ class InternalErrorExceptionDiffblueTest {
    */
   @Test
   @DisplayName("Test toErrorResponseEntity()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ResponseEntity InternalErrorException.toErrorResponseEntity()"})
   void testToErrorResponseEntity() {
     // Arrange and Act
     ResponseEntity<String> actualToErrorResponseEntityResult = internalErrorException.toErrorResponseEntity();

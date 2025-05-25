@@ -3,7 +3,9 @@ package org.thingsboard.server.transport.coap.client;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TbCoapContentFormatUtilDiffblueTest {
@@ -18,6 +20,8 @@ class TbCoapContentFormatUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test getContentFormat(int, int); when forty-two; then return forty-two")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int TbCoapContentFormatUtil.getContentFormat(int, int)"})
   void testGetContentFormat_whenFortyTwo_thenReturnFortyTwo() {
     // Arrange, Act and Assert
     assertEquals(42, TbCoapContentFormatUtil.getContentFormat(42, 3));
@@ -34,6 +38,8 @@ class TbCoapContentFormatUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test getContentFormat(int, int); when minus one; then return forty-two")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int TbCoapContentFormatUtil.getContentFormat(int, int)"})
   void testGetContentFormat_whenMinusOne_thenReturnFortyTwo() {
     // Arrange, Act and Assert
     assertEquals(42, TbCoapContentFormatUtil.getContentFormat(-1, 42));
@@ -50,6 +56,8 @@ class TbCoapContentFormatUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test getContentFormat(int, int); when minus one; then return three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int TbCoapContentFormatUtil.getContentFormat(int, int)"})
   void testGetContentFormat_whenMinusOne_thenReturnThree() {
     // Arrange, Act and Assert
     assertEquals(3, TbCoapContentFormatUtil.getContentFormat(-1, 3));
@@ -66,6 +74,8 @@ class TbCoapContentFormatUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test getContentFormat(int, int); when three; then return three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int TbCoapContentFormatUtil.getContentFormat(int, int)"})
   void testGetContentFormat_whenThree_thenReturnThree() {
     // Arrange, Act and Assert
     assertEquals(3, TbCoapContentFormatUtil.getContentFormat(3, 3));
@@ -82,6 +92,8 @@ class TbCoapContentFormatUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test isStrict(int); when forty-two; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbCoapContentFormatUtil.isStrict(int)"})
   void testIsStrict_whenFortyTwo_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue(TbCoapContentFormatUtil.isStrict(42));
@@ -98,6 +110,8 @@ class TbCoapContentFormatUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test isStrict(int); when one; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbCoapContentFormatUtil.isStrict(int)"})
   void testIsStrict_whenOne_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(TbCoapContentFormatUtil.isStrict(1));

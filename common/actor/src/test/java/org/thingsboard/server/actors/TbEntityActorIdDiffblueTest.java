@@ -2,15 +2,46 @@ package org.thingsboard.server.actors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.AlarmId;
 
 class TbEntityActorIdDiffblueTest {
   /**
+   * Test {@link TbEntityActorId#equals(Object)}, and {@link TbEntityActorId#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link TbEntityActorId#equals(Object)}
+   *   <li>{@link TbEntityActorId#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbEntityActorId.equals(Object)", "int TbEntityActorId.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    TbEntityActorId tbEntityActorId = new TbEntityActorId(
+        new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbEntityActorId tbEntityActorId2 = new TbEntityActorId(
+        new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    // Act and Assert
+    assertEquals(tbEntityActorId, tbEntityActorId2);
+    int expectedHashCodeResult = tbEntityActorId.hashCode();
+    assertEquals(expectedHashCodeResult, tbEntityActorId2.hashCode());
+  }
+
+  /**
    * Test {@link TbEntityActorId#equals(Object)}.
    * <ul>
    *   <li>When other is different.</li>
@@ -21,59 +52,68 @@ class TbEntityActorIdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbEntityActorId.equals(Object)", "int TbEntityActorId.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new TbEntityActorId(null), null);
+  }
+
+  /**
+   * Test {@link TbEntityActorId#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link TbEntityActorId#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbEntityActorId.equals(Object)", "int TbEntityActorId.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange, Act and Assert
+    assertNotEquals(new TbEntityActorId(null), 1);
+  }
+
+  /**
+   * Test {@link TbEntityActorId#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link TbEntityActorId#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbEntityActorId.equals(Object)", "int TbEntityActorId.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TbEntityActorId tbEntityActorId = new TbEntityActorId(mock(AlarmId.class));
+    TbEntityActorId tbEntityActorId = new TbEntityActorId(
+        new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(tbEntityActorId, new TbEntityActorId(null));
   }
 
   /**
-   * Test {@link TbEntityActorId#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbEntityActorId#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange, Act and Assert
-    assertNotEquals(new TbEntityActorId(mock(AlarmId.class)), "42");
-  }
-
-  /**
-   * Test {@link TbEntityActorId#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbEntityActorId#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
-    // Arrange, Act and Assert
-    assertNotEquals(new TbEntityActorId(mock(AlarmId.class)), null);
-  }
-
-  /**
    * Test {@link TbEntityActorId#getEntityType()}.
    * <ul>
-   *   <li>Given {@link AlarmId#AlarmId(UUID)} with id is randomUUID.</li>
    *   <li>Then return {@code ALARM}.</li>
    * </ul>
    * <p>
    * Method under test: {@link TbEntityActorId#getEntityType()}
    */
   @Test
-  @DisplayName("Test getEntityType(); given AlarmId(UUID) with id is randomUUID; then return 'ALARM'")
-  void testGetEntityType_givenAlarmIdWithIdIsRandomUUID_thenReturnAlarm() {
+  @DisplayName("Test getEntityType(); then return 'ALARM'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityType TbEntityActorId.getEntityType()"})
+  void testGetEntityType_thenReturnAlarm() {
     // Arrange, Act and Assert
-    assertEquals(EntityType.ALARM, (new TbEntityActorId(new AlarmId(UUID.randomUUID()))).getEntityType());
+    assertEquals(EntityType.ALARM,
+        (new TbEntityActorId(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))).getEntityType());
   }
 }

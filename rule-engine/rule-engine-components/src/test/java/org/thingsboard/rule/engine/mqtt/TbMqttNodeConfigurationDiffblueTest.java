@@ -7,7 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.rule.engine.credentials.AnonymousCredentials;
 import org.thingsboard.rule.engine.credentials.ClientCredentials;
@@ -17,40 +19,17 @@ import org.thingsboard.rule.engine.mqtt.azure.TbAzureIotHubNodeConfiguration;
 class TbMqttNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbMqttNodeConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbMqttNodeConfiguration#defaultConfiguration()}
-   */
-  @Test
-  @DisplayName("Test defaultConfiguration()")
-  void testDefaultConfiguration() {
-    // Arrange
-    TbMqttNodeConfiguration tbMqttNodeConfiguration = new TbMqttNodeConfiguration();
-    tbMqttNodeConfiguration.setCredentials(mock(ClientCredentials.class));
-
-    // Act
-    TbMqttNodeConfiguration actualDefaultConfigurationResult = tbMqttNodeConfiguration.defaultConfiguration();
-
-    // Assert
-    ClientCredentials credentials = actualDefaultConfigurationResult.getCredentials();
-    assertTrue(credentials instanceof AnonymousCredentials);
-    assertEquals("my-topic", actualDefaultConfigurationResult.getTopicPattern());
-    assertNull(actualDefaultConfigurationResult.getHost());
-    assertEquals(1883, actualDefaultConfigurationResult.getPort());
-    assertEquals(CredentialsType.ANONYMOUS, credentials.getType());
-    assertFalse(actualDefaultConfigurationResult.isSsl());
-  }
-
-  /**
-   * Test {@link TbMqttNodeConfiguration#defaultConfiguration()}.
    * <ul>
-   *   <li>Given {@link TbMqttNodeConfiguration} (default constructor).</li>
+   *   <li>Then Credentials return {@link AnonymousCredentials}.</li>
    * </ul>
    * <p>
    * Method under test: {@link TbMqttNodeConfiguration#defaultConfiguration()}
    */
   @Test
-  @DisplayName("Test defaultConfiguration(); given TbMqttNodeConfiguration (default constructor)")
-  void testDefaultConfiguration_givenTbMqttNodeConfiguration() {
+  @DisplayName("Test defaultConfiguration(); then Credentials return AnonymousCredentials")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbMqttNodeConfiguration TbMqttNodeConfiguration.defaultConfiguration()"})
+  void testDefaultConfiguration_thenCredentialsReturnAnonymousCredentials() {
     // Arrange and Act
     TbMqttNodeConfiguration actualDefaultConfigurationResult = (new TbMqttNodeConfiguration()).defaultConfiguration();
 
@@ -74,6 +53,8 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test defaultConfiguration(); then return TbAzureIotHubNodeConfiguration")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbMqttNodeConfiguration TbMqttNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration_thenReturnTbAzureIotHubNodeConfiguration() {
     // Arrange
     TbAzureIotHubNodeConfiguration tbAzureIotHubNodeConfiguration = new TbAzureIotHubNodeConfiguration();
@@ -88,8 +69,7 @@ class TbMqttNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMqttNodeConfiguration#equals(Object)}, and
-   * {@link TbMqttNodeConfiguration#hashCode()}.
+   * Test {@link TbMqttNodeConfiguration#equals(Object)}, and {@link TbMqttNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -103,6 +83,8 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbMqttNodeConfiguration tbMqttNodeConfiguration = new TbMqttNodeConfiguration();
@@ -115,8 +97,7 @@ class TbMqttNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMqttNodeConfiguration#equals(Object)}, and
-   * {@link TbMqttNodeConfiguration#hashCode()}.
+   * Test {@link TbMqttNodeConfiguration#equals(Object)}, and {@link TbMqttNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -130,6 +111,8 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbMqttNodeConfiguration tbMqttNodeConfiguration = new TbMqttNodeConfiguration();
@@ -145,8 +128,7 @@ class TbMqttNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMqttNodeConfiguration#equals(Object)}, and
-   * {@link TbMqttNodeConfiguration#hashCode()}.
+   * Test {@link TbMqttNodeConfiguration#equals(Object)}, and {@link TbMqttNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -160,6 +142,8 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TbMqttNodeConfiguration tbMqttNodeConfiguration = new TbMqttNodeConfiguration();
@@ -175,8 +159,7 @@ class TbMqttNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMqttNodeConfiguration#equals(Object)}, and
-   * {@link TbMqttNodeConfiguration#hashCode()}.
+   * Test {@link TbMqttNodeConfiguration#equals(Object)}, and {@link TbMqttNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -190,6 +173,8 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     TbMqttNodeConfiguration tbMqttNodeConfiguration = new TbMqttNodeConfiguration();
@@ -205,8 +190,7 @@ class TbMqttNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMqttNodeConfiguration#equals(Object)}, and
-   * {@link TbMqttNodeConfiguration#hashCode()}.
+   * Test {@link TbMqttNodeConfiguration#equals(Object)}, and {@link TbMqttNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -220,6 +204,8 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbMqttNodeConfiguration tbMqttNodeConfiguration = new TbMqttNodeConfiguration();
@@ -241,6 +227,8 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TbAzureIotHubNodeConfiguration tbAzureIotHubNodeConfiguration = new TbAzureIotHubNodeConfiguration();
@@ -260,6 +248,8 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbMqttNodeConfiguration tbMqttNodeConfiguration = new TbMqttNodeConfiguration();
@@ -279,27 +269,9 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
-    // Arrange
-    TbMqttNodeConfiguration tbMqttNodeConfiguration = new TbMqttNodeConfiguration();
-    tbMqttNodeConfiguration.setCredentials(mock(ClientCredentials.class));
-
-    // Act and Assert
-    assertNotEquals(tbMqttNodeConfiguration, 1);
-  }
-
-  /**
-   * Test {@link TbMqttNodeConfiguration#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbMqttNodeConfiguration#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbMqttNodeConfiguration tbMqttNodeConfiguration = new TbMqttNodeConfiguration();
     tbMqttNodeConfiguration.setTopicPattern("Topic Pattern");
@@ -319,7 +291,9 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbMqttNodeConfiguration tbMqttNodeConfiguration = new TbMqttNodeConfiguration();
     tbMqttNodeConfiguration.setHost("localhost");
@@ -339,7 +313,9 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbMqttNodeConfiguration tbMqttNodeConfiguration = new TbMqttNodeConfiguration();
     tbMqttNodeConfiguration.setPort(8080);
@@ -359,7 +335,9 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbMqttNodeConfiguration tbMqttNodeConfiguration = new TbMqttNodeConfiguration();
     tbMqttNodeConfiguration.setConnectTimeoutSec(10);
@@ -379,7 +357,9 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TbMqttNodeConfiguration tbMqttNodeConfiguration = new TbMqttNodeConfiguration();
     tbMqttNodeConfiguration.setClientId("42");
@@ -399,7 +379,9 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TbMqttNodeConfiguration tbMqttNodeConfiguration = new TbMqttNodeConfiguration();
     tbMqttNodeConfiguration.setAppendClientIdSuffix(true);
@@ -419,7 +401,9 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     TbMqttNodeConfiguration tbMqttNodeConfiguration = new TbMqttNodeConfiguration();
     tbMqttNodeConfiguration.setRetainedMessage(true);
@@ -439,7 +423,9 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     TbMqttNodeConfiguration tbMqttNodeConfiguration = new TbMqttNodeConfiguration();
     tbMqttNodeConfiguration.setCleanSession(true);
@@ -459,7 +445,9 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     TbMqttNodeConfiguration tbMqttNodeConfiguration = new TbMqttNodeConfiguration();
     tbMqttNodeConfiguration.setSsl(true);
@@ -479,7 +467,9 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     TbMqttNodeConfiguration tbMqttNodeConfiguration = new TbMqttNodeConfiguration();
     tbMqttNodeConfiguration.setParseToPlainText(true);
@@ -499,7 +489,9 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     TbMqttNodeConfiguration tbMqttNodeConfiguration = new TbMqttNodeConfiguration();
     tbMqttNodeConfiguration.setCredentials(mock(ClientCredentials.class));
@@ -519,7 +511,9 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     TbMqttNodeConfiguration tbMqttNodeConfiguration = new TbMqttNodeConfiguration();
 
@@ -541,7 +535,9 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     TbMqttNodeConfiguration tbMqttNodeConfiguration = new TbMqttNodeConfiguration();
 
@@ -563,7 +559,9 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     TbMqttNodeConfiguration tbMqttNodeConfiguration = new TbMqttNodeConfiguration();
 
@@ -585,7 +583,9 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     TbMqttNodeConfiguration tbMqttNodeConfiguration = new TbMqttNodeConfiguration();
 
@@ -607,6 +607,8 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMqttNodeConfiguration(), null);
@@ -623,6 +625,8 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMqttNodeConfiguration.equals(Object)", "int TbMqttNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMqttNodeConfiguration(), "Different type to TbMqttNodeConfiguration");
@@ -661,6 +665,20 @@ class TbMqttNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbMqttNodeConfiguration.<init>()", "String TbMqttNodeConfiguration.getClientId()",
+      "int TbMqttNodeConfiguration.getConnectTimeoutSec()",
+      "ClientCredentials TbMqttNodeConfiguration.getCredentials()", "String TbMqttNodeConfiguration.getHost()",
+      "int TbMqttNodeConfiguration.getPort()", "String TbMqttNodeConfiguration.getTopicPattern()",
+      "boolean TbMqttNodeConfiguration.isAppendClientIdSuffix()", "boolean TbMqttNodeConfiguration.isCleanSession()",
+      "boolean TbMqttNodeConfiguration.isParseToPlainText()", "boolean TbMqttNodeConfiguration.isRetainedMessage()",
+      "boolean TbMqttNodeConfiguration.isSsl()", "void TbMqttNodeConfiguration.setAppendClientIdSuffix(boolean)",
+      "void TbMqttNodeConfiguration.setCleanSession(boolean)", "void TbMqttNodeConfiguration.setClientId(String)",
+      "void TbMqttNodeConfiguration.setConnectTimeoutSec(int)",
+      "void TbMqttNodeConfiguration.setCredentials(ClientCredentials)", "void TbMqttNodeConfiguration.setHost(String)",
+      "void TbMqttNodeConfiguration.setParseToPlainText(boolean)", "void TbMqttNodeConfiguration.setPort(int)",
+      "void TbMqttNodeConfiguration.setRetainedMessage(boolean)", "void TbMqttNodeConfiguration.setSsl(boolean)",
+      "void TbMqttNodeConfiguration.setTopicPattern(String)", "String TbMqttNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbMqttNodeConfiguration actualTbMqttNodeConfiguration = new TbMqttNodeConfiguration();
@@ -688,7 +706,7 @@ class TbMqttNodeConfigurationDiffblueTest {
     boolean actualIsParseToPlainTextResult = actualTbMqttNodeConfiguration.isParseToPlainText();
     boolean actualIsRetainedMessageResult = actualTbMqttNodeConfiguration.isRetainedMessage();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("42", actualClientId);
     assertEquals("Topic Pattern", actualTopicPattern);
     assertEquals("localhost", actualHost);

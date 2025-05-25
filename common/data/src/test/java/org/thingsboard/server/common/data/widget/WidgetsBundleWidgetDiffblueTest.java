@@ -3,18 +3,17 @@ package org.thingsboard.server.common.data.widget;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.thingsboard.server.common.data.id.AdminSettingsId;
 import org.thingsboard.server.common.data.id.WidgetTypeId;
 import org.thingsboard.server.common.data.id.WidgetsBundleId;
 
 class WidgetsBundleWidgetDiffblueTest {
   /**
-   * Test {@link WidgetsBundleWidget#equals(Object)}, and
-   * {@link WidgetsBundleWidget#hashCode()}.
+   * Test {@link WidgetsBundleWidget#equals(Object)}, and {@link WidgetsBundleWidget#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -28,6 +27,8 @@ class WidgetsBundleWidgetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WidgetsBundleWidget.equals(Object)", "int WidgetsBundleWidget.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     WidgetsBundleWidget widgetsBundleWidget = new WidgetsBundleWidget();
@@ -40,8 +41,7 @@ class WidgetsBundleWidgetDiffblueTest {
   }
 
   /**
-   * Test {@link WidgetsBundleWidget#equals(Object)}, and
-   * {@link WidgetsBundleWidget#hashCode()}.
+   * Test {@link WidgetsBundleWidget#equals(Object)}, and {@link WidgetsBundleWidget#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -55,6 +55,8 @@ class WidgetsBundleWidgetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WidgetsBundleWidget.equals(Object)", "int WidgetsBundleWidget.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     WidgetsBundleId widgetsBundleId = new WidgetsBundleId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -71,8 +73,7 @@ class WidgetsBundleWidgetDiffblueTest {
   }
 
   /**
-   * Test {@link WidgetsBundleWidget#equals(Object)}, and
-   * {@link WidgetsBundleWidget#hashCode()}.
+   * Test {@link WidgetsBundleWidget#equals(Object)}, and {@link WidgetsBundleWidget#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -86,6 +87,8 @@ class WidgetsBundleWidgetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WidgetsBundleWidget.equals(Object)", "int WidgetsBundleWidget.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     WidgetsBundleWidget widgetsBundleWidget = new WidgetsBundleWidget();
@@ -107,6 +110,8 @@ class WidgetsBundleWidgetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WidgetsBundleWidget.equals(Object)", "int WidgetsBundleWidget.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     WidgetsBundleId widgetsBundleId = new WidgetsBundleId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -128,6 +133,8 @@ class WidgetsBundleWidgetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WidgetsBundleWidget.equals(Object)", "int WidgetsBundleWidget.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     WidgetsBundleWidget widgetsBundleWidget = new WidgetsBundleWidget();
@@ -149,6 +156,8 @@ class WidgetsBundleWidgetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WidgetsBundleWidget.equals(Object)", "int WidgetsBundleWidget.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     WidgetsBundleWidget widgetsBundleWidget = new WidgetsBundleWidget();
@@ -169,6 +178,8 @@ class WidgetsBundleWidgetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WidgetsBundleWidget.equals(Object)", "int WidgetsBundleWidget.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     WidgetsBundleWidget widgetsBundleWidget = new WidgetsBundleWidget();
@@ -192,6 +203,8 @@ class WidgetsBundleWidgetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WidgetsBundleWidget.equals(Object)", "int WidgetsBundleWidget.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     WidgetsBundleWidget widgetsBundleWidget = new WidgetsBundleWidget();
@@ -206,26 +219,6 @@ class WidgetsBundleWidgetDiffblueTest {
   /**
    * Test {@link WidgetsBundleWidget#equals(Object)}.
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleWidget#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
-    // Arrange
-    WidgetsBundleId widgetsBundleId = new WidgetsBundleId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-
-    // Act and Assert
-    assertNotEquals(new WidgetsBundleWidget(widgetsBundleId,
-        new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), 1), mock(AdminSettingsId.class));
-  }
-
-  /**
-   * Test {@link WidgetsBundleWidget#equals(Object)}.
-   * <ul>
    *   <li>When other is {@code null}.</li>
    *   <li>Then return not equal.</li>
    * </ul>
@@ -234,6 +227,8 @@ class WidgetsBundleWidgetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WidgetsBundleWidget.equals(Object)", "int WidgetsBundleWidget.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new WidgetsBundleWidget(), null);
@@ -250,6 +245,8 @@ class WidgetsBundleWidgetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean WidgetsBundleWidget.equals(Object)", "int WidgetsBundleWidget.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new WidgetsBundleWidget(), "Different type to WidgetsBundleWidget");
@@ -272,6 +269,13 @@ class WidgetsBundleWidgetDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void WidgetsBundleWidget.<init>()",
+      "void WidgetsBundleWidget.<init>(WidgetsBundleId, WidgetTypeId, int)",
+      "WidgetTypeId WidgetsBundleWidget.getWidgetTypeId()", "int WidgetsBundleWidget.getWidgetTypeOrder()",
+      "WidgetsBundleId WidgetsBundleWidget.getWidgetsBundleId()",
+      "void WidgetsBundleWidget.setWidgetTypeId(WidgetTypeId)", "void WidgetsBundleWidget.setWidgetTypeOrder(int)",
+      "void WidgetsBundleWidget.setWidgetsBundleId(WidgetsBundleId)", "String WidgetsBundleWidget.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     WidgetsBundleWidget actualWidgetsBundleWidget = new WidgetsBundleWidget();
@@ -284,7 +288,7 @@ class WidgetsBundleWidgetDiffblueTest {
     WidgetTypeId actualWidgetTypeId = actualWidgetsBundleWidget.getWidgetTypeId();
     int actualWidgetTypeOrder = actualWidgetsBundleWidget.getWidgetTypeOrder();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("WidgetsBundleWidget(widgetsBundleId=784f394c-42b6-435a-983c-b7beff2784f9, widgetTypeId=784f394c-42b6"
         + "-435a-983c-b7beff2784f9, widgetTypeOrder=1)", actualToStringResult);
     assertEquals(1, actualWidgetTypeOrder);
@@ -297,8 +301,7 @@ class WidgetsBundleWidgetDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link WidgetsBundleWidget#WidgetsBundleWidget(WidgetsBundleId, WidgetTypeId, int)}
+   *   <li>{@link WidgetsBundleWidget#WidgetsBundleWidget(WidgetsBundleId, WidgetTypeId, int)}
    *   <li>{@link WidgetsBundleWidget#setWidgetTypeId(WidgetTypeId)}
    *   <li>{@link WidgetsBundleWidget#setWidgetTypeOrder(int)}
    *   <li>{@link WidgetsBundleWidget#setWidgetsBundleId(WidgetsBundleId)}
@@ -310,6 +313,13 @@ class WidgetsBundleWidgetDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void WidgetsBundleWidget.<init>()",
+      "void WidgetsBundleWidget.<init>(WidgetsBundleId, WidgetTypeId, int)",
+      "WidgetTypeId WidgetsBundleWidget.getWidgetTypeId()", "int WidgetsBundleWidget.getWidgetTypeOrder()",
+      "WidgetsBundleId WidgetsBundleWidget.getWidgetsBundleId()",
+      "void WidgetsBundleWidget.setWidgetTypeId(WidgetTypeId)", "void WidgetsBundleWidget.setWidgetTypeOrder(int)",
+      "void WidgetsBundleWidget.setWidgetsBundleId(WidgetsBundleId)", "String WidgetsBundleWidget.toString()"})
   void testGettersAndSetters2() {
     // Arrange
     WidgetsBundleId widgetsBundleId = new WidgetsBundleId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -326,7 +336,7 @@ class WidgetsBundleWidgetDiffblueTest {
     WidgetTypeId actualWidgetTypeId = actualWidgetsBundleWidget.getWidgetTypeId();
     int actualWidgetTypeOrder = actualWidgetsBundleWidget.getWidgetTypeOrder();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("WidgetsBundleWidget(widgetsBundleId=784f394c-42b6-435a-983c-b7beff2784f9, widgetTypeId=784f394c-42b6"
         + "-435a-983c-b7beff2784f9, widgetTypeOrder=1)", actualToStringResult);
     assertEquals(1, actualWidgetTypeOrder);

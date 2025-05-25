@@ -5,8 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TbelScriptDiffblueTest {
@@ -17,6 +19,8 @@ class TbelScriptDiffblueTest {
    */
   @Test
   @DisplayName("Test createVars(Object[])")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Map TbelScript.createVars(Object[])"})
   void testCreateVars() {
     // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class,
@@ -33,6 +37,8 @@ class TbelScriptDiffblueTest {
    */
   @Test
   @DisplayName("Test createVars(Object[]); then return size is one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Map TbelScript.createVars(Object[])"})
   void testCreateVars_thenReturnSizeIsOne() {
     // Arrange and Act
     Map actualCreateVarsResult = (new TbelScript("Not all who wander are lost", new String[]{"Arg Names"}))
@@ -54,6 +60,8 @@ class TbelScriptDiffblueTest {
    */
   @Test
   @DisplayName("Test createVars(Object[]); when 'null'; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Map TbelScript.createVars(Object[])"})
   void testCreateVars_whenNull_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class,
@@ -75,6 +83,8 @@ class TbelScriptDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbelScript.equals(Object)", "int TbelScript.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbelScript tbelScript = new TbelScript("Not all who wander are lost", new String[]{"Arg Names"});
@@ -101,6 +111,8 @@ class TbelScriptDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbelScript.equals(Object)", "int TbelScript.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbelScript tbelScript = new TbelScript(null, new String[]{"Arg Names"});
@@ -127,6 +139,8 @@ class TbelScriptDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbelScript.equals(Object)", "int TbelScript.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbelScript tbelScript = new TbelScript("Not all who wander are lost", new String[]{"Arg Names"});
@@ -148,6 +162,8 @@ class TbelScriptDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbelScript.equals(Object)", "int TbelScript.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TbelScript tbelScript = new TbelScript("Script Body", new String[]{"Arg Names"});
@@ -167,6 +183,8 @@ class TbelScriptDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbelScript.equals(Object)", "int TbelScript.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbelScript tbelScript = new TbelScript(null, new String[]{"Arg Names"});
@@ -186,6 +204,8 @@ class TbelScriptDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbelScript.equals(Object)", "int TbelScript.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbelScript tbelScript = new TbelScript("Not all who wander are lost", new String[]{"Not all who wander are lost"});
@@ -205,6 +225,8 @@ class TbelScriptDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbelScript.equals(Object)", "int TbelScript.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbelScript("Not all who wander are lost", new String[]{"Arg Names"}), null);
@@ -221,6 +243,8 @@ class TbelScriptDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbelScript.equals(Object)", "int TbelScript.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbelScript("Not all who wander are lost", new String[]{"Arg Names"}),
@@ -240,6 +264,9 @@ class TbelScriptDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbelScript.<init>(String, String[])", "String[] TbelScript.getArgNames()",
+      "String TbelScript.getScriptBody()", "String TbelScript.toString()"})
   void testGettersAndSetters() {
     // Arrange
     String[] argNames = new String[]{"Arg Names"};

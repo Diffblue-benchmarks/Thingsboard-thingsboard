@@ -2,12 +2,13 @@ package org.thingsboard.rule.engine.math;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.util.Optional;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.thingsboard.server.common.msg.TbMsgMetaData;
 
 class TbMathArgumentValueDiffblueTest {
   /**
@@ -20,6 +21,8 @@ class TbMathArgumentValueDiffblueTest {
    */
   @Test
   @DisplayName("Test constant(TbMathArgument); then return Value is forty-two")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbMathArgumentValue TbMathArgumentValue.constant(TbMathArgument)"})
   void testConstant_thenReturnValueIsFortyTwo() {
     // Arrange, Act and Assert
     assertEquals(42.0d,
@@ -36,6 +39,8 @@ class TbMathArgumentValueDiffblueTest {
    */
   @Test
   @DisplayName("Test constant(TbMathArgument); then throw RuntimeException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbMathArgumentValue TbMathArgumentValue.constant(TbMathArgument)"})
   void testConstant_thenThrowRuntimeException() {
     // Arrange, Act and Assert
     assertThrows(RuntimeException.class,
@@ -43,18 +48,18 @@ class TbMathArgumentValueDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link TbMathArgumentValue#fromMessageBody(TbMathArgument, String, Optional)}.
+   * Test {@link TbMathArgumentValue#fromMessageBody(TbMathArgument, String, Optional)}.
    * <ul>
    *   <li>Given ten.</li>
    *   <li>Then return Value is ten.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbMathArgumentValue#fromMessageBody(TbMathArgument, String, Optional)}
+   * Method under test: {@link TbMathArgumentValue#fromMessageBody(TbMathArgument, String, Optional)}
    */
   @Test
   @DisplayName("Test fromMessageBody(TbMathArgument, String, Optional); given ten; then return Value is ten")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbMathArgumentValue TbMathArgumentValue.fromMessageBody(TbMathArgument, String, Optional)"})
   void testFromMessageBody_givenTen_thenReturnValueIsTen() {
     // Arrange
     TbMathArgument arg = new TbMathArgument(TbMathArgumentType.ATTRIBUTE, "Key");
@@ -66,18 +71,18 @@ class TbMathArgumentValueDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link TbMathArgumentValue#fromMessageBody(TbMathArgument, String, Optional)}.
+   * Test {@link TbMathArgumentValue#fromMessageBody(TbMathArgument, String, Optional)}.
    * <ul>
    *   <li>Given ten.</li>
    *   <li>Then return Value is ten.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbMathArgumentValue#fromMessageBody(TbMathArgument, String, Optional)}
+   * Method under test: {@link TbMathArgumentValue#fromMessageBody(TbMathArgument, String, Optional)}
    */
   @Test
   @DisplayName("Test fromMessageBody(TbMathArgument, String, Optional); given ten; then return Value is ten")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbMathArgumentValue TbMathArgumentValue.fromMessageBody(TbMathArgument, String, Optional)"})
   void testFromMessageBody_givenTen_thenReturnValueIsTen2() {
     // Arrange
     TbMathArgument arg = new TbMathArgument(TbMathArgumentType.ATTRIBUTE, "Key");
@@ -89,17 +94,17 @@ class TbMathArgumentValueDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link TbMathArgumentValue#fromMessageBody(TbMathArgument, String, Optional)}.
+   * Test {@link TbMathArgumentValue#fromMessageBody(TbMathArgument, String, Optional)}.
    * <ul>
    *   <li>Then throw {@link RuntimeException}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbMathArgumentValue#fromMessageBody(TbMathArgument, String, Optional)}
+   * Method under test: {@link TbMathArgumentValue#fromMessageBody(TbMathArgument, String, Optional)}
    */
   @Test
   @DisplayName("Test fromMessageBody(TbMathArgument, String, Optional); then throw RuntimeException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbMathArgumentValue TbMathArgumentValue.fromMessageBody(TbMathArgument, String, Optional)"})
   void testFromMessageBody_thenThrowRuntimeException() {
     // Arrange
     TbMathArgument arg = new TbMathArgument(TbMathArgumentType.ATTRIBUTE, "Key");
@@ -111,18 +116,18 @@ class TbMathArgumentValueDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link TbMathArgumentValue#fromMessageBody(TbMathArgument, String, Optional)}.
+   * Test {@link TbMathArgumentValue#fromMessageBody(TbMathArgument, String, Optional)}.
    * <ul>
    *   <li>When empty.</li>
    *   <li>Then throw {@link RuntimeException}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbMathArgumentValue#fromMessageBody(TbMathArgument, String, Optional)}
+   * Method under test: {@link TbMathArgumentValue#fromMessageBody(TbMathArgument, String, Optional)}
    */
   @Test
   @DisplayName("Test fromMessageBody(TbMathArgument, String, Optional); when empty; then throw RuntimeException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbMathArgumentValue TbMathArgumentValue.fromMessageBody(TbMathArgument, String, Optional)"})
   void testFromMessageBody_whenEmpty_thenThrowRuntimeException() {
     // Arrange
     TbMathArgument arg = new TbMathArgument(TbMathArgumentType.ATTRIBUTE, "Key");
@@ -134,98 +139,14 @@ class TbMathArgumentValueDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link TbMathArgumentValue#fromMessageMetadata(TbMathArgument, String, TbMsgMetaData)}.
-   * <ul>
-   *   <li>Given {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TbMathArgumentValue#fromMessageMetadata(TbMathArgument, String, TbMsgMetaData)}
-   */
-  @Test
-  @DisplayName("Test fromMessageMetadata(TbMathArgument, String, TbMsgMetaData); given 'null'")
-  void testFromMessageMetadata_givenNull() {
-    // Arrange
-    TbMathArgument arg = new TbMathArgument(TbMathArgumentType.ATTRIBUTE, "Key");
-    arg.setDefaultValue(null);
-
-    // Act and Assert
-    assertThrows(RuntimeException.class, () -> TbMathArgumentValue.fromMessageMetadata(arg, "Arg Key", null));
-  }
-
-  /**
-   * Test
-   * {@link TbMathArgumentValue#fromMessageMetadata(TbMathArgument, String, TbMsgMetaData)}.
-   * <ul>
-   *   <li>Given ten.</li>
-   *   <li>Then return Value is ten.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TbMathArgumentValue#fromMessageMetadata(TbMathArgument, String, TbMsgMetaData)}
-   */
-  @Test
-  @DisplayName("Test fromMessageMetadata(TbMathArgument, String, TbMsgMetaData); given ten; then return Value is ten")
-  void testFromMessageMetadata_givenTen_thenReturnValueIsTen() {
-    // Arrange
-    TbMathArgument arg = new TbMathArgument(TbMathArgumentType.ATTRIBUTE, "Key");
-    arg.setDefaultValue(10.0d);
-
-    // Act and Assert
-    assertEquals(10.0d, TbMathArgumentValue.fromMessageMetadata(arg, "Arg Key", null).getValue());
-  }
-
-  /**
-   * Test
-   * {@link TbMathArgumentValue#fromMessageMetadata(TbMathArgument, String, TbMsgMetaData)}.
-   * <ul>
-   *   <li>Given ten.</li>
-   *   <li>Then return Value is ten.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TbMathArgumentValue#fromMessageMetadata(TbMathArgument, String, TbMsgMetaData)}
-   */
-  @Test
-  @DisplayName("Test fromMessageMetadata(TbMathArgument, String, TbMsgMetaData); given ten; then return Value is ten")
-  void testFromMessageMetadata_givenTen_thenReturnValueIsTen2() {
-    // Arrange
-    TbMathArgument arg = new TbMathArgument(TbMathArgumentType.ATTRIBUTE, "Key");
-    arg.setDefaultValue(10.0d);
-
-    // Act and Assert
-    assertEquals(10.0d, TbMathArgumentValue.fromMessageMetadata(arg, "Arg Key", new TbMsgMetaData()).getValue());
-  }
-
-  /**
-   * Test
-   * {@link TbMathArgumentValue#fromMessageMetadata(TbMathArgument, String, TbMsgMetaData)}.
-   * <ul>
-   *   <li>Then throw {@link RuntimeException}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TbMathArgumentValue#fromMessageMetadata(TbMathArgument, String, TbMsgMetaData)}
-   */
-  @Test
-  @DisplayName("Test fromMessageMetadata(TbMathArgument, String, TbMsgMetaData); then throw RuntimeException")
-  void testFromMessageMetadata_thenThrowRuntimeException() {
-    // Arrange
-    TbMathArgument arg = new TbMathArgument(TbMathArgumentType.ATTRIBUTE, "Key");
-
-    // Act and Assert
-    assertThrows(RuntimeException.class,
-        () -> TbMathArgumentValue.fromMessageMetadata(arg, "Arg Key", new TbMsgMetaData()));
-  }
-
-  /**
    * Test {@link TbMathArgumentValue#fromLong(long)}.
    * <p>
    * Method under test: {@link TbMathArgumentValue#fromLong(long)}
    */
   @Test
   @DisplayName("Test fromLong(long)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbMathArgumentValue TbMathArgumentValue.fromLong(long)"})
   void testFromLong() {
     // Arrange, Act and Assert
     assertEquals(42.0d, TbMathArgumentValue.fromLong(42L).getValue());
@@ -238,6 +159,8 @@ class TbMathArgumentValueDiffblueTest {
    */
   @Test
   @DisplayName("Test fromDouble(double)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbMathArgumentValue TbMathArgumentValue.fromDouble(double)"})
   void testFromDouble() {
     // Arrange, Act and Assert
     assertEquals(10.0d, TbMathArgumentValue.fromDouble(10.0d).getValue());
@@ -254,6 +177,8 @@ class TbMathArgumentValueDiffblueTest {
    */
   @Test
   @DisplayName("Test fromString(String); when '42'; then return Value is forty-two")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbMathArgumentValue TbMathArgumentValue.fromString(String)"})
   void testFromString_when42_thenReturnValueIsFortyTwo() {
     // Arrange, Act and Assert
     assertEquals(42.0d, TbMathArgumentValue.fromString("42").getValue());
@@ -270,6 +195,8 @@ class TbMathArgumentValueDiffblueTest {
    */
   @Test
   @DisplayName("Test fromString(String); when 'Value'; then throw RuntimeException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbMathArgumentValue TbMathArgumentValue.fromString(String)"})
   void testFromString_whenValue_thenThrowRuntimeException() {
     // Arrange, Act and Assert
     assertThrows(RuntimeException.class, () -> TbMathArgumentValue.fromString("Value"));
@@ -282,6 +209,8 @@ class TbMathArgumentValueDiffblueTest {
    */
   @Test
   @DisplayName("Test getValue()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"double TbMathArgumentValue.getValue()"})
   void testGetValue() {
     // Arrange, Act and Assert
     assertEquals(10.0d, TbMathArgumentValue.fromDouble(10.0d).getValue());

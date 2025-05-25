@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.netty.channel.DefaultChannelProgressivePromise;
 import io.netty.channel.DefaultEventLoop;
 import io.netty.channel.EventLoop;
@@ -23,7 +24,9 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.function.Consumer;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.thingsboard.mqtt.MqttPendingSubscription.MqttPendingHandler;
 
 class MqttPendingSubscriptionDiffblueTest {
   /**
@@ -31,14 +34,16 @@ class MqttPendingSubscriptionDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link MqttPendingSubscription.MqttPendingHandler#MqttPendingHandler(MqttPendingSubscription, MqttHandler, boolean)}
-   *   <li>{@link MqttPendingSubscription.MqttPendingHandler#getHandler()}
-   *   <li>{@link MqttPendingSubscription.MqttPendingHandler#isOnce()}
+   *   <li>{@link MqttPendingHandler#MqttPendingHandler(MqttPendingSubscription, MqttHandler, boolean)}
+   *   <li>{@link MqttPendingHandler#getHandler()}
+   *   <li>{@link MqttPendingHandler#isOnce()}
    * </ul>
    */
   @Test
   @DisplayName("Test MqttPendingHandler getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPendingHandler.<init>(MqttPendingSubscription, MqttHandler, boolean)",
+      "MqttHandler MqttPendingHandler.getHandler()", "boolean MqttPendingHandler.isOnce()"})
   void testMqttPendingHandlerGettersAndSetters() {
     // Arrange
     DefaultChannelProgressivePromise future = new DefaultChannelProgressivePromise(new EmbeddedChannel());
@@ -50,7 +55,7 @@ class MqttPendingSubscriptionDiffblueTest {
     MqttHandler handler = mock(MqttHandler.class);
 
     // Act
-    MqttPendingSubscription.MqttPendingHandler actualMqttPendingHandler = (new MqttPendingSubscription(future, "Topic",
+    MqttPendingHandler actualMqttPendingHandler = (new MqttPendingSubscription(future, "Topic",
         new MqttSubscribeMessage(mqttFixedHeader, variableHeader, new MqttSubscribePayload(new ArrayList<>())),
         mock(PendingOperation.class))).new MqttPendingHandler(handler, true);
     MqttHandler actualHandler = actualMqttPendingHandler.getHandler();
@@ -61,14 +66,14 @@ class MqttPendingSubscriptionDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link MqttPendingSubscription#MqttPendingSubscription(Promise, String, MqttSubscribeMessage, PendingOperation)}.
+   * Test {@link MqttPendingSubscription#MqttPendingSubscription(Promise, String, MqttSubscribeMessage, PendingOperation)}.
    * <p>
-   * Method under test:
-   * {@link MqttPendingSubscription#MqttPendingSubscription(Promise, String, MqttSubscribeMessage, PendingOperation)}
+   * Method under test: {@link MqttPendingSubscription#MqttPendingSubscription(Promise, String, MqttSubscribeMessage, PendingOperation)}
    */
   @Test
   @DisplayName("Test new MqttPendingSubscription(Promise, String, MqttSubscribeMessage, PendingOperation)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPendingSubscription.<init>(Promise, String, MqttSubscribeMessage, PendingOperation)"})
   void testNewMqttPendingSubscription() {
     // Arrange
     DefaultChannelProgressivePromise future = new DefaultChannelProgressivePromise(new EmbeddedChannel());
@@ -109,6 +114,10 @@ class MqttPendingSubscriptionDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Promise MqttPendingSubscription.getFuture()", "Set MqttPendingSubscription.getHandlers()",
+      "MqttSubscribeMessage MqttPendingSubscription.getSubscribeMessage()", "String MqttPendingSubscription.getTopic()",
+      "boolean MqttPendingSubscription.isSent()", "void MqttPendingSubscription.setSent(boolean)"})
   void testGettersAndSetters() {
     // Arrange
     DefaultChannelProgressivePromise future = new DefaultChannelProgressivePromise(new EmbeddedChannel());
@@ -126,12 +135,12 @@ class MqttPendingSubscriptionDiffblueTest {
     // Act
     mqttPendingSubscription.setSent(true);
     Promise<Void> actualFuture = mqttPendingSubscription.getFuture();
-    Set<MqttPendingSubscription.MqttPendingHandler> actualHandlers = mqttPendingSubscription.getHandlers();
+    Set<MqttPendingHandler> actualHandlers = mqttPendingSubscription.getHandlers();
     MqttSubscribeMessage actualSubscribeMessage = mqttPendingSubscription.getSubscribeMessage();
     String actualTopic = mqttPendingSubscription.getTopic();
     boolean actualIsSentResult = mqttPendingSubscription.isSent();
 
-    // Assert that nothing has changed
+    // Assert
     assertTrue(actualFuture instanceof DefaultChannelProgressivePromise);
     assertEquals("Topic", actualTopic);
     assertTrue(actualHandlers.isEmpty());
@@ -143,11 +152,12 @@ class MqttPendingSubscriptionDiffblueTest {
   /**
    * Test {@link MqttPendingSubscription#addHandler(MqttHandler, boolean)}.
    * <p>
-   * Method under test:
-   * {@link MqttPendingSubscription#addHandler(MqttHandler, boolean)}
+   * Method under test: {@link MqttPendingSubscription#addHandler(MqttHandler, boolean)}
    */
   @Test
   @DisplayName("Test addHandler(MqttHandler, boolean)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPendingSubscription.addHandler(MqttHandler, boolean)"})
   void testAddHandler() {
     // Arrange
     DefaultChannelProgressivePromise future = new DefaultChannelProgressivePromise(new EmbeddedChannel());
@@ -168,17 +178,17 @@ class MqttPendingSubscriptionDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link MqttPendingSubscription#startRetransmitTimer(EventLoop, Consumer)}.
+   * Test {@link MqttPendingSubscription#startRetransmitTimer(EventLoop, Consumer)}.
    * <ul>
    *   <li>Then calls {@link PendingOperation#isCanceled()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MqttPendingSubscription#startRetransmitTimer(EventLoop, Consumer)}
+   * Method under test: {@link MqttPendingSubscription#startRetransmitTimer(EventLoop, Consumer)}
    */
   @Test
   @DisplayName("Test startRetransmitTimer(EventLoop, Consumer); then calls isCanceled()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPendingSubscription.startRetransmitTimer(EventLoop, Consumer)"})
   void testStartRetransmitTimer_thenCallsIsCanceled() {
     // Arrange
     PendingOperation operation = mock(PendingOperation.class);
@@ -202,17 +212,17 @@ class MqttPendingSubscriptionDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link MqttPendingSubscription#startRetransmitTimer(EventLoop, Consumer)}.
+   * Test {@link MqttPendingSubscription#startRetransmitTimer(EventLoop, Consumer)}.
    * <ul>
    *   <li>Then not {@link DefaultEventLoop#DefaultEventLoop()} Terminated.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MqttPendingSubscription#startRetransmitTimer(EventLoop, Consumer)}
+   * Method under test: {@link MqttPendingSubscription#startRetransmitTimer(EventLoop, Consumer)}
    */
   @Test
   @DisplayName("Test startRetransmitTimer(EventLoop, Consumer); then not DefaultEventLoop() Terminated")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPendingSubscription.startRetransmitTimer(EventLoop, Consumer)"})
   void testStartRetransmitTimer_thenNotDefaultEventLoopTerminated() {
     // Arrange
     PendingOperation operation = mock(PendingOperation.class);

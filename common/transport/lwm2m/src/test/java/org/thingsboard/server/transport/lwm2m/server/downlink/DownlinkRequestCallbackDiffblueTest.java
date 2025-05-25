@@ -2,7 +2,9 @@ package org.thingsboard.server.transport.lwm2m.server.downlink;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.transport.lwm2m.server.client.LwM2mClient;
 import org.thingsboard.server.transport.lwm2m.server.log.LwM2MTelemetryLogService;
@@ -15,6 +17,8 @@ class DownlinkRequestCallbackDiffblueTest {
    */
   @Test
   @DisplayName("Test onSent(Object)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DownlinkRequestCallback.onSent(Object)"})
   void testOnSent() {
     // Arrange
     LwM2MTelemetryLogService logService = mock(LwM2MTelemetryLogService.class);

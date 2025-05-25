@@ -4,13 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.thingsboard.server.common.data.id.ApiUsageStateId;
 import org.thingsboard.server.common.data.id.TenantId;
-
-import java.util.UUID;
 
 class ApiUsageStateDiffblueTest {
   /**
@@ -20,6 +18,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test new ApiUsageState(ApiUsageState)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ApiUsageState.<init>(ApiUsageState)"})
   void testNewApiUsageState() {
     // Arrange
     ApiUsageState ur = new ApiUsageState();
@@ -39,6 +39,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test isTransportEnabled(); given ApiUsageState(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.isTransportEnabled()"})
   void testIsTransportEnabled_givenApiUsageState_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue((new ApiUsageState()).isTransportEnabled());
@@ -54,6 +56,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test isTransportEnabled(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.isTransportEnabled()"})
   void testIsTransportEnabled_thenReturnFalse() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -66,8 +70,7 @@ class ApiUsageStateDiffblueTest {
   /**
    * Test {@link ApiUsageState#isReExecEnabled()}.
    * <ul>
-   *   <li>Given {@link ApiUsageState#ApiUsageState()} ReExecState is
-   * {@code DISABLED}.</li>
+   *   <li>Given {@link ApiUsageState#ApiUsageState()} ReExecState is {@code DISABLED}.</li>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
@@ -75,9 +78,11 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test isReExecEnabled(); given ApiUsageState() ReExecState is 'DISABLED'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.isReExecEnabled()"})
   void testIsReExecEnabled_givenApiUsageStateReExecStateIsDisabled_thenReturnFalse() {
     // Arrange
-    ApiUsageState apiUsageState = new ApiUsageState(new ApiUsageStateId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ApiUsageState apiUsageState = new ApiUsageState();
     apiUsageState.setReExecState(ApiUsageStateValue.DISABLED);
 
     // Act and Assert
@@ -95,6 +100,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test isReExecEnabled(); given ApiUsageState(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.isReExecEnabled()"})
   void testIsReExecEnabled_givenApiUsageState_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue((new ApiUsageState()).isReExecEnabled());
@@ -111,6 +118,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test isDbStorageEnabled(); given ApiUsageState(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.isDbStorageEnabled()"})
   void testIsDbStorageEnabled_givenApiUsageState_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue((new ApiUsageState()).isDbStorageEnabled());
@@ -126,6 +135,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test isDbStorageEnabled(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.isDbStorageEnabled()"})
   void testIsDbStorageEnabled_thenReturnFalse() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -138,8 +149,7 @@ class ApiUsageStateDiffblueTest {
   /**
    * Test {@link ApiUsageState#isJsExecEnabled()}.
    * <ul>
-   *   <li>Given {@link ApiUsageState#ApiUsageState()} JsExecState is
-   * {@code DISABLED}.</li>
+   *   <li>Given {@link ApiUsageState#ApiUsageState()} JsExecState is {@code DISABLED}.</li>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
@@ -147,6 +157,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test isJsExecEnabled(); given ApiUsageState() JsExecState is 'DISABLED'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.isJsExecEnabled()"})
   void testIsJsExecEnabled_givenApiUsageStateJsExecStateIsDisabled_thenReturnFalse() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -167,6 +179,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test isJsExecEnabled(); given ApiUsageState(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.isJsExecEnabled()"})
   void testIsJsExecEnabled_givenApiUsageState_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue((new ApiUsageState()).isJsExecEnabled());
@@ -175,8 +189,7 @@ class ApiUsageStateDiffblueTest {
   /**
    * Test {@link ApiUsageState#isTbelExecEnabled()}.
    * <ul>
-   *   <li>Given {@link ApiUsageState#ApiUsageState()} TbelExecState is
-   * {@code DISABLED}.</li>
+   *   <li>Given {@link ApiUsageState#ApiUsageState()} TbelExecState is {@code DISABLED}.</li>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
@@ -184,6 +197,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test isTbelExecEnabled(); given ApiUsageState() TbelExecState is 'DISABLED'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.isTbelExecEnabled()"})
   void testIsTbelExecEnabled_givenApiUsageStateTbelExecStateIsDisabled_thenReturnFalse() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -204,6 +219,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test isTbelExecEnabled(); given ApiUsageState(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.isTbelExecEnabled()"})
   void testIsTbelExecEnabled_givenApiUsageState_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue((new ApiUsageState()).isTbelExecEnabled());
@@ -220,6 +237,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test isEmailSendEnabled(); given ApiUsageState(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.isEmailSendEnabled()"})
   void testIsEmailSendEnabled_givenApiUsageState_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue((new ApiUsageState()).isEmailSendEnabled());
@@ -235,6 +254,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test isEmailSendEnabled(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.isEmailSendEnabled()"})
   void testIsEmailSendEnabled_thenReturnFalse() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -247,8 +268,7 @@ class ApiUsageStateDiffblueTest {
   /**
    * Test {@link ApiUsageState#isSmsSendEnabled()}.
    * <ul>
-   *   <li>Given {@link ApiUsageState#ApiUsageState()} SmsExecState is
-   * {@code DISABLED}.</li>
+   *   <li>Given {@link ApiUsageState#ApiUsageState()} SmsExecState is {@code DISABLED}.</li>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
@@ -256,6 +276,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test isSmsSendEnabled(); given ApiUsageState() SmsExecState is 'DISABLED'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.isSmsSendEnabled()"})
   void testIsSmsSendEnabled_givenApiUsageStateSmsExecStateIsDisabled_thenReturnFalse() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -276,6 +298,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test isSmsSendEnabled(); given ApiUsageState(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.isSmsSendEnabled()"})
   void testIsSmsSendEnabled_givenApiUsageState_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue((new ApiUsageState()).isSmsSendEnabled());
@@ -292,6 +316,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test isAlarmCreationEnabled(); given ApiUsageState(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.isAlarmCreationEnabled()"})
   void testIsAlarmCreationEnabled_givenApiUsageState_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue((new ApiUsageState()).isAlarmCreationEnabled());
@@ -307,6 +333,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test isAlarmCreationEnabled(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.isAlarmCreationEnabled()"})
   void testIsAlarmCreationEnabled_thenReturnFalse() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -317,8 +345,7 @@ class ApiUsageStateDiffblueTest {
   }
 
   /**
-   * Test {@link ApiUsageState#equals(Object)}, and
-   * {@link ApiUsageState#hashCode()}.
+   * Test {@link ApiUsageState#equals(Object)}, and {@link ApiUsageState#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -332,6 +359,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -344,8 +373,7 @@ class ApiUsageStateDiffblueTest {
   }
 
   /**
-   * Test {@link ApiUsageState#equals(Object)}, and
-   * {@link ApiUsageState#hashCode()}.
+   * Test {@link ApiUsageState#equals(Object)}, and {@link ApiUsageState#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -359,6 +387,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -380,10 +410,11 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new ApiUsageState(), 1);
-    assertNotEquals(new ApiUsageState(), mock(AdminSettings.class));
   }
 
   /**
@@ -397,6 +428,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -417,6 +450,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -437,6 +472,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -457,6 +494,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -477,6 +516,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -497,6 +538,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -517,6 +560,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -537,6 +582,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -557,6 +604,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -577,6 +626,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -597,6 +648,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -617,6 +670,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -639,6 +694,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -661,6 +718,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -683,6 +742,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -705,6 +766,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -727,6 +790,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -749,6 +814,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -771,6 +838,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -793,6 +862,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -815,6 +886,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
@@ -837,6 +910,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new ApiUsageState(), null);
@@ -853,6 +928,8 @@ class ApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ApiUsageState.equals(Object)", "int ApiUsageState.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new ApiUsageState(), "Different type to ApiUsageState");

@@ -5,17 +5,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.MissingNode;
 import com.fasterxml.jackson.databind.node.NullNode;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class NodeDefinitionDiffblueTest {
   /**
-   * Test {@link NodeDefinition#equals(Object)}, and
-   * {@link NodeDefinition#hashCode()}.
+   * Test {@link NodeDefinition#equals(Object)}, and {@link NodeDefinition#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -29,6 +29,8 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
@@ -68,8 +70,117 @@ class NodeDefinitionDiffblueTest {
   }
 
   /**
-   * Test {@link NodeDefinition#equals(Object)}, and
-   * {@link NodeDefinition#hashCode()}.
+   * Test {@link NodeDefinition#equals(Object)}, and {@link NodeDefinition#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link NodeDefinition#equals(Object)}
+   *   <li>{@link NodeDefinition#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    NodeDefinition nodeDefinition = new NodeDefinition();
+    nodeDefinition.setConfigDirective(null);
+    nodeDefinition.setCustomRelations(true);
+    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDescription("The characteristics of someone or something");
+    nodeDefinition.setDetails("Details");
+    nodeDefinition.setDocUrl("https://example.org/example");
+    nodeDefinition.setIcon("Icon");
+    nodeDefinition.setIconUrl("https://example.org/example");
+    nodeDefinition.setInEnabled(true);
+    nodeDefinition.setOutEnabled(true);
+    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRuleChainNode(true);
+    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+
+    NodeDefinition nodeDefinition2 = new NodeDefinition();
+    nodeDefinition2.setConfigDirective(null);
+    nodeDefinition2.setCustomRelations(true);
+    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition2.setDescription("The characteristics of someone or something");
+    nodeDefinition2.setDetails("Details");
+    nodeDefinition2.setDocUrl("https://example.org/example");
+    nodeDefinition2.setIcon("Icon");
+    nodeDefinition2.setIconUrl("https://example.org/example");
+    nodeDefinition2.setInEnabled(true);
+    nodeDefinition2.setOutEnabled(true);
+    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition2.setRuleChainNode(true);
+    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
+
+    // Act and Assert
+    assertEquals(nodeDefinition, nodeDefinition2);
+    int expectedHashCodeResult = nodeDefinition.hashCode();
+    assertEquals(expectedHashCodeResult, nodeDefinition2.hashCode());
+  }
+
+  /**
+   * Test {@link NodeDefinition#equals(Object)}, and {@link NodeDefinition#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link NodeDefinition#equals(Object)}
+   *   <li>{@link NodeDefinition#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+    // Arrange
+    NodeDefinition nodeDefinition = new NodeDefinition();
+    nodeDefinition.setConfigDirective("Config Directive");
+    nodeDefinition.setCustomRelations(true);
+    nodeDefinition.setDefaultConfiguration(null);
+    nodeDefinition.setDescription("The characteristics of someone or something");
+    nodeDefinition.setDetails("Details");
+    nodeDefinition.setDocUrl("https://example.org/example");
+    nodeDefinition.setIcon("Icon");
+    nodeDefinition.setIconUrl("https://example.org/example");
+    nodeDefinition.setInEnabled(true);
+    nodeDefinition.setOutEnabled(true);
+    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRuleChainNode(true);
+    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+
+    NodeDefinition nodeDefinition2 = new NodeDefinition();
+    nodeDefinition2.setConfigDirective("Config Directive");
+    nodeDefinition2.setCustomRelations(true);
+    nodeDefinition2.setDefaultConfiguration(null);
+    nodeDefinition2.setDescription("The characteristics of someone or something");
+    nodeDefinition2.setDetails("Details");
+    nodeDefinition2.setDocUrl("https://example.org/example");
+    nodeDefinition2.setIcon("Icon");
+    nodeDefinition2.setIconUrl("https://example.org/example");
+    nodeDefinition2.setInEnabled(true);
+    nodeDefinition2.setOutEnabled(true);
+    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition2.setRuleChainNode(true);
+    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
+
+    // Act and Assert
+    assertEquals(nodeDefinition, nodeDefinition2);
+    int expectedHashCodeResult = nodeDefinition.hashCode();
+    assertEquals(expectedHashCodeResult, nodeDefinition2.hashCode());
+  }
+
+  /**
+   * Test {@link NodeDefinition#equals(Object)}, and {@link NodeDefinition#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -83,6 +194,8 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
@@ -117,6 +230,8 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
@@ -164,6 +279,8 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
@@ -211,6 +328,8 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
@@ -258,6 +377,8 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
@@ -305,6 +426,8 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
@@ -352,54 +475,9 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
-    // Arrange
-    NodeDefinition nodeDefinition = new NodeDefinition();
-    nodeDefinition.setConfigDirective("Config Directive");
-    nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(mock(JsonNode.class));
-    nodeDefinition.setDescription("The characteristics of someone or something");
-    nodeDefinition.setDetails("Details");
-    nodeDefinition.setDocUrl("https://example.org/example");
-    nodeDefinition.setIcon("Icon");
-    nodeDefinition.setIconUrl("https://example.org/example");
-    nodeDefinition.setInEnabled(true);
-    nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
-    nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
-
-    NodeDefinition nodeDefinition2 = new NodeDefinition();
-    nodeDefinition2.setConfigDirective("Config Directive");
-    nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
-    nodeDefinition2.setDescription("The characteristics of someone or something");
-    nodeDefinition2.setDetails("Details");
-    nodeDefinition2.setDocUrl("https://example.org/example");
-    nodeDefinition2.setIcon("Icon");
-    nodeDefinition2.setIconUrl("https://example.org/example");
-    nodeDefinition2.setInEnabled(true);
-    nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
-    nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
-
-    // Act and Assert
-    assertNotEquals(nodeDefinition, nodeDefinition2);
-  }
-
-  /**
-   * Test {@link NodeDefinition#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link NodeDefinition#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
@@ -446,7 +524,9 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
@@ -493,7 +573,9 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
@@ -540,7 +622,9 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
@@ -587,7 +671,9 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
@@ -634,7 +720,9 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
@@ -681,7 +769,9 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
@@ -728,7 +818,9 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
@@ -775,7 +867,9 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
@@ -822,7 +916,9 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
@@ -869,7 +965,9 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
@@ -916,7 +1014,9 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
@@ -963,7 +1063,9 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
@@ -1010,7 +1112,9 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
@@ -1057,7 +1161,9 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
@@ -1104,6 +1210,8 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
@@ -1136,6 +1244,8 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
@@ -1194,6 +1304,21 @@ class NodeDefinitionDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NodeDefinition.<init>()", "String NodeDefinition.getConfigDirective()",
+      "JsonNode NodeDefinition.getDefaultConfiguration()", "String NodeDefinition.getDescription()",
+      "String NodeDefinition.getDetails()", "String NodeDefinition.getDocUrl()", "String NodeDefinition.getIcon()",
+      "String NodeDefinition.getIconUrl()", "String[] NodeDefinition.getRelationTypes()",
+      "String[] NodeDefinition.getUiResources()", "boolean NodeDefinition.isCustomRelations()",
+      "boolean NodeDefinition.isInEnabled()", "boolean NodeDefinition.isOutEnabled()",
+      "boolean NodeDefinition.isRuleChainNode()", "void NodeDefinition.setConfigDirective(String)",
+      "void NodeDefinition.setCustomRelations(boolean)", "void NodeDefinition.setDefaultConfiguration(JsonNode)",
+      "void NodeDefinition.setDescription(String)", "void NodeDefinition.setDetails(String)",
+      "void NodeDefinition.setDocUrl(String)", "void NodeDefinition.setIcon(String)",
+      "void NodeDefinition.setIconUrl(String)", "void NodeDefinition.setInEnabled(boolean)",
+      "void NodeDefinition.setOutEnabled(boolean)", "void NodeDefinition.setRelationTypes(String[])",
+      "void NodeDefinition.setRuleChainNode(boolean)", "void NodeDefinition.setUiResources(String[])",
+      "String NodeDefinition.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     NodeDefinition actualNodeDefinition = new NodeDefinition();
@@ -1227,7 +1352,7 @@ class NodeDefinitionDiffblueTest {
     boolean actualIsInEnabledResult = actualNodeDefinition.isInEnabled();
     boolean actualIsOutEnabledResult = actualNodeDefinition.isOutEnabled();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Config Directive", actualConfigDirective);
     assertEquals("Details", actualDetails);
     assertEquals("Icon", actualIcon);

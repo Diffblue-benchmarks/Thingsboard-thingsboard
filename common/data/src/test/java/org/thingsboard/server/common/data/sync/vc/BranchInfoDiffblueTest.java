@@ -3,7 +3,9 @@ package org.thingsboard.server.common.data.sync.vc;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class BranchInfoDiffblueTest {
@@ -22,6 +24,8 @@ class BranchInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BranchInfo.equals(Object)", "int BranchInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     BranchInfo branchInfo = new BranchInfo("Name", true);
@@ -48,6 +52,8 @@ class BranchInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BranchInfo.equals(Object)", "int BranchInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     BranchInfo branchInfo = new BranchInfo("Name", true);
@@ -69,6 +75,8 @@ class BranchInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BranchInfo.equals(Object)", "int BranchInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     BranchInfo branchInfo = new BranchInfo(null, true);
@@ -88,6 +96,8 @@ class BranchInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BranchInfo.equals(Object)", "int BranchInfo.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new BranchInfo("Name", true), null);
@@ -104,6 +114,8 @@ class BranchInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BranchInfo.equals(Object)", "int BranchInfo.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new BranchInfo("Name", true), "Different type to BranchInfo");
@@ -122,6 +134,9 @@ class BranchInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BranchInfo.<init>(String, boolean)", "String BranchInfo.getName()",
+      "boolean BranchInfo.isDefault()", "String BranchInfo.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     BranchInfo actualBranchInfo = new BranchInfo("Name", true);

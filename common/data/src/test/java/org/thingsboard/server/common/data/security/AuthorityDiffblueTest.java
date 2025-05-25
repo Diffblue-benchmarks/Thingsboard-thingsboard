@@ -2,7 +2,9 @@ package org.thingsboard.server.common.data.security;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class AuthorityDiffblueTest {
@@ -13,6 +15,8 @@ class AuthorityDiffblueTest {
    */
   @Test
   @DisplayName("Test getCode()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int Authority.getCode()"})
   void testGetCode() {
     // Arrange, Act and Assert
     assertEquals(0, Authority.valueOf("SYS_ADMIN").getCode());
@@ -29,6 +33,8 @@ class AuthorityDiffblueTest {
    */
   @Test
   @DisplayName("Test parse(String); when '42'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Authority Authority.parse(String)"})
   void testParse_when42_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(Authority.parse("42"));
@@ -45,6 +51,8 @@ class AuthorityDiffblueTest {
    */
   @Test
   @DisplayName("Test parse(String); when 'CUSTOMER_USER'; then return 'CUSTOMER_USER'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Authority Authority.parse(String)"})
   void testParse_whenCustomerUser_thenReturnCustomerUser() {
     // Arrange, Act and Assert
     assertEquals(Authority.CUSTOMER_USER, Authority.parse("CUSTOMER_USER"));
@@ -61,6 +69,8 @@ class AuthorityDiffblueTest {
    */
   @Test
   @DisplayName("Test parse(String); when empty string; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Authority Authority.parse(String)"})
   void testParse_whenEmptyString_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(Authority.parse(""));
@@ -77,6 +87,8 @@ class AuthorityDiffblueTest {
    */
   @Test
   @DisplayName("Test parse(String); when 'null'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Authority Authority.parse(String)"})
   void testParse_whenNull_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(Authority.parse(null));

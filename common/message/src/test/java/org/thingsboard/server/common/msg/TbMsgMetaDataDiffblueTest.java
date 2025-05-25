@@ -4,17 +4,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.BiFunction;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TbMsgMetaDataDiffblueTest {
   /**
-   * Test {@link TbMsgMetaData#equals(Object)}, and
-   * {@link TbMsgMetaData#hashCode()}.
+   * Test {@link TbMsgMetaData#equals(Object)}, and {@link TbMsgMetaData#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -28,6 +27,8 @@ class TbMsgMetaDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgMetaData.equals(Object)", "int TbMsgMetaData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbMsgMetaData tbMsgMetaData = TbMsgMetaData.EMPTY;
@@ -40,8 +41,7 @@ class TbMsgMetaDataDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgMetaData#equals(Object)}, and
-   * {@link TbMsgMetaData#hashCode()}.
+   * Test {@link TbMsgMetaData#equals(Object)}, and {@link TbMsgMetaData#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -55,6 +55,8 @@ class TbMsgMetaDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgMetaData.equals(Object)", "int TbMsgMetaData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbMsgMetaData tbMsgMetaData = new TbMsgMetaData();
@@ -67,8 +69,7 @@ class TbMsgMetaDataDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgMetaData#equals(Object)}, and
-   * {@link TbMsgMetaData#hashCode()}.
+   * Test {@link TbMsgMetaData#equals(Object)}, and {@link TbMsgMetaData#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -82,6 +83,8 @@ class TbMsgMetaDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgMetaData.equals(Object)", "int TbMsgMetaData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbMsgMetaData tbMsgMetaData = TbMsgMetaData.EMPTY;
@@ -103,6 +106,8 @@ class TbMsgMetaDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgMetaData.equals(Object)", "int TbMsgMetaData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(TbMsgMetaData.EMPTY, 1);
@@ -119,6 +124,8 @@ class TbMsgMetaDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgMetaData.equals(Object)", "int TbMsgMetaData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbMsgMetaData tbMsgMetaData = new TbMsgMetaData();
@@ -139,6 +146,8 @@ class TbMsgMetaDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgMetaData.equals(Object)", "int TbMsgMetaData.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(TbMsgMetaData.EMPTY, null);
@@ -155,6 +164,8 @@ class TbMsgMetaDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgMetaData.equals(Object)", "int TbMsgMetaData.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(TbMsgMetaData.EMPTY, "Different type to TbMsgMetaData");
@@ -172,6 +183,8 @@ class TbMsgMetaDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbMsgMetaData.<init>()", "Map TbMsgMetaData.getData()", "String TbMsgMetaData.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbMsgMetaData actualTbMsgMetaData = new TbMsgMetaData();
@@ -194,6 +207,8 @@ class TbMsgMetaDataDiffblueTest {
    */
   @Test
   @DisplayName("Test new TbMsgMetaData(Map); given '42'; when HashMap() '42' is '42'; then return Data is HashMap()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbMsgMetaData.<init>(Map)"})
   void testNewTbMsgMetaData_given42_whenHashMap42Is42_thenReturnDataIsHashMap() {
     // Arrange
     HashMap<String, String> data = new HashMap<>();
@@ -207,48 +222,24 @@ class TbMsgMetaDataDiffblueTest {
   /**
    * Test {@link TbMsgMetaData#TbMsgMetaData(Map)}.
    * <ul>
-   *   <li>Given {@link BiFunction}.</li>
-   *   <li>When {@link HashMap#HashMap()} computeIfPresent {@code foo} and
-   * {@link BiFunction}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbMsgMetaData#TbMsgMetaData(Map)}
-   */
-  @Test
-  @DisplayName("Test new TbMsgMetaData(Map); given BiFunction; when HashMap() computeIfPresent 'foo' and BiFunction")
-  void testNewTbMsgMetaData_givenBiFunction_whenHashMapComputeIfPresentFooAndBiFunction() {
-    // Arrange
-    HashMap<String, String> data = new HashMap<>();
-    data.computeIfPresent("foo", mock(BiFunction.class));
-    data.put("foo", "foo");
-
-    // Act and Assert
-    Map<String, String> data2 = (new TbMsgMetaData(data)).getData();
-    assertEquals(1, data2.size());
-    assertEquals("foo", data2.get("foo"));
-  }
-
-  /**
-   * Test {@link TbMsgMetaData#TbMsgMetaData(Map)}.
-   * <ul>
    *   <li>Given {@code foo}.</li>
    *   <li>When {@link HashMap#HashMap()} {@code foo} is {@code foo}.</li>
-   *   <li>Then return Data size is one.</li>
+   *   <li>Then return Data is {@link HashMap#HashMap()}.</li>
    * </ul>
    * <p>
    * Method under test: {@link TbMsgMetaData#TbMsgMetaData(Map)}
    */
   @Test
-  @DisplayName("Test new TbMsgMetaData(Map); given 'foo'; when HashMap() 'foo' is 'foo'; then return Data size is one")
-  void testNewTbMsgMetaData_givenFoo_whenHashMapFooIsFoo_thenReturnDataSizeIsOne() {
+  @DisplayName("Test new TbMsgMetaData(Map); given 'foo'; when HashMap() 'foo' is 'foo'; then return Data is HashMap()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbMsgMetaData.<init>(Map)"})
+  void testNewTbMsgMetaData_givenFoo_whenHashMapFooIsFoo_thenReturnDataIsHashMap() {
     // Arrange
     HashMap<String, String> data = new HashMap<>();
     data.put("foo", "foo");
 
     // Act and Assert
-    Map<String, String> data2 = (new TbMsgMetaData(data)).getData();
-    assertEquals(1, data2.size());
-    assertEquals("foo", data2.get("foo"));
+    assertEquals(data, (new TbMsgMetaData(data)).getData());
   }
 
   /**
@@ -263,6 +254,8 @@ class TbMsgMetaDataDiffblueTest {
    */
   @Test
   @DisplayName("Test new TbMsgMetaData(Map); given 'null'; when HashMap() 'foo' is 'null'; then return Data Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbMsgMetaData.<init>(Map)"})
   void testNewTbMsgMetaData_givenNull_whenHashMapFooIsNull_thenReturnDataEmpty() {
     // Arrange
     HashMap<String, String> data = new HashMap<>();
@@ -284,6 +277,8 @@ class TbMsgMetaDataDiffblueTest {
    */
   @Test
   @DisplayName("Test new TbMsgMetaData(Map); given 'null'; when HashMap() 'null' is 'foo'; then return Data Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbMsgMetaData.<init>(Map)"})
   void testNewTbMsgMetaData_givenNull_whenHashMapNullIsFoo_thenReturnDataEmpty() {
     // Arrange
     HashMap<String, String> data = new HashMap<>();
@@ -304,6 +299,8 @@ class TbMsgMetaDataDiffblueTest {
    */
   @Test
   @DisplayName("Test new TbMsgMetaData(Map); when HashMap(); then return Data Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbMsgMetaData.<init>(Map)"})
   void testNewTbMsgMetaData_whenHashMap_thenReturnDataEmpty() {
     // Arrange, Act and Assert
     assertTrue((new TbMsgMetaData(new HashMap<>())).getData().isEmpty());
@@ -311,37 +308,16 @@ class TbMsgMetaDataDiffblueTest {
 
   /**
    * Test {@link TbMsgMetaData#getValue(String)}.
-   * <ul>
-   *   <li>Given {@link TbMsgMetaData#EMPTY}.</li>
-   * </ul>
    * <p>
    * Method under test: {@link TbMsgMetaData#getValue(String)}
    */
   @Test
-  @DisplayName("Test getValue(String); given EMPTY")
-  void testGetValue_givenEmpty() {
+  @DisplayName("Test getValue(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String TbMsgMetaData.getValue(String)"})
+  void testGetValue() {
     // Arrange, Act and Assert
     assertNull(TbMsgMetaData.EMPTY.getValue("Key"));
-  }
-
-  /**
-   * Test {@link TbMsgMetaData#getValue(String)}.
-   * <ul>
-   *   <li>Given {@link HashMap#HashMap()} computeIfPresent {@code foo} and
-   * {@link BiFunction}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbMsgMetaData#getValue(String)}
-   */
-  @Test
-  @DisplayName("Test getValue(String); given HashMap() computeIfPresent 'foo' and BiFunction")
-  void testGetValue_givenHashMapComputeIfPresentFooAndBiFunction() {
-    // Arrange
-    HashMap<String, String> data = new HashMap<>();
-    data.computeIfPresent("foo", mock(BiFunction.class));
-
-    // Act and Assert
-    assertNull((new TbMsgMetaData(data)).getValue("Key"));
   }
 
   /**
@@ -356,6 +332,8 @@ class TbMsgMetaDataDiffblueTest {
    */
   @Test
   @DisplayName("Test putValue(String, String); given EMPTY; when 'null'; then EMPTY Data Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbMsgMetaData.putValue(String, String)"})
   void testPutValue_givenEmpty_whenNull_thenEmptyDataEmpty() {
     // Arrange
     TbMsgMetaData tbMsgMetaData = TbMsgMetaData.EMPTY;
@@ -379,6 +357,8 @@ class TbMsgMetaDataDiffblueTest {
    */
   @Test
   @DisplayName("Test putValue(String, String); given EMPTY; when 'null'; then EMPTY Data Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbMsgMetaData.putValue(String, String)"})
   void testPutValue_givenEmpty_whenNull_thenEmptyDataEmpty2() {
     // Arrange
     TbMsgMetaData tbMsgMetaData = TbMsgMetaData.EMPTY;
@@ -402,6 +382,8 @@ class TbMsgMetaDataDiffblueTest {
    */
   @Test
   @DisplayName("Test putValue(String, String); given TbMsgMetaData(); when '42'; then TbMsgMetaData() Data size is one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbMsgMetaData.putValue(String, String)"})
   void testPutValue_givenTbMsgMetaData_when42_thenTbMsgMetaDataDataSizeIsOne() {
     // Arrange
     TbMsgMetaData tbMsgMetaData = new TbMsgMetaData();
@@ -416,64 +398,17 @@ class TbMsgMetaDataDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgMetaData#putValue(String, String)}.
-   * <ul>
-   *   <li>Then {@link TbMsgMetaData#TbMsgMetaData(Map)} with data is
-   * {@link HashMap#HashMap()} Data size is one.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbMsgMetaData#putValue(String, String)}
-   */
-  @Test
-  @DisplayName("Test putValue(String, String); then TbMsgMetaData(Map) with data is HashMap() Data size is one")
-  void testPutValue_thenTbMsgMetaDataWithDataIsHashMapDataSizeIsOne() {
-    // Arrange
-    HashMap<String, String> data = new HashMap<>();
-    data.computeIfPresent("foo", mock(BiFunction.class));
-    TbMsgMetaData tbMsgMetaData = new TbMsgMetaData(data);
-
-    // Act
-    tbMsgMetaData.putValue("Key", "42");
-
-    // Assert
-    Map<String, String> data2 = tbMsgMetaData.getData();
-    assertEquals(1, data2.size());
-    assertEquals("42", data2.get("Key"));
-  }
-
-  /**
    * Test {@link TbMsgMetaData#values()}.
-   * <ul>
-   *   <li>Given {@link TbMsgMetaData#EMPTY}.</li>
-   * </ul>
    * <p>
    * Method under test: {@link TbMsgMetaData#values()}
    */
   @Test
-  @DisplayName("Test values(); given EMPTY")
-  void testValues_givenEmpty() {
+  @DisplayName("Test values()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Map TbMsgMetaData.values()"})
+  void testValues() {
     // Arrange, Act and Assert
     assertTrue(TbMsgMetaData.EMPTY.values().isEmpty());
-  }
-
-  /**
-   * Test {@link TbMsgMetaData#values()}.
-   * <ul>
-   *   <li>Given {@link HashMap#HashMap()} computeIfPresent {@code foo} and
-   * {@link BiFunction}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbMsgMetaData#values()}
-   */
-  @Test
-  @DisplayName("Test values(); given HashMap() computeIfPresent 'foo' and BiFunction")
-  void testValues_givenHashMapComputeIfPresentFooAndBiFunction() {
-    // Arrange
-    HashMap<String, String> data = new HashMap<>();
-    data.computeIfPresent("foo", mock(BiFunction.class));
-
-    // Act and Assert
-    assertTrue((new TbMsgMetaData(data)).values().isEmpty());
   }
 
   /**
@@ -487,6 +422,8 @@ class TbMsgMetaDataDiffblueTest {
    */
   @Test
   @DisplayName("Test copy(); given EMPTY; then return EMPTY")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbMsgMetaData TbMsgMetaData.copy()"})
   void testCopy_givenEmpty_thenReturnEmpty() {
     // Arrange and Act
     TbMsgMetaData actualCopyResult = TbMsgMetaData.EMPTY.copy();
@@ -498,8 +435,7 @@ class TbMsgMetaDataDiffblueTest {
   /**
    * Test {@link TbMsgMetaData#copy()}.
    * <ul>
-   *   <li>Given {@link TbMsgMetaData#TbMsgMetaData()} Value {@code 42} is
-   * {@code Value}.</li>
+   *   <li>Given {@link TbMsgMetaData#TbMsgMetaData()} Value {@code 42} is {@code Value}.</li>
    *   <li>Then return {@link TbMsgMetaData#TbMsgMetaData()}.</li>
    * </ul>
    * <p>
@@ -507,6 +443,8 @@ class TbMsgMetaDataDiffblueTest {
    */
   @Test
   @DisplayName("Test copy(); given TbMsgMetaData() Value '42' is 'Value'; then return TbMsgMetaData()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbMsgMetaData TbMsgMetaData.copy()"})
   void testCopy_givenTbMsgMetaDataValue42IsValue_thenReturnTbMsgMetaData() {
     // Arrange
     TbMsgMetaData tbMsgMetaData = new TbMsgMetaData();
@@ -520,42 +458,20 @@ class TbMsgMetaDataDiffblueTest {
   /**
    * Test {@link TbMsgMetaData#copy()}.
    * <ul>
-   *   <li>Given {@link TbMsgMetaData#TbMsgMetaData()} Value {@code Key} is
-   * {@code 42}.</li>
-   *   <li>Then return Data size is one.</li>
+   *   <li>Given {@link TbMsgMetaData#TbMsgMetaData()} Value {@code Key} is {@code 42}.</li>
+   *   <li>Then return {@link TbMsgMetaData#TbMsgMetaData()}.</li>
    * </ul>
    * <p>
    * Method under test: {@link TbMsgMetaData#copy()}
    */
   @Test
-  @DisplayName("Test copy(); given TbMsgMetaData() Value 'Key' is '42'; then return Data size is one")
-  void testCopy_givenTbMsgMetaDataValueKeyIs42_thenReturnDataSizeIsOne() {
+  @DisplayName("Test copy(); given TbMsgMetaData() Value 'Key' is '42'; then return TbMsgMetaData()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbMsgMetaData TbMsgMetaData.copy()"})
+  void testCopy_givenTbMsgMetaDataValueKeyIs42_thenReturnTbMsgMetaData() {
     // Arrange
     TbMsgMetaData tbMsgMetaData = new TbMsgMetaData();
     tbMsgMetaData.putValue("Key", "42");
-
-    // Act and Assert
-    Map<String, String> data = tbMsgMetaData.copy().getData();
-    assertEquals(1, data.size());
-    assertEquals("42", data.get("Key"));
-  }
-
-  /**
-   * Test {@link TbMsgMetaData#copy()}.
-   * <ul>
-   *   <li>Then return {@link TbMsgMetaData#TbMsgMetaData(Map)} with data is
-   * {@link HashMap#HashMap()}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbMsgMetaData#copy()}
-   */
-  @Test
-  @DisplayName("Test copy(); then return TbMsgMetaData(Map) with data is HashMap()")
-  void testCopy_thenReturnTbMsgMetaDataWithDataIsHashMap() {
-    // Arrange
-    HashMap<String, String> data = new HashMap<>();
-    data.computeIfPresent("foo", mock(BiFunction.class));
-    TbMsgMetaData tbMsgMetaData = new TbMsgMetaData(data);
 
     // Act and Assert
     assertEquals(tbMsgMetaData, tbMsgMetaData.copy());

@@ -2,13 +2,14 @@ package org.thingsboard.server.common.transport.activity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ActivityStateDiffblueTest {
   /**
-   * Test {@link ActivityState#equals(Object)}, and
-   * {@link ActivityState#hashCode()}.
+   * Test {@link ActivityState#equals(Object)}, and {@link ActivityState#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -22,6 +23,8 @@ class ActivityStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActivityState.equals(Object)", "int ActivityState.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ActivityState<Object> activityState = new ActivityState<>();
@@ -39,8 +42,7 @@ class ActivityStateDiffblueTest {
   }
 
   /**
-   * Test {@link ActivityState#equals(Object)}, and
-   * {@link ActivityState#hashCode()}.
+   * Test {@link ActivityState#equals(Object)}, and {@link ActivityState#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -54,6 +56,8 @@ class ActivityStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActivityState.equals(Object)", "int ActivityState.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     ActivityState<Object> activityState = new ActivityState<>();
@@ -71,8 +75,7 @@ class ActivityStateDiffblueTest {
   }
 
   /**
-   * Test {@link ActivityState#equals(Object)}, and
-   * {@link ActivityState#hashCode()}.
+   * Test {@link ActivityState#equals(Object)}, and {@link ActivityState#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -86,6 +89,8 @@ class ActivityStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActivityState.equals(Object)", "int ActivityState.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ActivityState<Object> activityState = new ActivityState<>();
@@ -109,6 +114,8 @@ class ActivityStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActivityState.equals(Object)", "int ActivityState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ActivityState<Object> activityState = new ActivityState<>();
@@ -134,6 +141,8 @@ class ActivityStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActivityState.equals(Object)", "int ActivityState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ActivityState<Object> activityState = new ActivityState<>();
@@ -163,6 +172,8 @@ class ActivityStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActivityState.equals(Object)", "int ActivityState.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     ActivityState<Object> activityState = new ActivityState<>();
@@ -188,6 +199,8 @@ class ActivityStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActivityState.equals(Object)", "int ActivityState.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     ActivityState<Object> activityState = new ActivityState<>();
@@ -209,6 +222,8 @@ class ActivityStateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActivityState.equals(Object)", "int ActivityState.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     ActivityState<Object> activityState = new ActivityState<>();
@@ -234,6 +249,10 @@ class ActivityStateDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ActivityState.<init>()", "long ActivityState.getLastRecordedTime()",
+      "Object ActivityState.getMetadata()", "void ActivityState.setLastRecordedTime(long)",
+      "void ActivityState.setMetadata(Object)", "String ActivityState.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     ActivityState<Object> actualActivityState = new ActivityState<>();
@@ -242,7 +261,7 @@ class ActivityStateDiffblueTest {
     String actualToStringResult = actualActivityState.toString();
     long actualLastRecordedTime = actualActivityState.getLastRecordedTime();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("ActivityState(lastRecordedTime=1, metadata=Metadata)", actualToStringResult);
     assertEquals("Metadata", actualActivityState.getMetadata());
     assertEquals(1L, actualLastRecordedTime);

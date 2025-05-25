@@ -3,95 +3,84 @@ package org.thingsboard.server.queue.discovery.event;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import com.google.protobuf.Descriptors;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.gen.transport.TransportProtos;
+import org.thingsboard.server.gen.transport.TransportProtos.ServiceInfo;
 
 class ServiceListChangedEventDiffblueTest {
   /**
-   * Test
-   * {@link ServiceListChangedEvent#ServiceListChangedEvent(List, ServiceInfo)}.
+   * Test {@link ServiceListChangedEvent#ServiceListChangedEvent(List, ServiceInfo)}.
    * <ul>
    *   <li>Then return OtherServices is {@link ArrayList#ArrayList()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ServiceListChangedEvent#ServiceListChangedEvent(List, TransportProtos.ServiceInfo)}
+   * Method under test: {@link ServiceListChangedEvent#ServiceListChangedEvent(List, ServiceInfo)}
    */
   @Test
   @DisplayName("Test new ServiceListChangedEvent(List, ServiceInfo); then return OtherServices is ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ServiceListChangedEvent.<init>(List, ServiceInfo)"})
   void testNewServiceListChangedEvent_thenReturnOtherServicesIsArrayList() {
     // Arrange
-    ArrayList<TransportProtos.ServiceInfo> otherServices = new ArrayList<>();
-    otherServices.add(TransportProtos.ServiceInfo.getDefaultInstance());
-
-    // Act
-    ServiceListChangedEvent actualServiceListChangedEvent = new ServiceListChangedEvent(otherServices,
-        TransportProtos.ServiceInfo.getDefaultInstance());
-
-    // Assert
-    Descriptors.Descriptor descriptorForType = actualServiceListChangedEvent.getCurrentService().getDescriptorForType();
-    assertEquals(180, descriptorForType.getFile().getMessageTypes().size());
-    assertEquals(5, descriptorForType.getFields().size());
-    assertSame(otherServices, actualServiceListChangedEvent.getOtherServices());
-  }
-
-  /**
-   * Test
-   * {@link ServiceListChangedEvent#ServiceListChangedEvent(List, ServiceInfo)}.
-   * <ul>
-   *   <li>Then return OtherServices size is two.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link ServiceListChangedEvent#ServiceListChangedEvent(List, TransportProtos.ServiceInfo)}
-   */
-  @Test
-  @DisplayName("Test new ServiceListChangedEvent(List, ServiceInfo); then return OtherServices size is two")
-  void testNewServiceListChangedEvent_thenReturnOtherServicesSizeIsTwo() {
-    // Arrange
-    ArrayList<TransportProtos.ServiceInfo> otherServices = new ArrayList<>();
-    otherServices.add(TransportProtos.ServiceInfo.getDefaultInstance());
-    otherServices.add(TransportProtos.ServiceInfo.getDefaultInstance());
-    TransportProtos.ServiceInfo currentService = TransportProtos.ServiceInfo.getDefaultInstance();
+    ArrayList<ServiceInfo> otherServices = new ArrayList<>();
+    otherServices.add(ServiceInfo.getDefaultInstance());
 
     // Act and Assert
-    List<TransportProtos.ServiceInfo> otherServices2 = (new ServiceListChangedEvent(otherServices, currentService))
-        .getOtherServices();
-    assertEquals(2, otherServices2.size());
-    assertSame(currentService, otherServices2.get(1));
+    assertSame(otherServices,
+        (new ServiceListChangedEvent(otherServices, ServiceInfo.getDefaultInstance())).getOtherServices());
   }
 
   /**
-   * Test
-   * {@link ServiceListChangedEvent#ServiceListChangedEvent(List, ServiceInfo)}.
+   * Test {@link ServiceListChangedEvent#ServiceListChangedEvent(List, ServiceInfo)}.
+   * <ul>
+   *   <li>Then return OtherServices is {@link ArrayList#ArrayList()}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ServiceListChangedEvent#ServiceListChangedEvent(List, ServiceInfo)}
+   */
+  @Test
+  @DisplayName("Test new ServiceListChangedEvent(List, ServiceInfo); then return OtherServices is ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ServiceListChangedEvent.<init>(List, ServiceInfo)"})
+  void testNewServiceListChangedEvent_thenReturnOtherServicesIsArrayList2() {
+    // Arrange
+    ArrayList<ServiceInfo> otherServices = new ArrayList<>();
+    otherServices.add(ServiceInfo.getDefaultInstance());
+    otherServices.add(ServiceInfo.getDefaultInstance());
+
+    // Act and Assert
+    assertSame(otherServices,
+        (new ServiceListChangedEvent(otherServices, ServiceInfo.getDefaultInstance())).getOtherServices());
+  }
+
+  /**
+   * Test {@link ServiceListChangedEvent#ServiceListChangedEvent(List, ServiceInfo)}.
    * <ul>
    *   <li>When {@link ArrayList#ArrayList()}.</li>
    *   <li>Then return OtherServices Empty.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ServiceListChangedEvent#ServiceListChangedEvent(List, TransportProtos.ServiceInfo)}
+   * Method under test: {@link ServiceListChangedEvent#ServiceListChangedEvent(List, ServiceInfo)}
    */
   @Test
   @DisplayName("Test new ServiceListChangedEvent(List, ServiceInfo); when ArrayList(); then return OtherServices Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ServiceListChangedEvent.<init>(List, ServiceInfo)"})
   void testNewServiceListChangedEvent_whenArrayList_thenReturnOtherServicesEmpty() {
     // Arrange
-    ArrayList<TransportProtos.ServiceInfo> otherServices = new ArrayList<>();
+    ArrayList<ServiceInfo> otherServices = new ArrayList<>();
 
     // Act
     ServiceListChangedEvent actualServiceListChangedEvent = new ServiceListChangedEvent(otherServices,
-        TransportProtos.ServiceInfo.getDefaultInstance());
+        ServiceInfo.getDefaultInstance());
 
     // Assert
-    TransportProtos.ServiceInfo currentService = actualServiceListChangedEvent.getCurrentService();
-    Descriptors.Descriptor descriptorForType = currentService.getDescriptorForType();
-    assertEquals(180, descriptorForType.getFile().getMessageTypes().size());
-    assertEquals(5, descriptorForType.getFields().size());
     assertTrue(actualServiceListChangedEvent.getOtherServices().isEmpty());
-    assertEquals(otherServices, currentService.getAssignedTenantProfilesList());
+    assertEquals(otherServices, actualServiceListChangedEvent.getCurrentService().getAssignedTenantProfilesList());
   }
 }

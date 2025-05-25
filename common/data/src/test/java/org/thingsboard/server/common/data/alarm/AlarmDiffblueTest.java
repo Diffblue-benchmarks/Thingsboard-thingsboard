@@ -4,12 +4,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.MissingNode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.EntityId;
@@ -18,18 +20,19 @@ import org.thingsboard.server.common.data.id.UserId;
 
 class AlarmDiffblueTest {
   /**
-   * Test
-   * {@link Alarm#Alarm(TenantId, CustomerId, String, EntityId, AlarmSeverity, boolean, boolean, UserId, long, long, long, long, long, JsonNode, boolean, boolean, boolean, List)}.
+   * Test {@link Alarm#Alarm(TenantId, CustomerId, String, EntityId, AlarmSeverity, boolean, boolean, UserId, long, long, long, long, long, JsonNode, boolean, boolean, boolean, List)}.
    * <ul>
    *   <li>Given {@code 42}.</li>
    *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link Alarm#Alarm(TenantId, CustomerId, String, EntityId, AlarmSeverity, boolean, boolean, UserId, long, long, long, long, long, JsonNode, boolean, boolean, boolean, List)}
+   * Method under test: {@link Alarm#Alarm(TenantId, CustomerId, String, EntityId, AlarmSeverity, boolean, boolean, UserId, long, long, long, long, long, JsonNode, boolean, boolean, boolean, List)}
    */
   @Test
   @DisplayName("Test new Alarm(TenantId, CustomerId, String, EntityId, AlarmSeverity, boolean, boolean, UserId, long, long, long, long, long, JsonNode, boolean, boolean, boolean, List); given '42'; when ArrayList() add '42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void Alarm.<init>(TenantId, CustomerId, String, EntityId, AlarmSeverity, boolean, boolean, UserId, long, long, long, long, long, JsonNode, boolean, boolean, boolean, List)"})
   void testNewAlarm_given42_whenArrayListAdd42() {
     // Arrange
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -45,6 +48,10 @@ class AlarmDiffblueTest {
         true, null, 1L, 1L, 1L, 1L, 1L, details, true, true, true, propagateRelationTypes);
 
     // Assert
+    JsonNode details2 = actualAlarm.getDetails();
+    assertTrue(details2 instanceof MissingNode);
+    EntityId originator2 = actualAlarm.getOriginator();
+    assertTrue(originator2 instanceof TenantId);
     assertEquals("Type", actualAlarm.getName());
     assertEquals("Type", actualAlarm.getType());
     assertNull(actualAlarm.getUuidId());
@@ -66,25 +73,26 @@ class AlarmDiffblueTest {
     assertTrue(actualAlarm.isPropagateToTenant());
     assertSame(propagateRelationTypes, actualAlarm.getPropagateRelationTypes());
     assertSame(customerId, actualAlarm.getCustomerId());
-    assertSame(details, actualAlarm.getDetails());
+    assertSame(details, details2);
     TenantId tenantId = originator.SYS_TENANT_ID;
-    assertSame(tenantId, actualAlarm.getOriginator());
+    assertSame(tenantId, originator2);
     assertSame(tenantId, actualAlarm.getTenantId());
   }
 
   /**
-   * Test
-   * {@link Alarm#Alarm(TenantId, CustomerId, String, EntityId, AlarmSeverity, boolean, boolean, UserId, long, long, long, long, long, JsonNode, boolean, boolean, boolean, List)}.
+   * Test {@link Alarm#Alarm(TenantId, CustomerId, String, EntityId, AlarmSeverity, boolean, boolean, UserId, long, long, long, long, long, JsonNode, boolean, boolean, boolean, List)}.
    * <ul>
    *   <li>Given {@code foo}.</li>
    *   <li>Then return PropagateRelationTypes is {@link ArrayList#ArrayList()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link Alarm#Alarm(TenantId, CustomerId, String, EntityId, AlarmSeverity, boolean, boolean, UserId, long, long, long, long, long, JsonNode, boolean, boolean, boolean, List)}
+   * Method under test: {@link Alarm#Alarm(TenantId, CustomerId, String, EntityId, AlarmSeverity, boolean, boolean, UserId, long, long, long, long, long, JsonNode, boolean, boolean, boolean, List)}
    */
   @Test
   @DisplayName("Test new Alarm(TenantId, CustomerId, String, EntityId, AlarmSeverity, boolean, boolean, UserId, long, long, long, long, long, JsonNode, boolean, boolean, boolean, List); given 'foo'; then return PropagateRelationTypes is ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void Alarm.<init>(TenantId, CustomerId, String, EntityId, AlarmSeverity, boolean, boolean, UserId, long, long, long, long, long, JsonNode, boolean, boolean, boolean, List)"})
   void testNewAlarm_givenFoo_thenReturnPropagateRelationTypesIsArrayList() {
     // Arrange
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -99,6 +107,10 @@ class AlarmDiffblueTest {
         true, null, 1L, 1L, 1L, 1L, 1L, details, true, true, true, propagateRelationTypes);
 
     // Assert
+    JsonNode details2 = actualAlarm.getDetails();
+    assertTrue(details2 instanceof MissingNode);
+    EntityId originator2 = actualAlarm.getOriginator();
+    assertTrue(originator2 instanceof TenantId);
     assertEquals("Type", actualAlarm.getName());
     assertEquals("Type", actualAlarm.getType());
     assertNull(actualAlarm.getUuidId());
@@ -120,9 +132,9 @@ class AlarmDiffblueTest {
     assertTrue(actualAlarm.isPropagateToTenant());
     assertSame(propagateRelationTypes, actualAlarm.getPropagateRelationTypes());
     assertSame(customerId, actualAlarm.getCustomerId());
-    assertSame(details, actualAlarm.getDetails());
+    assertSame(details, details2);
     TenantId tenantId = originator.SYS_TENANT_ID;
-    assertSame(tenantId, actualAlarm.getOriginator());
+    assertSame(tenantId, originator2);
     assertSame(tenantId, actualAlarm.getTenantId());
   }
 
@@ -137,6 +149,8 @@ class AlarmDiffblueTest {
    */
   @Test
   @DisplayName("Test new Alarm(Alarm); given 'true'; when Alarm() Acknowledged is 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Alarm.<init>(Alarm)"})
   void testNewAlarm_givenTrue_whenAlarmAcknowledgedIsTrue() {
     // Arrange
     Alarm alarm = new Alarm();
@@ -156,6 +170,8 @@ class AlarmDiffblueTest {
    */
   @Test
   @DisplayName("Test new Alarm(Alarm); when Alarm()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Alarm.<init>(Alarm)"})
   void testNewAlarm_whenAlarm() {
     // Arrange
     Alarm alarm = new Alarm();
@@ -165,18 +181,19 @@ class AlarmDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link Alarm#Alarm(TenantId, CustomerId, String, EntityId, AlarmSeverity, boolean, boolean, UserId, long, long, long, long, long, JsonNode, boolean, boolean, boolean, List)}.
+   * Test {@link Alarm#Alarm(TenantId, CustomerId, String, EntityId, AlarmSeverity, boolean, boolean, UserId, long, long, long, long, long, JsonNode, boolean, boolean, boolean, List)}.
    * <ul>
    *   <li>When {@link ArrayList#ArrayList()}.</li>
    *   <li>Then return PropagateRelationTypes Empty.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link Alarm#Alarm(TenantId, CustomerId, String, EntityId, AlarmSeverity, boolean, boolean, UserId, long, long, long, long, long, JsonNode, boolean, boolean, boolean, List)}
+   * Method under test: {@link Alarm#Alarm(TenantId, CustomerId, String, EntityId, AlarmSeverity, boolean, boolean, UserId, long, long, long, long, long, JsonNode, boolean, boolean, boolean, List)}
    */
   @Test
   @DisplayName("Test new Alarm(TenantId, CustomerId, String, EntityId, AlarmSeverity, boolean, boolean, UserId, long, long, long, long, long, JsonNode, boolean, boolean, boolean, List); when ArrayList(); then return PropagateRelationTypes Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void Alarm.<init>(TenantId, CustomerId, String, EntityId, AlarmSeverity, boolean, boolean, UserId, long, long, long, long, long, JsonNode, boolean, boolean, boolean, List)"})
   void testNewAlarm_whenArrayList_thenReturnPropagateRelationTypesEmpty() {
     // Arrange
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -188,6 +205,10 @@ class AlarmDiffblueTest {
         true, null, 1L, 1L, 1L, 1L, 1L, details, true, true, true, new ArrayList<>());
 
     // Assert
+    JsonNode details2 = actualAlarm.getDetails();
+    assertTrue(details2 instanceof MissingNode);
+    EntityId originator2 = actualAlarm.getOriginator();
+    assertTrue(originator2 instanceof TenantId);
     assertEquals("Type", actualAlarm.getName());
     assertEquals("Type", actualAlarm.getType());
     assertNull(actualAlarm.getUuidId());
@@ -209,9 +230,9 @@ class AlarmDiffblueTest {
     assertTrue(actualAlarm.isPropagateToOwner());
     assertTrue(actualAlarm.isPropagateToTenant());
     assertSame(customerId, actualAlarm.getCustomerId());
-    assertSame(details, actualAlarm.getDetails());
+    assertSame(details, details2);
     TenantId tenantId = originator.SYS_TENANT_ID;
-    assertSame(tenantId, actualAlarm.getOriginator());
+    assertSame(tenantId, originator2);
     assertSame(tenantId, actualAlarm.getTenantId());
   }
 
@@ -222,6 +243,8 @@ class AlarmDiffblueTest {
    */
   @Test
   @DisplayName("Test getId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"org.thingsboard.server.common.data.id.AlarmId Alarm.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
     assertNull((new Alarm()).getId());
@@ -234,6 +257,8 @@ class AlarmDiffblueTest {
    */
   @Test
   @DisplayName("Test getCreatedTime()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long Alarm.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
     assertEquals(0L, (new Alarm()).getCreatedTime());
@@ -250,6 +275,8 @@ class AlarmDiffblueTest {
    */
   @Test
   @DisplayName("Test getStatus(); given Alarm() Acknowledged is 'true'; then return 'ACTIVE_ACK'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatus Alarm.getStatus()"})
   void testGetStatus_givenAlarmAcknowledgedIsTrue_thenReturnActiveAck() {
     // Arrange
     Alarm alarm = new Alarm();
@@ -270,6 +297,8 @@ class AlarmDiffblueTest {
    */
   @Test
   @DisplayName("Test getStatus(); given Alarm() Cleared is 'true'; then return 'CLEARED_ACK'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatus Alarm.getStatus()"})
   void testGetStatus_givenAlarmClearedIsTrue_thenReturnClearedAck() {
     // Arrange
     Alarm alarm = new Alarm();
@@ -291,6 +320,8 @@ class AlarmDiffblueTest {
    */
   @Test
   @DisplayName("Test getStatus(); given Alarm() Cleared is 'true'; then return 'CLEARED_UNACK'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatus Alarm.getStatus()"})
   void testGetStatus_givenAlarmClearedIsTrue_thenReturnClearedUnack() {
     // Arrange
     Alarm alarm = new Alarm();
@@ -311,6 +342,8 @@ class AlarmDiffblueTest {
    */
   @Test
   @DisplayName("Test getStatus(); given Alarm(); then return 'ACTIVE_UNACK'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatus Alarm.getStatus()"})
   void testGetStatus_givenAlarm_thenReturnActiveUnack() {
     // Arrange, Act and Assert
     assertEquals(AlarmStatus.ACTIVE_UNACK, (new Alarm()).getStatus());
@@ -327,6 +360,8 @@ class AlarmDiffblueTest {
    */
   @Test
   @DisplayName("Test toStatus(boolean, boolean); when 'false'; then return 'ACTIVE_ACK'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatus Alarm.toStatus(boolean, boolean)"})
   void testToStatus_whenFalse_thenReturnActiveAck() {
     // Arrange, Act and Assert
     assertEquals(AlarmStatus.ACTIVE_ACK, Alarm.toStatus(false, true));
@@ -343,6 +378,8 @@ class AlarmDiffblueTest {
    */
   @Test
   @DisplayName("Test toStatus(boolean, boolean); when 'false'; then return 'ACTIVE_UNACK'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatus Alarm.toStatus(boolean, boolean)"})
   void testToStatus_whenFalse_thenReturnActiveUnack() {
     // Arrange, Act and Assert
     assertEquals(AlarmStatus.ACTIVE_UNACK, Alarm.toStatus(false, false));
@@ -359,6 +396,8 @@ class AlarmDiffblueTest {
    */
   @Test
   @DisplayName("Test toStatus(boolean, boolean); when 'true'; then return 'CLEARED_ACK'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatus Alarm.toStatus(boolean, boolean)"})
   void testToStatus_whenTrue_thenReturnClearedAck() {
     // Arrange, Act and Assert
     assertEquals(AlarmStatus.CLEARED_ACK, Alarm.toStatus(true, true));
@@ -375,6 +414,8 @@ class AlarmDiffblueTest {
    */
   @Test
   @DisplayName("Test toStatus(boolean, boolean); when 'true'; then return 'CLEARED_UNACK'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmStatus Alarm.toStatus(boolean, boolean)"})
   void testToStatus_whenTrue_thenReturnClearedUnack() {
     // Arrange, Act and Assert
     assertEquals(AlarmStatus.CLEARED_UNACK, Alarm.toStatus(true, false));
@@ -390,6 +431,8 @@ class AlarmDiffblueTest {
    */
   @Test
   @DisplayName("Test getDashboardId(); given Alarm()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"org.thingsboard.server.common.data.id.DashboardId Alarm.getDashboardId()"})
   void testGetDashboardId_givenAlarm() {
     // Arrange, Act and Assert
     assertNull((new Alarm()).getDashboardId());
@@ -405,6 +448,8 @@ class AlarmDiffblueTest {
    */
   @Test
   @DisplayName("Test getDashboardId(); given Alarm() Details is Instance")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"org.thingsboard.server.common.data.id.DashboardId Alarm.getDashboardId()"})
   void testGetDashboardId_givenAlarmDetailsIsInstance() {
     // Arrange
     Alarm alarm = new Alarm();

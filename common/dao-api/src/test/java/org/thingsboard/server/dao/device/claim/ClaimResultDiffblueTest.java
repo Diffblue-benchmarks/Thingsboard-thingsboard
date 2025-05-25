@@ -3,8 +3,9 @@ package org.thingsboard.server.dao.device.claim;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.Device;
 import org.thingsboard.server.common.data.DeviceInfo;
@@ -25,6 +26,8 @@ class ClaimResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimResult.equals(Object)", "int ClaimResult.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ClaimResult claimResult = new ClaimResult(new Device(), ClaimResponse.SUCCESS);
@@ -51,6 +54,8 @@ class ClaimResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimResult.equals(Object)", "int ClaimResult.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     ClaimResult claimResult = new ClaimResult(null, ClaimResponse.SUCCESS);
@@ -77,6 +82,8 @@ class ClaimResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimResult.equals(Object)", "int ClaimResult.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     ClaimResult claimResult = new ClaimResult(new Device(), null);
@@ -103,6 +110,8 @@ class ClaimResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimResult.equals(Object)", "int ClaimResult.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ClaimResult claimResult = new ClaimResult(new Device(), ClaimResponse.SUCCESS);
@@ -124,6 +133,8 @@ class ClaimResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimResult.equals(Object)", "int ClaimResult.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ClaimResult claimResult = new ClaimResult(null, ClaimResponse.SUCCESS);
@@ -143,6 +154,8 @@ class ClaimResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimResult.equals(Object)", "int ClaimResult.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ClaimResult claimResult = new ClaimResult(new DeviceInfo(), ClaimResponse.SUCCESS);
@@ -162,26 +175,9 @@ class ClaimResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimResult.equals(Object)", "int ClaimResult.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
-    // Arrange
-    ClaimResult claimResult = new ClaimResult(mock(Device.class), ClaimResponse.SUCCESS);
-
-    // Act and Assert
-    assertNotEquals(claimResult, new ClaimResult(new Device(), ClaimResponse.SUCCESS));
-  }
-
-  /**
-   * Test {@link ClaimResult#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ClaimResult#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     ClaimResult claimResult = new ClaimResult(new Device(), null);
 
@@ -200,7 +196,9 @@ class ClaimResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimResult.equals(Object)", "int ClaimResult.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     ClaimResult claimResult = new ClaimResult(new Device(), ClaimResponse.FAILURE);
 
@@ -219,6 +217,8 @@ class ClaimResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimResult.equals(Object)", "int ClaimResult.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new ClaimResult(new Device(), ClaimResponse.SUCCESS), null);
@@ -235,6 +235,8 @@ class ClaimResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ClaimResult.equals(Object)", "int ClaimResult.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new ClaimResult(new Device(), ClaimResponse.SUCCESS), "Different type to ClaimResult");
@@ -255,6 +257,10 @@ class ClaimResultDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ClaimResult.<init>(Device, ClaimResponse)", "Device ClaimResult.getDevice()",
+      "ClaimResponse ClaimResult.getResponse()", "void ClaimResult.setDevice(Device)",
+      "void ClaimResult.setResponse(ClaimResponse)", "String ClaimResult.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     ClaimResult actualClaimResult = new ClaimResult(new Device(), ClaimResponse.SUCCESS);
@@ -264,7 +270,7 @@ class ClaimResultDiffblueTest {
     String actualToStringResult = actualClaimResult.toString();
     Device actualDevice = actualClaimResult.getDevice();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "ClaimResult(device=Device(super=BaseData [createdTime=0, id=null], tenantId=null, customerId=null,"
             + " name=null, type=null, label=null, deviceProfileId=null, deviceData=null, deviceDataBytes=null,"

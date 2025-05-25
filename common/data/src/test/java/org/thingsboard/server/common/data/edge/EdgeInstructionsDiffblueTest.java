@@ -2,13 +2,14 @@ package org.thingsboard.server.common.data.edge;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class EdgeInstructionsDiffblueTest {
   /**
-   * Test {@link EdgeInstructions#equals(Object)}, and
-   * {@link EdgeInstructions#hashCode()}.
+   * Test {@link EdgeInstructions#equals(Object)}, and {@link EdgeInstructions#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -22,6 +23,8 @@ class EdgeInstructionsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeInstructions.equals(Object)", "int EdgeInstructions.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EdgeInstructions edgeInstructions = new EdgeInstructions("Instructions");
@@ -34,8 +37,7 @@ class EdgeInstructionsDiffblueTest {
   }
 
   /**
-   * Test {@link EdgeInstructions#equals(Object)}, and
-   * {@link EdgeInstructions#hashCode()}.
+   * Test {@link EdgeInstructions#equals(Object)}, and {@link EdgeInstructions#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -49,6 +51,8 @@ class EdgeInstructionsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeInstructions.equals(Object)", "int EdgeInstructions.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     EdgeInstructions edgeInstructions = new EdgeInstructions(null);
@@ -61,8 +65,7 @@ class EdgeInstructionsDiffblueTest {
   }
 
   /**
-   * Test {@link EdgeInstructions#equals(Object)}, and
-   * {@link EdgeInstructions#hashCode()}.
+   * Test {@link EdgeInstructions#equals(Object)}, and {@link EdgeInstructions#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -76,6 +79,8 @@ class EdgeInstructionsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeInstructions.equals(Object)", "int EdgeInstructions.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EdgeInstructions edgeInstructions = new EdgeInstructions("Instructions");
@@ -97,6 +102,8 @@ class EdgeInstructionsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeInstructions.equals(Object)", "int EdgeInstructions.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     EdgeInstructions edgeInstructions = new EdgeInstructions(null);
@@ -116,6 +123,8 @@ class EdgeInstructionsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeInstructions.equals(Object)", "int EdgeInstructions.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EdgeInstructions edgeInstructions = new EdgeInstructions(
@@ -136,6 +145,8 @@ class EdgeInstructionsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeInstructions.equals(Object)", "int EdgeInstructions.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EdgeInstructions("Instructions"), null);
@@ -152,6 +163,8 @@ class EdgeInstructionsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeInstructions.equals(Object)", "int EdgeInstructions.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EdgeInstructions("Instructions"), "Different type to EdgeInstructions");
@@ -170,13 +183,17 @@ class EdgeInstructionsDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EdgeInstructions.<init>()", "void EdgeInstructions.<init>(String)",
+      "String EdgeInstructions.getInstructions()", "void EdgeInstructions.setInstructions(String)",
+      "String EdgeInstructions.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     EdgeInstructions actualEdgeInstructions = new EdgeInstructions();
     actualEdgeInstructions.setInstructions("Instructions");
     String actualToStringResult = actualEdgeInstructions.toString();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("EdgeInstructions(instructions=Instructions)", actualToStringResult);
     assertEquals("Instructions", actualEdgeInstructions.getInstructions());
   }
@@ -197,13 +214,17 @@ class EdgeInstructionsDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when 'Instructions'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EdgeInstructions.<init>()", "void EdgeInstructions.<init>(String)",
+      "String EdgeInstructions.getInstructions()", "void EdgeInstructions.setInstructions(String)",
+      "String EdgeInstructions.toString()"})
   void testGettersAndSetters_whenInstructions() {
     // Arrange and Act
     EdgeInstructions actualEdgeInstructions = new EdgeInstructions("Instructions");
     actualEdgeInstructions.setInstructions("Instructions");
     String actualToStringResult = actualEdgeInstructions.toString();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("EdgeInstructions(instructions=Instructions)", actualToStringResult);
     assertEquals("Instructions", actualEdgeInstructions.getInstructions());
   }

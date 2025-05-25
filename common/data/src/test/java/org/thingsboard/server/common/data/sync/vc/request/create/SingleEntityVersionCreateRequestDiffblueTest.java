@@ -2,12 +2,12 @@ package org.thingsboard.server.common.data.sync.vc.request.create;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.Mockito.anyBoolean;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.AlarmId;
 import org.thingsboard.server.common.data.id.EntityId;
@@ -15,8 +15,7 @@ import org.thingsboard.server.common.data.id.TenantId;
 
 class SingleEntityVersionCreateRequestDiffblueTest {
   /**
-   * Test {@link SingleEntityVersionCreateRequest#equals(Object)}, and
-   * {@link SingleEntityVersionCreateRequest#hashCode()}.
+   * Test {@link SingleEntityVersionCreateRequest#equals(Object)}, and {@link SingleEntityVersionCreateRequest#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -30,6 +29,9 @@ class SingleEntityVersionCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SingleEntityVersionCreateRequest.equals(Object)",
+      "int SingleEntityVersionCreateRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     VersionCreateConfig config = new VersionCreateConfig();
@@ -61,8 +63,55 @@ class SingleEntityVersionCreateRequestDiffblueTest {
   }
 
   /**
-   * Test {@link SingleEntityVersionCreateRequest#equals(Object)}, and
-   * {@link SingleEntityVersionCreateRequest#hashCode()}.
+   * Test {@link SingleEntityVersionCreateRequest#equals(Object)}, and {@link SingleEntityVersionCreateRequest#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link SingleEntityVersionCreateRequest#equals(Object)}
+   *   <li>{@link SingleEntityVersionCreateRequest#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SingleEntityVersionCreateRequest.equals(Object)",
+      "int SingleEntityVersionCreateRequest.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    VersionCreateConfig config = new VersionCreateConfig();
+    config.setSaveAttributes(true);
+    config.setSaveCredentials(true);
+    config.setSaveRelations(true);
+
+    SingleEntityVersionCreateRequest singleEntityVersionCreateRequest = new SingleEntityVersionCreateRequest();
+    singleEntityVersionCreateRequest.setBranch("janedoe/featurebranch");
+    singleEntityVersionCreateRequest.setConfig(config);
+    singleEntityVersionCreateRequest.setEntityId(null);
+    singleEntityVersionCreateRequest.setVersionName("1.0.2");
+
+    VersionCreateConfig config2 = new VersionCreateConfig();
+    config2.setSaveAttributes(true);
+    config2.setSaveCredentials(true);
+    config2.setSaveRelations(true);
+
+    SingleEntityVersionCreateRequest singleEntityVersionCreateRequest2 = new SingleEntityVersionCreateRequest();
+    singleEntityVersionCreateRequest2.setBranch("janedoe/featurebranch");
+    singleEntityVersionCreateRequest2.setConfig(config2);
+    singleEntityVersionCreateRequest2.setEntityId(null);
+    singleEntityVersionCreateRequest2.setVersionName("1.0.2");
+
+    // Act and Assert
+    assertEquals(singleEntityVersionCreateRequest, singleEntityVersionCreateRequest2);
+    int expectedHashCodeResult = singleEntityVersionCreateRequest.hashCode();
+    assertEquals(expectedHashCodeResult, singleEntityVersionCreateRequest2.hashCode());
+  }
+
+  /**
+   * Test {@link SingleEntityVersionCreateRequest#equals(Object)}, and {@link SingleEntityVersionCreateRequest#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -76,6 +125,9 @@ class SingleEntityVersionCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SingleEntityVersionCreateRequest.equals(Object)",
+      "int SingleEntityVersionCreateRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     VersionCreateConfig config = new VersionCreateConfig();
@@ -106,6 +158,9 @@ class SingleEntityVersionCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SingleEntityVersionCreateRequest.equals(Object)",
+      "int SingleEntityVersionCreateRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     VersionCreateConfig config = new VersionCreateConfig();
@@ -145,6 +200,9 @@ class SingleEntityVersionCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SingleEntityVersionCreateRequest.equals(Object)",
+      "int SingleEntityVersionCreateRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AutoVersionCreateConfig config = new AutoVersionCreateConfig();
@@ -188,54 +246,12 @@ class SingleEntityVersionCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SingleEntityVersionCreateRequest.equals(Object)",
+      "int SingleEntityVersionCreateRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    AutoVersionCreateConfig config = mock(AutoVersionCreateConfig.class);
-    doNothing().when(config).setSaveAttributes(anyBoolean());
-    doNothing().when(config).setSaveCredentials(anyBoolean());
-    doNothing().when(config).setSaveRelations(anyBoolean());
-    config.setSaveAttributes(true);
-    config.setSaveCredentials(true);
-    config.setSaveRelations(true);
-
-    SingleEntityVersionCreateRequest singleEntityVersionCreateRequest = new SingleEntityVersionCreateRequest();
-    singleEntityVersionCreateRequest.setBranch("janedoe/featurebranch");
-    singleEntityVersionCreateRequest.setConfig(config);
-    singleEntityVersionCreateRequest.setEntityId(TenantId.SYS_TENANT_ID);
-    singleEntityVersionCreateRequest.setVersionName("1.0.2");
-
-    VersionCreateConfig config2 = new VersionCreateConfig();
-    config2.setSaveAttributes(true);
-    config2.setSaveCredentials(true);
-    config2.setSaveRelations(true);
-
-    SingleEntityVersionCreateRequest singleEntityVersionCreateRequest2 = new SingleEntityVersionCreateRequest();
-    singleEntityVersionCreateRequest2.setBranch("janedoe/featurebranch");
-    singleEntityVersionCreateRequest2.setConfig(config2);
-    singleEntityVersionCreateRequest2.setEntityId(TenantId.SYS_TENANT_ID);
-    singleEntityVersionCreateRequest2.setVersionName("1.0.2");
-
-    // Act and Assert
-    assertNotEquals(singleEntityVersionCreateRequest, singleEntityVersionCreateRequest2);
-  }
-
-  /**
-   * Test {@link SingleEntityVersionCreateRequest#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link SingleEntityVersionCreateRequest#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
-    // Arrange
-    AutoVersionCreateConfig config = mock(AutoVersionCreateConfig.class);
-    doNothing().when(config).setSaveAttributes(anyBoolean());
-    doNothing().when(config).setSaveCredentials(anyBoolean());
-    doNothing().when(config).setSaveRelations(anyBoolean());
+    VersionCreateConfig config = new VersionCreateConfig();
     config.setSaveAttributes(true);
     config.setSaveCredentials(true);
     config.setSaveRelations(true);
@@ -272,12 +288,12 @@ class SingleEntityVersionCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SingleEntityVersionCreateRequest.equals(Object)",
+      "int SingleEntityVersionCreateRequest.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    AutoVersionCreateConfig config = mock(AutoVersionCreateConfig.class);
-    doNothing().when(config).setSaveAttributes(anyBoolean());
-    doNothing().when(config).setSaveCredentials(anyBoolean());
-    doNothing().when(config).setSaveRelations(anyBoolean());
+    VersionCreateConfig config = new VersionCreateConfig();
     config.setSaveAttributes(true);
     config.setSaveCredentials(true);
     config.setSaveRelations(true);
@@ -306,48 +322,6 @@ class SingleEntityVersionCreateRequestDiffblueTest {
   /**
    * Test {@link SingleEntityVersionCreateRequest#equals(Object)}.
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link SingleEntityVersionCreateRequest#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
-    // Arrange
-    AutoVersionCreateConfig config = mock(AutoVersionCreateConfig.class);
-    doNothing().when(config).setSaveAttributes(anyBoolean());
-    doNothing().when(config).setSaveCredentials(anyBoolean());
-    doNothing().when(config).setSaveRelations(anyBoolean());
-    config.setSaveAttributes(true);
-    config.setSaveCredentials(true);
-    config.setSaveRelations(true);
-
-    SingleEntityVersionCreateRequest singleEntityVersionCreateRequest = new SingleEntityVersionCreateRequest();
-    singleEntityVersionCreateRequest.setBranch("janedoe/featurebranch");
-    singleEntityVersionCreateRequest.setConfig(config);
-    singleEntityVersionCreateRequest.setEntityId(null);
-    singleEntityVersionCreateRequest.setVersionName("1.0.2");
-
-    VersionCreateConfig config2 = new VersionCreateConfig();
-    config2.setSaveAttributes(true);
-    config2.setSaveCredentials(true);
-    config2.setSaveRelations(true);
-
-    SingleEntityVersionCreateRequest singleEntityVersionCreateRequest2 = new SingleEntityVersionCreateRequest();
-    singleEntityVersionCreateRequest2.setBranch("janedoe/featurebranch");
-    singleEntityVersionCreateRequest2.setConfig(config2);
-    singleEntityVersionCreateRequest2.setEntityId(null);
-    singleEntityVersionCreateRequest2.setVersionName("1.0.2");
-
-    // Act and Assert
-    assertNotEquals(singleEntityVersionCreateRequest, singleEntityVersionCreateRequest2);
-  }
-
-  /**
-   * Test {@link SingleEntityVersionCreateRequest#equals(Object)}.
-   * <ul>
    *   <li>When other is {@code null}.</li>
    *   <li>Then return not equal.</li>
    * </ul>
@@ -356,6 +330,9 @@ class SingleEntityVersionCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SingleEntityVersionCreateRequest.equals(Object)",
+      "int SingleEntityVersionCreateRequest.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     VersionCreateConfig config = new VersionCreateConfig();
@@ -384,6 +361,9 @@ class SingleEntityVersionCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SingleEntityVersionCreateRequest.equals(Object)",
+      "int SingleEntityVersionCreateRequest.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     VersionCreateConfig config = new VersionCreateConfig();
@@ -406,8 +386,7 @@ class SingleEntityVersionCreateRequestDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link SingleEntityVersionCreateRequest}
+   *   <li>default or parameterless constructor of {@link SingleEntityVersionCreateRequest}
    *   <li>{@link SingleEntityVersionCreateRequest#setConfig(VersionCreateConfig)}
    *   <li>{@link SingleEntityVersionCreateRequest#setEntityId(EntityId)}
    *   <li>{@link SingleEntityVersionCreateRequest#toString()}
@@ -418,6 +397,14 @@ class SingleEntityVersionCreateRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SingleEntityVersionCreateRequest.<init>()",
+      "VersionCreateConfig SingleEntityVersionCreateRequest.getConfig()",
+      "EntityId SingleEntityVersionCreateRequest.getEntityId()",
+      "VersionCreateRequestType SingleEntityVersionCreateRequest.getType()",
+      "void SingleEntityVersionCreateRequest.setConfig(VersionCreateConfig)",
+      "void SingleEntityVersionCreateRequest.setEntityId(EntityId)",
+      "String SingleEntityVersionCreateRequest.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     SingleEntityVersionCreateRequest actualSingleEntityVersionCreateRequest = new SingleEntityVersionCreateRequest();
@@ -430,13 +417,16 @@ class SingleEntityVersionCreateRequestDiffblueTest {
     String actualToStringResult = actualSingleEntityVersionCreateRequest.toString();
     VersionCreateConfig actualConfig = actualSingleEntityVersionCreateRequest.getConfig();
     EntityId actualEntityId = actualSingleEntityVersionCreateRequest.getEntityId();
+    VersionCreateRequestType actualType = actualSingleEntityVersionCreateRequest.getType();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "SingleEntityVersionCreateRequest(entityId=13814000-1dd2-11b2-8080-808080808080, config=VersionCreateConfig"
             + "(saveRelations=true, saveAttributes=true, saveCredentials=true))",
         actualToStringResult);
-    assertEquals(VersionCreateRequestType.SINGLE_ENTITY, actualSingleEntityVersionCreateRequest.getType());
+    assertNull(actualSingleEntityVersionCreateRequest.getBranch());
+    assertNull(actualSingleEntityVersionCreateRequest.getVersionName());
+    assertEquals(VersionCreateRequestType.SINGLE_ENTITY, actualType);
     assertSame(config, actualConfig);
     assertSame(((TenantId) actualEntityId).SYS_TENANT_ID, actualEntityId);
   }

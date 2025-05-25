@@ -10,11 +10,8 @@ import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonLocation;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonStreamContext;
-import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -35,6 +32,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.thingsboard.server.common.data.edge.Edge;
@@ -51,6 +49,8 @@ class BaseDataWithAdditionalInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getAdditionalInfo(); given Edge(Edge) with edge is Edge(); then return instance")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode BaseDataWithAdditionalInfo.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenEdgeWithEdgeIsEdge_thenReturnInstance() {
     // Arrange and Act
     JsonNode actualAdditionalInfo = (new Edge(new Edge())).getAdditionalInfo();
@@ -70,6 +70,8 @@ class BaseDataWithAdditionalInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getAdditionalInfo(); given Edge(Edge) with edge is Edge(Edge); then return instance")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode BaseDataWithAdditionalInfo.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenEdgeWithEdgeIsEdge_thenReturnInstance2() {
     // Arrange and Act
     JsonNode actualAdditionalInfo = (new Edge(new Edge(new Edge()))).getAdditionalInfo();
@@ -89,6 +91,8 @@ class BaseDataWithAdditionalInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getAdditionalInfo(); given Edge(); then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode BaseDataWithAdditionalInfo.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenEdge_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull((new Edge()).getAdditionalInfo());
@@ -97,11 +101,12 @@ class BaseDataWithAdditionalInfoDiffblueTest {
   /**
    * Test {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}.
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
    */
   @Test
   @DisplayName("Test setAdditionalInfo(JsonNode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfo(JsonNode)"})
   void testSetAdditionalInfo() {
     // Arrange
     Customer customer = new Customer();
@@ -117,11 +122,12 @@ class BaseDataWithAdditionalInfoDiffblueTest {
   /**
    * Test {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}.
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
    */
   @Test
   @DisplayName("Test setAdditionalInfo(JsonNode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfo(JsonNode)"})
   void testSetAdditionalInfo2() throws UnsupportedEncodingException {
     // Arrange
     Customer customer = new Customer();
@@ -140,11 +146,12 @@ class BaseDataWithAdditionalInfoDiffblueTest {
    *   <li>Given {@code AXAXAXAX} Bytes is {@code UTF-8}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
    */
   @Test
   @DisplayName("Test setAdditionalInfo(JsonNode); given 'AXAXAXAX' Bytes is 'UTF-8'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfo(JsonNode)"})
   void testSetAdditionalInfo_givenAxaxaxaxBytesIsUtf8() throws UnsupportedEncodingException {
     // Arrange
     Customer customer = new Customer();
@@ -168,12 +175,13 @@ class BaseDataWithAdditionalInfoDiffblueTest {
    *   <li>Then {@link Customer#Customer()} AdditionalInfo {@link NullNode}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
    */
   @Test
   @DisplayName("Test setAdditionalInfo(JsonNode); given Customer(); when 'null'; then Customer() AdditionalInfo NullNode")
-  void testSetAdditionalInfo_givenCustomer_whenNull_thenCustomerAdditionalInfoNullNode() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfo(JsonNode)"})
+  void testSetAdditionalInfo_givenCustomer_whenNull_thenCustomerAdditionalInfoNullNode() {
     // Arrange
     Customer customer = new Customer();
 
@@ -181,90 +189,7 @@ class BaseDataWithAdditionalInfoDiffblueTest {
     customer.setAdditionalInfo(null);
 
     // Assert
-    JsonNode additionalInfo = customer.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getColumnNr());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getLineNr());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
+    assertTrue(customer.getAdditionalInfo() instanceof NullNode);
   }
 
   /**
@@ -273,11 +198,12 @@ class BaseDataWithAdditionalInfoDiffblueTest {
    *   <li>Given Instance.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
    */
   @Test
   @DisplayName("Test setAdditionalInfo(JsonNode); given Instance")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfo(JsonNode)"})
   void testSetAdditionalInfo_givenInstance() {
     // Arrange
     Customer customer = new Customer();
@@ -298,11 +224,12 @@ class BaseDataWithAdditionalInfoDiffblueTest {
    *   <li>Given {@code Pojo}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
    */
   @Test
   @DisplayName("Test setAdditionalInfo(JsonNode); given 'Pojo'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfo(JsonNode)"})
   void testSetAdditionalInfo_givenPojo() {
     // Arrange
     Customer customer = new Customer();
@@ -324,11 +251,12 @@ class BaseDataWithAdditionalInfoDiffblueTest {
    *   <li>Given {@link RawValue#RawValue(String)} with v is {@code foo}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
    */
   @Test
   @DisplayName("Test setAdditionalInfo(JsonNode); given RawValue(String) with v is 'foo'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfo(JsonNode)"})
   void testSetAdditionalInfo_givenRawValueWithVIsFoo() {
     // Arrange
     Customer customer = new Customer();
@@ -347,15 +275,15 @@ class BaseDataWithAdditionalInfoDiffblueTest {
   /**
    * Test {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}.
    * <ul>
-   *   <li>Then {@link Customer#Customer(Customer)} with customer is
-   * {@link Customer#Customer()} AdditionalInfo is Instance.</li>
+   *   <li>Then {@link Customer#Customer(Customer)} with customer is {@link Customer#Customer()} AdditionalInfo is Instance.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
    */
   @Test
   @DisplayName("Test setAdditionalInfo(JsonNode); then Customer(Customer) with customer is Customer() AdditionalInfo is Instance")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfo(JsonNode)"})
   void testSetAdditionalInfo_thenCustomerWithCustomerIsCustomerAdditionalInfoIsInstance() {
     // Arrange
     Customer customer = new Customer(new Customer());
@@ -371,15 +299,15 @@ class BaseDataWithAdditionalInfoDiffblueTest {
   /**
    * Test {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}.
    * <ul>
-   *   <li>When {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is
-   * withExactBigDecimals {@code true}.</li>
+   *   <li>When {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is withExactBigDecimals {@code true}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
    */
   @Test
   @DisplayName("Test setAdditionalInfo(JsonNode); when ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfo(JsonNode)"})
   void testSetAdditionalInfo_whenArrayNodeWithNfIsWithExactBigDecimalsTrue() {
     // Arrange
     Customer customer = new Customer();
@@ -395,15 +323,15 @@ class BaseDataWithAdditionalInfoDiffblueTest {
   /**
    * Test {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}.
    * <ul>
-   *   <li>When {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is
-   * withExactBigDecimals {@code true} addArray.</li>
+   *   <li>When {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is withExactBigDecimals {@code true} addArray.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
    */
   @Test
   @DisplayName("Test setAdditionalInfo(JsonNode); when ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true' addArray")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfo(JsonNode)"})
   void testSetAdditionalInfo_whenArrayNodeWithNfIsWithExactBigDecimalsTrueAddArray() {
     // Arrange
     Customer customer = new Customer();
@@ -422,15 +350,15 @@ class BaseDataWithAdditionalInfoDiffblueTest {
   /**
    * Test {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}.
    * <ul>
-   *   <li>When {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is
-   * withExactBigDecimals {@code true} addNull.</li>
+   *   <li>When {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is withExactBigDecimals {@code true} addNull.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
    */
   @Test
   @DisplayName("Test setAdditionalInfo(JsonNode); when ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true' addNull")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfo(JsonNode)"})
   void testSetAdditionalInfo_whenArrayNodeWithNfIsWithExactBigDecimalsTrueAddNull() {
     // Arrange
     Customer customer = new Customer();
@@ -449,15 +377,15 @@ class BaseDataWithAdditionalInfoDiffblueTest {
   /**
    * Test {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}.
    * <ul>
-   *   <li>When {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is
-   * withExactBigDecimals {@code true} addObject.</li>
+   *   <li>When {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is withExactBigDecimals {@code true} addObject.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
    */
   @Test
   @DisplayName("Test setAdditionalInfo(JsonNode); when ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true' addObject")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfo(JsonNode)"})
   void testSetAdditionalInfo_whenArrayNodeWithNfIsWithExactBigDecimalsTrueAddObject() {
     // Arrange
     Customer customer = new Customer();
@@ -480,11 +408,12 @@ class BaseDataWithAdditionalInfoDiffblueTest {
    *   <li>Then {@link Customer#Customer()} AdditionalInfo is Instance.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
    */
   @Test
   @DisplayName("Test setAdditionalInfo(JsonNode); when Instance; then Customer() AdditionalInfo is Instance")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfo(JsonNode)"})
   void testSetAdditionalInfo_whenInstance_thenCustomerAdditionalInfoIsInstance() {
     // Arrange
     Customer customer = new Customer();
@@ -501,15 +430,15 @@ class BaseDataWithAdditionalInfoDiffblueTest {
    * Test {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}.
    * <ul>
    *   <li>When Instance.</li>
-   *   <li>Then {@link Customer#Customer()} AdditionalInfo is Instance
-   * {@link NullNode#instance}.</li>
+   *   <li>Then {@link Customer#Customer()} AdditionalInfo is Instance {@link NullNode#instance}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}
    */
   @Test
   @DisplayName("Test setAdditionalInfo(JsonNode); when Instance; then Customer() AdditionalInfo is Instance instance")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfo(JsonNode)"})
   void testSetAdditionalInfo_whenInstance_thenCustomerAdditionalInfoIsInstanceInstance() {
     // Arrange
     Customer customer = new Customer();
@@ -524,15 +453,15 @@ class BaseDataWithAdditionalInfoDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}.
+   * Test {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}.
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}
    */
   @Test
   @DisplayName("Test setAdditionalInfoField(String, JsonNode)")
-  void testSetAdditionalInfoField() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfoField(String, JsonNode)"})
+  void testSetAdditionalInfoField() {
     // Arrange
     Customer customer = new Customer(new Customer());
 
@@ -542,74 +471,75 @@ class BaseDataWithAdditionalInfoDiffblueTest {
     // Assert
     JsonNode additionalInfo = customer.getAdditionalInfo();
     assertTrue(additionalInfo instanceof ObjectNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    assertNull(traverseResult.getBinaryValue());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
+    assertTrue(additionalInfo.traverse() instanceof TreeTraversingParser);
   }
 
   /**
-   * Test
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}.
+   * Test {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}.
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}
    */
   @Test
   @DisplayName("Test setAdditionalInfoField(String, JsonNode)")
-  void testSetAdditionalInfoField2() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfoField(String, JsonNode)"})
+  void testSetAdditionalInfoField2() {
+    // Arrange
+    Customer customer = new Customer();
+    BigIntegerNode value = new BigIntegerNode(BigInteger.valueOf(1L));
+
+    // Act
+    customer.setAdditionalInfoField("Field", value);
+
+    // Assert
+    JsonNode additionalInfo = customer.getAdditionalInfo();
+    assertTrue(additionalInfo instanceof ObjectNode);
+    Iterator<JsonNode> iteratorResult = additionalInfo.iterator();
+    JsonNode actualNextResult = iteratorResult.next();
+    assertFalse(iteratorResult.hasNext());
+    assertSame(value, actualNextResult);
+    assertEquals("{\r\n  \"Field\" : 1\r\n}", additionalInfo.toPrettyString());
+    assertTrue(additionalInfo.traverse() instanceof TreeTraversingParser);
+  }
+
+  /**
+   * Test {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}.
+   * <p>
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}
+   */
+  @Test
+  @DisplayName("Test setAdditionalInfoField(String, JsonNode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfoField(String, JsonNode)"})
+  void testSetAdditionalInfoField3() throws UnsupportedEncodingException {
+    // Arrange
+    Customer customer = new Customer();
+    BinaryNode value = new BinaryNode("AXAXAXAX".getBytes("UTF-8"));
+
+    // Act
+    customer.setAdditionalInfoField("Field", value);
+
+    // Assert
+    JsonNode additionalInfo = customer.getAdditionalInfo();
+    assertTrue(additionalInfo instanceof ObjectNode);
+    Iterator<JsonNode> iteratorResult = additionalInfo.iterator();
+    JsonNode actualNextResult = iteratorResult.next();
+    assertFalse(iteratorResult.hasNext());
+    assertSame(value, actualNextResult);
+    assertEquals("{\r\n  \"Field\" : \"QVhBWEFYQVg=\"\r\n}", additionalInfo.toPrettyString());
+    assertTrue(additionalInfo.traverse() instanceof TreeTraversingParser);
+  }
+
+  /**
+   * Test {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}.
+   * <p>
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}
+   */
+  @Test
+  @DisplayName("Test setAdditionalInfoField(String, JsonNode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfoField(String, JsonNode)"})
+  void testSetAdditionalInfoField4() {
     // Arrange
     Customer customer = new Customer(new Customer(new Customer()));
 
@@ -619,78 +549,146 @@ class BaseDataWithAdditionalInfoDiffblueTest {
     // Assert
     JsonNode additionalInfo = customer.getAdditionalInfo();
     assertTrue(additionalInfo instanceof ObjectNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    assertNull(traverseResult.getBinaryValue());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
+    assertTrue(additionalInfo.traverse() instanceof TreeTraversingParser);
   }
 
   /**
-   * Test
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}.
+   * Test {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}.
+   * <p>
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}
+   */
+  @Test
+  @DisplayName("Test setAdditionalInfoField(String, JsonNode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfoField(String, JsonNode)"})
+  void testSetAdditionalInfoField5() {
+    // Arrange
+    Customer customer = new Customer();
+
+    ArrayNode value = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
+    value.addPOJO("Pojo");
+    value.add(MissingNode.getInstance());
+
+    // Act
+    customer.setAdditionalInfoField("Field", value);
+
+    // Assert
+    JsonNode additionalInfo = customer.getAdditionalInfo();
+    assertTrue(additionalInfo instanceof ObjectNode);
+    Iterator<JsonNode> iteratorResult = additionalInfo.iterator();
+    JsonNode actualNextResult = iteratorResult.next();
+    assertFalse(iteratorResult.hasNext());
+    assertSame(value, actualNextResult);
+    assertEquals("{\r\n  \"Field\" : [ \"Pojo\", null ]\r\n}", additionalInfo.toPrettyString());
+    assertTrue(additionalInfo.traverse() instanceof TreeTraversingParser);
+  }
+
+  /**
+   * Test {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}.
+   * <p>
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}
+   */
+  @Test
+  @DisplayName("Test setAdditionalInfoField(String, JsonNode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfoField(String, JsonNode)"})
+  void testSetAdditionalInfoField6() {
+    // Arrange
+    Customer customer = new Customer();
+
+    ArrayNode value = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
+    value.addRawValue(new RawValue("foo"));
+    value.add(MissingNode.getInstance());
+
+    // Act
+    customer.setAdditionalInfoField("Field", value);
+
+    // Assert
+    JsonNode additionalInfo = customer.getAdditionalInfo();
+    assertTrue(additionalInfo instanceof ObjectNode);
+    Iterator<JsonNode> iteratorResult = additionalInfo.iterator();
+    JsonNode actualNextResult = iteratorResult.next();
+    assertFalse(iteratorResult.hasNext());
+    assertSame(value, actualNextResult);
+    assertEquals("{\r\n  \"Field\" : [ foo, null ]\r\n}", additionalInfo.toPrettyString());
+    assertTrue(additionalInfo.traverse() instanceof TreeTraversingParser);
+  }
+
+  /**
+   * Test {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}.
+   * <p>
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}
+   */
+  @Test
+  @DisplayName("Test setAdditionalInfoField(String, JsonNode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfoField(String, JsonNode)"})
+  void testSetAdditionalInfoField7() {
+    // Arrange
+    Customer customer = new Customer();
+
+    ArrayNode value = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
+    value.addNull();
+    value.add(MissingNode.getInstance());
+
+    // Act
+    customer.setAdditionalInfoField("Field", value);
+
+    // Assert
+    JsonNode additionalInfo = customer.getAdditionalInfo();
+    assertTrue(additionalInfo instanceof ObjectNode);
+    Iterator<JsonNode> iteratorResult = additionalInfo.iterator();
+    JsonNode actualNextResult = iteratorResult.next();
+    assertFalse(iteratorResult.hasNext());
+    assertSame(value, actualNextResult);
+    assertEquals("{\r\n  \"Field\" : [ null, null ]\r\n}", additionalInfo.toPrettyString());
+    assertTrue(additionalInfo.traverse() instanceof TreeTraversingParser);
+  }
+
+  /**
+   * Test {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}.
+   * <p>
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}
+   */
+  @Test
+  @DisplayName("Test setAdditionalInfoField(String, JsonNode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfoField(String, JsonNode)"})
+  void testSetAdditionalInfoField8() throws UnsupportedEncodingException {
+    // Arrange
+    Customer customer = new Customer();
+
+    ArrayNode value = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
+    value.add("AXAXAXAX".getBytes("UTF-8"));
+    value.add(MissingNode.getInstance());
+
+    // Act
+    customer.setAdditionalInfoField("Field", value);
+
+    // Assert
+    JsonNode additionalInfo = customer.getAdditionalInfo();
+    assertTrue(additionalInfo instanceof ObjectNode);
+    Iterator<JsonNode> iteratorResult = additionalInfo.iterator();
+    JsonNode actualNextResult = iteratorResult.next();
+    assertFalse(iteratorResult.hasNext());
+    assertSame(value, actualNextResult);
+    assertEquals("{\r\n  \"Field\" : [ \"QVhBWEFYQVg=\", null ]\r\n}", additionalInfo.toPrettyString());
+    assertTrue(additionalInfo.traverse() instanceof TreeTraversingParser);
+  }
+
+  /**
+   * Test {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}.
    * <ul>
-   *   <li>Then {@link Customer#Customer()} AdditionalInfo iterator next
-   * {@link NullNode}.</li>
+   *   <li>Then {@link Customer#Customer()} AdditionalInfo iterator next {@link NullNode}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}
    */
   @Test
   @DisplayName("Test setAdditionalInfoField(String, JsonNode); then Customer() AdditionalInfo iterator next NullNode")
-  void testSetAdditionalInfoField_thenCustomerAdditionalInfoIteratorNextNullNode() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfoField(String, JsonNode)"})
+  void testSetAdditionalInfoField_thenCustomerAdditionalInfoIteratorNextNullNode() {
     // Arrange
     Customer customer = new Customer();
 
@@ -700,112 +698,157 @@ class BaseDataWithAdditionalInfoDiffblueTest {
     // Assert
     JsonNode additionalInfo = customer.getAdditionalInfo();
     Iterator<JsonNode> iteratorResult = additionalInfo.iterator();
-    JsonNode nextResult = iteratorResult.next();
-    assertTrue(nextResult instanceof NullNode);
+    assertTrue(iteratorResult.next() instanceof NullNode);
     assertTrue(additionalInfo instanceof ObjectNode);
-    JsonParser traverseResult = nextResult.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonParser traverseResult2 = additionalInfo.traverse();
-    assertTrue(traverseResult2 instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult2.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", nextResult.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
-    JsonLocation currentLocation = traverseResult2.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, nextResult.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, nextResult.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(nextResult.isArray());
-    assertFalse(nextResult.isBigDecimal());
-    assertFalse(nextResult.isBigInteger());
-    assertFalse(nextResult.isBinary());
-    assertFalse(nextResult.isBoolean());
-    assertFalse(nextResult.isContainerNode());
-    assertFalse(nextResult.isDouble());
-    assertFalse(nextResult.isFloat());
-    assertFalse(nextResult.isFloatingPointNumber());
-    assertFalse(nextResult.isInt());
-    assertFalse(nextResult.isIntegralNumber());
-    assertFalse(nextResult.isLong());
-    assertFalse(nextResult.isMissingNode());
-    assertFalse(nextResult.isNumber());
-    assertFalse(nextResult.isObject());
-    assertFalse(nextResult.isPojo());
-    assertFalse(nextResult.isShort());
-    assertFalse(nextResult.isTextual());
-    assertFalse(nextResult.iterator().hasNext());
+    assertTrue(additionalInfo.traverse() instanceof TreeTraversingParser);
     assertFalse(iteratorResult.hasNext());
-    assertTrue(nextResult.isEmpty());
-    assertTrue(nextResult.isNull());
-    assertTrue(nextResult.isValueNode());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getColumnNr());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getLineNr());
-    assertSame(currentLocation, traverseResult.getCurrentLocation());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
-    assertSame(currentLocation, traverseResult2.getTokenLocation());
-    assertSame(versionResult, traverseResult.version());
   }
 
   /**
-   * Test
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}.
+   * Test {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}.
+   * <ul>
+   *   <li>Then {@link Customer#Customer()} AdditionalInfo toPrettyString is {@code { "Field" : [ ] }}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}
+   */
+  @Test
+  @DisplayName("Test setAdditionalInfoField(String, JsonNode); then Customer() AdditionalInfo toPrettyString is '{ \"Field\" : [ ] }'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfoField(String, JsonNode)"})
+  void testSetAdditionalInfoField_thenCustomerAdditionalInfoToPrettyStringIsField() {
+    // Arrange
+    Customer customer = new Customer();
+    ArrayNode value = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
+
+    // Act
+    customer.setAdditionalInfoField("Field", value);
+
+    // Assert
+    JsonNode additionalInfo = customer.getAdditionalInfo();
+    assertTrue(additionalInfo instanceof ObjectNode);
+    Iterator<JsonNode> iteratorResult = additionalInfo.iterator();
+    JsonNode actualNextResult = iteratorResult.next();
+    assertFalse(iteratorResult.hasNext());
+    assertSame(value, actualNextResult);
+    assertEquals("{\r\n  \"Field\" : [ ]\r\n}", additionalInfo.toPrettyString());
+    assertTrue(additionalInfo.traverse() instanceof TreeTraversingParser);
+  }
+
+  /**
+   * Test {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}.
+   * <ul>
+   *   <li>Then {@link Customer#Customer()} AdditionalInfo toPrettyString is {@code { "Field" : [ null ] }}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}
+   */
+  @Test
+  @DisplayName("Test setAdditionalInfoField(String, JsonNode); then Customer() AdditionalInfo toPrettyString is '{ \"Field\" : [ null ] }'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfoField(String, JsonNode)"})
+  void testSetAdditionalInfoField_thenCustomerAdditionalInfoToPrettyStringIsFieldNull() {
+    // Arrange
+    Customer customer = new Customer();
+
+    ArrayNode value = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
+    value.add(MissingNode.getInstance());
+
+    // Act
+    customer.setAdditionalInfoField("Field", value);
+
+    // Assert
+    JsonNode additionalInfo = customer.getAdditionalInfo();
+    assertTrue(additionalInfo instanceof ObjectNode);
+    Iterator<JsonNode> iteratorResult = additionalInfo.iterator();
+    JsonNode actualNextResult = iteratorResult.next();
+    assertFalse(iteratorResult.hasNext());
+    assertSame(value, actualNextResult);
+    assertEquals("{\r\n  \"Field\" : [ null ]\r\n}", additionalInfo.toPrettyString());
+    assertTrue(additionalInfo.traverse() instanceof TreeTraversingParser);
+  }
+
+  /**
+   * Test {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}.
+   * <ul>
+   *   <li>Then {@link Customer#Customer()} AdditionalInfo toPrettyString is {@code { "Field" : [ [ ], null ] }}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}
+   */
+  @Test
+  @DisplayName("Test setAdditionalInfoField(String, JsonNode); then Customer() AdditionalInfo toPrettyString is '{ \"Field\" : [ [ ], null ] }'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfoField(String, JsonNode)"})
+  void testSetAdditionalInfoField_thenCustomerAdditionalInfoToPrettyStringIsFieldNull2() {
+    // Arrange
+    Customer customer = new Customer();
+
+    ArrayNode value = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
+    value.addArray();
+    value.add(MissingNode.getInstance());
+
+    // Act
+    customer.setAdditionalInfoField("Field", value);
+
+    // Assert
+    JsonNode additionalInfo = customer.getAdditionalInfo();
+    assertTrue(additionalInfo instanceof ObjectNode);
+    Iterator<JsonNode> iteratorResult = additionalInfo.iterator();
+    JsonNode actualNextResult = iteratorResult.next();
+    assertFalse(iteratorResult.hasNext());
+    assertSame(value, actualNextResult);
+    assertEquals("{\r\n  \"Field\" : [ [ ], null ]\r\n}", additionalInfo.toPrettyString());
+    assertTrue(additionalInfo.traverse() instanceof TreeTraversingParser);
+  }
+
+  /**
+   * Test {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}.
+   * <ul>
+   *   <li>Then {@link Customer#Customer()} AdditionalInfo toPrettyString is {@code { "Field" : [ { }, null ] }}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}
+   */
+  @Test
+  @DisplayName("Test setAdditionalInfoField(String, JsonNode); then Customer() AdditionalInfo toPrettyString is '{ \"Field\" : [ { }, null ] }'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfoField(String, JsonNode)"})
+  void testSetAdditionalInfoField_thenCustomerAdditionalInfoToPrettyStringIsFieldNull3() {
+    // Arrange
+    Customer customer = new Customer();
+
+    ArrayNode value = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
+    value.addObject();
+    value.add(MissingNode.getInstance());
+
+    // Act
+    customer.setAdditionalInfoField("Field", value);
+
+    // Assert
+    JsonNode additionalInfo = customer.getAdditionalInfo();
+    assertTrue(additionalInfo instanceof ObjectNode);
+    Iterator<JsonNode> iteratorResult = additionalInfo.iterator();
+    JsonNode actualNextResult = iteratorResult.next();
+    assertFalse(iteratorResult.hasNext());
+    assertSame(value, actualNextResult);
+    assertEquals("{\r\n  \"Field\" : [ { }, null ]\r\n}", additionalInfo.toPrettyString());
+    assertTrue(additionalInfo.traverse() instanceof TreeTraversingParser);
+  }
+
+  /**
+   * Test {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}.
    * <ul>
    *   <li>When Instance.</li>
    *   <li>Then {@link Customer#Customer()} AdditionalInfo {@link ObjectNode}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}
    */
   @Test
   @DisplayName("Test setAdditionalInfoField(String, JsonNode); when Instance; then Customer() AdditionalInfo ObjectNode")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfoField(String, JsonNode)"})
   void testSetAdditionalInfoField_whenInstance_thenCustomerAdditionalInfoObjectNode() {
     // Arrange
     Customer customer = new Customer();
@@ -820,18 +863,18 @@ class BaseDataWithAdditionalInfoDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}.
+   * Test {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}.
    * <ul>
    *   <li>When {@code null}.</li>
    *   <li>Then {@link Customer#Customer()} AdditionalInfo {@link ObjectNode}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#setAdditionalInfoField(String, JsonNode)}
    */
   @Test
   @DisplayName("Test setAdditionalInfoField(String, JsonNode); when 'null'; then Customer() AdditionalInfo ObjectNode")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setAdditionalInfoField(String, JsonNode)"})
   void testSetAdditionalInfoField_whenNull_thenCustomerAdditionalInfoObjectNode() {
     // Arrange
     Customer customer = new Customer();
@@ -846,17 +889,17 @@ class BaseDataWithAdditionalInfoDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link BaseDataWithAdditionalInfo#getAdditionalInfoField(String, Function, Object)}.
+   * Test {@link BaseDataWithAdditionalInfo#getAdditionalInfoField(String, Function, Object)}.
    * <ul>
    *   <li>Given {@link Customer#Customer()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#getAdditionalInfoField(String, Function, Object)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#getAdditionalInfoField(String, Function, Object)}
    */
   @Test
   @DisplayName("Test getAdditionalInfoField(String, Function, Object); given Customer()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object BaseDataWithAdditionalInfo.getAdditionalInfoField(String, Function, Object)"})
   void testGetAdditionalInfoField_givenCustomer() {
     // Arrange, Act and Assert
     assertEquals("Default Value",
@@ -864,22 +907,37 @@ class BaseDataWithAdditionalInfoDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link BaseDataWithAdditionalInfo#getAdditionalInfoField(String, Function, Object)}.
+   * Test {@link BaseDataWithAdditionalInfo#getAdditionalInfoField(String, Function, Object)}.
    * <ul>
-   *   <li>Given {@link Customer#Customer(Customer)} with customer is
-   * {@link Customer#Customer()}.</li>
+   *   <li>Given {@link Customer#Customer(Customer)} with customer is {@link Customer#Customer()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#getAdditionalInfoField(String, Function, Object)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#getAdditionalInfoField(String, Function, Object)}
    */
   @Test
   @DisplayName("Test getAdditionalInfoField(String, Function, Object); given Customer(Customer) with customer is Customer()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object BaseDataWithAdditionalInfo.getAdditionalInfoField(String, Function, Object)"})
   void testGetAdditionalInfoField_givenCustomerWithCustomerIsCustomer() {
     // Arrange, Act and Assert
     assertEquals("Default Value",
         (new Customer(new Customer())).getAdditionalInfoField("Field", mock(Function.class), "Default Value"));
+  }
+
+  /**
+   * Test {@link BaseDataWithAdditionalInfo#getAdditionalInfoField(String, Function, Object)}.
+   * <ul>
+   *   <li>Given {@link Customer#Customer(Customer)} with customer is {@link Customer#Customer(Customer)}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link BaseDataWithAdditionalInfo#getAdditionalInfoField(String, Function, Object)}
+   */
+  @Test
+  @DisplayName("Test getAdditionalInfoField(String, Function, Object); given Customer(Customer) with customer is Customer(Customer)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object BaseDataWithAdditionalInfo.getAdditionalInfoField(String, Function, Object)"})
+  void testGetAdditionalInfoField_givenCustomerWithCustomerIsCustomer2() {
+    // Arrange, Act and Assert
     assertEquals("Default Value", (new Customer(new Customer(new Customer()))).getAdditionalInfoField("Field",
         mock(Function.class), "Default Value"));
   }
@@ -890,11 +948,12 @@ class BaseDataWithAdditionalInfoDiffblueTest {
    *   <li>Given array of {@code byte} with {@code A} and minus one.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#getJson(Supplier, Supplier)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#getJson(Supplier, Supplier)}
    */
   @Test
   @DisplayName("Test getJson(Supplier, Supplier); given array of byte with 'A' and minus one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode BaseDataWithAdditionalInfo.getJson(Supplier, Supplier)"})
   void testGetJson_givenArrayOfByteWithAAndMinusOne() {
     // Arrange
     Supplier<JsonNode> jsonData = new Customer()::getAdditionalInfo;
@@ -909,15 +968,15 @@ class BaseDataWithAdditionalInfoDiffblueTest {
   /**
    * Test {@link BaseDataWithAdditionalInfo#getJson(Supplier, Supplier)}.
    * <ul>
-   *   <li>Given array of {@code byte} with {@link Byte#MAX_VALUE} and
-   * {@code X}.</li>
+   *   <li>Given array of {@code byte} with {@link Byte#MAX_VALUE} and {@code X}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#getJson(Supplier, Supplier)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#getJson(Supplier, Supplier)}
    */
   @Test
   @DisplayName("Test getJson(Supplier, Supplier); given array of byte with MAX_VALUE and 'X'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode BaseDataWithAdditionalInfo.getJson(Supplier, Supplier)"})
   void testGetJson_givenArrayOfByteWithMax_valueAndX() {
     // Arrange
     Supplier<JsonNode> jsonData = new Customer()::getAdditionalInfo;
@@ -935,11 +994,12 @@ class BaseDataWithAdditionalInfoDiffblueTest {
    *   <li>Given array of {@code byte} with zero and {@code X}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#getJson(Supplier, Supplier)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#getJson(Supplier, Supplier)}
    */
   @Test
   @DisplayName("Test getJson(Supplier, Supplier); given array of byte with zero and 'X'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode BaseDataWithAdditionalInfo.getJson(Supplier, Supplier)"})
   void testGetJson_givenArrayOfByteWithZeroAndX() {
     // Arrange
     Supplier<JsonNode> jsonData = new Customer()::getAdditionalInfo;
@@ -957,11 +1017,12 @@ class BaseDataWithAdditionalInfoDiffblueTest {
    *   <li>Given array of {@code byte} with zero and zero.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#getJson(Supplier, Supplier)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#getJson(Supplier, Supplier)}
    */
   @Test
   @DisplayName("Test getJson(Supplier, Supplier); given array of byte with zero and zero")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode BaseDataWithAdditionalInfo.getJson(Supplier, Supplier)"})
   void testGetJson_givenArrayOfByteWithZeroAndZero() {
     // Arrange
     Supplier<JsonNode> jsonData = new Customer()::getAdditionalInfo;
@@ -979,11 +1040,12 @@ class BaseDataWithAdditionalInfoDiffblueTest {
    *   <li>Given array of {@code byte} with zero and zero.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#getJson(Supplier, Supplier)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#getJson(Supplier, Supplier)}
    */
   @Test
   @DisplayName("Test getJson(Supplier, Supplier); given array of byte with zero and zero")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode BaseDataWithAdditionalInfo.getJson(Supplier, Supplier)"})
   void testGetJson_givenArrayOfByteWithZeroAndZero2() {
     // Arrange
     Supplier<JsonNode> jsonData = new Customer()::getAdditionalInfo;
@@ -1001,11 +1063,12 @@ class BaseDataWithAdditionalInfoDiffblueTest {
    *   <li>Given array of {@code byte} with zero and zero.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#getJson(Supplier, Supplier)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#getJson(Supplier, Supplier)}
    */
   @Test
   @DisplayName("Test getJson(Supplier, Supplier); given array of byte with zero and zero")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode BaseDataWithAdditionalInfo.getJson(Supplier, Supplier)"})
   void testGetJson_givenArrayOfByteWithZeroAndZero3() {
     // Arrange
     Supplier<JsonNode> jsonData = new Customer()::getAdditionalInfo;
@@ -1023,11 +1086,12 @@ class BaseDataWithAdditionalInfoDiffblueTest {
    *   <li>Given {@code AXAXAXAX} Bytes is {@code UTF-8}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#getJson(Supplier, Supplier)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#getJson(Supplier, Supplier)}
    */
   @Test
   @DisplayName("Test getJson(Supplier, Supplier); given 'AXAXAXAX' Bytes is 'UTF-8'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode BaseDataWithAdditionalInfo.getJson(Supplier, Supplier)"})
   void testGetJson_givenAxaxaxaxBytesIsUtf8() throws UnsupportedEncodingException {
     // Arrange
     Supplier<JsonNode> jsonData = new Customer()::getAdditionalInfo;
@@ -1046,11 +1110,12 @@ class BaseDataWithAdditionalInfoDiffblueTest {
    *   <li>Then return {@link MissingNode}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#getJson(Supplier, Supplier)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#getJson(Supplier, Supplier)}
    */
   @Test
   @DisplayName("Test getJson(Supplier, Supplier); given empty array of byte; then return MissingNode")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode BaseDataWithAdditionalInfo.getJson(Supplier, Supplier)"})
   void testGetJson_givenEmptyArrayOfByte_thenReturnMissingNode() {
     // Arrange
     Supplier<JsonNode> jsonData = new Customer()::getAdditionalInfo;
@@ -1073,16 +1138,16 @@ class BaseDataWithAdditionalInfoDiffblueTest {
   /**
    * Test {@link BaseDataWithAdditionalInfo#getJson(Supplier, Supplier)}.
    * <ul>
-   *   <li>When {@link Customer#Customer(Customer)} with customer is
-   * {@link Customer#Customer()}.</li>
+   *   <li>When {@link Customer#Customer(Customer)} with customer is {@link Customer#Customer()}.</li>
    *   <li>Then return {@link NullNode}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#getJson(Supplier, Supplier)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#getJson(Supplier, Supplier)}
    */
   @Test
   @DisplayName("Test getJson(Supplier, Supplier); when Customer(Customer) with customer is Customer(); then return NullNode")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode BaseDataWithAdditionalInfo.getJson(Supplier, Supplier)"})
   void testGetJson_whenCustomerWithCustomerIsCustomer_thenReturnNullNode() {
     // Arrange
     Supplier<JsonNode> jsonData = new Customer(new Customer())::getAdditionalInfo;
@@ -1106,11 +1171,12 @@ class BaseDataWithAdditionalInfoDiffblueTest {
    *   <li>Then return {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#getJson(Supplier, Supplier)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#getJson(Supplier, Supplier)}
    */
   @Test
   @DisplayName("Test getJson(Supplier, Supplier); when Device(); then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode BaseDataWithAdditionalInfo.getJson(Supplier, Supplier)"})
   void testGetJson_whenDevice_thenReturnNull() {
     // Arrange
     Supplier<JsonNode> jsonData = new Customer()::getAdditionalInfo;
@@ -1120,21 +1186,18 @@ class BaseDataWithAdditionalInfoDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link BaseDataWithAdditionalInfo#setJson(JsonNode, Consumer, Consumer)}.
+   * Test {@link BaseDataWithAdditionalInfo#setJson(JsonNode, Consumer, Consumer)}.
    * <ul>
-   *   <li>When {@link ArrayNode}
-   * {@link ArrayNode#serialize(JsonGenerator, SerializerProvider)} does
-   * nothing.</li>
-   *   <li>Then calls
-   * {@link ArrayNode#serialize(JsonGenerator, SerializerProvider)}.</li>
+   *   <li>When {@link ArrayNode} {@link ArrayNode#serialize(JsonGenerator, SerializerProvider)} does nothing.</li>
+   *   <li>Then calls {@link ArrayNode#serialize(JsonGenerator, SerializerProvider)}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#setJson(JsonNode, Consumer, Consumer)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#setJson(JsonNode, Consumer, Consumer)}
    */
   @Test
   @DisplayName("Test setJson(JsonNode, Consumer, Consumer); when ArrayNode serialize(JsonGenerator, SerializerProvider) does nothing; then calls serialize(JsonGenerator, SerializerProvider)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setJson(JsonNode, Consumer, Consumer)"})
   void testSetJson_whenArrayNodeSerializeDoesNothing_thenCallsSerialize() throws IOException {
     // Arrange
     ArrayNode json = mock(ArrayNode.class);
@@ -1149,21 +1212,18 @@ class BaseDataWithAdditionalInfoDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link BaseDataWithAdditionalInfo#setJson(JsonNode, Consumer, Consumer)}.
+   * Test {@link BaseDataWithAdditionalInfo#setJson(JsonNode, Consumer, Consumer)}.
    * <ul>
-   *   <li>When {@link Customer}
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)} does
-   * nothing.</li>
-   *   <li>Then calls
-   * {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}.</li>
+   *   <li>When {@link Customer} {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)} does nothing.</li>
+   *   <li>Then calls {@link BaseDataWithAdditionalInfo#setAdditionalInfo(JsonNode)}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link BaseDataWithAdditionalInfo#setJson(JsonNode, Consumer, Consumer)}
+   * Method under test: {@link BaseDataWithAdditionalInfo#setJson(JsonNode, Consumer, Consumer)}
    */
   @Test
   @DisplayName("Test setJson(JsonNode, Consumer, Consumer); when Customer setAdditionalInfo(JsonNode) does nothing; then calls setAdditionalInfo(JsonNode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseDataWithAdditionalInfo.setJson(JsonNode, Consumer, Consumer)"})
   void testSetJson_whenCustomerSetAdditionalInfoDoesNothing_thenCallsSetAdditionalInfo() throws IOException {
     // Arrange
     ArrayNode json = mock(ArrayNode.class);

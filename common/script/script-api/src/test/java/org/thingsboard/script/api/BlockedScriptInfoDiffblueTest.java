@@ -1,7 +1,9 @@
 package org.thingsboard.script.api;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class BlockedScriptInfoDiffblueTest {
@@ -12,6 +14,8 @@ class BlockedScriptInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test new BlockedScriptInfo(int)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BlockedScriptInfo.<init>(int)"})
   void testNewBlockedScriptInfo() {
     // Arrange and Act
     BlockedScriptInfo actualBlockedScriptInfo = new BlockedScriptInfo(3);
@@ -28,6 +32,8 @@ class BlockedScriptInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test get()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int BlockedScriptInfo.get()"})
   void testGet() {
     // Arrange, Act and Assert
     assertEquals(0, (new BlockedScriptInfo(3)).get());
@@ -40,6 +46,8 @@ class BlockedScriptInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test incrementAndGet()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int BlockedScriptInfo.incrementAndGet()"})
   void testIncrementAndGet() {
     // Arrange
     BlockedScriptInfo blockedScriptInfo = new BlockedScriptInfo(3);
@@ -59,6 +67,8 @@ class BlockedScriptInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getExpirationTime()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long BlockedScriptInfo.getExpirationTime()"})
   void testGetExpirationTime() {
     // Arrange, Act and Assert
     assertEquals(0L, (new BlockedScriptInfo(3)).getExpirationTime());

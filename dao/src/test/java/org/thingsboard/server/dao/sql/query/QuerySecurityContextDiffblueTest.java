@@ -4,7 +4,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.TenantId;
@@ -21,8 +24,7 @@ public class QuerySecurityContextDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link QuerySecurityContext#QuerySecurityContext(TenantId, CustomerId, EntityType)}
+   *   <li>{@link QuerySecurityContext#QuerySecurityContext(TenantId, CustomerId, EntityType)}
    *   <li>{@link QuerySecurityContext#getCustomerId()}
    *   <li>{@link QuerySecurityContext#getEntityType()}
    *   <li>{@link QuerySecurityContext#getTenantId()}
@@ -30,6 +32,11 @@ public class QuerySecurityContextDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void QuerySecurityContext.<init>(TenantId, CustomerId, EntityType)",
+      "void QuerySecurityContext.<init>(TenantId, CustomerId, EntityType, boolean)",
+      "CustomerId QuerySecurityContext.getCustomerId()", "EntityType QuerySecurityContext.getEntityType()",
+      "TenantId QuerySecurityContext.getTenantId()", "boolean QuerySecurityContext.isIgnorePermissionCheck()"})
   public void testGettersAndSetters_whenNull_customer_id_thenReturnNotIgnorePermissionCheck() {
     // Arrange
     CustomerId customerId = BaseEntityService.NULL_CUSTOMER_ID;
@@ -57,8 +64,7 @@ public class QuerySecurityContextDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link QuerySecurityContext#QuerySecurityContext(TenantId, CustomerId, EntityType, boolean)}
+   *   <li>{@link QuerySecurityContext#QuerySecurityContext(TenantId, CustomerId, EntityType, boolean)}
    *   <li>{@link QuerySecurityContext#getCustomerId()}
    *   <li>{@link QuerySecurityContext#getEntityType()}
    *   <li>{@link QuerySecurityContext#getTenantId()}
@@ -66,6 +72,11 @@ public class QuerySecurityContextDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void QuerySecurityContext.<init>(TenantId, CustomerId, EntityType)",
+      "void QuerySecurityContext.<init>(TenantId, CustomerId, EntityType, boolean)",
+      "CustomerId QuerySecurityContext.getCustomerId()", "EntityType QuerySecurityContext.getEntityType()",
+      "TenantId QuerySecurityContext.getTenantId()", "boolean QuerySecurityContext.isIgnorePermissionCheck()"})
   public void testGettersAndSetters_whenTrue_thenReturnIgnorePermissionCheck() {
     // Arrange
     CustomerId customerId = BaseEntityService.NULL_CUSTOMER_ID;

@@ -4,14 +4,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class EntityTransportRateLimitsDiffblueTest {
   /**
-   * Test {@link EntityTransportRateLimits#equals(Object)}, and
-   * {@link EntityTransportRateLimits#hashCode()}.
+   * Test {@link EntityTransportRateLimits#equals(Object)}, and {@link EntityTransportRateLimits#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -25,6 +25,8 @@ class EntityTransportRateLimitsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityTransportRateLimits.equals(Object)", "int EntityTransportRateLimits.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EntityTransportRateLimits entityTransportRateLimits = new EntityTransportRateLimits(null, null, null);
@@ -37,8 +39,7 @@ class EntityTransportRateLimitsDiffblueTest {
   }
 
   /**
-   * Test {@link EntityTransportRateLimits#equals(Object)}, and
-   * {@link EntityTransportRateLimits#hashCode()}.
+   * Test {@link EntityTransportRateLimits#equals(Object)}, and {@link EntityTransportRateLimits#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -52,6 +53,8 @@ class EntityTransportRateLimitsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityTransportRateLimits.equals(Object)", "int EntityTransportRateLimits.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DummyTransportRateLimit regularMsgRateLimit = new DummyTransportRateLimit();
@@ -76,6 +79,8 @@ class EntityTransportRateLimitsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityTransportRateLimits.equals(Object)", "int EntityTransportRateLimits.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     DummyTransportRateLimit regularMsgRateLimit = new DummyTransportRateLimit();
@@ -101,6 +106,8 @@ class EntityTransportRateLimitsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityTransportRateLimits.equals(Object)", "int EntityTransportRateLimits.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DummyTransportRateLimit telemetryMsgRateLimit = new DummyTransportRateLimit();
@@ -125,32 +132,9 @@ class EntityTransportRateLimitsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityTransportRateLimits.equals(Object)", "int EntityTransportRateLimits.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
-    // Arrange
-    TransportRateLimit regularMsgRateLimit = mock(TransportRateLimit.class);
-    DummyTransportRateLimit telemetryMsgRateLimit = new DummyTransportRateLimit();
-    EntityTransportRateLimits entityTransportRateLimits = new EntityTransportRateLimits(regularMsgRateLimit,
-        telemetryMsgRateLimit, new DummyTransportRateLimit());
-    DummyTransportRateLimit regularMsgRateLimit2 = new DummyTransportRateLimit();
-    DummyTransportRateLimit telemetryMsgRateLimit2 = new DummyTransportRateLimit();
-
-    // Act and Assert
-    assertNotEquals(entityTransportRateLimits,
-        new EntityTransportRateLimits(regularMsgRateLimit2, telemetryMsgRateLimit2, new DummyTransportRateLimit()));
-  }
-
-  /**
-   * Test {@link EntityTransportRateLimits#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link EntityTransportRateLimits#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     DummyTransportRateLimit telemetryMsgRateLimit = new DummyTransportRateLimit();
     EntityTransportRateLimits entityTransportRateLimits = new EntityTransportRateLimits(null, telemetryMsgRateLimit,
@@ -173,7 +157,9 @@ class EntityTransportRateLimitsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityTransportRateLimits.equals(Object)", "int EntityTransportRateLimits.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     EntityTransportRateLimits entityTransportRateLimits = new EntityTransportRateLimits(null, null,
         new DummyTransportRateLimit());
@@ -195,7 +181,9 @@ class EntityTransportRateLimitsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityTransportRateLimits.equals(Object)", "int EntityTransportRateLimits.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     EntityTransportRateLimits entityTransportRateLimits = new EntityTransportRateLimits(null, null,
         new DummyTransportRateLimit());
@@ -216,7 +204,9 @@ class EntityTransportRateLimitsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityTransportRateLimits.equals(Object)", "int EntityTransportRateLimits.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     EntityTransportRateLimits entityTransportRateLimits = new EntityTransportRateLimits(null, null, null);
 
@@ -236,6 +226,8 @@ class EntityTransportRateLimitsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityTransportRateLimits.equals(Object)", "int EntityTransportRateLimits.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     DummyTransportRateLimit regularMsgRateLimit = new DummyTransportRateLimit();
@@ -257,6 +249,8 @@ class EntityTransportRateLimitsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityTransportRateLimits.equals(Object)", "int EntityTransportRateLimits.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     DummyTransportRateLimit regularMsgRateLimit = new DummyTransportRateLimit();
@@ -273,14 +267,10 @@ class EntityTransportRateLimitsDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link EntityTransportRateLimits#EntityTransportRateLimits(TransportRateLimit, TransportRateLimit, TransportRateLimit)}
-   *   <li>
-   * {@link EntityTransportRateLimits#setRegularMsgRateLimit(TransportRateLimit)}
-   *   <li>
-   * {@link EntityTransportRateLimits#setTelemetryDataPointsRateLimit(TransportRateLimit)}
-   *   <li>
-   * {@link EntityTransportRateLimits#setTelemetryMsgRateLimit(TransportRateLimit)}
+   *   <li>{@link EntityTransportRateLimits#EntityTransportRateLimits(TransportRateLimit, TransportRateLimit, TransportRateLimit)}
+   *   <li>{@link EntityTransportRateLimits#setRegularMsgRateLimit(TransportRateLimit)}
+   *   <li>{@link EntityTransportRateLimits#setTelemetryDataPointsRateLimit(TransportRateLimit)}
+   *   <li>{@link EntityTransportRateLimits#setTelemetryMsgRateLimit(TransportRateLimit)}
    *   <li>{@link EntityTransportRateLimits#toString()}
    *   <li>{@link EntityTransportRateLimits#getRegularMsgRateLimit()}
    *   <li>{@link EntityTransportRateLimits#getTelemetryDataPointsRateLimit()}
@@ -289,6 +279,16 @@ class EntityTransportRateLimitsDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void EntityTransportRateLimits.<init>(TransportRateLimit, TransportRateLimit, TransportRateLimit)",
+      "TransportRateLimit EntityTransportRateLimits.getRegularMsgRateLimit()",
+      "TransportRateLimit EntityTransportRateLimits.getTelemetryDataPointsRateLimit()",
+      "TransportRateLimit EntityTransportRateLimits.getTelemetryMsgRateLimit()",
+      "void EntityTransportRateLimits.setRegularMsgRateLimit(TransportRateLimit)",
+      "void EntityTransportRateLimits.setTelemetryDataPointsRateLimit(TransportRateLimit)",
+      "void EntityTransportRateLimits.setTelemetryMsgRateLimit(TransportRateLimit)",
+      "java.lang.String EntityTransportRateLimits.toString()"})
   void testGettersAndSetters() {
     // Arrange
     DummyTransportRateLimit regularMsgRateLimit = new DummyTransportRateLimit();
@@ -309,7 +309,7 @@ class EntityTransportRateLimitsDiffblueTest {
         .getTelemetryDataPointsRateLimit();
     TransportRateLimit actualTelemetryMsgRateLimit = actualEntityTransportRateLimits.getTelemetryMsgRateLimit();
 
-    // Assert that nothing has changed
+    // Assert
     assertTrue(actualRegularMsgRateLimit instanceof DummyTransportRateLimit);
     assertTrue(actualTelemetryDataPointsRateLimit instanceof DummyTransportRateLimit);
     assertTrue(actualTelemetryMsgRateLimit instanceof DummyTransportRateLimit);

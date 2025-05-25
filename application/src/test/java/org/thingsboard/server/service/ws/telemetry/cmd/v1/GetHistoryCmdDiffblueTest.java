@@ -2,7 +2,9 @@ package org.thingsboard.server.service.ws.telemetry.cmd.v1;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +19,7 @@ class GetHistoryCmdDiffblueTest {
   private GetHistoryCmd getHistoryCmd;
 
   /**
-   * Test {@link GetHistoryCmd#equals(Object)}, and
-   * {@link GetHistoryCmd#hashCode()}.
+   * Test {@link GetHistoryCmd#equals(Object)}, and {@link GetHistoryCmd#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -32,6 +33,8 @@ class GetHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GetHistoryCmd.equals(Object)", "int GetHistoryCmd.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     GetHistoryCmd getHistoryCmd = new GetHistoryCmd(1, "Entity Type", "42", "Keys", 1L, 1L, 42L, 1, "Agg");
@@ -44,8 +47,63 @@ class GetHistoryCmdDiffblueTest {
   }
 
   /**
-   * Test {@link GetHistoryCmd#equals(Object)}, and
-   * {@link GetHistoryCmd#hashCode()}.
+   * Test {@link GetHistoryCmd#equals(Object)}, and {@link GetHistoryCmd#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link GetHistoryCmd#equals(Object)}
+   *   <li>{@link GetHistoryCmd#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GetHistoryCmd.equals(Object)", "int GetHistoryCmd.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    GetHistoryCmd getHistoryCmd = new GetHistoryCmd(1, null, "42", "Keys", 1L, 1L, 42L, 1, "Agg");
+    GetHistoryCmd getHistoryCmd2 = new GetHistoryCmd(1, null, "42", "Keys", 1L, 1L, 42L, 1, "Agg");
+
+    // Act and Assert
+    assertEquals(getHistoryCmd, getHistoryCmd2);
+    int expectedHashCodeResult = getHistoryCmd.hashCode();
+    assertEquals(expectedHashCodeResult, getHistoryCmd2.hashCode());
+  }
+
+  /**
+   * Test {@link GetHistoryCmd#equals(Object)}, and {@link GetHistoryCmd#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link GetHistoryCmd#equals(Object)}
+   *   <li>{@link GetHistoryCmd#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GetHistoryCmd.equals(Object)", "int GetHistoryCmd.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+    // Arrange
+    GetHistoryCmd getHistoryCmd = new GetHistoryCmd(1, "Entity Type", null, "Keys", 1L, 1L, 42L, 1, "Agg");
+    GetHistoryCmd getHistoryCmd2 = new GetHistoryCmd(1, "Entity Type", null, "Keys", 1L, 1L, 42L, 1, "Agg");
+
+    // Act and Assert
+    assertEquals(getHistoryCmd, getHistoryCmd2);
+    int expectedHashCodeResult = getHistoryCmd.hashCode();
+    assertEquals(expectedHashCodeResult, getHistoryCmd2.hashCode());
+  }
+
+  /**
+   * Test {@link GetHistoryCmd#equals(Object)}, and {@link GetHistoryCmd#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -59,6 +117,8 @@ class GetHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GetHistoryCmd.equals(Object)", "int GetHistoryCmd.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     GetHistoryCmd getHistoryCmd = new GetHistoryCmd(1, "Entity Type", "42", "Keys", 1L, 1L, 42L, 1, "Agg");
@@ -80,6 +140,8 @@ class GetHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GetHistoryCmd.equals(Object)", "int GetHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     GetHistoryCmd getHistoryCmd = new GetHistoryCmd(2, "Entity Type", "42", "Keys", 1L, 1L, 42L, 1, "Agg");
@@ -99,6 +161,8 @@ class GetHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GetHistoryCmd.equals(Object)", "int GetHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     GetHistoryCmd getHistoryCmd = new GetHistoryCmd(1, "42", "42", "Keys", 1L, 1L, 42L, 1, "Agg");
@@ -118,6 +182,8 @@ class GetHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GetHistoryCmd.equals(Object)", "int GetHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     GetHistoryCmd getHistoryCmd = new GetHistoryCmd(1, null, "42", "Keys", 1L, 1L, 42L, 1, "Agg");
@@ -137,6 +203,8 @@ class GetHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GetHistoryCmd.equals(Object)", "int GetHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     GetHistoryCmd getHistoryCmd = new GetHistoryCmd(1, "Entity Type", "Entity Type", "Keys", 1L, 1L, 42L, 1, "Agg");
@@ -156,6 +224,8 @@ class GetHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GetHistoryCmd.equals(Object)", "int GetHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     GetHistoryCmd getHistoryCmd = new GetHistoryCmd(1, "Entity Type", null, "Keys", 1L, 1L, 42L, 1, "Agg");
@@ -175,6 +245,8 @@ class GetHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GetHistoryCmd.equals(Object)", "int GetHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     GetHistoryCmd getHistoryCmd = new GetHistoryCmd(1, "Entity Type", "42", "Entity Type", 1L, 1L, 42L, 1, "Agg");
@@ -194,6 +266,8 @@ class GetHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GetHistoryCmd.equals(Object)", "int GetHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     GetHistoryCmd getHistoryCmd = new GetHistoryCmd(1, "Entity Type", "42", null, 1L, 1L, 42L, 1, "Agg");
@@ -213,6 +287,8 @@ class GetHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GetHistoryCmd.equals(Object)", "int GetHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     GetHistoryCmd getHistoryCmd = new GetHistoryCmd(1, "Entity Type", "42", "Keys", 3L, 1L, 42L, 1, "Agg");
@@ -232,6 +308,8 @@ class GetHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GetHistoryCmd.equals(Object)", "int GetHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     GetHistoryCmd getHistoryCmd = new GetHistoryCmd(1, "Entity Type", "42", "Keys", 1L, 3L, 42L, 1, "Agg");
@@ -251,6 +329,8 @@ class GetHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GetHistoryCmd.equals(Object)", "int GetHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     GetHistoryCmd getHistoryCmd = new GetHistoryCmd(1, "Entity Type", "42", "Keys", 1L, 1L, 1L, 1, "Agg");
@@ -270,6 +350,8 @@ class GetHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GetHistoryCmd.equals(Object)", "int GetHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     GetHistoryCmd getHistoryCmd = new GetHistoryCmd(1, "Entity Type", "42", "Keys", 1L, 1L, 42L, 3, "Agg");
@@ -289,6 +371,8 @@ class GetHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GetHistoryCmd.equals(Object)", "int GetHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     GetHistoryCmd getHistoryCmd = new GetHistoryCmd(1, "Entity Type", "42", "Keys", 1L, 1L, 42L, 1, "Entity Type");
@@ -308,6 +392,8 @@ class GetHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GetHistoryCmd.equals(Object)", "int GetHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     GetHistoryCmd getHistoryCmd = new GetHistoryCmd(1, "Entity Type", "42", "Keys", 1L, 1L, 42L, 1, null);
@@ -327,6 +413,8 @@ class GetHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GetHistoryCmd.equals(Object)", "int GetHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new GetHistoryCmd(1, "Entity Type", "42", "Keys", 1L, 1L, 42L, 1, "Agg"), null);
@@ -343,6 +431,8 @@ class GetHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GetHistoryCmd.equals(Object)", "int GetHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new GetHistoryCmd(1, "Entity Type", "42", "Keys", 1L, 1L, 42L, 1, "Agg"),
@@ -379,6 +469,15 @@ class GetHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void GetHistoryCmd.<init>()", "String GetHistoryCmd.getAgg()", "int GetHistoryCmd.getCmdId()",
+      "long GetHistoryCmd.getEndTs()", "String GetHistoryCmd.getEntityId()", "String GetHistoryCmd.getEntityType()",
+      "long GetHistoryCmd.getInterval()", "String GetHistoryCmd.getKeys()", "int GetHistoryCmd.getLimit()",
+      "long GetHistoryCmd.getStartTs()", "WsCmdType GetHistoryCmd.getType()", "void GetHistoryCmd.setAgg(String)",
+      "void GetHistoryCmd.setCmdId(int)", "void GetHistoryCmd.setEndTs(long)", "void GetHistoryCmd.setEntityId(String)",
+      "void GetHistoryCmd.setEntityType(String)", "void GetHistoryCmd.setInterval(long)",
+      "void GetHistoryCmd.setKeys(String)", "void GetHistoryCmd.setLimit(int)", "void GetHistoryCmd.setStartTs(long)",
+      "String GetHistoryCmd.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     GetHistoryCmd actualGetHistoryCmd = new GetHistoryCmd();
@@ -402,7 +501,7 @@ class GetHistoryCmdDiffblueTest {
     int actualLimit = actualGetHistoryCmd.getLimit();
     long actualStartTs = actualGetHistoryCmd.getStartTs();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("42", actualEntityId);
     assertEquals("Agg", actualAgg);
     assertEquals("Entity Type", actualEntityType);
@@ -420,14 +519,14 @@ class GetHistoryCmdDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link GetHistoryCmd#GetHistoryCmd(int, String, String, String, long, long, long, int, String)}.
+   * Test {@link GetHistoryCmd#GetHistoryCmd(int, String, String, String, long, long, long, int, String)}.
    * <p>
-   * Method under test:
-   * {@link GetHistoryCmd#GetHistoryCmd(int, String, String, String, long, long, long, int, String)}
+   * Method under test: {@link GetHistoryCmd#GetHistoryCmd(int, String, String, String, long, long, long, int, String)}
    */
   @Test
   @DisplayName("Test new GetHistoryCmd(int, String, String, String, long, long, long, int, String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void GetHistoryCmd.<init>(int, String, String, String, long, long, long, int, String)"})
   void testNewGetHistoryCmd() {
     // Arrange and Act
     GetHistoryCmd actualGetHistoryCmd = new GetHistoryCmd(1, "Entity Type", "42", "Keys", 1L, 1L, 42L, 1, "Agg");

@@ -2,7 +2,9 @@ package org.thingsboard.server.common.data.security.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.security.Authority;
 
@@ -22,6 +24,8 @@ class JwtPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtPair.equals(Object)", "int JwtPair.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     JwtPair jwtPair = new JwtPair("ABC123", "ABC123");
@@ -48,6 +52,8 @@ class JwtPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtPair.equals(Object)", "int JwtPair.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     JwtPair jwtPair = new JwtPair(null, "ABC123");
@@ -74,6 +80,8 @@ class JwtPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtPair.equals(Object)", "int JwtPair.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     JwtPair jwtPair = new JwtPair("ABC123", null);
@@ -100,6 +108,8 @@ class JwtPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtPair.equals(Object)", "int JwtPair.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     JwtPair jwtPair = new JwtPair("ABC123", "ABC123");
@@ -129,6 +139,8 @@ class JwtPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtPair.equals(Object)", "int JwtPair.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     JwtPair jwtPair = new JwtPair("ABC123", "ABC123");
@@ -150,6 +162,8 @@ class JwtPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtPair.equals(Object)", "int JwtPair.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     JwtPair jwtPair = new JwtPair("Token", "ABC123");
@@ -169,6 +183,8 @@ class JwtPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtPair.equals(Object)", "int JwtPair.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     JwtPair jwtPair = new JwtPair(null, "ABC123");
@@ -188,6 +204,8 @@ class JwtPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtPair.equals(Object)", "int JwtPair.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     JwtPair jwtPair = new JwtPair("ABC123", "Refresh Token");
@@ -207,6 +225,8 @@ class JwtPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtPair.equals(Object)", "int JwtPair.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     JwtPair jwtPair = new JwtPair("ABC123", null);
@@ -226,6 +246,8 @@ class JwtPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtPair.equals(Object)", "int JwtPair.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     JwtPair jwtPair = new JwtPair("ABC123", "ABC123");
@@ -246,6 +268,8 @@ class JwtPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtPair.equals(Object)", "int JwtPair.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     JwtPair jwtPair = new JwtPair("ABC123", "ABC123");
@@ -268,6 +292,8 @@ class JwtPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtPair.equals(Object)", "int JwtPair.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new JwtPair("ABC123", "ABC123"), null);
@@ -284,6 +310,8 @@ class JwtPairDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean JwtPair.equals(Object)", "int JwtPair.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new JwtPair("ABC123", "ABC123"), "Different type to JwtPair");
@@ -306,6 +334,10 @@ class JwtPairDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void JwtPair.<init>()", "void JwtPair.<init>(String, String)", "String JwtPair.getRefreshToken()",
+      "Authority JwtPair.getScope()", "String JwtPair.getToken()", "void JwtPair.setRefreshToken(String)",
+      "void JwtPair.setScope(Authority)", "void JwtPair.setToken(String)", "String JwtPair.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     JwtPair actualJwtPair = new JwtPair();
@@ -316,7 +348,7 @@ class JwtPairDiffblueTest {
     String actualRefreshToken = actualJwtPair.getRefreshToken();
     Authority actualScope = actualJwtPair.getScope();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("ABC123", actualRefreshToken);
     assertEquals("ABC123", actualJwtPair.getToken());
     assertEquals("JwtPair(token=ABC123, refreshToken=ABC123, scope=SYS_ADMIN)", actualToStringResult);
@@ -343,6 +375,10 @@ class JwtPairDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when 'ABC123'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void JwtPair.<init>()", "void JwtPair.<init>(String, String)", "String JwtPair.getRefreshToken()",
+      "Authority JwtPair.getScope()", "String JwtPair.getToken()", "void JwtPair.setRefreshToken(String)",
+      "void JwtPair.setScope(Authority)", "void JwtPair.setToken(String)", "String JwtPair.toString()"})
   void testGettersAndSetters_whenAbc123() {
     // Arrange and Act
     JwtPair actualJwtPair = new JwtPair("ABC123", "ABC123");
@@ -353,7 +389,7 @@ class JwtPairDiffblueTest {
     String actualRefreshToken = actualJwtPair.getRefreshToken();
     Authority actualScope = actualJwtPair.getScope();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("ABC123", actualRefreshToken);
     assertEquals("ABC123", actualJwtPair.getToken());
     assertEquals("JwtPair(token=ABC123, refreshToken=ABC123, scope=SYS_ADMIN)", actualToStringResult);

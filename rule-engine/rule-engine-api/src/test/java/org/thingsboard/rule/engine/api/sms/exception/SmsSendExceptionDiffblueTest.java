@@ -3,7 +3,9 @@ package org.thingsboard.rule.engine.api.sms.exception;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class SmsSendExceptionDiffblueTest {
@@ -18,6 +20,8 @@ class SmsSendExceptionDiffblueTest {
    */
   @Test
   @DisplayName("Test new SmsSendException(String); when 'Msg'; then return Cause is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SmsSendException.<init>(String)", "void SmsSendException.<init>(String, Throwable)"})
   void testNewSmsSendException_whenMsg_thenReturnCauseIsNull() {
     // Arrange and Act
     SmsSendException actualSmsSendException = new SmsSendException("Msg");
@@ -35,11 +39,12 @@ class SmsSendExceptionDiffblueTest {
    *   <li>Then return Cause is {@link Throwable#Throwable()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SmsSendException#SmsSendException(String, Throwable)}
+   * Method under test: {@link SmsSendException#SmsSendException(String, Throwable)}
    */
   @Test
   @DisplayName("Test new SmsSendException(String, Throwable); when Throwable(); then return Cause is Throwable()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SmsSendException.<init>(String)", "void SmsSendException.<init>(String, Throwable)"})
   void testNewSmsSendException_whenThrowable_thenReturnCauseIsThrowable() {
     // Arrange
     Throwable cause = new Throwable();

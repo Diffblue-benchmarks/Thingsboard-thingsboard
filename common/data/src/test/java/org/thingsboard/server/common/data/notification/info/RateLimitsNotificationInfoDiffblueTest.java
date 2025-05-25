@@ -7,18 +7,29 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Map;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.EntityId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.limit.LimitedApi;
 import org.thingsboard.server.common.data.notification.info.RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder;
 
+@ContextConfiguration(classes = {RateLimitsNotificationInfoBuilder.class})
+@ExtendWith(SpringExtension.class)
 class RateLimitsNotificationInfoDiffblueTest {
+  @Autowired
+  private RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder;
+
   /**
    * Test {@link RateLimitsNotificationInfo#getTemplateData()}.
    * <p>
@@ -26,6 +37,8 @@ class RateLimitsNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getTemplateData()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Map RateLimitsNotificationInfo.getTemplateData()"})
   void testGetTemplateData() {
     // Arrange
     RateLimitsNotificationInfo buildResult = RateLimitsNotificationInfo.builder()
@@ -59,6 +72,8 @@ class RateLimitsNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getTemplateData(); then return 'limitLevelEntityId' is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Map RateLimitsNotificationInfo.getTemplateData()"})
   void testGetTemplateData_thenReturnLimitLevelEntityIdIsNull() {
     // Arrange
     RateLimitsNotificationInfo buildResult = RateLimitsNotificationInfo.builder()
@@ -84,8 +99,7 @@ class RateLimitsNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link RateLimitsNotificationInfo#equals(Object)}, and
-   * {@link RateLimitsNotificationInfo#hashCode()}.
+   * Test {@link RateLimitsNotificationInfo#equals(Object)}, and {@link RateLimitsNotificationInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -99,6 +113,8 @@ class RateLimitsNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsNotificationInfo.equals(Object)", "int RateLimitsNotificationInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     RateLimitsNotificationInfo buildResult = RateLimitsNotificationInfo.builder()
@@ -123,8 +139,7 @@ class RateLimitsNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link RateLimitsNotificationInfo#equals(Object)}, and
-   * {@link RateLimitsNotificationInfo#hashCode()}.
+   * Test {@link RateLimitsNotificationInfo#equals(Object)}, and {@link RateLimitsNotificationInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -138,10 +153,11 @@ class RateLimitsNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsNotificationInfo.equals(Object)", "int RateLimitsNotificationInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder.api(Mockito.<LimitedApi>any()))
         .thenReturn(RateLimitsNotificationInfo.builder());
     RateLimitsNotificationInfo buildResult = rateLimitsNotificationInfoBuilder.api(LimitedApi.ENTITY_EXPORT)
@@ -150,8 +166,8 @@ class RateLimitsNotificationInfoDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .tenantName("Tenant Name")
         .build();
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder2 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder2 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder2.api(Mockito.<LimitedApi>any()))
         .thenReturn(RateLimitsNotificationInfo.builder());
     RateLimitsNotificationInfo buildResult2 = rateLimitsNotificationInfoBuilder2.api(LimitedApi.ENTITY_EXPORT)
@@ -168,8 +184,7 @@ class RateLimitsNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link RateLimitsNotificationInfo#equals(Object)}, and
-   * {@link RateLimitsNotificationInfo#hashCode()}.
+   * Test {@link RateLimitsNotificationInfo#equals(Object)}, and {@link RateLimitsNotificationInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -183,14 +198,15 @@ class RateLimitsNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsNotificationInfo.equals(Object)", "int RateLimitsNotificationInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder.limitLevel(Mockito.<EntityId>any()))
         .thenReturn(RateLimitsNotificationInfo.builder());
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder2 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder2 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder2.api(Mockito.<LimitedApi>any()))
         .thenReturn(rateLimitsNotificationInfoBuilder);
     RateLimitsNotificationInfo buildResult = rateLimitsNotificationInfoBuilder2.api(LimitedApi.ENTITY_EXPORT)
@@ -199,12 +215,12 @@ class RateLimitsNotificationInfoDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .tenantName("Tenant Name")
         .build();
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder3 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder3 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder3.limitLevel(Mockito.<EntityId>any()))
         .thenReturn(RateLimitsNotificationInfo.builder());
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder4 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder4 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder4.api(Mockito.<LimitedApi>any()))
         .thenReturn(rateLimitsNotificationInfoBuilder3);
     RateLimitsNotificationInfo buildResult2 = rateLimitsNotificationInfoBuilder4.api(LimitedApi.ENTITY_EXPORT)
@@ -221,8 +237,7 @@ class RateLimitsNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link RateLimitsNotificationInfo#equals(Object)}, and
-   * {@link RateLimitsNotificationInfo#hashCode()}.
+   * Test {@link RateLimitsNotificationInfo#equals(Object)}, and {@link RateLimitsNotificationInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -236,18 +251,19 @@ class RateLimitsNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsNotificationInfo.equals(Object)", "int RateLimitsNotificationInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder.limitLevelEntityName(Mockito.<String>any()))
         .thenReturn(RateLimitsNotificationInfo.builder());
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder2 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder2 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder2.limitLevel(Mockito.<EntityId>any()))
         .thenReturn(rateLimitsNotificationInfoBuilder);
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder3 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder3 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder3.api(Mockito.<LimitedApi>any()))
         .thenReturn(rateLimitsNotificationInfoBuilder2);
     RateLimitsNotificationInfo buildResult = rateLimitsNotificationInfoBuilder3.api(LimitedApi.ENTITY_EXPORT)
@@ -256,16 +272,16 @@ class RateLimitsNotificationInfoDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .tenantName("Tenant Name")
         .build();
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder4 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder4 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder4.limitLevelEntityName(Mockito.<String>any()))
         .thenReturn(RateLimitsNotificationInfo.builder());
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder5 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder5 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder5.limitLevel(Mockito.<EntityId>any()))
         .thenReturn(rateLimitsNotificationInfoBuilder4);
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder6 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder6 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder6.api(Mockito.<LimitedApi>any()))
         .thenReturn(rateLimitsNotificationInfoBuilder5);
     RateLimitsNotificationInfo buildResult2 = rateLimitsNotificationInfoBuilder6.api(LimitedApi.ENTITY_EXPORT)
@@ -282,8 +298,7 @@ class RateLimitsNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link RateLimitsNotificationInfo#equals(Object)}, and
-   * {@link RateLimitsNotificationInfo#hashCode()}.
+   * Test {@link RateLimitsNotificationInfo#equals(Object)}, and {@link RateLimitsNotificationInfo#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -297,6 +312,8 @@ class RateLimitsNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsNotificationInfo.equals(Object)", "int RateLimitsNotificationInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     RateLimitsNotificationInfo buildResult = RateLimitsNotificationInfo.builder()
@@ -324,10 +341,11 @@ class RateLimitsNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsNotificationInfo.equals(Object)", "int RateLimitsNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder.api(Mockito.<LimitedApi>any()))
         .thenReturn(RateLimitsNotificationInfo.builder());
     RateLimitsNotificationInfo buildResult = rateLimitsNotificationInfoBuilder.api(LimitedApi.ENTITY_EXPORT)
@@ -359,13 +377,14 @@ class RateLimitsNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsNotificationInfo.equals(Object)", "int RateLimitsNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder.api(Mockito.<LimitedApi>any()))
         .thenReturn(RateLimitsNotificationInfo.builder());
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder limitLevelEntityNameResult = rateLimitsNotificationInfoBuilder
+    RateLimitsNotificationInfoBuilder limitLevelEntityNameResult = rateLimitsNotificationInfoBuilder
         .api(LimitedApi.ENTITY_EXPORT)
         .limitLevel(TenantId.SYS_TENANT_ID)
         .limitLevelEntityName("Limit Level Entity Name");
@@ -396,10 +415,11 @@ class RateLimitsNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsNotificationInfo.equals(Object)", "int RateLimitsNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder.api(Mockito.<LimitedApi>any()))
         .thenReturn(RateLimitsNotificationInfo.builder());
     RateLimitsNotificationInfo buildResult = rateLimitsNotificationInfoBuilder.api(LimitedApi.ENTITY_EXPORT)
@@ -431,10 +451,11 @@ class RateLimitsNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsNotificationInfo.equals(Object)", "int RateLimitsNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder.api(Mockito.<LimitedApi>any()))
         .thenReturn(RateLimitsNotificationInfo.builder());
     RateLimitsNotificationInfo buildResult = rateLimitsNotificationInfoBuilder.api(LimitedApi.ENTITY_EXPORT)
@@ -466,10 +487,11 @@ class RateLimitsNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsNotificationInfo.equals(Object)", "int RateLimitsNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder.api(Mockito.<LimitedApi>any()))
         .thenReturn(RateLimitsNotificationInfo.builder());
     RateLimitsNotificationInfo buildResult = rateLimitsNotificationInfoBuilder.api(LimitedApi.ENTITY_EXPORT)
@@ -501,14 +523,15 @@ class RateLimitsNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsNotificationInfo.equals(Object)", "int RateLimitsNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder.limitLevel(Mockito.<EntityId>any()))
         .thenReturn(RateLimitsNotificationInfo.builder());
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder2 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder2 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder2.api(Mockito.<LimitedApi>any()))
         .thenReturn(rateLimitsNotificationInfoBuilder);
     RateLimitsNotificationInfo buildResult = rateLimitsNotificationInfoBuilder2.api(LimitedApi.ENTITY_EXPORT)
@@ -517,8 +540,8 @@ class RateLimitsNotificationInfoDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .tenantName("Tenant Name")
         .build();
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder3 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder3 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder3.api(Mockito.<LimitedApi>any()))
         .thenReturn(RateLimitsNotificationInfo.builder());
     RateLimitsNotificationInfo buildResult2 = rateLimitsNotificationInfoBuilder3.api(LimitedApi.ENTITY_EXPORT)
@@ -543,18 +566,19 @@ class RateLimitsNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsNotificationInfo.equals(Object)", "int RateLimitsNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder.limitLevelEntityName(Mockito.<String>any()))
         .thenReturn(RateLimitsNotificationInfo.builder());
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder2 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder2 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder2.limitLevel(Mockito.<EntityId>any()))
         .thenReturn(rateLimitsNotificationInfoBuilder);
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder3 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder3 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder3.api(Mockito.<LimitedApi>any()))
         .thenReturn(rateLimitsNotificationInfoBuilder2);
     RateLimitsNotificationInfo buildResult = rateLimitsNotificationInfoBuilder3.api(LimitedApi.ENTITY_EXPORT)
@@ -563,12 +587,12 @@ class RateLimitsNotificationInfoDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .tenantName("Tenant Name")
         .build();
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder4 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder4 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder4.limitLevel(Mockito.<EntityId>any()))
         .thenReturn(RateLimitsNotificationInfo.builder());
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder5 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder5 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder5.api(Mockito.<LimitedApi>any()))
         .thenReturn(rateLimitsNotificationInfoBuilder4);
     RateLimitsNotificationInfo buildResult2 = rateLimitsNotificationInfoBuilder5.api(LimitedApi.ENTITY_EXPORT)
@@ -593,19 +617,20 @@ class RateLimitsNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsNotificationInfo.equals(Object)", "int RateLimitsNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder builderResult = RateLimitsNotificationInfo.builder();
+    RateLimitsNotificationInfoBuilder builderResult = RateLimitsNotificationInfo.builder();
     builderResult.api(LimitedApi.ENTITY_EXPORT);
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder.limitLevelEntityName(Mockito.<String>any())).thenReturn(builderResult);
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder2 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder2 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder2.limitLevel(Mockito.<EntityId>any()))
         .thenReturn(rateLimitsNotificationInfoBuilder);
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder3 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder3 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder3.api(Mockito.<LimitedApi>any()))
         .thenReturn(rateLimitsNotificationInfoBuilder2);
     RateLimitsNotificationInfo buildResult = rateLimitsNotificationInfoBuilder3.api(LimitedApi.ENTITY_EXPORT)
@@ -614,16 +639,16 @@ class RateLimitsNotificationInfoDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .tenantName("Tenant Name")
         .build();
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder4 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder4 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder4.limitLevelEntityName(Mockito.<String>any()))
         .thenReturn(RateLimitsNotificationInfo.builder());
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder5 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder5 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder5.limitLevel(Mockito.<EntityId>any()))
         .thenReturn(rateLimitsNotificationInfoBuilder4);
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder6 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder6 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder6.api(Mockito.<LimitedApi>any()))
         .thenReturn(rateLimitsNotificationInfoBuilder5);
     RateLimitsNotificationInfo buildResult2 = rateLimitsNotificationInfoBuilder6.api(LimitedApi.ENTITY_EXPORT)
@@ -648,19 +673,20 @@ class RateLimitsNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsNotificationInfo.equals(Object)", "int RateLimitsNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder builderResult = RateLimitsNotificationInfo.builder();
+    RateLimitsNotificationInfoBuilder builderResult = RateLimitsNotificationInfo.builder();
     builderResult.limitLevel(TenantId.SYS_TENANT_ID);
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder.limitLevelEntityName(Mockito.<String>any())).thenReturn(builderResult);
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder2 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder2 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder2.limitLevel(Mockito.<EntityId>any()))
         .thenReturn(rateLimitsNotificationInfoBuilder);
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder3 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder3 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder3.api(Mockito.<LimitedApi>any()))
         .thenReturn(rateLimitsNotificationInfoBuilder2);
     RateLimitsNotificationInfo buildResult = rateLimitsNotificationInfoBuilder3.api(LimitedApi.ENTITY_EXPORT)
@@ -669,16 +695,16 @@ class RateLimitsNotificationInfoDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .tenantName("Tenant Name")
         .build();
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder4 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder4 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder4.limitLevelEntityName(Mockito.<String>any()))
         .thenReturn(RateLimitsNotificationInfo.builder());
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder5 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder5 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder5.limitLevel(Mockito.<EntityId>any()))
         .thenReturn(rateLimitsNotificationInfoBuilder4);
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder6 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder6 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder6.api(Mockito.<LimitedApi>any()))
         .thenReturn(rateLimitsNotificationInfoBuilder5);
     RateLimitsNotificationInfo buildResult2 = rateLimitsNotificationInfoBuilder6.api(LimitedApi.ENTITY_EXPORT)
@@ -703,19 +729,20 @@ class RateLimitsNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsNotificationInfo.equals(Object)", "int RateLimitsNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder builderResult = RateLimitsNotificationInfo.builder();
+    RateLimitsNotificationInfoBuilder builderResult = RateLimitsNotificationInfo.builder();
     builderResult.limitLevelEntityName("Tenant Name");
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder = mock(RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder.limitLevelEntityName(Mockito.<String>any())).thenReturn(builderResult);
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder2 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder2 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder2.limitLevel(Mockito.<EntityId>any()))
         .thenReturn(rateLimitsNotificationInfoBuilder);
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder3 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder3 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder3.api(Mockito.<LimitedApi>any()))
         .thenReturn(rateLimitsNotificationInfoBuilder2);
     RateLimitsNotificationInfo buildResult = rateLimitsNotificationInfoBuilder3.api(LimitedApi.ENTITY_EXPORT)
@@ -724,16 +751,16 @@ class RateLimitsNotificationInfoDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .tenantName("Tenant Name")
         .build();
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder4 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder4 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder4.limitLevelEntityName(Mockito.<String>any()))
         .thenReturn(RateLimitsNotificationInfo.builder());
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder5 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder5 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder5.limitLevel(Mockito.<EntityId>any()))
         .thenReturn(rateLimitsNotificationInfoBuilder4);
-    RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder6 = mock(
-        RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder.class);
+    RateLimitsNotificationInfoBuilder rateLimitsNotificationInfoBuilder6 = mock(
+        RateLimitsNotificationInfoBuilder.class);
     when(rateLimitsNotificationInfoBuilder6.api(Mockito.<LimitedApi>any()))
         .thenReturn(rateLimitsNotificationInfoBuilder5);
     RateLimitsNotificationInfo buildResult2 = rateLimitsNotificationInfoBuilder6.api(LimitedApi.ENTITY_EXPORT)
@@ -758,6 +785,8 @@ class RateLimitsNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsNotificationInfo.equals(Object)", "int RateLimitsNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     RateLimitsNotificationInfo buildResult = RateLimitsNotificationInfo.builder()
@@ -783,6 +812,8 @@ class RateLimitsNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RateLimitsNotificationInfo.equals(Object)", "int RateLimitsNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     RateLimitsNotificationInfo buildResult = RateLimitsNotificationInfo.builder()
@@ -819,6 +850,17 @@ class RateLimitsNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void RateLimitsNotificationInfo.<init>()",
+      "void RateLimitsNotificationInfo.<init>(TenantId, String, LimitedApi, EntityId, String)",
+      "TenantId RateLimitsNotificationInfo.getAffectedTenantId()", "LimitedApi RateLimitsNotificationInfo.getApi()",
+      "EntityId RateLimitsNotificationInfo.getLimitLevel()",
+      "String RateLimitsNotificationInfo.getLimitLevelEntityName()",
+      "TenantId RateLimitsNotificationInfo.getTenantId()", "String RateLimitsNotificationInfo.getTenantName()",
+      "void RateLimitsNotificationInfo.setApi(LimitedApi)", "void RateLimitsNotificationInfo.setLimitLevel(EntityId)",
+      "void RateLimitsNotificationInfo.setLimitLevelEntityName(String)",
+      "void RateLimitsNotificationInfo.setTenantId(TenantId)", "void RateLimitsNotificationInfo.setTenantName(String)",
+      "String RateLimitsNotificationInfo.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     RateLimitsNotificationInfo actualRateLimitsNotificationInfo = new RateLimitsNotificationInfo();
@@ -834,7 +876,7 @@ class RateLimitsNotificationInfoDiffblueTest {
     String actualLimitLevelEntityName = actualRateLimitsNotificationInfo.getLimitLevelEntityName();
     TenantId actualTenantId = actualRateLimitsNotificationInfo.getTenantId();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Limit Level Entity Name", actualLimitLevelEntityName);
     assertEquals("RateLimitsNotificationInfo(tenantId=13814000-1dd2-11b2-8080-808080808080, tenantName=Tenant Name,"
         + " api=ENTITY_EXPORT, limitLevel=13814000-1dd2-11b2-8080-808080808080, limitLevelEntityName=Limit Level"
@@ -855,8 +897,7 @@ class RateLimitsNotificationInfoDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link RateLimitsNotificationInfo#RateLimitsNotificationInfo(TenantId, String, LimitedApi, EntityId, String)}
+   *   <li>{@link RateLimitsNotificationInfo#RateLimitsNotificationInfo(TenantId, String, LimitedApi, EntityId, String)}
    *   <li>{@link RateLimitsNotificationInfo#setApi(LimitedApi)}
    *   <li>{@link RateLimitsNotificationInfo#setLimitLevel(EntityId)}
    *   <li>{@link RateLimitsNotificationInfo#setLimitLevelEntityName(String)}
@@ -873,6 +914,17 @@ class RateLimitsNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when SYS_TENANT_ID")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void RateLimitsNotificationInfo.<init>()",
+      "void RateLimitsNotificationInfo.<init>(TenantId, String, LimitedApi, EntityId, String)",
+      "TenantId RateLimitsNotificationInfo.getAffectedTenantId()", "LimitedApi RateLimitsNotificationInfo.getApi()",
+      "EntityId RateLimitsNotificationInfo.getLimitLevel()",
+      "String RateLimitsNotificationInfo.getLimitLevelEntityName()",
+      "TenantId RateLimitsNotificationInfo.getTenantId()", "String RateLimitsNotificationInfo.getTenantName()",
+      "void RateLimitsNotificationInfo.setApi(LimitedApi)", "void RateLimitsNotificationInfo.setLimitLevel(EntityId)",
+      "void RateLimitsNotificationInfo.setLimitLevelEntityName(String)",
+      "void RateLimitsNotificationInfo.setTenantId(TenantId)", "void RateLimitsNotificationInfo.setTenantName(String)",
+      "String RateLimitsNotificationInfo.toString()"})
   void testGettersAndSetters_whenSys_tenant_id() {
     // Arrange and Act
     RateLimitsNotificationInfo actualRateLimitsNotificationInfo = new RateLimitsNotificationInfo(TenantId.SYS_TENANT_ID,
@@ -889,7 +941,7 @@ class RateLimitsNotificationInfoDiffblueTest {
     String actualLimitLevelEntityName = actualRateLimitsNotificationInfo.getLimitLevelEntityName();
     TenantId actualTenantId = actualRateLimitsNotificationInfo.getTenantId();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Limit Level Entity Name", actualLimitLevelEntityName);
     assertEquals("RateLimitsNotificationInfo(tenantId=13814000-1dd2-11b2-8080-808080808080, tenantName=Tenant Name,"
         + " api=ENTITY_EXPORT, limitLevel=13814000-1dd2-11b2-8080-808080808080, limitLevelEntityName=Limit Level"
@@ -903,27 +955,29 @@ class RateLimitsNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test RateLimitsNotificationInfoBuilder
-   * {@link RateLimitsNotificationInfoBuilder#build()}.
+   * Test RateLimitsNotificationInfoBuilder {@link RateLimitsNotificationInfoBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder#build()}
-   *   <li>
-   * {@link RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder#api(LimitedApi)}
-   *   <li>
-   * {@link RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder#limitLevel(EntityId)}
-   *   <li>
-   * {@link RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder#limitLevelEntityName(String)}
-   *   <li>
-   * {@link RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder#tenantId(TenantId)}
-   *   <li>
-   * {@link RateLimitsNotificationInfo.RateLimitsNotificationInfoBuilder#tenantName(String)}
+   *   <li>{@link RateLimitsNotificationInfoBuilder#build()}
+   *   <li>{@link RateLimitsNotificationInfoBuilder#api(LimitedApi)}
+   *   <li>{@link RateLimitsNotificationInfoBuilder#limitLevel(EntityId)}
+   *   <li>{@link RateLimitsNotificationInfoBuilder#limitLevelEntityName(String)}
+   *   <li>{@link RateLimitsNotificationInfoBuilder#tenantId(TenantId)}
+   *   <li>{@link RateLimitsNotificationInfoBuilder#tenantName(String)}
    * </ul>
    */
   @Test
   @DisplayName("Test RateLimitsNotificationInfoBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void RateLimitsNotificationInfoBuilder.<init>()",
+      "RateLimitsNotificationInfoBuilder RateLimitsNotificationInfoBuilder.api(LimitedApi)",
+      "RateLimitsNotificationInfo RateLimitsNotificationInfoBuilder.build()",
+      "RateLimitsNotificationInfoBuilder RateLimitsNotificationInfoBuilder.limitLevel(EntityId)",
+      "RateLimitsNotificationInfoBuilder RateLimitsNotificationInfoBuilder.limitLevelEntityName(String)",
+      "RateLimitsNotificationInfoBuilder RateLimitsNotificationInfoBuilder.tenantId(TenantId)",
+      "RateLimitsNotificationInfoBuilder RateLimitsNotificationInfoBuilder.tenantName(String)",
+      "String RateLimitsNotificationInfoBuilder.toString()"})
   void testRateLimitsNotificationInfoBuilderBuild() {
     // Arrange and Act
     RateLimitsNotificationInfo actualBuildResult = RateLimitsNotificationInfo.builder()

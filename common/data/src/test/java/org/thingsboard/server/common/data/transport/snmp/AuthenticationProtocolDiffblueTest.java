@@ -3,8 +3,10 @@ package org.thingsboard.server.common.data.transport.snmp;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Optional;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class AuthenticationProtocolDiffblueTest {
@@ -19,6 +21,8 @@ class AuthenticationProtocolDiffblueTest {
    */
   @Test
   @DisplayName("Test forName(String); when 'MD5'; then return get() is 'MD5'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Optional AuthenticationProtocol.forName(String)"})
   void testForName_whenMd5_thenReturnGetIsMd5() {
     // Arrange and Act
     Optional<AuthenticationProtocol> actualForNameResult = AuthenticationProtocol.forName("MD5");
@@ -39,6 +43,8 @@ class AuthenticationProtocolDiffblueTest {
    */
   @Test
   @DisplayName("Test forName(String); when 'Name'; then return not Present")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Optional AuthenticationProtocol.forName(String)"})
   void testForName_whenName_thenReturnNotPresent() {
     // Arrange and Act
     Optional<AuthenticationProtocol> actualForNameResult = AuthenticationProtocol.forName("Name");

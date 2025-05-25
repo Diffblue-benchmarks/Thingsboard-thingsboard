@@ -2,13 +2,14 @@ package org.thingsboard.server.common.data.kv;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class AttributeKeyDiffblueTest {
   /**
-   * Test {@link AttributeKey#equals(Object)}, and
-   * {@link AttributeKey#hashCode()}.
+   * Test {@link AttributeKey#equals(Object)}, and {@link AttributeKey#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -22,6 +23,8 @@ class AttributeKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AttributeKey.equals(Object)", "int AttributeKey.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AttributeKey attributeKey = new AttributeKey("Scope", "Attribute Key");
@@ -34,8 +37,7 @@ class AttributeKeyDiffblueTest {
   }
 
   /**
-   * Test {@link AttributeKey#equals(Object)}, and
-   * {@link AttributeKey#hashCode()}.
+   * Test {@link AttributeKey#equals(Object)}, and {@link AttributeKey#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -49,6 +51,8 @@ class AttributeKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AttributeKey.equals(Object)", "int AttributeKey.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AttributeKey attributeKey = new AttributeKey(null, "Attribute Key");
@@ -61,8 +65,7 @@ class AttributeKeyDiffblueTest {
   }
 
   /**
-   * Test {@link AttributeKey#equals(Object)}, and
-   * {@link AttributeKey#hashCode()}.
+   * Test {@link AttributeKey#equals(Object)}, and {@link AttributeKey#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -76,6 +79,8 @@ class AttributeKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AttributeKey.equals(Object)", "int AttributeKey.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     AttributeKey attributeKey = new AttributeKey("Scope", null);
@@ -88,8 +93,7 @@ class AttributeKeyDiffblueTest {
   }
 
   /**
-   * Test {@link AttributeKey#equals(Object)}, and
-   * {@link AttributeKey#hashCode()}.
+   * Test {@link AttributeKey#equals(Object)}, and {@link AttributeKey#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -103,6 +107,8 @@ class AttributeKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AttributeKey.equals(Object)", "int AttributeKey.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AttributeKey attributeKey = new AttributeKey("Scope", "Attribute Key");
@@ -124,6 +130,8 @@ class AttributeKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AttributeKey.equals(Object)", "int AttributeKey.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AttributeKey attributeKey = new AttributeKey("Attribute Key", "Attribute Key");
@@ -143,6 +151,8 @@ class AttributeKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AttributeKey.equals(Object)", "int AttributeKey.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AttributeKey attributeKey = new AttributeKey(null, "Attribute Key");
@@ -162,6 +172,8 @@ class AttributeKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AttributeKey.equals(Object)", "int AttributeKey.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AttributeKey attributeKey = new AttributeKey("Scope", "Scope");
@@ -181,6 +193,8 @@ class AttributeKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AttributeKey.equals(Object)", "int AttributeKey.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AttributeKey attributeKey = new AttributeKey("Scope", null);
@@ -200,6 +214,8 @@ class AttributeKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AttributeKey.equals(Object)", "int AttributeKey.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AttributeKey("Scope", "Attribute Key"), null);
@@ -216,6 +232,8 @@ class AttributeKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AttributeKey.equals(Object)", "int AttributeKey.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AttributeKey("Scope", "Attribute Key"), "Different type to AttributeKey");
@@ -234,6 +252,9 @@ class AttributeKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AttributeKey.<init>(String, String)", "String AttributeKey.getAttributeKey()",
+      "String AttributeKey.getScope()", "String AttributeKey.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     AttributeKey actualAttributeKey = new AttributeKey("Scope", "Attribute Key");

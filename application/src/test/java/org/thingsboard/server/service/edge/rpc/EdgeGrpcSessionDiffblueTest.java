@@ -1,15 +1,18 @@
 package org.thingsboard.server.service.edge.rpc;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.grpc.netty.shaded.io.netty.channel.DefaultEventLoop;
 import io.grpc.stub.StreamObserver;
 import java.util.UUID;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.function.BiConsumer;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.edge.Edge;
 import org.thingsboard.server.common.data.id.EdgeId;
@@ -38,8 +41,7 @@ class EdgeGrpcSessionDiffblueTest {
    *   <li>{@link EdgeGrpcSession#setOutputStream(StreamObserver)}
    *   <li>{@link EdgeGrpcSession#setPreviousStartSeqId(Long)}
    *   <li>{@link EdgeGrpcSession#setPreviousStartTs(Long)}
-   *   <li>
-   * {@link EdgeGrpcSession#setSendDownlinkExecutorService(ScheduledExecutorService)}
+   *   <li>{@link EdgeGrpcSession#setSendDownlinkExecutorService(ScheduledExecutorService)}
    *   <li>{@link EdgeGrpcSession#setSeqIdEnd(Long)}
    *   <li>{@link EdgeGrpcSession#setSyncCompleted(boolean)}
    *   <li>{@link EdgeGrpcSession#setTenantId(TenantId)}
@@ -69,6 +71,29 @@ class EdgeGrpcSessionDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int EdgeGrpcSession.getClientMaxInboundMessageSize()",
+      "EdgeContextComponent EdgeGrpcSession.getCtx()", "Edge EdgeGrpcSession.getEdge()",
+      "EdgeVersion EdgeGrpcSession.getEdgeVersion()", "StreamObserver EdgeGrpcSession.getInputStream()",
+      "int EdgeGrpcSession.getMaxHighPriorityQueueSizePerSession()", "int EdgeGrpcSession.getMaxInboundMessageSize()",
+      "Long EdgeGrpcSession.getNewStartSeqId()", "Long EdgeGrpcSession.getNewStartTs()",
+      "StreamObserver EdgeGrpcSession.getOutputStream()", "Long EdgeGrpcSession.getPreviousStartSeqId()",
+      "Long EdgeGrpcSession.getPreviousStartTs()",
+      "ScheduledExecutorService EdgeGrpcSession.getSendDownlinkExecutorService()", "Long EdgeGrpcSession.getSeqIdEnd()",
+      "BiConsumer EdgeGrpcSession.getSessionCloseListener()", "UUID EdgeGrpcSession.getSessionId()",
+      "BiConsumer EdgeGrpcSession.getSessionOpenListener()", "EdgeSessionState EdgeGrpcSession.getSessionState()",
+      "TenantId EdgeGrpcSession.getTenantId()", "boolean EdgeGrpcSession.isConnected()",
+      "boolean EdgeGrpcSession.isSyncCompleted()", "void EdgeGrpcSession.setClientMaxInboundMessageSize(int)",
+      "void EdgeGrpcSession.setConnected(boolean)", "void EdgeGrpcSession.setCtx(EdgeContextComponent)",
+      "void EdgeGrpcSession.setEdge(Edge)", "void EdgeGrpcSession.setEdgeVersion(EdgeVersion)",
+      "void EdgeGrpcSession.setInputStream(StreamObserver)",
+      "void EdgeGrpcSession.setMaxHighPriorityQueueSizePerSession(int)",
+      "void EdgeGrpcSession.setMaxInboundMessageSize(int)", "void EdgeGrpcSession.setNewStartSeqId(Long)",
+      "void EdgeGrpcSession.setNewStartTs(Long)", "void EdgeGrpcSession.setOutputStream(StreamObserver)",
+      "void EdgeGrpcSession.setPreviousStartSeqId(Long)", "void EdgeGrpcSession.setPreviousStartTs(Long)",
+      "void EdgeGrpcSession.setSendDownlinkExecutorService(ScheduledExecutorService)",
+      "void EdgeGrpcSession.setSeqIdEnd(Long)", "void EdgeGrpcSession.setSyncCompleted(boolean)",
+      "void EdgeGrpcSession.setTenantId(TenantId)", "java.lang.String EdgeGrpcSession.toString()"})
   void testGettersAndSetters() {
     // Arrange
     EdgeContextComponent ctx = new EdgeContextComponent();
@@ -100,7 +125,7 @@ class EdgeGrpcSessionDiffblueTest {
     edgeGrpcSession.setSendDownlinkExecutorService(sendDownlinkExecutorService);
     edgeGrpcSession.setSeqIdEnd(1L);
     edgeGrpcSession.setSyncCompleted(true);
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     edgeGrpcSession.setTenantId(tenantId);
     edgeGrpcSession.toString();
     int actualClientMaxInboundMessageSize = edgeGrpcSession.getClientMaxInboundMessageSize();
@@ -125,7 +150,9 @@ class EdgeGrpcSessionDiffblueTest {
     boolean actualIsConnectedResult = edgeGrpcSession.isConnected();
     boolean actualIsSyncCompletedResult = edgeGrpcSession.isSyncCompleted();
 
-    // Assert that nothing has changed
+    // Assert
+    assertNull(actualSessionState.getSendDownlinkMsgsFuture());
+    assertNull(actualSessionState.getScheduledSendDownlinkTask());
     assertEquals(1L, actualNewStartSeqId.longValue());
     assertEquals(1L, actualNewStartTs.longValue());
     assertEquals(1L, actualPreviousStartSeqId.longValue());

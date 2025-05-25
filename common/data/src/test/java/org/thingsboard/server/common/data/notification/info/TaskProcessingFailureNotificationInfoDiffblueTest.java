@@ -8,27 +8,39 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.housekeeper.HousekeeperTaskType;
 import org.thingsboard.server.common.data.id.EntityId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.notification.info.TaskProcessingFailureNotificationInfo.TaskProcessingFailureNotificationInfoBuilder;
 
+@ContextConfiguration(classes = {TaskProcessingFailureNotificationInfoBuilder.class})
+@ExtendWith(SpringExtension.class)
 class TaskProcessingFailureNotificationInfoDiffblueTest {
+  @Autowired
+  private TaskProcessingFailureNotificationInfoBuilder taskProcessingFailureNotificationInfoBuilder;
+
   /**
    * Test {@link TaskProcessingFailureNotificationInfo#getTemplateData()}.
    * <ul>
    *   <li>Then return size is seven.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TaskProcessingFailureNotificationInfo#getTemplateData()}
+   * Method under test: {@link TaskProcessingFailureNotificationInfo#getTemplateData()}
    */
   @Test
   @DisplayName("Test getTemplateData(); then return size is seven")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Map TaskProcessingFailureNotificationInfo.getTemplateData()"})
   void testGetTemplateData_thenReturnSizeIsSeven() {
     // Arrange
     TaskProcessingFailureNotificationInfo buildResult = TaskProcessingFailureNotificationInfo.builder()
@@ -55,8 +67,7 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link TaskProcessingFailureNotificationInfo#equals(Object)}, and
-   * {@link TaskProcessingFailureNotificationInfo#hashCode()}.
+   * Test {@link TaskProcessingFailureNotificationInfo#equals(Object)}, and {@link TaskProcessingFailureNotificationInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -70,6 +81,9 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TaskProcessingFailureNotificationInfo.equals(Object)",
+      "int TaskProcessingFailureNotificationInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TaskProcessingFailureNotificationInfo buildResult = TaskProcessingFailureNotificationInfo.builder()
@@ -96,8 +110,7 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link TaskProcessingFailureNotificationInfo#equals(Object)}, and
-   * {@link TaskProcessingFailureNotificationInfo#hashCode()}.
+   * Test {@link TaskProcessingFailureNotificationInfo#equals(Object)}, and {@link TaskProcessingFailureNotificationInfo#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -111,6 +124,9 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TaskProcessingFailureNotificationInfo.equals(Object)",
+      "int TaskProcessingFailureNotificationInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TaskProcessingFailureNotificationInfo buildResult = TaskProcessingFailureNotificationInfo.builder()
@@ -135,15 +151,17 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TaskProcessingFailureNotificationInfo#equals(Object)}
+   * Method under test: {@link TaskProcessingFailureNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TaskProcessingFailureNotificationInfo.equals(Object)",
+      "int TaskProcessingFailureNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    TaskProcessingFailureNotificationInfo.TaskProcessingFailureNotificationInfoBuilder taskProcessingFailureNotificationInfoBuilder = mock(
-        TaskProcessingFailureNotificationInfo.TaskProcessingFailureNotificationInfoBuilder.class);
+    TaskProcessingFailureNotificationInfoBuilder taskProcessingFailureNotificationInfoBuilder = mock(
+        TaskProcessingFailureNotificationInfoBuilder.class);
     when(taskProcessingFailureNotificationInfoBuilder.attempt(anyInt()))
         .thenReturn(TaskProcessingFailureNotificationInfo.builder());
     TaskProcessingFailureNotificationInfo buildResult = taskProcessingFailureNotificationInfoBuilder.attempt(1)
@@ -173,11 +191,13 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TaskProcessingFailureNotificationInfo#equals(Object)}
+   * Method under test: {@link TaskProcessingFailureNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TaskProcessingFailureNotificationInfo.equals(Object)",
+      "int TaskProcessingFailureNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     TaskProcessingFailureNotificationInfo buildResult = TaskProcessingFailureNotificationInfo.builder()
@@ -200,11 +220,13 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TaskProcessingFailureNotificationInfo#equals(Object)}
+   * Method under test: {@link TaskProcessingFailureNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TaskProcessingFailureNotificationInfo.equals(Object)",
+      "int TaskProcessingFailureNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     TaskProcessingFailureNotificationInfo buildResult = TaskProcessingFailureNotificationInfo.builder()
@@ -225,14 +247,12 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link TaskProcessingFailureNotificationInfo#TaskProcessingFailureNotificationInfo()}
+   *   <li>{@link TaskProcessingFailureNotificationInfo#TaskProcessingFailureNotificationInfo()}
    *   <li>{@link TaskProcessingFailureNotificationInfo#setAttempt(int)}
    *   <li>{@link TaskProcessingFailureNotificationInfo#setEntityId(EntityId)}
    *   <li>{@link TaskProcessingFailureNotificationInfo#setError(String)}
    *   <li>{@link TaskProcessingFailureNotificationInfo#setTaskDescription(String)}
-   *   <li>
-   * {@link TaskProcessingFailureNotificationInfo#setTaskType(HousekeeperTaskType)}
+   *   <li>{@link TaskProcessingFailureNotificationInfo#setTaskType(HousekeeperTaskType)}
    *   <li>{@link TaskProcessingFailureNotificationInfo#setTenantId(TenantId)}
    *   <li>{@link TaskProcessingFailureNotificationInfo#toString()}
    *   <li>{@link TaskProcessingFailureNotificationInfo#getAffectedTenantId()}
@@ -246,6 +266,23 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TaskProcessingFailureNotificationInfo.<init>()",
+      "void TaskProcessingFailureNotificationInfo.<init>(TenantId, EntityId, HousekeeperTaskType, String, String, int)",
+      "TenantId TaskProcessingFailureNotificationInfo.getAffectedTenantId()",
+      "int TaskProcessingFailureNotificationInfo.getAttempt()",
+      "EntityId TaskProcessingFailureNotificationInfo.getEntityId()",
+      "String TaskProcessingFailureNotificationInfo.getError()",
+      "String TaskProcessingFailureNotificationInfo.getTaskDescription()",
+      "HousekeeperTaskType TaskProcessingFailureNotificationInfo.getTaskType()",
+      "TenantId TaskProcessingFailureNotificationInfo.getTenantId()",
+      "void TaskProcessingFailureNotificationInfo.setAttempt(int)",
+      "void TaskProcessingFailureNotificationInfo.setEntityId(EntityId)",
+      "void TaskProcessingFailureNotificationInfo.setError(String)",
+      "void TaskProcessingFailureNotificationInfo.setTaskDescription(String)",
+      "void TaskProcessingFailureNotificationInfo.setTaskType(HousekeeperTaskType)",
+      "void TaskProcessingFailureNotificationInfo.setTenantId(TenantId)",
+      "String TaskProcessingFailureNotificationInfo.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TaskProcessingFailureNotificationInfo actualTaskProcessingFailureNotificationInfo = new TaskProcessingFailureNotificationInfo();
@@ -264,7 +301,7 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
     HousekeeperTaskType actualTaskType = actualTaskProcessingFailureNotificationInfo.getTaskType();
     TenantId actualTenantId = actualTaskProcessingFailureNotificationInfo.getTenantId();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("An error occurred", actualError);
     assertEquals("Task Description", actualTaskDescription);
     assertEquals(
@@ -288,14 +325,12 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link TaskProcessingFailureNotificationInfo#TaskProcessingFailureNotificationInfo(TenantId, EntityId, HousekeeperTaskType, String, String, int)}
+   *   <li>{@link TaskProcessingFailureNotificationInfo#TaskProcessingFailureNotificationInfo(TenantId, EntityId, HousekeeperTaskType, String, String, int)}
    *   <li>{@link TaskProcessingFailureNotificationInfo#setAttempt(int)}
    *   <li>{@link TaskProcessingFailureNotificationInfo#setEntityId(EntityId)}
    *   <li>{@link TaskProcessingFailureNotificationInfo#setError(String)}
    *   <li>{@link TaskProcessingFailureNotificationInfo#setTaskDescription(String)}
-   *   <li>
-   * {@link TaskProcessingFailureNotificationInfo#setTaskType(HousekeeperTaskType)}
+   *   <li>{@link TaskProcessingFailureNotificationInfo#setTaskType(HousekeeperTaskType)}
    *   <li>{@link TaskProcessingFailureNotificationInfo#setTenantId(TenantId)}
    *   <li>{@link TaskProcessingFailureNotificationInfo#toString()}
    *   <li>{@link TaskProcessingFailureNotificationInfo#getAffectedTenantId()}
@@ -309,6 +344,23 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when SYS_TENANT_ID")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TaskProcessingFailureNotificationInfo.<init>()",
+      "void TaskProcessingFailureNotificationInfo.<init>(TenantId, EntityId, HousekeeperTaskType, String, String, int)",
+      "TenantId TaskProcessingFailureNotificationInfo.getAffectedTenantId()",
+      "int TaskProcessingFailureNotificationInfo.getAttempt()",
+      "EntityId TaskProcessingFailureNotificationInfo.getEntityId()",
+      "String TaskProcessingFailureNotificationInfo.getError()",
+      "String TaskProcessingFailureNotificationInfo.getTaskDescription()",
+      "HousekeeperTaskType TaskProcessingFailureNotificationInfo.getTaskType()",
+      "TenantId TaskProcessingFailureNotificationInfo.getTenantId()",
+      "void TaskProcessingFailureNotificationInfo.setAttempt(int)",
+      "void TaskProcessingFailureNotificationInfo.setEntityId(EntityId)",
+      "void TaskProcessingFailureNotificationInfo.setError(String)",
+      "void TaskProcessingFailureNotificationInfo.setTaskDescription(String)",
+      "void TaskProcessingFailureNotificationInfo.setTaskType(HousekeeperTaskType)",
+      "void TaskProcessingFailureNotificationInfo.setTenantId(TenantId)",
+      "String TaskProcessingFailureNotificationInfo.toString()"})
   void testGettersAndSetters_whenSys_tenant_id() {
     // Arrange and Act
     TaskProcessingFailureNotificationInfo actualTaskProcessingFailureNotificationInfo = new TaskProcessingFailureNotificationInfo(
@@ -329,7 +381,7 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
     HousekeeperTaskType actualTaskType = actualTaskProcessingFailureNotificationInfo.getTaskType();
     TenantId actualTenantId = actualTaskProcessingFailureNotificationInfo.getTenantId();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("An error occurred", actualError);
     assertEquals("Task Description", actualTaskDescription);
     assertEquals(
@@ -346,29 +398,31 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test TaskProcessingFailureNotificationInfoBuilder
-   * {@link TaskProcessingFailureNotificationInfoBuilder#build()}.
+   * Test TaskProcessingFailureNotificationInfoBuilder {@link TaskProcessingFailureNotificationInfoBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link TaskProcessingFailureNotificationInfo.TaskProcessingFailureNotificationInfoBuilder#build()}
-   *   <li>
-   * {@link TaskProcessingFailureNotificationInfo.TaskProcessingFailureNotificationInfoBuilder#attempt(int)}
-   *   <li>
-   * {@link TaskProcessingFailureNotificationInfo.TaskProcessingFailureNotificationInfoBuilder#entityId(EntityId)}
-   *   <li>
-   * {@link TaskProcessingFailureNotificationInfo.TaskProcessingFailureNotificationInfoBuilder#error(String)}
-   *   <li>
-   * {@link TaskProcessingFailureNotificationInfo.TaskProcessingFailureNotificationInfoBuilder#taskDescription(String)}
-   *   <li>
-   * {@link TaskProcessingFailureNotificationInfo.TaskProcessingFailureNotificationInfoBuilder#taskType(HousekeeperTaskType)}
-   *   <li>
-   * {@link TaskProcessingFailureNotificationInfo.TaskProcessingFailureNotificationInfoBuilder#tenantId(TenantId)}
+   *   <li>{@link TaskProcessingFailureNotificationInfoBuilder#build()}
+   *   <li>{@link TaskProcessingFailureNotificationInfoBuilder#attempt(int)}
+   *   <li>{@link TaskProcessingFailureNotificationInfoBuilder#entityId(EntityId)}
+   *   <li>{@link TaskProcessingFailureNotificationInfoBuilder#error(String)}
+   *   <li>{@link TaskProcessingFailureNotificationInfoBuilder#taskDescription(String)}
+   *   <li>{@link TaskProcessingFailureNotificationInfoBuilder#taskType(HousekeeperTaskType)}
+   *   <li>{@link TaskProcessingFailureNotificationInfoBuilder#tenantId(TenantId)}
    * </ul>
    */
   @Test
   @DisplayName("Test TaskProcessingFailureNotificationInfoBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TaskProcessingFailureNotificationInfoBuilder.<init>()",
+      "TaskProcessingFailureNotificationInfoBuilder TaskProcessingFailureNotificationInfoBuilder.attempt(int)",
+      "TaskProcessingFailureNotificationInfo TaskProcessingFailureNotificationInfoBuilder.build()",
+      "TaskProcessingFailureNotificationInfoBuilder TaskProcessingFailureNotificationInfoBuilder.entityId(EntityId)",
+      "TaskProcessingFailureNotificationInfoBuilder TaskProcessingFailureNotificationInfoBuilder.error(String)",
+      "TaskProcessingFailureNotificationInfoBuilder TaskProcessingFailureNotificationInfoBuilder.taskDescription(String)",
+      "TaskProcessingFailureNotificationInfoBuilder TaskProcessingFailureNotificationInfoBuilder.taskType(HousekeeperTaskType)",
+      "TaskProcessingFailureNotificationInfoBuilder TaskProcessingFailureNotificationInfoBuilder.tenantId(TenantId)",
+      "String TaskProcessingFailureNotificationInfoBuilder.toString()"})
   void testTaskProcessingFailureNotificationInfoBuilderBuild() {
     // Arrange and Act
     TaskProcessingFailureNotificationInfo actualBuildResult = TaskProcessingFailureNotificationInfo.builder()

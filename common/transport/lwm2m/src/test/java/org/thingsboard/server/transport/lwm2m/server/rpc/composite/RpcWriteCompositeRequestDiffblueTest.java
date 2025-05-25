@@ -4,17 +4,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.BiFunction;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class RpcWriteCompositeRequestDiffblueTest {
   /**
-   * Test {@link RpcWriteCompositeRequest#equals(Object)}, and
-   * {@link RpcWriteCompositeRequest#hashCode()}.
+   * Test {@link RpcWriteCompositeRequest#equals(Object)}, and {@link RpcWriteCompositeRequest#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -28,6 +27,8 @@ class RpcWriteCompositeRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RpcWriteCompositeRequest.equals(Object)", "int RpcWriteCompositeRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     RpcWriteCompositeRequest rpcWriteCompositeRequest = new RpcWriteCompositeRequest();
@@ -43,8 +44,7 @@ class RpcWriteCompositeRequestDiffblueTest {
   }
 
   /**
-   * Test {@link RpcWriteCompositeRequest#equals(Object)}, and
-   * {@link RpcWriteCompositeRequest#hashCode()}.
+   * Test {@link RpcWriteCompositeRequest#equals(Object)}, and {@link RpcWriteCompositeRequest#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -58,6 +58,8 @@ class RpcWriteCompositeRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RpcWriteCompositeRequest.equals(Object)", "int RpcWriteCompositeRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     RpcWriteCompositeRequest rpcWriteCompositeRequest = new RpcWriteCompositeRequest();
@@ -80,36 +82,11 @@ class RpcWriteCompositeRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RpcWriteCompositeRequest.equals(Object)", "int RpcWriteCompositeRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     HashMap<String, Object> nodes = new HashMap<>();
-    nodes.put("foo", "42");
-
-    RpcWriteCompositeRequest rpcWriteCompositeRequest = new RpcWriteCompositeRequest();
-    rpcWriteCompositeRequest.setNodes(nodes);
-
-    RpcWriteCompositeRequest rpcWriteCompositeRequest2 = new RpcWriteCompositeRequest();
-    rpcWriteCompositeRequest2.setNodes(new HashMap<>());
-
-    // Act and Assert
-    assertNotEquals(rpcWriteCompositeRequest, rpcWriteCompositeRequest2);
-  }
-
-  /**
-   * Test {@link RpcWriteCompositeRequest#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link RpcWriteCompositeRequest#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange
-    HashMap<String, Object> nodes = new HashMap<>();
-    nodes.computeIfPresent("foo", mock(BiFunction.class));
     nodes.put("foo", "42");
 
     RpcWriteCompositeRequest rpcWriteCompositeRequest = new RpcWriteCompositeRequest();
@@ -133,6 +110,8 @@ class RpcWriteCompositeRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RpcWriteCompositeRequest.equals(Object)", "int RpcWriteCompositeRequest.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     RpcWriteCompositeRequest rpcWriteCompositeRequest = new RpcWriteCompositeRequest();
@@ -153,6 +132,8 @@ class RpcWriteCompositeRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RpcWriteCompositeRequest.equals(Object)", "int RpcWriteCompositeRequest.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     RpcWriteCompositeRequest rpcWriteCompositeRequest = new RpcWriteCompositeRequest();
@@ -175,6 +156,9 @@ class RpcWriteCompositeRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void RpcWriteCompositeRequest.<init>()", "Map RpcWriteCompositeRequest.getNodes()",
+      "void RpcWriteCompositeRequest.setNodes(Map)", "String RpcWriteCompositeRequest.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     RpcWriteCompositeRequest actualRpcWriteCompositeRequest = new RpcWriteCompositeRequest();
@@ -183,7 +167,7 @@ class RpcWriteCompositeRequestDiffblueTest {
     String actualToStringResult = actualRpcWriteCompositeRequest.toString();
     Map<String, Object> actualNodes = actualRpcWriteCompositeRequest.getNodes();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("RpcWriteCompositeRequest(nodes={})", actualToStringResult);
     assertTrue(actualNodes.isEmpty());
     assertSame(nodes, actualNodes);

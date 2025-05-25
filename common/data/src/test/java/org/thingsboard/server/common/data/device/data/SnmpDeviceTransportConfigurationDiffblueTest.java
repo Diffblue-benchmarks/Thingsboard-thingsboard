@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.DeviceTransportType;
 import org.thingsboard.server.common.data.transport.snmp.AuthenticationProtocol;
@@ -15,11 +17,12 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
   /**
    * Test new {@link SnmpDeviceTransportConfiguration} (default constructor).
    * <p>
-   * Method under test: default or parameterless constructor of
-   * {@link SnmpDeviceTransportConfiguration}
+   * Method under test: default or parameterless constructor of {@link SnmpDeviceTransportConfiguration}
    */
   @Test
   @DisplayName("Test new SnmpDeviceTransportConfiguration (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SnmpDeviceTransportConfiguration.<init>()"})
   void testNewSnmpDeviceTransportConfiguration() {
     // Arrange and Act
     SnmpDeviceTransportConfiguration actualSnmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -47,6 +50,8 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test validate()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SnmpDeviceTransportConfiguration.validate()"})
   void testValidate() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -65,6 +70,8 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test validate()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SnmpDeviceTransportConfiguration.validate()"})
   void testValidate2() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -84,6 +91,8 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test validate()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SnmpDeviceTransportConfiguration.validate()"})
   void testValidate3() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -105,6 +114,8 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test validate()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SnmpDeviceTransportConfiguration.validate()"})
   void testValidate4() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -124,14 +135,15 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
   /**
    * Test {@link SnmpDeviceTransportConfiguration#validate()}.
    * <ul>
-   *   <li>Given {@link SnmpDeviceTransportConfiguration} (default constructor)
-   * AuthenticationProtocol is {@code SHA_1}.</li>
+   *   <li>Given {@link SnmpDeviceTransportConfiguration} (default constructor) AuthenticationProtocol is {@code SHA_1}.</li>
    * </ul>
    * <p>
    * Method under test: {@link SnmpDeviceTransportConfiguration#validate()}
    */
   @Test
   @DisplayName("Test validate(); given SnmpDeviceTransportConfiguration (default constructor) AuthenticationProtocol is 'SHA_1'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SnmpDeviceTransportConfiguration.validate()"})
   void testValidate_givenSnmpDeviceTransportConfigurationAuthenticationProtocolIsSha1() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -148,28 +160,39 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
   /**
    * Test {@link SnmpDeviceTransportConfiguration#validate()}.
    * <ul>
-   *   <li>Given {@link SnmpDeviceTransportConfiguration} (default constructor) Host
-   * is empty string.</li>
+   *   <li>Given {@link SnmpDeviceTransportConfiguration} (default constructor) Community is empty string.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link SnmpDeviceTransportConfiguration#validate()}
+   */
+  @Test
+  @DisplayName("Test validate(); given SnmpDeviceTransportConfiguration (default constructor) Community is empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SnmpDeviceTransportConfiguration.validate()"})
+  void testValidate_givenSnmpDeviceTransportConfigurationCommunityIsEmptyString() {
+    // Arrange
+    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
+    snmpDeviceTransportConfiguration.setCommunity("");
+
+    // Act and Assert
+    assertThrows(IllegalArgumentException.class, () -> snmpDeviceTransportConfiguration.validate());
+  }
+
+  /**
+   * Test {@link SnmpDeviceTransportConfiguration#validate()}.
+   * <ul>
+   *   <li>Given {@link SnmpDeviceTransportConfiguration} (default constructor) Host is empty string.</li>
    * </ul>
    * <p>
    * Method under test: {@link SnmpDeviceTransportConfiguration#validate()}
    */
   @Test
   @DisplayName("Test validate(); given SnmpDeviceTransportConfiguration (default constructor) Host is empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SnmpDeviceTransportConfiguration.validate()"})
   void testValidate_givenSnmpDeviceTransportConfigurationHostIsEmptyString() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
-    snmpDeviceTransportConfiguration.setCommunity(null);
-    snmpDeviceTransportConfiguration.setPrivacyPassphrase(null);
-    snmpDeviceTransportConfiguration.setUsername(null);
-    snmpDeviceTransportConfiguration.setSecurityName(null);
-    snmpDeviceTransportConfiguration.setPort(null);
-    snmpDeviceTransportConfiguration.setProtocolVersion(null);
-    snmpDeviceTransportConfiguration.setContextName(null);
-    snmpDeviceTransportConfiguration.setAuthenticationProtocol(null);
-    snmpDeviceTransportConfiguration.setPrivacyProtocol(null);
-    snmpDeviceTransportConfiguration.setEngineId(null);
-    snmpDeviceTransportConfiguration.setAuthenticationPassphrase(null);
     snmpDeviceTransportConfiguration.setHost("");
 
     // Act and Assert
@@ -179,107 +202,15 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
   /**
    * Test {@link SnmpDeviceTransportConfiguration#validate()}.
    * <ul>
-   *   <li>Given {@link SnmpDeviceTransportConfiguration} (default constructor) Host
-   * is {@code foo}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link SnmpDeviceTransportConfiguration#validate()}
-   */
-  @Test
-  @DisplayName("Test validate(); given SnmpDeviceTransportConfiguration (default constructor) Host is 'foo'")
-  void testValidate_givenSnmpDeviceTransportConfigurationHostIsFoo() {
-    // Arrange
-    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
-    snmpDeviceTransportConfiguration.setCommunity(null);
-    snmpDeviceTransportConfiguration.setPrivacyPassphrase(null);
-    snmpDeviceTransportConfiguration.setUsername(null);
-    snmpDeviceTransportConfiguration.setSecurityName(null);
-    snmpDeviceTransportConfiguration.setPort(null);
-    snmpDeviceTransportConfiguration.setProtocolVersion(null);
-    snmpDeviceTransportConfiguration.setContextName(null);
-    snmpDeviceTransportConfiguration.setAuthenticationProtocol(null);
-    snmpDeviceTransportConfiguration.setPrivacyProtocol(null);
-    snmpDeviceTransportConfiguration.setEngineId(null);
-    snmpDeviceTransportConfiguration.setAuthenticationPassphrase(null);
-    snmpDeviceTransportConfiguration.setHost("foo");
-
-    // Act and Assert
-    assertThrows(IllegalArgumentException.class, () -> snmpDeviceTransportConfiguration.validate());
-  }
-
-  /**
-   * Test {@link SnmpDeviceTransportConfiguration#validate()}.
-   * <ul>
-   *   <li>Given {@link SnmpDeviceTransportConfiguration} (default constructor) Host
-   * is {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link SnmpDeviceTransportConfiguration#validate()}
-   */
-  @Test
-  @DisplayName("Test validate(); given SnmpDeviceTransportConfiguration (default constructor) Host is 'null'")
-  void testValidate_givenSnmpDeviceTransportConfigurationHostIsNull() {
-    // Arrange
-    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
-    snmpDeviceTransportConfiguration.setCommunity(null);
-    snmpDeviceTransportConfiguration.setPrivacyPassphrase(null);
-    snmpDeviceTransportConfiguration.setUsername(null);
-    snmpDeviceTransportConfiguration.setSecurityName(null);
-    snmpDeviceTransportConfiguration.setPort(null);
-    snmpDeviceTransportConfiguration.setProtocolVersion(null);
-    snmpDeviceTransportConfiguration.setContextName(null);
-    snmpDeviceTransportConfiguration.setAuthenticationProtocol(null);
-    snmpDeviceTransportConfiguration.setPrivacyProtocol(null);
-    snmpDeviceTransportConfiguration.setEngineId(null);
-    snmpDeviceTransportConfiguration.setAuthenticationPassphrase(null);
-    snmpDeviceTransportConfiguration.setHost(null);
-
-    // Act and Assert
-    assertThrows(IllegalArgumentException.class, () -> snmpDeviceTransportConfiguration.validate());
-  }
-
-  /**
-   * Test {@link SnmpDeviceTransportConfiguration#validate()}.
-   * <ul>
-   *   <li>Given {@link SnmpDeviceTransportConfiguration} (default constructor) Port
-   * is {@code 8080}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link SnmpDeviceTransportConfiguration#validate()}
-   */
-  @Test
-  @DisplayName("Test validate(); given SnmpDeviceTransportConfiguration (default constructor) Port is '8080'")
-  void testValidate_givenSnmpDeviceTransportConfigurationPortIs8080() {
-    // Arrange
-    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
-    snmpDeviceTransportConfiguration.setCommunity(null);
-    snmpDeviceTransportConfiguration.setPrivacyPassphrase(null);
-    snmpDeviceTransportConfiguration.setUsername(null);
-    snmpDeviceTransportConfiguration.setSecurityName(null);
-    snmpDeviceTransportConfiguration.setPort(8080);
-    snmpDeviceTransportConfiguration.setProtocolVersion(null);
-    snmpDeviceTransportConfiguration.setContextName(null);
-    snmpDeviceTransportConfiguration.setAuthenticationProtocol(null);
-    snmpDeviceTransportConfiguration.setPrivacyProtocol(null);
-    snmpDeviceTransportConfiguration.setEngineId(null);
-    snmpDeviceTransportConfiguration.setAuthenticationPassphrase(null);
-    snmpDeviceTransportConfiguration.setHost("foo");
-
-    // Act and Assert
-    assertThrows(IllegalArgumentException.class, () -> snmpDeviceTransportConfiguration.validate());
-  }
-
-  /**
-   * Test {@link SnmpDeviceTransportConfiguration#validate()}.
-   * <ul>
-   *   <li>Given {@link SnmpDeviceTransportConfiguration} (default constructor)
-   * PrivacyProtocol is {@code DES}.</li>
+   *   <li>Given {@link SnmpDeviceTransportConfiguration} (default constructor) PrivacyProtocol is {@code DES}.</li>
    * </ul>
    * <p>
    * Method under test: {@link SnmpDeviceTransportConfiguration#validate()}
    */
   @Test
   @DisplayName("Test validate(); given SnmpDeviceTransportConfiguration (default constructor) PrivacyProtocol is 'DES'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SnmpDeviceTransportConfiguration.validate()"})
   void testValidate_givenSnmpDeviceTransportConfigurationPrivacyProtocolIsDes() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -298,14 +229,37 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
   /**
    * Test {@link SnmpDeviceTransportConfiguration#validate()}.
    * <ul>
-   *   <li>Given {@link SnmpDeviceTransportConfiguration} (default constructor)
-   * ProtocolVersion is {@code V3}.</li>
+   *   <li>Given {@link SnmpDeviceTransportConfiguration} (default constructor) ProtocolVersion is {@code null}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link SnmpDeviceTransportConfiguration#validate()}
+   */
+  @Test
+  @DisplayName("Test validate(); given SnmpDeviceTransportConfiguration (default constructor) ProtocolVersion is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SnmpDeviceTransportConfiguration.validate()"})
+  void testValidate_givenSnmpDeviceTransportConfigurationProtocolVersionIsNull() {
+    // Arrange
+    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
+    snmpDeviceTransportConfiguration.setUsername("janedoe");
+    snmpDeviceTransportConfiguration.setProtocolVersion(null);
+
+    // Act and Assert
+    assertThrows(IllegalArgumentException.class, () -> snmpDeviceTransportConfiguration.validate());
+  }
+
+  /**
+   * Test {@link SnmpDeviceTransportConfiguration#validate()}.
+   * <ul>
+   *   <li>Given {@link SnmpDeviceTransportConfiguration} (default constructor) ProtocolVersion is {@code V3}.</li>
    * </ul>
    * <p>
    * Method under test: {@link SnmpDeviceTransportConfiguration#validate()}
    */
   @Test
   @DisplayName("Test validate(); given SnmpDeviceTransportConfiguration (default constructor) ProtocolVersion is 'V3'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SnmpDeviceTransportConfiguration.validate()"})
   void testValidate_givenSnmpDeviceTransportConfigurationProtocolVersionIsV3() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -318,14 +272,15 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
   /**
    * Test {@link SnmpDeviceTransportConfiguration#validate()}.
    * <ul>
-   *   <li>Given {@link SnmpDeviceTransportConfiguration} (default constructor)
-   * Username is {@code janedoe}.</li>
+   *   <li>Given {@link SnmpDeviceTransportConfiguration} (default constructor) Username is {@code janedoe}.</li>
    * </ul>
    * <p>
    * Method under test: {@link SnmpDeviceTransportConfiguration#validate()}
    */
   @Test
   @DisplayName("Test validate(); given SnmpDeviceTransportConfiguration (default constructor) Username is 'janedoe'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SnmpDeviceTransportConfiguration.validate()"})
   void testValidate_givenSnmpDeviceTransportConfigurationUsernameIsJanedoe() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -337,8 +292,7 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link SnmpDeviceTransportConfiguration#equals(Object)}, and
-   * {@link SnmpDeviceTransportConfiguration#hashCode()}.
+   * Test {@link SnmpDeviceTransportConfiguration#equals(Object)}, and {@link SnmpDeviceTransportConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -352,6 +306,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -364,8 +321,7 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link SnmpDeviceTransportConfiguration#equals(Object)}, and
-   * {@link SnmpDeviceTransportConfiguration#hashCode()}.
+   * Test {@link SnmpDeviceTransportConfiguration#equals(Object)}, and {@link SnmpDeviceTransportConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -379,6 +335,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -394,8 +353,7 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link SnmpDeviceTransportConfiguration#equals(Object)}, and
-   * {@link SnmpDeviceTransportConfiguration#hashCode()}.
+   * Test {@link SnmpDeviceTransportConfiguration#equals(Object)}, and {@link SnmpDeviceTransportConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -409,6 +367,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -424,8 +385,7 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link SnmpDeviceTransportConfiguration#equals(Object)}, and
-   * {@link SnmpDeviceTransportConfiguration#hashCode()}.
+   * Test {@link SnmpDeviceTransportConfiguration#equals(Object)}, and {@link SnmpDeviceTransportConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -439,6 +399,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -454,8 +417,7 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link SnmpDeviceTransportConfiguration#equals(Object)}, and
-   * {@link SnmpDeviceTransportConfiguration#hashCode()}.
+   * Test {@link SnmpDeviceTransportConfiguration#equals(Object)}, and {@link SnmpDeviceTransportConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -469,6 +431,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -484,8 +449,7 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link SnmpDeviceTransportConfiguration#equals(Object)}, and
-   * {@link SnmpDeviceTransportConfiguration#hashCode()}.
+   * Test {@link SnmpDeviceTransportConfiguration#equals(Object)}, and {@link SnmpDeviceTransportConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -499,6 +463,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual6() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -514,8 +481,7 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link SnmpDeviceTransportConfiguration#equals(Object)}, and
-   * {@link SnmpDeviceTransportConfiguration#hashCode()}.
+   * Test {@link SnmpDeviceTransportConfiguration#equals(Object)}, and {@link SnmpDeviceTransportConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -529,6 +495,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual7() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -544,8 +513,7 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link SnmpDeviceTransportConfiguration#equals(Object)}, and
-   * {@link SnmpDeviceTransportConfiguration#hashCode()}.
+   * Test {@link SnmpDeviceTransportConfiguration#equals(Object)}, and {@link SnmpDeviceTransportConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -559,6 +527,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual8() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -574,8 +545,7 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link SnmpDeviceTransportConfiguration#equals(Object)}, and
-   * {@link SnmpDeviceTransportConfiguration#hashCode()}.
+   * Test {@link SnmpDeviceTransportConfiguration#equals(Object)}, and {@link SnmpDeviceTransportConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -589,6 +559,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual9() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -604,8 +577,7 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link SnmpDeviceTransportConfiguration#equals(Object)}, and
-   * {@link SnmpDeviceTransportConfiguration#hashCode()}.
+   * Test {@link SnmpDeviceTransportConfiguration#equals(Object)}, and {@link SnmpDeviceTransportConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -619,6 +591,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -640,6 +615,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new SnmpDeviceTransportConfiguration(), 1);
@@ -656,6 +634,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -676,6 +657,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -696,6 +680,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -716,6 +703,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -736,6 +726,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -756,6 +749,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -776,6 +772,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -796,6 +795,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -816,6 +818,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -836,6 +841,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -856,6 +864,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -876,6 +887,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -898,6 +912,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -920,6 +937,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -942,6 +962,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -964,6 +987,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -986,6 +1012,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -1008,6 +1037,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -1030,6 +1062,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -1052,6 +1087,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -1072,6 +1110,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -1092,6 +1133,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -1112,6 +1156,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new SnmpDeviceTransportConfiguration(), null);
@@ -1128,6 +1175,9 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SnmpDeviceTransportConfiguration.equals(Object)",
+      "int SnmpDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new SnmpDeviceTransportConfiguration(), "Different type to SnmpDeviceTransportConfiguration");
@@ -1138,20 +1188,16 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link SnmpDeviceTransportConfiguration#setAuthenticationPassphrase(String)}
-   *   <li>
-   * {@link SnmpDeviceTransportConfiguration#setAuthenticationProtocol(AuthenticationProtocol)}
+   *   <li>{@link SnmpDeviceTransportConfiguration#setAuthenticationPassphrase(String)}
+   *   <li>{@link SnmpDeviceTransportConfiguration#setAuthenticationProtocol(AuthenticationProtocol)}
    *   <li>{@link SnmpDeviceTransportConfiguration#setCommunity(String)}
    *   <li>{@link SnmpDeviceTransportConfiguration#setContextName(String)}
    *   <li>{@link SnmpDeviceTransportConfiguration#setEngineId(String)}
    *   <li>{@link SnmpDeviceTransportConfiguration#setHost(String)}
    *   <li>{@link SnmpDeviceTransportConfiguration#setPort(Integer)}
    *   <li>{@link SnmpDeviceTransportConfiguration#setPrivacyPassphrase(String)}
-   *   <li>
-   * {@link SnmpDeviceTransportConfiguration#setPrivacyProtocol(PrivacyProtocol)}
-   *   <li>
-   * {@link SnmpDeviceTransportConfiguration#setProtocolVersion(SnmpProtocolVersion)}
+   *   <li>{@link SnmpDeviceTransportConfiguration#setPrivacyProtocol(PrivacyProtocol)}
+   *   <li>{@link SnmpDeviceTransportConfiguration#setProtocolVersion(SnmpProtocolVersion)}
    *   <li>{@link SnmpDeviceTransportConfiguration#setSecurityName(String)}
    *   <li>{@link SnmpDeviceTransportConfiguration#setUsername(String)}
    *   <li>{@link SnmpDeviceTransportConfiguration#toString()}
@@ -1172,6 +1218,31 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String SnmpDeviceTransportConfiguration.getAuthenticationPassphrase()",
+      "AuthenticationProtocol SnmpDeviceTransportConfiguration.getAuthenticationProtocol()",
+      "String SnmpDeviceTransportConfiguration.getCommunity()",
+      "String SnmpDeviceTransportConfiguration.getContextName()",
+      "String SnmpDeviceTransportConfiguration.getEngineId()", "String SnmpDeviceTransportConfiguration.getHost()",
+      "Integer SnmpDeviceTransportConfiguration.getPort()",
+      "String SnmpDeviceTransportConfiguration.getPrivacyPassphrase()",
+      "PrivacyProtocol SnmpDeviceTransportConfiguration.getPrivacyProtocol()",
+      "SnmpProtocolVersion SnmpDeviceTransportConfiguration.getProtocolVersion()",
+      "String SnmpDeviceTransportConfiguration.getSecurityName()",
+      "DeviceTransportType SnmpDeviceTransportConfiguration.getType()",
+      "String SnmpDeviceTransportConfiguration.getUsername()",
+      "void SnmpDeviceTransportConfiguration.setAuthenticationPassphrase(String)",
+      "void SnmpDeviceTransportConfiguration.setAuthenticationProtocol(AuthenticationProtocol)",
+      "void SnmpDeviceTransportConfiguration.setCommunity(String)",
+      "void SnmpDeviceTransportConfiguration.setContextName(String)",
+      "void SnmpDeviceTransportConfiguration.setEngineId(String)",
+      "void SnmpDeviceTransportConfiguration.setHost(String)", "void SnmpDeviceTransportConfiguration.setPort(Integer)",
+      "void SnmpDeviceTransportConfiguration.setPrivacyPassphrase(String)",
+      "void SnmpDeviceTransportConfiguration.setPrivacyProtocol(PrivacyProtocol)",
+      "void SnmpDeviceTransportConfiguration.setProtocolVersion(SnmpProtocolVersion)",
+      "void SnmpDeviceTransportConfiguration.setSecurityName(String)",
+      "void SnmpDeviceTransportConfiguration.setUsername(String)",
+      "String SnmpDeviceTransportConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange
     SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = new SnmpDeviceTransportConfiguration();
@@ -1203,7 +1274,7 @@ class SnmpDeviceTransportConfigurationDiffblueTest {
     String actualSecurityName = snmpDeviceTransportConfiguration.getSecurityName();
     DeviceTransportType actualType = snmpDeviceTransportConfiguration.getType();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("42", actualEngineId);
     assertEquals("Authentication Passphrase", actualAuthenticationPassphrase);
     assertEquals("Community", actualCommunity);

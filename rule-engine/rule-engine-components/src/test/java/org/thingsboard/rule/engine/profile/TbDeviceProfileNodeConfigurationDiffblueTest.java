@@ -3,18 +3,21 @@ package org.thingsboard.rule.engine.profile;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TbDeviceProfileNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbDeviceProfileNodeConfiguration#defaultConfiguration()}.
    * <p>
-   * Method under test:
-   * {@link TbDeviceProfileNodeConfiguration#defaultConfiguration()}
+   * Method under test: {@link TbDeviceProfileNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbDeviceProfileNodeConfiguration TbDeviceProfileNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
     // Arrange
     TbDeviceProfileNodeConfiguration tbDeviceProfileNodeConfiguration = new TbDeviceProfileNodeConfiguration();
@@ -24,8 +27,7 @@ class TbDeviceProfileNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbDeviceProfileNodeConfiguration#equals(Object)}, and
-   * {@link TbDeviceProfileNodeConfiguration#hashCode()}.
+   * Test {@link TbDeviceProfileNodeConfiguration#equals(Object)}, and {@link TbDeviceProfileNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -39,6 +41,9 @@ class TbDeviceProfileNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbDeviceProfileNodeConfiguration.equals(Object)",
+      "int TbDeviceProfileNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbDeviceProfileNodeConfiguration tbDeviceProfileNodeConfiguration = new TbDeviceProfileNodeConfiguration();
@@ -51,8 +56,7 @@ class TbDeviceProfileNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbDeviceProfileNodeConfiguration#equals(Object)}, and
-   * {@link TbDeviceProfileNodeConfiguration#hashCode()}.
+   * Test {@link TbDeviceProfileNodeConfiguration#equals(Object)}, and {@link TbDeviceProfileNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -66,6 +70,9 @@ class TbDeviceProfileNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbDeviceProfileNodeConfiguration.equals(Object)",
+      "int TbDeviceProfileNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbDeviceProfileNodeConfiguration tbDeviceProfileNodeConfiguration = new TbDeviceProfileNodeConfiguration();
@@ -87,6 +94,9 @@ class TbDeviceProfileNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbDeviceProfileNodeConfiguration.equals(Object)",
+      "int TbDeviceProfileNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbDeviceProfileNodeConfiguration(), 1);
@@ -103,6 +113,9 @@ class TbDeviceProfileNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbDeviceProfileNodeConfiguration.equals(Object)",
+      "int TbDeviceProfileNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbDeviceProfileNodeConfiguration tbDeviceProfileNodeConfiguration = new TbDeviceProfileNodeConfiguration();
@@ -123,6 +136,9 @@ class TbDeviceProfileNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbDeviceProfileNodeConfiguration.equals(Object)",
+      "int TbDeviceProfileNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbDeviceProfileNodeConfiguration tbDeviceProfileNodeConfiguration = new TbDeviceProfileNodeConfiguration();
@@ -143,6 +159,9 @@ class TbDeviceProfileNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbDeviceProfileNodeConfiguration.equals(Object)",
+      "int TbDeviceProfileNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbDeviceProfileNodeConfiguration(), null);
@@ -159,6 +178,9 @@ class TbDeviceProfileNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbDeviceProfileNodeConfiguration.equals(Object)",
+      "int TbDeviceProfileNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbDeviceProfileNodeConfiguration(), "Different type to TbDeviceProfileNodeConfiguration");
@@ -169,12 +191,9 @@ class TbDeviceProfileNodeConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link TbDeviceProfileNodeConfiguration}
-   *   <li>
-   * {@link TbDeviceProfileNodeConfiguration#setFetchAlarmRulesStateOnStart(boolean)}
-   *   <li>
-   * {@link TbDeviceProfileNodeConfiguration#setPersistAlarmRulesState(boolean)}
+   *   <li>default or parameterless constructor of {@link TbDeviceProfileNodeConfiguration}
+   *   <li>{@link TbDeviceProfileNodeConfiguration#setFetchAlarmRulesStateOnStart(boolean)}
+   *   <li>{@link TbDeviceProfileNodeConfiguration#setPersistAlarmRulesState(boolean)}
    *   <li>{@link TbDeviceProfileNodeConfiguration#toString()}
    *   <li>{@link TbDeviceProfileNodeConfiguration#isFetchAlarmRulesStateOnStart()}
    *   <li>{@link TbDeviceProfileNodeConfiguration#isPersistAlarmRulesState()}
@@ -182,6 +201,13 @@ class TbDeviceProfileNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbDeviceProfileNodeConfiguration.<init>()",
+      "boolean TbDeviceProfileNodeConfiguration.isFetchAlarmRulesStateOnStart()",
+      "boolean TbDeviceProfileNodeConfiguration.isPersistAlarmRulesState()",
+      "void TbDeviceProfileNodeConfiguration.setFetchAlarmRulesStateOnStart(boolean)",
+      "void TbDeviceProfileNodeConfiguration.setPersistAlarmRulesState(boolean)",
+      "String TbDeviceProfileNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbDeviceProfileNodeConfiguration actualTbDeviceProfileNodeConfiguration = new TbDeviceProfileNodeConfiguration();
@@ -191,7 +217,7 @@ class TbDeviceProfileNodeConfigurationDiffblueTest {
     boolean actualIsFetchAlarmRulesStateOnStartResult = actualTbDeviceProfileNodeConfiguration
         .isFetchAlarmRulesStateOnStart();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("TbDeviceProfileNodeConfiguration(persistAlarmRulesState=true, fetchAlarmRulesStateOnStart=true)",
         actualToStringResult);
     assertTrue(actualIsFetchAlarmRulesStateOnStartResult);

@@ -1,7 +1,9 @@
 package org.thingsboard.server.common.data;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ContactBasedDiffblueTest {
@@ -12,6 +14,8 @@ class ContactBasedDiffblueTest {
    */
   @Test
   @DisplayName("Test setCountry(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ContactBased.setCountry(String)"})
   void testSetCountry() {
     // Arrange
     Customer customer = new Customer();
@@ -30,6 +34,8 @@ class ContactBasedDiffblueTest {
    */
   @Test
   @DisplayName("Test setState(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ContactBased.setState(String)"})
   void testSetState() {
     // Arrange
     Customer customer = new Customer();
@@ -48,6 +54,8 @@ class ContactBasedDiffblueTest {
    */
   @Test
   @DisplayName("Test setCity(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ContactBased.setCity(String)"})
   void testSetCity() {
     // Arrange
     Customer customer = new Customer();
@@ -66,6 +74,8 @@ class ContactBasedDiffblueTest {
    */
   @Test
   @DisplayName("Test setAddress(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ContactBased.setAddress(String)"})
   void testSetAddress() {
     // Arrange
     Customer customer = new Customer();
@@ -84,6 +94,8 @@ class ContactBasedDiffblueTest {
    */
   @Test
   @DisplayName("Test setAddress2(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ContactBased.setAddress2(String)"})
   void testSetAddress2() {
     // Arrange
     Customer customer = new Customer();
@@ -102,6 +114,8 @@ class ContactBasedDiffblueTest {
    */
   @Test
   @DisplayName("Test setZip(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ContactBased.setZip(String)"})
   void testSetZip() {
     // Arrange
     Customer customer = new Customer();
@@ -120,6 +134,8 @@ class ContactBasedDiffblueTest {
    */
   @Test
   @DisplayName("Test setPhone(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ContactBased.setPhone(String)"})
   void testSetPhone() {
     // Arrange
     Customer customer = new Customer();
@@ -138,6 +154,8 @@ class ContactBasedDiffblueTest {
    */
   @Test
   @DisplayName("Test setEmail(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ContactBased.setEmail(String)"})
   void testSetEmail() {
     // Arrange
     Customer customer = new Customer();

@@ -2,13 +2,15 @@ package org.thingsboard.server.common.data.sms.config;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration.SmppBindType;
 
 class SmppSmsProviderConfigurationDiffblueTest {
   /**
-   * Test {@link SmppSmsProviderConfiguration#equals(Object)}, and
-   * {@link SmppSmsProviderConfiguration#hashCode()}.
+   * Test {@link SmppSmsProviderConfiguration#equals(Object)}, and {@link SmppSmsProviderConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -22,11 +24,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -43,7 +48,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -65,8 +70,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link SmppSmsProviderConfiguration#equals(Object)}, and
-   * {@link SmppSmsProviderConfiguration#hashCode()}.
+   * Test {@link SmppSmsProviderConfiguration#equals(Object)}, and {@link SmppSmsProviderConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -80,11 +84,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -116,11 +123,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("17 High St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -137,7 +147,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -167,11 +177,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange(null);
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -188,7 +201,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -218,6 +231,9 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -239,7 +255,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -269,11 +285,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.RX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.RX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -290,7 +309,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -320,11 +339,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 1);
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -341,7 +363,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -371,11 +393,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme(null);
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -392,7 +417,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -422,11 +447,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 1);
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -443,7 +471,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -473,11 +501,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi(null);
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -494,7 +525,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -524,11 +555,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 1);
@@ -545,7 +579,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -575,11 +609,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon(null);
@@ -596,7 +633,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -626,11 +663,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -647,7 +687,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -677,11 +717,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -698,7 +741,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -728,11 +771,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -749,7 +795,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -779,11 +825,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -800,7 +849,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -830,11 +879,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -851,7 +903,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -881,11 +933,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -902,7 +957,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -932,11 +987,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -953,7 +1011,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -983,11 +1041,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -1004,7 +1065,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -1034,11 +1095,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -1055,7 +1119,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -1085,11 +1149,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -1106,7 +1173,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -1136,11 +1203,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -1157,7 +1227,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -1187,11 +1257,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -1208,7 +1281,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -1238,11 +1311,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -1259,7 +1335,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -1289,11 +1365,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -1310,7 +1389,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -1340,11 +1419,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -1361,7 +1443,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -1391,11 +1473,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -1412,7 +1497,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -1442,11 +1527,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual27() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -1463,7 +1551,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -1493,11 +1581,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual28() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -1514,7 +1605,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -1544,11 +1635,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual29() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -1565,7 +1659,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -1595,11 +1689,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual30() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -1616,7 +1713,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
     SmppSmsProviderConfiguration smppSmsProviderConfiguration2 = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration2.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration2.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration2.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration2.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration2.setDestinationTon((byte) 'A');
@@ -1646,11 +1743,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -1680,11 +1780,14 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
+      "int SmppSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     smppSmsProviderConfiguration.setAddressRange("42 Main St");
-    smppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    smppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     smppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     smppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     smppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -1708,11 +1811,9 @@ class SmppSmsProviderConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link SmppSmsProviderConfiguration}
+   *   <li>default or parameterless constructor of {@link SmppSmsProviderConfiguration}
    *   <li>{@link SmppSmsProviderConfiguration#setAddressRange(String)}
-   *   <li>
-   * {@link SmppSmsProviderConfiguration#setBindType(SmppSmsProviderConfiguration.SmppBindType)}
+   *   <li>{@link SmppSmsProviderConfiguration#setBindType(SmppBindType)}
    *   <li>{@link SmppSmsProviderConfiguration#setCodingScheme(Byte)}
    *   <li>{@link SmppSmsProviderConfiguration#setDestinationNpi(Byte)}
    *   <li>{@link SmppSmsProviderConfiguration#setDestinationTon(Byte)}
@@ -1747,11 +1848,34 @@ class SmppSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SmppSmsProviderConfiguration.<init>()",
+      "String SmppSmsProviderConfiguration.getAddressRange()",
+      "SmppBindType SmppSmsProviderConfiguration.getBindType()", "Byte SmppSmsProviderConfiguration.getCodingScheme()",
+      "Byte SmppSmsProviderConfiguration.getDestinationNpi()", "Byte SmppSmsProviderConfiguration.getDestinationTon()",
+      "String SmppSmsProviderConfiguration.getHost()", "String SmppSmsProviderConfiguration.getPassword()",
+      "Integer SmppSmsProviderConfiguration.getPort()", "String SmppSmsProviderConfiguration.getProtocolVersion()",
+      "String SmppSmsProviderConfiguration.getServiceType()", "String SmppSmsProviderConfiguration.getSourceAddress()",
+      "Byte SmppSmsProviderConfiguration.getSourceNpi()", "Byte SmppSmsProviderConfiguration.getSourceTon()",
+      "String SmppSmsProviderConfiguration.getSystemId()", "String SmppSmsProviderConfiguration.getSystemType()",
+      "SmsProviderType SmppSmsProviderConfiguration.getType()",
+      "void SmppSmsProviderConfiguration.setAddressRange(String)",
+      "void SmppSmsProviderConfiguration.setBindType(SmppBindType)",
+      "void SmppSmsProviderConfiguration.setCodingScheme(Byte)",
+      "void SmppSmsProviderConfiguration.setDestinationNpi(Byte)",
+      "void SmppSmsProviderConfiguration.setDestinationTon(Byte)", "void SmppSmsProviderConfiguration.setHost(String)",
+      "void SmppSmsProviderConfiguration.setPassword(String)", "void SmppSmsProviderConfiguration.setPort(Integer)",
+      "void SmppSmsProviderConfiguration.setProtocolVersion(String)",
+      "void SmppSmsProviderConfiguration.setServiceType(String)",
+      "void SmppSmsProviderConfiguration.setSourceAddress(String)",
+      "void SmppSmsProviderConfiguration.setSourceNpi(Byte)", "void SmppSmsProviderConfiguration.setSourceTon(Byte)",
+      "void SmppSmsProviderConfiguration.setSystemId(String)",
+      "void SmppSmsProviderConfiguration.setSystemType(String)", "String SmppSmsProviderConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     SmppSmsProviderConfiguration actualSmppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
     actualSmppSmsProviderConfiguration.setAddressRange("42 Main St");
-    actualSmppSmsProviderConfiguration.setBindType(SmppSmsProviderConfiguration.SmppBindType.TX);
+    actualSmppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     actualSmppSmsProviderConfiguration.setCodingScheme((byte) 'A');
     actualSmppSmsProviderConfiguration.setDestinationNpi((byte) 'A');
     actualSmppSmsProviderConfiguration.setDestinationTon((byte) 'A');
@@ -1767,7 +1891,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
     actualSmppSmsProviderConfiguration.setSystemType("System Type");
     String actualToStringResult = actualSmppSmsProviderConfiguration.toString();
     String actualAddressRange = actualSmppSmsProviderConfiguration.getAddressRange();
-    SmppSmsProviderConfiguration.SmppBindType actualBindType = actualSmppSmsProviderConfiguration.getBindType();
+    SmppBindType actualBindType = actualSmppSmsProviderConfiguration.getBindType();
     Byte actualCodingScheme = actualSmppSmsProviderConfiguration.getCodingScheme();
     Byte actualDestinationNpi = actualSmppSmsProviderConfiguration.getDestinationNpi();
     Byte actualDestinationTon = actualSmppSmsProviderConfiguration.getDestinationTon();
@@ -1783,7 +1907,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
     String actualSystemType = actualSmppSmsProviderConfiguration.getSystemType();
     SmsProviderType actualType = actualSmppSmsProviderConfiguration.getType();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("1.0.2", actualProtocolVersion);
     assertEquals("42 Main St", actualAddressRange);
     assertEquals("42 Main St", actualSourceAddress);
@@ -1797,7 +1921,7 @@ class SmppSmsProviderConfigurationDiffblueTest {
     assertEquals("iloveyou", actualPassword);
     assertEquals("localhost", actualHost);
     assertEquals(8080, actualPort.intValue());
-    assertEquals(SmppSmsProviderConfiguration.SmppBindType.TX, actualBindType);
+    assertEquals(SmppBindType.TX, actualBindType);
     assertEquals(SmsProviderType.SMPP, actualType);
     assertEquals('A', actualCodingScheme.byteValue());
     assertEquals('A', actualDestinationNpi.byteValue());

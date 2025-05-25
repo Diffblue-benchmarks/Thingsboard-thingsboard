@@ -2,8 +2,10 @@ package org.thingsboard.server.common.data.id;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class NameLabelAndCustomerDetailsDiffblueTest {
@@ -12,8 +14,7 @@ class NameLabelAndCustomerDetailsDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link NameLabelAndCustomerDetails#NameLabelAndCustomerDetails(String, String, CustomerId)}
+   *   <li>{@link NameLabelAndCustomerDetails#NameLabelAndCustomerDetails(String, String, CustomerId)}
    *   <li>{@link NameLabelAndCustomerDetails#getCustomerId()}
    *   <li>{@link NameLabelAndCustomerDetails#getLabel()}
    *   <li>{@link NameLabelAndCustomerDetails#getName()}
@@ -21,6 +22,10 @@ class NameLabelAndCustomerDetailsDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NameLabelAndCustomerDetails.<init>(String, String, CustomerId)",
+      "CustomerId NameLabelAndCustomerDetails.getCustomerId()", "String NameLabelAndCustomerDetails.getLabel()",
+      "String NameLabelAndCustomerDetails.getName()"})
   void testGettersAndSetters() {
     // Arrange
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));

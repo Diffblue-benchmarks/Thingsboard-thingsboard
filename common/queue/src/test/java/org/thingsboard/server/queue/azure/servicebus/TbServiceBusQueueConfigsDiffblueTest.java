@@ -1,8 +1,10 @@
 package org.thingsboard.server.queue.azure.servicebus;
 
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TbServiceBusQueueConfigsDiffblueTest {
@@ -22,6 +24,11 @@ class TbServiceBusQueueConfigsDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Map TbServiceBusQueueConfigs.getCoreConfigs()", "Map TbServiceBusQueueConfigs.getEdgeConfigs()",
+      "Map TbServiceBusQueueConfigs.getJsExecutorConfigs()", "Map TbServiceBusQueueConfigs.getNotificationsConfigs()",
+      "Map TbServiceBusQueueConfigs.getRuleEngineConfigs()", "Map TbServiceBusQueueConfigs.getTransportApiConfigs()",
+      "Map TbServiceBusQueueConfigs.getVcConfigs()"})
   void testGettersAndSetters() {
     // Arrange
     TbServiceBusQueueConfigs tbServiceBusQueueConfigs = new TbServiceBusQueueConfigs();

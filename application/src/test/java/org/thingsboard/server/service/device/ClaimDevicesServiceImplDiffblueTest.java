@@ -1,47 +1,52 @@
 package org.thingsboard.server.service.device;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.isA;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.mock;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.cache.CacheManager;
 import org.thingsboard.server.common.data.Device;
 import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.TenantId;
 
+@ExtendWith(MockitoExtension.class)
 class ClaimDevicesServiceImplDiffblueTest {
+  @Mock
+  private CacheManager cacheManager;
+
+  @InjectMocks
+  private ClaimDevicesServiceImpl claimDevicesServiceImpl;
+
   /**
    * Test {@link ClaimDevicesServiceImpl#reClaimDevice(TenantId, Device)}.
-   * <ul>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
-   * </ul>
    * <p>
-   * Method under test:
-   * {@link ClaimDevicesServiceImpl#reClaimDevice(TenantId, Device)}
+   * Method under test: {@link ClaimDevicesServiceImpl#reClaimDevice(TenantId, Device)}
    */
   @Test
-  @DisplayName("Test reClaimDevice(TenantId, Device); then throw IllegalArgumentException")
-  void testReClaimDevice_thenThrowIllegalArgumentException() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test reClaimDevice(TenantId, Device)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "com.google.common.util.concurrent.ListenableFuture ClaimDevicesServiceImpl.reClaimDevice(TenantId, Device)"})
+  void testReClaimDevice() {
     // Arrange
-    ClaimDevicesServiceImpl claimDevicesServiceImpl = new ClaimDevicesServiceImpl();
-    TenantId tenantId = new TenantId(UUID.randomUUID());
-    Device device = mock(Device.class);
-    when(device.getId()).thenThrow(new IllegalArgumentException("claimDevices"));
-    when(device.getCustomerId()).thenReturn(new CustomerId(UUID.randomUUID()));
-    doNothing().when(device).setCustomerId(Mockito.<CustomerId>any());
-    device.setCustomerId(new CustomerId(null));
+    when(cacheManager.getCache(Mockito.<String>any())).thenThrow(new IllegalArgumentException("claimDevices"));
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    Device device = new Device();
+    device.setCustomerId(new CustomerId(UUID.randomUUID()));
 
     // Act and Assert
     assertThrows(IllegalArgumentException.class, () -> claimDevicesServiceImpl.reClaimDevice(tenantId, device));
-    verify(device).getCustomerId();
-    verify(device).getId();
-    verify(device).setCustomerId(isA(CustomerId.class));
+    verify(cacheManager).getCache(eq("claimDevices"));
   }
 }

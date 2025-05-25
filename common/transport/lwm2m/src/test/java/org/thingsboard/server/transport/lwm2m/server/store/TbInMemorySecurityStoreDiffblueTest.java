@@ -5,39 +5,22 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.ArgumentMatchers.isA;
-import static org.mockito.ArgumentMatchers.isNull;
-import static org.mockito.Mockito.anyBoolean;
-import static org.mockito.Mockito.atLeast;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.Map;
-import java.util.UUID;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock.WriteLock;
 import org.eclipse.leshan.core.SecurityMode;
 import org.eclipse.leshan.core.peer.OscoreIdentity;
 import org.eclipse.leshan.server.bootstrap.BootstrapConfig;
 import org.eclipse.leshan.server.security.NonUniqueSecurityInfoException;
 import org.eclipse.leshan.server.security.SecurityInfo;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.thingsboard.server.common.data.DeviceProfile;
-import org.thingsboard.server.common.data.device.credentials.lwm2m.LwM2MBootstrapClientCredential;
-import org.thingsboard.server.common.data.device.data.PowerMode;
-import org.thingsboard.server.common.data.id.CustomerId;
-import org.thingsboard.server.common.data.id.DeviceId;
-import org.thingsboard.server.common.data.id.DeviceProfileId;
-import org.thingsboard.server.common.data.id.TenantId;
-import org.thingsboard.server.common.transport.auth.TransportDeviceInfo;
-import org.thingsboard.server.common.transport.auth.ValidateDeviceCredentialsResponse;
 import org.thingsboard.server.transport.lwm2m.bootstrap.secure.LwM2MBootstrapConfig;
 import org.thingsboard.server.transport.lwm2m.secure.TbLwM2MSecurityInfo;
 
@@ -45,11 +28,12 @@ class TbInMemorySecurityStoreDiffblueTest {
   /**
    * Test new {@link TbInMemorySecurityStore} (default constructor).
    * <p>
-   * Method under test: default or parameterless constructor of
-   * {@link TbInMemorySecurityStore}
+   * Method under test: default or parameterless constructor of {@link TbInMemorySecurityStore}
    */
   @Test
   @DisplayName("Test new TbInMemorySecurityStore (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbInMemorySecurityStore.<init>()"})
   void testNewTbInMemorySecurityStore() {
     // Arrange and Act
     TbInMemorySecurityStore actualTbInMemorySecurityStore = new TbInMemorySecurityStore();
@@ -58,17 +42,17 @@ class TbInMemorySecurityStoreDiffblueTest {
     ReadWriteLock readWriteLock = actualTbInMemorySecurityStore.readWriteLock;
     assertTrue(readWriteLock instanceof ReentrantReadWriteLock);
     Lock lock = actualTbInMemorySecurityStore.writeLock;
-    assertTrue(lock instanceof ReentrantReadWriteLock.WriteLock);
+    assertTrue(lock instanceof WriteLock);
     assertEquals(0, ((ReentrantReadWriteLock) readWriteLock).getQueueLength());
     assertEquals(0, ((ReentrantReadWriteLock) readWriteLock).getReadHoldCount());
     assertEquals(0, ((ReentrantReadWriteLock) readWriteLock).getReadLockCount());
     assertEquals(0, ((ReentrantReadWriteLock) readWriteLock).getWriteHoldCount());
-    assertEquals(0, ((ReentrantReadWriteLock.WriteLock) lock).getHoldCount());
+    assertEquals(0, ((WriteLock) lock).getHoldCount());
     assertFalse(((ReentrantReadWriteLock) readWriteLock).hasQueuedThreads());
     assertFalse(((ReentrantReadWriteLock) readWriteLock).isFair());
     assertFalse(((ReentrantReadWriteLock) readWriteLock).isWriteLocked());
     assertFalse(((ReentrantReadWriteLock) readWriteLock).isWriteLockedByCurrentThread());
-    assertFalse(((ReentrantReadWriteLock.WriteLock) lock).isHeldByCurrentThread());
+    assertFalse(((WriteLock) lock).isHeldByCurrentThread());
     assertTrue(actualTbInMemorySecurityStore.securityByEp.isEmpty());
     assertTrue(actualTbInMemorySecurityStore.securityByIdentity.isEmpty());
     Lock expectedReadLockResult = actualTbInMemorySecurityStore.readLock;
@@ -82,6 +66,8 @@ class TbInMemorySecurityStoreDiffblueTest {
    */
   @Test
   @DisplayName("Test getByEndpoint(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"SecurityInfo TbInMemorySecurityStore.getByEndpoint(String)"})
   void testGetByEndpoint() {
     // Arrange, Act and Assert
     assertNull((new TbInMemorySecurityStore()).getByEndpoint("https://config.us-east-2.amazonaws.com"));
@@ -94,6 +80,8 @@ class TbInMemorySecurityStoreDiffblueTest {
    */
   @Test
   @DisplayName("Test getByIdentity(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"SecurityInfo TbInMemorySecurityStore.getByIdentity(String)"})
   void testGetByIdentity() {
     // Arrange, Act and Assert
     assertNull((new TbInMemorySecurityStore()).getByIdentity("Identity"));
@@ -102,11 +90,12 @@ class TbInMemorySecurityStoreDiffblueTest {
   /**
    * Test {@link TbInMemorySecurityStore#getByOscoreIdentity(OscoreIdentity)}.
    * <p>
-   * Method under test:
-   * {@link TbInMemorySecurityStore#getByOscoreIdentity(OscoreIdentity)}
+   * Method under test: {@link TbInMemorySecurityStore#getByOscoreIdentity(OscoreIdentity)}
    */
   @Test
   @DisplayName("Test getByOscoreIdentity(OscoreIdentity)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"SecurityInfo TbInMemorySecurityStore.getByOscoreIdentity(OscoreIdentity)"})
   void testGetByOscoreIdentity() throws UnsupportedEncodingException {
     // Arrange
     TbInMemorySecurityStore tbInMemorySecurityStore = new TbInMemorySecurityStore();
@@ -117,44 +106,17 @@ class TbInMemorySecurityStoreDiffblueTest {
 
   /**
    * Test {@link TbInMemorySecurityStore#put(TbLwM2MSecurityInfo)}.
-   * <p>
-   * Method under test: {@link TbInMemorySecurityStore#put(TbLwM2MSecurityInfo)}
-   */
-  @Test
-  @DisplayName("Test put(TbLwM2MSecurityInfo)")
-  void testPut() throws NonUniqueSecurityInfoException {
-    // Arrange
-    TbInMemorySecurityStore tbInMemorySecurityStore = new TbInMemorySecurityStore();
-
-    TbLwM2MSecurityInfo tbSecurityInfo = new TbLwM2MSecurityInfo();
-    tbSecurityInfo.setBootstrapConfig(new BootstrapConfig());
-    tbSecurityInfo.setBootstrapCredentialConfig(new LwM2MBootstrapConfig(new ArrayList<>(),
-        mock(LwM2MBootstrapClientCredential.class), mock(LwM2MBootstrapClientCredential.class)));
-    tbSecurityInfo.setDeviceProfile(new DeviceProfile());
-    tbSecurityInfo.setEndpoint("https://config.us-east-2.amazonaws.com");
-    tbSecurityInfo.setSecurityInfo(SecurityInfo.newX509CertInfo("https://config.us-east-2.amazonaws.com"));
-    tbSecurityInfo.setSecurityMode(SecurityMode.PSK);
-
-    // Act
-    tbInMemorySecurityStore.put(tbSecurityInfo);
-
-    // Assert
-    Map<String, TbLwM2MSecurityInfo> stringTbLwM2MSecurityInfoMap = tbInMemorySecurityStore.securityByEp;
-    assertEquals(1, stringTbLwM2MSecurityInfoMap.size());
-    assertSame(tbSecurityInfo, stringTbLwM2MSecurityInfoMap.get("https://config.us-east-2.amazonaws.com"));
-  }
-
-  /**
-   * Test {@link TbInMemorySecurityStore#put(TbLwM2MSecurityInfo)}.
    * <ul>
-   *   <li>Given {@link LwM2MBootstrapConfig#LwM2MBootstrapConfig()}.</li>
+   *   <li>Given newX509CertInfo {@code https://config.us-east-2.amazonaws.com}.</li>
    * </ul>
    * <p>
    * Method under test: {@link TbInMemorySecurityStore#put(TbLwM2MSecurityInfo)}
    */
   @Test
-  @DisplayName("Test put(TbLwM2MSecurityInfo); given LwM2MBootstrapConfig()")
-  void testPut_givenLwM2MBootstrapConfig() throws NonUniqueSecurityInfoException {
+  @DisplayName("Test put(TbLwM2MSecurityInfo); given newX509CertInfo 'https://config.us-east-2.amazonaws.com'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbInMemorySecurityStore.put(TbLwM2MSecurityInfo)"})
+  void testPut_givenNewX509CertInfoHttpsConfigUsEast2AmazonawsCom() throws NonUniqueSecurityInfoException {
     // Arrange
     TbInMemorySecurityStore tbInMemorySecurityStore = new TbInMemorySecurityStore();
 
@@ -179,14 +141,15 @@ class TbInMemorySecurityStoreDiffblueTest {
    * Test {@link TbInMemorySecurityStore#put(TbLwM2MSecurityInfo)}.
    * <ul>
    *   <li>Given {@code null}.</li>
-   *   <li>When {@link TbLwM2MSecurityInfo} (default constructor) SecurityInfo is
-   * {@code null}.</li>
+   *   <li>When {@link TbLwM2MSecurityInfo} (default constructor) SecurityInfo is {@code null}.</li>
    * </ul>
    * <p>
    * Method under test: {@link TbInMemorySecurityStore#put(TbLwM2MSecurityInfo)}
    */
   @Test
   @DisplayName("Test put(TbLwM2MSecurityInfo); given 'null'; when TbLwM2MSecurityInfo (default constructor) SecurityInfo is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbInMemorySecurityStore.put(TbLwM2MSecurityInfo)"})
   void testPut_givenNull_whenTbLwM2MSecurityInfoSecurityInfoIsNull() throws NonUniqueSecurityInfoException {
     // Arrange
     TbInMemorySecurityStore tbInMemorySecurityStore = new TbInMemorySecurityStore();
@@ -209,329 +172,14 @@ class TbInMemorySecurityStoreDiffblueTest {
   }
 
   /**
-   * Test {@link TbInMemorySecurityStore#remove(String)}.
+   * Test {@link TbInMemorySecurityStore#getTbLwM2MSecurityInfoByEndpoint(String)}.
    * <p>
-   * Method under test: {@link TbInMemorySecurityStore#remove(String)}
-   */
-  @Test
-  @DisplayName("Test remove(String)")
-  void testRemove() throws NonUniqueSecurityInfoException {
-    // Arrange
-    ValidateDeviceCredentialsResponse.ValidateDeviceCredentialsResponseBuilder validateDeviceCredentialsResponseBuilder = mock(
-        ValidateDeviceCredentialsResponse.ValidateDeviceCredentialsResponseBuilder.class);
-    when(validateDeviceCredentialsResponseBuilder.credentials(Mockito.<String>any()))
-        .thenReturn(ValidateDeviceCredentialsResponse.builder());
-    ValidateDeviceCredentialsResponse.ValidateDeviceCredentialsResponseBuilder credentialsResult = validateDeviceCredentialsResponseBuilder
-        .credentials("Credentials");
-    TransportDeviceInfo deviceInfo = mock(TransportDeviceInfo.class);
-    doNothing().when(deviceInfo).setDeviceProfileId(Mockito.<DeviceProfileId>any());
-    doNothing().when(deviceInfo).setDeviceType(Mockito.<String>any());
-    doNothing().when(deviceInfo).setEdrxCycle(Mockito.<Long>any());
-    doNothing().when(deviceInfo).setGateway(anyBoolean());
-    doNothing().when(deviceInfo).setPagingTransmissionWindow(Mockito.<Long>any());
-    doNothing().when(deviceInfo).setPowerMode(Mockito.<PowerMode>any());
-    doNothing().when(deviceInfo).setPsmActivityTimer(Mockito.<Long>any());
-    doNothing().when(deviceInfo).setTenantId(Mockito.<TenantId>any());
-    doNothing().when(deviceInfo).setDeviceId(Mockito.<DeviceId>any());
-    doNothing().when(deviceInfo).setDeviceName(Mockito.<String>any());
-    doNothing().when(deviceInfo).setAdditionalInfo(Mockito.<String>any());
-    doNothing().when(deviceInfo).setCustomerId(Mockito.<CustomerId>any());
-    deviceInfo.setAdditionalInfo("Additional Info");
-    deviceInfo.setCustomerId(new CustomerId(UUID.randomUUID()));
-    deviceInfo.setDeviceId(null);
-    deviceInfo.setDeviceName("Device Name");
-    deviceInfo.setDeviceProfileId(null);
-    deviceInfo.setDeviceType("Device Type");
-    deviceInfo.setEdrxCycle(1L);
-    deviceInfo.setGateway(true);
-    deviceInfo.setPagingTransmissionWindow(1L);
-    deviceInfo.setPowerMode(PowerMode.PSM);
-    deviceInfo.setPsmActivityTimer(1L);
-    deviceInfo.setTenantId(new TenantId(UUID.randomUUID()));
-    ValidateDeviceCredentialsResponse.ValidateDeviceCredentialsResponseBuilder deviceInfoResult = credentialsResult
-        .deviceInfo(deviceInfo);
-    ValidateDeviceCredentialsResponse msg = deviceInfoResult.deviceProfile(new DeviceProfile()).build();
-    TbLwM2MSecurityInfo tbSecurityInfo = mock(TbLwM2MSecurityInfo.class);
-    when(tbSecurityInfo.getEndpoint()).thenReturn("https://config.us-east-2.amazonaws.com");
-    when(tbSecurityInfo.getSecurityInfo())
-        .thenReturn(SecurityInfo.newX509CertInfo("https://config.us-east-2.amazonaws.com"));
-    doNothing().when(tbSecurityInfo).setMsg(Mockito.<ValidateDeviceCredentialsResponse>any());
-    doNothing().when(tbSecurityInfo).setSecurityInfo(Mockito.<SecurityInfo>any());
-    doNothing().when(tbSecurityInfo).setSecurityMode(Mockito.<SecurityMode>any());
-    doNothing().when(tbSecurityInfo).setBootstrapConfig(Mockito.<BootstrapConfig>any());
-    doNothing().when(tbSecurityInfo).setBootstrapCredentialConfig(Mockito.<LwM2MBootstrapConfig>any());
-    doNothing().when(tbSecurityInfo).setDeviceProfile(Mockito.<DeviceProfile>any());
-    doNothing().when(tbSecurityInfo).setEndpoint(Mockito.<String>any());
-    tbSecurityInfo.setBootstrapConfig(new BootstrapConfig());
-    tbSecurityInfo.setBootstrapCredentialConfig(new LwM2MBootstrapConfig());
-    tbSecurityInfo.setDeviceProfile(new DeviceProfile());
-    tbSecurityInfo.setEndpoint("https://config.us-east-2.amazonaws.com");
-    tbSecurityInfo.setMsg(msg);
-    tbSecurityInfo.setSecurityInfo(SecurityInfo.newX509CertInfo("https://config.us-east-2.amazonaws.com"));
-    tbSecurityInfo.setSecurityMode(SecurityMode.PSK);
-
-    TbInMemorySecurityStore tbInMemorySecurityStore = new TbInMemorySecurityStore();
-    tbInMemorySecurityStore.put(tbSecurityInfo);
-
-    // Act
-    tbInMemorySecurityStore.remove("https://config.us-east-2.amazonaws.com");
-
-    // Assert
-    verify(deviceInfo).setAdditionalInfo(eq("Additional Info"));
-    verify(deviceInfo).setCustomerId(isA(CustomerId.class));
-    verify(deviceInfo).setDeviceId(isNull());
-    verify(deviceInfo).setDeviceName(eq("Device Name"));
-    verify(deviceInfo).setDeviceProfileId(isNull());
-    verify(deviceInfo).setDeviceType(eq("Device Type"));
-    verify(deviceInfo).setEdrxCycle(eq(1L));
-    verify(deviceInfo).setGateway(eq(true));
-    verify(deviceInfo).setPagingTransmissionWindow(eq(1L));
-    verify(deviceInfo).setPowerMode(eq(PowerMode.PSM));
-    verify(deviceInfo).setPsmActivityTimer(eq(1L));
-    verify(deviceInfo).setTenantId(isA(TenantId.class));
-    verify(validateDeviceCredentialsResponseBuilder).credentials(eq("Credentials"));
-    verify(tbSecurityInfo).getEndpoint();
-    verify(tbSecurityInfo, atLeast(1)).getSecurityInfo();
-    verify(tbSecurityInfo).setBootstrapConfig(isA(BootstrapConfig.class));
-    verify(tbSecurityInfo).setBootstrapCredentialConfig(isA(LwM2MBootstrapConfig.class));
-    verify(tbSecurityInfo).setDeviceProfile(isA(DeviceProfile.class));
-    verify(tbSecurityInfo).setEndpoint(eq("https://config.us-east-2.amazonaws.com"));
-    verify(tbSecurityInfo).setMsg(isA(ValidateDeviceCredentialsResponse.class));
-    verify(tbSecurityInfo).setSecurityInfo(isA(SecurityInfo.class));
-    verify(tbSecurityInfo).setSecurityMode(eq(SecurityMode.PSK));
-    assertTrue(tbInMemorySecurityStore.securityByEp.isEmpty());
-    assertTrue(tbInMemorySecurityStore.securityByIdentity.isEmpty());
-  }
-
-  /**
-   * Test {@link TbInMemorySecurityStore#remove(String)}.
-   * <ul>
-   *   <li>Given {@link TbInMemorySecurityStore} (default constructor).</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbInMemorySecurityStore#remove(String)}
-   */
-  @Test
-  @DisplayName("Test remove(String); given TbInMemorySecurityStore (default constructor)")
-  void testRemove_givenTbInMemorySecurityStore() {
-    // Arrange
-    TbInMemorySecurityStore tbInMemorySecurityStore = new TbInMemorySecurityStore();
-
-    // Act
-    tbInMemorySecurityStore.remove("https://config.us-east-2.amazonaws.com");
-
-    // Assert
-    assertTrue(tbInMemorySecurityStore.securityByEp.isEmpty());
-    assertTrue(tbInMemorySecurityStore.securityByIdentity.isEmpty());
-  }
-
-  /**
-   * Test {@link TbInMemorySecurityStore#remove(String)}.
-   * <ul>
-   *   <li>Given {@link TbLwM2MSecurityInfo}
-   * {@link TbLwM2MSecurityInfo#getSecurityInfo()} return {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbInMemorySecurityStore#remove(String)}
-   */
-  @Test
-  @DisplayName("Test remove(String); given TbLwM2MSecurityInfo getSecurityInfo() return 'null'")
-  void testRemove_givenTbLwM2MSecurityInfoGetSecurityInfoReturnNull() throws NonUniqueSecurityInfoException {
-    // Arrange
-    ValidateDeviceCredentialsResponse.ValidateDeviceCredentialsResponseBuilder validateDeviceCredentialsResponseBuilder = mock(
-        ValidateDeviceCredentialsResponse.ValidateDeviceCredentialsResponseBuilder.class);
-    when(validateDeviceCredentialsResponseBuilder.credentials(Mockito.<String>any()))
-        .thenReturn(ValidateDeviceCredentialsResponse.builder());
-    ValidateDeviceCredentialsResponse.ValidateDeviceCredentialsResponseBuilder credentialsResult = validateDeviceCredentialsResponseBuilder
-        .credentials("Credentials");
-    TransportDeviceInfo deviceInfo = mock(TransportDeviceInfo.class);
-    doNothing().when(deviceInfo).setDeviceProfileId(Mockito.<DeviceProfileId>any());
-    doNothing().when(deviceInfo).setDeviceType(Mockito.<String>any());
-    doNothing().when(deviceInfo).setEdrxCycle(Mockito.<Long>any());
-    doNothing().when(deviceInfo).setGateway(anyBoolean());
-    doNothing().when(deviceInfo).setPagingTransmissionWindow(Mockito.<Long>any());
-    doNothing().when(deviceInfo).setPowerMode(Mockito.<PowerMode>any());
-    doNothing().when(deviceInfo).setPsmActivityTimer(Mockito.<Long>any());
-    doNothing().when(deviceInfo).setTenantId(Mockito.<TenantId>any());
-    doNothing().when(deviceInfo).setDeviceId(Mockito.<DeviceId>any());
-    doNothing().when(deviceInfo).setDeviceName(Mockito.<String>any());
-    doNothing().when(deviceInfo).setAdditionalInfo(Mockito.<String>any());
-    doNothing().when(deviceInfo).setCustomerId(Mockito.<CustomerId>any());
-    deviceInfo.setAdditionalInfo("Additional Info");
-    deviceInfo.setCustomerId(new CustomerId(UUID.randomUUID()));
-    deviceInfo.setDeviceId(null);
-    deviceInfo.setDeviceName("Device Name");
-    deviceInfo.setDeviceProfileId(null);
-    deviceInfo.setDeviceType("Device Type");
-    deviceInfo.setEdrxCycle(1L);
-    deviceInfo.setGateway(true);
-    deviceInfo.setPagingTransmissionWindow(1L);
-    deviceInfo.setPowerMode(PowerMode.PSM);
-    deviceInfo.setPsmActivityTimer(1L);
-    deviceInfo.setTenantId(new TenantId(UUID.randomUUID()));
-    ValidateDeviceCredentialsResponse.ValidateDeviceCredentialsResponseBuilder deviceInfoResult = credentialsResult
-        .deviceInfo(deviceInfo);
-    ValidateDeviceCredentialsResponse msg = deviceInfoResult.deviceProfile(new DeviceProfile()).build();
-    TbLwM2MSecurityInfo tbSecurityInfo = mock(TbLwM2MSecurityInfo.class);
-    when(tbSecurityInfo.getEndpoint()).thenReturn("https://config.us-east-2.amazonaws.com");
-    when(tbSecurityInfo.getSecurityInfo()).thenReturn(null);
-    doNothing().when(tbSecurityInfo).setMsg(Mockito.<ValidateDeviceCredentialsResponse>any());
-    doNothing().when(tbSecurityInfo).setSecurityInfo(Mockito.<SecurityInfo>any());
-    doNothing().when(tbSecurityInfo).setSecurityMode(Mockito.<SecurityMode>any());
-    doNothing().when(tbSecurityInfo).setBootstrapConfig(Mockito.<BootstrapConfig>any());
-    doNothing().when(tbSecurityInfo).setBootstrapCredentialConfig(Mockito.<LwM2MBootstrapConfig>any());
-    doNothing().when(tbSecurityInfo).setDeviceProfile(Mockito.<DeviceProfile>any());
-    doNothing().when(tbSecurityInfo).setEndpoint(Mockito.<String>any());
-    tbSecurityInfo.setBootstrapConfig(new BootstrapConfig());
-    tbSecurityInfo.setBootstrapCredentialConfig(new LwM2MBootstrapConfig());
-    tbSecurityInfo.setDeviceProfile(new DeviceProfile());
-    tbSecurityInfo.setEndpoint("https://config.us-east-2.amazonaws.com");
-    tbSecurityInfo.setMsg(msg);
-    tbSecurityInfo.setSecurityInfo(SecurityInfo.newX509CertInfo("https://config.us-east-2.amazonaws.com"));
-    tbSecurityInfo.setSecurityMode(SecurityMode.PSK);
-
-    TbInMemorySecurityStore tbInMemorySecurityStore = new TbInMemorySecurityStore();
-    tbInMemorySecurityStore.put(tbSecurityInfo);
-
-    // Act
-    tbInMemorySecurityStore.remove("https://config.us-east-2.amazonaws.com");
-
-    // Assert
-    verify(deviceInfo).setAdditionalInfo(eq("Additional Info"));
-    verify(deviceInfo).setCustomerId(isA(CustomerId.class));
-    verify(deviceInfo).setDeviceId(isNull());
-    verify(deviceInfo).setDeviceName(eq("Device Name"));
-    verify(deviceInfo).setDeviceProfileId(isNull());
-    verify(deviceInfo).setDeviceType(eq("Device Type"));
-    verify(deviceInfo).setEdrxCycle(eq(1L));
-    verify(deviceInfo).setGateway(eq(true));
-    verify(deviceInfo).setPagingTransmissionWindow(eq(1L));
-    verify(deviceInfo).setPowerMode(eq(PowerMode.PSM));
-    verify(deviceInfo).setPsmActivityTimer(eq(1L));
-    verify(deviceInfo).setTenantId(isA(TenantId.class));
-    verify(validateDeviceCredentialsResponseBuilder).credentials(eq("Credentials"));
-    verify(tbSecurityInfo).getEndpoint();
-    verify(tbSecurityInfo, atLeast(1)).getSecurityInfo();
-    verify(tbSecurityInfo).setBootstrapConfig(isA(BootstrapConfig.class));
-    verify(tbSecurityInfo).setBootstrapCredentialConfig(isA(LwM2MBootstrapConfig.class));
-    verify(tbSecurityInfo).setDeviceProfile(isA(DeviceProfile.class));
-    verify(tbSecurityInfo).setEndpoint(eq("https://config.us-east-2.amazonaws.com"));
-    verify(tbSecurityInfo).setMsg(isA(ValidateDeviceCredentialsResponse.class));
-    verify(tbSecurityInfo).setSecurityInfo(isA(SecurityInfo.class));
-    verify(tbSecurityInfo).setSecurityMode(eq(SecurityMode.PSK));
-    assertTrue(tbInMemorySecurityStore.securityByEp.isEmpty());
-    assertTrue(tbInMemorySecurityStore.securityByIdentity.isEmpty());
-  }
-
-  /**
-   * Test {@link TbInMemorySecurityStore#remove(String)}.
-   * <ul>
-   *   <li>Then calls {@link SecurityInfo#getPskIdentity()}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbInMemorySecurityStore#remove(String)}
-   */
-  @Test
-  @DisplayName("Test remove(String); then calls getPskIdentity()")
-  void testRemove_thenCallsGetPskIdentity() throws NonUniqueSecurityInfoException {
-    // Arrange
-    ValidateDeviceCredentialsResponse.ValidateDeviceCredentialsResponseBuilder validateDeviceCredentialsResponseBuilder = mock(
-        ValidateDeviceCredentialsResponse.ValidateDeviceCredentialsResponseBuilder.class);
-    when(validateDeviceCredentialsResponseBuilder.credentials(Mockito.<String>any()))
-        .thenReturn(ValidateDeviceCredentialsResponse.builder());
-    ValidateDeviceCredentialsResponse.ValidateDeviceCredentialsResponseBuilder credentialsResult = validateDeviceCredentialsResponseBuilder
-        .credentials("Credentials");
-    TransportDeviceInfo deviceInfo = mock(TransportDeviceInfo.class);
-    doNothing().when(deviceInfo).setDeviceProfileId(Mockito.<DeviceProfileId>any());
-    doNothing().when(deviceInfo).setDeviceType(Mockito.<String>any());
-    doNothing().when(deviceInfo).setEdrxCycle(Mockito.<Long>any());
-    doNothing().when(deviceInfo).setGateway(anyBoolean());
-    doNothing().when(deviceInfo).setPagingTransmissionWindow(Mockito.<Long>any());
-    doNothing().when(deviceInfo).setPowerMode(Mockito.<PowerMode>any());
-    doNothing().when(deviceInfo).setPsmActivityTimer(Mockito.<Long>any());
-    doNothing().when(deviceInfo).setTenantId(Mockito.<TenantId>any());
-    doNothing().when(deviceInfo).setDeviceId(Mockito.<DeviceId>any());
-    doNothing().when(deviceInfo).setDeviceName(Mockito.<String>any());
-    doNothing().when(deviceInfo).setAdditionalInfo(Mockito.<String>any());
-    doNothing().when(deviceInfo).setCustomerId(Mockito.<CustomerId>any());
-    deviceInfo.setAdditionalInfo("Additional Info");
-    deviceInfo.setCustomerId(new CustomerId(UUID.randomUUID()));
-    deviceInfo.setDeviceId(null);
-    deviceInfo.setDeviceName("Device Name");
-    deviceInfo.setDeviceProfileId(null);
-    deviceInfo.setDeviceType("Device Type");
-    deviceInfo.setEdrxCycle(1L);
-    deviceInfo.setGateway(true);
-    deviceInfo.setPagingTransmissionWindow(1L);
-    deviceInfo.setPowerMode(PowerMode.PSM);
-    deviceInfo.setPsmActivityTimer(1L);
-    deviceInfo.setTenantId(new TenantId(UUID.randomUUID()));
-    ValidateDeviceCredentialsResponse.ValidateDeviceCredentialsResponseBuilder deviceInfoResult = credentialsResult
-        .deviceInfo(deviceInfo);
-    ValidateDeviceCredentialsResponse msg = deviceInfoResult.deviceProfile(new DeviceProfile()).build();
-    SecurityInfo securityInfo = mock(SecurityInfo.class);
-    when(securityInfo.getPskIdentity()).thenReturn("Psk Identity");
-    TbLwM2MSecurityInfo tbSecurityInfo = mock(TbLwM2MSecurityInfo.class);
-    when(tbSecurityInfo.getEndpoint()).thenReturn("https://config.us-east-2.amazonaws.com");
-    when(tbSecurityInfo.getSecurityInfo()).thenReturn(securityInfo);
-    doNothing().when(tbSecurityInfo).setMsg(Mockito.<ValidateDeviceCredentialsResponse>any());
-    doNothing().when(tbSecurityInfo).setSecurityInfo(Mockito.<SecurityInfo>any());
-    doNothing().when(tbSecurityInfo).setSecurityMode(Mockito.<SecurityMode>any());
-    doNothing().when(tbSecurityInfo).setBootstrapConfig(Mockito.<BootstrapConfig>any());
-    doNothing().when(tbSecurityInfo).setBootstrapCredentialConfig(Mockito.<LwM2MBootstrapConfig>any());
-    doNothing().when(tbSecurityInfo).setDeviceProfile(Mockito.<DeviceProfile>any());
-    doNothing().when(tbSecurityInfo).setEndpoint(Mockito.<String>any());
-    tbSecurityInfo.setBootstrapConfig(new BootstrapConfig());
-    tbSecurityInfo.setBootstrapCredentialConfig(new LwM2MBootstrapConfig());
-    tbSecurityInfo.setDeviceProfile(new DeviceProfile());
-    tbSecurityInfo.setEndpoint("https://config.us-east-2.amazonaws.com");
-    tbSecurityInfo.setMsg(msg);
-    tbSecurityInfo.setSecurityInfo(SecurityInfo.newX509CertInfo("https://config.us-east-2.amazonaws.com"));
-    tbSecurityInfo.setSecurityMode(SecurityMode.PSK);
-
-    TbInMemorySecurityStore tbInMemorySecurityStore = new TbInMemorySecurityStore();
-    tbInMemorySecurityStore.put(tbSecurityInfo);
-
-    // Act
-    tbInMemorySecurityStore.remove("https://config.us-east-2.amazonaws.com");
-
-    // Assert
-    verify(securityInfo, atLeast(1)).getPskIdentity();
-    verify(deviceInfo).setAdditionalInfo(eq("Additional Info"));
-    verify(deviceInfo).setCustomerId(isA(CustomerId.class));
-    verify(deviceInfo).setDeviceId(isNull());
-    verify(deviceInfo).setDeviceName(eq("Device Name"));
-    verify(deviceInfo).setDeviceProfileId(isNull());
-    verify(deviceInfo).setDeviceType(eq("Device Type"));
-    verify(deviceInfo).setEdrxCycle(eq(1L));
-    verify(deviceInfo).setGateway(eq(true));
-    verify(deviceInfo).setPagingTransmissionWindow(eq(1L));
-    verify(deviceInfo).setPowerMode(eq(PowerMode.PSM));
-    verify(deviceInfo).setPsmActivityTimer(eq(1L));
-    verify(deviceInfo).setTenantId(isA(TenantId.class));
-    verify(validateDeviceCredentialsResponseBuilder).credentials(eq("Credentials"));
-    verify(tbSecurityInfo).getEndpoint();
-    verify(tbSecurityInfo, atLeast(1)).getSecurityInfo();
-    verify(tbSecurityInfo).setBootstrapConfig(isA(BootstrapConfig.class));
-    verify(tbSecurityInfo).setBootstrapCredentialConfig(isA(LwM2MBootstrapConfig.class));
-    verify(tbSecurityInfo).setDeviceProfile(isA(DeviceProfile.class));
-    verify(tbSecurityInfo).setEndpoint(eq("https://config.us-east-2.amazonaws.com"));
-    verify(tbSecurityInfo).setMsg(isA(ValidateDeviceCredentialsResponse.class));
-    verify(tbSecurityInfo).setSecurityInfo(isA(SecurityInfo.class));
-    verify(tbSecurityInfo).setSecurityMode(eq(SecurityMode.PSK));
-    assertTrue(tbInMemorySecurityStore.securityByEp.isEmpty());
-    assertTrue(tbInMemorySecurityStore.securityByIdentity.isEmpty());
-  }
-
-  /**
-   * Test
-   * {@link TbInMemorySecurityStore#getTbLwM2MSecurityInfoByEndpoint(String)}.
-   * <p>
-   * Method under test:
-   * {@link TbInMemorySecurityStore#getTbLwM2MSecurityInfoByEndpoint(String)}
+   * Method under test: {@link TbInMemorySecurityStore#getTbLwM2MSecurityInfoByEndpoint(String)}
    */
   @Test
   @DisplayName("Test getTbLwM2MSecurityInfoByEndpoint(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbLwM2MSecurityInfo TbInMemorySecurityStore.getTbLwM2MSecurityInfoByEndpoint(String)"})
   void testGetTbLwM2MSecurityInfoByEndpoint() {
     // Arrange, Act and Assert
     assertNull(

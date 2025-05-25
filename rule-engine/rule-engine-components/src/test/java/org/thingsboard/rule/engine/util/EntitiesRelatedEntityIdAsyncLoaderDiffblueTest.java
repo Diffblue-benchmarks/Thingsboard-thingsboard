@@ -4,9 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.cache.caffeine.CaffeineCacheManager;
 import org.springframework.context.ApplicationEventPublisher;
@@ -24,18 +26,18 @@ import org.thingsboard.server.dao.sql.relation.JpaRelationQueryExecutorService;
 
 class EntitiesRelatedEntityIdAsyncLoaderDiffblueTest {
   /**
-   * Test
-   * {@link EntitiesRelatedEntityIdAsyncLoader#findEntityAsync(TbContext, EntityId, RelationsQuery)}.
+   * Test {@link EntitiesRelatedEntityIdAsyncLoader#findEntityAsync(TbContext, EntityId, RelationsQuery)}.
    * <ul>
-   *   <li>Given {@link IllegalStateException#IllegalStateException(String)} with
-   * {@code foo}.</li>
+   *   <li>Given {@link IllegalStateException#IllegalStateException(String)} with {@code foo}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntitiesRelatedEntityIdAsyncLoader#findEntityAsync(TbContext, EntityId, RelationsQuery)}
+   * Method under test: {@link EntitiesRelatedEntityIdAsyncLoader#findEntityAsync(TbContext, EntityId, RelationsQuery)}
    */
   @Test
   @DisplayName("Test findEntityAsync(TbContext, EntityId, RelationsQuery); given IllegalStateException(String) with 'foo'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "com.google.common.util.concurrent.ListenableFuture EntitiesRelatedEntityIdAsyncLoader.findEntityAsync(TbContext, EntityId, RelationsQuery)"})
   void testFindEntityAsync_givenIllegalStateExceptionWithFoo() {
     // Arrange
     TbContext ctx = mock(TbContext.class);
@@ -54,17 +56,18 @@ class EntitiesRelatedEntityIdAsyncLoaderDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EntitiesRelatedEntityIdAsyncLoader#findEntityAsync(TbContext, EntityId, RelationsQuery)}.
+   * Test {@link EntitiesRelatedEntityIdAsyncLoader#findEntityAsync(TbContext, EntityId, RelationsQuery)}.
    * <ul>
    *   <li>Then calls {@link TbContext#getTenantId()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntitiesRelatedEntityIdAsyncLoader#findEntityAsync(TbContext, EntityId, RelationsQuery)}
+   * Method under test: {@link EntitiesRelatedEntityIdAsyncLoader#findEntityAsync(TbContext, EntityId, RelationsQuery)}
    */
   @Test
   @DisplayName("Test findEntityAsync(TbContext, EntityId, RelationsQuery); then calls getTenantId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "com.google.common.util.concurrent.ListenableFuture EntitiesRelatedEntityIdAsyncLoader.findEntityAsync(TbContext, EntityId, RelationsQuery)"})
   void testFindEntityAsync_thenCallsGetTenantId() {
     // Arrange
     TbContext ctx = mock(TbContext.class);
@@ -76,7 +79,7 @@ class EntitiesRelatedEntityIdAsyncLoaderDiffblueTest {
     JpaExecutorService executor = new JpaExecutorService();
     when(ctx.getRelationService()).thenReturn(new BaseRelationService(relationDao, entityService, cache, eventPublisher,
         executor, new JpaRelationQueryExecutorService()));
-    AlarmId originator = new AlarmId(UUID.randomUUID());
+    AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     RelationsQuery relationsQuery = new RelationsQuery();
     relationsQuery.setDirection(EntitySearchDirection.FROM);

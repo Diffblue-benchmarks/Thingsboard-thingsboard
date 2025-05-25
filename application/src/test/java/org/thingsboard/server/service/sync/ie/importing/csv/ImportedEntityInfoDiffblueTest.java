@@ -3,13 +3,14 @@ package org.thingsboard.server.service.sync.ie.importing.csv;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ImportedEntityInfoDiffblueTest {
   /**
-   * Test {@link ImportedEntityInfo#equals(Object)}, and
-   * {@link ImportedEntityInfo#hashCode()}.
+   * Test {@link ImportedEntityInfo#equals(Object)}, and {@link ImportedEntityInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -23,6 +24,8 @@ class ImportedEntityInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImportedEntityInfo.equals(Object)", "int ImportedEntityInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ImportedEntityInfo<Object> importedEntityInfo = new ImportedEntityInfo<>();
@@ -42,8 +45,7 @@ class ImportedEntityInfoDiffblueTest {
   }
 
   /**
-   * Test {@link ImportedEntityInfo#equals(Object)}, and
-   * {@link ImportedEntityInfo#hashCode()}.
+   * Test {@link ImportedEntityInfo#equals(Object)}, and {@link ImportedEntityInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -57,6 +59,8 @@ class ImportedEntityInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImportedEntityInfo.equals(Object)", "int ImportedEntityInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     ImportedEntityInfo<Object> importedEntityInfo = new ImportedEntityInfo<>();
@@ -76,8 +80,7 @@ class ImportedEntityInfoDiffblueTest {
   }
 
   /**
-   * Test {@link ImportedEntityInfo#equals(Object)}, and
-   * {@link ImportedEntityInfo#hashCode()}.
+   * Test {@link ImportedEntityInfo#equals(Object)}, and {@link ImportedEntityInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -91,6 +94,8 @@ class ImportedEntityInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImportedEntityInfo.equals(Object)", "int ImportedEntityInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     ImportedEntityInfo<Object> importedEntityInfo = new ImportedEntityInfo<>();
@@ -110,8 +115,7 @@ class ImportedEntityInfoDiffblueTest {
   }
 
   /**
-   * Test {@link ImportedEntityInfo#equals(Object)}, and
-   * {@link ImportedEntityInfo#hashCode()}.
+   * Test {@link ImportedEntityInfo#equals(Object)}, and {@link ImportedEntityInfo#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -125,6 +129,8 @@ class ImportedEntityInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImportedEntityInfo.equals(Object)", "int ImportedEntityInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ImportedEntityInfo<Object> importedEntityInfo = new ImportedEntityInfo<>();
@@ -149,6 +155,8 @@ class ImportedEntityInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImportedEntityInfo.equals(Object)", "int ImportedEntityInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ImportedEntityInfo<Object> importedEntityInfo = new ImportedEntityInfo<>();
@@ -181,6 +189,8 @@ class ImportedEntityInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImportedEntityInfo.equals(Object)", "int ImportedEntityInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ImportedEntityInfo<Object> importedEntityInfo = new ImportedEntityInfo<>();
@@ -208,6 +218,8 @@ class ImportedEntityInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImportedEntityInfo.equals(Object)", "int ImportedEntityInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     ImportedEntityInfo<Object> importedEntityInfo = new ImportedEntityInfo<>();
@@ -240,6 +252,8 @@ class ImportedEntityInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImportedEntityInfo.equals(Object)", "int ImportedEntityInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     ImportedEntityInfo<Object> importedEntityInfo = new ImportedEntityInfo<>();
@@ -267,6 +281,8 @@ class ImportedEntityInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImportedEntityInfo.equals(Object)", "int ImportedEntityInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     ImportedEntityInfo<Object> importedEntityInfo = new ImportedEntityInfo<>();
@@ -294,6 +310,8 @@ class ImportedEntityInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImportedEntityInfo.equals(Object)", "int ImportedEntityInfo.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     ImportedEntityInfo<Object> importedEntityInfo = new ImportedEntityInfo<>();
@@ -316,6 +334,8 @@ class ImportedEntityInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImportedEntityInfo.equals(Object)", "int ImportedEntityInfo.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     ImportedEntityInfo<Object> importedEntityInfo = new ImportedEntityInfo<>();
@@ -344,6 +364,11 @@ class ImportedEntityInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ImportedEntityInfo.<init>()", "Object ImportedEntityInfo.getEntity()",
+      "Object ImportedEntityInfo.getOldEntity()", "boolean ImportedEntityInfo.isUpdated()",
+      "void ImportedEntityInfo.setEntity(Object)", "void ImportedEntityInfo.setOldEntity(Object)",
+      "void ImportedEntityInfo.setUpdated(boolean)", "String ImportedEntityInfo.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     ImportedEntityInfo<Object> actualImportedEntityInfo = new ImportedEntityInfo<>();
@@ -354,7 +379,7 @@ class ImportedEntityInfoDiffblueTest {
     Object actualEntity = actualImportedEntityInfo.getEntity();
     Object actualOldEntity = actualImportedEntityInfo.getOldEntity();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Entity", actualEntity);
     assertEquals("ImportedEntityInfo(entity=Entity, isUpdated=true, oldEntity=Old Entity)", actualToStringResult);
     assertEquals("Old Entity", actualOldEntity);

@@ -6,8 +6,10 @@ import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.io.UnsupportedEncodingException;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.TbResource;
 import org.thingsboard.server.common.data.exception.ThingsboardException;
@@ -26,6 +28,8 @@ class LwM2mObjectModelUtilsDiffblueTest {
    */
   @Test
   @DisplayName("Test toLwm2mResource(TbResource); given 'foo.txt'; then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2mObjectModelUtils.toLwm2mResource(TbResource)"})
   void testToLwm2mResource_givenFooTxt_thenThrowDataValidationException()
       throws UnsupportedEncodingException, ThingsboardException {
     // Arrange
@@ -48,11 +52,12 @@ class LwM2mObjectModelUtilsDiffblueTest {
    *   <li>Then return {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link LwM2mObjectModelUtils#toLwM2mObject(TbResource, boolean)}
+   * Method under test: {@link LwM2mObjectModelUtils#toLwM2mObject(TbResource, boolean)}
    */
   @Test
   @DisplayName("Test toLwM2mObject(TbResource, boolean); given 'Search Text'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"LwM2mObject LwM2mObjectModelUtils.toLwM2mObject(TbResource, boolean)"})
   void testToLwM2mObject_givenSearchText_thenReturnNull() throws UnsupportedEncodingException {
     // Arrange
     TbResource resource = mock(TbResource.class);

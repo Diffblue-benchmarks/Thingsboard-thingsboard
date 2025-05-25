@@ -4,19 +4,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.function.BiFunction;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TelemetryMappingConfigurationDiffblueTest {
   /**
-   * Test {@link TelemetryMappingConfiguration#equals(Object)}, and
-   * {@link TelemetryMappingConfiguration#hashCode()}.
+   * Test {@link TelemetryMappingConfiguration#equals(Object)}, and {@link TelemetryMappingConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -30,6 +29,9 @@ class TelemetryMappingConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryMappingConfiguration.equals(Object)",
+      "int TelemetryMappingConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TelemetryMappingConfiguration telemetryMappingConfiguration = new TelemetryMappingConfiguration();
@@ -42,8 +44,7 @@ class TelemetryMappingConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TelemetryMappingConfiguration#equals(Object)}, and
-   * {@link TelemetryMappingConfiguration#hashCode()}.
+   * Test {@link TelemetryMappingConfiguration#equals(Object)}, and {@link TelemetryMappingConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -57,6 +58,9 @@ class TelemetryMappingConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryMappingConfiguration.equals(Object)",
+      "int TelemetryMappingConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     HashMap<String, String> keyName = new HashMap<>();
@@ -79,8 +83,7 @@ class TelemetryMappingConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TelemetryMappingConfiguration#equals(Object)}, and
-   * {@link TelemetryMappingConfiguration#hashCode()}.
+   * Test {@link TelemetryMappingConfiguration#equals(Object)}, and {@link TelemetryMappingConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -94,6 +97,9 @@ class TelemetryMappingConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryMappingConfiguration.equals(Object)",
+      "int TelemetryMappingConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TelemetryMappingConfiguration telemetryMappingConfiguration = new TelemetryMappingConfiguration();
@@ -115,6 +121,9 @@ class TelemetryMappingConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryMappingConfiguration.equals(Object)",
+      "int TelemetryMappingConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     HashMap<String, String> keyName = new HashMap<>();
@@ -139,6 +148,9 @@ class TelemetryMappingConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryMappingConfiguration.equals(Object)",
+      "int TelemetryMappingConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TelemetryMappingConfiguration telemetryMappingConfiguration = new TelemetryMappingConfiguration();
@@ -163,6 +175,9 @@ class TelemetryMappingConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryMappingConfiguration.equals(Object)",
+      "int TelemetryMappingConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TelemetryMappingConfiguration telemetryMappingConfiguration = new TelemetryMappingConfiguration();
@@ -183,6 +198,9 @@ class TelemetryMappingConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryMappingConfiguration.equals(Object)",
+      "int TelemetryMappingConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TelemetryMappingConfiguration telemetryMappingConfiguration = new TelemetryMappingConfiguration();
@@ -203,6 +221,9 @@ class TelemetryMappingConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryMappingConfiguration.equals(Object)",
+      "int TelemetryMappingConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TelemetryMappingConfiguration telemetryMappingConfiguration = new TelemetryMappingConfiguration();
@@ -223,6 +244,9 @@ class TelemetryMappingConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryMappingConfiguration.equals(Object)",
+      "int TelemetryMappingConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TelemetryMappingConfiguration telemetryMappingConfiguration = new TelemetryMappingConfiguration();
@@ -243,6 +267,9 @@ class TelemetryMappingConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryMappingConfiguration.equals(Object)",
+      "int TelemetryMappingConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TelemetryMappingConfiguration telemetryMappingConfiguration = new TelemetryMappingConfiguration();
@@ -265,6 +292,9 @@ class TelemetryMappingConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryMappingConfiguration.equals(Object)",
+      "int TelemetryMappingConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TelemetryMappingConfiguration telemetryMappingConfiguration = new TelemetryMappingConfiguration();
@@ -287,6 +317,9 @@ class TelemetryMappingConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryMappingConfiguration.equals(Object)",
+      "int TelemetryMappingConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     TelemetryMappingConfiguration telemetryMappingConfiguration = new TelemetryMappingConfiguration();
@@ -309,6 +342,9 @@ class TelemetryMappingConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryMappingConfiguration.equals(Object)",
+      "int TelemetryMappingConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     TelemetryMappingConfiguration telemetryMappingConfiguration = new TelemetryMappingConfiguration();
@@ -323,31 +359,6 @@ class TelemetryMappingConfigurationDiffblueTest {
   /**
    * Test {@link TelemetryMappingConfiguration#equals(Object)}.
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TelemetryMappingConfiguration#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
-    // Arrange
-    HashMap<String, String> keyName = new HashMap<>();
-    keyName.computeIfPresent("foo", mock(BiFunction.class));
-    HashSet<String> observe = new HashSet<>();
-    HashSet<String> attribute = new HashSet<>();
-    HashSet<String> telemetry = new HashSet<>();
-    TelemetryMappingConfiguration telemetryMappingConfiguration = new TelemetryMappingConfiguration(keyName, observe,
-        attribute, telemetry, new HashMap<>());
-
-    // Act and Assert
-    assertNotEquals(telemetryMappingConfiguration, new TelemetryMappingConfiguration());
-  }
-
-  /**
-   * Test {@link TelemetryMappingConfiguration#equals(Object)}.
-   * <ul>
    *   <li>When other is {@code null}.</li>
    *   <li>Then return not equal.</li>
    * </ul>
@@ -356,6 +367,9 @@ class TelemetryMappingConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryMappingConfiguration.equals(Object)",
+      "int TelemetryMappingConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TelemetryMappingConfiguration(), null);
@@ -372,6 +386,9 @@ class TelemetryMappingConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TelemetryMappingConfiguration.equals(Object)",
+      "int TelemetryMappingConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TelemetryMappingConfiguration(), "Different type to TelemetryMappingConfiguration");
@@ -398,6 +415,15 @@ class TelemetryMappingConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TelemetryMappingConfiguration.<init>()",
+      "void TelemetryMappingConfiguration.<init>(Map, Set, Set, Set, Map)",
+      "Set TelemetryMappingConfiguration.getAttribute()", "Map TelemetryMappingConfiguration.getAttributeLwm2m()",
+      "Map TelemetryMappingConfiguration.getKeyName()", "Set TelemetryMappingConfiguration.getObserve()",
+      "Set TelemetryMappingConfiguration.getTelemetry()", "void TelemetryMappingConfiguration.setAttribute(Set)",
+      "void TelemetryMappingConfiguration.setAttributeLwm2m(Map)", "void TelemetryMappingConfiguration.setKeyName(Map)",
+      "void TelemetryMappingConfiguration.setObserve(Set)", "void TelemetryMappingConfiguration.setTelemetry(Set)",
+      "String TelemetryMappingConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TelemetryMappingConfiguration actualTelemetryMappingConfiguration = new TelemetryMappingConfiguration();
@@ -418,7 +444,7 @@ class TelemetryMappingConfigurationDiffblueTest {
     Set<String> actualObserve = actualTelemetryMappingConfiguration.getObserve();
     Set<String> actualTelemetry = actualTelemetryMappingConfiguration.getTelemetry();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("TelemetryMappingConfiguration(keyName={}, observe=[], attribute=[], telemetry=[], attributeLwm2m={})",
         actualToStringResult);
     assertTrue(actualAttributeLwm2m.isEmpty());
@@ -441,8 +467,7 @@ class TelemetryMappingConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link TelemetryMappingConfiguration#TelemetryMappingConfiguration(Map, Set, Set, Set, Map)}
+   *   <li>{@link TelemetryMappingConfiguration#TelemetryMappingConfiguration(Map, Set, Set, Set, Map)}
    *   <li>{@link TelemetryMappingConfiguration#setAttribute(Set)}
    *   <li>{@link TelemetryMappingConfiguration#setAttributeLwm2m(Map)}
    *   <li>{@link TelemetryMappingConfiguration#setKeyName(Map)}
@@ -458,6 +483,15 @@ class TelemetryMappingConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when HashMap()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TelemetryMappingConfiguration.<init>()",
+      "void TelemetryMappingConfiguration.<init>(Map, Set, Set, Set, Map)",
+      "Set TelemetryMappingConfiguration.getAttribute()", "Map TelemetryMappingConfiguration.getAttributeLwm2m()",
+      "Map TelemetryMappingConfiguration.getKeyName()", "Set TelemetryMappingConfiguration.getObserve()",
+      "Set TelemetryMappingConfiguration.getTelemetry()", "void TelemetryMappingConfiguration.setAttribute(Set)",
+      "void TelemetryMappingConfiguration.setAttributeLwm2m(Map)", "void TelemetryMappingConfiguration.setKeyName(Map)",
+      "void TelemetryMappingConfiguration.setObserve(Set)", "void TelemetryMappingConfiguration.setTelemetry(Set)",
+      "String TelemetryMappingConfiguration.toString()"})
   void testGettersAndSetters_whenHashMap() {
     // Arrange
     HashMap<String, String> keyName = new HashMap<>();
@@ -485,7 +519,7 @@ class TelemetryMappingConfigurationDiffblueTest {
     Set<String> actualObserve = actualTelemetryMappingConfiguration.getObserve();
     Set<String> actualTelemetry = actualTelemetryMappingConfiguration.getTelemetry();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("TelemetryMappingConfiguration(keyName={}, observe=[], attribute=[], telemetry=[], attributeLwm2m={})",
         actualToStringResult);
     assertTrue(actualAttributeLwm2m.isEmpty());

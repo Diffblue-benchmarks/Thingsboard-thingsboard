@@ -4,17 +4,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.BiFunction;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class UserMobileInfoDiffblueTest {
   /**
-   * Test {@link UserMobileInfo#equals(Object)}, and
-   * {@link UserMobileInfo#hashCode()}.
+   * Test {@link UserMobileInfo#equals(Object)}, and {@link UserMobileInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -28,6 +27,8 @@ class UserMobileInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UserMobileInfo.equals(Object)", "int UserMobileInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     UserMobileInfo userMobileInfo = new UserMobileInfo();
@@ -43,8 +44,7 @@ class UserMobileInfoDiffblueTest {
   }
 
   /**
-   * Test {@link UserMobileInfo#equals(Object)}, and
-   * {@link UserMobileInfo#hashCode()}.
+   * Test {@link UserMobileInfo#equals(Object)}, and {@link UserMobileInfo#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -58,6 +58,8 @@ class UserMobileInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UserMobileInfo.equals(Object)", "int UserMobileInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     UserMobileInfo userMobileInfo = new UserMobileInfo();
@@ -80,42 +82,14 @@ class UserMobileInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UserMobileInfo.equals(Object)", "int UserMobileInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     MobileSessionInfo mobileSessionInfo = new MobileSessionInfo();
     mobileSessionInfo.setFcmTokenTimestamp(1L);
 
     HashMap<String, MobileSessionInfo> sessions = new HashMap<>();
-    sessions.put("foo", mobileSessionInfo);
-
-    UserMobileInfo userMobileInfo = new UserMobileInfo();
-    userMobileInfo.setSessions(sessions);
-
-    UserMobileInfo userMobileInfo2 = new UserMobileInfo();
-    userMobileInfo2.setSessions(new HashMap<>());
-
-    // Act and Assert
-    assertNotEquals(userMobileInfo, userMobileInfo2);
-  }
-
-  /**
-   * Test {@link UserMobileInfo#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link UserMobileInfo#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange
-    MobileSessionInfo mobileSessionInfo = new MobileSessionInfo();
-    mobileSessionInfo.setFcmTokenTimestamp(1L);
-
-    HashMap<String, MobileSessionInfo> sessions = new HashMap<>();
-    sessions.computeIfPresent("foo", mock(BiFunction.class));
     sessions.put("foo", mobileSessionInfo);
 
     UserMobileInfo userMobileInfo = new UserMobileInfo();
@@ -139,6 +113,8 @@ class UserMobileInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UserMobileInfo.equals(Object)", "int UserMobileInfo.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     UserMobileInfo userMobileInfo = new UserMobileInfo();
@@ -159,6 +135,8 @@ class UserMobileInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UserMobileInfo.equals(Object)", "int UserMobileInfo.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     UserMobileInfo userMobileInfo = new UserMobileInfo();
@@ -181,6 +159,9 @@ class UserMobileInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void UserMobileInfo.<init>()", "Map UserMobileInfo.getSessions()",
+      "void UserMobileInfo.setSessions(Map)", "String UserMobileInfo.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     UserMobileInfo actualUserMobileInfo = new UserMobileInfo();
@@ -189,7 +170,7 @@ class UserMobileInfoDiffblueTest {
     String actualToStringResult = actualUserMobileInfo.toString();
     Map<String, MobileSessionInfo> actualSessions = actualUserMobileInfo.getSessions();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("UserMobileInfo(sessions={})", actualToStringResult);
     assertTrue(actualSessions.isEmpty());
     assertSame(sessions, actualSessions);

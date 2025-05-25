@@ -1,72 +1,37 @@
 package org.thingsboard.server.service.edge.rpc.processor.asset;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.ArgumentMatchers.isA;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.thingsboard.server.common.data.asset.Asset;
 import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.gen.edge.v1.AssetUpdateMsg;
 
+@ExtendWith(MockitoExtension.class)
 class AssetEdgeProcessorV1DiffblueTest {
-  /**
-   * Test
-   * {@link AssetEdgeProcessorV1#setCustomerId(TenantId, CustomerId, Asset, AssetUpdateMsg)}.
-   * <ul>
-   *   <li>When {@link Asset} {@link Asset#setCustomerId(CustomerId)} does
-   * nothing.</li>
-   *   <li>Then calls {@link Asset#setCustomerId(CustomerId)}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link AssetEdgeProcessorV1#setCustomerId(TenantId, CustomerId, Asset, AssetUpdateMsg)}
-   */
-  @Test
-  @DisplayName("Test setCustomerId(TenantId, CustomerId, Asset, AssetUpdateMsg); when Asset setCustomerId(CustomerId) does nothing; then calls setCustomerId(CustomerId)")
-  void testSetCustomerId_whenAssetSetCustomerIdDoesNothing_thenCallsSetCustomerId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    AssetEdgeProcessorV1 assetEdgeProcessorV1 = new AssetEdgeProcessorV1();
-    TenantId tenantId = new TenantId(UUID.randomUUID());
-    CustomerId customerId = new CustomerId(UUID.randomUUID());
-    Asset asset = mock(Asset.class);
-    doNothing().when(asset).setCustomerId(Mockito.<CustomerId>any());
-
-    // Act
-    assetEdgeProcessorV1.setCustomerId(tenantId, customerId, asset, AssetUpdateMsg.getDefaultInstance());
-
-    // Assert that nothing has changed
-    verify(asset).setCustomerId(isA(CustomerId.class));
-  }
+  @InjectMocks
+  private AssetEdgeProcessorV1 assetEdgeProcessorV1;
 
   /**
-   * Test
-   * {@link AssetEdgeProcessorV1#setCustomerId(TenantId, CustomerId, Asset, AssetUpdateMsg)}.
-   * <ul>
-   *   <li>When {@link Asset#Asset()}.</li>
-   *   <li>Then {@link Asset#Asset()} CustomerId is
-   * {@link CustomerId#CustomerId(UUID)} with id is randomUUID.</li>
-   * </ul>
+   * Test {@link AssetEdgeProcessorV1#setCustomerId(TenantId, CustomerId, Asset, AssetUpdateMsg)}.
    * <p>
-   * Method under test:
-   * {@link AssetEdgeProcessorV1#setCustomerId(TenantId, CustomerId, Asset, AssetUpdateMsg)}
+   * Method under test: {@link AssetEdgeProcessorV1#setCustomerId(TenantId, CustomerId, Asset, AssetUpdateMsg)}
    */
   @Test
-  @DisplayName("Test setCustomerId(TenantId, CustomerId, Asset, AssetUpdateMsg); when Asset(); then Asset() CustomerId is CustomerId(UUID) with id is randomUUID")
-  void testSetCustomerId_whenAsset_thenAssetCustomerIdIsCustomerIdWithIdIsRandomUUID() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test setCustomerId(TenantId, CustomerId, Asset, AssetUpdateMsg)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AssetEdgeProcessorV1.setCustomerId(TenantId, CustomerId, Asset, AssetUpdateMsg)"})
+  void testSetCustomerId() {
     // Arrange
-    AssetEdgeProcessorV1 assetEdgeProcessorV1 = new AssetEdgeProcessorV1();
-    TenantId tenantId = new TenantId(UUID.randomUUID());
-    CustomerId customerId = new CustomerId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     Asset asset = new Asset();
 
     // Act

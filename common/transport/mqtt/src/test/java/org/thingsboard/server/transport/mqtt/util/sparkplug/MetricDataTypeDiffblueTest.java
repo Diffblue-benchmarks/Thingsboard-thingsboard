@@ -1,29 +1,12 @@
 package org.thingsboard.server.transport.mqtt.util.sparkplug;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.thingsboard.server.common.adaptor.AdaptorException;
 
 class MetricDataTypeDiffblueTest {
-  /**
-   * Test {@link MetricDataType#checkType(Object)}.
-   * <ul>
-   *   <li>Given {@code Int8}.</li>
-   *   <li>When {@code Value}.</li>
-   *   <li>Then throw {@link AdaptorException}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link MetricDataType#checkType(Object)}
-   */
-  @Test
-  @DisplayName("Test checkType(Object); given 'Int8'; when 'Value'; then throw AdaptorException")
-  void testCheckType_givenInt8_whenValue_thenThrowAdaptorException() throws AdaptorException {
-    // Arrange, Act and Assert
-    assertThrows(AdaptorException.class, () -> MetricDataType.Int8.checkType("Value"));
-  }
-
   /**
    * Test {@link MetricDataType#fromInteger(int)}.
    * <ul>
@@ -35,6 +18,8 @@ class MetricDataTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test fromInteger(int); when eight; then return 'UInt64'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MetricDataType MetricDataType.fromInteger(int)"})
   void testFromInteger_whenEight_thenReturnUInt64() {
     // Arrange, Act and Assert
     assertEquals(MetricDataType.UInt64, MetricDataType.fromInteger(8));
@@ -51,6 +36,8 @@ class MetricDataTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test fromInteger(int); when eighteen; then return 'File'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MetricDataType MetricDataType.fromInteger(int)"})
   void testFromInteger_whenEighteen_thenReturnFile() {
     // Arrange, Act and Assert
     assertEquals(MetricDataType.File, MetricDataType.fromInteger(18));
@@ -67,6 +54,8 @@ class MetricDataTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test fromInteger(int); when eleven; then return 'Boolean'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MetricDataType MetricDataType.fromInteger(int)"})
   void testFromInteger_whenEleven_thenReturnBoolean() {
     // Arrange, Act and Assert
     assertEquals(MetricDataType.Boolean, MetricDataType.fromInteger(11));
@@ -83,6 +72,8 @@ class MetricDataTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test fromInteger(int); when fifteen; then return 'UUID'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MetricDataType MetricDataType.fromInteger(int)"})
   void testFromInteger_whenFifteen_thenReturnUuid() {
     // Arrange, Act and Assert
     assertEquals(MetricDataType.UUID, MetricDataType.fromInteger(15));
@@ -99,6 +90,8 @@ class MetricDataTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test fromInteger(int); when five; then return 'UInt8'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MetricDataType MetricDataType.fromInteger(int)"})
   void testFromInteger_whenFive_thenReturnUInt8() {
     // Arrange, Act and Assert
     assertEquals(MetricDataType.UInt8, MetricDataType.fromInteger(5));
@@ -115,6 +108,8 @@ class MetricDataTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test fromInteger(int); when four; then return 'Int64'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MetricDataType MetricDataType.fromInteger(int)"})
   void testFromInteger_whenFour_thenReturnInt64() {
     // Arrange, Act and Assert
     assertEquals(MetricDataType.Int64, MetricDataType.fromInteger(4));
@@ -131,6 +126,8 @@ class MetricDataTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test fromInteger(int); when fourteen; then return 'Text'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MetricDataType MetricDataType.fromInteger(int)"})
   void testFromInteger_whenFourteen_thenReturnText() {
     // Arrange, Act and Assert
     assertEquals(MetricDataType.Text, MetricDataType.fromInteger(14));
@@ -147,6 +144,8 @@ class MetricDataTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test fromInteger(int); when nine; then return 'Float'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MetricDataType MetricDataType.fromInteger(int)"})
   void testFromInteger_whenNine_thenReturnFloat() {
     // Arrange, Act and Assert
     assertEquals(MetricDataType.Float, MetricDataType.fromInteger(9));
@@ -163,6 +162,8 @@ class MetricDataTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test fromInteger(int); when nineteen; then return 'Template'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MetricDataType MetricDataType.fromInteger(int)"})
   void testFromInteger_whenNineteen_thenReturnTemplate() {
     // Arrange, Act and Assert
     assertEquals(MetricDataType.Template, MetricDataType.fromInteger(19));
@@ -179,6 +180,8 @@ class MetricDataTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test fromInteger(int); when one; then return 'Int8'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MetricDataType MetricDataType.fromInteger(int)"})
   void testFromInteger_whenOne_thenReturnInt8() {
     // Arrange, Act and Assert
     assertEquals(MetricDataType.Int8, MetricDataType.fromInteger(1));
@@ -195,6 +198,8 @@ class MetricDataTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test fromInteger(int); when seven; then return 'UInt32'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MetricDataType MetricDataType.fromInteger(int)"})
   void testFromInteger_whenSeven_thenReturnUInt32() {
     // Arrange, Act and Assert
     assertEquals(MetricDataType.UInt32, MetricDataType.fromInteger(7));
@@ -211,6 +216,8 @@ class MetricDataTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test fromInteger(int); when seventeen; then return 'Bytes'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MetricDataType MetricDataType.fromInteger(int)"})
   void testFromInteger_whenSeventeen_thenReturnBytes() {
     // Arrange, Act and Assert
     assertEquals(MetricDataType.Bytes, MetricDataType.fromInteger(17));
@@ -227,6 +234,8 @@ class MetricDataTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test fromInteger(int); when six; then return 'UInt16'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MetricDataType MetricDataType.fromInteger(int)"})
   void testFromInteger_whenSix_thenReturnUInt16() {
     // Arrange, Act and Assert
     assertEquals(MetricDataType.UInt16, MetricDataType.fromInteger(6));
@@ -243,6 +252,8 @@ class MetricDataTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test fromInteger(int); when SIZE; then return 'DataSet'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MetricDataType MetricDataType.fromInteger(int)"})
   void testFromInteger_whenSize_thenReturnDataSet() {
     // Arrange, Act and Assert
     assertEquals(MetricDataType.DataSet, MetricDataType.fromInteger(Short.SIZE));
@@ -259,6 +270,8 @@ class MetricDataTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test fromInteger(int); when ten; then return 'Double'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MetricDataType MetricDataType.fromInteger(int)"})
   void testFromInteger_whenTen_thenReturnDouble() {
     // Arrange, Act and Assert
     assertEquals(MetricDataType.Double, MetricDataType.fromInteger(10));
@@ -275,6 +288,8 @@ class MetricDataTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test fromInteger(int); when thirteen; then return 'DateTime'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MetricDataType MetricDataType.fromInteger(int)"})
   void testFromInteger_whenThirteen_thenReturnDateTime() {
     // Arrange, Act and Assert
     assertEquals(MetricDataType.DateTime, MetricDataType.fromInteger(13));
@@ -291,6 +306,8 @@ class MetricDataTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test fromInteger(int); when three; then return 'Int32'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MetricDataType MetricDataType.fromInteger(int)"})
   void testFromInteger_whenThree_thenReturnInt32() {
     // Arrange, Act and Assert
     assertEquals(MetricDataType.Int32, MetricDataType.fromInteger(3));
@@ -307,6 +324,8 @@ class MetricDataTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test fromInteger(int); when twelve; then return 'String'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MetricDataType MetricDataType.fromInteger(int)"})
   void testFromInteger_whenTwelve_thenReturnString() {
     // Arrange, Act and Assert
     assertEquals(MetricDataType.String, MetricDataType.fromInteger(12));
@@ -323,6 +342,8 @@ class MetricDataTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test fromInteger(int); when two; then return 'Int16'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MetricDataType MetricDataType.fromInteger(int)"})
   void testFromInteger_whenTwo_thenReturnInt16() {
     // Arrange, Act and Assert
     assertEquals(MetricDataType.Int16, MetricDataType.fromInteger(2));
@@ -339,6 +360,8 @@ class MetricDataTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test fromInteger(int); when zero; then return 'Unknown'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MetricDataType MetricDataType.fromInteger(int)"})
   void testFromInteger_whenZero_thenReturnUnknown() {
     // Arrange, Act and Assert
     assertEquals(MetricDataType.Unknown, MetricDataType.fromInteger(0));
@@ -355,6 +378,8 @@ class MetricDataTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Class MetricDataType.getClazz()", "int MetricDataType.toIntValue()"})
   void testGettersAndSetters() {
     // Arrange
     MetricDataType valueOfResult = MetricDataType.valueOf("Int8");

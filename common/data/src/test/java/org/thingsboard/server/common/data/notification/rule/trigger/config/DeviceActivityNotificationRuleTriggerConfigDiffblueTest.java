@@ -6,44 +6,57 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.notification.rule.trigger.config.DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder;
+import org.thingsboard.server.common.data.notification.rule.trigger.config.DeviceActivityNotificationRuleTriggerConfig.DeviceEvent;
 
+@ContextConfiguration(classes = {DeviceActivityNotificationRuleTriggerConfigBuilder.class})
+@ExtendWith(SpringExtension.class)
 class DeviceActivityNotificationRuleTriggerConfigDiffblueTest {
+  @Autowired
+  private DeviceActivityNotificationRuleTriggerConfigBuilder deviceActivityNotificationRuleTriggerConfigBuilder;
+
   /**
-   * Test DeviceActivityNotificationRuleTriggerConfigBuilder
-   * {@link DeviceActivityNotificationRuleTriggerConfigBuilder#build()}.
+   * Test DeviceActivityNotificationRuleTriggerConfigBuilder {@link DeviceActivityNotificationRuleTriggerConfigBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder#build()}
-   *   <li>
-   * {@link DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder#deviceProfiles(Set)}
-   *   <li>
-   * {@link DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder#devices(Set)}
-   *   <li>
-   * {@link DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder#notifyOn(Set)}
+   *   <li>{@link DeviceActivityNotificationRuleTriggerConfigBuilder#build()}
+   *   <li>{@link DeviceActivityNotificationRuleTriggerConfigBuilder#deviceProfiles(Set)}
+   *   <li>{@link DeviceActivityNotificationRuleTriggerConfigBuilder#devices(Set)}
+   *   <li>{@link DeviceActivityNotificationRuleTriggerConfigBuilder#notifyOn(Set)}
    * </ul>
    */
   @Test
   @DisplayName("Test DeviceActivityNotificationRuleTriggerConfigBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DeviceActivityNotificationRuleTriggerConfigBuilder.<init>()",
+      "DeviceActivityNotificationRuleTriggerConfig DeviceActivityNotificationRuleTriggerConfigBuilder.build()",
+      "DeviceActivityNotificationRuleTriggerConfigBuilder DeviceActivityNotificationRuleTriggerConfigBuilder.deviceProfiles(Set)",
+      "DeviceActivityNotificationRuleTriggerConfigBuilder DeviceActivityNotificationRuleTriggerConfigBuilder.devices(Set)",
+      "DeviceActivityNotificationRuleTriggerConfigBuilder DeviceActivityNotificationRuleTriggerConfigBuilder.notifyOn(Set)",
+      "String DeviceActivityNotificationRuleTriggerConfigBuilder.toString()"})
   void testDeviceActivityNotificationRuleTriggerConfigBuilderBuild() {
     // Arrange
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder builderResult = DeviceActivityNotificationRuleTriggerConfig
+    DeviceActivityNotificationRuleTriggerConfigBuilder builderResult = DeviceActivityNotificationRuleTriggerConfig
         .builder();
     HashSet<UUID> deviceProfiles = new HashSet<>();
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult = builderResult
+    DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult = builderResult
         .deviceProfiles(deviceProfiles);
     HashSet<UUID> devices = new HashSet<>();
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult = deviceProfilesResult
-        .devices(devices);
-    HashSet<DeviceActivityNotificationRuleTriggerConfig.DeviceEvent> notifyOn = new HashSet<>();
+    DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult = deviceProfilesResult.devices(devices);
+    HashSet<DeviceEvent> notifyOn = new HashSet<>();
 
     // Act
     DeviceActivityNotificationRuleTriggerConfig actualBuildResult = devicesResult.notifyOn(notifyOn).build();
@@ -55,7 +68,7 @@ class DeviceActivityNotificationRuleTriggerConfigDiffblueTest {
     assertTrue(deviceProfiles2.isEmpty());
     Set<UUID> devices2 = actualBuildResult.getDevices();
     assertTrue(devices2.isEmpty());
-    Set<DeviceActivityNotificationRuleTriggerConfig.DeviceEvent> notifyOn2 = actualBuildResult.getNotifyOn();
+    Set<DeviceEvent> notifyOn2 = actualBuildResult.getNotifyOn();
     assertTrue(notifyOn2.isEmpty());
     assertSame(deviceProfiles, deviceProfiles2);
     assertSame(devices, devices2);
@@ -63,8 +76,7 @@ class DeviceActivityNotificationRuleTriggerConfigDiffblueTest {
   }
 
   /**
-   * Test {@link DeviceActivityNotificationRuleTriggerConfig#equals(Object)}, and
-   * {@link DeviceActivityNotificationRuleTriggerConfig#hashCode()}.
+   * Test {@link DeviceActivityNotificationRuleTriggerConfig#equals(Object)}, and {@link DeviceActivityNotificationRuleTriggerConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -78,21 +90,22 @@ class DeviceActivityNotificationRuleTriggerConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceActivityNotificationRuleTriggerConfig.equals(Object)",
+      "int DeviceActivityNotificationRuleTriggerConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder builderResult = DeviceActivityNotificationRuleTriggerConfig
+    DeviceActivityNotificationRuleTriggerConfigBuilder builderResult = DeviceActivityNotificationRuleTriggerConfig
         .builder();
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult = builderResult
+    DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult = builderResult
         .deviceProfiles(new HashSet<>());
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult = deviceProfilesResult
-        .devices(new HashSet<>());
+    DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult = deviceProfilesResult.devices(new HashSet<>());
     DeviceActivityNotificationRuleTriggerConfig buildResult = devicesResult.notifyOn(new HashSet<>()).build();
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder builderResult2 = DeviceActivityNotificationRuleTriggerConfig
+    DeviceActivityNotificationRuleTriggerConfigBuilder builderResult2 = DeviceActivityNotificationRuleTriggerConfig
         .builder();
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult2 = builderResult2
+    DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult2 = builderResult2
         .deviceProfiles(new HashSet<>());
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult2 = deviceProfilesResult2
-        .devices(new HashSet<>());
+    DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult2 = deviceProfilesResult2.devices(new HashSet<>());
     DeviceActivityNotificationRuleTriggerConfig buildResult2 = devicesResult2.notifyOn(new HashSet<>()).build();
 
     // Act and Assert
@@ -102,8 +115,7 @@ class DeviceActivityNotificationRuleTriggerConfigDiffblueTest {
   }
 
   /**
-   * Test {@link DeviceActivityNotificationRuleTriggerConfig#equals(Object)}, and
-   * {@link DeviceActivityNotificationRuleTriggerConfig#hashCode()}.
+   * Test {@link DeviceActivityNotificationRuleTriggerConfig#equals(Object)}, and {@link DeviceActivityNotificationRuleTriggerConfig#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -117,14 +129,16 @@ class DeviceActivityNotificationRuleTriggerConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceActivityNotificationRuleTriggerConfig.equals(Object)",
+      "int DeviceActivityNotificationRuleTriggerConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder builderResult = DeviceActivityNotificationRuleTriggerConfig
+    DeviceActivityNotificationRuleTriggerConfigBuilder builderResult = DeviceActivityNotificationRuleTriggerConfig
         .builder();
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult = builderResult
+    DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult = builderResult
         .deviceProfiles(new HashSet<>());
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult = deviceProfilesResult
-        .devices(new HashSet<>());
+    DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult = deviceProfilesResult.devices(new HashSet<>());
     DeviceActivityNotificationRuleTriggerConfig buildResult = devicesResult.notifyOn(new HashSet<>()).build();
 
     // Act and Assert
@@ -140,28 +154,28 @@ class DeviceActivityNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DeviceActivityNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link DeviceActivityNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceActivityNotificationRuleTriggerConfig.equals(Object)",
+      "int DeviceActivityNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder deviceActivityNotificationRuleTriggerConfigBuilder = mock(
-        DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder.class);
+    DeviceActivityNotificationRuleTriggerConfigBuilder deviceActivityNotificationRuleTriggerConfigBuilder = mock(
+        DeviceActivityNotificationRuleTriggerConfigBuilder.class);
     when(deviceActivityNotificationRuleTriggerConfigBuilder.deviceProfiles(Mockito.<Set<UUID>>any()))
         .thenReturn(DeviceActivityNotificationRuleTriggerConfig.builder());
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult = deviceActivityNotificationRuleTriggerConfigBuilder
+    DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult = deviceActivityNotificationRuleTriggerConfigBuilder
         .deviceProfiles(new HashSet<>());
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult = deviceProfilesResult
-        .devices(new HashSet<>());
+    DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult = deviceProfilesResult.devices(new HashSet<>());
     DeviceActivityNotificationRuleTriggerConfig buildResult = devicesResult.notifyOn(new HashSet<>()).build();
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder builderResult = DeviceActivityNotificationRuleTriggerConfig
+    DeviceActivityNotificationRuleTriggerConfigBuilder builderResult = DeviceActivityNotificationRuleTriggerConfig
         .builder();
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult2 = builderResult
+    DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult2 = builderResult
         .deviceProfiles(new HashSet<>());
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult2 = deviceProfilesResult2
-        .devices(new HashSet<>());
+    DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult2 = deviceProfilesResult2.devices(new HashSet<>());
     DeviceActivityNotificationRuleTriggerConfig buildResult2 = devicesResult2.notifyOn(new HashSet<>()).build();
 
     // Act and Assert
@@ -175,32 +189,32 @@ class DeviceActivityNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DeviceActivityNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link DeviceActivityNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceActivityNotificationRuleTriggerConfig.equals(Object)",
+      "int DeviceActivityNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder deviceActivityNotificationRuleTriggerConfigBuilder = mock(
-        DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder.class);
+    DeviceActivityNotificationRuleTriggerConfigBuilder deviceActivityNotificationRuleTriggerConfigBuilder = mock(
+        DeviceActivityNotificationRuleTriggerConfigBuilder.class);
     when(deviceActivityNotificationRuleTriggerConfigBuilder.devices(Mockito.<Set<UUID>>any()))
         .thenReturn(DeviceActivityNotificationRuleTriggerConfig.builder());
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder deviceActivityNotificationRuleTriggerConfigBuilder2 = mock(
-        DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder.class);
+    DeviceActivityNotificationRuleTriggerConfigBuilder deviceActivityNotificationRuleTriggerConfigBuilder2 = mock(
+        DeviceActivityNotificationRuleTriggerConfigBuilder.class);
     when(deviceActivityNotificationRuleTriggerConfigBuilder2.deviceProfiles(Mockito.<Set<UUID>>any()))
         .thenReturn(deviceActivityNotificationRuleTriggerConfigBuilder);
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult = deviceActivityNotificationRuleTriggerConfigBuilder2
+    DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult = deviceActivityNotificationRuleTriggerConfigBuilder2
         .deviceProfiles(new HashSet<>());
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult = deviceProfilesResult
-        .devices(new HashSet<>());
+    DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult = deviceProfilesResult.devices(new HashSet<>());
     DeviceActivityNotificationRuleTriggerConfig buildResult = devicesResult.notifyOn(new HashSet<>()).build();
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder builderResult = DeviceActivityNotificationRuleTriggerConfig
+    DeviceActivityNotificationRuleTriggerConfigBuilder builderResult = DeviceActivityNotificationRuleTriggerConfig
         .builder();
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult2 = builderResult
+    DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult2 = builderResult
         .deviceProfiles(new HashSet<>());
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult2 = deviceProfilesResult2
-        .devices(new HashSet<>());
+    DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult2 = deviceProfilesResult2.devices(new HashSet<>());
     DeviceActivityNotificationRuleTriggerConfig buildResult2 = devicesResult2.notifyOn(new HashSet<>()).build();
 
     // Act and Assert
@@ -214,37 +228,37 @@ class DeviceActivityNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DeviceActivityNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link DeviceActivityNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceActivityNotificationRuleTriggerConfig.equals(Object)",
+      "int DeviceActivityNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     HashSet<UUID> devices = new HashSet<>();
     devices.add(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder builderResult = DeviceActivityNotificationRuleTriggerConfig
+    DeviceActivityNotificationRuleTriggerConfigBuilder builderResult = DeviceActivityNotificationRuleTriggerConfig
         .builder();
     builderResult.devices(devices);
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder deviceActivityNotificationRuleTriggerConfigBuilder = mock(
-        DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder.class);
+    DeviceActivityNotificationRuleTriggerConfigBuilder deviceActivityNotificationRuleTriggerConfigBuilder = mock(
+        DeviceActivityNotificationRuleTriggerConfigBuilder.class);
     when(deviceActivityNotificationRuleTriggerConfigBuilder.devices(Mockito.<Set<UUID>>any()))
         .thenReturn(builderResult);
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder deviceActivityNotificationRuleTriggerConfigBuilder2 = mock(
-        DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder.class);
+    DeviceActivityNotificationRuleTriggerConfigBuilder deviceActivityNotificationRuleTriggerConfigBuilder2 = mock(
+        DeviceActivityNotificationRuleTriggerConfigBuilder.class);
     when(deviceActivityNotificationRuleTriggerConfigBuilder2.deviceProfiles(Mockito.<Set<UUID>>any()))
         .thenReturn(deviceActivityNotificationRuleTriggerConfigBuilder);
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult = deviceActivityNotificationRuleTriggerConfigBuilder2
+    DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult = deviceActivityNotificationRuleTriggerConfigBuilder2
         .deviceProfiles(new HashSet<>());
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult = deviceProfilesResult
-        .devices(new HashSet<>());
+    DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult = deviceProfilesResult.devices(new HashSet<>());
     DeviceActivityNotificationRuleTriggerConfig buildResult = devicesResult.notifyOn(new HashSet<>()).build();
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder builderResult2 = DeviceActivityNotificationRuleTriggerConfig
+    DeviceActivityNotificationRuleTriggerConfigBuilder builderResult2 = DeviceActivityNotificationRuleTriggerConfig
         .builder();
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult2 = builderResult2
+    DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult2 = builderResult2
         .deviceProfiles(new HashSet<>());
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult2 = deviceProfilesResult2
-        .devices(new HashSet<>());
+    DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult2 = deviceProfilesResult2.devices(new HashSet<>());
     DeviceActivityNotificationRuleTriggerConfig buildResult2 = devicesResult2.notifyOn(new HashSet<>()).build();
 
     // Act and Assert
@@ -258,19 +272,20 @@ class DeviceActivityNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DeviceActivityNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link DeviceActivityNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceActivityNotificationRuleTriggerConfig.equals(Object)",
+      "int DeviceActivityNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder builderResult = DeviceActivityNotificationRuleTriggerConfig
+    DeviceActivityNotificationRuleTriggerConfigBuilder builderResult = DeviceActivityNotificationRuleTriggerConfig
         .builder();
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult = builderResult
+    DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult = builderResult
         .deviceProfiles(new HashSet<>());
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult = deviceProfilesResult
-        .devices(new HashSet<>());
+    DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult = deviceProfilesResult.devices(new HashSet<>());
     DeviceActivityNotificationRuleTriggerConfig buildResult = devicesResult.notifyOn(new HashSet<>()).build();
 
     // Act and Assert
@@ -284,19 +299,20 @@ class DeviceActivityNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DeviceActivityNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link DeviceActivityNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceActivityNotificationRuleTriggerConfig.equals(Object)",
+      "int DeviceActivityNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder builderResult = DeviceActivityNotificationRuleTriggerConfig
+    DeviceActivityNotificationRuleTriggerConfigBuilder builderResult = DeviceActivityNotificationRuleTriggerConfig
         .builder();
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult = builderResult
+    DeviceActivityNotificationRuleTriggerConfigBuilder deviceProfilesResult = builderResult
         .deviceProfiles(new HashSet<>());
-    DeviceActivityNotificationRuleTriggerConfig.DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult = deviceProfilesResult
-        .devices(new HashSet<>());
+    DeviceActivityNotificationRuleTriggerConfigBuilder devicesResult = deviceProfilesResult.devices(new HashSet<>());
     DeviceActivityNotificationRuleTriggerConfig buildResult = devicesResult.notifyOn(new HashSet<>()).build();
 
     // Act and Assert
@@ -308,10 +324,8 @@ class DeviceActivityNotificationRuleTriggerConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link DeviceActivityNotificationRuleTriggerConfig#DeviceActivityNotificationRuleTriggerConfig()}
-   *   <li>
-   * {@link DeviceActivityNotificationRuleTriggerConfig#setDeviceProfiles(Set)}
+   *   <li>{@link DeviceActivityNotificationRuleTriggerConfig#DeviceActivityNotificationRuleTriggerConfig()}
+   *   <li>{@link DeviceActivityNotificationRuleTriggerConfig#setDeviceProfiles(Set)}
    *   <li>{@link DeviceActivityNotificationRuleTriggerConfig#setDevices(Set)}
    *   <li>{@link DeviceActivityNotificationRuleTriggerConfig#setNotifyOn(Set)}
    *   <li>{@link DeviceActivityNotificationRuleTriggerConfig#toString()}
@@ -323,6 +337,17 @@ class DeviceActivityNotificationRuleTriggerConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DeviceActivityNotificationRuleTriggerConfig.<init>()",
+      "void DeviceActivityNotificationRuleTriggerConfig.<init>(Set, Set, Set)",
+      "Set DeviceActivityNotificationRuleTriggerConfig.getDeviceProfiles()",
+      "Set DeviceActivityNotificationRuleTriggerConfig.getDevices()",
+      "Set DeviceActivityNotificationRuleTriggerConfig.getNotifyOn()",
+      "NotificationRuleTriggerType DeviceActivityNotificationRuleTriggerConfig.getTriggerType()",
+      "void DeviceActivityNotificationRuleTriggerConfig.setDeviceProfiles(Set)",
+      "void DeviceActivityNotificationRuleTriggerConfig.setDevices(Set)",
+      "void DeviceActivityNotificationRuleTriggerConfig.setNotifyOn(Set)",
+      "String DeviceActivityNotificationRuleTriggerConfig.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     DeviceActivityNotificationRuleTriggerConfig actualDeviceActivityNotificationRuleTriggerConfig = new DeviceActivityNotificationRuleTriggerConfig();
@@ -330,15 +355,14 @@ class DeviceActivityNotificationRuleTriggerConfigDiffblueTest {
     actualDeviceActivityNotificationRuleTriggerConfig.setDeviceProfiles(deviceProfiles);
     HashSet<UUID> devices = new HashSet<>();
     actualDeviceActivityNotificationRuleTriggerConfig.setDevices(devices);
-    HashSet<DeviceActivityNotificationRuleTriggerConfig.DeviceEvent> notifyOn = new HashSet<>();
+    HashSet<DeviceEvent> notifyOn = new HashSet<>();
     actualDeviceActivityNotificationRuleTriggerConfig.setNotifyOn(notifyOn);
     String actualToStringResult = actualDeviceActivityNotificationRuleTriggerConfig.toString();
     Set<UUID> actualDeviceProfiles = actualDeviceActivityNotificationRuleTriggerConfig.getDeviceProfiles();
     Set<UUID> actualDevices = actualDeviceActivityNotificationRuleTriggerConfig.getDevices();
-    Set<DeviceActivityNotificationRuleTriggerConfig.DeviceEvent> actualNotifyOn = actualDeviceActivityNotificationRuleTriggerConfig
-        .getNotifyOn();
+    Set<DeviceEvent> actualNotifyOn = actualDeviceActivityNotificationRuleTriggerConfig.getNotifyOn();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("DeviceActivityNotificationRuleTriggerConfig(devices=[], deviceProfiles=[], notifyOn=[])",
         actualToStringResult);
     assertEquals(NotificationRuleTriggerType.DEVICE_ACTIVITY,
@@ -359,10 +383,8 @@ class DeviceActivityNotificationRuleTriggerConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link DeviceActivityNotificationRuleTriggerConfig#DeviceActivityNotificationRuleTriggerConfig(Set, Set, Set)}
-   *   <li>
-   * {@link DeviceActivityNotificationRuleTriggerConfig#setDeviceProfiles(Set)}
+   *   <li>{@link DeviceActivityNotificationRuleTriggerConfig#DeviceActivityNotificationRuleTriggerConfig(Set, Set, Set)}
+   *   <li>{@link DeviceActivityNotificationRuleTriggerConfig#setDeviceProfiles(Set)}
    *   <li>{@link DeviceActivityNotificationRuleTriggerConfig#setDevices(Set)}
    *   <li>{@link DeviceActivityNotificationRuleTriggerConfig#setNotifyOn(Set)}
    *   <li>{@link DeviceActivityNotificationRuleTriggerConfig#toString()}
@@ -374,6 +396,17 @@ class DeviceActivityNotificationRuleTriggerConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when HashSet()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DeviceActivityNotificationRuleTriggerConfig.<init>()",
+      "void DeviceActivityNotificationRuleTriggerConfig.<init>(Set, Set, Set)",
+      "Set DeviceActivityNotificationRuleTriggerConfig.getDeviceProfiles()",
+      "Set DeviceActivityNotificationRuleTriggerConfig.getDevices()",
+      "Set DeviceActivityNotificationRuleTriggerConfig.getNotifyOn()",
+      "NotificationRuleTriggerType DeviceActivityNotificationRuleTriggerConfig.getTriggerType()",
+      "void DeviceActivityNotificationRuleTriggerConfig.setDeviceProfiles(Set)",
+      "void DeviceActivityNotificationRuleTriggerConfig.setDevices(Set)",
+      "void DeviceActivityNotificationRuleTriggerConfig.setNotifyOn(Set)",
+      "String DeviceActivityNotificationRuleTriggerConfig.toString()"})
   void testGettersAndSetters_whenHashSet() {
     // Arrange
     HashSet<UUID> devices = new HashSet<>();
@@ -386,15 +419,14 @@ class DeviceActivityNotificationRuleTriggerConfigDiffblueTest {
     actualDeviceActivityNotificationRuleTriggerConfig.setDeviceProfiles(deviceProfiles2);
     HashSet<UUID> devices2 = new HashSet<>();
     actualDeviceActivityNotificationRuleTriggerConfig.setDevices(devices2);
-    HashSet<DeviceActivityNotificationRuleTriggerConfig.DeviceEvent> notifyOn = new HashSet<>();
+    HashSet<DeviceEvent> notifyOn = new HashSet<>();
     actualDeviceActivityNotificationRuleTriggerConfig.setNotifyOn(notifyOn);
     String actualToStringResult = actualDeviceActivityNotificationRuleTriggerConfig.toString();
     Set<UUID> actualDeviceProfiles = actualDeviceActivityNotificationRuleTriggerConfig.getDeviceProfiles();
     Set<UUID> actualDevices = actualDeviceActivityNotificationRuleTriggerConfig.getDevices();
-    Set<DeviceActivityNotificationRuleTriggerConfig.DeviceEvent> actualNotifyOn = actualDeviceActivityNotificationRuleTriggerConfig
-        .getNotifyOn();
+    Set<DeviceEvent> actualNotifyOn = actualDeviceActivityNotificationRuleTriggerConfig.getNotifyOn();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("DeviceActivityNotificationRuleTriggerConfig(devices=[], deviceProfiles=[], notifyOn=[])",
         actualToStringResult);
     assertEquals(NotificationRuleTriggerType.DEVICE_ACTIVITY,

@@ -3,15 +3,16 @@ package org.thingsboard.server.service.subscription;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class SubscriptionServiceStatisticsDiffblueTest {
   /**
-   * Test {@link SubscriptionServiceStatistics#equals(Object)}, and
-   * {@link SubscriptionServiceStatistics#hashCode()}.
+   * Test {@link SubscriptionServiceStatistics#equals(Object)}, and {@link SubscriptionServiceStatistics#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -25,6 +26,9 @@ class SubscriptionServiceStatisticsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionServiceStatistics.equals(Object)",
+      "int SubscriptionServiceStatistics.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     SubscriptionServiceStatistics subscriptionServiceStatistics = new SubscriptionServiceStatistics();
@@ -52,6 +56,9 @@ class SubscriptionServiceStatisticsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionServiceStatistics.equals(Object)",
+      "int SubscriptionServiceStatistics.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     SubscriptionServiceStatistics subscriptionServiceStatistics = new SubscriptionServiceStatistics();
@@ -85,6 +92,9 @@ class SubscriptionServiceStatisticsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionServiceStatistics.equals(Object)",
+      "int SubscriptionServiceStatistics.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     SubscriptionServiceStatistics subscriptionServiceStatistics = new SubscriptionServiceStatistics();
@@ -118,6 +128,9 @@ class SubscriptionServiceStatisticsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionServiceStatistics.equals(Object)",
+      "int SubscriptionServiceStatistics.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     SubscriptionServiceStatistics subscriptionServiceStatistics = new SubscriptionServiceStatistics();
@@ -151,6 +164,9 @@ class SubscriptionServiceStatisticsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionServiceStatistics.equals(Object)",
+      "int SubscriptionServiceStatistics.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     SubscriptionServiceStatistics subscriptionServiceStatistics = new SubscriptionServiceStatistics();
@@ -184,6 +200,9 @@ class SubscriptionServiceStatisticsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionServiceStatistics.equals(Object)",
+      "int SubscriptionServiceStatistics.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     SubscriptionServiceStatistics subscriptionServiceStatistics = new SubscriptionServiceStatistics();
@@ -217,6 +236,9 @@ class SubscriptionServiceStatisticsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionServiceStatistics.equals(Object)",
+      "int SubscriptionServiceStatistics.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     SubscriptionServiceStatistics subscriptionServiceStatistics = new SubscriptionServiceStatistics();
@@ -250,6 +272,9 @@ class SubscriptionServiceStatisticsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionServiceStatistics.equals(Object)",
+      "int SubscriptionServiceStatistics.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     SubscriptionServiceStatistics subscriptionServiceStatistics = new SubscriptionServiceStatistics();
@@ -275,6 +300,9 @@ class SubscriptionServiceStatisticsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SubscriptionServiceStatistics.equals(Object)",
+      "int SubscriptionServiceStatistics.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     SubscriptionServiceStatistics subscriptionServiceStatistics = new SubscriptionServiceStatistics();
@@ -294,19 +322,13 @@ class SubscriptionServiceStatisticsDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link SubscriptionServiceStatistics}
-   *   <li>
-   * {@link SubscriptionServiceStatistics#setAlarmQueryInvocationCnt(AtomicInteger)}
+   *   <li>default or parameterless constructor of {@link SubscriptionServiceStatistics}
+   *   <li>{@link SubscriptionServiceStatistics#setAlarmQueryInvocationCnt(AtomicInteger)}
    *   <li>{@link SubscriptionServiceStatistics#setAlarmQueryTimeSpent(AtomicLong)}
-   *   <li>
-   * {@link SubscriptionServiceStatistics#setDynamicQueryInvocationCnt(AtomicInteger)}
-   *   <li>
-   * {@link SubscriptionServiceStatistics#setDynamicQueryTimeSpent(AtomicLong)}
-   *   <li>
-   * {@link SubscriptionServiceStatistics#setRegularQueryInvocationCnt(AtomicInteger)}
-   *   <li>
-   * {@link SubscriptionServiceStatistics#setRegularQueryTimeSpent(AtomicLong)}
+   *   <li>{@link SubscriptionServiceStatistics#setDynamicQueryInvocationCnt(AtomicInteger)}
+   *   <li>{@link SubscriptionServiceStatistics#setDynamicQueryTimeSpent(AtomicLong)}
+   *   <li>{@link SubscriptionServiceStatistics#setRegularQueryInvocationCnt(AtomicInteger)}
+   *   <li>{@link SubscriptionServiceStatistics#setRegularQueryTimeSpent(AtomicLong)}
    *   <li>{@link SubscriptionServiceStatistics#toString()}
    *   <li>{@link SubscriptionServiceStatistics#getAlarmQueryInvocationCnt()}
    *   <li>{@link SubscriptionServiceStatistics#getAlarmQueryTimeSpent()}
@@ -318,6 +340,21 @@ class SubscriptionServiceStatisticsDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SubscriptionServiceStatistics.<init>()",
+      "AtomicInteger SubscriptionServiceStatistics.getAlarmQueryInvocationCnt()",
+      "AtomicLong SubscriptionServiceStatistics.getAlarmQueryTimeSpent()",
+      "AtomicInteger SubscriptionServiceStatistics.getDynamicQueryInvocationCnt()",
+      "AtomicLong SubscriptionServiceStatistics.getDynamicQueryTimeSpent()",
+      "AtomicInteger SubscriptionServiceStatistics.getRegularQueryInvocationCnt()",
+      "AtomicLong SubscriptionServiceStatistics.getRegularQueryTimeSpent()",
+      "void SubscriptionServiceStatistics.setAlarmQueryInvocationCnt(AtomicInteger)",
+      "void SubscriptionServiceStatistics.setAlarmQueryTimeSpent(AtomicLong)",
+      "void SubscriptionServiceStatistics.setDynamicQueryInvocationCnt(AtomicInteger)",
+      "void SubscriptionServiceStatistics.setDynamicQueryTimeSpent(AtomicLong)",
+      "void SubscriptionServiceStatistics.setRegularQueryInvocationCnt(AtomicInteger)",
+      "void SubscriptionServiceStatistics.setRegularQueryTimeSpent(AtomicLong)",
+      "String SubscriptionServiceStatistics.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     SubscriptionServiceStatistics actualSubscriptionServiceStatistics = new SubscriptionServiceStatistics();
@@ -340,7 +377,7 @@ class SubscriptionServiceStatisticsDiffblueTest {
     AtomicLong actualDynamicQueryTimeSpent = actualSubscriptionServiceStatistics.getDynamicQueryTimeSpent();
     AtomicInteger actualRegularQueryInvocationCnt = actualSubscriptionServiceStatistics.getRegularQueryInvocationCnt();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "SubscriptionServiceStatistics(alarmQueryInvocationCnt=1, regularQueryInvocationCnt=1, dynamicQueryIn"
             + "vocationCnt=1, alarmQueryTimeSpent=1, regularQueryTimeSpent=1, dynamicQueryTimeSpent=1)",

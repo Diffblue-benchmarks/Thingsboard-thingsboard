@@ -2,7 +2,9 @@ package org.thingsboard.server.common.data.device.credentials.lwm2m;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class NoSecClientCredentialDiffblueTest {
@@ -17,6 +19,9 @@ class NoSecClientCredentialDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NoSecClientCredential.<init>()",
+      "LwM2MSecurityMode NoSecClientCredential.getSecurityConfigClientMode()"})
   void testGettersAndSetters() {
     // Arrange and Act
     NoSecClientCredential actualNoSecClientCredential = new NoSecClientCredential();

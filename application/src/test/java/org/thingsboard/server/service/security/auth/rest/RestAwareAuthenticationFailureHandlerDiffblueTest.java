@@ -3,12 +3,14 @@ package org.thingsboard.server.service.security.auth.rest;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import org.apache.catalina.connector.Response;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -23,8 +25,8 @@ import org.thingsboard.server.exception.ThingsboardErrorResponseHandler;
 import org.thingsboard.server.service.security.exception.AuthMethodNotSupportedException;
 
 @ContextConfiguration(classes = {RestAwareAuthenticationFailureHandler.class})
-@ExtendWith(SpringExtension.class)
 @DisabledInAotMode
+@ExtendWith(SpringExtension.class)
 class RestAwareAuthenticationFailureHandlerDiffblueTest {
   @Autowired
   private RestAwareAuthenticationFailureHandler restAwareAuthenticationFailureHandler;
@@ -33,14 +35,15 @@ class RestAwareAuthenticationFailureHandlerDiffblueTest {
   private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
   /**
-   * Test
-   * {@link RestAwareAuthenticationFailureHandler#onAuthenticationFailure(HttpServletRequest, HttpServletResponse, AuthenticationException)}.
+   * Test {@link RestAwareAuthenticationFailureHandler#onAuthenticationFailure(HttpServletRequest, HttpServletResponse, AuthenticationException)}.
    * <p>
-   * Method under test:
-   * {@link RestAwareAuthenticationFailureHandler#onAuthenticationFailure(HttpServletRequest, HttpServletResponse, AuthenticationException)}
+   * Method under test: {@link RestAwareAuthenticationFailureHandler#onAuthenticationFailure(HttpServletRequest, HttpServletResponse, AuthenticationException)}
    */
   @Test
   @DisplayName("Test onAuthenticationFailure(HttpServletRequest, HttpServletResponse, AuthenticationException)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void RestAwareAuthenticationFailureHandler.onAuthenticationFailure(HttpServletRequest, HttpServletResponse, AuthenticationException)"})
   void testOnAuthenticationFailure() throws ServletException, IOException {
     // Arrange
     doNothing().when(thingsboardErrorResponseHandler)
@@ -52,7 +55,7 @@ class RestAwareAuthenticationFailureHandlerDiffblueTest {
     restAwareAuthenticationFailureHandler.onAuthenticationFailure(request, response,
         new AuthMethodNotSupportedException("Msg"));
 
-    // Assert that nothing has changed
+    // Assert
     verify(thingsboardErrorResponseHandler).handle(isA(Exception.class), isA(HttpServletResponse.class));
   }
 }

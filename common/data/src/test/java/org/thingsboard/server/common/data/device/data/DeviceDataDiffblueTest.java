@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class DeviceDataDiffblueTest {
@@ -23,6 +25,8 @@ class DeviceDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceData.equals(Object)", "int DeviceData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DeviceData deviceData = new DeviceData();
@@ -54,6 +58,8 @@ class DeviceDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceData.equals(Object)", "int DeviceData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DeviceData deviceData = new DeviceData();
@@ -77,6 +83,8 @@ class DeviceDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceData.equals(Object)", "int DeviceData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     DeviceData deviceData = new DeviceData();
@@ -102,6 +110,8 @@ class DeviceDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceData.equals(Object)", "int DeviceData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DeviceData deviceData = new DeviceData();
@@ -127,6 +137,8 @@ class DeviceDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceData.equals(Object)", "int DeviceData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DeviceData deviceData = new DeviceData();
@@ -152,6 +164,8 @@ class DeviceDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceData.equals(Object)", "int DeviceData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     DeviceData deviceData = new DeviceData();
@@ -177,6 +191,8 @@ class DeviceDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceData.equals(Object)", "int DeviceData.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     DeviceData deviceData = new DeviceData();
@@ -198,6 +214,8 @@ class DeviceDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DeviceData.equals(Object)", "int DeviceData.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     DeviceData deviceData = new DeviceData();
@@ -215,8 +233,7 @@ class DeviceDataDiffblueTest {
    * <ul>
    *   <li>default or parameterless constructor of {@link DeviceData}
    *   <li>{@link DeviceData#setConfiguration(DeviceConfiguration)}
-   *   <li>
-   * {@link DeviceData#setTransportConfiguration(DeviceTransportConfiguration)}
+   *   <li>{@link DeviceData#setTransportConfiguration(DeviceTransportConfiguration)}
    *   <li>{@link DeviceData#toString()}
    *   <li>{@link DeviceData#getConfiguration()}
    *   <li>{@link DeviceData#getTransportConfiguration()}
@@ -224,6 +241,12 @@ class DeviceDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DeviceData.<init>()", "DeviceConfiguration DeviceData.getConfiguration()",
+      "DeviceTransportConfiguration DeviceData.getTransportConfiguration()",
+      "void DeviceData.setConfiguration(DeviceConfiguration)",
+      "void DeviceData.setTransportConfiguration(DeviceTransportConfiguration)",
+      "java.lang.String DeviceData.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     DeviceData actualDeviceData = new DeviceData();
@@ -234,7 +257,7 @@ class DeviceDataDiffblueTest {
     actualDeviceData.toString();
     DeviceConfiguration actualConfiguration = actualDeviceData.getConfiguration();
 
-    // Assert that nothing has changed
+    // Assert
     assertSame(configuration, actualConfiguration);
     assertSame(transportConfiguration, actualDeviceData.getTransportConfiguration());
   }

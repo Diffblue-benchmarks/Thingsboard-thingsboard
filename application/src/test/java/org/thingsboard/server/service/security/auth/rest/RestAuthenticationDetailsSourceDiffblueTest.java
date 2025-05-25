@@ -6,9 +6,11 @@ import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletRequestWrapper;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -27,14 +29,14 @@ class RestAuthenticationDetailsSourceDiffblueTest {
   private RestAuthenticationDetailsSource restAuthenticationDetailsSource;
 
   /**
-   * Test {@link RestAuthenticationDetailsSource#buildDetails(HttpServletRequest)}
-   * with {@code HttpServletRequest}.
+   * Test {@link RestAuthenticationDetailsSource#buildDetails(HttpServletRequest)} with {@code HttpServletRequest}.
    * <p>
-   * Method under test:
-   * {@link RestAuthenticationDetailsSource#buildDetails(HttpServletRequest)}
+   * Method under test: {@link RestAuthenticationDetailsSource#buildDetails(HttpServletRequest)}
    */
   @Test
   @DisplayName("Test buildDetails(HttpServletRequest) with 'HttpServletRequest'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"RestAuthenticationDetails RestAuthenticationDetailsSource.buildDetails(HttpServletRequest)"})
   void testBuildDetailsWithHttpServletRequest() {
     // Arrange
     HttpServletRequestWrapper context = mock(HttpServletRequestWrapper.class);
@@ -62,17 +64,17 @@ class RestAuthenticationDetailsSourceDiffblueTest {
   }
 
   /**
-   * Test {@link RestAuthenticationDetailsSource#buildDetails(HttpServletRequest)}
-   * with {@code HttpServletRequest}.
+   * Test {@link RestAuthenticationDetailsSource#buildDetails(HttpServletRequest)} with {@code HttpServletRequest}.
    * <ul>
    *   <li>Then return UserAgent {@link Client#device} is {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link RestAuthenticationDetailsSource#buildDetails(HttpServletRequest)}
+   * Method under test: {@link RestAuthenticationDetailsSource#buildDetails(HttpServletRequest)}
    */
   @Test
   @DisplayName("Test buildDetails(HttpServletRequest) with 'HttpServletRequest'; then return UserAgent device is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"RestAuthenticationDetails RestAuthenticationDetailsSource.buildDetails(HttpServletRequest)"})
   void testBuildDetailsWithHttpServletRequest_thenReturnUserAgentDeviceIsNull() {
     // Arrange, Act and Assert
     Client userAgent = restAuthenticationDetailsSource.buildDetails(new MockHttpServletRequest()).getUserAgent();

@@ -5,47 +5,51 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.User;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.sync.ie.WidgetsBundleExportData;
 import org.thingsboard.server.common.data.sync.vc.request.create.ComplexVersionCreateRequest;
+import org.thingsboard.server.common.data.sync.vc.request.create.SyncStrategy;
 import org.thingsboard.server.common.data.widget.WidgetsBundle;
-import org.thingsboard.server.dao.widget.WidgetTypeServiceImpl;
 import org.thingsboard.server.service.sync.vc.data.CommitGitRequest;
 import org.thingsboard.server.service.sync.vc.data.ComplexEntitiesExportCtx;
 import org.thingsboard.server.service.sync.vc.data.EntitiesExportCtx;
 
+@ExtendWith(MockitoExtension.class)
 class WidgetsBundleExportServiceDiffblueTest {
+  @InjectMocks
+  private WidgetsBundleExportService widgetsBundleExportService;
+
   /**
-   * Test
-   * {@link WidgetsBundleExportService#setRelatedEntities(EntitiesExportCtx, WidgetsBundle, WidgetsBundleExportData)}
-   * with {@code EntitiesExportCtx}, {@code WidgetsBundle},
-   * {@code WidgetsBundleExportData}.
+   * Test {@link WidgetsBundleExportService#setRelatedEntities(EntitiesExportCtx, WidgetsBundle, WidgetsBundleExportData)} with {@code EntitiesExportCtx}, {@code WidgetsBundle}, {@code WidgetsBundleExportData}.
    * <p>
-   * Method under test:
-   * {@link WidgetsBundleExportService#setRelatedEntities(EntitiesExportCtx, WidgetsBundle, WidgetsBundleExportData)}
+   * Method under test: {@link WidgetsBundleExportService#setRelatedEntities(EntitiesExportCtx, WidgetsBundle, WidgetsBundleExportData)}
    */
   @Test
   @DisplayName("Test setRelatedEntities(EntitiesExportCtx, WidgetsBundle, WidgetsBundleExportData) with 'EntitiesExportCtx', 'WidgetsBundle', 'WidgetsBundleExportData'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void WidgetsBundleExportService.setRelatedEntities(EntitiesExportCtx, WidgetsBundle, WidgetsBundleExportData)"})
   void testSetRelatedEntitiesWithEntitiesExportCtxWidgetsBundleWidgetsBundleExportData() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    WidgetsBundleExportService widgetsBundleExportService = new WidgetsBundleExportService(
-        mock(WidgetTypeServiceImpl.class));
-    ComplexVersionCreateRequest request = mock(ComplexVersionCreateRequest.class);
-    when(request.getEntityTypes()).thenReturn(new HashMap<>());
+    ComplexVersionCreateRequest request = new ComplexVersionCreateRequest();
+    request.setBranch("janedoe/featurebranch");
+    request.setEntityTypes(new HashMap<>());
+    request.setSyncStrategy(SyncStrategy.MERGE);
+    request.setVersionName("1.0.2");
     User user = new User();
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ComplexEntitiesExportCtx ctx = new ComplexEntitiesExportCtx(user,
         new CommitGitRequest(tenantId, new ComplexVersionCreateRequest()), request);
 
@@ -54,7 +58,6 @@ class WidgetsBundleExportServiceDiffblueTest {
     // Act and Assert
     assertThrows(IllegalArgumentException.class,
         () -> widgetsBundleExportService.setRelatedEntities(ctx, widgetsBundle, new WidgetsBundleExportData()));
-    verify(request).getEntityTypes();
   }
 
   /**
@@ -64,38 +67,11 @@ class WidgetsBundleExportServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test newExportData()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"WidgetsBundleExportData WidgetsBundleExportService.newExportData()"})
   void testNewExportData() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    WidgetsBundleExportData actualNewExportDataResult = (new WidgetsBundleExportService(new WidgetTypeServiceImpl()))
-        .newExportData();
-
-    // Assert
-    assertNull(actualNewExportDataResult.getWidgets());
-    assertNull(actualNewExportDataResult.getFqns());
-    assertNull(actualNewExportDataResult.getRelations());
-    assertNull(actualNewExportDataResult.getAttributes());
-    assertNull(actualNewExportDataResult.getEntityType());
-    assertNull(actualNewExportDataResult.getEntity());
-    assertFalse(actualNewExportDataResult.hasAttributes());
-    assertFalse(actualNewExportDataResult.hasCredentials());
-    assertFalse(actualNewExportDataResult.hasRelations());
-  }
-
-  /**
-   * Test {@link WidgetsBundleExportService#newExportData()}.
-   * <p>
-   * Method under test: {@link WidgetsBundleExportService#newExportData()}
-   */
-  @Test
-  @DisplayName("Test newExportData()")
-  void testNewExportData2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange and Act
-    WidgetsBundleExportData actualNewExportDataResult = (new WidgetsBundleExportService(
-        mock(WidgetTypeServiceImpl.class))).newExportData();
+    WidgetsBundleExportData actualNewExportDataResult = widgetsBundleExportService.newExportData();
 
     // Assert
     assertNull(actualNewExportDataResult.getWidgets());
@@ -112,37 +88,15 @@ class WidgetsBundleExportServiceDiffblueTest {
   /**
    * Test {@link WidgetsBundleExportService#getSupportedEntityTypes()}.
    * <p>
-   * Method under test:
-   * {@link WidgetsBundleExportService#getSupportedEntityTypes()}
+   * Method under test: {@link WidgetsBundleExportService#getSupportedEntityTypes()}
    */
   @Test
   @DisplayName("Test getSupportedEntityTypes()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Set WidgetsBundleExportService.getSupportedEntityTypes()"})
   void testGetSupportedEntityTypes() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    Set<EntityType> actualSupportedEntityTypes = (new WidgetsBundleExportService(new WidgetTypeServiceImpl()))
-        .getSupportedEntityTypes();
-
-    // Assert
-    assertEquals(1, actualSupportedEntityTypes.size());
-    assertTrue(actualSupportedEntityTypes.contains(EntityType.WIDGETS_BUNDLE));
-  }
-
-  /**
-   * Test {@link WidgetsBundleExportService#getSupportedEntityTypes()}.
-   * <p>
-   * Method under test:
-   * {@link WidgetsBundleExportService#getSupportedEntityTypes()}
-   */
-  @Test
-  @DisplayName("Test getSupportedEntityTypes()")
-  void testGetSupportedEntityTypes2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange and Act
-    Set<EntityType> actualSupportedEntityTypes = (new WidgetsBundleExportService(mock(WidgetTypeServiceImpl.class)))
-        .getSupportedEntityTypes();
+    Set<EntityType> actualSupportedEntityTypes = widgetsBundleExportService.getSupportedEntityTypes();
 
     // Assert
     assertEquals(1, actualSupportedEntityTypes.size());

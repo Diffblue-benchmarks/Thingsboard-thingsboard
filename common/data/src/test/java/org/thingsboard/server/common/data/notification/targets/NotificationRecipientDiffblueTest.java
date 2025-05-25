@@ -1,7 +1,9 @@
 package org.thingsboard.server.common.data.notification.targets;
 
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class NotificationRecipientDiffblueTest {
@@ -12,6 +14,8 @@ class NotificationRecipientDiffblueTest {
    */
   @Test
   @DisplayName("Test getFirstName()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String NotificationRecipient.getFirstName()"})
   void testGetFirstName() {
     // Arrange, Act and Assert
     assertNull((new MicrosoftTeamsNotificationTargetConfig()).getFirstName());
@@ -24,6 +28,8 @@ class NotificationRecipientDiffblueTest {
    */
   @Test
   @DisplayName("Test getLastName()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String NotificationRecipient.getLastName()"})
   void testGetLastName() {
     // Arrange, Act and Assert
     assertNull((new MicrosoftTeamsNotificationTargetConfig()).getLastName());
@@ -36,6 +42,8 @@ class NotificationRecipientDiffblueTest {
    */
   @Test
   @DisplayName("Test getEmail()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String NotificationRecipient.getEmail()"})
   void testGetEmail() {
     // Arrange, Act and Assert
     assertNull((new MicrosoftTeamsNotificationTargetConfig()).getEmail());

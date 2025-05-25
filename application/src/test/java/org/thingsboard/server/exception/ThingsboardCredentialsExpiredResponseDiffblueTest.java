@@ -1,7 +1,9 @@
 package org.thingsboard.server.exception;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,14 +18,14 @@ class ThingsboardCredentialsExpiredResponseDiffblueTest {
   private ThingsboardCredentialsExpiredResponse thingsboardCredentialsExpiredResponse;
 
   /**
-   * Test
-   * {@link ThingsboardCredentialsExpiredResponse#ThingsboardCredentialsExpiredResponse(String, String)}.
+   * Test {@link ThingsboardCredentialsExpiredResponse#ThingsboardCredentialsExpiredResponse(String, String)}.
    * <p>
-   * Method under test:
-   * {@link ThingsboardCredentialsExpiredResponse#ThingsboardCredentialsExpiredResponse(String, String)}
+   * Method under test: {@link ThingsboardCredentialsExpiredResponse#ThingsboardCredentialsExpiredResponse(String, String)}
    */
   @Test
   @DisplayName("Test new ThingsboardCredentialsExpiredResponse(String, String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ThingsboardCredentialsExpiredResponse.<init>(String, String)"})
   void testNewThingsboardCredentialsExpiredResponse() {
     // Arrange and Act
     ThingsboardCredentialsExpiredResponse actualThingsboardCredentialsExpiredResponse = new ThingsboardCredentialsExpiredResponse(
@@ -37,14 +39,14 @@ class ThingsboardCredentialsExpiredResponseDiffblueTest {
   }
 
   /**
-   * Test {@link ThingsboardCredentialsExpiredResponse#of(String, String)} with
-   * {@code message}, {@code resetToken}.
+   * Test {@link ThingsboardCredentialsExpiredResponse#of(String, String)} with {@code message}, {@code resetToken}.
    * <p>
-   * Method under test:
-   * {@link ThingsboardCredentialsExpiredResponse#of(String, String)}
+   * Method under test: {@link ThingsboardCredentialsExpiredResponse#of(String, String)}
    */
   @Test
   @DisplayName("Test of(String, String) with 'message', 'resetToken'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ThingsboardCredentialsExpiredResponse ThingsboardCredentialsExpiredResponse.of(String, String)"})
   void testOfWithMessageResetToken() {
     // Arrange and Act
     ThingsboardCredentialsExpiredResponse actualOfResult = ThingsboardCredentialsExpiredResponse
@@ -60,11 +62,12 @@ class ThingsboardCredentialsExpiredResponseDiffblueTest {
   /**
    * Test {@link ThingsboardCredentialsExpiredResponse#getResetToken()}.
    * <p>
-   * Method under test:
-   * {@link ThingsboardCredentialsExpiredResponse#getResetToken()}
+   * Method under test: {@link ThingsboardCredentialsExpiredResponse#getResetToken()}
    */
   @Test
   @DisplayName("Test getResetToken()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String ThingsboardCredentialsExpiredResponse.getResetToken()"})
   void testGetResetToken() {
     // Arrange, Act and Assert
     assertEquals("ABC123",

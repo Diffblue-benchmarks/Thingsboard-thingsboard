@@ -2,21 +2,23 @@ package org.thingsboard.common.util;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinWorkerThread;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ThingsBoardForkJoinWorkerThreadFactoryDiffblueTest {
   /**
-   * Test
-   * {@link ThingsBoardForkJoinWorkerThreadFactory#ThingsBoardForkJoinWorkerThreadFactory(String)}.
+   * Test {@link ThingsBoardForkJoinWorkerThreadFactory#ThingsBoardForkJoinWorkerThreadFactory(String)}.
    * <p>
-   * Method under test:
-   * {@link ThingsBoardForkJoinWorkerThreadFactory#ThingsBoardForkJoinWorkerThreadFactory(String)}
+   * Method under test: {@link ThingsBoardForkJoinWorkerThreadFactory#ThingsBoardForkJoinWorkerThreadFactory(String)}
    */
   @Test
   @DisplayName("Test new ThingsBoardForkJoinWorkerThreadFactory(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ThingsBoardForkJoinWorkerThreadFactory.<init>(String)"})
   void testNewThingsBoardForkJoinWorkerThreadFactory() {
     // Arrange and Act
     ThingsBoardForkJoinWorkerThreadFactory actualThingsBoardForkJoinWorkerThreadFactory = new ThingsBoardForkJoinWorkerThreadFactory(
@@ -36,11 +38,12 @@ class ThingsBoardForkJoinWorkerThreadFactoryDiffblueTest {
    *   <li>Then return PoolIndex is zero.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ThingsBoardForkJoinWorkerThreadFactory#newThread(ForkJoinPool)}
+   * Method under test: {@link ThingsBoardForkJoinWorkerThreadFactory#newThread(ForkJoinPool)}
    */
   @Test
   @DisplayName("Test newThread(ForkJoinPool); when commonPool; then return PoolIndex is zero")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ForkJoinWorkerThread ThingsBoardForkJoinWorkerThreadFactory.newThread(ForkJoinPool)"})
   void testNewThread_whenCommonPool_thenReturnPoolIndexIsZero() {
     // Arrange
     ThingsBoardForkJoinWorkerThreadFactory thingsBoardForkJoinWorkerThreadFactory = new ThingsBoardForkJoinWorkerThreadFactory(
@@ -62,6 +65,8 @@ class ThingsBoardForkJoinWorkerThreadFactoryDiffblueTest {
    */
   @Test
   @DisplayName("Test toString()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String ThingsBoardForkJoinWorkerThreadFactory.toString()"})
   void testToString() {
     // Arrange, Act and Assert
     assertEquals("ThingsBoardForkJoinWorkerThreadFactory(namePrefix=Name Prefix, threadNumber=1)",

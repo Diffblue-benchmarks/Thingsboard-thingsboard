@@ -6,7 +6,9 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.thingsboard.monitoring.config.transport.CoapTransportMonitoringConfig;
@@ -25,31 +27,69 @@ class CoapTransportHealthCheckerDiffblueTest {
    */
   @Test
   @DisplayName("Test initClient(); then calls getCredentials()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapTransportHealthChecker.initClient()"})
   void testInitClient_thenCallsGetCredentials() throws Exception {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DeviceConfig deviceConfig = mock(DeviceConfig.class);
-    when(deviceConfig.getCredentials()).thenReturn(new DeviceCredentials());
-    doNothing().when(deviceConfig).setCredentials(Mockito.<DeviceCredentials>any());
-    doNothing().when(deviceConfig).setId(Mockito.<String>any());
-    doNothing().when(deviceConfig).setName(Mockito.<String>any());
-    deviceConfig.setCredentials(new DeviceCredentials());
-    deviceConfig.setId("42");
-    deviceConfig.setName("Name");
-    TransportMonitoringTarget target = mock(TransportMonitoringTarget.class);
-    when(target.getBaseUrl()).thenReturn("https://example.org/example");
-    when(target.getDevice()).thenReturn(deviceConfig);
+    DeviceConfig device = mock(DeviceConfig.class);
+    when(device.getCredentials()).thenReturn(new DeviceCredentials());
+    doNothing().when(device).setCredentials(Mockito.<DeviceCredentials>any());
+    doNothing().when(device).setId(Mockito.<String>any());
+    doNothing().when(device).setName(Mockito.<String>any());
+    device.setCredentials(new DeviceCredentials());
+    device.setId("42");
+    device.setName("Name");
+
+    TransportMonitoringTarget target = new TransportMonitoringTarget();
+    target.setBaseUrl("https://example.org/example");
+    target.setCheckDomainIps(true);
+    target.setDevice(device);
+    target.setQueue("Queue");
 
     // Act
     (new CoapTransportHealthChecker(new CoapTransportMonitoringConfig(), target)).initClient();
 
     // Assert
-    verify(deviceConfig).getCredentials();
-    verify(deviceConfig).setCredentials(isA(DeviceCredentials.class));
-    verify(deviceConfig).setId(eq("42"));
-    verify(deviceConfig).setName(eq("Name"));
-    verify(target).getBaseUrl();
-    verify(target).getDevice();
+    verify(device).getCredentials();
+    verify(device).setCredentials(isA(DeviceCredentials.class));
+    verify(device).setId(eq("42"));
+    verify(device).setName(eq("Name"));
+  }
+
+  /**
+   * Test {@link CoapTransportHealthChecker#destroyClient()}.
+   * <ul>
+   *   <li>Then calls {@link DeviceConfig#setCredentials(DeviceCredentials)}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link CoapTransportHealthChecker#destroyClient()}
+   */
+  @Test
+  @DisplayName("Test destroyClient(); then calls setCredentials(DeviceCredentials)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapTransportHealthChecker.destroyClient()"})
+  void testDestroyClient_thenCallsSetCredentials() throws Exception {
+    // Arrange
+    DeviceConfig device = mock(DeviceConfig.class);
+    doNothing().when(device).setCredentials(Mockito.<DeviceCredentials>any());
+    doNothing().when(device).setId(Mockito.<String>any());
+    doNothing().when(device).setName(Mockito.<String>any());
+    device.setCredentials(new DeviceCredentials());
+    device.setId("42");
+    device.setName("Name");
+
+    TransportMonitoringTarget target = new TransportMonitoringTarget();
+    target.setBaseUrl("https://example.org/example");
+    target.setCheckDomainIps(true);
+    target.setDevice(device);
+    target.setQueue("Queue");
+
+    // Act
+    (new CoapTransportHealthChecker(new CoapTransportMonitoringConfig(), target)).destroyClient();
+
+    // Assert
+    verify(device).setCredentials(isA(DeviceCredentials.class));
+    verify(device).setId(eq("42"));
+    verify(device).setName(eq("Name"));
   }
 }

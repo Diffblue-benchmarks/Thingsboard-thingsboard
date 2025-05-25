@@ -3,1091 +3,223 @@ package org.thingsboard.server.dao.device;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 import static org.mockito.ArgumentMatchers.isA;
-import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.UUID;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.thingsboard.server.common.data.DeviceProfile;
 import org.thingsboard.server.common.data.EntityType;
-import org.thingsboard.server.common.data.device.profile.DeviceProfileAlarm;
-import org.thingsboard.server.common.data.device.profile.DeviceProfileConfiguration;
-import org.thingsboard.server.common.data.device.profile.DeviceProfileData;
-import org.thingsboard.server.common.data.device.profile.DeviceProfileProvisionConfiguration;
-import org.thingsboard.server.common.data.device.profile.DeviceProfileTransportConfiguration;
-import org.thingsboard.server.common.data.device.profile.X509CertificateChainProvisionConfiguration;
+import org.thingsboard.server.common.data.id.DeviceProfileId;
 import org.thingsboard.server.common.data.id.TenantId;
+import org.thingsboard.server.common.data.page.PageData;
 import org.thingsboard.server.common.data.page.PageLink;
-import org.thingsboard.server.common.data.page.SortOrder;
+import org.thingsboard.server.dao.Dao;
 import org.thingsboard.server.dao.exception.DataValidationException;
 import org.thingsboard.server.dao.model.ModelConstants;
 
+@RunWith(MockitoJUnitRunner.class)
 public class DeviceProfileServiceImplDiffblueTest {
-  /**
-   * Test {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile)} with
-   * {@code deviceProfile}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile)}
-   */
-  @Test
-  public void testSaveDeviceProfileWithDeviceProfile() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+  @Mock
+  private DeviceProfileDao deviceProfileDao;
 
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-
-    X509CertificateChainProvisionConfiguration x509CertificateChainProvisionConfiguration = new X509CertificateChainProvisionConfiguration();
-    x509CertificateChainProvisionConfiguration.setProvisionDeviceSecret("Provision Device Secret");
-    DeviceProfileData deviceProfileData = mock(DeviceProfileData.class);
-    when(deviceProfileData.getProvisionConfiguration()).thenReturn(x509CertificateChainProvisionConfiguration);
-    doNothing().when(deviceProfileData).setAlarms(Mockito.<List<DeviceProfileAlarm>>any());
-    doNothing().when(deviceProfileData).setConfiguration(Mockito.<DeviceProfileConfiguration>any());
-    doNothing().when(deviceProfileData).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    doNothing().when(deviceProfileData).setTransportConfiguration(Mockito.<DeviceProfileTransportConfiguration>any());
-    deviceProfileData.setAlarms(new ArrayList<>());
-    deviceProfileData.setConfiguration(mock(DeviceProfileConfiguration.class));
-    deviceProfileData.setProvisionConfiguration(new X509CertificateChainProvisionConfiguration());
-    deviceProfileData.setTransportConfiguration(mock(DeviceProfileTransportConfiguration.class));
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doThrow(new DataValidationException("An error occurred")).when(deviceProfile)
-        .setProfileData(Mockito.<DeviceProfileData>any());
-    when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class, () -> deviceProfileServiceImpl.saveDeviceProfile(deviceProfile));
-    verify(deviceProfile, atLeast(1)).getProfileData();
-    verify(deviceProfile).setProfileData(isA(DeviceProfileData.class));
-    verify(deviceProfileData, atLeast(1)).getProvisionConfiguration();
-    verify(deviceProfileData).setAlarms(isA(List.class));
-    verify(deviceProfileData).setConfiguration(isA(DeviceProfileConfiguration.class));
-    verify(deviceProfileData, atLeast(1)).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    verify(deviceProfileData).setTransportConfiguration(isA(DeviceProfileTransportConfiguration.class));
-  }
+  @InjectMocks
+  private DeviceProfileServiceImpl deviceProfileServiceImpl;
 
   /**
-   * Test {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile)} with
-   * {@code deviceProfile}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile)}
-   */
-  @Test
-  public void testSaveDeviceProfileWithDeviceProfile2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-
-    X509CertificateChainProvisionConfiguration x509CertificateChainProvisionConfiguration = new X509CertificateChainProvisionConfiguration();
-    x509CertificateChainProvisionConfiguration.setProvisionDeviceSecret("-----BEGIN CERTIFICATE-----");
-    DeviceProfileData deviceProfileData = mock(DeviceProfileData.class);
-    when(deviceProfileData.getProvisionConfiguration()).thenReturn(x509CertificateChainProvisionConfiguration);
-    doNothing().when(deviceProfileData).setAlarms(Mockito.<List<DeviceProfileAlarm>>any());
-    doNothing().when(deviceProfileData).setConfiguration(Mockito.<DeviceProfileConfiguration>any());
-    doNothing().when(deviceProfileData).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    doNothing().when(deviceProfileData).setTransportConfiguration(Mockito.<DeviceProfileTransportConfiguration>any());
-    deviceProfileData.setAlarms(new ArrayList<>());
-    deviceProfileData.setConfiguration(mock(DeviceProfileConfiguration.class));
-    deviceProfileData.setProvisionConfiguration(new X509CertificateChainProvisionConfiguration());
-    deviceProfileData.setTransportConfiguration(mock(DeviceProfileTransportConfiguration.class));
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doThrow(new DataValidationException("An error occurred")).when(deviceProfile)
-        .setProfileData(Mockito.<DeviceProfileData>any());
-    when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class, () -> deviceProfileServiceImpl.saveDeviceProfile(deviceProfile));
-    verify(deviceProfile, atLeast(1)).getProfileData();
-    verify(deviceProfile).setProfileData(isA(DeviceProfileData.class));
-    verify(deviceProfileData, atLeast(1)).getProvisionConfiguration();
-    verify(deviceProfileData).setAlarms(isA(List.class));
-    verify(deviceProfileData).setConfiguration(isA(DeviceProfileConfiguration.class));
-    verify(deviceProfileData, atLeast(1)).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    verify(deviceProfileData).setTransportConfiguration(isA(DeviceProfileTransportConfiguration.class));
-  }
-
-  /**
-   * Test {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile)} with
-   * {@code deviceProfile}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile)}
-   */
-  @Test
-  public void testSaveDeviceProfileWithDeviceProfile3() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-
-    X509CertificateChainProvisionConfiguration x509CertificateChainProvisionConfiguration = new X509CertificateChainProvisionConfiguration();
-    x509CertificateChainProvisionConfiguration.setProvisionDeviceSecret("\n");
-    DeviceProfileData deviceProfileData = mock(DeviceProfileData.class);
-    when(deviceProfileData.getProvisionConfiguration()).thenReturn(x509CertificateChainProvisionConfiguration);
-    doNothing().when(deviceProfileData).setAlarms(Mockito.<List<DeviceProfileAlarm>>any());
-    doNothing().when(deviceProfileData).setConfiguration(Mockito.<DeviceProfileConfiguration>any());
-    doNothing().when(deviceProfileData).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    doNothing().when(deviceProfileData).setTransportConfiguration(Mockito.<DeviceProfileTransportConfiguration>any());
-    deviceProfileData.setAlarms(new ArrayList<>());
-    deviceProfileData.setConfiguration(mock(DeviceProfileConfiguration.class));
-    deviceProfileData.setProvisionConfiguration(new X509CertificateChainProvisionConfiguration());
-    deviceProfileData.setTransportConfiguration(mock(DeviceProfileTransportConfiguration.class));
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doThrow(new DataValidationException("An error occurred")).when(deviceProfile)
-        .setProfileData(Mockito.<DeviceProfileData>any());
-    when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class, () -> deviceProfileServiceImpl.saveDeviceProfile(deviceProfile));
-    verify(deviceProfile, atLeast(1)).getProfileData();
-    verify(deviceProfile).setProfileData(isA(DeviceProfileData.class));
-    verify(deviceProfileData, atLeast(1)).getProvisionConfiguration();
-    verify(deviceProfileData).setAlarms(isA(List.class));
-    verify(deviceProfileData).setConfiguration(isA(DeviceProfileConfiguration.class));
-    verify(deviceProfileData, atLeast(1)).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    verify(deviceProfileData).setTransportConfiguration(isA(DeviceProfileTransportConfiguration.class));
-  }
-
-  /**
-   * Test {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile)} with
-   * {@code deviceProfile}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile)}
-   */
-  @Test
-  public void testSaveDeviceProfileWithDeviceProfile4() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-
-    X509CertificateChainProvisionConfiguration x509CertificateChainProvisionConfiguration = new X509CertificateChainProvisionConfiguration();
-    x509CertificateChainProvisionConfiguration.setProvisionDeviceSecret("\r");
-    DeviceProfileData deviceProfileData = mock(DeviceProfileData.class);
-    when(deviceProfileData.getProvisionConfiguration()).thenReturn(x509CertificateChainProvisionConfiguration);
-    doNothing().when(deviceProfileData).setAlarms(Mockito.<List<DeviceProfileAlarm>>any());
-    doNothing().when(deviceProfileData).setConfiguration(Mockito.<DeviceProfileConfiguration>any());
-    doNothing().when(deviceProfileData).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    doNothing().when(deviceProfileData).setTransportConfiguration(Mockito.<DeviceProfileTransportConfiguration>any());
-    deviceProfileData.setAlarms(new ArrayList<>());
-    deviceProfileData.setConfiguration(mock(DeviceProfileConfiguration.class));
-    deviceProfileData.setProvisionConfiguration(new X509CertificateChainProvisionConfiguration());
-    deviceProfileData.setTransportConfiguration(mock(DeviceProfileTransportConfiguration.class));
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doThrow(new DataValidationException("An error occurred")).when(deviceProfile)
-        .setProfileData(Mockito.<DeviceProfileData>any());
-    when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class, () -> deviceProfileServiceImpl.saveDeviceProfile(deviceProfile));
-    verify(deviceProfile, atLeast(1)).getProfileData();
-    verify(deviceProfile).setProfileData(isA(DeviceProfileData.class));
-    verify(deviceProfileData, atLeast(1)).getProvisionConfiguration();
-    verify(deviceProfileData).setAlarms(isA(List.class));
-    verify(deviceProfileData).setConfiguration(isA(DeviceProfileConfiguration.class));
-    verify(deviceProfileData, atLeast(1)).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    verify(deviceProfileData).setTransportConfiguration(isA(DeviceProfileTransportConfiguration.class));
-  }
-
-  /**
-   * Test {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile)} with
-   * {@code deviceProfile}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile)}
-   */
-  @Test
-  public void testSaveDeviceProfileWithDeviceProfile5() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-
-    X509CertificateChainProvisionConfiguration x509CertificateChainProvisionConfiguration = new X509CertificateChainProvisionConfiguration();
-    x509CertificateChainProvisionConfiguration.setProvisionDeviceSecret("-----END CERTIFICATE-----");
-    DeviceProfileData deviceProfileData = mock(DeviceProfileData.class);
-    when(deviceProfileData.getProvisionConfiguration()).thenReturn(x509CertificateChainProvisionConfiguration);
-    doNothing().when(deviceProfileData).setAlarms(Mockito.<List<DeviceProfileAlarm>>any());
-    doNothing().when(deviceProfileData).setConfiguration(Mockito.<DeviceProfileConfiguration>any());
-    doNothing().when(deviceProfileData).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    doNothing().when(deviceProfileData).setTransportConfiguration(Mockito.<DeviceProfileTransportConfiguration>any());
-    deviceProfileData.setAlarms(new ArrayList<>());
-    deviceProfileData.setConfiguration(mock(DeviceProfileConfiguration.class));
-    deviceProfileData.setProvisionConfiguration(new X509CertificateChainProvisionConfiguration());
-    deviceProfileData.setTransportConfiguration(mock(DeviceProfileTransportConfiguration.class));
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doThrow(new DataValidationException("An error occurred")).when(deviceProfile)
-        .setProfileData(Mockito.<DeviceProfileData>any());
-    when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class, () -> deviceProfileServiceImpl.saveDeviceProfile(deviceProfile));
-    verify(deviceProfile, atLeast(1)).getProfileData();
-    verify(deviceProfile).setProfileData(isA(DeviceProfileData.class));
-    verify(deviceProfileData, atLeast(1)).getProvisionConfiguration();
-    verify(deviceProfileData).setAlarms(isA(List.class));
-    verify(deviceProfileData).setConfiguration(isA(DeviceProfileConfiguration.class));
-    verify(deviceProfileData, atLeast(1)).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    verify(deviceProfileData).setTransportConfiguration(isA(DeviceProfileTransportConfiguration.class));
-  }
-
-  /**
-   * Test {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile)} with
-   * {@code deviceProfile}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile)}
-   */
-  @Test
-  public void testSaveDeviceProfileWithDeviceProfile6() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-
-    X509CertificateChainProvisionConfiguration x509CertificateChainProvisionConfiguration = new X509CertificateChainProvisionConfiguration();
-    x509CertificateChainProvisionConfiguration
-        .setProvisionDeviceSecret("-----BEGIN CERTIFICATE----- UU -----END CERTIFICATE-----");
-    DeviceProfileData deviceProfileData = mock(DeviceProfileData.class);
-    when(deviceProfileData.getProvisionConfiguration()).thenReturn(x509CertificateChainProvisionConfiguration);
-    doNothing().when(deviceProfileData).setAlarms(Mockito.<List<DeviceProfileAlarm>>any());
-    doNothing().when(deviceProfileData).setConfiguration(Mockito.<DeviceProfileConfiguration>any());
-    doNothing().when(deviceProfileData).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    doNothing().when(deviceProfileData).setTransportConfiguration(Mockito.<DeviceProfileTransportConfiguration>any());
-    deviceProfileData.setAlarms(new ArrayList<>());
-    deviceProfileData.setConfiguration(mock(DeviceProfileConfiguration.class));
-    deviceProfileData.setProvisionConfiguration(new X509CertificateChainProvisionConfiguration());
-    deviceProfileData.setTransportConfiguration(mock(DeviceProfileTransportConfiguration.class));
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doThrow(new DataValidationException("An error occurred")).when(deviceProfile)
-        .setProfileData(Mockito.<DeviceProfileData>any());
-    when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class, () -> deviceProfileServiceImpl.saveDeviceProfile(deviceProfile));
-    verify(deviceProfile, atLeast(1)).getProfileData();
-    verify(deviceProfile).setProfileData(isA(DeviceProfileData.class));
-    verify(deviceProfileData, atLeast(1)).getProvisionConfiguration();
-    verify(deviceProfileData).setAlarms(isA(List.class));
-    verify(deviceProfileData).setConfiguration(isA(DeviceProfileConfiguration.class));
-    verify(deviceProfileData, atLeast(1)).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    verify(deviceProfileData).setTransportConfiguration(isA(DeviceProfileTransportConfiguration.class));
-  }
-
-  /**
-   * Test {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile)} with
-   * {@code deviceProfile}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile)}
-   */
-  @Test
-  public void testSaveDeviceProfileWithDeviceProfile7() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-
-    X509CertificateChainProvisionConfiguration x509CertificateChainProvisionConfiguration = new X509CertificateChainProvisionConfiguration();
-    x509CertificateChainProvisionConfiguration.setProvisionDeviceSecret("");
-    DeviceProfileData deviceProfileData = mock(DeviceProfileData.class);
-    when(deviceProfileData.getProvisionConfiguration()).thenReturn(x509CertificateChainProvisionConfiguration);
-    doNothing().when(deviceProfileData).setAlarms(Mockito.<List<DeviceProfileAlarm>>any());
-    doNothing().when(deviceProfileData).setConfiguration(Mockito.<DeviceProfileConfiguration>any());
-    doNothing().when(deviceProfileData).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    doNothing().when(deviceProfileData).setTransportConfiguration(Mockito.<DeviceProfileTransportConfiguration>any());
-    deviceProfileData.setAlarms(new ArrayList<>());
-    deviceProfileData.setConfiguration(mock(DeviceProfileConfiguration.class));
-    deviceProfileData.setProvisionConfiguration(new X509CertificateChainProvisionConfiguration());
-    deviceProfileData.setTransportConfiguration(mock(DeviceProfileTransportConfiguration.class));
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doThrow(new DataValidationException("An error occurred")).when(deviceProfile)
-        .setProfileData(Mockito.<DeviceProfileData>any());
-    when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class, () -> deviceProfileServiceImpl.saveDeviceProfile(deviceProfile));
-    verify(deviceProfile, atLeast(1)).getProfileData();
-    verify(deviceProfile).setProfileData(isA(DeviceProfileData.class));
-    verify(deviceProfileData, atLeast(1)).getProvisionConfiguration();
-    verify(deviceProfileData).setAlarms(isA(List.class));
-    verify(deviceProfileData).setConfiguration(isA(DeviceProfileConfiguration.class));
-    verify(deviceProfileData, atLeast(1)).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    verify(deviceProfileData).setTransportConfiguration(isA(DeviceProfileTransportConfiguration.class));
-  }
-
-  /**
-   * Test {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile)} with
-   * {@code deviceProfile}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile)}
-   */
-  @Test
-  public void testSaveDeviceProfileWithDeviceProfile8() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-
-    X509CertificateChainProvisionConfiguration x509CertificateChainProvisionConfiguration = new X509CertificateChainProvisionConfiguration();
-    x509CertificateChainProvisionConfiguration
-        .setProvisionDeviceSecret("-----BEGIN CERTIFICATE-----\\s*.*?\\s*-----END CERTIFICATE-----");
-    DeviceProfileData deviceProfileData = mock(DeviceProfileData.class);
-    when(deviceProfileData.getProvisionConfiguration()).thenReturn(x509CertificateChainProvisionConfiguration);
-    doNothing().when(deviceProfileData).setAlarms(Mockito.<List<DeviceProfileAlarm>>any());
-    doNothing().when(deviceProfileData).setConfiguration(Mockito.<DeviceProfileConfiguration>any());
-    doNothing().when(deviceProfileData).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    doNothing().when(deviceProfileData).setTransportConfiguration(Mockito.<DeviceProfileTransportConfiguration>any());
-    deviceProfileData.setAlarms(new ArrayList<>());
-    deviceProfileData.setConfiguration(mock(DeviceProfileConfiguration.class));
-    deviceProfileData.setProvisionConfiguration(new X509CertificateChainProvisionConfiguration());
-    deviceProfileData.setTransportConfiguration(mock(DeviceProfileTransportConfiguration.class));
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doThrow(new DataValidationException("An error occurred")).when(deviceProfile)
-        .setProfileData(Mockito.<DeviceProfileData>any());
-    when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class, () -> deviceProfileServiceImpl.saveDeviceProfile(deviceProfile));
-    verify(deviceProfile, atLeast(1)).getProfileData();
-    verify(deviceProfile).setProfileData(isA(DeviceProfileData.class));
-    verify(deviceProfileData, atLeast(1)).getProvisionConfiguration();
-    verify(deviceProfileData).setAlarms(isA(List.class));
-    verify(deviceProfileData).setConfiguration(isA(DeviceProfileConfiguration.class));
-    verify(deviceProfileData, atLeast(1)).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    verify(deviceProfileData).setTransportConfiguration(isA(DeviceProfileTransportConfiguration.class));
-  }
-
-  /**
-   * Test {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile)} with
-   * {@code deviceProfile}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile)}
-   */
-  @Test
-  public void testSaveDeviceProfileWithDeviceProfile9() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-
-    X509CertificateChainProvisionConfiguration x509CertificateChainProvisionConfiguration = new X509CertificateChainProvisionConfiguration();
-    x509CertificateChainProvisionConfiguration
-        .setProvisionDeviceSecret("-----BEGIN CERTIFICATE----------BEGIN CERTIFICATE-----");
-    DeviceProfileData deviceProfileData = mock(DeviceProfileData.class);
-    when(deviceProfileData.getProvisionConfiguration()).thenReturn(x509CertificateChainProvisionConfiguration);
-    doNothing().when(deviceProfileData).setAlarms(Mockito.<List<DeviceProfileAlarm>>any());
-    doNothing().when(deviceProfileData).setConfiguration(Mockito.<DeviceProfileConfiguration>any());
-    doNothing().when(deviceProfileData).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    doNothing().when(deviceProfileData).setTransportConfiguration(Mockito.<DeviceProfileTransportConfiguration>any());
-    deviceProfileData.setAlarms(new ArrayList<>());
-    deviceProfileData.setConfiguration(mock(DeviceProfileConfiguration.class));
-    deviceProfileData.setProvisionConfiguration(new X509CertificateChainProvisionConfiguration());
-    deviceProfileData.setTransportConfiguration(mock(DeviceProfileTransportConfiguration.class));
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doThrow(new DataValidationException("An error occurred")).when(deviceProfile)
-        .setProfileData(Mockito.<DeviceProfileData>any());
-    when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class, () -> deviceProfileServiceImpl.saveDeviceProfile(deviceProfile));
-    verify(deviceProfile, atLeast(1)).getProfileData();
-    verify(deviceProfile).setProfileData(isA(DeviceProfileData.class));
-    verify(deviceProfileData, atLeast(1)).getProvisionConfiguration();
-    verify(deviceProfileData).setAlarms(isA(List.class));
-    verify(deviceProfileData).setConfiguration(isA(DeviceProfileConfiguration.class));
-    verify(deviceProfileData, atLeast(1)).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    verify(deviceProfileData).setTransportConfiguration(isA(DeviceProfileTransportConfiguration.class));
-  }
-
-  /**
-   * Test {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile)} with
-   * {@code deviceProfile}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile)}
-   */
-  @Test
-  public void testSaveDeviceProfileWithDeviceProfile10() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-
-    X509CertificateChainProvisionConfiguration x509CertificateChainProvisionConfiguration = new X509CertificateChainProvisionConfiguration();
-    x509CertificateChainProvisionConfiguration.setProvisionDeviceSecret("-----BEGIN CERTIFICATE-----\n");
-    DeviceProfileData deviceProfileData = mock(DeviceProfileData.class);
-    when(deviceProfileData.getProvisionConfiguration()).thenReturn(x509CertificateChainProvisionConfiguration);
-    doNothing().when(deviceProfileData).setAlarms(Mockito.<List<DeviceProfileAlarm>>any());
-    doNothing().when(deviceProfileData).setConfiguration(Mockito.<DeviceProfileConfiguration>any());
-    doNothing().when(deviceProfileData).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    doNothing().when(deviceProfileData).setTransportConfiguration(Mockito.<DeviceProfileTransportConfiguration>any());
-    deviceProfileData.setAlarms(new ArrayList<>());
-    deviceProfileData.setConfiguration(mock(DeviceProfileConfiguration.class));
-    deviceProfileData.setProvisionConfiguration(new X509CertificateChainProvisionConfiguration());
-    deviceProfileData.setTransportConfiguration(mock(DeviceProfileTransportConfiguration.class));
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doThrow(new DataValidationException("An error occurred")).when(deviceProfile)
-        .setProfileData(Mockito.<DeviceProfileData>any());
-    when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class, () -> deviceProfileServiceImpl.saveDeviceProfile(deviceProfile));
-    verify(deviceProfile, atLeast(1)).getProfileData();
-    verify(deviceProfile).setProfileData(isA(DeviceProfileData.class));
-    verify(deviceProfileData, atLeast(1)).getProvisionConfiguration();
-    verify(deviceProfileData).setAlarms(isA(List.class));
-    verify(deviceProfileData).setConfiguration(isA(DeviceProfileConfiguration.class));
-    verify(deviceProfileData, atLeast(1)).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    verify(deviceProfileData).setTransportConfiguration(isA(DeviceProfileTransportConfiguration.class));
-  }
-
-  /**
-   * Test {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile)} with
-   * {@code deviceProfile}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile)}
-   */
-  @Test
-  public void testSaveDeviceProfileWithDeviceProfile11() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-
-    X509CertificateChainProvisionConfiguration x509CertificateChainProvisionConfiguration = new X509CertificateChainProvisionConfiguration();
-    x509CertificateChainProvisionConfiguration.setProvisionDeviceSecret("-----BEGIN CERTIFICATE-----\r");
-    DeviceProfileData deviceProfileData = mock(DeviceProfileData.class);
-    when(deviceProfileData.getProvisionConfiguration()).thenReturn(x509CertificateChainProvisionConfiguration);
-    doNothing().when(deviceProfileData).setAlarms(Mockito.<List<DeviceProfileAlarm>>any());
-    doNothing().when(deviceProfileData).setConfiguration(Mockito.<DeviceProfileConfiguration>any());
-    doNothing().when(deviceProfileData).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    doNothing().when(deviceProfileData).setTransportConfiguration(Mockito.<DeviceProfileTransportConfiguration>any());
-    deviceProfileData.setAlarms(new ArrayList<>());
-    deviceProfileData.setConfiguration(mock(DeviceProfileConfiguration.class));
-    deviceProfileData.setProvisionConfiguration(new X509CertificateChainProvisionConfiguration());
-    deviceProfileData.setTransportConfiguration(mock(DeviceProfileTransportConfiguration.class));
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doThrow(new DataValidationException("An error occurred")).when(deviceProfile)
-        .setProfileData(Mockito.<DeviceProfileData>any());
-    when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class, () -> deviceProfileServiceImpl.saveDeviceProfile(deviceProfile));
-    verify(deviceProfile, atLeast(1)).getProfileData();
-    verify(deviceProfile).setProfileData(isA(DeviceProfileData.class));
-    verify(deviceProfileData, atLeast(1)).getProvisionConfiguration();
-    verify(deviceProfileData).setAlarms(isA(List.class));
-    verify(deviceProfileData).setConfiguration(isA(DeviceProfileConfiguration.class));
-    verify(deviceProfileData, atLeast(1)).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    verify(deviceProfileData).setTransportConfiguration(isA(DeviceProfileTransportConfiguration.class));
-  }
-
-  /**
-   * Test
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile, boolean, boolean)}
-   * with {@code deviceProfile}, {@code doValidate}, {@code publishSaveEvent}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile, boolean, boolean)}
-   */
-  @Test
-  public void testSaveDeviceProfileWithDeviceProfileDoValidatePublishSaveEvent() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-
-    X509CertificateChainProvisionConfiguration x509CertificateChainProvisionConfiguration = new X509CertificateChainProvisionConfiguration();
-    x509CertificateChainProvisionConfiguration.setProvisionDeviceSecret("Provision Device Secret");
-    DeviceProfileData deviceProfileData = mock(DeviceProfileData.class);
-    when(deviceProfileData.getProvisionConfiguration()).thenReturn(x509CertificateChainProvisionConfiguration);
-    doNothing().when(deviceProfileData).setAlarms(Mockito.<List<DeviceProfileAlarm>>any());
-    doNothing().when(deviceProfileData).setConfiguration(Mockito.<DeviceProfileConfiguration>any());
-    doNothing().when(deviceProfileData).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    doNothing().when(deviceProfileData).setTransportConfiguration(Mockito.<DeviceProfileTransportConfiguration>any());
-    deviceProfileData.setAlarms(new ArrayList<>());
-    deviceProfileData.setConfiguration(mock(DeviceProfileConfiguration.class));
-    deviceProfileData.setProvisionConfiguration(new X509CertificateChainProvisionConfiguration());
-    deviceProfileData.setTransportConfiguration(mock(DeviceProfileTransportConfiguration.class));
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doThrow(new DataValidationException("An error occurred")).when(deviceProfile)
-        .setProfileData(Mockito.<DeviceProfileData>any());
-    when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class,
-        () -> deviceProfileServiceImpl.saveDeviceProfile(deviceProfile, true, true));
-    verify(deviceProfile, atLeast(1)).getProfileData();
-    verify(deviceProfile).setProfileData(isA(DeviceProfileData.class));
-    verify(deviceProfileData, atLeast(1)).getProvisionConfiguration();
-    verify(deviceProfileData).setAlarms(isA(List.class));
-    verify(deviceProfileData).setConfiguration(isA(DeviceProfileConfiguration.class));
-    verify(deviceProfileData, atLeast(1)).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    verify(deviceProfileData).setTransportConfiguration(isA(DeviceProfileTransportConfiguration.class));
-  }
-
-  /**
-   * Test
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile, boolean, boolean)}
-   * with {@code deviceProfile}, {@code doValidate}, {@code publishSaveEvent}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile, boolean, boolean)}
-   */
-  @Test
-  public void testSaveDeviceProfileWithDeviceProfileDoValidatePublishSaveEvent2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-
-    X509CertificateChainProvisionConfiguration x509CertificateChainProvisionConfiguration = new X509CertificateChainProvisionConfiguration();
-    x509CertificateChainProvisionConfiguration.setProvisionDeviceSecret("-----BEGIN CERTIFICATE-----");
-    DeviceProfileData deviceProfileData = mock(DeviceProfileData.class);
-    when(deviceProfileData.getProvisionConfiguration()).thenReturn(x509CertificateChainProvisionConfiguration);
-    doNothing().when(deviceProfileData).setAlarms(Mockito.<List<DeviceProfileAlarm>>any());
-    doNothing().when(deviceProfileData).setConfiguration(Mockito.<DeviceProfileConfiguration>any());
-    doNothing().when(deviceProfileData).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    doNothing().when(deviceProfileData).setTransportConfiguration(Mockito.<DeviceProfileTransportConfiguration>any());
-    deviceProfileData.setAlarms(new ArrayList<>());
-    deviceProfileData.setConfiguration(mock(DeviceProfileConfiguration.class));
-    deviceProfileData.setProvisionConfiguration(new X509CertificateChainProvisionConfiguration());
-    deviceProfileData.setTransportConfiguration(mock(DeviceProfileTransportConfiguration.class));
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doThrow(new DataValidationException("An error occurred")).when(deviceProfile)
-        .setProfileData(Mockito.<DeviceProfileData>any());
-    when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class,
-        () -> deviceProfileServiceImpl.saveDeviceProfile(deviceProfile, true, true));
-    verify(deviceProfile, atLeast(1)).getProfileData();
-    verify(deviceProfile).setProfileData(isA(DeviceProfileData.class));
-    verify(deviceProfileData, atLeast(1)).getProvisionConfiguration();
-    verify(deviceProfileData).setAlarms(isA(List.class));
-    verify(deviceProfileData).setConfiguration(isA(DeviceProfileConfiguration.class));
-    verify(deviceProfileData, atLeast(1)).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    verify(deviceProfileData).setTransportConfiguration(isA(DeviceProfileTransportConfiguration.class));
-  }
-
-  /**
-   * Test
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile, boolean, boolean)}
-   * with {@code deviceProfile}, {@code doValidate}, {@code publishSaveEvent}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile, boolean, boolean)}
-   */
-  @Test
-  public void testSaveDeviceProfileWithDeviceProfileDoValidatePublishSaveEvent3() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-
-    X509CertificateChainProvisionConfiguration x509CertificateChainProvisionConfiguration = new X509CertificateChainProvisionConfiguration();
-    x509CertificateChainProvisionConfiguration.setProvisionDeviceSecret("\n");
-    DeviceProfileData deviceProfileData = mock(DeviceProfileData.class);
-    when(deviceProfileData.getProvisionConfiguration()).thenReturn(x509CertificateChainProvisionConfiguration);
-    doNothing().when(deviceProfileData).setAlarms(Mockito.<List<DeviceProfileAlarm>>any());
-    doNothing().when(deviceProfileData).setConfiguration(Mockito.<DeviceProfileConfiguration>any());
-    doNothing().when(deviceProfileData).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    doNothing().when(deviceProfileData).setTransportConfiguration(Mockito.<DeviceProfileTransportConfiguration>any());
-    deviceProfileData.setAlarms(new ArrayList<>());
-    deviceProfileData.setConfiguration(mock(DeviceProfileConfiguration.class));
-    deviceProfileData.setProvisionConfiguration(new X509CertificateChainProvisionConfiguration());
-    deviceProfileData.setTransportConfiguration(mock(DeviceProfileTransportConfiguration.class));
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doThrow(new DataValidationException("An error occurred")).when(deviceProfile)
-        .setProfileData(Mockito.<DeviceProfileData>any());
-    when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class,
-        () -> deviceProfileServiceImpl.saveDeviceProfile(deviceProfile, true, true));
-    verify(deviceProfile, atLeast(1)).getProfileData();
-    verify(deviceProfile).setProfileData(isA(DeviceProfileData.class));
-    verify(deviceProfileData, atLeast(1)).getProvisionConfiguration();
-    verify(deviceProfileData).setAlarms(isA(List.class));
-    verify(deviceProfileData).setConfiguration(isA(DeviceProfileConfiguration.class));
-    verify(deviceProfileData, atLeast(1)).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    verify(deviceProfileData).setTransportConfiguration(isA(DeviceProfileTransportConfiguration.class));
-  }
-
-  /**
-   * Test
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile, boolean, boolean)}
-   * with {@code deviceProfile}, {@code doValidate}, {@code publishSaveEvent}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile, boolean, boolean)}
-   */
-  @Test
-  public void testSaveDeviceProfileWithDeviceProfileDoValidatePublishSaveEvent4() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-
-    X509CertificateChainProvisionConfiguration x509CertificateChainProvisionConfiguration = new X509CertificateChainProvisionConfiguration();
-    x509CertificateChainProvisionConfiguration.setProvisionDeviceSecret("\r");
-    DeviceProfileData deviceProfileData = mock(DeviceProfileData.class);
-    when(deviceProfileData.getProvisionConfiguration()).thenReturn(x509CertificateChainProvisionConfiguration);
-    doNothing().when(deviceProfileData).setAlarms(Mockito.<List<DeviceProfileAlarm>>any());
-    doNothing().when(deviceProfileData).setConfiguration(Mockito.<DeviceProfileConfiguration>any());
-    doNothing().when(deviceProfileData).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    doNothing().when(deviceProfileData).setTransportConfiguration(Mockito.<DeviceProfileTransportConfiguration>any());
-    deviceProfileData.setAlarms(new ArrayList<>());
-    deviceProfileData.setConfiguration(mock(DeviceProfileConfiguration.class));
-    deviceProfileData.setProvisionConfiguration(new X509CertificateChainProvisionConfiguration());
-    deviceProfileData.setTransportConfiguration(mock(DeviceProfileTransportConfiguration.class));
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doThrow(new DataValidationException("An error occurred")).when(deviceProfile)
-        .setProfileData(Mockito.<DeviceProfileData>any());
-    when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class,
-        () -> deviceProfileServiceImpl.saveDeviceProfile(deviceProfile, true, true));
-    verify(deviceProfile, atLeast(1)).getProfileData();
-    verify(deviceProfile).setProfileData(isA(DeviceProfileData.class));
-    verify(deviceProfileData, atLeast(1)).getProvisionConfiguration();
-    verify(deviceProfileData).setAlarms(isA(List.class));
-    verify(deviceProfileData).setConfiguration(isA(DeviceProfileConfiguration.class));
-    verify(deviceProfileData, atLeast(1)).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    verify(deviceProfileData).setTransportConfiguration(isA(DeviceProfileTransportConfiguration.class));
-  }
-
-  /**
-   * Test
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile, boolean, boolean)}
-   * with {@code deviceProfile}, {@code doValidate}, {@code publishSaveEvent}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile, boolean, boolean)}
-   */
-  @Test
-  public void testSaveDeviceProfileWithDeviceProfileDoValidatePublishSaveEvent5() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-
-    X509CertificateChainProvisionConfiguration x509CertificateChainProvisionConfiguration = new X509CertificateChainProvisionConfiguration();
-    x509CertificateChainProvisionConfiguration.setProvisionDeviceSecret("-----END CERTIFICATE-----");
-    DeviceProfileData deviceProfileData = mock(DeviceProfileData.class);
-    when(deviceProfileData.getProvisionConfiguration()).thenReturn(x509CertificateChainProvisionConfiguration);
-    doNothing().when(deviceProfileData).setAlarms(Mockito.<List<DeviceProfileAlarm>>any());
-    doNothing().when(deviceProfileData).setConfiguration(Mockito.<DeviceProfileConfiguration>any());
-    doNothing().when(deviceProfileData).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    doNothing().when(deviceProfileData).setTransportConfiguration(Mockito.<DeviceProfileTransportConfiguration>any());
-    deviceProfileData.setAlarms(new ArrayList<>());
-    deviceProfileData.setConfiguration(mock(DeviceProfileConfiguration.class));
-    deviceProfileData.setProvisionConfiguration(new X509CertificateChainProvisionConfiguration());
-    deviceProfileData.setTransportConfiguration(mock(DeviceProfileTransportConfiguration.class));
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doThrow(new DataValidationException("An error occurred")).when(deviceProfile)
-        .setProfileData(Mockito.<DeviceProfileData>any());
-    when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class,
-        () -> deviceProfileServiceImpl.saveDeviceProfile(deviceProfile, true, true));
-    verify(deviceProfile, atLeast(1)).getProfileData();
-    verify(deviceProfile).setProfileData(isA(DeviceProfileData.class));
-    verify(deviceProfileData, atLeast(1)).getProvisionConfiguration();
-    verify(deviceProfileData).setAlarms(isA(List.class));
-    verify(deviceProfileData).setConfiguration(isA(DeviceProfileConfiguration.class));
-    verify(deviceProfileData, atLeast(1)).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    verify(deviceProfileData).setTransportConfiguration(isA(DeviceProfileTransportConfiguration.class));
-  }
-
-  /**
-   * Test
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile, boolean, boolean)}
-   * with {@code deviceProfile}, {@code doValidate}, {@code publishSaveEvent}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile, boolean, boolean)}
-   */
-  @Test
-  public void testSaveDeviceProfileWithDeviceProfileDoValidatePublishSaveEvent6() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-
-    X509CertificateChainProvisionConfiguration x509CertificateChainProvisionConfiguration = new X509CertificateChainProvisionConfiguration();
-    x509CertificateChainProvisionConfiguration
-        .setProvisionDeviceSecret("-----BEGIN CERTIFICATE----- UU -----END CERTIFICATE-----");
-    DeviceProfileData deviceProfileData = mock(DeviceProfileData.class);
-    when(deviceProfileData.getProvisionConfiguration()).thenReturn(x509CertificateChainProvisionConfiguration);
-    doNothing().when(deviceProfileData).setAlarms(Mockito.<List<DeviceProfileAlarm>>any());
-    doNothing().when(deviceProfileData).setConfiguration(Mockito.<DeviceProfileConfiguration>any());
-    doNothing().when(deviceProfileData).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    doNothing().when(deviceProfileData).setTransportConfiguration(Mockito.<DeviceProfileTransportConfiguration>any());
-    deviceProfileData.setAlarms(new ArrayList<>());
-    deviceProfileData.setConfiguration(mock(DeviceProfileConfiguration.class));
-    deviceProfileData.setProvisionConfiguration(new X509CertificateChainProvisionConfiguration());
-    deviceProfileData.setTransportConfiguration(mock(DeviceProfileTransportConfiguration.class));
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doThrow(new DataValidationException("An error occurred")).when(deviceProfile)
-        .setProfileData(Mockito.<DeviceProfileData>any());
-    when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class,
-        () -> deviceProfileServiceImpl.saveDeviceProfile(deviceProfile, true, true));
-    verify(deviceProfile, atLeast(1)).getProfileData();
-    verify(deviceProfile).setProfileData(isA(DeviceProfileData.class));
-    verify(deviceProfileData, atLeast(1)).getProvisionConfiguration();
-    verify(deviceProfileData).setAlarms(isA(List.class));
-    verify(deviceProfileData).setConfiguration(isA(DeviceProfileConfiguration.class));
-    verify(deviceProfileData, atLeast(1)).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    verify(deviceProfileData).setTransportConfiguration(isA(DeviceProfileTransportConfiguration.class));
-  }
-
-  /**
-   * Test
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile, boolean, boolean)}
-   * with {@code deviceProfile}, {@code doValidate}, {@code publishSaveEvent}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile, boolean, boolean)}
-   */
-  @Test
-  public void testSaveDeviceProfileWithDeviceProfileDoValidatePublishSaveEvent7() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-
-    X509CertificateChainProvisionConfiguration x509CertificateChainProvisionConfiguration = new X509CertificateChainProvisionConfiguration();
-    x509CertificateChainProvisionConfiguration.setProvisionDeviceSecret("");
-    DeviceProfileData deviceProfileData = mock(DeviceProfileData.class);
-    when(deviceProfileData.getProvisionConfiguration()).thenReturn(x509CertificateChainProvisionConfiguration);
-    doNothing().when(deviceProfileData).setAlarms(Mockito.<List<DeviceProfileAlarm>>any());
-    doNothing().when(deviceProfileData).setConfiguration(Mockito.<DeviceProfileConfiguration>any());
-    doNothing().when(deviceProfileData).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    doNothing().when(deviceProfileData).setTransportConfiguration(Mockito.<DeviceProfileTransportConfiguration>any());
-    deviceProfileData.setAlarms(new ArrayList<>());
-    deviceProfileData.setConfiguration(mock(DeviceProfileConfiguration.class));
-    deviceProfileData.setProvisionConfiguration(new X509CertificateChainProvisionConfiguration());
-    deviceProfileData.setTransportConfiguration(mock(DeviceProfileTransportConfiguration.class));
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doThrow(new DataValidationException("An error occurred")).when(deviceProfile)
-        .setProfileData(Mockito.<DeviceProfileData>any());
-    when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class,
-        () -> deviceProfileServiceImpl.saveDeviceProfile(deviceProfile, true, true));
-    verify(deviceProfile, atLeast(1)).getProfileData();
-    verify(deviceProfile).setProfileData(isA(DeviceProfileData.class));
-    verify(deviceProfileData, atLeast(1)).getProvisionConfiguration();
-    verify(deviceProfileData).setAlarms(isA(List.class));
-    verify(deviceProfileData).setConfiguration(isA(DeviceProfileConfiguration.class));
-    verify(deviceProfileData, atLeast(1)).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    verify(deviceProfileData).setTransportConfiguration(isA(DeviceProfileTransportConfiguration.class));
-  }
-
-  /**
-   * Test
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile, boolean, boolean)}
-   * with {@code deviceProfile}, {@code doValidate}, {@code publishSaveEvent}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile, boolean, boolean)}
-   */
-  @Test
-  public void testSaveDeviceProfileWithDeviceProfileDoValidatePublishSaveEvent8() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-
-    X509CertificateChainProvisionConfiguration x509CertificateChainProvisionConfiguration = new X509CertificateChainProvisionConfiguration();
-    x509CertificateChainProvisionConfiguration
-        .setProvisionDeviceSecret("-----BEGIN CERTIFICATE-----\\s*.*?\\s*-----END CERTIFICATE-----");
-    DeviceProfileData deviceProfileData = mock(DeviceProfileData.class);
-    when(deviceProfileData.getProvisionConfiguration()).thenReturn(x509CertificateChainProvisionConfiguration);
-    doNothing().when(deviceProfileData).setAlarms(Mockito.<List<DeviceProfileAlarm>>any());
-    doNothing().when(deviceProfileData).setConfiguration(Mockito.<DeviceProfileConfiguration>any());
-    doNothing().when(deviceProfileData).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    doNothing().when(deviceProfileData).setTransportConfiguration(Mockito.<DeviceProfileTransportConfiguration>any());
-    deviceProfileData.setAlarms(new ArrayList<>());
-    deviceProfileData.setConfiguration(mock(DeviceProfileConfiguration.class));
-    deviceProfileData.setProvisionConfiguration(new X509CertificateChainProvisionConfiguration());
-    deviceProfileData.setTransportConfiguration(mock(DeviceProfileTransportConfiguration.class));
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doThrow(new DataValidationException("An error occurred")).when(deviceProfile)
-        .setProfileData(Mockito.<DeviceProfileData>any());
-    when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class,
-        () -> deviceProfileServiceImpl.saveDeviceProfile(deviceProfile, true, true));
-    verify(deviceProfile, atLeast(1)).getProfileData();
-    verify(deviceProfile).setProfileData(isA(DeviceProfileData.class));
-    verify(deviceProfileData, atLeast(1)).getProvisionConfiguration();
-    verify(deviceProfileData).setAlarms(isA(List.class));
-    verify(deviceProfileData).setConfiguration(isA(DeviceProfileConfiguration.class));
-    verify(deviceProfileData, atLeast(1)).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    verify(deviceProfileData).setTransportConfiguration(isA(DeviceProfileTransportConfiguration.class));
-  }
-
-  /**
-   * Test
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile, boolean, boolean)}
-   * with {@code deviceProfile}, {@code doValidate}, {@code publishSaveEvent}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile, boolean, boolean)}
-   */
-  @Test
-  public void testSaveDeviceProfileWithDeviceProfileDoValidatePublishSaveEvent9() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-
-    X509CertificateChainProvisionConfiguration x509CertificateChainProvisionConfiguration = new X509CertificateChainProvisionConfiguration();
-    x509CertificateChainProvisionConfiguration
-        .setProvisionDeviceSecret("-----BEGIN CERTIFICATE----------BEGIN CERTIFICATE-----");
-    DeviceProfileData deviceProfileData = mock(DeviceProfileData.class);
-    when(deviceProfileData.getProvisionConfiguration()).thenReturn(x509CertificateChainProvisionConfiguration);
-    doNothing().when(deviceProfileData).setAlarms(Mockito.<List<DeviceProfileAlarm>>any());
-    doNothing().when(deviceProfileData).setConfiguration(Mockito.<DeviceProfileConfiguration>any());
-    doNothing().when(deviceProfileData).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    doNothing().when(deviceProfileData).setTransportConfiguration(Mockito.<DeviceProfileTransportConfiguration>any());
-    deviceProfileData.setAlarms(new ArrayList<>());
-    deviceProfileData.setConfiguration(mock(DeviceProfileConfiguration.class));
-    deviceProfileData.setProvisionConfiguration(new X509CertificateChainProvisionConfiguration());
-    deviceProfileData.setTransportConfiguration(mock(DeviceProfileTransportConfiguration.class));
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doThrow(new DataValidationException("An error occurred")).when(deviceProfile)
-        .setProfileData(Mockito.<DeviceProfileData>any());
-    when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class,
-        () -> deviceProfileServiceImpl.saveDeviceProfile(deviceProfile, true, true));
-    verify(deviceProfile, atLeast(1)).getProfileData();
-    verify(deviceProfile).setProfileData(isA(DeviceProfileData.class));
-    verify(deviceProfileData, atLeast(1)).getProvisionConfiguration();
-    verify(deviceProfileData).setAlarms(isA(List.class));
-    verify(deviceProfileData).setConfiguration(isA(DeviceProfileConfiguration.class));
-    verify(deviceProfileData, atLeast(1)).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    verify(deviceProfileData).setTransportConfiguration(isA(DeviceProfileTransportConfiguration.class));
-  }
-
-  /**
-   * Test
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile, boolean, boolean)}
-   * with {@code deviceProfile}, {@code doValidate}, {@code publishSaveEvent}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile, boolean, boolean)}
-   */
-  @Test
-  public void testSaveDeviceProfileWithDeviceProfileDoValidatePublishSaveEvent10() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-
-    X509CertificateChainProvisionConfiguration x509CertificateChainProvisionConfiguration = new X509CertificateChainProvisionConfiguration();
-    x509CertificateChainProvisionConfiguration.setProvisionDeviceSecret("-----BEGIN CERTIFICATE-----\n");
-    DeviceProfileData deviceProfileData = mock(DeviceProfileData.class);
-    when(deviceProfileData.getProvisionConfiguration()).thenReturn(x509CertificateChainProvisionConfiguration);
-    doNothing().when(deviceProfileData).setAlarms(Mockito.<List<DeviceProfileAlarm>>any());
-    doNothing().when(deviceProfileData).setConfiguration(Mockito.<DeviceProfileConfiguration>any());
-    doNothing().when(deviceProfileData).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    doNothing().when(deviceProfileData).setTransportConfiguration(Mockito.<DeviceProfileTransportConfiguration>any());
-    deviceProfileData.setAlarms(new ArrayList<>());
-    deviceProfileData.setConfiguration(mock(DeviceProfileConfiguration.class));
-    deviceProfileData.setProvisionConfiguration(new X509CertificateChainProvisionConfiguration());
-    deviceProfileData.setTransportConfiguration(mock(DeviceProfileTransportConfiguration.class));
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doThrow(new DataValidationException("An error occurred")).when(deviceProfile)
-        .setProfileData(Mockito.<DeviceProfileData>any());
-    when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class,
-        () -> deviceProfileServiceImpl.saveDeviceProfile(deviceProfile, true, true));
-    verify(deviceProfile, atLeast(1)).getProfileData();
-    verify(deviceProfile).setProfileData(isA(DeviceProfileData.class));
-    verify(deviceProfileData, atLeast(1)).getProvisionConfiguration();
-    verify(deviceProfileData).setAlarms(isA(List.class));
-    verify(deviceProfileData).setConfiguration(isA(DeviceProfileConfiguration.class));
-    verify(deviceProfileData, atLeast(1)).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    verify(deviceProfileData).setTransportConfiguration(isA(DeviceProfileTransportConfiguration.class));
-  }
-
-  /**
-   * Test
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile, boolean, boolean)}
-   * with {@code deviceProfile}, {@code doValidate}, {@code publishSaveEvent}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#saveDeviceProfile(DeviceProfile, boolean, boolean)}
-   */
-  @Test
-  public void testSaveDeviceProfileWithDeviceProfileDoValidatePublishSaveEvent11() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-
-    X509CertificateChainProvisionConfiguration x509CertificateChainProvisionConfiguration = new X509CertificateChainProvisionConfiguration();
-    x509CertificateChainProvisionConfiguration.setProvisionDeviceSecret("-----BEGIN CERTIFICATE-----\r");
-    DeviceProfileData deviceProfileData = mock(DeviceProfileData.class);
-    when(deviceProfileData.getProvisionConfiguration()).thenReturn(x509CertificateChainProvisionConfiguration);
-    doNothing().when(deviceProfileData).setAlarms(Mockito.<List<DeviceProfileAlarm>>any());
-    doNothing().when(deviceProfileData).setConfiguration(Mockito.<DeviceProfileConfiguration>any());
-    doNothing().when(deviceProfileData).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    doNothing().when(deviceProfileData).setTransportConfiguration(Mockito.<DeviceProfileTransportConfiguration>any());
-    deviceProfileData.setAlarms(new ArrayList<>());
-    deviceProfileData.setConfiguration(mock(DeviceProfileConfiguration.class));
-    deviceProfileData.setProvisionConfiguration(new X509CertificateChainProvisionConfiguration());
-    deviceProfileData.setTransportConfiguration(mock(DeviceProfileTransportConfiguration.class));
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doThrow(new DataValidationException("An error occurred")).when(deviceProfile)
-        .setProfileData(Mockito.<DeviceProfileData>any());
-    when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class,
-        () -> deviceProfileServiceImpl.saveDeviceProfile(deviceProfile, true, true));
-    verify(deviceProfile, atLeast(1)).getProfileData();
-    verify(deviceProfile).setProfileData(isA(DeviceProfileData.class));
-    verify(deviceProfileData, atLeast(1)).getProvisionConfiguration();
-    verify(deviceProfileData).setAlarms(isA(List.class));
-    verify(deviceProfileData).setConfiguration(isA(DeviceProfileConfiguration.class));
-    verify(deviceProfileData, atLeast(1)).setProvisionConfiguration(Mockito.<DeviceProfileProvisionConfiguration>any());
-    verify(deviceProfileData).setTransportConfiguration(isA(DeviceProfileTransportConfiguration.class));
-  }
-
-  /**
-   * Test {@link DeviceProfileServiceImpl#findDeviceProfiles(TenantId, PageLink)}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#findDeviceProfiles(TenantId, PageLink)}
-   */
-  @Test
-  public void testFindDeviceProfiles() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-    PageLink pageLink = mock(PageLink.class);
-    when(pageLink.getPage()).thenThrow(new DataValidationException("An error occurred"));
-    when(pageLink.getPageSize()).thenReturn(3);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class,
-        () -> deviceProfileServiceImpl.findDeviceProfiles(ModelConstants.SYSTEM_TENANT, pageLink));
-    verify(pageLink).getPage();
-    verify(pageLink).getPageSize();
-  }
-
-  /**
-   * Test {@link DeviceProfileServiceImpl#findDeviceProfiles(TenantId, PageLink)}.
+   * Test {@link DeviceProfileServiceImpl#deleteDeviceProfile(TenantId, DeviceProfileId)}.
    * <ul>
-   *   <li>Then calls {@link PageLink#getSortOrder()}.</li>
+   *   <li>Given {@link DeviceProfileDao} {@link Dao#findById(TenantId, UUID)} return {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#findDeviceProfiles(TenantId, PageLink)}
+   * Method under test: {@link DeviceProfileServiceImpl#deleteDeviceProfile(TenantId, DeviceProfileId)}
    */
   @Test
-  public void testFindDeviceProfiles_thenCallsGetSortOrder() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DeviceProfileServiceImpl.deleteDeviceProfile(TenantId, DeviceProfileId)"})
+  public void testDeleteDeviceProfile_givenDeviceProfileDaoFindByIdReturnNull() {
     // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-    SortOrder sortOrder = mock(SortOrder.class);
-    when(sortOrder.getProperty()).thenThrow(new DataValidationException("An error occurred"));
-    PageLink pageLink = mock(PageLink.class);
-    when(pageLink.getPage()).thenReturn(1);
-    when(pageLink.getSortOrder()).thenReturn(sortOrder);
-    when(pageLink.getPageSize()).thenReturn(3);
+    when(deviceProfileDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(null);
+
+    // Act
+    deviceProfileServiceImpl.deleteDeviceProfile(ModelConstants.SYSTEM_TENANT,
+        new DeviceProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    // Assert
+    verify(deviceProfileDao).findById(isA(TenantId.class), isA(UUID.class));
+  }
+
+  /**
+   * Test {@link DeviceProfileServiceImpl#deleteDeviceProfile(TenantId, DeviceProfileId)}.
+   * <ul>
+   *   <li>Given {@link DeviceProfile} {@link DeviceProfile#isDefault()} return {@code true}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileServiceImpl#deleteDeviceProfile(TenantId, DeviceProfileId)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DeviceProfileServiceImpl.deleteDeviceProfile(TenantId, DeviceProfileId)"})
+  public void testDeleteDeviceProfile_givenDeviceProfileIsDefaultReturnTrue() {
+    // Arrange
+    DeviceProfile deviceProfile = mock(DeviceProfile.class);
+    when(deviceProfile.isDefault()).thenReturn(true);
+    when(deviceProfileDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(deviceProfile);
 
     // Act and Assert
     assertThrows(DataValidationException.class,
-        () -> deviceProfileServiceImpl.findDeviceProfiles(ModelConstants.SYSTEM_TENANT, pageLink));
-    verify(pageLink).getPage();
-    verify(pageLink).getPageSize();
-    verify(pageLink, atLeast(1)).getSortOrder();
-    verify(sortOrder).getProperty();
+        () -> deviceProfileServiceImpl.deleteDeviceProfile(ModelConstants.SYSTEM_TENANT,
+            new DeviceProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
+    verify(deviceProfile).isDefault();
+    verify(deviceProfileDao).findById(isA(TenantId.class), isA(UUID.class));
   }
 
   /**
-   * Test
-   * {@link DeviceProfileServiceImpl#findDeviceProfileInfos(TenantId, PageLink, String)}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#findDeviceProfileInfos(TenantId, PageLink, String)}
-   */
-  @Test
-  public void testFindDeviceProfileInfos() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-    PageLink pageLink = mock(PageLink.class);
-    when(pageLink.getPage()).thenThrow(new DataValidationException("An error occurred"));
-    when(pageLink.getPageSize()).thenReturn(3);
-
-    // Act and Assert
-    assertThrows(DataValidationException.class, () -> deviceProfileServiceImpl
-        .findDeviceProfileInfos(ModelConstants.SYSTEM_TENANT, pageLink, "Transport Type"));
-    verify(pageLink).getPage();
-    verify(pageLink).getPageSize();
-  }
-
-  /**
-   * Test
-   * {@link DeviceProfileServiceImpl#findDeviceProfileInfos(TenantId, PageLink, String)}.
+   * Test {@link DeviceProfileServiceImpl#deleteDeviceProfile(TenantId, DeviceProfileId)}.
    * <ul>
-   *   <li>Then calls {@link PageLink#getSortOrder()}.</li>
+   *   <li>Then throw {@link DataValidationException}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DeviceProfileServiceImpl#findDeviceProfileInfos(TenantId, PageLink, String)}
+   * Method under test: {@link DeviceProfileServiceImpl#deleteDeviceProfile(TenantId, DeviceProfileId)}
    */
   @Test
-  public void testFindDeviceProfileInfos_thenCallsGetSortOrder() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DeviceProfileServiceImpl.deleteDeviceProfile(TenantId, DeviceProfileId)"})
+  public void testDeleteDeviceProfile_thenThrowDataValidationException() {
     // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
-    SortOrder sortOrder = mock(SortOrder.class);
-    when(sortOrder.getProperty()).thenThrow(new DataValidationException("An error occurred"));
-    PageLink pageLink = mock(PageLink.class);
-    when(pageLink.getPage()).thenReturn(1);
-    when(pageLink.getSortOrder()).thenReturn(sortOrder);
-    when(pageLink.getPageSize()).thenReturn(3);
+    DeviceProfile deviceProfile = mock(DeviceProfile.class);
+    when(deviceProfile.isDefault()).thenThrow(new DataValidationException("An error occurred"));
+    when(deviceProfileDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(deviceProfile);
 
     // Act and Assert
-    assertThrows(DataValidationException.class, () -> deviceProfileServiceImpl
-        .findDeviceProfileInfos(ModelConstants.SYSTEM_TENANT, pageLink, "Transport Type"));
-    verify(pageLink).getPage();
-    verify(pageLink).getPageSize();
-    verify(pageLink, atLeast(1)).getSortOrder();
-    verify(sortOrder).getProperty();
+    assertThrows(DataValidationException.class,
+        () -> deviceProfileServiceImpl.deleteDeviceProfile(ModelConstants.SYSTEM_TENANT,
+            new DeviceProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
+    verify(deviceProfile).isDefault();
+    verify(deviceProfileDao).findById(isA(TenantId.class), isA(UUID.class));
+  }
+
+  /**
+   * Test {@link DeviceProfileServiceImpl#deleteDeviceProfilesByTenantId(TenantId)}.
+   * <p>
+   * Method under test: {@link DeviceProfileServiceImpl#deleteDeviceProfilesByTenantId(TenantId)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DeviceProfileServiceImpl.deleteDeviceProfilesByTenantId(TenantId)"})
+  public void testDeleteDeviceProfilesByTenantId() {
+    // Arrange
+    PageData<DeviceProfile> emptyPageDataResult = PageData.emptyPageData();
+    when(deviceProfileDao.findDeviceProfiles(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
+        .thenReturn(emptyPageDataResult);
+
+    // Act
+    deviceProfileServiceImpl.deleteDeviceProfilesByTenantId(ModelConstants.SYSTEM_TENANT);
+
+    // Assert
+    verify(deviceProfileDao).findDeviceProfiles(isA(TenantId.class), isA(PageLink.class));
+  }
+
+  /**
+   * Test {@link DeviceProfileServiceImpl#deleteDeviceProfilesByTenantId(TenantId)}.
+   * <ul>
+   *   <li>Then throw {@link DataValidationException}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileServiceImpl#deleteDeviceProfilesByTenantId(TenantId)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DeviceProfileServiceImpl.deleteDeviceProfilesByTenantId(TenantId)"})
+  public void testDeleteDeviceProfilesByTenantId_thenThrowDataValidationException() {
+    // Arrange
+    DeviceProfile deviceProfile = mock(DeviceProfile.class);
+    when(deviceProfile.getTenantId()).thenThrow(new DataValidationException("An error occurred"));
+    when(deviceProfile.getId())
+        .thenReturn(new DeviceProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    ArrayList<DeviceProfile> data = new ArrayList<>();
+    data.add(deviceProfile);
+    PageData<DeviceProfile> pageData = new PageData<>(data, 100, 100L, true);
+
+    doNothing().when(deviceProfileDao).removeById(Mockito.<TenantId>any(), Mockito.<UUID>any());
+    when(deviceProfileDao.findDeviceProfiles(Mockito.<TenantId>any(), Mockito.<PageLink>any())).thenReturn(pageData);
+
+    // Act and Assert
+    assertThrows(DataValidationException.class,
+        () -> deviceProfileServiceImpl.deleteDeviceProfilesByTenantId(ModelConstants.SYSTEM_TENANT));
+    verify(deviceProfile).getId();
+    verify(deviceProfile).getTenantId();
+    verify(deviceProfileDao).removeById(isA(TenantId.class), isA(UUID.class));
+    verify(deviceProfileDao).findDeviceProfiles(isA(TenantId.class), isA(PageLink.class));
+  }
+
+  /**
+   * Test {@link DeviceProfileServiceImpl#deleteByTenantId(TenantId)}.
+   * <ul>
+   *   <li>Given {@link DeviceProfileDao} {@link DeviceProfileDao#findDeviceProfiles(TenantId, PageLink)} return emptyPageData.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileServiceImpl#deleteByTenantId(TenantId)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DeviceProfileServiceImpl.deleteByTenantId(TenantId)"})
+  public void testDeleteByTenantId_givenDeviceProfileDaoFindDeviceProfilesReturnEmptyPageData() {
+    // Arrange
+    PageData<DeviceProfile> emptyPageDataResult = PageData.emptyPageData();
+    when(deviceProfileDao.findDeviceProfiles(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
+        .thenReturn(emptyPageDataResult);
+
+    // Act
+    deviceProfileServiceImpl.deleteByTenantId(ModelConstants.SYSTEM_TENANT);
+
+    // Assert
+    verify(deviceProfileDao).findDeviceProfiles(isA(TenantId.class), isA(PageLink.class));
+  }
+
+  /**
+   * Test {@link DeviceProfileServiceImpl#deleteByTenantId(TenantId)}.
+   * <ul>
+   *   <li>Then throw {@link DataValidationException}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DeviceProfileServiceImpl#deleteByTenantId(TenantId)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DeviceProfileServiceImpl.deleteByTenantId(TenantId)"})
+  public void testDeleteByTenantId_thenThrowDataValidationException() {
+    // Arrange
+    DeviceProfile deviceProfile = mock(DeviceProfile.class);
+    when(deviceProfile.getTenantId()).thenThrow(new DataValidationException("An error occurred"));
+    when(deviceProfile.getId())
+        .thenReturn(new DeviceProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    ArrayList<DeviceProfile> data = new ArrayList<>();
+    data.add(deviceProfile);
+    PageData<DeviceProfile> pageData = new PageData<>(data, 100, 100L, true);
+
+    doNothing().when(deviceProfileDao).removeById(Mockito.<TenantId>any(), Mockito.<UUID>any());
+    when(deviceProfileDao.findDeviceProfiles(Mockito.<TenantId>any(), Mockito.<PageLink>any())).thenReturn(pageData);
+
+    // Act and Assert
+    assertThrows(DataValidationException.class,
+        () -> deviceProfileServiceImpl.deleteByTenantId(ModelConstants.SYSTEM_TENANT));
+    verify(deviceProfile).getId();
+    verify(deviceProfile).getTenantId();
+    verify(deviceProfileDao).removeById(isA(TenantId.class), isA(UUID.class));
+    verify(deviceProfileDao).findDeviceProfiles(isA(TenantId.class), isA(PageLink.class));
   }
 
   /**
@@ -1096,6 +228,8 @@ public class DeviceProfileServiceImplDiffblueTest {
    * Method under test: {@link DeviceProfileServiceImpl#getEntityType()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"EntityType DeviceProfileServiceImpl.getEntityType()"})
   public void testGetEntityType() {
     // Arrange, Act and Assert
     assertEquals(EntityType.DEVICE_PROFILE, (new DeviceProfileServiceImpl()).getEntityType());

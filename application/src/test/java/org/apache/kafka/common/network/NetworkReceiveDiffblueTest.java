@@ -9,6 +9,7 @@ import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -17,6 +18,7 @@ import java.nio.channels.ScatteringByteChannel;
 import org.apache.kafka.common.memory.GarbageCollectedMemoryPool;
 import org.apache.kafka.common.memory.MemoryPool;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -37,6 +39,8 @@ class NetworkReceiveDiffblueTest {
    */
   @Test
   @DisplayName("Test new NetworkReceive()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NetworkReceive.<init>()"})
   void testNewNetworkReceive() {
     // Arrange and Act
     NetworkReceive actualNetworkReceive = new NetworkReceive();
@@ -53,6 +57,8 @@ class NetworkReceiveDiffblueTest {
    */
   @Test
   @DisplayName("Test new NetworkReceive(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NetworkReceive.<init>(String)"})
   void testNewNetworkReceive2() {
     // Arrange and Act
     NetworkReceive actualNetworkReceive = new NetworkReceive("Source");
@@ -69,6 +75,8 @@ class NetworkReceiveDiffblueTest {
    */
   @Test
   @DisplayName("Test new NetworkReceive(String, ByteBuffer)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NetworkReceive.<init>(String, ByteBuffer)"})
   void testNewNetworkReceive3() throws UnsupportedEncodingException {
     // Arrange
     ByteBuffer buffer = ByteBuffer.wrap("AXAXAXAX".getBytes("UTF-8"));
@@ -83,26 +91,6 @@ class NetworkReceiveDiffblueTest {
   }
 
   /**
-   * Test {@link NetworkReceive#NetworkReceive(int, String, MemoryPool)}.
-   * <ul>
-   *   <li>When {@link GarbageCollectedMemoryPool}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link NetworkReceive#NetworkReceive(int, String, MemoryPool)}
-   */
-  @Test
-  @DisplayName("Test new NetworkReceive(int, String, MemoryPool); when GarbageCollectedMemoryPool")
-  void testNewNetworkReceive_whenGarbageCollectedMemoryPool() {
-    // Arrange and Act
-    NetworkReceive actualNetworkReceive = new NetworkReceive(3, "Source", mock(GarbageCollectedMemoryPool.class));
-
-    // Assert
-    assertEquals("Source", actualNetworkReceive.source());
-    assertNull(actualNetworkReceive.payload());
-  }
-
-  /**
    * Test {@link NetworkReceive#NetworkReceive(int, String)}.
    * <ul>
    *   <li>When three.</li>
@@ -112,6 +100,8 @@ class NetworkReceiveDiffblueTest {
    */
   @Test
   @DisplayName("Test new NetworkReceive(int, String); when three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NetworkReceive.<init>(int, String)"})
   void testNewNetworkReceive_whenThree() {
     // Arrange and Act
     NetworkReceive actualNetworkReceive = new NetworkReceive(3, "Source");
@@ -127,11 +117,12 @@ class NetworkReceiveDiffblueTest {
    *   <li>When three.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link NetworkReceive#NetworkReceive(int, String, MemoryPool)}
+   * Method under test: {@link NetworkReceive#NetworkReceive(int, String, MemoryPool)}
    */
   @Test
   @DisplayName("Test new NetworkReceive(int, String, MemoryPool); when three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NetworkReceive.<init>(int, String, MemoryPool)"})
   void testNewNetworkReceive_whenThree2() {
     // Arrange and Act
     NetworkReceive actualNetworkReceive = new NetworkReceive(3, "Source",
@@ -152,6 +143,8 @@ class NetworkReceiveDiffblueTest {
    */
   @Test
   @DisplayName("Test new NetworkReceive(int, String); when UNLIMITED")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NetworkReceive.<init>(int, String)"})
   void testNewNetworkReceive_whenUnlimited() {
     // Arrange and Act
     NetworkReceive actualNetworkReceive = new NetworkReceive(NetworkReceive.UNLIMITED, "Source");
@@ -167,11 +160,12 @@ class NetworkReceiveDiffblueTest {
    *   <li>When {@link NetworkReceive#UNLIMITED}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link NetworkReceive#NetworkReceive(int, String, MemoryPool)}
+   * Method under test: {@link NetworkReceive#NetworkReceive(int, String, MemoryPool)}
    */
   @Test
   @DisplayName("Test new NetworkReceive(int, String, MemoryPool); when UNLIMITED")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NetworkReceive.<init>(int, String, MemoryPool)"})
   void testNewNetworkReceive_whenUnlimited2() {
     // Arrange and Act
     NetworkReceive actualNetworkReceive = new NetworkReceive(NetworkReceive.UNLIMITED, "Source",
@@ -189,6 +183,8 @@ class NetworkReceiveDiffblueTest {
    */
   @Test
   @DisplayName("Test source()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String NetworkReceive.source()"})
   void testSource() {
     // Arrange, Act and Assert
     assertEquals(NetworkReceive.UNKNOWN_SOURCE, (new NetworkReceive()).source());
@@ -201,6 +197,8 @@ class NetworkReceiveDiffblueTest {
    */
   @Test
   @DisplayName("Test complete()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NetworkReceive.complete()"})
   void testComplete() {
     // Arrange, Act and Assert
     assertFalse(networkReceive.complete());
@@ -210,8 +208,7 @@ class NetworkReceiveDiffblueTest {
    * Test {@link NetworkReceive#readFrom(ScatteringByteChannel)}.
    * <ul>
    *   <li>Given one.</li>
-   *   <li>When {@link PlaintextTransportLayer}
-   * {@link PlaintextTransportLayer#read(ByteBuffer)} return one.</li>
+   *   <li>When {@link PlaintextTransportLayer} {@link PlaintextTransportLayer#read(ByteBuffer)} return one.</li>
    *   <li>Then return one.</li>
    * </ul>
    * <p>
@@ -219,6 +216,8 @@ class NetworkReceiveDiffblueTest {
    */
   @Test
   @DisplayName("Test readFrom(ScatteringByteChannel); given one; when PlaintextTransportLayer read(ByteBuffer) return one; then return one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long NetworkReceive.readFrom(ScatteringByteChannel)"})
   void testReadFrom_givenOne_whenPlaintextTransportLayerReadReturnOne_thenReturnOne() throws IOException {
     // Arrange
     PlaintextTransportLayer channel = mock(PlaintextTransportLayer.class);
@@ -243,6 +242,8 @@ class NetworkReceiveDiffblueTest {
    */
   @Test
   @DisplayName("Test readFrom(ScatteringByteChannel); given UNLIMITED; then throw EOFException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long NetworkReceive.readFrom(ScatteringByteChannel)"})
   void testReadFrom_givenUnlimited_thenThrowEOFException() throws IOException {
     // Arrange
     PlaintextTransportLayer channel = mock(PlaintextTransportLayer.class);
@@ -260,6 +261,8 @@ class NetworkReceiveDiffblueTest {
    */
   @Test
   @DisplayName("Test requiredMemoryAmountKnown()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NetworkReceive.requiredMemoryAmountKnown()"})
   void testRequiredMemoryAmountKnown() {
     // Arrange, Act and Assert
     assertFalse(networkReceive.requiredMemoryAmountKnown());
@@ -272,6 +275,8 @@ class NetworkReceiveDiffblueTest {
    */
   @Test
   @DisplayName("Test memoryAllocated()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NetworkReceive.memoryAllocated()"})
   void testMemoryAllocated() {
     // Arrange, Act and Assert
     assertFalse(networkReceive.memoryAllocated());
@@ -284,6 +289,8 @@ class NetworkReceiveDiffblueTest {
    */
   @Test
   @DisplayName("Test payload()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ByteBuffer NetworkReceive.payload()"})
   void testPayload() {
     // Arrange, Act and Assert
     assertNull(networkReceive.payload());
@@ -296,6 +303,8 @@ class NetworkReceiveDiffblueTest {
    */
   @Test
   @DisplayName("Test bytesRead()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int NetworkReceive.bytesRead()"})
   void testBytesRead() {
     // Arrange, Act and Assert
     assertEquals(0, networkReceive.bytesRead());

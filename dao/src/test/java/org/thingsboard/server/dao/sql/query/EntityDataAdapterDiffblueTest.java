@@ -3,9 +3,12 @@ package org.thingsboard.server.dao.sql.query;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.common.data.page.PageData;
 import org.thingsboard.server.common.data.query.EntityData;
 import org.thingsboard.server.common.data.query.EntityDataPageLink;
@@ -13,13 +16,13 @@ import org.thingsboard.server.common.data.query.EntityDataSortOrder;
 
 public class EntityDataAdapterDiffblueTest {
   /**
-   * Test
-   * {@link EntityDataAdapter#createEntityData(EntityDataPageLink, List, List, int)}.
+   * Test {@link EntityDataAdapter#createEntityData(EntityDataPageLink, List, List, int)}.
    * <p>
-   * Method under test:
-   * {@link EntityDataAdapter#createEntityData(EntityDataPageLink, List, List, int)}
+   * Method under test: {@link EntityDataAdapter#createEntityData(EntityDataPageLink, List, List, int)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"PageData EntityDataAdapter.createEntityData(EntityDataPageLink, List, List, int)"})
   public void testCreateEntityData() {
     // Arrange
     EntityDataPageLink pageLink = new EntityDataPageLink(3, 1, "Text Search", new EntityDataSortOrder());
@@ -38,18 +41,17 @@ public class EntityDataAdapterDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EntityDataAdapter#createEntityData(EntityDataPageLink, List, List, int)}.
+   * Test {@link EntityDataAdapter#createEntityData(EntityDataPageLink, List, List, int)}.
    * <ul>
    *   <li>Given {@link EntityKeyMapping} (default constructor).</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@link EntityKeyMapping} (default
-   * constructor).</li>
+   *   <li>When {@link ArrayList#ArrayList()} add {@link EntityKeyMapping} (default constructor).</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntityDataAdapter#createEntityData(EntityDataPageLink, List, List, int)}
+   * Method under test: {@link EntityDataAdapter#createEntityData(EntityDataPageLink, List, List, int)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"PageData EntityDataAdapter.createEntityData(EntityDataPageLink, List, List, int)"})
   public void testCreateEntityData_givenEntityKeyMapping_whenArrayListAddEntityKeyMapping() {
     // Arrange
     EntityDataPageLink pageLink = new EntityDataPageLink();
@@ -69,18 +71,17 @@ public class EntityDataAdapterDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EntityDataAdapter#createEntityData(EntityDataPageLink, List, List, int)}.
+   * Test {@link EntityDataAdapter#createEntityData(EntityDataPageLink, List, List, int)}.
    * <ul>
    *   <li>Given {@link EntityKeyMapping} (default constructor).</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@link EntityKeyMapping} (default
-   * constructor).</li>
+   *   <li>When {@link ArrayList#ArrayList()} add {@link EntityKeyMapping} (default constructor).</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntityDataAdapter#createEntityData(EntityDataPageLink, List, List, int)}
+   * Method under test: {@link EntityDataAdapter#createEntityData(EntityDataPageLink, List, List, int)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"PageData EntityDataAdapter.createEntityData(EntityDataPageLink, List, List, int)"})
   public void testCreateEntityData_givenEntityKeyMapping_whenArrayListAddEntityKeyMapping2() {
     // Arrange
     EntityDataPageLink pageLink = new EntityDataPageLink();
@@ -101,17 +102,17 @@ public class EntityDataAdapterDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EntityDataAdapter#createEntityData(EntityDataPageLink, List, List, int)}.
+   * Test {@link EntityDataAdapter#createEntityData(EntityDataPageLink, List, List, int)}.
    * <ul>
    *   <li>Given three.</li>
    *   <li>Then return hasNext.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntityDataAdapter#createEntityData(EntityDataPageLink, List, List, int)}
+   * Method under test: {@link EntityDataAdapter#createEntityData(EntityDataPageLink, List, List, int)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"PageData EntityDataAdapter.createEntityData(EntityDataPageLink, List, List, int)"})
   public void testCreateEntityData_givenThree_thenReturnHasNext() {
     // Arrange
     EntityDataPageLink pageLink = new EntityDataPageLink();
@@ -130,17 +131,17 @@ public class EntityDataAdapterDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EntityDataAdapter#createEntityData(EntityDataPageLink, List, List, int)}.
+   * Test {@link EntityDataAdapter#createEntityData(EntityDataPageLink, List, List, int)}.
    * <ul>
    *   <li>When {@link EntityDataPageLink#EntityDataPageLink()}.</li>
    *   <li>Then return not hasNext.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntityDataAdapter#createEntityData(EntityDataPageLink, List, List, int)}
+   * Method under test: {@link EntityDataAdapter#createEntityData(EntityDataPageLink, List, List, int)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"PageData EntityDataAdapter.createEntityData(EntityDataPageLink, List, List, int)"})
   public void testCreateEntityData_whenEntityDataPageLink_thenReturnNotHasNext() {
     // Arrange
     EntityDataPageLink pageLink = new EntityDataPageLink();
@@ -167,6 +168,8 @@ public class EntityDataAdapterDiffblueTest {
    * Method under test: {@link EntityDataAdapter#convertValue(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"java.lang.String EntityDataAdapter.convertValue(Object)"})
   public void testConvertValue_whenDot_thenReturnDot() {
     // Arrange, Act and Assert
     assertEquals(".", EntityDataAdapter.convertValue("."));
@@ -182,6 +185,8 @@ public class EntityDataAdapterDiffblueTest {
    * Method under test: {@link EntityDataAdapter#convertValue(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"java.lang.String EntityDataAdapter.convertValue(Object)"})
   public void testConvertValue_whenEmptyString_thenReturnEmptyString() {
     // Arrange, Act and Assert
     assertEquals("", EntityDataAdapter.convertValue(""));
@@ -197,6 +202,8 @@ public class EntityDataAdapterDiffblueTest {
    * Method under test: {@link EntityDataAdapter#convertValue(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"java.lang.String EntityDataAdapter.convertValue(Object)"})
   public void testConvertValue_whenFortyTwo_thenReturn42() {
     // Arrange, Act and Assert
     assertEquals("42", EntityDataAdapter.convertValue(42));
@@ -212,6 +219,8 @@ public class EntityDataAdapterDiffblueTest {
    * Method under test: {@link EntityDataAdapter#convertValue(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"java.lang.String EntityDataAdapter.convertValue(Object)"})
   public void testConvertValue_whenMinusOne_thenReturn1() {
     // Arrange, Act and Assert
     assertEquals("-1", EntityDataAdapter.convertValue(-1));
@@ -227,6 +236,8 @@ public class EntityDataAdapterDiffblueTest {
    * Method under test: {@link EntityDataAdapter#convertValue(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"java.lang.String EntityDataAdapter.convertValue(Object)"})
   public void testConvertValue_whenNull_thenReturnEmptyString() {
     // Arrange, Act and Assert
     assertEquals("", EntityDataAdapter.convertValue(null));
@@ -242,6 +253,8 @@ public class EntityDataAdapterDiffblueTest {
    * Method under test: {@link EntityDataAdapter#convertValue(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"java.lang.String EntityDataAdapter.convertValue(Object)"})
   public void testConvertValue_whenValue_thenReturnValue() {
     // Arrange, Act and Assert
     assertEquals("Value", EntityDataAdapter.convertValue("Value"));
@@ -257,6 +270,8 @@ public class EntityDataAdapterDiffblueTest {
    * Method under test: {@link EntityDataAdapter#convertValue(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"java.lang.String EntityDataAdapter.convertValue(Object)"})
   public void testConvertValue_whenZero_thenReturn0() {
     // Arrange, Act and Assert
     assertEquals("0", EntityDataAdapter.convertValue(0));

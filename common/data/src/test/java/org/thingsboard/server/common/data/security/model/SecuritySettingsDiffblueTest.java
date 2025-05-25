@@ -5,14 +5,15 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 class SecuritySettingsDiffblueTest {
   /**
-   * Test {@link SecuritySettings#equals(Object)}, and
-   * {@link SecuritySettings#hashCode()}.
+   * Test {@link SecuritySettings#equals(Object)}, and {@link SecuritySettings#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -26,6 +27,8 @@ class SecuritySettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SecuritySettings.equals(Object)", "int SecuritySettings.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     UserPasswordPolicy passwordPolicy = new UserPasswordPolicy();
@@ -75,8 +78,7 @@ class SecuritySettingsDiffblueTest {
   }
 
   /**
-   * Test {@link SecuritySettings#equals(Object)}, and
-   * {@link SecuritySettings#hashCode()}.
+   * Test {@link SecuritySettings#equals(Object)}, and {@link SecuritySettings#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -90,6 +92,8 @@ class SecuritySettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SecuritySettings.equals(Object)", "int SecuritySettings.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     UserPasswordPolicy passwordPolicy = new UserPasswordPolicy();
@@ -129,6 +133,8 @@ class SecuritySettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SecuritySettings.equals(Object)", "int SecuritySettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     UserPasswordPolicy passwordPolicy = new UserPasswordPolicy();
@@ -186,6 +192,8 @@ class SecuritySettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SecuritySettings.equals(Object)", "int SecuritySettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     UserPasswordPolicy passwordPolicy = new UserPasswordPolicy();
@@ -243,6 +251,8 @@ class SecuritySettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SecuritySettings.equals(Object)", "int SecuritySettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     UserPasswordPolicy passwordPolicy = new UserPasswordPolicy();
@@ -300,6 +310,8 @@ class SecuritySettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SecuritySettings.equals(Object)", "int SecuritySettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     UserPasswordPolicy passwordPolicy = new UserPasswordPolicy();
@@ -357,6 +369,8 @@ class SecuritySettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SecuritySettings.equals(Object)", "int SecuritySettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     UserPasswordPolicy passwordPolicy = mock(UserPasswordPolicy.class);
@@ -424,6 +438,8 @@ class SecuritySettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SecuritySettings.equals(Object)", "int SecuritySettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     UserPasswordPolicy passwordPolicy = mock(UserPasswordPolicy.class);
@@ -491,6 +507,8 @@ class SecuritySettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SecuritySettings.equals(Object)", "int SecuritySettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     UserPasswordPolicy passwordPolicy = mock(UserPasswordPolicy.class);
@@ -558,6 +576,8 @@ class SecuritySettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SecuritySettings.equals(Object)", "int SecuritySettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     UserPasswordPolicy passwordPolicy = mock(UserPasswordPolicy.class);
@@ -625,6 +645,8 @@ class SecuritySettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SecuritySettings.equals(Object)", "int SecuritySettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     UserPasswordPolicy passwordPolicy = mock(UserPasswordPolicy.class);
@@ -692,6 +714,8 @@ class SecuritySettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SecuritySettings.equals(Object)", "int SecuritySettings.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     UserPasswordPolicy passwordPolicy = new UserPasswordPolicy();
@@ -729,6 +753,8 @@ class SecuritySettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SecuritySettings.equals(Object)", "int SecuritySettings.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     UserPasswordPolicy passwordPolicy = new UserPasswordPolicy();
@@ -778,6 +804,17 @@ class SecuritySettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SecuritySettings.<init>()", "Integer SecuritySettings.getMaxFailedLoginAttempts()",
+      "Integer SecuritySettings.getMobileSecretKeyLength()", "UserPasswordPolicy SecuritySettings.getPasswordPolicy()",
+      "Integer SecuritySettings.getPasswordResetTokenTtl()", "Integer SecuritySettings.getUserActivationTokenTtl()",
+      "String SecuritySettings.getUserLockoutNotificationEmail()",
+      "void SecuritySettings.setMaxFailedLoginAttempts(Integer)",
+      "void SecuritySettings.setMobileSecretKeyLength(Integer)",
+      "void SecuritySettings.setPasswordPolicy(UserPasswordPolicy)",
+      "void SecuritySettings.setPasswordResetTokenTtl(Integer)",
+      "void SecuritySettings.setUserActivationTokenTtl(Integer)",
+      "void SecuritySettings.setUserLockoutNotificationEmail(String)", "String SecuritySettings.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     SecuritySettings actualSecuritySettings = new SecuritySettings();
@@ -805,7 +842,7 @@ class SecuritySettingsDiffblueTest {
     Integer actualPasswordResetTokenTtl = actualSecuritySettings.getPasswordResetTokenTtl();
     Integer actualUserActivationTokenTtl = actualSecuritySettings.getUserActivationTokenTtl();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "SecuritySettings(passwordPolicy=UserPasswordPolicy(minimumLength=3, maximumLength=3, minimumUppercaseLetters"
             + "=1, minimumLowercaseLetters=1, minimumDigits=1, minimumSpecialCharacters=1, allowWhitespaces=true,"

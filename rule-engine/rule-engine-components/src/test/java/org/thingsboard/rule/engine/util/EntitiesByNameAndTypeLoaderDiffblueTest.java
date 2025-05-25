@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationEventPublisher;
 import org.thingsboard.rule.engine.api.TbContext;
@@ -37,14 +39,15 @@ import org.thingsboard.server.dao.user.UserSettingsServiceImpl;
 
 class EntitiesByNameAndTypeLoaderDiffblueTest {
   /**
-   * Test
-   * {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}.
+   * Test {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}.
    * <p>
-   * Method under test:
-   * {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}
+   * Method under test: {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}
    */
   @Test
   @DisplayName("Test findEntityId(TbContext, EntityType, String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "org.thingsboard.server.common.data.id.EntityId EntitiesByNameAndTypeLoader.findEntityId(TbContext, EntityType, String)"})
   void testFindEntityId() {
     // Arrange
     TbContext ctx = mock(TbContext.class);
@@ -72,14 +75,15 @@ class EntitiesByNameAndTypeLoaderDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}.
+   * Test {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}.
    * <p>
-   * Method under test:
-   * {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}
+   * Method under test: {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}
    */
   @Test
   @DisplayName("Test findEntityId(TbContext, EntityType, String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "org.thingsboard.server.common.data.id.EntityId EntitiesByNameAndTypeLoader.findEntityId(TbContext, EntityType, String)"})
   void testFindEntityId2() {
     // Arrange
     TbContext ctx = mock(TbContext.class);
@@ -92,18 +96,19 @@ class EntitiesByNameAndTypeLoaderDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}.
+   * Test {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}.
    * <ul>
    *   <li>Given {@link BaseAssetService} (default constructor).</li>
    *   <li>Then calls {@link TbContext#getAssetService()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}
+   * Method under test: {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}
    */
   @Test
   @DisplayName("Test findEntityId(TbContext, EntityType, String); given BaseAssetService (default constructor); then calls getAssetService()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "org.thingsboard.server.common.data.id.EntityId EntitiesByNameAndTypeLoader.findEntityId(TbContext, EntityType, String)"})
   void testFindEntityId_givenBaseAssetService_thenCallsGetAssetService() {
     // Arrange
     TbContext ctx = mock(TbContext.class);
@@ -118,18 +123,19 @@ class EntitiesByNameAndTypeLoaderDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}.
+   * Test {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}.
    * <ul>
    *   <li>Given {@link EdgeServiceImpl} (default constructor).</li>
    *   <li>Then calls {@link TbContext#getEdgeService()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}
+   * Method under test: {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}
    */
   @Test
   @DisplayName("Test findEntityId(TbContext, EntityType, String); given EdgeServiceImpl (default constructor); then calls getEdgeService()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "org.thingsboard.server.common.data.id.EntityId EntitiesByNameAndTypeLoader.findEntityId(TbContext, EntityType, String)"})
   void testFindEntityId_givenEdgeServiceImpl_thenCallsGetEdgeService() {
     // Arrange
     TbContext ctx = mock(TbContext.class);
@@ -144,18 +150,19 @@ class EntitiesByNameAndTypeLoaderDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}.
+   * Test {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}.
    * <ul>
    *   <li>Given {@link EntityViewServiceImpl} (default constructor).</li>
    *   <li>Then calls {@link TbContext#getEntityViewService()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}
+   * Method under test: {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}
    */
   @Test
   @DisplayName("Test findEntityId(TbContext, EntityType, String); given EntityViewServiceImpl (default constructor); then calls getEntityViewService()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "org.thingsboard.server.common.data.id.EntityId EntitiesByNameAndTypeLoader.findEntityId(TbContext, EntityType, String)"})
   void testFindEntityId_givenEntityViewServiceImpl_thenCallsGetEntityViewService() {
     // Arrange
     TbContext ctx = mock(TbContext.class);
@@ -170,17 +177,18 @@ class EntitiesByNameAndTypeLoaderDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}.
+   * Test {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}.
    * <ul>
    *   <li>Then calls {@link TbContext#getDeviceService()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}
+   * Method under test: {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}
    */
   @Test
   @DisplayName("Test findEntityId(TbContext, EntityType, String); then calls getDeviceService()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "org.thingsboard.server.common.data.id.EntityId EntitiesByNameAndTypeLoader.findEntityId(TbContext, EntityType, String)"})
   void testFindEntityId_thenCallsGetDeviceService() {
     // Arrange
     TbContext ctx = mock(TbContext.class);
@@ -206,19 +214,18 @@ class EntitiesByNameAndTypeLoaderDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}.
+   * Test {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}.
    * <ul>
-   *   <li>When {@link TbContext} {@link TbContext#getAssetService()} throw
-   * {@link IllegalStateException#IllegalStateException(String)} with
-   * {@code foo}.</li>
+   *   <li>When {@link TbContext} {@link TbContext#getAssetService()} throw {@link IllegalStateException#IllegalStateException(String)} with {@code foo}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}
+   * Method under test: {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}
    */
   @Test
   @DisplayName("Test findEntityId(TbContext, EntityType, String); when TbContext getAssetService() throw IllegalStateException(String) with 'foo'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "org.thingsboard.server.common.data.id.EntityId EntitiesByNameAndTypeLoader.findEntityId(TbContext, EntityType, String)"})
   void testFindEntityId_whenTbContextGetAssetServiceThrowIllegalStateExceptionWithFoo() {
     // Arrange
     TbContext ctx = mock(TbContext.class);
@@ -231,19 +238,18 @@ class EntitiesByNameAndTypeLoaderDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}.
+   * Test {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}.
    * <ul>
-   *   <li>When {@link TbContext} {@link TbContext#getDeviceService()} throw
-   * {@link IllegalStateException#IllegalStateException(String)} with
-   * {@code foo}.</li>
+   *   <li>When {@link TbContext} {@link TbContext#getDeviceService()} throw {@link IllegalStateException#IllegalStateException(String)} with {@code foo}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}
+   * Method under test: {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}
    */
   @Test
   @DisplayName("Test findEntityId(TbContext, EntityType, String); when TbContext getDeviceService() throw IllegalStateException(String) with 'foo'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "org.thingsboard.server.common.data.id.EntityId EntitiesByNameAndTypeLoader.findEntityId(TbContext, EntityType, String)"})
   void testFindEntityId_whenTbContextGetDeviceServiceThrowIllegalStateExceptionWithFoo() {
     // Arrange
     TbContext ctx = mock(TbContext.class);
@@ -256,19 +262,18 @@ class EntitiesByNameAndTypeLoaderDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}.
+   * Test {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}.
    * <ul>
-   *   <li>When {@link TbContext} {@link TbContext#getEdgeService()} throw
-   * {@link IllegalStateException#IllegalStateException(String)} with
-   * {@code foo}.</li>
+   *   <li>When {@link TbContext} {@link TbContext#getEdgeService()} throw {@link IllegalStateException#IllegalStateException(String)} with {@code foo}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}
+   * Method under test: {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}
    */
   @Test
   @DisplayName("Test findEntityId(TbContext, EntityType, String); when TbContext getEdgeService() throw IllegalStateException(String) with 'foo'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "org.thingsboard.server.common.data.id.EntityId EntitiesByNameAndTypeLoader.findEntityId(TbContext, EntityType, String)"})
   void testFindEntityId_whenTbContextGetEdgeServiceThrowIllegalStateExceptionWithFoo() {
     // Arrange
     TbContext ctx = mock(TbContext.class);
@@ -281,19 +286,18 @@ class EntitiesByNameAndTypeLoaderDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}.
+   * Test {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}.
    * <ul>
-   *   <li>When {@link TbContext} {@link TbContext#getUserService()} throw
-   * {@link IllegalStateException#IllegalStateException(String)} with
-   * {@code foo}.</li>
+   *   <li>When {@link TbContext} {@link TbContext#getUserService()} throw {@link IllegalStateException#IllegalStateException(String)} with {@code foo}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}
+   * Method under test: {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}
    */
   @Test
   @DisplayName("Test findEntityId(TbContext, EntityType, String); when TbContext getUserService() throw IllegalStateException(String) with 'foo'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "org.thingsboard.server.common.data.id.EntityId EntitiesByNameAndTypeLoader.findEntityId(TbContext, EntityType, String)"})
   void testFindEntityId_whenTbContextGetUserServiceThrowIllegalStateExceptionWithFoo() {
     // Arrange
     TbContext ctx = mock(TbContext.class);
@@ -306,18 +310,19 @@ class EntitiesByNameAndTypeLoaderDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}.
+   * Test {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}.
    * <ul>
    *   <li>When {@link TbContext}.</li>
    *   <li>Then throw {@link IllegalStateException}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}
+   * Method under test: {@link EntitiesByNameAndTypeLoader#findEntityId(TbContext, EntityType, String)}
    */
   @Test
   @DisplayName("Test findEntityId(TbContext, EntityType, String); when TbContext; then throw IllegalStateException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "org.thingsboard.server.common.data.id.EntityId EntitiesByNameAndTypeLoader.findEntityId(TbContext, EntityType, String)"})
   void testFindEntityId_whenTbContext_thenThrowIllegalStateException() {
     // Arrange, Act and Assert
     assertThrows(IllegalStateException.class,
@@ -331,11 +336,12 @@ class EntitiesByNameAndTypeLoaderDiffblueTest {
    *   <li>Then throw {@link IllegalStateException}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntitiesByNameAndTypeLoader#checkEntityType(EntityType)}
+   * Method under test: {@link EntitiesByNameAndTypeLoader#checkEntityType(EntityType)}
    */
   @Test
   @DisplayName("Test checkEntityType(EntityType); when 'TENANT'; then throw IllegalStateException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntitiesByNameAndTypeLoader.checkEntityType(EntityType)"})
   void testCheckEntityType_whenTenant_thenThrowIllegalStateException() {
     // Arrange, Act and Assert
     assertThrows(IllegalStateException.class, () -> EntitiesByNameAndTypeLoader.checkEntityType(EntityType.TENANT));

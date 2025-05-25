@@ -2,14 +2,15 @@ package org.thingsboard.server.service.ws.telemetry.cmd.v2;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.service.ws.WsCmdType;
 
 class AlarmDataUnsubscribeCmdDiffblueTest {
   /**
-   * Test {@link AlarmDataUnsubscribeCmd#equals(Object)}, and
-   * {@link AlarmDataUnsubscribeCmd#hashCode()}.
+   * Test {@link AlarmDataUnsubscribeCmd#equals(Object)}, and {@link AlarmDataUnsubscribeCmd#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -23,6 +24,8 @@ class AlarmDataUnsubscribeCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataUnsubscribeCmd.equals(Object)", "int AlarmDataUnsubscribeCmd.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AlarmDataUnsubscribeCmd alarmDataUnsubscribeCmd = new AlarmDataUnsubscribeCmd(1);
@@ -35,8 +38,7 @@ class AlarmDataUnsubscribeCmdDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmDataUnsubscribeCmd#equals(Object)}, and
-   * {@link AlarmDataUnsubscribeCmd#hashCode()}.
+   * Test {@link AlarmDataUnsubscribeCmd#equals(Object)}, and {@link AlarmDataUnsubscribeCmd#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -50,6 +52,8 @@ class AlarmDataUnsubscribeCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataUnsubscribeCmd.equals(Object)", "int AlarmDataUnsubscribeCmd.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AlarmDataUnsubscribeCmd alarmDataUnsubscribeCmd = new AlarmDataUnsubscribeCmd(1);
@@ -71,6 +75,8 @@ class AlarmDataUnsubscribeCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataUnsubscribeCmd.equals(Object)", "int AlarmDataUnsubscribeCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AlarmDataUnsubscribeCmd alarmDataUnsubscribeCmd = new AlarmDataUnsubscribeCmd(2);
@@ -90,6 +96,8 @@ class AlarmDataUnsubscribeCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataUnsubscribeCmd.equals(Object)", "int AlarmDataUnsubscribeCmd.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlarmDataUnsubscribeCmd(1), null);
@@ -106,6 +114,8 @@ class AlarmDataUnsubscribeCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataUnsubscribeCmd.equals(Object)", "int AlarmDataUnsubscribeCmd.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlarmDataUnsubscribeCmd(1), "Different type to AlarmDataUnsubscribeCmd");
@@ -124,6 +134,9 @@ class AlarmDataUnsubscribeCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmDataUnsubscribeCmd.<init>(int)", "int AlarmDataUnsubscribeCmd.getCmdId()",
+      "WsCmdType AlarmDataUnsubscribeCmd.getType()", "String AlarmDataUnsubscribeCmd.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     AlarmDataUnsubscribeCmd actualAlarmDataUnsubscribeCmd = new AlarmDataUnsubscribeCmd(1);

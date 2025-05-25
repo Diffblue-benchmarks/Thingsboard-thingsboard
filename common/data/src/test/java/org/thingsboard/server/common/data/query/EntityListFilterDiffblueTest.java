@@ -4,16 +4,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 
 class EntityListFilterDiffblueTest {
   /**
-   * Test {@link EntityListFilter#equals(Object)}, and
-   * {@link EntityListFilter#hashCode()}.
+   * Test {@link EntityListFilter#equals(Object)}, and {@link EntityListFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -27,6 +28,8 @@ class EntityListFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityListFilter.equals(Object)", "int EntityListFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EntityListFilter entityListFilter = new EntityListFilter();
@@ -44,8 +47,7 @@ class EntityListFilterDiffblueTest {
   }
 
   /**
-   * Test {@link EntityListFilter#equals(Object)}, and
-   * {@link EntityListFilter#hashCode()}.
+   * Test {@link EntityListFilter#equals(Object)}, and {@link EntityListFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -59,6 +61,8 @@ class EntityListFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityListFilter.equals(Object)", "int EntityListFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     EntityListFilter entityListFilter = new EntityListFilter();
@@ -76,8 +80,7 @@ class EntityListFilterDiffblueTest {
   }
 
   /**
-   * Test {@link EntityListFilter#equals(Object)}, and
-   * {@link EntityListFilter#hashCode()}.
+   * Test {@link EntityListFilter#equals(Object)}, and {@link EntityListFilter#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -91,6 +94,8 @@ class EntityListFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityListFilter.equals(Object)", "int EntityListFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EntityListFilter entityListFilter = new EntityListFilter();
@@ -114,6 +119,8 @@ class EntityListFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityListFilter.equals(Object)", "int EntityListFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ArrayList<String> entityList = new ArrayList<>();
@@ -142,6 +149,8 @@ class EntityListFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityListFilter.equals(Object)", "int EntityListFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EntityListFilter entityListFilter = new EntityListFilter();
@@ -167,6 +176,8 @@ class EntityListFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityListFilter.equals(Object)", "int EntityListFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     EntityListFilter entityListFilter = new EntityListFilter();
@@ -192,6 +203,8 @@ class EntityListFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityListFilter.equals(Object)", "int EntityListFilter.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     EntityListFilter entityListFilter = new EntityListFilter();
@@ -213,6 +226,8 @@ class EntityListFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityListFilter.equals(Object)", "int EntityListFilter.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     EntityListFilter entityListFilter = new EntityListFilter();
@@ -239,6 +254,11 @@ class EntityListFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityListFilter.<init>()", "List EntityListFilter.getEntityList()",
+      "EntityType EntityListFilter.getEntityType()", "EntityFilterType EntityListFilter.getType()",
+      "void EntityListFilter.setEntityList(List)", "void EntityListFilter.setEntityType(EntityType)",
+      "String EntityListFilter.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     EntityListFilter actualEntityListFilter = new EntityListFilter();
@@ -249,7 +269,7 @@ class EntityListFilterDiffblueTest {
     List<String> actualEntityList = actualEntityListFilter.getEntityList();
     EntityType actualEntityType = actualEntityListFilter.getEntityType();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("EntityListFilter(entityType=TENANT, entityList=[])", actualToStringResult);
     assertEquals(EntityType.TENANT, actualEntityType);
     assertEquals(EntityFilterType.ENTITY_LIST, actualEntityListFilter.getType());

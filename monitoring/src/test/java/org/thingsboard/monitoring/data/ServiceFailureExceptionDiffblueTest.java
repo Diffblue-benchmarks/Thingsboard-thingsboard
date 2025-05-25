@@ -3,18 +3,21 @@ package org.thingsboard.monitoring.data;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ServiceFailureExceptionDiffblueTest {
   /**
    * Test {@link ServiceFailureException#ServiceFailureException(String)}.
    * <p>
-   * Method under test:
-   * {@link ServiceFailureException#ServiceFailureException(String)}
+   * Method under test: {@link ServiceFailureException#ServiceFailureException(String)}
    */
   @Test
   @DisplayName("Test new ServiceFailureException(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ServiceFailureException.<init>(String)"})
   void testNewServiceFailureException() {
     // Arrange and Act
     ServiceFailureException actualServiceFailureException = new ServiceFailureException("An error occurred");
@@ -28,11 +31,12 @@ class ServiceFailureExceptionDiffblueTest {
   /**
    * Test {@link ServiceFailureException#ServiceFailureException(Throwable)}.
    * <p>
-   * Method under test:
-   * {@link ServiceFailureException#ServiceFailureException(Throwable)}
+   * Method under test: {@link ServiceFailureException#ServiceFailureException(Throwable)}
    */
   @Test
   @DisplayName("Test new ServiceFailureException(Throwable)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ServiceFailureException.<init>(Throwable)"})
   void testNewServiceFailureException2() {
     // Arrange
     Throwable cause = new Throwable();

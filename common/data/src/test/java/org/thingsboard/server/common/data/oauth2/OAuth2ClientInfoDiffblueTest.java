@@ -3,9 +3,10 @@ package org.thingsboard.server.common.data.oauth2;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class OAuth2ClientInfoDiffblueTest {
@@ -16,6 +17,8 @@ class OAuth2ClientInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test new OAuth2ClientInfo(OAuth2Client)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void OAuth2ClientInfo.<init>(OAuth2Client)"})
   void testNewOAuth2ClientInfo() {
     // Arrange and Act
     OAuth2ClientInfo actualOAuth2ClientInfo = new OAuth2ClientInfo(new OAuth2Client());
@@ -31,8 +34,7 @@ class OAuth2ClientInfoDiffblueTest {
   }
 
   /**
-   * Test {@link OAuth2ClientInfo#equals(Object)}, and
-   * {@link OAuth2ClientInfo#hashCode()}.
+   * Test {@link OAuth2ClientInfo#equals(Object)}, and {@link OAuth2ClientInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -46,6 +48,8 @@ class OAuth2ClientInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2ClientInfo.equals(Object)", "int OAuth2ClientInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     OAuth2ClientInfo oAuth2ClientInfo = new OAuth2ClientInfo();
@@ -58,8 +62,7 @@ class OAuth2ClientInfoDiffblueTest {
   }
 
   /**
-   * Test {@link OAuth2ClientInfo#equals(Object)}, and
-   * {@link OAuth2ClientInfo#hashCode()}.
+   * Test {@link OAuth2ClientInfo#equals(Object)}, and {@link OAuth2ClientInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -73,6 +76,8 @@ class OAuth2ClientInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2ClientInfo.equals(Object)", "int OAuth2ClientInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     OAuth2ClientInfo oAuth2ClientInfo = new OAuth2ClientInfo(new OAuth2Client());
@@ -85,8 +90,7 @@ class OAuth2ClientInfoDiffblueTest {
   }
 
   /**
-   * Test {@link OAuth2ClientInfo#equals(Object)}, and
-   * {@link OAuth2ClientInfo#hashCode()}.
+   * Test {@link OAuth2ClientInfo#equals(Object)}, and {@link OAuth2ClientInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -100,6 +104,8 @@ class OAuth2ClientInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2ClientInfo.equals(Object)", "int OAuth2ClientInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     OAuth2ClientInfo oAuth2ClientInfo = new OAuth2ClientInfo();
@@ -115,8 +121,7 @@ class OAuth2ClientInfoDiffblueTest {
   }
 
   /**
-   * Test {@link OAuth2ClientInfo#equals(Object)}, and
-   * {@link OAuth2ClientInfo#hashCode()}.
+   * Test {@link OAuth2ClientInfo#equals(Object)}, and {@link OAuth2ClientInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -130,6 +135,8 @@ class OAuth2ClientInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2ClientInfo.equals(Object)", "int OAuth2ClientInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     OAuth2ClientInfo oAuth2ClientInfo = new OAuth2ClientInfo();
@@ -145,8 +152,7 @@ class OAuth2ClientInfoDiffblueTest {
   }
 
   /**
-   * Test {@link OAuth2ClientInfo#equals(Object)}, and
-   * {@link OAuth2ClientInfo#hashCode()}.
+   * Test {@link OAuth2ClientInfo#equals(Object)}, and {@link OAuth2ClientInfo#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -160,6 +166,8 @@ class OAuth2ClientInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2ClientInfo.equals(Object)", "int OAuth2ClientInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     OAuth2ClientInfo oAuth2ClientInfo = new OAuth2ClientInfo();
@@ -181,6 +189,8 @@ class OAuth2ClientInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2ClientInfo.equals(Object)", "int OAuth2ClientInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     OAuth2ClientInfo oAuth2ClientInfo = new OAuth2ClientInfo(new OAuth2Client());
@@ -200,6 +210,8 @@ class OAuth2ClientInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2ClientInfo.equals(Object)", "int OAuth2ClientInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     OAuth2ClientInfo oAuth2ClientInfo = new OAuth2ClientInfo();
@@ -219,23 +231,9 @@ class OAuth2ClientInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2ClientInfo.equals(Object)", "int OAuth2ClientInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
-    // Arrange, Act and Assert
-    assertNotEquals(new OAuth2ClientInfo(), mock(OAuth2Client.class));
-  }
-
-  /**
-   * Test {@link OAuth2ClientInfo#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientInfo#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     OAuth2ClientInfo oAuth2ClientInfo = new OAuth2ClientInfo();
     oAuth2ClientInfo.setTitle("Dr");
@@ -255,7 +253,9 @@ class OAuth2ClientInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2ClientInfo.equals(Object)", "int OAuth2ClientInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     OAuth2ClientInfo oAuth2ClientInfo = new OAuth2ClientInfo();
     oAuth2ClientInfo.setPlatforms(new ArrayList<>());
@@ -275,7 +275,9 @@ class OAuth2ClientInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2ClientInfo.equals(Object)", "int OAuth2ClientInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     OAuth2ClientInfo oAuth2ClientInfo = new OAuth2ClientInfo();
     oAuth2ClientInfo.setCreatedTime(1L);
@@ -295,7 +297,9 @@ class OAuth2ClientInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2ClientInfo.equals(Object)", "int OAuth2ClientInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     OAuth2ClientInfo oAuth2ClientInfo = new OAuth2ClientInfo();
 
@@ -317,7 +321,9 @@ class OAuth2ClientInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2ClientInfo.equals(Object)", "int OAuth2ClientInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     OAuth2ClientInfo oAuth2ClientInfo = new OAuth2ClientInfo();
 
@@ -339,6 +345,8 @@ class OAuth2ClientInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2ClientInfo.equals(Object)", "int OAuth2ClientInfo.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new OAuth2ClientInfo(), null);
@@ -355,6 +363,8 @@ class OAuth2ClientInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2ClientInfo.equals(Object)", "int OAuth2ClientInfo.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new OAuth2ClientInfo(), "Different type to OAuth2ClientInfo");

@@ -6,17 +6,28 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.junit.runner.RunWith;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.thingsboard.server.common.data.relation.EntityRelation;
 import org.thingsboard.server.dao.relation.RelationCacheValue.RelationCacheValueBuilder;
 
+@ContextConfiguration(classes = {RelationCacheValueBuilder.class})
+@RunWith(SpringJUnit4ClassRunner.class)
 public class RelationCacheValueDiffblueTest {
+  @Autowired
+  private RelationCacheValueBuilder relationCacheValueBuilder;
+
   /**
-   * Test {@link RelationCacheValue#equals(Object)}, and
-   * {@link RelationCacheValue#hashCode()}.
+   * Test {@link RelationCacheValue#equals(Object)}, and {@link RelationCacheValue#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -29,13 +40,15 @@ public class RelationCacheValueDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RelationCacheValue.equals(Object)", "int RelationCacheValue.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    RelationCacheValue.RelationCacheValueBuilder builderResult = RelationCacheValue.builder();
-    RelationCacheValue.RelationCacheValueBuilder relationResult = builderResult.relation(new EntityRelation());
+    RelationCacheValueBuilder builderResult = RelationCacheValue.builder();
+    RelationCacheValueBuilder relationResult = builderResult.relation(new EntityRelation());
     RelationCacheValue buildResult = relationResult.relations(new ArrayList<>()).build();
-    RelationCacheValue.RelationCacheValueBuilder builderResult2 = RelationCacheValue.builder();
-    RelationCacheValue.RelationCacheValueBuilder relationResult2 = builderResult2.relation(new EntityRelation());
+    RelationCacheValueBuilder builderResult2 = RelationCacheValue.builder();
+    RelationCacheValueBuilder relationResult2 = builderResult2.relation(new EntityRelation());
     RelationCacheValue buildResult2 = relationResult2.relations(new ArrayList<>()).build();
 
     // Act and Assert
@@ -45,8 +58,7 @@ public class RelationCacheValueDiffblueTest {
   }
 
   /**
-   * Test {@link RelationCacheValue#equals(Object)}, and
-   * {@link RelationCacheValue#hashCode()}.
+   * Test {@link RelationCacheValue#equals(Object)}, and {@link RelationCacheValue#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -59,19 +71,17 @@ public class RelationCacheValueDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RelationCacheValue.equals(Object)", "int RelationCacheValue.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    RelationCacheValue.RelationCacheValueBuilder relationCacheValueBuilder = mock(
-        RelationCacheValue.RelationCacheValueBuilder.class);
+    RelationCacheValueBuilder relationCacheValueBuilder = mock(RelationCacheValueBuilder.class);
     when(relationCacheValueBuilder.relation(Mockito.<EntityRelation>any())).thenReturn(RelationCacheValue.builder());
-    RelationCacheValue.RelationCacheValueBuilder relationResult = relationCacheValueBuilder
-        .relation(new EntityRelation());
+    RelationCacheValueBuilder relationResult = relationCacheValueBuilder.relation(new EntityRelation());
     RelationCacheValue buildResult = relationResult.relations(new ArrayList<>()).build();
-    RelationCacheValue.RelationCacheValueBuilder relationCacheValueBuilder2 = mock(
-        RelationCacheValue.RelationCacheValueBuilder.class);
+    RelationCacheValueBuilder relationCacheValueBuilder2 = mock(RelationCacheValueBuilder.class);
     when(relationCacheValueBuilder2.relation(Mockito.<EntityRelation>any())).thenReturn(RelationCacheValue.builder());
-    RelationCacheValue.RelationCacheValueBuilder relationResult2 = relationCacheValueBuilder2
-        .relation(new EntityRelation());
+    RelationCacheValueBuilder relationResult2 = relationCacheValueBuilder2.relation(new EntityRelation());
     RelationCacheValue buildResult2 = relationResult2.relations(new ArrayList<>()).build();
 
     // Act and Assert
@@ -81,8 +91,7 @@ public class RelationCacheValueDiffblueTest {
   }
 
   /**
-   * Test {@link RelationCacheValue#equals(Object)}, and
-   * {@link RelationCacheValue#hashCode()}.
+   * Test {@link RelationCacheValue#equals(Object)}, and {@link RelationCacheValue#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -95,10 +104,12 @@ public class RelationCacheValueDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RelationCacheValue.equals(Object)", "int RelationCacheValue.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    RelationCacheValue.RelationCacheValueBuilder builderResult = RelationCacheValue.builder();
-    RelationCacheValue.RelationCacheValueBuilder relationResult = builderResult.relation(new EntityRelation());
+    RelationCacheValueBuilder builderResult = RelationCacheValue.builder();
+    RelationCacheValueBuilder relationResult = builderResult.relation(new EntityRelation());
     RelationCacheValue buildResult = relationResult.relations(new ArrayList<>()).build();
 
     // Act and Assert
@@ -117,16 +128,16 @@ public class RelationCacheValueDiffblueTest {
    * Method under test: {@link RelationCacheValue#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RelationCacheValue.equals(Object)", "int RelationCacheValue.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    RelationCacheValue.RelationCacheValueBuilder relationCacheValueBuilder = mock(
-        RelationCacheValue.RelationCacheValueBuilder.class);
+    RelationCacheValueBuilder relationCacheValueBuilder = mock(RelationCacheValueBuilder.class);
     when(relationCacheValueBuilder.relation(Mockito.<EntityRelation>any())).thenReturn(RelationCacheValue.builder());
-    RelationCacheValue.RelationCacheValueBuilder relationResult = relationCacheValueBuilder
-        .relation(new EntityRelation());
+    RelationCacheValueBuilder relationResult = relationCacheValueBuilder.relation(new EntityRelation());
     RelationCacheValue buildResult = relationResult.relations(new ArrayList<>()).build();
-    RelationCacheValue.RelationCacheValueBuilder builderResult = RelationCacheValue.builder();
-    RelationCacheValue.RelationCacheValueBuilder relationResult2 = builderResult.relation(new EntityRelation());
+    RelationCacheValueBuilder builderResult = RelationCacheValue.builder();
+    RelationCacheValueBuilder relationResult2 = builderResult.relation(new EntityRelation());
     RelationCacheValue buildResult2 = relationResult2.relations(new ArrayList<>()).build();
 
     // Act and Assert
@@ -143,23 +154,20 @@ public class RelationCacheValueDiffblueTest {
    * Method under test: {@link RelationCacheValue#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RelationCacheValue.equals(Object)", "int RelationCacheValue.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    RelationCacheValue.RelationCacheValueBuilder relationCacheValueBuilder = mock(
-        RelationCacheValue.RelationCacheValueBuilder.class);
+    RelationCacheValueBuilder relationCacheValueBuilder = mock(RelationCacheValueBuilder.class);
     when(relationCacheValueBuilder.relations(Mockito.<List<EntityRelation>>any()))
         .thenReturn(RelationCacheValue.builder());
-    RelationCacheValue.RelationCacheValueBuilder relationCacheValueBuilder2 = mock(
-        RelationCacheValue.RelationCacheValueBuilder.class);
+    RelationCacheValueBuilder relationCacheValueBuilder2 = mock(RelationCacheValueBuilder.class);
     when(relationCacheValueBuilder2.relation(Mockito.<EntityRelation>any())).thenReturn(relationCacheValueBuilder);
-    RelationCacheValue.RelationCacheValueBuilder relationResult = relationCacheValueBuilder2
-        .relation(new EntityRelation());
+    RelationCacheValueBuilder relationResult = relationCacheValueBuilder2.relation(new EntityRelation());
     RelationCacheValue buildResult = relationResult.relations(new ArrayList<>()).build();
-    RelationCacheValue.RelationCacheValueBuilder relationCacheValueBuilder3 = mock(
-        RelationCacheValue.RelationCacheValueBuilder.class);
+    RelationCacheValueBuilder relationCacheValueBuilder3 = mock(RelationCacheValueBuilder.class);
     when(relationCacheValueBuilder3.relation(Mockito.<EntityRelation>any())).thenReturn(RelationCacheValue.builder());
-    RelationCacheValue.RelationCacheValueBuilder relationResult2 = relationCacheValueBuilder3
-        .relation(new EntityRelation());
+    RelationCacheValueBuilder relationResult2 = relationCacheValueBuilder3.relation(new EntityRelation());
     RelationCacheValue buildResult2 = relationResult2.relations(new ArrayList<>()).build();
 
     // Act and Assert
@@ -176,29 +184,25 @@ public class RelationCacheValueDiffblueTest {
    * Method under test: {@link RelationCacheValue#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RelationCacheValue.equals(Object)", "int RelationCacheValue.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    RelationCacheValue.RelationCacheValueBuilder relationCacheValueBuilder = mock(
-        RelationCacheValue.RelationCacheValueBuilder.class);
-    RelationCacheValue.RelationCacheValueBuilder builderResult = RelationCacheValue.builder();
-    RelationCacheValue.RelationCacheValueBuilder relationResult = builderResult.relation(new EntityRelation());
+    RelationCacheValueBuilder relationCacheValueBuilder = mock(RelationCacheValueBuilder.class);
+    RelationCacheValueBuilder builderResult = RelationCacheValue.builder();
+    RelationCacheValueBuilder relationResult = builderResult.relation(new EntityRelation());
     RelationCacheValue buildResult = relationResult.relations(new ArrayList<>()).build();
     when(relationCacheValueBuilder.build()).thenReturn(buildResult);
-    RelationCacheValue.RelationCacheValueBuilder relationCacheValueBuilder2 = mock(
-        RelationCacheValue.RelationCacheValueBuilder.class);
+    RelationCacheValueBuilder relationCacheValueBuilder2 = mock(RelationCacheValueBuilder.class);
     when(relationCacheValueBuilder2.relations(Mockito.<List<EntityRelation>>any()))
         .thenReturn(relationCacheValueBuilder);
-    RelationCacheValue.RelationCacheValueBuilder relationCacheValueBuilder3 = mock(
-        RelationCacheValue.RelationCacheValueBuilder.class);
+    RelationCacheValueBuilder relationCacheValueBuilder3 = mock(RelationCacheValueBuilder.class);
     when(relationCacheValueBuilder3.relation(Mockito.<EntityRelation>any())).thenReturn(relationCacheValueBuilder2);
-    RelationCacheValue.RelationCacheValueBuilder relationResult2 = relationCacheValueBuilder3
-        .relation(new EntityRelation());
+    RelationCacheValueBuilder relationResult2 = relationCacheValueBuilder3.relation(new EntityRelation());
     RelationCacheValue buildResult2 = relationResult2.relations(new ArrayList<>()).build();
-    RelationCacheValue.RelationCacheValueBuilder relationCacheValueBuilder4 = mock(
-        RelationCacheValue.RelationCacheValueBuilder.class);
+    RelationCacheValueBuilder relationCacheValueBuilder4 = mock(RelationCacheValueBuilder.class);
     when(relationCacheValueBuilder4.relation(Mockito.<EntityRelation>any())).thenReturn(RelationCacheValue.builder());
-    RelationCacheValue.RelationCacheValueBuilder relationResult3 = relationCacheValueBuilder4
-        .relation(new EntityRelation());
+    RelationCacheValueBuilder relationResult3 = relationCacheValueBuilder4.relation(new EntityRelation());
     RelationCacheValue buildResult3 = relationResult3.relations(new ArrayList<>()).build();
 
     // Act and Assert
@@ -215,29 +219,25 @@ public class RelationCacheValueDiffblueTest {
    * Method under test: {@link RelationCacheValue#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RelationCacheValue.equals(Object)", "int RelationCacheValue.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     ArrayList<EntityRelation> relations = new ArrayList<>();
     relations.add(new EntityRelation());
     RelationCacheValue buildResult = RelationCacheValue.builder().relation(null).relations(relations).build();
-    RelationCacheValue.RelationCacheValueBuilder relationCacheValueBuilder = mock(
-        RelationCacheValue.RelationCacheValueBuilder.class);
+    RelationCacheValueBuilder relationCacheValueBuilder = mock(RelationCacheValueBuilder.class);
     when(relationCacheValueBuilder.build()).thenReturn(buildResult);
-    RelationCacheValue.RelationCacheValueBuilder relationCacheValueBuilder2 = mock(
-        RelationCacheValue.RelationCacheValueBuilder.class);
+    RelationCacheValueBuilder relationCacheValueBuilder2 = mock(RelationCacheValueBuilder.class);
     when(relationCacheValueBuilder2.relations(Mockito.<List<EntityRelation>>any()))
         .thenReturn(relationCacheValueBuilder);
-    RelationCacheValue.RelationCacheValueBuilder relationCacheValueBuilder3 = mock(
-        RelationCacheValue.RelationCacheValueBuilder.class);
+    RelationCacheValueBuilder relationCacheValueBuilder3 = mock(RelationCacheValueBuilder.class);
     when(relationCacheValueBuilder3.relation(Mockito.<EntityRelation>any())).thenReturn(relationCacheValueBuilder2);
-    RelationCacheValue.RelationCacheValueBuilder relationResult = relationCacheValueBuilder3
-        .relation(new EntityRelation());
+    RelationCacheValueBuilder relationResult = relationCacheValueBuilder3.relation(new EntityRelation());
     RelationCacheValue buildResult2 = relationResult.relations(new ArrayList<>()).build();
-    RelationCacheValue.RelationCacheValueBuilder relationCacheValueBuilder4 = mock(
-        RelationCacheValue.RelationCacheValueBuilder.class);
+    RelationCacheValueBuilder relationCacheValueBuilder4 = mock(RelationCacheValueBuilder.class);
     when(relationCacheValueBuilder4.relation(Mockito.<EntityRelation>any())).thenReturn(RelationCacheValue.builder());
-    RelationCacheValue.RelationCacheValueBuilder relationResult2 = relationCacheValueBuilder4
-        .relation(new EntityRelation());
+    RelationCacheValueBuilder relationResult2 = relationCacheValueBuilder4.relation(new EntityRelation());
     RelationCacheValue buildResult3 = relationResult2.relations(new ArrayList<>()).build();
 
     // Act and Assert
@@ -254,10 +254,12 @@ public class RelationCacheValueDiffblueTest {
    * Method under test: {@link RelationCacheValue#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RelationCacheValue.equals(Object)", "int RelationCacheValue.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    RelationCacheValue.RelationCacheValueBuilder builderResult = RelationCacheValue.builder();
-    RelationCacheValue.RelationCacheValueBuilder relationResult = builderResult.relation(new EntityRelation());
+    RelationCacheValueBuilder builderResult = RelationCacheValue.builder();
+    RelationCacheValueBuilder relationResult = builderResult.relation(new EntityRelation());
     RelationCacheValue buildResult = relationResult.relations(new ArrayList<>()).build();
 
     // Act and Assert
@@ -274,10 +276,12 @@ public class RelationCacheValueDiffblueTest {
    * Method under test: {@link RelationCacheValue#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RelationCacheValue.equals(Object)", "int RelationCacheValue.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    RelationCacheValue.RelationCacheValueBuilder builderResult = RelationCacheValue.builder();
-    RelationCacheValue.RelationCacheValueBuilder relationResult = builderResult.relation(new EntityRelation());
+    RelationCacheValueBuilder builderResult = RelationCacheValue.builder();
+    RelationCacheValueBuilder relationResult = builderResult.relation(new EntityRelation());
     RelationCacheValue buildResult = relationResult.relations(new ArrayList<>()).build();
 
     // Act and Assert
@@ -295,6 +299,9 @@ public class RelationCacheValueDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void RelationCacheValue.<init>(EntityRelation, List)",
+      "EntityRelation RelationCacheValue.getRelation()", "List RelationCacheValue.getRelations()"})
   public void testGettersAndSetters() {
     // Arrange
     EntityRelation relation = new EntityRelation();
@@ -316,18 +323,22 @@ public class RelationCacheValueDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link RelationCacheValue.RelationCacheValueBuilder#build()}
-   *   <li>
-   * {@link RelationCacheValue.RelationCacheValueBuilder#relation(EntityRelation)}
-   *   <li>{@link RelationCacheValue.RelationCacheValueBuilder#relations(List)}
+   *   <li>{@link RelationCacheValueBuilder#build()}
+   *   <li>{@link RelationCacheValueBuilder#relation(EntityRelation)}
+   *   <li>{@link RelationCacheValueBuilder#relations(List)}
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void RelationCacheValueBuilder.<init>()", "RelationCacheValue RelationCacheValueBuilder.build()",
+      "RelationCacheValueBuilder RelationCacheValueBuilder.relation(EntityRelation)",
+      "RelationCacheValueBuilder RelationCacheValueBuilder.relations(List)",
+      "java.lang.String RelationCacheValueBuilder.toString()"})
   public void testRelationCacheValueBuilderBuild() {
     // Arrange
-    RelationCacheValue.RelationCacheValueBuilder builderResult = RelationCacheValue.builder();
+    RelationCacheValueBuilder builderResult = RelationCacheValue.builder();
     EntityRelation relation = new EntityRelation();
-    RelationCacheValue.RelationCacheValueBuilder relationResult = builderResult.relation(relation);
+    RelationCacheValueBuilder relationResult = builderResult.relation(relation);
     ArrayList<EntityRelation> relations = new ArrayList<>();
 
     // Act

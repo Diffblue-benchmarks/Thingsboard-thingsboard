@@ -1,7 +1,9 @@
 package org.thingsboard.server.common.data;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class EntityTypeDiffblueTest {
@@ -17,6 +19,9 @@ class EntityTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String EntityType.getNormalName()", "int EntityType.getProtoNumber()",
+      "String EntityType.getTableName()"})
   void testGettersAndSetters() {
     // Arrange
     EntityType valueOfResult = EntityType.valueOf(DataConstants.TENANT);

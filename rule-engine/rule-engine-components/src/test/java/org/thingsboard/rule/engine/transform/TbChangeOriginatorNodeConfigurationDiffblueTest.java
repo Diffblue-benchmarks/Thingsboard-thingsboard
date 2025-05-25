@@ -6,15 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.anyBoolean;
-import static org.mockito.Mockito.anyInt;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.thingsboard.rule.engine.data.RelationsQuery;
 import org.thingsboard.server.common.data.relation.EntitySearchDirection;
 import org.thingsboard.server.common.data.relation.RelationEntityTypeFilter;
@@ -23,11 +20,12 @@ class TbChangeOriginatorNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbChangeOriginatorNodeConfiguration#defaultConfiguration()}.
    * <p>
-   * Method under test:
-   * {@link TbChangeOriginatorNodeConfiguration#defaultConfiguration()}
+   * Method under test: {@link TbChangeOriginatorNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbChangeOriginatorNodeConfiguration TbChangeOriginatorNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
     // Arrange and Act
     TbChangeOriginatorNodeConfiguration actualDefaultConfigurationResult = (new TbChangeOriginatorNodeConfiguration())
@@ -50,8 +48,7 @@ class TbChangeOriginatorNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbChangeOriginatorNodeConfiguration#equals(Object)}, and
-   * {@link TbChangeOriginatorNodeConfiguration#hashCode()}.
+   * Test {@link TbChangeOriginatorNodeConfiguration#equals(Object)}, and {@link TbChangeOriginatorNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -65,6 +62,9 @@ class TbChangeOriginatorNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbChangeOriginatorNodeConfiguration.equals(Object)",
+      "int TbChangeOriginatorNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbChangeOriginatorNodeConfiguration tbChangeOriginatorNodeConfiguration = new TbChangeOriginatorNodeConfiguration();
@@ -77,8 +77,147 @@ class TbChangeOriginatorNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbChangeOriginatorNodeConfiguration#equals(Object)}, and
-   * {@link TbChangeOriginatorNodeConfiguration#hashCode()}.
+   * Test {@link TbChangeOriginatorNodeConfiguration#equals(Object)}, and {@link TbChangeOriginatorNodeConfiguration#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link TbChangeOriginatorNodeConfiguration#equals(Object)}
+   *   <li>{@link TbChangeOriginatorNodeConfiguration#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbChangeOriginatorNodeConfiguration.equals(Object)",
+      "int TbChangeOriginatorNodeConfiguration.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    TbChangeOriginatorNodeConfiguration tbChangeOriginatorNodeConfiguration = new TbChangeOriginatorNodeConfiguration();
+    tbChangeOriginatorNodeConfiguration.setOriginatorSource(OriginatorSource.CUSTOMER);
+
+    TbChangeOriginatorNodeConfiguration tbChangeOriginatorNodeConfiguration2 = new TbChangeOriginatorNodeConfiguration();
+    tbChangeOriginatorNodeConfiguration2.setOriginatorSource(OriginatorSource.CUSTOMER);
+
+    // Act and Assert
+    assertEquals(tbChangeOriginatorNodeConfiguration, tbChangeOriginatorNodeConfiguration2);
+    int expectedHashCodeResult = tbChangeOriginatorNodeConfiguration.hashCode();
+    assertEquals(expectedHashCodeResult, tbChangeOriginatorNodeConfiguration2.hashCode());
+  }
+
+  /**
+   * Test {@link TbChangeOriginatorNodeConfiguration#equals(Object)}, and {@link TbChangeOriginatorNodeConfiguration#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link TbChangeOriginatorNodeConfiguration#equals(Object)}
+   *   <li>{@link TbChangeOriginatorNodeConfiguration#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbChangeOriginatorNodeConfiguration.equals(Object)",
+      "int TbChangeOriginatorNodeConfiguration.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+    // Arrange
+    RelationsQuery relationsQuery = new RelationsQuery();
+    relationsQuery.setDirection(EntitySearchDirection.FROM);
+    relationsQuery.setFetchLastLevelOnly(true);
+    relationsQuery.setFilters(new ArrayList<>());
+    relationsQuery.setMaxLevel(3);
+
+    TbChangeOriginatorNodeConfiguration tbChangeOriginatorNodeConfiguration = new TbChangeOriginatorNodeConfiguration();
+    tbChangeOriginatorNodeConfiguration.setRelationsQuery(relationsQuery);
+
+    RelationsQuery relationsQuery2 = new RelationsQuery();
+    relationsQuery2.setDirection(EntitySearchDirection.FROM);
+    relationsQuery2.setFetchLastLevelOnly(true);
+    relationsQuery2.setFilters(new ArrayList<>());
+    relationsQuery2.setMaxLevel(3);
+
+    TbChangeOriginatorNodeConfiguration tbChangeOriginatorNodeConfiguration2 = new TbChangeOriginatorNodeConfiguration();
+    tbChangeOriginatorNodeConfiguration2.setRelationsQuery(relationsQuery2);
+
+    // Act and Assert
+    assertEquals(tbChangeOriginatorNodeConfiguration, tbChangeOriginatorNodeConfiguration2);
+    int expectedHashCodeResult = tbChangeOriginatorNodeConfiguration.hashCode();
+    assertEquals(expectedHashCodeResult, tbChangeOriginatorNodeConfiguration2.hashCode());
+  }
+
+  /**
+   * Test {@link TbChangeOriginatorNodeConfiguration#equals(Object)}, and {@link TbChangeOriginatorNodeConfiguration#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link TbChangeOriginatorNodeConfiguration#equals(Object)}
+   *   <li>{@link TbChangeOriginatorNodeConfiguration#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbChangeOriginatorNodeConfiguration.equals(Object)",
+      "int TbChangeOriginatorNodeConfiguration.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
+    // Arrange
+    TbChangeOriginatorNodeConfiguration tbChangeOriginatorNodeConfiguration = new TbChangeOriginatorNodeConfiguration();
+    tbChangeOriginatorNodeConfiguration.setEntityType("Entity Type");
+
+    TbChangeOriginatorNodeConfiguration tbChangeOriginatorNodeConfiguration2 = new TbChangeOriginatorNodeConfiguration();
+    tbChangeOriginatorNodeConfiguration2.setEntityType("Entity Type");
+
+    // Act and Assert
+    assertEquals(tbChangeOriginatorNodeConfiguration, tbChangeOriginatorNodeConfiguration2);
+    int expectedHashCodeResult = tbChangeOriginatorNodeConfiguration.hashCode();
+    assertEquals(expectedHashCodeResult, tbChangeOriginatorNodeConfiguration2.hashCode());
+  }
+
+  /**
+   * Test {@link TbChangeOriginatorNodeConfiguration#equals(Object)}, and {@link TbChangeOriginatorNodeConfiguration#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link TbChangeOriginatorNodeConfiguration#equals(Object)}
+   *   <li>{@link TbChangeOriginatorNodeConfiguration#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbChangeOriginatorNodeConfiguration.equals(Object)",
+      "int TbChangeOriginatorNodeConfiguration.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
+    // Arrange
+    TbChangeOriginatorNodeConfiguration tbChangeOriginatorNodeConfiguration = new TbChangeOriginatorNodeConfiguration();
+    tbChangeOriginatorNodeConfiguration.setEntityNamePattern("Entity Name Pattern");
+
+    TbChangeOriginatorNodeConfiguration tbChangeOriginatorNodeConfiguration2 = new TbChangeOriginatorNodeConfiguration();
+    tbChangeOriginatorNodeConfiguration2.setEntityNamePattern("Entity Name Pattern");
+
+    // Act and Assert
+    assertEquals(tbChangeOriginatorNodeConfiguration, tbChangeOriginatorNodeConfiguration2);
+    int expectedHashCodeResult = tbChangeOriginatorNodeConfiguration.hashCode();
+    assertEquals(expectedHashCodeResult, tbChangeOriginatorNodeConfiguration2.hashCode());
+  }
+
+  /**
+   * Test {@link TbChangeOriginatorNodeConfiguration#equals(Object)}, and {@link TbChangeOriginatorNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -92,6 +231,9 @@ class TbChangeOriginatorNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbChangeOriginatorNodeConfiguration.equals(Object)",
+      "int TbChangeOriginatorNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbChangeOriginatorNodeConfiguration tbChangeOriginatorNodeConfiguration = new TbChangeOriginatorNodeConfiguration();
@@ -113,6 +255,9 @@ class TbChangeOriginatorNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbChangeOriginatorNodeConfiguration.equals(Object)",
+      "int TbChangeOriginatorNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbChangeOriginatorNodeConfiguration(), 1);
@@ -129,6 +274,9 @@ class TbChangeOriginatorNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbChangeOriginatorNodeConfiguration.equals(Object)",
+      "int TbChangeOriginatorNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbChangeOriginatorNodeConfiguration tbChangeOriginatorNodeConfiguration = new TbChangeOriginatorNodeConfiguration();
@@ -149,6 +297,9 @@ class TbChangeOriginatorNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbChangeOriginatorNodeConfiguration.equals(Object)",
+      "int TbChangeOriginatorNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     RelationsQuery relationsQuery = new RelationsQuery();
@@ -175,6 +326,9 @@ class TbChangeOriginatorNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbChangeOriginatorNodeConfiguration.equals(Object)",
+      "int TbChangeOriginatorNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbChangeOriginatorNodeConfiguration tbChangeOriginatorNodeConfiguration = new TbChangeOriginatorNodeConfiguration();
@@ -195,6 +349,9 @@ class TbChangeOriginatorNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbChangeOriginatorNodeConfiguration.equals(Object)",
+      "int TbChangeOriginatorNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbChangeOriginatorNodeConfiguration tbChangeOriginatorNodeConfiguration = new TbChangeOriginatorNodeConfiguration();
@@ -215,6 +372,9 @@ class TbChangeOriginatorNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbChangeOriginatorNodeConfiguration.equals(Object)",
+      "int TbChangeOriginatorNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbChangeOriginatorNodeConfiguration tbChangeOriginatorNodeConfiguration = new TbChangeOriginatorNodeConfiguration();
@@ -237,6 +397,9 @@ class TbChangeOriginatorNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbChangeOriginatorNodeConfiguration.equals(Object)",
+      "int TbChangeOriginatorNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TbChangeOriginatorNodeConfiguration tbChangeOriginatorNodeConfiguration = new TbChangeOriginatorNodeConfiguration();
@@ -265,6 +428,9 @@ class TbChangeOriginatorNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbChangeOriginatorNodeConfiguration.equals(Object)",
+      "int TbChangeOriginatorNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TbChangeOriginatorNodeConfiguration tbChangeOriginatorNodeConfiguration = new TbChangeOriginatorNodeConfiguration();
@@ -287,6 +453,9 @@ class TbChangeOriginatorNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbChangeOriginatorNodeConfiguration.equals(Object)",
+      "int TbChangeOriginatorNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     TbChangeOriginatorNodeConfiguration tbChangeOriginatorNodeConfiguration = new TbChangeOriginatorNodeConfiguration();
@@ -301,36 +470,6 @@ class TbChangeOriginatorNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbChangeOriginatorNodeConfiguration#equals(Object)}.
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbChangeOriginatorNodeConfiguration#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
-    // Arrange
-    RelationsQuery relationsQuery = mock(RelationsQuery.class);
-    doNothing().when(relationsQuery).setDirection(Mockito.<EntitySearchDirection>any());
-    doNothing().when(relationsQuery).setFetchLastLevelOnly(anyBoolean());
-    doNothing().when(relationsQuery).setFilters(Mockito.<List<RelationEntityTypeFilter>>any());
-    doNothing().when(relationsQuery).setMaxLevel(anyInt());
-    relationsQuery.setDirection(EntitySearchDirection.FROM);
-    relationsQuery.setFetchLastLevelOnly(true);
-    relationsQuery.setFilters(new ArrayList<>());
-    relationsQuery.setMaxLevel(3);
-
-    TbChangeOriginatorNodeConfiguration tbChangeOriginatorNodeConfiguration = new TbChangeOriginatorNodeConfiguration();
-    tbChangeOriginatorNodeConfiguration.setRelationsQuery(relationsQuery);
-
-    // Act and Assert
-    assertNotEquals(tbChangeOriginatorNodeConfiguration, new TbChangeOriginatorNodeConfiguration());
-  }
-
-  /**
-   * Test {@link TbChangeOriginatorNodeConfiguration#equals(Object)}.
-   * <ul>
    *   <li>When other is {@code null}.</li>
    *   <li>Then return not equal.</li>
    * </ul>
@@ -339,6 +478,9 @@ class TbChangeOriginatorNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbChangeOriginatorNodeConfiguration.equals(Object)",
+      "int TbChangeOriginatorNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbChangeOriginatorNodeConfiguration(), null);
@@ -355,6 +497,9 @@ class TbChangeOriginatorNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbChangeOriginatorNodeConfiguration.equals(Object)",
+      "int TbChangeOriginatorNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbChangeOriginatorNodeConfiguration(), "Different type to TbChangeOriginatorNodeConfiguration");
@@ -365,14 +510,11 @@ class TbChangeOriginatorNodeConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link TbChangeOriginatorNodeConfiguration}
+   *   <li>default or parameterless constructor of {@link TbChangeOriginatorNodeConfiguration}
    *   <li>{@link TbChangeOriginatorNodeConfiguration#setEntityNamePattern(String)}
    *   <li>{@link TbChangeOriginatorNodeConfiguration#setEntityType(String)}
-   *   <li>
-   * {@link TbChangeOriginatorNodeConfiguration#setOriginatorSource(OriginatorSource)}
-   *   <li>
-   * {@link TbChangeOriginatorNodeConfiguration#setRelationsQuery(RelationsQuery)}
+   *   <li>{@link TbChangeOriginatorNodeConfiguration#setOriginatorSource(OriginatorSource)}
+   *   <li>{@link TbChangeOriginatorNodeConfiguration#setRelationsQuery(RelationsQuery)}
    *   <li>{@link TbChangeOriginatorNodeConfiguration#toString()}
    *   <li>{@link TbChangeOriginatorNodeConfiguration#getEntityNamePattern()}
    *   <li>{@link TbChangeOriginatorNodeConfiguration#getEntityType()}
@@ -382,6 +524,17 @@ class TbChangeOriginatorNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbChangeOriginatorNodeConfiguration.<init>()",
+      "String TbChangeOriginatorNodeConfiguration.getEntityNamePattern()",
+      "String TbChangeOriginatorNodeConfiguration.getEntityType()",
+      "OriginatorSource TbChangeOriginatorNodeConfiguration.getOriginatorSource()",
+      "RelationsQuery TbChangeOriginatorNodeConfiguration.getRelationsQuery()",
+      "void TbChangeOriginatorNodeConfiguration.setEntityNamePattern(String)",
+      "void TbChangeOriginatorNodeConfiguration.setEntityType(String)",
+      "void TbChangeOriginatorNodeConfiguration.setOriginatorSource(OriginatorSource)",
+      "void TbChangeOriginatorNodeConfiguration.setRelationsQuery(RelationsQuery)",
+      "String TbChangeOriginatorNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbChangeOriginatorNodeConfiguration actualTbChangeOriginatorNodeConfiguration = new TbChangeOriginatorNodeConfiguration();
@@ -399,7 +552,7 @@ class TbChangeOriginatorNodeConfigurationDiffblueTest {
     String actualEntityType = actualTbChangeOriginatorNodeConfiguration.getEntityType();
     OriginatorSource actualOriginatorSource = actualTbChangeOriginatorNodeConfiguration.getOriginatorSource();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Entity Name Pattern", actualEntityNamePattern);
     assertEquals("Entity Type", actualEntityType);
     assertEquals(

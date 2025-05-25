@@ -5,8 +5,11 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.QueueStatsId;
 import org.thingsboard.server.common.data.id.TenantId;
@@ -15,8 +18,7 @@ import org.thingsboard.server.dao.model.ModelConstants;
 
 public class QueueStatsEntityDiffblueTest {
   /**
-   * Test {@link QueueStatsEntity#equals(Object)}, and
-   * {@link QueueStatsEntity#hashCode()}.
+   * Test {@link QueueStatsEntity#equals(Object)}, and {@link QueueStatsEntity#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -29,23 +31,25 @@ public class QueueStatsEntityDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(1L);
-    queueStatsEntity.setId(ModelConstants.NULL_UUID);
+    queueStatsEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     queueStatsEntity.setQueueName("Queue Name");
     queueStatsEntity.setServiceId("42");
-    queueStatsEntity.setTenantId(ModelConstants.NULL_UUID);
-    queueStatsEntity.setUuid(ModelConstants.NULL_UUID);
+    queueStatsEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     QueueStatsEntity queueStatsEntity2 = new QueueStatsEntity();
     queueStatsEntity2.setCreatedTime(1L);
-    queueStatsEntity2.setId(ModelConstants.NULL_UUID);
+    queueStatsEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     queueStatsEntity2.setQueueName("Queue Name");
     queueStatsEntity2.setServiceId("42");
-    queueStatsEntity2.setTenantId(ModelConstants.NULL_UUID);
-    queueStatsEntity2.setUuid(ModelConstants.NULL_UUID);
+    queueStatsEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertEquals(queueStatsEntity, queueStatsEntity2);
@@ -54,8 +58,127 @@ public class QueueStatsEntityDiffblueTest {
   }
 
   /**
-   * Test {@link QueueStatsEntity#equals(Object)}, and
-   * {@link QueueStatsEntity#hashCode()}.
+   * Test {@link QueueStatsEntity#equals(Object)}, and {@link QueueStatsEntity#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link QueueStatsEntity#equals(Object)}
+   *   <li>{@link QueueStatsEntity#hashCode()}
+   * </ul>
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
+  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
+    queueStatsEntity.setCreatedTime(1L);
+    queueStatsEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity.setQueueName(null);
+    queueStatsEntity.setServiceId("42");
+    queueStatsEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    QueueStatsEntity queueStatsEntity2 = new QueueStatsEntity();
+    queueStatsEntity2.setCreatedTime(1L);
+    queueStatsEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity2.setQueueName(null);
+    queueStatsEntity2.setServiceId("42");
+    queueStatsEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertEquals(queueStatsEntity, queueStatsEntity2);
+    int expectedHashCodeResult = queueStatsEntity.hashCode();
+    assertEquals(expectedHashCodeResult, queueStatsEntity2.hashCode());
+  }
+
+  /**
+   * Test {@link QueueStatsEntity#equals(Object)}, and {@link QueueStatsEntity#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link QueueStatsEntity#equals(Object)}
+   *   <li>{@link QueueStatsEntity#hashCode()}
+   * </ul>
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
+  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+    // Arrange
+    QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
+    queueStatsEntity.setCreatedTime(1L);
+    queueStatsEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity.setQueueName("Queue Name");
+    queueStatsEntity.setServiceId(null);
+    queueStatsEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    QueueStatsEntity queueStatsEntity2 = new QueueStatsEntity();
+    queueStatsEntity2.setCreatedTime(1L);
+    queueStatsEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity2.setQueueName("Queue Name");
+    queueStatsEntity2.setServiceId(null);
+    queueStatsEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertEquals(queueStatsEntity, queueStatsEntity2);
+    int expectedHashCodeResult = queueStatsEntity.hashCode();
+    assertEquals(expectedHashCodeResult, queueStatsEntity2.hashCode());
+  }
+
+  /**
+   * Test {@link QueueStatsEntity#equals(Object)}, and {@link QueueStatsEntity#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link QueueStatsEntity#equals(Object)}
+   *   <li>{@link QueueStatsEntity#hashCode()}
+   * </ul>
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
+  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
+    // Arrange
+    QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
+    queueStatsEntity.setCreatedTime(1L);
+    queueStatsEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity.setQueueName("Queue Name");
+    queueStatsEntity.setServiceId("42");
+    queueStatsEntity.setTenantId(null);
+    queueStatsEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    QueueStatsEntity queueStatsEntity2 = new QueueStatsEntity();
+    queueStatsEntity2.setCreatedTime(1L);
+    queueStatsEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity2.setQueueName("Queue Name");
+    queueStatsEntity2.setServiceId("42");
+    queueStatsEntity2.setTenantId(null);
+    queueStatsEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertEquals(queueStatsEntity, queueStatsEntity2);
+    int expectedHashCodeResult = queueStatsEntity.hashCode();
+    assertEquals(expectedHashCodeResult, queueStatsEntity2.hashCode());
+  }
+
+  /**
+   * Test {@link QueueStatsEntity#equals(Object)}, and {@link QueueStatsEntity#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -68,15 +191,17 @@ public class QueueStatsEntityDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(1L);
-    queueStatsEntity.setId(ModelConstants.NULL_UUID);
+    queueStatsEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     queueStatsEntity.setQueueName("Queue Name");
     queueStatsEntity.setServiceId("42");
-    queueStatsEntity.setTenantId(ModelConstants.NULL_UUID);
-    queueStatsEntity.setUuid(ModelConstants.NULL_UUID);
+    queueStatsEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertEquals(queueStatsEntity, queueStatsEntity);
@@ -94,23 +219,25 @@ public class QueueStatsEntityDiffblueTest {
    * Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(3L);
-    queueStatsEntity.setId(ModelConstants.NULL_UUID);
+    queueStatsEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     queueStatsEntity.setQueueName("Queue Name");
     queueStatsEntity.setServiceId("42");
-    queueStatsEntity.setTenantId(ModelConstants.NULL_UUID);
-    queueStatsEntity.setUuid(ModelConstants.NULL_UUID);
+    queueStatsEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     QueueStatsEntity queueStatsEntity2 = new QueueStatsEntity();
     queueStatsEntity2.setCreatedTime(1L);
-    queueStatsEntity2.setId(ModelConstants.NULL_UUID);
+    queueStatsEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     queueStatsEntity2.setQueueName("Queue Name");
     queueStatsEntity2.setServiceId("42");
-    queueStatsEntity2.setTenantId(ModelConstants.NULL_UUID);
-    queueStatsEntity2.setUuid(ModelConstants.NULL_UUID);
+    queueStatsEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(queueStatsEntity, queueStatsEntity2);
@@ -126,23 +253,25 @@ public class QueueStatsEntityDiffblueTest {
    * Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(1L);
-    queueStatsEntity.setId(ModelConstants.NULL_UUID);
+    queueStatsEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     queueStatsEntity.setQueueName("42");
     queueStatsEntity.setServiceId("42");
-    queueStatsEntity.setTenantId(ModelConstants.NULL_UUID);
-    queueStatsEntity.setUuid(ModelConstants.NULL_UUID);
+    queueStatsEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     QueueStatsEntity queueStatsEntity2 = new QueueStatsEntity();
     queueStatsEntity2.setCreatedTime(1L);
-    queueStatsEntity2.setId(ModelConstants.NULL_UUID);
+    queueStatsEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     queueStatsEntity2.setQueueName("Queue Name");
     queueStatsEntity2.setServiceId("42");
-    queueStatsEntity2.setTenantId(ModelConstants.NULL_UUID);
-    queueStatsEntity2.setUuid(ModelConstants.NULL_UUID);
+    queueStatsEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(queueStatsEntity, queueStatsEntity2);
@@ -158,23 +287,25 @@ public class QueueStatsEntityDiffblueTest {
    * Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(1L);
-    queueStatsEntity.setId(ModelConstants.NULL_UUID);
+    queueStatsEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     queueStatsEntity.setQueueName(null);
     queueStatsEntity.setServiceId("42");
-    queueStatsEntity.setTenantId(ModelConstants.NULL_UUID);
-    queueStatsEntity.setUuid(ModelConstants.NULL_UUID);
+    queueStatsEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     QueueStatsEntity queueStatsEntity2 = new QueueStatsEntity();
     queueStatsEntity2.setCreatedTime(1L);
-    queueStatsEntity2.setId(ModelConstants.NULL_UUID);
+    queueStatsEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     queueStatsEntity2.setQueueName("Queue Name");
     queueStatsEntity2.setServiceId("42");
-    queueStatsEntity2.setTenantId(ModelConstants.NULL_UUID);
-    queueStatsEntity2.setUuid(ModelConstants.NULL_UUID);
+    queueStatsEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(queueStatsEntity, queueStatsEntity2);
@@ -190,23 +321,25 @@ public class QueueStatsEntityDiffblueTest {
    * Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(1L);
-    queueStatsEntity.setId(ModelConstants.NULL_UUID);
+    queueStatsEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     queueStatsEntity.setQueueName("Queue Name");
     queueStatsEntity.setServiceId("Queue Name");
-    queueStatsEntity.setTenantId(ModelConstants.NULL_UUID);
-    queueStatsEntity.setUuid(ModelConstants.NULL_UUID);
+    queueStatsEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     QueueStatsEntity queueStatsEntity2 = new QueueStatsEntity();
     queueStatsEntity2.setCreatedTime(1L);
-    queueStatsEntity2.setId(ModelConstants.NULL_UUID);
+    queueStatsEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     queueStatsEntity2.setQueueName("Queue Name");
     queueStatsEntity2.setServiceId("42");
-    queueStatsEntity2.setTenantId(ModelConstants.NULL_UUID);
-    queueStatsEntity2.setUuid(ModelConstants.NULL_UUID);
+    queueStatsEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(queueStatsEntity, queueStatsEntity2);
@@ -222,23 +355,25 @@ public class QueueStatsEntityDiffblueTest {
    * Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(1L);
-    queueStatsEntity.setId(ModelConstants.NULL_UUID);
+    queueStatsEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     queueStatsEntity.setQueueName("Queue Name");
     queueStatsEntity.setServiceId(null);
-    queueStatsEntity.setTenantId(ModelConstants.NULL_UUID);
-    queueStatsEntity.setUuid(ModelConstants.NULL_UUID);
+    queueStatsEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     QueueStatsEntity queueStatsEntity2 = new QueueStatsEntity();
     queueStatsEntity2.setCreatedTime(1L);
-    queueStatsEntity2.setId(ModelConstants.NULL_UUID);
+    queueStatsEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     queueStatsEntity2.setQueueName("Queue Name");
     queueStatsEntity2.setServiceId("42");
-    queueStatsEntity2.setTenantId(ModelConstants.NULL_UUID);
-    queueStatsEntity2.setUuid(ModelConstants.NULL_UUID);
+    queueStatsEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(queueStatsEntity, queueStatsEntity2);
@@ -254,23 +389,25 @@ public class QueueStatsEntityDiffblueTest {
    * Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(1L);
-    queueStatsEntity.setId(ModelConstants.NULL_UUID);
+    queueStatsEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     queueStatsEntity.setQueueName("Queue Name");
     queueStatsEntity.setServiceId("42");
-    queueStatsEntity.setTenantId(UUID.randomUUID());
-    queueStatsEntity.setUuid(ModelConstants.NULL_UUID);
+    queueStatsEntity.setTenantId(ModelConstants.NULL_UUID);
+    queueStatsEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     QueueStatsEntity queueStatsEntity2 = new QueueStatsEntity();
     queueStatsEntity2.setCreatedTime(1L);
-    queueStatsEntity2.setId(ModelConstants.NULL_UUID);
+    queueStatsEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     queueStatsEntity2.setQueueName("Queue Name");
     queueStatsEntity2.setServiceId("42");
-    queueStatsEntity2.setTenantId(ModelConstants.NULL_UUID);
-    queueStatsEntity2.setUuid(ModelConstants.NULL_UUID);
+    queueStatsEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(queueStatsEntity, queueStatsEntity2);
@@ -286,23 +423,25 @@ public class QueueStatsEntityDiffblueTest {
    * Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(1L);
-    queueStatsEntity.setId(ModelConstants.NULL_UUID);
+    queueStatsEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     queueStatsEntity.setQueueName("Queue Name");
     queueStatsEntity.setServiceId("42");
     queueStatsEntity.setTenantId(null);
-    queueStatsEntity.setUuid(ModelConstants.NULL_UUID);
+    queueStatsEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     QueueStatsEntity queueStatsEntity2 = new QueueStatsEntity();
     queueStatsEntity2.setCreatedTime(1L);
-    queueStatsEntity2.setId(ModelConstants.NULL_UUID);
+    queueStatsEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     queueStatsEntity2.setQueueName("Queue Name");
     queueStatsEntity2.setServiceId("42");
-    queueStatsEntity2.setTenantId(ModelConstants.NULL_UUID);
-    queueStatsEntity2.setUuid(ModelConstants.NULL_UUID);
+    queueStatsEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(queueStatsEntity, queueStatsEntity2);
@@ -318,15 +457,17 @@ public class QueueStatsEntityDiffblueTest {
    * Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(1L);
-    queueStatsEntity.setId(ModelConstants.NULL_UUID);
+    queueStatsEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     queueStatsEntity.setQueueName("Queue Name");
     queueStatsEntity.setServiceId("42");
-    queueStatsEntity.setTenantId(ModelConstants.NULL_UUID);
-    queueStatsEntity.setUuid(ModelConstants.NULL_UUID);
+    queueStatsEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(queueStatsEntity, null);
@@ -342,15 +483,17 @@ public class QueueStatsEntityDiffblueTest {
    * Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(1L);
-    queueStatsEntity.setId(ModelConstants.NULL_UUID);
+    queueStatsEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     queueStatsEntity.setQueueName("Queue Name");
     queueStatsEntity.setServiceId("42");
-    queueStatsEntity.setTenantId(ModelConstants.NULL_UUID);
-    queueStatsEntity.setUuid(ModelConstants.NULL_UUID);
+    queueStatsEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    queueStatsEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(queueStatsEntity, "Different type to QueueStatsEntity");
@@ -372,39 +515,44 @@ public class QueueStatsEntityDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void QueueStatsEntity.<init>()", "String QueueStatsEntity.getQueueName()",
+      "String QueueStatsEntity.getServiceId()", "UUID QueueStatsEntity.getTenantId()",
+      "void QueueStatsEntity.setQueueName(String)", "void QueueStatsEntity.setServiceId(String)",
+      "void QueueStatsEntity.setTenantId(UUID)", "String QueueStatsEntity.toString()"})
   public void testGettersAndSetters() {
     // Arrange and Act
     QueueStatsEntity actualQueueStatsEntity = new QueueStatsEntity();
     actualQueueStatsEntity.setQueueName("Queue Name");
     actualQueueStatsEntity.setServiceId("42");
-    UUID tenantId = ModelConstants.NULL_UUID;
+    UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     actualQueueStatsEntity.setTenantId(tenantId);
     String actualToStringResult = actualQueueStatsEntity.toString();
     String actualQueueName = actualQueueStatsEntity.getQueueName();
     String actualServiceId = actualQueueStatsEntity.getServiceId();
     UUID actualTenantId = actualQueueStatsEntity.getTenantId();
 
-    // Assert that nothing has changed
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualTenantId.toString());
+    // Assert
     assertEquals("42", actualServiceId);
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualTenantId.toString());
     assertEquals("Queue Name", actualQueueName);
-    assertEquals("QueueStatsEntity(tenantId=13814000-1dd2-11b2-8080-808080808080, queueName=Queue Name, serviceId=42)",
+    assertEquals("QueueStatsEntity(tenantId=784f394c-42b6-435a-983c-b7beff2784f9, queueName=Queue Name, serviceId=42)",
         actualToStringResult);
+    assertNull(actualQueueStatsEntity.getId());
+    assertNull(actualQueueStatsEntity.getUuid());
     assertEquals(0L, actualQueueStatsEntity.getCreatedTime());
     assertSame(tenantId, actualTenantId);
   }
 
   /**
    * Test {@link QueueStatsEntity#QueueStatsEntity(QueueStats)}.
-   * <ul>
-   *   <li>Given {@code null}.</li>
-   *   <li>When {@link QueueStats#QueueStats()} Id is {@code null}.</li>
-   * </ul>
    * <p>
    * Method under test: {@link QueueStatsEntity#QueueStatsEntity(QueueStats)}
    */
   @Test
-  public void testNewQueueStatsEntity_givenNull_whenQueueStatsIdIsNull() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void QueueStatsEntity.<init>(QueueStats)"})
+  public void testNewQueueStatsEntity() {
     // Arrange
     QueueStats queueStats = new QueueStats();
     queueStats.setId(null);
@@ -430,6 +578,8 @@ public class QueueStatsEntityDiffblueTest {
    * Method under test: {@link QueueStatsEntity#QueueStatsEntity(QueueStats)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void QueueStatsEntity.<init>(QueueStats)"})
   public void testNewQueueStatsEntity_givenOne_thenReturnCreatedTimeIsOne() {
     // Arrange
     QueueStats queueStats = new QueueStats();
@@ -448,27 +598,28 @@ public class QueueStatsEntityDiffblueTest {
   /**
    * Test {@link QueueStatsEntity#QueueStatsEntity(QueueStats)}.
    * <ul>
-   *   <li>Then return Id toString is
-   * {@code 13814000-1dd2-11b2-8080-808080808080}.</li>
+   *   <li>Then return Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
    * </ul>
    * <p>
    * Method under test: {@link QueueStatsEntity#QueueStatsEntity(QueueStats)}
    */
   @Test
-  public void testNewQueueStatsEntity_thenReturnIdToStringIs138140001dd211b28080808080808080() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void QueueStatsEntity.<init>(QueueStats)"})
+  public void testNewQueueStatsEntity_thenReturnIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     QueueStats queueStats = new QueueStats();
-    queueStats.setId(new QueueStatsId(ModelConstants.NULL_UUID));
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    queueStats.setId(new QueueStatsId(id));
     queueStats.setTenantId(ModelConstants.SYSTEM_TENANT);
 
     // Act
     QueueStatsEntity actualQueueStatsEntity = new QueueStatsEntity(queueStats);
 
     // Assert
-    UUID id = actualQueueStatsEntity.getId();
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", id.toString());
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualQueueStatsEntity.getTenantId().toString());
-    assertEquals(0L, actualQueueStatsEntity.getCreatedTime());
+    UUID id2 = actualQueueStatsEntity.getId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id2.toString());
+    assertSame(id, id2);
     assertSame(id, actualQueueStatsEntity.getUuid());
   }
 
@@ -482,6 +633,8 @@ public class QueueStatsEntityDiffblueTest {
    * Method under test: {@link QueueStatsEntity#QueueStatsEntity(QueueStats)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void QueueStatsEntity.<init>(QueueStats)"})
   public void testNewQueueStatsEntity_whenQueueStats_thenReturnTenantIdIsNull() {
     // Arrange and Act
     QueueStatsEntity actualQueueStatsEntity = new QueueStatsEntity(new QueueStats());
@@ -499,6 +652,8 @@ public class QueueStatsEntityDiffblueTest {
    * Method under test: {@link QueueStatsEntity#toData()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"QueueStats QueueStatsEntity.toData()"})
   public void testToData() {
     // Arrange and Act
     QueueStats actualToDataResult = (new QueueStatsEntity()).toData();

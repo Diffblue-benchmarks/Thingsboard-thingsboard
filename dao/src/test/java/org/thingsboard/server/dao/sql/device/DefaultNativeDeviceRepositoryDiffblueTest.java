@@ -4,7 +4,10 @@ import static org.junit.Assert.assertSame;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +24,8 @@ import org.thingsboard.server.common.data.DeviceIdInfo;
 import org.thingsboard.server.common.data.page.PageData;
 
 @ContextConfiguration(classes = {DefaultNativeDeviceRepository.class})
-@RunWith(SpringJUnit4ClassRunner.class)
 @DisabledInAotMode
+@RunWith(SpringJUnit4ClassRunner.class)
 public class DefaultNativeDeviceRepositoryDiffblueTest {
   @Autowired
   private DefaultNativeDeviceRepository defaultNativeDeviceRepository;
@@ -36,13 +39,14 @@ public class DefaultNativeDeviceRepositoryDiffblueTest {
   /**
    * Test {@link DefaultNativeDeviceRepository#findDeviceIdInfos(Pageable)}.
    * <p>
-   * Method under test:
-   * {@link DefaultNativeDeviceRepository#findDeviceIdInfos(Pageable)}
+   * Method under test: {@link DefaultNativeDeviceRepository#findDeviceIdInfos(Pageable)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"PageData DefaultNativeDeviceRepository.findDeviceIdInfos(Pageable)"})
   public void testFindDeviceIdInfos() throws TransactionException {
     // Arrange
-    PageData<Object> emptyPageDataResult = PageData.emptyPageData();
+    PageData<DeviceIdInfo> emptyPageDataResult = PageData.emptyPageData();
     when(transactionTemplate.execute(Mockito.<TransactionCallback<Object>>any())).thenReturn(emptyPageDataResult);
 
     // Act

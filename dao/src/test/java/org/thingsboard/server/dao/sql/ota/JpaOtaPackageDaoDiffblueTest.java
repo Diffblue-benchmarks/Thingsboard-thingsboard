@@ -5,10 +5,13 @@ import static org.junit.Assert.assertNull;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.persistence.EntityManagerFactory;
 import java.util.UUID;
 import javax.sql.DataSource;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +30,10 @@ import org.thingsboard.server.dao.model.sql.OtaPackageEntity;
 import org.thingsboard.server.dao.sql.JpaExecutorService;
 
 @ContextConfiguration(classes = {JpaOtaPackageDao.class})
-@RunWith(SpringJUnit4ClassRunner.class)
-@PropertySource("classpath:application-test.properties")
-@EnableConfigurationProperties
 @DisabledInAotMode
+@EnableConfigurationProperties
+@PropertySource("classpath:application-test.properties")
+@RunWith(SpringJUnit4ClassRunner.class)
 public class JpaOtaPackageDaoDiffblueTest {
   @MockBean
   private DataSource dataSource;
@@ -64,6 +67,9 @@ public class JpaOtaPackageDaoDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"Class JpaOtaPackageDao.getEntityClass()", "EntityType JpaOtaPackageDao.getEntityType()",
+      "org.springframework.data.jpa.repository.JpaRepository JpaOtaPackageDao.getRepository()"})
   public void testGettersAndSetters() {
     // Arrange
     JpaOtaPackageDao jpaOtaPackageDao = new JpaOtaPackageDao();
@@ -89,6 +95,8 @@ public class JpaOtaPackageDaoDiffblueTest {
    * Method under test: {@link JpaOtaPackageDao#sumDataSizeByTenantId(TenantId)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"Long JpaOtaPackageDao.sumDataSizeByTenantId(TenantId)"})
   public void testSumDataSizeByTenantId_whenSystem_tenant_thenReturnLongValueIsOne() {
     // Arrange
     when(otaPackageRepository.sumDataSizeByTenantId(Mockito.<UUID>any())).thenReturn(1L);

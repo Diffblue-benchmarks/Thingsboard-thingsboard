@@ -2,13 +2,14 @@ package org.thingsboard.server.actors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TbActorSystemSettingsDiffblueTest {
   /**
-   * Test {@link TbActorSystemSettings#equals(Object)}, and
-   * {@link TbActorSystemSettings#hashCode()}.
+   * Test {@link TbActorSystemSettings#equals(Object)}, and {@link TbActorSystemSettings#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -22,6 +23,8 @@ class TbActorSystemSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbActorSystemSettings.equals(Object)", "int TbActorSystemSettings.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbActorSystemSettings tbActorSystemSettings = new TbActorSystemSettings(1, 3, 3);
@@ -34,8 +37,7 @@ class TbActorSystemSettingsDiffblueTest {
   }
 
   /**
-   * Test {@link TbActorSystemSettings#equals(Object)}, and
-   * {@link TbActorSystemSettings#hashCode()}.
+   * Test {@link TbActorSystemSettings#equals(Object)}, and {@link TbActorSystemSettings#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -49,6 +51,8 @@ class TbActorSystemSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbActorSystemSettings.equals(Object)", "int TbActorSystemSettings.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbActorSystemSettings tbActorSystemSettings = new TbActorSystemSettings(1, 3, 3);
@@ -70,6 +74,8 @@ class TbActorSystemSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbActorSystemSettings.equals(Object)", "int TbActorSystemSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TbActorSystemSettings tbActorSystemSettings = new TbActorSystemSettings(3, 3, 3);
@@ -89,6 +95,8 @@ class TbActorSystemSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbActorSystemSettings.equals(Object)", "int TbActorSystemSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbActorSystemSettings tbActorSystemSettings = new TbActorSystemSettings(1, 1, 3);
@@ -108,6 +116,8 @@ class TbActorSystemSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbActorSystemSettings.equals(Object)", "int TbActorSystemSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbActorSystemSettings tbActorSystemSettings = new TbActorSystemSettings(1, 3, 1);
@@ -127,6 +137,8 @@ class TbActorSystemSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbActorSystemSettings.equals(Object)", "int TbActorSystemSettings.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbActorSystemSettings(1, 3, 3), null);
@@ -143,6 +155,8 @@ class TbActorSystemSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbActorSystemSettings.equals(Object)", "int TbActorSystemSettings.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbActorSystemSettings(1, 3, 3), "Different type to TbActorSystemSettings");
@@ -162,6 +176,10 @@ class TbActorSystemSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbActorSystemSettings.<init>(int, int, int)",
+      "int TbActorSystemSettings.getActorThroughput()", "int TbActorSystemSettings.getMaxActorInitAttempts()",
+      "int TbActorSystemSettings.getSchedulerPoolSize()", "String TbActorSystemSettings.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbActorSystemSettings actualTbActorSystemSettings = new TbActorSystemSettings(1, 3, 3);

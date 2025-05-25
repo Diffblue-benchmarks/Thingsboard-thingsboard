@@ -1,7 +1,9 @@
 package org.thingsboard.server.common.data;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class BaseDataDiffblueTest {
@@ -12,6 +14,8 @@ class BaseDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getCreatedTime()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long BaseData.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
     assertEquals(0L, (new ApiUsageState()).getCreatedTime());
@@ -24,6 +28,8 @@ class BaseDataDiffblueTest {
    */
   @Test
   @DisplayName("Test setCreatedTime(long)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseData.setCreatedTime(long)"})
   void testSetCreatedTime() {
     // Arrange
     AdminSettings adminSettings = new AdminSettings();

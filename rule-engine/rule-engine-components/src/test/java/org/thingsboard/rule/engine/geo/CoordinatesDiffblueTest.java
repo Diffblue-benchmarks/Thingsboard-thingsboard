@@ -2,7 +2,9 @@ package org.thingsboard.rule.engine.geo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class CoordinatesDiffblueTest {
@@ -21,6 +23,8 @@ class CoordinatesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Coordinates.equals(Object)", "int Coordinates.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     Coordinates coordinates = new Coordinates(10.0d, 10.0d);
@@ -47,6 +51,8 @@ class CoordinatesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Coordinates.equals(Object)", "int Coordinates.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     Coordinates coordinates = new Coordinates(10.0d, 10.0d);
@@ -68,6 +74,8 @@ class CoordinatesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Coordinates.equals(Object)", "int Coordinates.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     Coordinates coordinates = new Coordinates(0.5d, 10.0d);
@@ -87,6 +95,8 @@ class CoordinatesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Coordinates.equals(Object)", "int Coordinates.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     Coordinates coordinates = new Coordinates(10.0d, 0.5d);
@@ -106,6 +116,8 @@ class CoordinatesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Coordinates.equals(Object)", "int Coordinates.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new Coordinates(10.0d, 10.0d), null);
@@ -122,6 +134,8 @@ class CoordinatesDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Coordinates.equals(Object)", "int Coordinates.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new Coordinates(10.0d, 10.0d), "Different type to Coordinates");
@@ -139,6 +153,9 @@ class CoordinatesDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"double Coordinates.getLatitude()", "double Coordinates.getLongitude()",
+      "String Coordinates.toString()"})
   void testGettersAndSetters() {
     // Arrange
     Coordinates coordinates = new Coordinates(10.0d, 10.0d);
@@ -160,6 +177,8 @@ class CoordinatesDiffblueTest {
    */
   @Test
   @DisplayName("Test new Coordinates(double, double)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Coordinates.<init>(double, double)"})
   void testNewCoordinates() {
     // Arrange and Act
     Coordinates actualCoordinates = new Coordinates(10.0d, 10.0d);

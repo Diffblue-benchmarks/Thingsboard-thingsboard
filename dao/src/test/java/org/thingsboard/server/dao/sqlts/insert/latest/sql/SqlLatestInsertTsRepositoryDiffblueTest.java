@@ -10,32 +10,39 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mockito;
-import org.thingsboard.server.dao.model.ModelConstants;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.thingsboard.server.dao.model.sqlts.latest.TsKvLatestEntity;
 
+@RunWith(MockitoJUnitRunner.class)
 public class SqlLatestInsertTsRepositoryDiffblueTest {
+  @InjectMocks
+  private SqlLatestInsertTsRepository sqlLatestInsertTsRepository;
+
   /**
-   * Test
-   * {@link SqlLatestInsertTsRepository#setOnBatchUpdateValues(PreparedStatement, int, List)}.
+   * Test {@link SqlLatestInsertTsRepository#setOnBatchUpdateValues(PreparedStatement, int, List)}.
    * <ul>
    *   <li>Then calls {@link PreparedStatement#setNull(int, int)}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SqlLatestInsertTsRepository#setOnBatchUpdateValues(PreparedStatement, int, List)}
+   * Method under test: {@link SqlLatestInsertTsRepository#setOnBatchUpdateValues(PreparedStatement, int, List)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void SqlLatestInsertTsRepository.setOnBatchUpdateValues(PreparedStatement, int, List)"})
   public void testSetOnBatchUpdateValues_thenCallsSetNull() throws SQLException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    SqlLatestInsertTsRepository sqlLatestInsertTsRepository = new SqlLatestInsertTsRepository();
     PreparedStatement ps = mock(PreparedStatement.class);
     doThrow(new SQLException()).when(ps).setNull(anyInt(), anyInt());
     doNothing().when(ps).setLong(anyInt(), anyLong());
@@ -45,7 +52,7 @@ public class SqlLatestInsertTsRepositoryDiffblueTest {
     tsKvLatestEntity.setAggValuesLastTs(42L);
     tsKvLatestEntity.setBooleanValue(null);
     tsKvLatestEntity.setDoubleValue(10.0d);
-    tsKvLatestEntity.setEntityId(ModelConstants.NULL_UUID);
+    tsKvLatestEntity.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     tsKvLatestEntity.setJsonValue("42");
     tsKvLatestEntity.setKey(1);
     tsKvLatestEntity.setLongValue(42L);
@@ -59,7 +66,7 @@ public class SqlLatestInsertTsRepositoryDiffblueTest {
     tsKvLatestEntity2.setAggValuesLastTs(1L);
     tsKvLatestEntity2.setBooleanValue(false);
     tsKvLatestEntity2.setDoubleValue(0.5d);
-    tsKvLatestEntity2.setEntityId(ModelConstants.NULL_UUID);
+    tsKvLatestEntity2.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     tsKvLatestEntity2.setJsonValue("Json Value");
     tsKvLatestEntity2.setKey(0);
     tsKvLatestEntity2.setLongValue(1L);
@@ -79,23 +86,18 @@ public class SqlLatestInsertTsRepositoryDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link SqlLatestInsertTsRepository#setOnBatchUpdateValues(PreparedStatement, int, List)}.
+   * Test {@link SqlLatestInsertTsRepository#setOnBatchUpdateValues(PreparedStatement, int, List)}.
    * <ul>
-   *   <li>When {@link PreparedStatement}
-   * {@link PreparedStatement#setLong(int, long)} throw
-   * {@link SQLException#SQLException()}.</li>
+   *   <li>When {@link PreparedStatement} {@link PreparedStatement#setLong(int, long)} throw {@link SQLException#SQLException()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SqlLatestInsertTsRepository#setOnBatchUpdateValues(PreparedStatement, int, List)}
+   * Method under test: {@link SqlLatestInsertTsRepository#setOnBatchUpdateValues(PreparedStatement, int, List)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void SqlLatestInsertTsRepository.setOnBatchUpdateValues(PreparedStatement, int, List)"})
   public void testSetOnBatchUpdateValues_whenPreparedStatementSetLongThrowSQLException() throws SQLException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    SqlLatestInsertTsRepository sqlLatestInsertTsRepository = new SqlLatestInsertTsRepository();
     PreparedStatement ps = mock(PreparedStatement.class);
     doThrow(new SQLException()).when(ps).setLong(anyInt(), anyLong());
 
@@ -104,7 +106,7 @@ public class SqlLatestInsertTsRepositoryDiffblueTest {
     tsKvLatestEntity.setAggValuesLastTs(42L);
     tsKvLatestEntity.setBooleanValue(true);
     tsKvLatestEntity.setDoubleValue(10.0d);
-    tsKvLatestEntity.setEntityId(ModelConstants.NULL_UUID);
+    tsKvLatestEntity.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     tsKvLatestEntity.setJsonValue("42");
     tsKvLatestEntity.setKey(1);
     tsKvLatestEntity.setLongValue(42L);
@@ -118,7 +120,7 @@ public class SqlLatestInsertTsRepositoryDiffblueTest {
     tsKvLatestEntity2.setAggValuesLastTs(1L);
     tsKvLatestEntity2.setBooleanValue(false);
     tsKvLatestEntity2.setDoubleValue(0.5d);
-    tsKvLatestEntity2.setEntityId(ModelConstants.NULL_UUID);
+    tsKvLatestEntity2.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     tsKvLatestEntity2.setJsonValue("Json Value");
     tsKvLatestEntity2.setKey(0);
     tsKvLatestEntity2.setLongValue(1L);
@@ -137,22 +139,19 @@ public class SqlLatestInsertTsRepositoryDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link SqlLatestInsertTsRepository#setOnInsertOrUpdateValues(PreparedStatement, int, List)}.
+   * Test {@link SqlLatestInsertTsRepository#setOnInsertOrUpdateValues(PreparedStatement, int, List)}.
    * <ul>
    *   <li>Given {@link SQLException#SQLException()}.</li>
    *   <li>Then throw {@link SQLException}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SqlLatestInsertTsRepository#setOnInsertOrUpdateValues(PreparedStatement, int, List)}
+   * Method under test: {@link SqlLatestInsertTsRepository#setOnInsertOrUpdateValues(PreparedStatement, int, List)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void SqlLatestInsertTsRepository.setOnInsertOrUpdateValues(PreparedStatement, int, List)"})
   public void testSetOnInsertOrUpdateValues_givenSQLException_thenThrowSQLException() throws SQLException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    SqlLatestInsertTsRepository sqlLatestInsertTsRepository = new SqlLatestInsertTsRepository();
     PreparedStatement ps = mock(PreparedStatement.class);
     doThrow(new SQLException()).when(ps).setObject(anyInt(), Mockito.<Object>any());
 
@@ -161,7 +160,7 @@ public class SqlLatestInsertTsRepositoryDiffblueTest {
     tsKvLatestEntity.setAggValuesLastTs(42L);
     tsKvLatestEntity.setBooleanValue(true);
     tsKvLatestEntity.setDoubleValue(10.0d);
-    tsKvLatestEntity.setEntityId(ModelConstants.NULL_UUID);
+    tsKvLatestEntity.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     tsKvLatestEntity.setJsonValue("42");
     tsKvLatestEntity.setKey(1);
     tsKvLatestEntity.setLongValue(42L);
@@ -175,7 +174,7 @@ public class SqlLatestInsertTsRepositoryDiffblueTest {
     tsKvLatestEntity2.setAggValuesLastTs(1L);
     tsKvLatestEntity2.setBooleanValue(false);
     tsKvLatestEntity2.setDoubleValue(0.5d);
-    tsKvLatestEntity2.setEntityId(ModelConstants.NULL_UUID);
+    tsKvLatestEntity2.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     tsKvLatestEntity2.setJsonValue("Json Value");
     tsKvLatestEntity2.setKey(0);
     tsKvLatestEntity2.setLongValue(1L);
@@ -204,6 +203,9 @@ public class SqlLatestInsertTsRepositoryDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"String SqlLatestInsertTsRepository.getBatchUpdateQuery()",
+      "String SqlLatestInsertTsRepository.getInsertOrUpdateQuery()"})
   public void testGettersAndSetters() {
     // Arrange
     SqlLatestInsertTsRepository sqlLatestInsertTsRepository = new SqlLatestInsertTsRepository();

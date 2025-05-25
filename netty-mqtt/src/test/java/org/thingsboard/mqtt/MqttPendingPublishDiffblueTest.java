@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.DuplicatedByteBuf;
 import io.netty.buffer.EmptyByteBuf;
@@ -24,22 +25,25 @@ import io.netty.handler.codec.mqtt.MqttQoS;
 import io.netty.util.concurrent.Promise;
 import java.util.function.Consumer;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class MqttPendingPublishDiffblueTest {
   /**
-   * Test
-   * {@link MqttPendingPublish#MqttPendingPublish(int, Promise, ByteBuf, MqttPublishMessage, MqttQoS, PendingOperation)}.
+   * Test {@link MqttPendingPublish#MqttPendingPublish(int, Promise, ByteBuf, MqttPublishMessage, MqttQoS, PendingOperation)}.
    * <p>
-   * Method under test:
-   * {@link MqttPendingPublish#MqttPendingPublish(int, Promise, ByteBuf, MqttPublishMessage, MqttQoS, PendingOperation)}
+   * Method under test: {@link MqttPendingPublish#MqttPendingPublish(int, Promise, ByteBuf, MqttPublishMessage, MqttQoS, PendingOperation)}
    */
   @Test
   @DisplayName("Test new MqttPendingPublish(int, Promise, ByteBuf, MqttPublishMessage, MqttQoS, PendingOperation)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void MqttPendingPublish.<init>(int, Promise, ByteBuf, MqttPublishMessage, MqttQoS, PendingOperation)"})
   void testNewMqttPendingPublish() {
     // Arrange
     DefaultChannelProgressivePromise future = new DefaultChannelProgressivePromise(new EmbeddedChannel());
-    DuplicatedByteBuf payload = new DuplicatedByteBuf(new EmptyByteBuf(new PooledByteBufAllocator()));
+    EmptyByteBuf buffer = new EmptyByteBuf(new PooledByteBufAllocator());
+    DuplicatedByteBuf payload = new DuplicatedByteBuf(buffer);
     MqttFixedHeader mqttFixedHeader = new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
 
     MqttPublishVariableHeader variableHeader = new MqttPublishVariableHeader("Topic Name", 1);
@@ -52,12 +56,15 @@ class MqttPendingPublishDiffblueTest {
         MqttQoS.AT_MOST_ONCE, mock(PendingOperation.class));
 
     // Assert
+    ByteBuf payload2 = actualMqttPendingPublish.getPayload();
+    assertTrue(payload2 instanceof DuplicatedByteBuf);
     Promise<Void> future2 = actualMqttPendingPublish.getFuture();
     assertTrue(future2 instanceof DefaultChannelProgressivePromise);
     assertEquals(1, actualMqttPendingPublish.getMessageId());
     assertEquals(MqttQoS.AT_MOST_ONCE, actualMqttPendingPublish.getQos());
     assertFalse(actualMqttPendingPublish.isSent());
-    assertSame(payload, actualMqttPendingPublish.getPayload());
+    assertEquals(buffer, payload2);
+    assertSame(payload, payload2);
     assertSame(future, future2);
     assertSame(message, actualMqttPendingPublish.getMessage());
   }
@@ -78,6 +85,11 @@ class MqttPendingPublishDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Promise MqttPendingPublish.getFuture()", "MqttPublishMessage MqttPendingPublish.getMessage()",
+      "int MqttPendingPublish.getMessageId()", "ByteBuf MqttPendingPublish.getPayload()",
+      "MqttQoS MqttPendingPublish.getQos()", "boolean MqttPendingPublish.isSent()",
+      "void MqttPendingPublish.setSent(boolean)"})
   void testGettersAndSetters() {
     // Arrange
     DefaultChannelProgressivePromise future = new DefaultChannelProgressivePromise(new EmbeddedChannel());
@@ -100,7 +112,7 @@ class MqttPendingPublishDiffblueTest {
     ByteBuf actualPayload = mqttPendingPublish.getPayload();
     MqttQoS actualQos = mqttPendingPublish.getQos();
 
-    // Assert that nothing has changed
+    // Assert
     assertTrue(actualFuture instanceof DefaultChannelProgressivePromise);
     assertEquals(1, actualMessageId);
     assertEquals(MqttQoS.AT_MOST_ONCE, actualQos);
@@ -111,17 +123,60 @@ class MqttPendingPublishDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link MqttPendingPublish#startPublishRetransmissionTimer(EventLoop, Consumer)}.
+   * Test {@link MqttPendingPublish#startPublishRetransmissionTimer(EventLoop, Consumer)}.
+   * <ul>
+   *   <li>Then calls {@link ByteBuf#capacity()}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link MqttPendingPublish#startPublishRetransmissionTimer(EventLoop, Consumer)}
+   */
+  @Test
+  @DisplayName("Test startPublishRetransmissionTimer(EventLoop, Consumer); then calls capacity()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPendingPublish.startPublishRetransmissionTimer(EventLoop, Consumer)"})
+  void testStartPublishRetransmissionTimer_thenCallsCapacity() {
+    // Arrange
+    ByteBuf buffer = mock(ByteBuf.class);
+    when(buffer.capacity()).thenReturn(3);
+    when(buffer.maxCapacity()).thenReturn(3);
+    when(buffer.readerIndex()).thenReturn(1);
+    when(buffer.writerIndex()).thenReturn(1);
+    DuplicatedByteBuf payload = new DuplicatedByteBuf(buffer);
+    MqttFixedHeader mqttFixedHeader = new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
+
+    MqttPublishMessage message = new MqttPublishMessage(mqttFixedHeader, new MqttPublishVariableHeader("Topic Name", 1),
+        payload);
+
+    PendingOperation operation = mock(PendingOperation.class);
+    when(operation.isCanceled()).thenReturn(true);
+    DefaultChannelProgressivePromise future = new DefaultChannelProgressivePromise(new EmbeddedChannel());
+    MqttPendingPublish mqttPendingPublish = new MqttPendingPublish(1, future,
+        new DuplicatedByteBuf(new EmptyByteBuf(new PooledByteBufAllocator())), message, MqttQoS.AT_MOST_ONCE,
+        operation);
+
+    // Act
+    mqttPendingPublish.startPublishRetransmissionTimer(new DefaultEventLoop(), mock(Consumer.class));
+
+    // Assert
+    verify(buffer).capacity();
+    verify(buffer).maxCapacity();
+    verify(buffer).readerIndex();
+    verify(buffer).writerIndex();
+    verify(operation).isCanceled();
+  }
+
+  /**
+   * Test {@link MqttPendingPublish#startPublishRetransmissionTimer(EventLoop, Consumer)}.
    * <ul>
    *   <li>Then not {@link DefaultEventLoop#DefaultEventLoop()} Terminated.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MqttPendingPublish#startPublishRetransmissionTimer(EventLoop, Consumer)}
+   * Method under test: {@link MqttPendingPublish#startPublishRetransmissionTimer(EventLoop, Consumer)}
    */
   @Test
   @DisplayName("Test startPublishRetransmissionTimer(EventLoop, Consumer); then not DefaultEventLoop() Terminated")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPendingPublish.startPublishRetransmissionTimer(EventLoop, Consumer)"})
   void testStartPublishRetransmissionTimer_thenNotDefaultEventLoopTerminated() {
     // Arrange
     ByteBuf buffer = mock(ByteBuf.class);
@@ -162,6 +217,8 @@ class MqttPendingPublishDiffblueTest {
    */
   @Test
   @DisplayName("Test onPubackReceived()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPendingPublish.onPubackReceived()"})
   void testOnPubackReceived() {
     // Arrange
     ByteBuf buffer = mock(ByteBuf.class);
@@ -195,6 +252,8 @@ class MqttPendingPublishDiffblueTest {
    */
   @Test
   @DisplayName("Test setPubrelMessage(MqttMessage)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPendingPublish.setPubrelMessage(MqttMessage)"})
   void testSetPubrelMessage() {
     // Arrange
     ByteBuf buffer = mock(ByteBuf.class);
@@ -225,17 +284,17 @@ class MqttPendingPublishDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link MqttPendingPublish#startPubrelRetransmissionTimer(EventLoop, Consumer)}.
+   * Test {@link MqttPendingPublish#startPubrelRetransmissionTimer(EventLoop, Consumer)}.
    * <ul>
    *   <li>Then calls {@link ByteBuf#capacity()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MqttPendingPublish#startPubrelRetransmissionTimer(EventLoop, Consumer)}
+   * Method under test: {@link MqttPendingPublish#startPubrelRetransmissionTimer(EventLoop, Consumer)}
    */
   @Test
   @DisplayName("Test startPubrelRetransmissionTimer(EventLoop, Consumer); then calls capacity()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPendingPublish.startPubrelRetransmissionTimer(EventLoop, Consumer)"})
   void testStartPubrelRetransmissionTimer_thenCallsCapacity() {
     // Arrange
     ByteBuf buffer = mock(ByteBuf.class);
@@ -268,17 +327,17 @@ class MqttPendingPublishDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link MqttPendingPublish#startPubrelRetransmissionTimer(EventLoop, Consumer)}.
+   * Test {@link MqttPendingPublish#startPubrelRetransmissionTimer(EventLoop, Consumer)}.
    * <ul>
    *   <li>Then not {@link DefaultEventLoop#DefaultEventLoop()} Terminated.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MqttPendingPublish#startPubrelRetransmissionTimer(EventLoop, Consumer)}
+   * Method under test: {@link MqttPendingPublish#startPubrelRetransmissionTimer(EventLoop, Consumer)}
    */
   @Test
   @DisplayName("Test startPubrelRetransmissionTimer(EventLoop, Consumer); then not DefaultEventLoop() Terminated")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPendingPublish.startPubrelRetransmissionTimer(EventLoop, Consumer)"})
   void testStartPubrelRetransmissionTimer_thenNotDefaultEventLoopTerminated() {
     // Arrange
     ByteBuf buffer = mock(ByteBuf.class);
@@ -319,6 +378,8 @@ class MqttPendingPublishDiffblueTest {
    */
   @Test
   @DisplayName("Test onPubcompReceived()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPendingPublish.onPubcompReceived()"})
   void testOnPubcompReceived() {
     // Arrange
     ByteBuf buffer = mock(ByteBuf.class);
@@ -352,6 +413,8 @@ class MqttPendingPublishDiffblueTest {
    */
   @Test
   @DisplayName("Test onChannelClosed()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPendingPublish.onChannelClosed()"})
   void testOnChannelClosed() {
     // Arrange
     ByteBuf buffer = mock(ByteBuf.class);
@@ -385,6 +448,8 @@ class MqttPendingPublishDiffblueTest {
    */
   @Test
   @DisplayName("Test onChannelClosed()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPendingPublish.onChannelClosed()"})
   void testOnChannelClosed2() {
     // Arrange
     ByteBuf buffer = mock(ByteBuf.class);
@@ -419,6 +484,8 @@ class MqttPendingPublishDiffblueTest {
    */
   @Test
   @DisplayName("Test onChannelClosed(); then calls isCanceled()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPendingPublish.onChannelClosed()"})
   void testOnChannelClosed_thenCallsIsCanceled() {
     // Arrange
     ByteBuf buffer = mock(ByteBuf.class);

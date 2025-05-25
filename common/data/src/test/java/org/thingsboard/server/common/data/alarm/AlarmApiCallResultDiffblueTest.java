@@ -4,11 +4,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.node.MissingNode;
 import java.util.ArrayList;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.thingsboard.server.common.data.alarm.Alarm.AlarmBuilder;
+import org.thingsboard.server.common.data.alarm.AlarmApiCallResult.AlarmApiCallResultBuilder;
 import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.TenantId;
 
@@ -20,24 +24,26 @@ class AlarmApiCallResultDiffblueTest {
    */
   @Test
   @DisplayName("Test isSeverityChanged()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmApiCallResult.isSeverityChanged()"})
   void testIsSeverityChanged() {
     // Arrange
-    AlarmApiCallResult.AlarmApiCallResultBuilder modifiedResult = AlarmApiCallResult.builder()
+    AlarmApiCallResultBuilder modifiedResult = AlarmApiCallResult.builder()
         .alarm(null)
         .cleared(true)
         .created(true)
         .deleted(true)
         .modified(true);
-    Alarm.AlarmBuilder clearedResult = Alarm.builder()
+    AlarmBuilder clearedResult = Alarm.builder()
         .ackTs(1L)
         .acknowledged(true)
         .assignTs(1L)
         .assigneeId(null)
         .clearTs(1L)
         .cleared(true);
-    Alarm.AlarmBuilder customerIdResult = clearedResult
+    AlarmBuilder customerIdResult = clearedResult
         .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    Alarm.AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
+    AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
         .endTs(1L)
         .originator(TenantId.SYS_TENANT_ID)
         .propagate(true);
@@ -49,7 +55,7 @@ class AlarmApiCallResultDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .type("Type")
         .build();
-    AlarmApiCallResult.AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
+    AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
     AlarmApiCallResult other = oldResult.propagatedEntitiesList(new ArrayList<>()).successful(true).build();
 
     // Act and Assert
@@ -67,26 +73,28 @@ class AlarmApiCallResultDiffblueTest {
    */
   @Test
   @DisplayName("Test isSeverityChanged(); given AlarmInfo() Severity is 'CRITICAL'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmApiCallResult.isSeverityChanged()"})
   void testIsSeverityChanged_givenAlarmInfoSeverityIsCritical_thenReturnFalse() {
     // Arrange
     AlarmInfo alarm = new AlarmInfo();
     alarm.setSeverity(AlarmSeverity.CRITICAL);
-    AlarmApiCallResult.AlarmApiCallResultBuilder modifiedResult = AlarmApiCallResult.builder()
+    AlarmApiCallResultBuilder modifiedResult = AlarmApiCallResult.builder()
         .alarm(alarm)
         .cleared(true)
         .created(true)
         .deleted(true)
         .modified(true);
-    Alarm.AlarmBuilder clearedResult = Alarm.builder()
+    AlarmBuilder clearedResult = Alarm.builder()
         .ackTs(1L)
         .acknowledged(true)
         .assignTs(1L)
         .assigneeId(null)
         .clearTs(1L)
         .cleared(true);
-    Alarm.AlarmBuilder customerIdResult = clearedResult
+    AlarmBuilder customerIdResult = clearedResult
         .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    Alarm.AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
+    AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
         .endTs(1L)
         .originator(TenantId.SYS_TENANT_ID)
         .propagate(true);
@@ -98,7 +106,7 @@ class AlarmApiCallResultDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .type("Type")
         .build();
-    AlarmApiCallResult.AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
+    AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
     AlarmApiCallResult other = oldResult.propagatedEntitiesList(new ArrayList<>()).successful(true).build();
 
     // Act and Assert
@@ -116,26 +124,28 @@ class AlarmApiCallResultDiffblueTest {
    */
   @Test
   @DisplayName("Test isSeverityChanged(); given AlarmInfo() Severity is 'MAJOR'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmApiCallResult.isSeverityChanged()"})
   void testIsSeverityChanged_givenAlarmInfoSeverityIsMajor_thenReturnTrue() {
     // Arrange
     AlarmInfo alarm = new AlarmInfo();
     alarm.setSeverity(AlarmSeverity.MAJOR);
-    AlarmApiCallResult.AlarmApiCallResultBuilder modifiedResult = AlarmApiCallResult.builder()
+    AlarmApiCallResultBuilder modifiedResult = AlarmApiCallResult.builder()
         .alarm(alarm)
         .cleared(true)
         .created(true)
         .deleted(true)
         .modified(true);
-    Alarm.AlarmBuilder clearedResult = Alarm.builder()
+    AlarmBuilder clearedResult = Alarm.builder()
         .ackTs(1L)
         .acknowledged(true)
         .assignTs(1L)
         .assigneeId(null)
         .clearTs(1L)
         .cleared(true);
-    Alarm.AlarmBuilder customerIdResult = clearedResult
+    AlarmBuilder customerIdResult = clearedResult
         .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    Alarm.AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
+    AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
         .endTs(1L)
         .originator(TenantId.SYS_TENANT_ID)
         .propagate(true);
@@ -147,7 +157,7 @@ class AlarmApiCallResultDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .type("Type")
         .build();
-    AlarmApiCallResult.AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
+    AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
     AlarmApiCallResult other = oldResult.propagatedEntitiesList(new ArrayList<>()).successful(true).build();
 
     // Act and Assert
@@ -161,24 +171,26 @@ class AlarmApiCallResultDiffblueTest {
    */
   @Test
   @DisplayName("Test isAcknowledged()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmApiCallResult.isAcknowledged()"})
   void testIsAcknowledged() {
     // Arrange
-    AlarmApiCallResult.AlarmApiCallResultBuilder modifiedResult = AlarmApiCallResult.builder()
+    AlarmApiCallResultBuilder modifiedResult = AlarmApiCallResult.builder()
         .alarm(null)
         .cleared(true)
         .created(true)
         .deleted(true)
         .modified(true);
-    Alarm.AlarmBuilder clearedResult = Alarm.builder()
+    AlarmBuilder clearedResult = Alarm.builder()
         .ackTs(1L)
         .acknowledged(true)
         .assignTs(1L)
         .assigneeId(null)
         .clearTs(1L)
         .cleared(true);
-    Alarm.AlarmBuilder customerIdResult = clearedResult
+    AlarmBuilder customerIdResult = clearedResult
         .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    Alarm.AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
+    AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
         .endTs(1L)
         .originator(TenantId.SYS_TENANT_ID)
         .propagate(true);
@@ -190,7 +202,7 @@ class AlarmApiCallResultDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .type("Type")
         .build();
-    AlarmApiCallResult.AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
+    AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
     AlarmApiCallResult other = oldResult.propagatedEntitiesList(new ArrayList<>()).successful(true).build();
 
     // Act and Assert
@@ -204,24 +216,26 @@ class AlarmApiCallResultDiffblueTest {
    */
   @Test
   @DisplayName("Test isAcknowledged()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmApiCallResult.isAcknowledged()"})
   void testIsAcknowledged2() {
     // Arrange
-    AlarmApiCallResult.AlarmApiCallResultBuilder builderResult = AlarmApiCallResult.builder();
-    AlarmApiCallResult.AlarmApiCallResultBuilder modifiedResult = builderResult.alarm(new AlarmInfo())
+    AlarmApiCallResultBuilder builderResult = AlarmApiCallResult.builder();
+    AlarmApiCallResultBuilder modifiedResult = builderResult.alarm(new AlarmInfo())
         .cleared(true)
         .created(true)
         .deleted(true)
         .modified(true);
-    Alarm.AlarmBuilder clearedResult = Alarm.builder()
+    AlarmBuilder clearedResult = Alarm.builder()
         .ackTs(1L)
         .acknowledged(false)
         .assignTs(1L)
         .assigneeId(null)
         .clearTs(1L)
         .cleared(true);
-    Alarm.AlarmBuilder customerIdResult = clearedResult
+    AlarmBuilder customerIdResult = clearedResult
         .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    Alarm.AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
+    AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
         .endTs(1L)
         .originator(TenantId.SYS_TENANT_ID)
         .propagate(true);
@@ -233,7 +247,7 @@ class AlarmApiCallResultDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .type("Type")
         .build();
-    AlarmApiCallResult.AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
+    AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
     AlarmApiCallResult other = oldResult.propagatedEntitiesList(new ArrayList<>()).successful(true).build();
 
     // Act and Assert
@@ -250,24 +264,26 @@ class AlarmApiCallResultDiffblueTest {
    */
   @Test
   @DisplayName("Test isAcknowledged(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmApiCallResult.isAcknowledged()"})
   void testIsAcknowledged_thenReturnTrue() {
     // Arrange
-    AlarmApiCallResult.AlarmApiCallResultBuilder builderResult = AlarmApiCallResult.builder();
-    AlarmApiCallResult.AlarmApiCallResultBuilder modifiedResult = builderResult.alarm(new AlarmInfo())
+    AlarmApiCallResultBuilder builderResult = AlarmApiCallResult.builder();
+    AlarmApiCallResultBuilder modifiedResult = builderResult.alarm(new AlarmInfo())
         .cleared(true)
         .created(true)
         .deleted(true)
         .modified(true);
-    Alarm.AlarmBuilder clearedResult = Alarm.builder()
+    AlarmBuilder clearedResult = Alarm.builder()
         .ackTs(1L)
         .acknowledged(true)
         .assignTs(1L)
         .assigneeId(null)
         .clearTs(1L)
         .cleared(true);
-    Alarm.AlarmBuilder customerIdResult = clearedResult
+    AlarmBuilder customerIdResult = clearedResult
         .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    Alarm.AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
+    AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
         .endTs(1L)
         .originator(TenantId.SYS_TENANT_ID)
         .propagate(true);
@@ -279,7 +295,7 @@ class AlarmApiCallResultDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .type("Type")
         .build();
-    AlarmApiCallResult.AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
+    AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
     AlarmApiCallResult other = oldResult.propagatedEntitiesList(new ArrayList<>()).successful(true).build();
 
     // Act and Assert
@@ -293,24 +309,26 @@ class AlarmApiCallResultDiffblueTest {
    */
   @Test
   @DisplayName("Test getOldSeverity()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmSeverity AlarmApiCallResult.getOldSeverity()"})
   void testGetOldSeverity() {
     // Arrange
-    AlarmApiCallResult.AlarmApiCallResultBuilder modifiedResult = AlarmApiCallResult.builder()
+    AlarmApiCallResultBuilder modifiedResult = AlarmApiCallResult.builder()
         .alarm(null)
         .cleared(true)
         .created(true)
         .deleted(true)
         .modified(true);
-    Alarm.AlarmBuilder clearedResult = Alarm.builder()
+    AlarmBuilder clearedResult = Alarm.builder()
         .ackTs(1L)
         .acknowledged(true)
         .assignTs(1L)
         .assigneeId(null)
         .clearTs(1L)
         .cleared(true);
-    Alarm.AlarmBuilder customerIdResult = clearedResult
+    AlarmBuilder customerIdResult = clearedResult
         .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    Alarm.AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
+    AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
         .endTs(1L)
         .originator(TenantId.SYS_TENANT_ID)
         .propagate(true);
@@ -322,7 +340,7 @@ class AlarmApiCallResultDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .type("Type")
         .build();
-    AlarmApiCallResult.AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
+    AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
     AlarmApiCallResult other = oldResult.propagatedEntitiesList(new ArrayList<>()).successful(true).build();
 
     // Act and Assert
@@ -340,26 +358,28 @@ class AlarmApiCallResultDiffblueTest {
    */
   @Test
   @DisplayName("Test getOldSeverity(); given AlarmInfo() Severity is 'CRITICAL'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmSeverity AlarmApiCallResult.getOldSeverity()"})
   void testGetOldSeverity_givenAlarmInfoSeverityIsCritical_thenReturnNull() {
     // Arrange
     AlarmInfo alarm = new AlarmInfo();
     alarm.setSeverity(AlarmSeverity.CRITICAL);
-    AlarmApiCallResult.AlarmApiCallResultBuilder modifiedResult = AlarmApiCallResult.builder()
+    AlarmApiCallResultBuilder modifiedResult = AlarmApiCallResult.builder()
         .alarm(alarm)
         .cleared(true)
         .created(true)
         .deleted(true)
         .modified(true);
-    Alarm.AlarmBuilder clearedResult = Alarm.builder()
+    AlarmBuilder clearedResult = Alarm.builder()
         .ackTs(1L)
         .acknowledged(true)
         .assignTs(1L)
         .assigneeId(null)
         .clearTs(1L)
         .cleared(true);
-    Alarm.AlarmBuilder customerIdResult = clearedResult
+    AlarmBuilder customerIdResult = clearedResult
         .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    Alarm.AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
+    AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
         .endTs(1L)
         .originator(TenantId.SYS_TENANT_ID)
         .propagate(true);
@@ -371,7 +391,7 @@ class AlarmApiCallResultDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .type("Type")
         .build();
-    AlarmApiCallResult.AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
+    AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
     AlarmApiCallResult other = oldResult.propagatedEntitiesList(new ArrayList<>()).successful(true).build();
 
     // Act and Assert
@@ -389,26 +409,28 @@ class AlarmApiCallResultDiffblueTest {
    */
   @Test
   @DisplayName("Test getOldSeverity(); given AlarmInfo() Severity is 'MAJOR'; then return 'CRITICAL'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmSeverity AlarmApiCallResult.getOldSeverity()"})
   void testGetOldSeverity_givenAlarmInfoSeverityIsMajor_thenReturnCritical() {
     // Arrange
     AlarmInfo alarm = new AlarmInfo();
     alarm.setSeverity(AlarmSeverity.MAJOR);
-    AlarmApiCallResult.AlarmApiCallResultBuilder modifiedResult = AlarmApiCallResult.builder()
+    AlarmApiCallResultBuilder modifiedResult = AlarmApiCallResult.builder()
         .alarm(alarm)
         .cleared(true)
         .created(true)
         .deleted(true)
         .modified(true);
-    Alarm.AlarmBuilder clearedResult = Alarm.builder()
+    AlarmBuilder clearedResult = Alarm.builder()
         .ackTs(1L)
         .acknowledged(true)
         .assignTs(1L)
         .assigneeId(null)
         .clearTs(1L)
         .cleared(true);
-    Alarm.AlarmBuilder customerIdResult = clearedResult
+    AlarmBuilder customerIdResult = clearedResult
         .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    Alarm.AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
+    AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
         .endTs(1L)
         .originator(TenantId.SYS_TENANT_ID)
         .propagate(true);
@@ -420,7 +442,7 @@ class AlarmApiCallResultDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .type("Type")
         .build();
-    AlarmApiCallResult.AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
+    AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
     AlarmApiCallResult other = oldResult.propagatedEntitiesList(new ArrayList<>()).successful(true).build();
 
     // Act and Assert
@@ -434,24 +456,26 @@ class AlarmApiCallResultDiffblueTest {
    */
   @Test
   @DisplayName("Test isPropagationChanged()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmApiCallResult.isPropagationChanged()"})
   void testIsPropagationChanged() {
     // Arrange
-    AlarmApiCallResult.AlarmApiCallResultBuilder builderResult = AlarmApiCallResult.builder();
-    AlarmApiCallResult.AlarmApiCallResultBuilder modifiedResult = builderResult.alarm(new AlarmInfo())
+    AlarmApiCallResultBuilder builderResult = AlarmApiCallResult.builder();
+    AlarmApiCallResultBuilder modifiedResult = builderResult.alarm(new AlarmInfo())
         .cleared(true)
         .created(true)
         .deleted(true)
         .modified(true);
-    Alarm.AlarmBuilder clearedResult = Alarm.builder()
+    AlarmBuilder clearedResult = Alarm.builder()
         .ackTs(1L)
         .acknowledged(true)
         .assignTs(1L)
         .assigneeId(null)
         .clearTs(1L)
         .cleared(true);
-    Alarm.AlarmBuilder customerIdResult = clearedResult
+    AlarmBuilder customerIdResult = clearedResult
         .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    Alarm.AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
+    AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
         .endTs(1L)
         .originator(TenantId.SYS_TENANT_ID)
         .propagate(true);
@@ -463,7 +487,7 @@ class AlarmApiCallResultDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .type("Type")
         .build();
-    AlarmApiCallResult.AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
+    AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
     AlarmApiCallResult other = oldResult.propagatedEntitiesList(new ArrayList<>()).successful(true).build();
 
     // Act and Assert
@@ -477,24 +501,26 @@ class AlarmApiCallResultDiffblueTest {
    */
   @Test
   @DisplayName("Test isPropagationChanged()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmApiCallResult.isPropagationChanged()"})
   void testIsPropagationChanged2() {
     // Arrange
-    AlarmApiCallResult.AlarmApiCallResultBuilder builderResult = AlarmApiCallResult.builder();
-    AlarmApiCallResult.AlarmApiCallResultBuilder modifiedResult = builderResult.alarm(new AlarmInfo())
+    AlarmApiCallResultBuilder builderResult = AlarmApiCallResult.builder();
+    AlarmApiCallResultBuilder modifiedResult = builderResult.alarm(new AlarmInfo())
         .cleared(true)
         .created(false)
         .deleted(true)
         .modified(true);
-    Alarm.AlarmBuilder clearedResult = Alarm.builder()
+    AlarmBuilder clearedResult = Alarm.builder()
         .ackTs(1L)
         .acknowledged(true)
         .assignTs(1L)
         .assigneeId(null)
         .clearTs(1L)
         .cleared(true);
-    Alarm.AlarmBuilder customerIdResult = clearedResult
+    AlarmBuilder customerIdResult = clearedResult
         .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    Alarm.AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
+    AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
         .endTs(1L)
         .originator(TenantId.SYS_TENANT_ID)
         .propagate(true);
@@ -506,7 +532,7 @@ class AlarmApiCallResultDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .type("Type")
         .build();
-    AlarmApiCallResult.AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
+    AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
     AlarmApiCallResult other = oldResult.propagatedEntitiesList(new ArrayList<>()).successful(true).build();
 
     // Act and Assert
@@ -520,24 +546,26 @@ class AlarmApiCallResultDiffblueTest {
    */
   @Test
   @DisplayName("Test isPropagationChanged()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmApiCallResult.isPropagationChanged()"})
   void testIsPropagationChanged3() {
     // Arrange
-    AlarmApiCallResult.AlarmApiCallResultBuilder builderResult = AlarmApiCallResult.builder();
-    AlarmApiCallResult.AlarmApiCallResultBuilder modifiedResult = builderResult.alarm(new AlarmInfo())
+    AlarmApiCallResultBuilder builderResult = AlarmApiCallResult.builder();
+    AlarmApiCallResultBuilder modifiedResult = builderResult.alarm(new AlarmInfo())
         .cleared(true)
         .created(false)
         .deleted(true)
         .modified(true);
-    Alarm.AlarmBuilder clearedResult = Alarm.builder()
+    AlarmBuilder clearedResult = Alarm.builder()
         .ackTs(1L)
         .acknowledged(true)
         .assignTs(1L)
         .assigneeId(null)
         .clearTs(1L)
         .cleared(true);
-    Alarm.AlarmBuilder customerIdResult = clearedResult
+    AlarmBuilder customerIdResult = clearedResult
         .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    Alarm.AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
+    AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
         .endTs(1L)
         .originator(TenantId.SYS_TENANT_ID)
         .propagate(false);
@@ -549,7 +577,7 @@ class AlarmApiCallResultDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .type("Type")
         .build();
-    AlarmApiCallResult.AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
+    AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
     AlarmApiCallResult other = oldResult.propagatedEntitiesList(new ArrayList<>()).successful(true).build();
 
     // Act and Assert
@@ -566,24 +594,26 @@ class AlarmApiCallResultDiffblueTest {
    */
   @Test
   @DisplayName("Test isPropagationChanged(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmApiCallResult.isPropagationChanged()"})
   void testIsPropagationChanged_thenReturnFalse() {
     // Arrange
-    AlarmApiCallResult.AlarmApiCallResultBuilder modifiedResult = AlarmApiCallResult.builder()
+    AlarmApiCallResultBuilder modifiedResult = AlarmApiCallResult.builder()
         .alarm(null)
         .cleared(true)
         .created(false)
         .deleted(true)
         .modified(true);
-    Alarm.AlarmBuilder clearedResult = Alarm.builder()
+    AlarmBuilder clearedResult = Alarm.builder()
         .ackTs(1L)
         .acknowledged(true)
         .assignTs(1L)
         .assigneeId(null)
         .clearTs(1L)
         .cleared(true);
-    Alarm.AlarmBuilder customerIdResult = clearedResult
+    AlarmBuilder customerIdResult = clearedResult
         .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    Alarm.AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
+    AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
         .endTs(1L)
         .originator(TenantId.SYS_TENANT_ID)
         .propagate(true);
@@ -595,7 +625,7 @@ class AlarmApiCallResultDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .type("Type")
         .build();
-    AlarmApiCallResult.AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
+    AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
     AlarmApiCallResult other = oldResult.propagatedEntitiesList(new ArrayList<>()).successful(true).build();
 
     // Act and Assert

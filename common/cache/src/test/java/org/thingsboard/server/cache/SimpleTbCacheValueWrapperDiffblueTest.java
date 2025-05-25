@@ -5,9 +5,12 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.cache.Cache;
+import org.springframework.cache.Cache.ValueWrapper;
 
 class SimpleTbCacheValueWrapperDiffblueTest {
   /**
@@ -21,6 +24,8 @@ class SimpleTbCacheValueWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object SimpleTbCacheValueWrapper.get()", "String SimpleTbCacheValueWrapper.toString()"})
   void testGettersAndSetters() {
     // Arrange
     SimpleTbCacheValueWrapper<Object> emptyResult = SimpleTbCacheValueWrapper.empty();
@@ -40,6 +45,8 @@ class SimpleTbCacheValueWrapperDiffblueTest {
    */
   @Test
   @DisplayName("Test empty()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"SimpleTbCacheValueWrapper SimpleTbCacheValueWrapper.empty()"})
   void testEmpty() {
     // Arrange and Act
     SimpleTbCacheValueWrapper<Object> actualEmptyResult = SimpleTbCacheValueWrapper.empty();
@@ -49,16 +56,22 @@ class SimpleTbCacheValueWrapperDiffblueTest {
   }
 
   /**
-   * Test {@link SimpleTbCacheValueWrapper#wrap(ValueWrapper)} with
-   * {@code source}.
+   * Test {@link SimpleTbCacheValueWrapper#wrap(ValueWrapper)} with {@code source}.
+   * <ul>
+   *   <li>Given {@code Get}.</li>
+   *   <li>When {@link ValueWrapper} {@link ValueWrapper#get()} return {@code Get}.</li>
+   *   <li>Then return {@link SimpleTbCacheValueWrapper#get()} is {@code Get}.</li>
+   * </ul>
    * <p>
-   * Method under test: {@link SimpleTbCacheValueWrapper#wrap(Cache.ValueWrapper)}
+   * Method under test: {@link SimpleTbCacheValueWrapper#wrap(ValueWrapper)}
    */
   @Test
-  @DisplayName("Test wrap(ValueWrapper) with 'source'")
-  void testWrapWithSource() {
+  @DisplayName("Test wrap(ValueWrapper) with 'source'; given 'Get'; when ValueWrapper get() return 'Get'; then return get() is 'Get'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"SimpleTbCacheValueWrapper SimpleTbCacheValueWrapper.wrap(ValueWrapper)"})
+  void testWrapWithSource_givenGet_whenValueWrapperGetReturnGet_thenReturnGetIsGet() {
     // Arrange
-    Cache.ValueWrapper source = mock(Cache.ValueWrapper.class);
+    ValueWrapper source = mock(ValueWrapper.class);
     when(source.get()).thenReturn("Get");
 
     // Act
@@ -71,12 +84,36 @@ class SimpleTbCacheValueWrapperDiffblueTest {
   }
 
   /**
+   * Test {@link SimpleTbCacheValueWrapper#wrap(ValueWrapper)} with {@code source}.
+   * <ul>
+   *   <li>When {@code null}.</li>
+   *   <li>Then {@code null}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link SimpleTbCacheValueWrapper#wrap(ValueWrapper)}
+   */
+  @Test
+  @DisplayName("Test wrap(ValueWrapper) with 'source'; when 'null'; then 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"SimpleTbCacheValueWrapper SimpleTbCacheValueWrapper.wrap(ValueWrapper)"})
+  void testWrapWithSource_whenNull_thenNull() {
+    // Arrange and Act
+    SimpleTbCacheValueWrapper<Object> actualWrapResult = SimpleTbCacheValueWrapper.wrap((ValueWrapper) null);
+
+    // Assert
+    assertNull(null);
+    assertNull(actualWrapResult);
+  }
+
+  /**
    * Test {@link SimpleTbCacheValueWrapper#wrap(Object)} with {@code value}.
    * <p>
    * Method under test: {@link SimpleTbCacheValueWrapper#wrap(Object)}
    */
   @Test
   @DisplayName("Test wrap(Object) with 'value'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"SimpleTbCacheValueWrapper SimpleTbCacheValueWrapper.wrap(Object)"})
   void testWrapWithValue() {
     // Arrange and Act
     SimpleTbCacheValueWrapper<Object> actualWrapResult = SimpleTbCacheValueWrapper.wrap("Value");

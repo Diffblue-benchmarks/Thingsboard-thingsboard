@@ -2,26 +2,28 @@ package org.thingsboard.rule.engine.rpc;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TbSendRpcRequestNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbSendRpcRequestNodeConfiguration#defaultConfiguration()}.
    * <p>
-   * Method under test:
-   * {@link TbSendRpcRequestNodeConfiguration#defaultConfiguration()}
+   * Method under test: {@link TbSendRpcRequestNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbSendRpcRequestNodeConfiguration TbSendRpcRequestNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
     // Arrange, Act and Assert
     assertEquals(60, (new TbSendRpcRequestNodeConfiguration()).defaultConfiguration().getTimeoutInSeconds());
   }
 
   /**
-   * Test {@link TbSendRpcRequestNodeConfiguration#equals(Object)}, and
-   * {@link TbSendRpcRequestNodeConfiguration#hashCode()}.
+   * Test {@link TbSendRpcRequestNodeConfiguration#equals(Object)}, and {@link TbSendRpcRequestNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -35,6 +37,9 @@ class TbSendRpcRequestNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSendRpcRequestNodeConfiguration.equals(Object)",
+      "int TbSendRpcRequestNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbSendRpcRequestNodeConfiguration tbSendRpcRequestNodeConfiguration = new TbSendRpcRequestNodeConfiguration();
@@ -47,8 +52,7 @@ class TbSendRpcRequestNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSendRpcRequestNodeConfiguration#equals(Object)}, and
-   * {@link TbSendRpcRequestNodeConfiguration#hashCode()}.
+   * Test {@link TbSendRpcRequestNodeConfiguration#equals(Object)}, and {@link TbSendRpcRequestNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -62,6 +66,9 @@ class TbSendRpcRequestNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSendRpcRequestNodeConfiguration.equals(Object)",
+      "int TbSendRpcRequestNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbSendRpcRequestNodeConfiguration tbSendRpcRequestNodeConfiguration = new TbSendRpcRequestNodeConfiguration();
@@ -83,6 +90,9 @@ class TbSendRpcRequestNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSendRpcRequestNodeConfiguration.equals(Object)",
+      "int TbSendRpcRequestNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbSendRpcRequestNodeConfiguration(), 1);
@@ -99,6 +109,9 @@ class TbSendRpcRequestNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSendRpcRequestNodeConfiguration.equals(Object)",
+      "int TbSendRpcRequestNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbSendRpcRequestNodeConfiguration tbSendRpcRequestNodeConfiguration = new TbSendRpcRequestNodeConfiguration();
@@ -119,6 +132,9 @@ class TbSendRpcRequestNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSendRpcRequestNodeConfiguration.equals(Object)",
+      "int TbSendRpcRequestNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbSendRpcRequestNodeConfiguration(), null);
@@ -135,6 +151,9 @@ class TbSendRpcRequestNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbSendRpcRequestNodeConfiguration.equals(Object)",
+      "int TbSendRpcRequestNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbSendRpcRequestNodeConfiguration(), "Different type to TbSendRpcRequestNodeConfiguration");
@@ -145,8 +164,7 @@ class TbSendRpcRequestNodeConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link TbSendRpcRequestNodeConfiguration}
+   *   <li>default or parameterless constructor of {@link TbSendRpcRequestNodeConfiguration}
    *   <li>{@link TbSendRpcRequestNodeConfiguration#setTimeoutInSeconds(int)}
    *   <li>{@link TbSendRpcRequestNodeConfiguration#toString()}
    *   <li>{@link TbSendRpcRequestNodeConfiguration#getTimeoutInSeconds()}
@@ -154,13 +172,18 @@ class TbSendRpcRequestNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbSendRpcRequestNodeConfiguration.<init>()",
+      "int TbSendRpcRequestNodeConfiguration.getTimeoutInSeconds()",
+      "void TbSendRpcRequestNodeConfiguration.setTimeoutInSeconds(int)",
+      "String TbSendRpcRequestNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbSendRpcRequestNodeConfiguration actualTbSendRpcRequestNodeConfiguration = new TbSendRpcRequestNodeConfiguration();
     actualTbSendRpcRequestNodeConfiguration.setTimeoutInSeconds(10);
     String actualToStringResult = actualTbSendRpcRequestNodeConfiguration.toString();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("TbSendRpcRequestNodeConfiguration(timeoutInSeconds=10)", actualToStringResult);
     assertEquals(10, actualTbSendRpcRequestNodeConfiguration.getTimeoutInSeconds());
   }

@@ -2,7 +2,9 @@ package org.thingsboard.server.common.data.device.credentials.lwm2m;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class PSKBootstrapClientCredentialDiffblueTest {
@@ -11,13 +13,15 @@ class PSKBootstrapClientCredentialDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link PSKBootstrapClientCredential}
+   *   <li>default or parameterless constructor of {@link PSKBootstrapClientCredential}
    *   <li>{@link PSKBootstrapClientCredential#getSecurityMode()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PSKBootstrapClientCredential.<init>()",
+      "LwM2MSecurityMode PSKBootstrapClientCredential.getSecurityMode()"})
   void testGettersAndSetters() {
     // Arrange and Act
     PSKBootstrapClientCredential actualPskBootstrapClientCredential = new PSKBootstrapClientCredential();

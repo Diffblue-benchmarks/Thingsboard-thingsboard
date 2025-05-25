@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.cache.caffeine.CaffeineCacheManager;
 import org.springframework.context.ApplicationEventPublisher;
@@ -25,13 +27,16 @@ class EntityRelationControllerDiffblueTest {
    *   <li>Then throw {@link IllegalArgumentException}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntityRelationController#saveRelation(EntityRelation)}
+   * Method under test: {@link EntityRelationController#saveRelation(EntityRelation)}
    */
   @Test
   @DisplayName("Test saveRelation(EntityRelation); then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityRelationController.saveRelation(EntityRelation)"})
   void testSaveRelation_thenThrowIllegalArgumentException() throws ThingsboardException {
     //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+    //   Run dcover create --keep-partial-tests to gain insights into why
+    //   a non-Spring test was created.
 
     // Arrange
     JpaRelationDao relationDao = new JpaRelationDao();
@@ -56,13 +61,16 @@ class EntityRelationControllerDiffblueTest {
    *   <li>Then throw {@link IllegalArgumentException}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntityRelationController#saveRelationV2(EntityRelation)}
+   * Method under test: {@link EntityRelationController#saveRelationV2(EntityRelation)}
    */
   @Test
   @DisplayName("Test saveRelationV2(EntityRelation); then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityRelation EntityRelationController.saveRelationV2(EntityRelation)"})
   void testSaveRelationV2_thenThrowIllegalArgumentException() throws ThingsboardException {
     //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+    //   Run dcover create --keep-partial-tests to gain insights into why
+    //   a non-Spring test was created.
 
     // Arrange
     JpaRelationDao relationDao = new JpaRelationDao();

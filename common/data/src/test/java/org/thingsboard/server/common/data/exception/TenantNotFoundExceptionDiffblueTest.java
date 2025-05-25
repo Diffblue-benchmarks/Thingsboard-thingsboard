@@ -3,7 +3,9 @@ package org.thingsboard.server.common.data.exception;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.TenantId;
 
@@ -11,11 +13,12 @@ class TenantNotFoundExceptionDiffblueTest {
   /**
    * Test {@link TenantNotFoundException#TenantNotFoundException(TenantId)}.
    * <p>
-   * Method under test:
-   * {@link TenantNotFoundException#TenantNotFoundException(TenantId)}
+   * Method under test: {@link TenantNotFoundException#TenantNotFoundException(TenantId)}
    */
   @Test
   @DisplayName("Test new TenantNotFoundException(TenantId)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TenantNotFoundException.<init>(TenantId)"})
   void testNewTenantNotFoundException() {
     // Arrange
     TenantId tenantId = TenantId.SYS_TENANT_ID;
@@ -41,6 +44,8 @@ class TenantNotFoundExceptionDiffblueTest {
    */
   @Test
   @DisplayName("Test getTenantId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TenantId TenantNotFoundException.getTenantId()"})
   void testGetTenantId() {
     // Arrange and Act
     TenantId actualTenantId = (new TenantNotFoundException(TenantId.SYS_TENANT_ID)).getTenantId();

@@ -6,9 +6,11 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class HomeDashboardDiffblueTest {
@@ -23,6 +25,8 @@ class HomeDashboardDiffblueTest {
    */
   @Test
   @DisplayName("Test new HomeDashboard(Dashboard, boolean); given 'true'; then return MobileHide")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void HomeDashboard.<init>(Dashboard, boolean)"})
   void testNewHomeDashboard_givenTrue_thenReturnMobileHide() {
     // Arrange
     Dashboard dashboard = new Dashboard();
@@ -62,6 +66,8 @@ class HomeDashboardDiffblueTest {
    */
   @Test
   @DisplayName("Test new HomeDashboard(Dashboard, boolean); when Dashboard(); then return not MobileHide")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void HomeDashboard.<init>(Dashboard, boolean)"})
   void testNewHomeDashboard_whenDashboard_thenReturnNotMobileHide() {
     // Arrange and Act
     HomeDashboard actualHomeDashboard = new HomeDashboard(new Dashboard(), true);
@@ -87,8 +93,7 @@ class HomeDashboardDiffblueTest {
   }
 
   /**
-   * Test {@link HomeDashboard#equals(Object)}, and
-   * {@link HomeDashboard#hashCode()}.
+   * Test {@link HomeDashboard#equals(Object)}, and {@link HomeDashboard#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -102,6 +107,8 @@ class HomeDashboardDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean HomeDashboard.equals(Object)", "int HomeDashboard.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     HomeDashboard homeDashboard = new HomeDashboard(new Dashboard(), true);
@@ -114,8 +121,7 @@ class HomeDashboardDiffblueTest {
   }
 
   /**
-   * Test {@link HomeDashboard#equals(Object)}, and
-   * {@link HomeDashboard#hashCode()}.
+   * Test {@link HomeDashboard#equals(Object)}, and {@link HomeDashboard#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -129,6 +135,8 @@ class HomeDashboardDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean HomeDashboard.equals(Object)", "int HomeDashboard.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     HomeDashboard homeDashboard = new HomeDashboard(new Dashboard(), true);
@@ -142,6 +150,27 @@ class HomeDashboardDiffblueTest {
   /**
    * Test {@link HomeDashboard#equals(Object)}.
    * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link HomeDashboard#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean HomeDashboard.equals(Object)", "int HomeDashboard.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    HomeDashboard homeDashboard = new HomeDashboard(new Dashboard(), false);
+
+    // Act and Assert
+    assertNotEquals(homeDashboard, new HomeDashboard(new Dashboard(), true));
+  }
+
+  /**
+   * Test {@link HomeDashboard#equals(Object)}.
+   * <ul>
    *   <li>When other is {@code null}.</li>
    *   <li>Then return not equal.</li>
    * </ul>
@@ -150,6 +179,8 @@ class HomeDashboardDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean HomeDashboard.equals(Object)", "int HomeDashboard.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new HomeDashboard(new Dashboard(), true), null);
@@ -166,6 +197,8 @@ class HomeDashboardDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean HomeDashboard.equals(Object)", "int HomeDashboard.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new HomeDashboard(new Dashboard(), true), "Different type to HomeDashboard");
@@ -183,6 +216,9 @@ class HomeDashboardDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean HomeDashboard.isHideDashboardToolbar()",
+      "void HomeDashboard.setHideDashboardToolbar(boolean)", "String HomeDashboard.toString()"})
   void testGettersAndSetters() {
     // Arrange
     HomeDashboard homeDashboard = new HomeDashboard(new Dashboard(), true);
@@ -191,7 +227,7 @@ class HomeDashboardDiffblueTest {
     homeDashboard.setHideDashboardToolbar(true);
     String actualToStringResult = homeDashboard.toString();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("HomeDashboard(hideDashboardToolbar=true)", actualToStringResult);
     assertTrue(homeDashboard.isHideDashboardToolbar());
   }

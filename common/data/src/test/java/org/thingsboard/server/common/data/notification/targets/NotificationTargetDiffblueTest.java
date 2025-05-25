@@ -4,20 +4,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.thingsboard.server.common.data.AdminSettings;
 import org.thingsboard.server.common.data.id.NotificationTargetId;
 import org.thingsboard.server.common.data.id.TenantId;
-import org.thingsboard.server.common.data.notification.targets.platform.PlatformUsersNotificationTargetConfig;
-import org.thingsboard.server.common.data.notification.targets.platform.UsersFilter;
 
 class NotificationTargetDiffblueTest {
   /**
-   * Test {@link NotificationTarget#equals(Object)}, and
-   * {@link NotificationTarget#hashCode()}.
+   * Test {@link NotificationTarget#equals(Object)}, and {@link NotificationTarget#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -31,6 +28,8 @@ class NotificationTargetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTarget.equals(Object)", "int NotificationTarget.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     NotificationTarget notificationTarget = new NotificationTarget();
@@ -43,8 +42,7 @@ class NotificationTargetDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationTarget#equals(Object)}, and
-   * {@link NotificationTarget#hashCode()}.
+   * Test {@link NotificationTarget#equals(Object)}, and {@link NotificationTarget#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -58,6 +56,8 @@ class NotificationTargetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTarget.equals(Object)", "int NotificationTarget.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     NotificationTarget notificationTarget = new NotificationTarget();
@@ -73,8 +73,7 @@ class NotificationTargetDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationTarget#equals(Object)}, and
-   * {@link NotificationTarget#hashCode()}.
+   * Test {@link NotificationTarget#equals(Object)}, and {@link NotificationTarget#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -88,6 +87,8 @@ class NotificationTargetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTarget.equals(Object)", "int NotificationTarget.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     NotificationTarget notificationTarget = new NotificationTarget();
@@ -103,8 +104,7 @@ class NotificationTargetDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationTarget#equals(Object)}, and
-   * {@link NotificationTarget#hashCode()}.
+   * Test {@link NotificationTarget#equals(Object)}, and {@link NotificationTarget#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -118,6 +118,8 @@ class NotificationTargetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTarget.equals(Object)", "int NotificationTarget.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     NotificationTarget notificationTarget = new NotificationTarget();
@@ -133,8 +135,7 @@ class NotificationTargetDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationTarget#equals(Object)}, and
-   * {@link NotificationTarget#hashCode()}.
+   * Test {@link NotificationTarget#equals(Object)}, and {@link NotificationTarget#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -148,6 +149,8 @@ class NotificationTargetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTarget.equals(Object)", "int NotificationTarget.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     NotificationTarget notificationTarget = new NotificationTarget();
@@ -164,8 +167,7 @@ class NotificationTargetDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationTarget#equals(Object)}, and
-   * {@link NotificationTarget#hashCode()}.
+   * Test {@link NotificationTarget#equals(Object)}, and {@link NotificationTarget#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -179,6 +181,8 @@ class NotificationTargetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTarget.equals(Object)", "int NotificationTarget.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     NotificationTarget notificationTarget = new NotificationTarget();
@@ -200,10 +204,11 @@ class NotificationTargetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTarget.equals(Object)", "int NotificationTarget.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new NotificationTarget(), 1);
-    assertNotEquals(new NotificationTarget(), mock(AdminSettings.class));
   }
 
   /**
@@ -217,6 +222,8 @@ class NotificationTargetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTarget.equals(Object)", "int NotificationTarget.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     NotificationTarget notificationTarget = new NotificationTarget();
@@ -237,6 +244,8 @@ class NotificationTargetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTarget.equals(Object)", "int NotificationTarget.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     NotificationTarget notificationTarget = new NotificationTarget();
@@ -257,6 +266,8 @@ class NotificationTargetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTarget.equals(Object)", "int NotificationTarget.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     NotificationTarget notificationTarget = new NotificationTarget();
@@ -277,6 +288,8 @@ class NotificationTargetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTarget.equals(Object)", "int NotificationTarget.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     NotificationTarget notificationTarget = new NotificationTarget();
@@ -297,6 +310,8 @@ class NotificationTargetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTarget.equals(Object)", "int NotificationTarget.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     NotificationTarget notificationTarget = new NotificationTarget();
@@ -317,6 +332,8 @@ class NotificationTargetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTarget.equals(Object)", "int NotificationTarget.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     NotificationTarget notificationTarget = new NotificationTarget();
@@ -339,6 +356,8 @@ class NotificationTargetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTarget.equals(Object)", "int NotificationTarget.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     NotificationTarget notificationTarget = new NotificationTarget();
@@ -361,6 +380,8 @@ class NotificationTargetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTarget.equals(Object)", "int NotificationTarget.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     NotificationTarget notificationTarget = new NotificationTarget();
@@ -383,6 +404,8 @@ class NotificationTargetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTarget.equals(Object)", "int NotificationTarget.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     NotificationTarget notificationTarget = new NotificationTarget();
@@ -406,6 +429,8 @@ class NotificationTargetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTarget.equals(Object)", "int NotificationTarget.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new NotificationTarget(), null);
@@ -422,6 +447,8 @@ class NotificationTargetDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTarget.equals(Object)", "int NotificationTarget.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new NotificationTarget(), "Different type to NotificationTarget");
@@ -434,30 +461,9 @@ class NotificationTargetDiffblueTest {
    */
   @Test
   @DisplayName("Test getExternalId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"NotificationTargetId NotificationTarget.getExternalId()"})
   void testGetExternalId() {
-    // Arrange
-    PlatformUsersNotificationTargetConfig configuration = new PlatformUsersNotificationTargetConfig();
-    configuration.setDescription("The characteristics of someone or something");
-    configuration.setUsersFilter(mock(UsersFilter.class));
-
-    NotificationTarget notificationTarget = new NotificationTarget();
-    notificationTarget.setConfiguration(configuration);
-
-    // Act and Assert
-    assertNull(notificationTarget.getExternalId());
-  }
-
-  /**
-   * Test {@link NotificationTarget#getExternalId()}.
-   * <ul>
-   *   <li>Given {@link NotificationTarget#NotificationTarget()}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link NotificationTarget#getExternalId()}
-   */
-  @Test
-  @DisplayName("Test getExternalId(); given NotificationTarget()")
-  void testGetExternalId_givenNotificationTarget() {
     // Arrange, Act and Assert
     assertNull((new NotificationTarget()).getExternalId());
   }
@@ -480,6 +486,12 @@ class NotificationTargetDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NotificationTarget.<init>()",
+      "NotificationTargetConfig NotificationTarget.getConfiguration()", "String NotificationTarget.getName()",
+      "TenantId NotificationTarget.getTenantId()", "void NotificationTarget.setConfiguration(NotificationTargetConfig)",
+      "void NotificationTarget.setExternalId(NotificationTargetId)", "void NotificationTarget.setName(String)",
+      "void NotificationTarget.setTenantId(TenantId)", "String NotificationTarget.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     NotificationTarget actualNotificationTarget = new NotificationTarget();
@@ -494,11 +506,12 @@ class NotificationTargetDiffblueTest {
     String actualName = actualNotificationTarget.getName();
     TenantId actualTenantId = actualNotificationTarget.getTenantId();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Name", actualName);
     assertEquals("NotificationTarget(tenantId=13814000-1dd2-11b2-8080-808080808080, name=Name, configuration=Microsoft"
         + "TeamsNotificationTargetConfig(webhookUrl=null, channelName=null, useOldApi=true), externalId=784f394c"
         + "-42b6-435a-983c-b7beff2784f9)", actualToStringResult);
+    assertNull(actualNotificationTarget.getId());
     assertEquals(0L, actualNotificationTarget.getCreatedTime());
     assertSame(externalId, actualNotificationTarget.getExternalId());
     assertSame(configuration, actualConfiguration);
@@ -507,50 +520,14 @@ class NotificationTargetDiffblueTest {
 
   /**
    * Test {@link NotificationTarget#NotificationTarget(NotificationTarget)}.
-   * <ul>
-   *   <li>Then return Name is {@code null}.</li>
-   * </ul>
    * <p>
-   * Method under test:
-   * {@link NotificationTarget#NotificationTarget(NotificationTarget)}
+   * Method under test: {@link NotificationTarget#NotificationTarget(NotificationTarget)}
    */
   @Test
-  @DisplayName("Test new NotificationTarget(NotificationTarget); then return Name is 'null'")
-  void testNewNotificationTarget_thenReturnNameIsNull() {
-    // Arrange
-    PlatformUsersNotificationTargetConfig configuration = new PlatformUsersNotificationTargetConfig();
-    configuration.setDescription("The characteristics of someone or something");
-    configuration.setUsersFilter(mock(UsersFilter.class));
-
-    NotificationTarget other = new NotificationTarget();
-    other.setConfiguration(configuration);
-
-    // Act
-    NotificationTarget actualNotificationTarget = new NotificationTarget(other);
-
-    // Assert
-    assertNull(actualNotificationTarget.getName());
-    assertNull(actualNotificationTarget.getUuidId());
-    assertNull(actualNotificationTarget.getId());
-    assertNull(actualNotificationTarget.getExternalId());
-    assertNull(actualNotificationTarget.getTenantId());
-    assertEquals(0L, actualNotificationTarget.getCreatedTime());
-    assertSame(configuration, actualNotificationTarget.getConfiguration());
-  }
-
-  /**
-   * Test {@link NotificationTarget#NotificationTarget(NotificationTarget)}.
-   * <ul>
-   *   <li>When {@link NotificationTarget#NotificationTarget()}.</li>
-   *   <li>Then return {@link NotificationTarget#NotificationTarget()}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link NotificationTarget#NotificationTarget(NotificationTarget)}
-   */
-  @Test
-  @DisplayName("Test new NotificationTarget(NotificationTarget); when NotificationTarget(); then return NotificationTarget()")
-  void testNewNotificationTarget_whenNotificationTarget_thenReturnNotificationTarget() {
+  @DisplayName("Test new NotificationTarget(NotificationTarget)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NotificationTarget.<init>(NotificationTarget)"})
+  void testNewNotificationTarget() {
     // Arrange
     NotificationTarget other = new NotificationTarget();
 

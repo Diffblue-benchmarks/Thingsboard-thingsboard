@@ -7,38 +7,50 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.anyBoolean;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashSet;
 import java.util.Set;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.notification.rule.trigger.config.EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder;
 
+@ContextConfiguration(classes = {EntityActionNotificationRuleTriggerConfigBuilder.class})
+@ExtendWith(SpringExtension.class)
 class EntityActionNotificationRuleTriggerConfigDiffblueTest {
+  @Autowired
+  private EntityActionNotificationRuleTriggerConfigBuilder entityActionNotificationRuleTriggerConfigBuilder;
+
   /**
-   * Test EntityActionNotificationRuleTriggerConfigBuilder
-   * {@link EntityActionNotificationRuleTriggerConfigBuilder#build()}.
+   * Test EntityActionNotificationRuleTriggerConfigBuilder {@link EntityActionNotificationRuleTriggerConfigBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder#build()}
-   *   <li>
-   * {@link EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder#created(boolean)}
-   *   <li>
-   * {@link EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder#deleted(boolean)}
-   *   <li>
-   * {@link EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder#entityTypes(Set)}
-   *   <li>
-   * {@link EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder#updated(boolean)}
+   *   <li>{@link EntityActionNotificationRuleTriggerConfigBuilder#build()}
+   *   <li>{@link EntityActionNotificationRuleTriggerConfigBuilder#created(boolean)}
+   *   <li>{@link EntityActionNotificationRuleTriggerConfigBuilder#deleted(boolean)}
+   *   <li>{@link EntityActionNotificationRuleTriggerConfigBuilder#entityTypes(Set)}
+   *   <li>{@link EntityActionNotificationRuleTriggerConfigBuilder#updated(boolean)}
    * </ul>
    */
   @Test
   @DisplayName("Test EntityActionNotificationRuleTriggerConfigBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityActionNotificationRuleTriggerConfigBuilder.<init>()",
+      "EntityActionNotificationRuleTriggerConfig EntityActionNotificationRuleTriggerConfigBuilder.build()",
+      "EntityActionNotificationRuleTriggerConfigBuilder EntityActionNotificationRuleTriggerConfigBuilder.created(boolean)",
+      "EntityActionNotificationRuleTriggerConfigBuilder EntityActionNotificationRuleTriggerConfigBuilder.deleted(boolean)",
+      "EntityActionNotificationRuleTriggerConfigBuilder EntityActionNotificationRuleTriggerConfigBuilder.entityTypes(Set)",
+      "String EntityActionNotificationRuleTriggerConfigBuilder.toString()",
+      "EntityActionNotificationRuleTriggerConfigBuilder EntityActionNotificationRuleTriggerConfigBuilder.updated(boolean)"})
   void testEntityActionNotificationRuleTriggerConfigBuilderBuild() {
     // Arrange
-    EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder deletedResult = EntityActionNotificationRuleTriggerConfig
-        .builder()
+    EntityActionNotificationRuleTriggerConfigBuilder deletedResult = EntityActionNotificationRuleTriggerConfig.builder()
         .created(true)
         .deleted(true);
     HashSet<EntityType> entityTypes = new HashSet<>();
@@ -60,8 +72,7 @@ class EntityActionNotificationRuleTriggerConfigDiffblueTest {
   }
 
   /**
-   * Test {@link EntityActionNotificationRuleTriggerConfig#equals(Object)}, and
-   * {@link EntityActionNotificationRuleTriggerConfig#hashCode()}.
+   * Test {@link EntityActionNotificationRuleTriggerConfig#equals(Object)}, and {@link EntityActionNotificationRuleTriggerConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -75,16 +86,18 @@ class EntityActionNotificationRuleTriggerConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationRuleTriggerConfig.equals(Object)",
+      "int EntityActionNotificationRuleTriggerConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder deletedResult = EntityActionNotificationRuleTriggerConfig
-        .builder()
+    EntityActionNotificationRuleTriggerConfigBuilder deletedResult = EntityActionNotificationRuleTriggerConfig.builder()
         .created(true)
         .deleted(true);
     EntityActionNotificationRuleTriggerConfig buildResult = deletedResult.entityTypes(new HashSet<>())
         .updated(true)
         .build();
-    EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder deletedResult2 = EntityActionNotificationRuleTriggerConfig
+    EntityActionNotificationRuleTriggerConfigBuilder deletedResult2 = EntityActionNotificationRuleTriggerConfig
         .builder()
         .created(true)
         .deleted(true);
@@ -99,8 +112,7 @@ class EntityActionNotificationRuleTriggerConfigDiffblueTest {
   }
 
   /**
-   * Test {@link EntityActionNotificationRuleTriggerConfig#equals(Object)}, and
-   * {@link EntityActionNotificationRuleTriggerConfig#hashCode()}.
+   * Test {@link EntityActionNotificationRuleTriggerConfig#equals(Object)}, and {@link EntityActionNotificationRuleTriggerConfig#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -114,10 +126,12 @@ class EntityActionNotificationRuleTriggerConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationRuleTriggerConfig.equals(Object)",
+      "int EntityActionNotificationRuleTriggerConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder deletedResult = EntityActionNotificationRuleTriggerConfig
-        .builder()
+    EntityActionNotificationRuleTriggerConfigBuilder deletedResult = EntityActionNotificationRuleTriggerConfig.builder()
         .created(true)
         .deleted(true);
     EntityActionNotificationRuleTriggerConfig buildResult = deletedResult.entityTypes(new HashSet<>())
@@ -137,24 +151,26 @@ class EntityActionNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntityActionNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link EntityActionNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationRuleTriggerConfig.equals(Object)",
+      "int EntityActionNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder entityActionNotificationRuleTriggerConfigBuilder = mock(
-        EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder.class);
+    EntityActionNotificationRuleTriggerConfigBuilder entityActionNotificationRuleTriggerConfigBuilder = mock(
+        EntityActionNotificationRuleTriggerConfigBuilder.class);
     when(entityActionNotificationRuleTriggerConfigBuilder.created(anyBoolean()))
         .thenReturn(EntityActionNotificationRuleTriggerConfig.builder());
-    EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder deletedResult = entityActionNotificationRuleTriggerConfigBuilder
+    EntityActionNotificationRuleTriggerConfigBuilder deletedResult = entityActionNotificationRuleTriggerConfigBuilder
         .created(true)
         .deleted(true);
     EntityActionNotificationRuleTriggerConfig buildResult = deletedResult.entityTypes(new HashSet<>())
         .updated(true)
         .build();
-    EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder deletedResult2 = EntityActionNotificationRuleTriggerConfig
+    EntityActionNotificationRuleTriggerConfigBuilder deletedResult2 = EntityActionNotificationRuleTriggerConfig
         .builder()
         .created(true)
         .deleted(true);
@@ -173,24 +189,26 @@ class EntityActionNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntityActionNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link EntityActionNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationRuleTriggerConfig.equals(Object)",
+      "int EntityActionNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder entityActionNotificationRuleTriggerConfigBuilder = mock(
-        EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder.class);
+    EntityActionNotificationRuleTriggerConfigBuilder entityActionNotificationRuleTriggerConfigBuilder = mock(
+        EntityActionNotificationRuleTriggerConfigBuilder.class);
     when(entityActionNotificationRuleTriggerConfigBuilder.created(anyBoolean()))
         .thenReturn(EntityActionNotificationRuleTriggerConfig.builder());
-    EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder deletedResult = entityActionNotificationRuleTriggerConfigBuilder
+    EntityActionNotificationRuleTriggerConfigBuilder deletedResult = entityActionNotificationRuleTriggerConfigBuilder
         .created(true)
         .deleted(false);
     EntityActionNotificationRuleTriggerConfig buildResult = deletedResult.entityTypes(new HashSet<>())
         .updated(true)
         .build();
-    EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder deletedResult2 = EntityActionNotificationRuleTriggerConfig
+    EntityActionNotificationRuleTriggerConfigBuilder deletedResult2 = EntityActionNotificationRuleTriggerConfig
         .builder()
         .created(false)
         .deleted(true);
@@ -209,24 +227,26 @@ class EntityActionNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntityActionNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link EntityActionNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationRuleTriggerConfig.equals(Object)",
+      "int EntityActionNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder entityActionNotificationRuleTriggerConfigBuilder = mock(
-        EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder.class);
+    EntityActionNotificationRuleTriggerConfigBuilder entityActionNotificationRuleTriggerConfigBuilder = mock(
+        EntityActionNotificationRuleTriggerConfigBuilder.class);
     when(entityActionNotificationRuleTriggerConfigBuilder.created(anyBoolean()))
         .thenReturn(EntityActionNotificationRuleTriggerConfig.builder());
-    EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder deletedResult = entityActionNotificationRuleTriggerConfigBuilder
+    EntityActionNotificationRuleTriggerConfigBuilder deletedResult = entityActionNotificationRuleTriggerConfigBuilder
         .created(true)
         .deleted(false);
     EntityActionNotificationRuleTriggerConfig buildResult = deletedResult.entityTypes(new HashSet<>())
         .updated(false)
         .build();
-    EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder deletedResult2 = EntityActionNotificationRuleTriggerConfig
+    EntityActionNotificationRuleTriggerConfigBuilder deletedResult2 = EntityActionNotificationRuleTriggerConfig
         .builder()
         .created(false)
         .deleted(true);
@@ -245,18 +265,20 @@ class EntityActionNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntityActionNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link EntityActionNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationRuleTriggerConfig.equals(Object)",
+      "int EntityActionNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder entityActionNotificationRuleTriggerConfigBuilder = mock(
-        EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder.class);
+    EntityActionNotificationRuleTriggerConfigBuilder entityActionNotificationRuleTriggerConfigBuilder = mock(
+        EntityActionNotificationRuleTriggerConfigBuilder.class);
     when(entityActionNotificationRuleTriggerConfigBuilder.created(anyBoolean()))
         .thenReturn(EntityActionNotificationRuleTriggerConfig.builder());
-    EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder deletedResult = entityActionNotificationRuleTriggerConfigBuilder
+    EntityActionNotificationRuleTriggerConfigBuilder deletedResult = entityActionNotificationRuleTriggerConfigBuilder
         .created(true)
         .deleted(true);
 
@@ -265,7 +287,7 @@ class EntityActionNotificationRuleTriggerConfigDiffblueTest {
     EntityActionNotificationRuleTriggerConfig buildResult = deletedResult.entityTypes(entityTypes)
         .updated(true)
         .build();
-    EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder deletedResult2 = EntityActionNotificationRuleTriggerConfig
+    EntityActionNotificationRuleTriggerConfigBuilder deletedResult2 = EntityActionNotificationRuleTriggerConfig
         .builder()
         .created(false)
         .deleted(true);
@@ -284,15 +306,16 @@ class EntityActionNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntityActionNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link EntityActionNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationRuleTriggerConfig.equals(Object)",
+      "int EntityActionNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder deletedResult = EntityActionNotificationRuleTriggerConfig
-        .builder()
+    EntityActionNotificationRuleTriggerConfigBuilder deletedResult = EntityActionNotificationRuleTriggerConfig.builder()
         .created(true)
         .deleted(true);
     EntityActionNotificationRuleTriggerConfig buildResult = deletedResult.entityTypes(new HashSet<>())
@@ -310,15 +333,16 @@ class EntityActionNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntityActionNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link EntityActionNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityActionNotificationRuleTriggerConfig.equals(Object)",
+      "int EntityActionNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    EntityActionNotificationRuleTriggerConfig.EntityActionNotificationRuleTriggerConfigBuilder deletedResult = EntityActionNotificationRuleTriggerConfig
-        .builder()
+    EntityActionNotificationRuleTriggerConfigBuilder deletedResult = EntityActionNotificationRuleTriggerConfig.builder()
         .created(true)
         .deleted(true);
     EntityActionNotificationRuleTriggerConfig buildResult = deletedResult.entityTypes(new HashSet<>())
@@ -334,8 +358,7 @@ class EntityActionNotificationRuleTriggerConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link EntityActionNotificationRuleTriggerConfig#EntityActionNotificationRuleTriggerConfig()}
+   *   <li>{@link EntityActionNotificationRuleTriggerConfig#EntityActionNotificationRuleTriggerConfig()}
    *   <li>{@link EntityActionNotificationRuleTriggerConfig#setCreated(boolean)}
    *   <li>{@link EntityActionNotificationRuleTriggerConfig#setDeleted(boolean)}
    *   <li>{@link EntityActionNotificationRuleTriggerConfig#setEntityTypes(Set)}
@@ -350,6 +373,19 @@ class EntityActionNotificationRuleTriggerConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityActionNotificationRuleTriggerConfig.<init>()",
+      "void EntityActionNotificationRuleTriggerConfig.<init>(Set, boolean, boolean, boolean)",
+      "Set EntityActionNotificationRuleTriggerConfig.getEntityTypes()",
+      "NotificationRuleTriggerType EntityActionNotificationRuleTriggerConfig.getTriggerType()",
+      "boolean EntityActionNotificationRuleTriggerConfig.isCreated()",
+      "boolean EntityActionNotificationRuleTriggerConfig.isDeleted()",
+      "boolean EntityActionNotificationRuleTriggerConfig.isUpdated()",
+      "void EntityActionNotificationRuleTriggerConfig.setCreated(boolean)",
+      "void EntityActionNotificationRuleTriggerConfig.setDeleted(boolean)",
+      "void EntityActionNotificationRuleTriggerConfig.setEntityTypes(Set)",
+      "void EntityActionNotificationRuleTriggerConfig.setUpdated(boolean)",
+      "String EntityActionNotificationRuleTriggerConfig.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     EntityActionNotificationRuleTriggerConfig actualEntityActionNotificationRuleTriggerConfig = new EntityActionNotificationRuleTriggerConfig();
@@ -365,7 +401,7 @@ class EntityActionNotificationRuleTriggerConfigDiffblueTest {
     boolean actualIsDeletedResult = actualEntityActionNotificationRuleTriggerConfig.isDeleted();
     boolean actualIsUpdatedResult = actualEntityActionNotificationRuleTriggerConfig.isUpdated();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("EntityActionNotificationRuleTriggerConfig(entityTypes=[], created=true, updated=true, deleted=true)",
         actualToStringResult);
     assertEquals(NotificationRuleTriggerType.ENTITY_ACTION, actualTriggerType);
@@ -384,8 +420,7 @@ class EntityActionNotificationRuleTriggerConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link EntityActionNotificationRuleTriggerConfig#EntityActionNotificationRuleTriggerConfig(Set, boolean, boolean, boolean)}
+   *   <li>{@link EntityActionNotificationRuleTriggerConfig#EntityActionNotificationRuleTriggerConfig(Set, boolean, boolean, boolean)}
    *   <li>{@link EntityActionNotificationRuleTriggerConfig#setCreated(boolean)}
    *   <li>{@link EntityActionNotificationRuleTriggerConfig#setDeleted(boolean)}
    *   <li>{@link EntityActionNotificationRuleTriggerConfig#setEntityTypes(Set)}
@@ -400,6 +435,19 @@ class EntityActionNotificationRuleTriggerConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when HashSet()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityActionNotificationRuleTriggerConfig.<init>()",
+      "void EntityActionNotificationRuleTriggerConfig.<init>(Set, boolean, boolean, boolean)",
+      "Set EntityActionNotificationRuleTriggerConfig.getEntityTypes()",
+      "NotificationRuleTriggerType EntityActionNotificationRuleTriggerConfig.getTriggerType()",
+      "boolean EntityActionNotificationRuleTriggerConfig.isCreated()",
+      "boolean EntityActionNotificationRuleTriggerConfig.isDeleted()",
+      "boolean EntityActionNotificationRuleTriggerConfig.isUpdated()",
+      "void EntityActionNotificationRuleTriggerConfig.setCreated(boolean)",
+      "void EntityActionNotificationRuleTriggerConfig.setDeleted(boolean)",
+      "void EntityActionNotificationRuleTriggerConfig.setEntityTypes(Set)",
+      "void EntityActionNotificationRuleTriggerConfig.setUpdated(boolean)",
+      "String EntityActionNotificationRuleTriggerConfig.toString()"})
   void testGettersAndSetters_whenHashSet() {
     // Arrange and Act
     EntityActionNotificationRuleTriggerConfig actualEntityActionNotificationRuleTriggerConfig = new EntityActionNotificationRuleTriggerConfig(
@@ -416,7 +464,7 @@ class EntityActionNotificationRuleTriggerConfigDiffblueTest {
     boolean actualIsDeletedResult = actualEntityActionNotificationRuleTriggerConfig.isDeleted();
     boolean actualIsUpdatedResult = actualEntityActionNotificationRuleTriggerConfig.isUpdated();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("EntityActionNotificationRuleTriggerConfig(entityTypes=[], created=true, updated=true, deleted=true)",
         actualToStringResult);
     assertEquals(NotificationRuleTriggerType.ENTITY_ACTION, actualTriggerType);

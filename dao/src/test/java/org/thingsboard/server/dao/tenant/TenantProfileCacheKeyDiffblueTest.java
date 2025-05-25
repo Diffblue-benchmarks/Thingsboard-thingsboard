@@ -6,9 +6,12 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import java.util.UUID;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.common.data.id.TenantProfileId;
-import org.thingsboard.server.dao.model.ModelConstants;
 
 public class TenantProfileCacheKeyDiffblueTest {
   /**
@@ -21,6 +24,8 @@ public class TenantProfileCacheKeyDiffblueTest {
    * Method under test: {@link TenantProfileCacheKey#fromId(TenantProfileId)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"TenantProfileCacheKey TenantProfileCacheKey.fromId(TenantProfileId)"})
   public void testFromId_whenNull_thenReturnTenantProfileIdIsNull() {
     // Arrange and Act
     TenantProfileCacheKey actualFromIdResult = TenantProfileCacheKey.fromId(null);
@@ -36,6 +41,8 @@ public class TenantProfileCacheKeyDiffblueTest {
    * Method under test: {@link TenantProfileCacheKey#defaultProfile()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"TenantProfileCacheKey TenantProfileCacheKey.defaultProfile()"})
   public void testDefaultProfile() {
     // Arrange and Act
     TenantProfileCacheKey actualDefaultProfileResult = TenantProfileCacheKey.defaultProfile();
@@ -55,6 +62,8 @@ public class TenantProfileCacheKeyDiffblueTest {
    * Method under test: {@link TenantProfileCacheKey#toString()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"java.lang.String TenantProfileCacheKey.toString()"})
   public void testToString_givenDefaultProfile_thenReturnDefault() {
     // Arrange, Act and Assert
     assertEquals("default", TenantProfileCacheKey.defaultProfile().toString());
@@ -63,21 +72,23 @@ public class TenantProfileCacheKeyDiffblueTest {
   /**
    * Test {@link TenantProfileCacheKey#toString()}.
    * <ul>
-   *   <li>Then return {@code 13814000-1dd2-11b2-8080-808080808080}.</li>
+   *   <li>Then return {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
    * </ul>
    * <p>
    * Method under test: {@link TenantProfileCacheKey#toString()}
    */
   @Test
-  public void testToString_thenReturn138140001dd211b28080808080808080() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"java.lang.String TenantProfileCacheKey.toString()"})
+  public void testToString_thenReturn784f394c42b6435a983cB7beff2784f9() {
     // Arrange, Act and Assert
-    assertEquals("13814000-1dd2-11b2-8080-808080808080",
-        TenantProfileCacheKey.fromId(new TenantProfileId(ModelConstants.NULL_UUID)).toString());
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9",
+        TenantProfileCacheKey.fromId(new TenantProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .toString());
   }
 
   /**
-   * Test {@link TenantProfileCacheKey#equals(Object)}, and
-   * {@link TenantProfileCacheKey#hashCode()}.
+   * Test {@link TenantProfileCacheKey#equals(Object)}, and {@link TenantProfileCacheKey#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -90,6 +101,8 @@ public class TenantProfileCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TenantProfileCacheKey.equals(Object)", "int TenantProfileCacheKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TenantProfileCacheKey defaultProfileResult = TenantProfileCacheKey.defaultProfile();
@@ -102,8 +115,7 @@ public class TenantProfileCacheKeyDiffblueTest {
   }
 
   /**
-   * Test {@link TenantProfileCacheKey#equals(Object)}, and
-   * {@link TenantProfileCacheKey#hashCode()}.
+   * Test {@link TenantProfileCacheKey#equals(Object)}, and {@link TenantProfileCacheKey#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -116,10 +128,14 @@ public class TenantProfileCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TenantProfileCacheKey.equals(Object)", "int TenantProfileCacheKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    TenantProfileCacheKey fromIdResult = TenantProfileCacheKey.fromId(new TenantProfileId(ModelConstants.NULL_UUID));
-    TenantProfileCacheKey fromIdResult2 = TenantProfileCacheKey.fromId(new TenantProfileId(ModelConstants.NULL_UUID));
+    TenantProfileCacheKey fromIdResult = TenantProfileCacheKey
+        .fromId(new TenantProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TenantProfileCacheKey fromIdResult2 = TenantProfileCacheKey
+        .fromId(new TenantProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertEquals(fromIdResult, fromIdResult2);
@@ -128,8 +144,7 @@ public class TenantProfileCacheKeyDiffblueTest {
   }
 
   /**
-   * Test {@link TenantProfileCacheKey#equals(Object)}, and
-   * {@link TenantProfileCacheKey#hashCode()}.
+   * Test {@link TenantProfileCacheKey#equals(Object)}, and {@link TenantProfileCacheKey#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -142,6 +157,8 @@ public class TenantProfileCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TenantProfileCacheKey.equals(Object)", "int TenantProfileCacheKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TenantProfileCacheKey defaultProfileResult = TenantProfileCacheKey.defaultProfile();
@@ -162,6 +179,8 @@ public class TenantProfileCacheKeyDiffblueTest {
    * Method under test: {@link TenantProfileCacheKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TenantProfileCacheKey.equals(Object)", "int TenantProfileCacheKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(TenantProfileCacheKey.defaultProfile(), 1);
@@ -177,6 +196,8 @@ public class TenantProfileCacheKeyDiffblueTest {
    * Method under test: {@link TenantProfileCacheKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TenantProfileCacheKey.equals(Object)", "int TenantProfileCacheKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TenantProfileCacheKey fromIdResult = TenantProfileCacheKey.fromId(null);
@@ -195,30 +216,15 @@ public class TenantProfileCacheKeyDiffblueTest {
    * Method under test: {@link TenantProfileCacheKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TenantProfileCacheKey.equals(Object)", "int TenantProfileCacheKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
-    // Arrange
-    TenantProfileCacheKey fromIdResult = TenantProfileCacheKey.fromId(mock(TenantProfileId.class));
-
-    // Act and Assert
-    assertNotEquals(fromIdResult, TenantProfileCacheKey.defaultProfile());
-  }
-
-  /**
-   * Test {@link TenantProfileCacheKey#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TenantProfileCacheKey#equals(Object)}
-   */
-  @Test
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TenantProfileCacheKey fromIdResult = TenantProfileCacheKey.fromId(null);
 
     // Act and Assert
-    assertNotEquals(fromIdResult, TenantProfileCacheKey.fromId(new TenantProfileId(ModelConstants.NULL_UUID)));
+    assertNotEquals(fromIdResult,
+        TenantProfileCacheKey.fromId(new TenantProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
   }
 
   /**
@@ -231,12 +237,15 @@ public class TenantProfileCacheKeyDiffblueTest {
    * Method under test: {@link TenantProfileCacheKey#equals(Object)}
    */
   @Test
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TenantProfileCacheKey.equals(Object)", "int TenantProfileCacheKey.hashCode()"})
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TenantProfileCacheKey fromIdResult = TenantProfileCacheKey.fromId(mock(TenantProfileId.class));
 
     // Act and Assert
-    assertNotEquals(fromIdResult, TenantProfileCacheKey.fromId(new TenantProfileId(ModelConstants.NULL_UUID)));
+    assertNotEquals(fromIdResult,
+        TenantProfileCacheKey.fromId(new TenantProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
   }
 
   /**
@@ -249,6 +258,8 @@ public class TenantProfileCacheKeyDiffblueTest {
    * Method under test: {@link TenantProfileCacheKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TenantProfileCacheKey.equals(Object)", "int TenantProfileCacheKey.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(TenantProfileCacheKey.defaultProfile(), null);
@@ -264,6 +275,8 @@ public class TenantProfileCacheKeyDiffblueTest {
    * Method under test: {@link TenantProfileCacheKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TenantProfileCacheKey.equals(Object)", "int TenantProfileCacheKey.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(TenantProfileCacheKey.defaultProfile(), "Different type to TenantProfileCacheKey");
@@ -279,6 +292,9 @@ public class TenantProfileCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"TenantProfileId TenantProfileCacheKey.getTenantProfileId()",
+      "boolean TenantProfileCacheKey.isDefaultProfile()"})
   public void testGettersAndSetters() {
     // Arrange
     TenantProfileCacheKey defaultProfileResult = TenantProfileCacheKey.defaultProfile();

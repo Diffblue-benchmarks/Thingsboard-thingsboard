@@ -3,14 +3,15 @@ package org.thingsboard.server.dao.model.sqlts.timescale.ts;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertSame;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.Test;
-import org.thingsboard.server.dao.model.ModelConstants;
+import org.junit.experimental.categories.Category;
 
 public class TimescaleTsKvCompositeKeyDiffblueTest {
   /**
-   * Test {@link TimescaleTsKvCompositeKey#equals(Object)}, and
-   * {@link TimescaleTsKvCompositeKey#hashCode()}.
+   * Test {@link TimescaleTsKvCompositeKey#equals(Object)}, and {@link TimescaleTsKvCompositeKey#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -23,6 +24,8 @@ public class TimescaleTsKvCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TimescaleTsKvCompositeKey.equals(Object)", "int TimescaleTsKvCompositeKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TimescaleTsKvCompositeKey timescaleTsKvCompositeKey = new TimescaleTsKvCompositeKey();
@@ -35,8 +38,7 @@ public class TimescaleTsKvCompositeKeyDiffblueTest {
   }
 
   /**
-   * Test {@link TimescaleTsKvCompositeKey#equals(Object)}, and
-   * {@link TimescaleTsKvCompositeKey#hashCode()}.
+   * Test {@link TimescaleTsKvCompositeKey#equals(Object)}, and {@link TimescaleTsKvCompositeKey#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -49,12 +51,14 @@ public class TimescaleTsKvCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TimescaleTsKvCompositeKey.equals(Object)", "int TimescaleTsKvCompositeKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    TimescaleTsKvCompositeKey timescaleTsKvCompositeKey = new TimescaleTsKvCompositeKey(ModelConstants.NULL_UUID, 1,
-        1L);
-    TimescaleTsKvCompositeKey timescaleTsKvCompositeKey2 = new TimescaleTsKvCompositeKey(ModelConstants.NULL_UUID, 1,
-        1L);
+    TimescaleTsKvCompositeKey timescaleTsKvCompositeKey = new TimescaleTsKvCompositeKey(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1, 1L);
+    TimescaleTsKvCompositeKey timescaleTsKvCompositeKey2 = new TimescaleTsKvCompositeKey(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1, 1L);
 
     // Act and Assert
     assertEquals(timescaleTsKvCompositeKey, timescaleTsKvCompositeKey2);
@@ -63,8 +67,7 @@ public class TimescaleTsKvCompositeKeyDiffblueTest {
   }
 
   /**
-   * Test {@link TimescaleTsKvCompositeKey#equals(Object)}, and
-   * {@link TimescaleTsKvCompositeKey#hashCode()}.
+   * Test {@link TimescaleTsKvCompositeKey#equals(Object)}, and {@link TimescaleTsKvCompositeKey#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -77,6 +80,8 @@ public class TimescaleTsKvCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TimescaleTsKvCompositeKey.equals(Object)", "int TimescaleTsKvCompositeKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TimescaleTsKvCompositeKey timescaleTsKvCompositeKey = new TimescaleTsKvCompositeKey();
@@ -97,10 +102,12 @@ public class TimescaleTsKvCompositeKeyDiffblueTest {
    * Method under test: {@link TimescaleTsKvCompositeKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TimescaleTsKvCompositeKey.equals(Object)", "int TimescaleTsKvCompositeKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    TimescaleTsKvCompositeKey timescaleTsKvCompositeKey = new TimescaleTsKvCompositeKey(ModelConstants.NULL_UUID, 1,
-        1L);
+    TimescaleTsKvCompositeKey timescaleTsKvCompositeKey = new TimescaleTsKvCompositeKey(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1, 1L);
 
     // Act and Assert
     assertNotEquals(timescaleTsKvCompositeKey, new TimescaleTsKvCompositeKey());
@@ -116,10 +123,12 @@ public class TimescaleTsKvCompositeKeyDiffblueTest {
    * Method under test: {@link TimescaleTsKvCompositeKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TimescaleTsKvCompositeKey.equals(Object)", "int TimescaleTsKvCompositeKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TimescaleTsKvCompositeKey timescaleTsKvCompositeKey = new TimescaleTsKvCompositeKey();
-    timescaleTsKvCompositeKey.setEntityId(ModelConstants.NULL_UUID);
+    timescaleTsKvCompositeKey.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(timescaleTsKvCompositeKey, new TimescaleTsKvCompositeKey());
@@ -135,6 +144,8 @@ public class TimescaleTsKvCompositeKeyDiffblueTest {
    * Method under test: {@link TimescaleTsKvCompositeKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TimescaleTsKvCompositeKey.equals(Object)", "int TimescaleTsKvCompositeKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TimescaleTsKvCompositeKey timescaleTsKvCompositeKey = new TimescaleTsKvCompositeKey();
@@ -154,12 +165,14 @@ public class TimescaleTsKvCompositeKeyDiffblueTest {
    * Method under test: {@link TimescaleTsKvCompositeKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TimescaleTsKvCompositeKey.equals(Object)", "int TimescaleTsKvCompositeKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TimescaleTsKvCompositeKey timescaleTsKvCompositeKey = new TimescaleTsKvCompositeKey();
 
     TimescaleTsKvCompositeKey timescaleTsKvCompositeKey2 = new TimescaleTsKvCompositeKey();
-    timescaleTsKvCompositeKey2.setEntityId(ModelConstants.NULL_UUID);
+    timescaleTsKvCompositeKey2.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(timescaleTsKvCompositeKey, timescaleTsKvCompositeKey2);
@@ -175,6 +188,8 @@ public class TimescaleTsKvCompositeKeyDiffblueTest {
    * Method under test: {@link TimescaleTsKvCompositeKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TimescaleTsKvCompositeKey.equals(Object)", "int TimescaleTsKvCompositeKey.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TimescaleTsKvCompositeKey(), null);
@@ -190,6 +205,8 @@ public class TimescaleTsKvCompositeKeyDiffblueTest {
    * Method under test: {@link TimescaleTsKvCompositeKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TimescaleTsKvCompositeKey.equals(Object)", "int TimescaleTsKvCompositeKey.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TimescaleTsKvCompositeKey(), "Different type to TimescaleTsKvCompositeKey");
@@ -211,10 +228,16 @@ public class TimescaleTsKvCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void TimescaleTsKvCompositeKey.<init>()",
+      "void TimescaleTsKvCompositeKey.<init>(UUID, int, long)", "UUID TimescaleTsKvCompositeKey.getEntityId()",
+      "int TimescaleTsKvCompositeKey.getKey()", "long TimescaleTsKvCompositeKey.getTs()",
+      "void TimescaleTsKvCompositeKey.setEntityId(UUID)", "void TimescaleTsKvCompositeKey.setKey(int)",
+      "void TimescaleTsKvCompositeKey.setTs(long)", "String TimescaleTsKvCompositeKey.toString()"})
   public void testGettersAndSetters() {
     // Arrange and Act
     TimescaleTsKvCompositeKey actualTimescaleTsKvCompositeKey = new TimescaleTsKvCompositeKey();
-    UUID entityId = ModelConstants.NULL_UUID;
+    UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     actualTimescaleTsKvCompositeKey.setEntityId(entityId);
     actualTimescaleTsKvCompositeKey.setKey(1);
     actualTimescaleTsKvCompositeKey.setTs(1L);
@@ -223,9 +246,9 @@ public class TimescaleTsKvCompositeKeyDiffblueTest {
     int actualKey = actualTimescaleTsKvCompositeKey.getKey();
     long actualTs = actualTimescaleTsKvCompositeKey.getTs();
 
-    // Assert that nothing has changed
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualEntityId.toString());
-    assertEquals("TimescaleTsKvCompositeKey(entityId=13814000-1dd2-11b2-8080-808080808080, key=1, ts=1)",
+    // Assert
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualEntityId.toString());
+    assertEquals("TimescaleTsKvCompositeKey(entityId=784f394c-42b6-435a-983c-b7beff2784f9, key=1, ts=1)",
         actualToStringResult);
     assertEquals(1, actualKey);
     assertEquals(1L, actualTs);
@@ -235,13 +258,12 @@ public class TimescaleTsKvCompositeKeyDiffblueTest {
   /**
    * Test getters and setters.
    * <ul>
-   *   <li>When {@link ModelConstants#NULL_UUID}.</li>
+   *   <li>When fromString {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
    * </ul>
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link TimescaleTsKvCompositeKey#TimescaleTsKvCompositeKey(UUID, int, long)}
+   *   <li>{@link TimescaleTsKvCompositeKey#TimescaleTsKvCompositeKey(UUID, int, long)}
    *   <li>{@link TimescaleTsKvCompositeKey#setEntityId(UUID)}
    *   <li>{@link TimescaleTsKvCompositeKey#setKey(int)}
    *   <li>{@link TimescaleTsKvCompositeKey#setTs(long)}
@@ -252,11 +274,17 @@ public class TimescaleTsKvCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_whenNull_uuid() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void TimescaleTsKvCompositeKey.<init>()",
+      "void TimescaleTsKvCompositeKey.<init>(UUID, int, long)", "UUID TimescaleTsKvCompositeKey.getEntityId()",
+      "int TimescaleTsKvCompositeKey.getKey()", "long TimescaleTsKvCompositeKey.getTs()",
+      "void TimescaleTsKvCompositeKey.setEntityId(UUID)", "void TimescaleTsKvCompositeKey.setKey(int)",
+      "void TimescaleTsKvCompositeKey.setTs(long)", "String TimescaleTsKvCompositeKey.toString()"})
+  public void testGettersAndSetters_whenFromString784f394c42b6435a983cB7beff2784f9() {
     // Arrange and Act
-    TimescaleTsKvCompositeKey actualTimescaleTsKvCompositeKey = new TimescaleTsKvCompositeKey(ModelConstants.NULL_UUID,
-        1, 1L);
-    UUID entityId = ModelConstants.NULL_UUID;
+    TimescaleTsKvCompositeKey actualTimescaleTsKvCompositeKey = new TimescaleTsKvCompositeKey(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1, 1L);
+    UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     actualTimescaleTsKvCompositeKey.setEntityId(entityId);
     actualTimescaleTsKvCompositeKey.setKey(1);
     actualTimescaleTsKvCompositeKey.setTs(1L);
@@ -265,9 +293,9 @@ public class TimescaleTsKvCompositeKeyDiffblueTest {
     int actualKey = actualTimescaleTsKvCompositeKey.getKey();
     long actualTs = actualTimescaleTsKvCompositeKey.getTs();
 
-    // Assert that nothing has changed
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualEntityId.toString());
-    assertEquals("TimescaleTsKvCompositeKey(entityId=13814000-1dd2-11b2-8080-808080808080, key=1, ts=1)",
+    // Assert
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualEntityId.toString());
+    assertEquals("TimescaleTsKvCompositeKey(entityId=784f394c-42b6-435a-983c-b7beff2784f9, key=1, ts=1)",
         actualToStringResult);
     assertEquals(1, actualKey);
     assertEquals(1L, actualTs);

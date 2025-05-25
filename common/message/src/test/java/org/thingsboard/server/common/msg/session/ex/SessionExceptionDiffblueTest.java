@@ -3,20 +3,25 @@ package org.thingsboard.server.common.msg.session.ex;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class SessionExceptionDiffblueTest {
   /**
    * Test {@link SessionException#SessionException(Exception)}.
    * <ul>
-   *   <li>Then return Message is {@code java.lang.Exception: foo}.</li>
+   *   <li>Then return Message is {@code Exception: foo}.</li>
    * </ul>
    * <p>
    * Method under test: {@link SessionException#SessionException(Exception)}
    */
   @Test
   @DisplayName("Test new SessionException(Exception); then return Message is 'java.lang.Exception: foo'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SessionException.<init>(Exception)", "void SessionException.<init>(String)",
+      "void SessionException.<init>(String, Exception)"})
   void testNewSessionException_thenReturnMessageIsJavaLangExceptionFoo() {
     // Arrange
     Exception cause = new Exception("foo");
@@ -41,6 +46,9 @@ class SessionExceptionDiffblueTest {
    */
   @Test
   @DisplayName("Test new SessionException(String); when 'Msg'; then return Cause is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SessionException.<init>(Exception)", "void SessionException.<init>(String)",
+      "void SessionException.<init>(String, Exception)"})
   void testNewSessionException_whenMsg_thenReturnCauseIsNull() {
     // Arrange and Act
     SessionException actualSessionException = new SessionException("Msg");
@@ -58,11 +66,13 @@ class SessionExceptionDiffblueTest {
    *   <li>Then return Message is {@code Msg}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SessionException#SessionException(String, Exception)}
+   * Method under test: {@link SessionException#SessionException(String, Exception)}
    */
   @Test
   @DisplayName("Test new SessionException(String, Exception); when 'Msg'; then return Message is 'Msg'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SessionException.<init>(Exception)", "void SessionException.<init>(String)",
+      "void SessionException.<init>(String, Exception)"})
   void testNewSessionException_whenMsg_thenReturnMessageIsMsg() {
     // Arrange
     Exception cause = new Exception("foo");

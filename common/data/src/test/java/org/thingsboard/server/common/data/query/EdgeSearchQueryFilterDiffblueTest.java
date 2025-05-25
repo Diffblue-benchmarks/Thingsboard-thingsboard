@@ -3,21 +3,21 @@ package org.thingsboard.server.common.data.query;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.thingsboard.server.common.data.id.EntityId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.relation.EntitySearchDirection;
 
 class EdgeSearchQueryFilterDiffblueTest {
   /**
-   * Test {@link EdgeSearchQueryFilter#equals(Object)}, and
-   * {@link EdgeSearchQueryFilter#hashCode()}.
+   * Test {@link EdgeSearchQueryFilter#equals(Object)}, and {@link EdgeSearchQueryFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -31,6 +31,8 @@ class EdgeSearchQueryFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeSearchQueryFilter.equals(Object)", "int EdgeSearchQueryFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EdgeSearchQueryFilter edgeSearchQueryFilter = new EdgeSearchQueryFilter();
@@ -56,8 +58,7 @@ class EdgeSearchQueryFilterDiffblueTest {
   }
 
   /**
-   * Test {@link EdgeSearchQueryFilter#equals(Object)}, and
-   * {@link EdgeSearchQueryFilter#hashCode()}.
+   * Test {@link EdgeSearchQueryFilter#equals(Object)}, and {@link EdgeSearchQueryFilter#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -71,6 +72,8 @@ class EdgeSearchQueryFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeSearchQueryFilter.equals(Object)", "int EdgeSearchQueryFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EdgeSearchQueryFilter edgeSearchQueryFilter = new EdgeSearchQueryFilter();
@@ -98,6 +101,8 @@ class EdgeSearchQueryFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeSearchQueryFilter.equals(Object)", "int EdgeSearchQueryFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     EdgeSearchQueryFilter edgeSearchQueryFilter = new EdgeSearchQueryFilter();
@@ -131,6 +136,8 @@ class EdgeSearchQueryFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeSearchQueryFilter.equals(Object)", "int EdgeSearchQueryFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ArrayList<String> edgeTypes = new ArrayList<>();
@@ -159,39 +166,6 @@ class EdgeSearchQueryFilterDiffblueTest {
   /**
    * Test {@link EdgeSearchQueryFilter#equals(Object)}.
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link EdgeSearchQueryFilter#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
-    // Arrange
-    EdgeSearchQueryFilter edgeSearchQueryFilter = new EdgeSearchQueryFilter();
-    edgeSearchQueryFilter.setDirection(EntitySearchDirection.FROM);
-    edgeSearchQueryFilter.setEdgeTypes(new ArrayList<>());
-    edgeSearchQueryFilter.setFetchLastLevelOnly(true);
-    edgeSearchQueryFilter.setMaxLevel(3);
-    edgeSearchQueryFilter.setRelationType("Relation Type");
-    edgeSearchQueryFilter.setRootEntity(mock(EntityId.class));
-
-    EdgeSearchQueryFilter edgeSearchQueryFilter2 = new EdgeSearchQueryFilter();
-    edgeSearchQueryFilter2.setDirection(EntitySearchDirection.FROM);
-    edgeSearchQueryFilter2.setEdgeTypes(new ArrayList<>());
-    edgeSearchQueryFilter2.setFetchLastLevelOnly(true);
-    edgeSearchQueryFilter2.setMaxLevel(3);
-    edgeSearchQueryFilter2.setRelationType("Relation Type");
-    edgeSearchQueryFilter2.setRootEntity(TenantId.SYS_TENANT_ID);
-
-    // Act and Assert
-    assertNotEquals(edgeSearchQueryFilter, edgeSearchQueryFilter2);
-  }
-
-  /**
-   * Test {@link EdgeSearchQueryFilter#equals(Object)}.
-   * <ul>
    *   <li>When other is {@code null}.</li>
    *   <li>Then return not equal.</li>
    * </ul>
@@ -200,6 +174,8 @@ class EdgeSearchQueryFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeSearchQueryFilter.equals(Object)", "int EdgeSearchQueryFilter.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     EdgeSearchQueryFilter edgeSearchQueryFilter = new EdgeSearchQueryFilter();
@@ -225,6 +201,8 @@ class EdgeSearchQueryFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeSearchQueryFilter.equals(Object)", "int EdgeSearchQueryFilter.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     EdgeSearchQueryFilter edgeSearchQueryFilter = new EdgeSearchQueryFilter();
@@ -253,6 +231,10 @@ class EdgeSearchQueryFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EdgeSearchQueryFilter.<init>()", "List EdgeSearchQueryFilter.getEdgeTypes()",
+      "EntityFilterType EdgeSearchQueryFilter.getType()", "void EdgeSearchQueryFilter.setEdgeTypes(List)",
+      "String EdgeSearchQueryFilter.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     EdgeSearchQueryFilter actualEdgeSearchQueryFilter = new EdgeSearchQueryFilter();
@@ -262,11 +244,14 @@ class EdgeSearchQueryFilterDiffblueTest {
     List<String> actualEdgeTypes = actualEdgeSearchQueryFilter.getEdgeTypes();
     EntityFilterType actualType = actualEdgeSearchQueryFilter.getType();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "EdgeSearchQueryFilter(super=EntitySearchQueryFilter(rootEntity=null, relationType=null, direction=null,"
             + " maxLevel=0, fetchLastLevelOnly=false), edgeTypes=[])",
         actualToStringResult);
+    assertNull(actualEdgeSearchQueryFilter.getRelationType());
+    assertNull(actualEdgeSearchQueryFilter.getRootEntity());
+    assertNull(actualEdgeSearchQueryFilter.getDirection());
     assertEquals(0, actualEdgeSearchQueryFilter.getMaxLevel());
     assertEquals(EntityFilterType.EDGE_SEARCH_QUERY, actualType);
     assertFalse(actualEdgeSearchQueryFilter.isFetchLastLevelOnly());

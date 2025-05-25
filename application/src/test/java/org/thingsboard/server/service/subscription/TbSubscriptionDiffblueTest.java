@@ -4,13 +4,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import java.util.function.BiConsumer;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.service.ws.notification.sub.NotificationsCountSubscription;
-import org.thingsboard.server.service.ws.notification.sub.NotificationsSubscriptionUpdate;
 
 class TbSubscriptionDiffblueTest {
   /**
@@ -23,12 +24,13 @@ class TbSubscriptionDiffblueTest {
    */
   @Test
   @DisplayName("Test getEntityId(); then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"org.thingsboard.server.common.data.id.EntityId TbSubscription.getEntityId()"})
   void testGetEntityId_thenReturnNull() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
-    assertNull((new NotificationsCountSubscription("42", "42", 1, new TenantId(UUID.randomUUID()), null,
-        mock(BiConsumer.class))).getEntityId());
+    assertNull((new NotificationsCountSubscription("42", "42", 1,
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, mock(BiConsumer.class)))
+        .getEntityId());
   }
 
   /**
@@ -41,12 +43,14 @@ class TbSubscriptionDiffblueTest {
    */
   @Test
   @DisplayName("Test getServiceId(); then return '42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String TbSubscription.getServiceId()"})
   void testGetServiceId_thenReturn42() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
-    assertEquals("42", (new NotificationsCountSubscription("42", "42", 1, new TenantId(UUID.randomUUID()), null,
-        mock(BiConsumer.class))).getServiceId());
+    assertEquals("42",
+        (new NotificationsCountSubscription("42", "42", 1,
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, mock(BiConsumer.class)))
+            .getServiceId());
   }
 
   /**
@@ -59,12 +63,14 @@ class TbSubscriptionDiffblueTest {
    */
   @Test
   @DisplayName("Test getSessionId(); then return '42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String TbSubscription.getSessionId()"})
   void testGetSessionId_thenReturn42() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
-    assertEquals("42", (new NotificationsCountSubscription("42", "42", 1, new TenantId(UUID.randomUUID()), null,
-        mock(BiConsumer.class))).getSessionId());
+    assertEquals("42",
+        (new NotificationsCountSubscription("42", "42", 1,
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, mock(BiConsumer.class)))
+            .getSessionId());
   }
 
   /**
@@ -77,29 +83,28 @@ class TbSubscriptionDiffblueTest {
    */
   @Test
   @DisplayName("Test getSubscriptionId(); then return one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int TbSubscription.getSubscriptionId()"})
   void testGetSubscriptionId_thenReturnOne() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
-    assertEquals(1, (new NotificationsCountSubscription("42", "42", 1, new TenantId(UUID.randomUUID()), null,
-        mock(BiConsumer.class))).getSubscriptionId());
+    assertEquals(1,
+        (new NotificationsCountSubscription("42", "42", 1,
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, mock(BiConsumer.class)))
+            .getSubscriptionId());
   }
 
   /**
    * Test {@link TbSubscription#getTenantId()}.
-   * <ul>
-   *   <li>Then return {@link TenantId#TenantId(UUID)} with id is randomUUID.</li>
-   * </ul>
    * <p>
    * Method under test: {@link TbSubscription#getTenantId()}
    */
   @Test
-  @DisplayName("Test getTenantId(); then return TenantId(UUID) with id is randomUUID")
-  void testGetTenantId_thenReturnTenantIdWithIdIsRandomUUID() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test getTenantId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TenantId TbSubscription.getTenantId()"})
+  void testGetTenantId() {
     // Arrange
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertSame(tenantId,
@@ -116,11 +121,13 @@ class TbSubscriptionDiffblueTest {
    */
   @Test
   @DisplayName("Test getType(); then return 'NOTIFICATIONS_COUNT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbSubscriptionType TbSubscription.getType()"})
   void testGetType_thenReturnNotificationsCount() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
-    assertEquals(TbSubscriptionType.NOTIFICATIONS_COUNT, (new NotificationsCountSubscription("42", "42", 1,
-        new TenantId(UUID.randomUUID()), null, mock(BiConsumer.class))).getType());
+    assertEquals(TbSubscriptionType.NOTIFICATIONS_COUNT,
+        (new NotificationsCountSubscription("42", "42", 1,
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, mock(BiConsumer.class)))
+            .getType());
   }
 }

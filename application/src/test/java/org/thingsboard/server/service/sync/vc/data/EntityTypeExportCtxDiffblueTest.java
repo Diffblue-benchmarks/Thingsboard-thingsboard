@@ -2,47 +2,48 @@ package org.thingsboard.server.service.sync.vc.data;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.ArgumentMatchers.isA;
-import static org.mockito.Mockito.anyBoolean;
-import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.User;
 import org.thingsboard.server.common.data.id.TenantId;
+import org.thingsboard.server.common.data.sync.ie.EntityExportSettings;
 import org.thingsboard.server.common.data.sync.vc.request.create.ComplexVersionCreateRequest;
 import org.thingsboard.server.common.data.sync.vc.request.create.EntityTypeVersionCreateConfig;
 import org.thingsboard.server.common.data.sync.vc.request.create.SyncStrategy;
+import org.thingsboard.server.common.data.sync.vc.request.create.VersionCreateRequest;
 
 class EntityTypeExportCtxDiffblueTest {
   /**
-   * Test
-   * {@link EntityTypeExportCtx#EntityTypeExportCtx(EntitiesExportCtx, EntityTypeVersionCreateConfig, SyncStrategy, EntityType)}.
+   * Test {@link EntityTypeExportCtx#EntityTypeExportCtx(EntitiesExportCtx, EntityTypeVersionCreateConfig, SyncStrategy, EntityType)}.
    * <p>
-   * Method under test:
-   * {@link EntityTypeExportCtx#EntityTypeExportCtx(EntitiesExportCtx, EntityTypeVersionCreateConfig, SyncStrategy, EntityType)}
+   * Method under test: {@link EntityTypeExportCtx#EntityTypeExportCtx(EntitiesExportCtx, EntityTypeVersionCreateConfig, SyncStrategy, EntityType)}
    */
   @Test
   @DisplayName("Test new EntityTypeExportCtx(EntitiesExportCtx, EntityTypeVersionCreateConfig, SyncStrategy, EntityType)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void EntityTypeExportCtx.<init>(EntitiesExportCtx, EntityTypeVersionCreateConfig, SyncStrategy, EntityType)"})
   void testNewEntityTypeExportCtx() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    ComplexVersionCreateRequest request = mock(ComplexVersionCreateRequest.class);
-    when(request.getEntityTypes()).thenReturn(new HashMap<>());
-    User user = mock(User.class);
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    ComplexVersionCreateRequest request = new ComplexVersionCreateRequest();
+    request.setBranch("janedoe/featurebranch");
+    request.setEntityTypes(new HashMap<>());
+    request.setSyncStrategy(SyncStrategy.MERGE);
+    request.setVersionName("1.0.2");
+    User user = new User();
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ComplexEntitiesExportCtx parent = new ComplexEntitiesExportCtx(user,
         new CommitGitRequest(tenantId, new ComplexVersionCreateRequest()), request);
 
@@ -54,32 +55,32 @@ class EntityTypeExportCtxDiffblueTest {
     config.setSaveRelations(true);
     config.setSyncStrategy(SyncStrategy.MERGE);
 
-    // Act
-    EntityTypeExportCtx actualEntityTypeExportCtx = new EntityTypeExportCtx(parent, config, SyncStrategy.MERGE,
-        EntityType.TENANT);
-
-    // Assert
-    verify(request).getEntityTypes();
-    assertEquals(parent, actualEntityTypeExportCtx);
+    // Act and Assert
+    assertEquals(parent, new EntityTypeExportCtx(parent, config, SyncStrategy.MERGE, EntityType.TENANT));
   }
 
   /**
-   * Test
-   * {@link EntityTypeExportCtx#EntityTypeExportCtx(EntitiesExportCtx, EntityTypeVersionCreateConfig, SyncStrategy, EntityType)}.
+   * Test {@link EntityTypeExportCtx#EntityTypeExportCtx(EntitiesExportCtx, EntityTypeVersionCreateConfig, SyncStrategy, EntityType)}.
+   * <ul>
+   *   <li>Given {@code null}.</li>
+   * </ul>
    * <p>
-   * Method under test:
-   * {@link EntityTypeExportCtx#EntityTypeExportCtx(EntitiesExportCtx, EntityTypeVersionCreateConfig, SyncStrategy, EntityType)}
+   * Method under test: {@link EntityTypeExportCtx#EntityTypeExportCtx(EntitiesExportCtx, EntityTypeVersionCreateConfig, SyncStrategy, EntityType)}
    */
   @Test
-  @DisplayName("Test new EntityTypeExportCtx(EntitiesExportCtx, EntityTypeVersionCreateConfig, SyncStrategy, EntityType)")
-  void testNewEntityTypeExportCtx2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test new EntityTypeExportCtx(EntitiesExportCtx, EntityTypeVersionCreateConfig, SyncStrategy, EntityType); given 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void EntityTypeExportCtx.<init>(EntitiesExportCtx, EntityTypeVersionCreateConfig, SyncStrategy, EntityType)"})
+  void testNewEntityTypeExportCtx_givenNull() {
     // Arrange
-    ComplexVersionCreateRequest request = mock(ComplexVersionCreateRequest.class);
-    when(request.getEntityTypes()).thenReturn(new HashMap<>());
+    ComplexVersionCreateRequest request = new ComplexVersionCreateRequest();
+    request.setBranch("janedoe/featurebranch");
+    request.setEntityTypes(new HashMap<>());
+    request.setSyncStrategy(SyncStrategy.MERGE);
+    request.setVersionName("1.0.2");
     User user = new User();
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ComplexEntitiesExportCtx parent = new ComplexEntitiesExportCtx(user,
         new CommitGitRequest(tenantId, new ComplexVersionCreateRequest()), request);
 
@@ -91,31 +92,24 @@ class EntityTypeExportCtxDiffblueTest {
     config.setSaveRelations(true);
     config.setSyncStrategy(null);
 
-    // Act
-    EntityTypeExportCtx actualEntityTypeExportCtx = new EntityTypeExportCtx(parent, config, SyncStrategy.OVERWRITE,
-        EntityType.TENANT);
-
-    // Assert
-    verify(request).getEntityTypes();
-    assertEquals(parent, actualEntityTypeExportCtx);
+    // Act and Assert
+    assertEquals(parent, new EntityTypeExportCtx(parent, config, SyncStrategy.OVERWRITE, EntityType.TENANT));
   }
 
   /**
-   * Test
-   * {@link EntityTypeExportCtx#EntityTypeExportCtx(EntitiesExportCtx, EntityTypeVersionCreateConfig, SyncStrategy, EntityType)}.
+   * Test {@link EntityTypeExportCtx#EntityTypeExportCtx(EntitiesExportCtx, EntityTypeVersionCreateConfig, SyncStrategy, EntityType)}.
    * <ul>
-   *   <li>Given {@code OVERWRITE}.</li>
-   *   <li>Then return Overwrite.</li>
+   *   <li>Then Request return {@link ComplexVersionCreateRequest}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EntityTypeExportCtx#EntityTypeExportCtx(EntitiesExportCtx, EntityTypeVersionCreateConfig, SyncStrategy, EntityType)}
+   * Method under test: {@link EntityTypeExportCtx#EntityTypeExportCtx(EntitiesExportCtx, EntityTypeVersionCreateConfig, SyncStrategy, EntityType)}
    */
   @Test
-  @DisplayName("Test new EntityTypeExportCtx(EntitiesExportCtx, EntityTypeVersionCreateConfig, SyncStrategy, EntityType); given 'OVERWRITE'; then return Overwrite")
-  void testNewEntityTypeExportCtx_givenOverwrite_thenReturnOverwrite() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test new EntityTypeExportCtx(EntitiesExportCtx, EntityTypeVersionCreateConfig, SyncStrategy, EntityType); then Request return ComplexVersionCreateRequest")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void EntityTypeExportCtx.<init>(EntitiesExportCtx, EntityTypeVersionCreateConfig, SyncStrategy, EntityType)"})
+  void testNewEntityTypeExportCtx_thenRequestReturnComplexVersionCreateRequest() {
     // Arrange
     ComplexVersionCreateRequest complexVersionCreateRequest = new ComplexVersionCreateRequest();
     complexVersionCreateRequest.setBranch("janedoe/featurebranch");
@@ -125,80 +119,13 @@ class EntityTypeExportCtxDiffblueTest {
     ComplexEntitiesExportCtx parent = mock(ComplexEntitiesExportCtx.class);
     when(parent.getFutures()).thenReturn(new ArrayList<>());
     when(parent.getExternalIdMap()).thenReturn(new HashMap<>());
-    when(parent.getUser()).thenReturn(new User());
+    User user = new User();
+    when(parent.getUser()).thenReturn(user);
     when(parent.getRequest()).thenReturn(complexVersionCreateRequest);
-    TenantId tenantId = new TenantId(UUID.randomUUID());
-    when(parent.getCommit()).thenReturn(new CommitGitRequest(tenantId, new ComplexVersionCreateRequest()));
-    EntityTypeVersionCreateConfig config = mock(EntityTypeVersionCreateConfig.class);
-    when(config.isSaveAttributes()).thenReturn(true);
-    when(config.isSaveCredentials()).thenReturn(true);
-    when(config.isSaveRelations()).thenReturn(true);
-    when(config.getSyncStrategy()).thenReturn(SyncStrategy.OVERWRITE);
-    doNothing().when(config).setAllEntities(anyBoolean());
-    doNothing().when(config).setEntityIds(Mockito.<List<UUID>>any());
-    doNothing().when(config).setSyncStrategy(Mockito.<SyncStrategy>any());
-    doNothing().when(config).setSaveAttributes(anyBoolean());
-    doNothing().when(config).setSaveCredentials(anyBoolean());
-    doNothing().when(config).setSaveRelations(anyBoolean());
-    config.setAllEntities(true);
-    config.setEntityIds(new ArrayList<>());
-    config.setSaveAttributes(true);
-    config.setSaveCredentials(true);
-    config.setSaveRelations(true);
-    config.setSyncStrategy(SyncStrategy.MERGE);
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    CommitGitRequest commitGitRequest = new CommitGitRequest(tenantId, new ComplexVersionCreateRequest());
 
-    // Act
-    EntityTypeExportCtx actualEntityTypeExportCtx = new EntityTypeExportCtx(parent, config, SyncStrategy.MERGE,
-        EntityType.TENANT);
-
-    // Assert
-    verify(config).getSyncStrategy();
-    verify(config).setAllEntities(eq(true));
-    verify(config).setEntityIds(isA(List.class));
-    verify(config).setSyncStrategy(eq(SyncStrategy.MERGE));
-    verify(config).isSaveAttributes();
-    verify(config).isSaveCredentials();
-    verify(config).isSaveRelations();
-    verify(config).setSaveAttributes(eq(true));
-    verify(config).setSaveCredentials(eq(true));
-    verify(config).setSaveRelations(eq(true));
-    verify(parent).getCommit();
-    verify(parent).getExternalIdMap();
-    verify(parent).getFutures();
-    verify(parent).getRequest();
-    verify(parent).getUser();
-    assertTrue(actualEntityTypeExportCtx.isOverwrite());
-    assertSame(complexVersionCreateRequest, actualEntityTypeExportCtx.getRequest());
-  }
-
-  /**
-   * Test
-   * {@link EntityTypeExportCtx#EntityTypeExportCtx(EntitiesExportCtx, EntityTypeVersionCreateConfig, SyncStrategy, EntityType)}.
-   * <ul>
-   *   <li>Then return not Overwrite.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link EntityTypeExportCtx#EntityTypeExportCtx(EntitiesExportCtx, EntityTypeVersionCreateConfig, SyncStrategy, EntityType)}
-   */
-  @Test
-  @DisplayName("Test new EntityTypeExportCtx(EntitiesExportCtx, EntityTypeVersionCreateConfig, SyncStrategy, EntityType); then return not Overwrite")
-  void testNewEntityTypeExportCtx_thenReturnNotOverwrite() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    ComplexVersionCreateRequest complexVersionCreateRequest = new ComplexVersionCreateRequest();
-    complexVersionCreateRequest.setBranch("janedoe/featurebranch");
-    complexVersionCreateRequest.setEntityTypes(new HashMap<>());
-    complexVersionCreateRequest.setSyncStrategy(SyncStrategy.MERGE);
-    complexVersionCreateRequest.setVersionName("1.0.2");
-    ComplexEntitiesExportCtx parent = mock(ComplexEntitiesExportCtx.class);
-    when(parent.getFutures()).thenReturn(new ArrayList<>());
-    when(parent.getExternalIdMap()).thenReturn(new HashMap<>());
-    when(parent.getUser()).thenReturn(new User());
-    when(parent.getRequest()).thenReturn(complexVersionCreateRequest);
-    TenantId tenantId = new TenantId(UUID.randomUUID());
-    when(parent.getCommit()).thenReturn(new CommitGitRequest(tenantId, new ComplexVersionCreateRequest()));
+    when(parent.getCommit()).thenReturn(commitGitRequest);
 
     EntityTypeVersionCreateConfig config = new EntityTypeVersionCreateConfig();
     config.setAllEntities(true);
@@ -218,7 +145,64 @@ class EntityTypeExportCtxDiffblueTest {
     verify(parent).getFutures();
     verify(parent).getRequest();
     verify(parent).getUser();
+    VersionCreateRequest request = actualEntityTypeExportCtx.getRequest();
+    assertTrue(request instanceof ComplexVersionCreateRequest);
+    assertNull(actualEntityTypeExportCtx.getTenantId());
+    assertEquals(EntityType.TENANT, actualEntityTypeExportCtx.getEntityType());
     assertFalse(actualEntityTypeExportCtx.isOverwrite());
-    assertSame(complexVersionCreateRequest, actualEntityTypeExportCtx.getRequest());
+    assertTrue(actualEntityTypeExportCtx.getFutures().isEmpty());
+    assertTrue(actualEntityTypeExportCtx.getExternalIdMap().isEmpty());
+    assertSame(user, actualEntityTypeExportCtx.getUser());
+    assertSame(complexVersionCreateRequest, request);
+    assertSame(commitGitRequest, actualEntityTypeExportCtx.getCommit());
+  }
+
+  /**
+   * Test getters and setters.
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link EntityTypeExportCtx#getEntityType()}
+   *   <li>{@link EntityTypeExportCtx#getSettings()}
+   *   <li>{@link EntityTypeExportCtx#isOverwrite()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityType EntityTypeExportCtx.getEntityType()",
+      "EntityExportSettings EntityTypeExportCtx.getSettings()", "boolean EntityTypeExportCtx.isOverwrite()"})
+  void testGettersAndSetters() {
+    // Arrange
+    ComplexVersionCreateRequest request = new ComplexVersionCreateRequest();
+    request.setBranch("janedoe/featurebranch");
+    request.setEntityTypes(new HashMap<>());
+    request.setSyncStrategy(SyncStrategy.MERGE);
+    request.setVersionName("1.0.2");
+    User user = new User();
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ComplexEntitiesExportCtx parent = new ComplexEntitiesExportCtx(user,
+        new CommitGitRequest(tenantId, new ComplexVersionCreateRequest()), request);
+
+    EntityTypeVersionCreateConfig config = new EntityTypeVersionCreateConfig();
+    config.setAllEntities(true);
+    config.setEntityIds(new ArrayList<>());
+    config.setSaveAttributes(true);
+    config.setSaveCredentials(true);
+    config.setSaveRelations(true);
+    config.setSyncStrategy(SyncStrategy.MERGE);
+    EntityTypeExportCtx entityTypeExportCtx = new EntityTypeExportCtx(parent, config, SyncStrategy.MERGE,
+        EntityType.TENANT);
+
+    // Act
+    EntityType actualEntityType = entityTypeExportCtx.getEntityType();
+    EntityExportSettings actualSettings = entityTypeExportCtx.getSettings();
+
+    // Assert
+    assertEquals(EntityType.TENANT, actualEntityType);
+    assertFalse(entityTypeExportCtx.isOverwrite());
+    assertTrue(actualSettings.isExportAttributes());
+    assertTrue(actualSettings.isExportCredentials());
+    assertTrue(actualSettings.isExportRelations());
   }
 }

@@ -4,19 +4,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.TenantProfile;
 import org.thingsboard.server.common.data.id.TenantId;
 
 class TenantProfileUpdateResultDiffblueTest {
   /**
-   * Test {@link TenantProfileUpdateResult#equals(Object)}, and
-   * {@link TenantProfileUpdateResult#hashCode()}.
+   * Test {@link TenantProfileUpdateResult#equals(Object)}, and {@link TenantProfileUpdateResult#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -30,6 +30,8 @@ class TenantProfileUpdateResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfileUpdateResult.equals(Object)", "int TenantProfileUpdateResult.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TenantProfile profile = new TenantProfile();
@@ -44,8 +46,7 @@ class TenantProfileUpdateResultDiffblueTest {
   }
 
   /**
-   * Test {@link TenantProfileUpdateResult#equals(Object)}, and
-   * {@link TenantProfileUpdateResult#hashCode()}.
+   * Test {@link TenantProfileUpdateResult#equals(Object)}, and {@link TenantProfileUpdateResult#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -59,6 +60,8 @@ class TenantProfileUpdateResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfileUpdateResult.equals(Object)", "int TenantProfileUpdateResult.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TenantProfileUpdateResult tenantProfileUpdateResult = new TenantProfileUpdateResult(null, new HashSet<>());
@@ -71,8 +74,7 @@ class TenantProfileUpdateResultDiffblueTest {
   }
 
   /**
-   * Test {@link TenantProfileUpdateResult#equals(Object)}, and
-   * {@link TenantProfileUpdateResult#hashCode()}.
+   * Test {@link TenantProfileUpdateResult#equals(Object)}, and {@link TenantProfileUpdateResult#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -86,6 +88,8 @@ class TenantProfileUpdateResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfileUpdateResult.equals(Object)", "int TenantProfileUpdateResult.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TenantProfile profile = new TenantProfile();
@@ -108,6 +112,8 @@ class TenantProfileUpdateResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfileUpdateResult.equals(Object)", "int TenantProfileUpdateResult.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TenantProfileUpdateResult tenantProfileUpdateResult = new TenantProfileUpdateResult(null, new HashSet<>());
@@ -128,6 +134,8 @@ class TenantProfileUpdateResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfileUpdateResult.equals(Object)", "int TenantProfileUpdateResult.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TenantProfile profile = new TenantProfile(new TenantProfile());
@@ -149,31 +157,12 @@ class TenantProfileUpdateResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfileUpdateResult.equals(Object)", "int TenantProfileUpdateResult.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TenantProfile profile = mock(TenantProfile.class);
-    TenantProfileUpdateResult tenantProfileUpdateResult = new TenantProfileUpdateResult(profile, new HashSet<>());
-    TenantProfile profile2 = new TenantProfile();
-
-    // Act and Assert
-    assertNotEquals(tenantProfileUpdateResult, new TenantProfileUpdateResult(profile2, new HashSet<>()));
-  }
-
-  /**
-   * Test {@link TenantProfileUpdateResult#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TenantProfileUpdateResult#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
-    // Arrange
     HashSet<TenantId> affectedTenants = new HashSet<>();
-    affectedTenants.add(new TenantId(UUID.randomUUID()));
+    affectedTenants.add(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     TenantProfileUpdateResult tenantProfileUpdateResult = new TenantProfileUpdateResult(new TenantProfile(),
         affectedTenants);
     TenantProfile profile = new TenantProfile();
@@ -193,6 +182,8 @@ class TenantProfileUpdateResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfileUpdateResult.equals(Object)", "int TenantProfileUpdateResult.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     TenantProfile profile = new TenantProfile();
@@ -212,6 +203,8 @@ class TenantProfileUpdateResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfileUpdateResult.equals(Object)", "int TenantProfileUpdateResult.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     TenantProfile profile = new TenantProfile();
@@ -226,8 +219,7 @@ class TenantProfileUpdateResultDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link TenantProfileUpdateResult#TenantProfileUpdateResult(TenantProfile, Set)}
+   *   <li>{@link TenantProfileUpdateResult#TenantProfileUpdateResult(TenantProfile, Set)}
    *   <li>{@link TenantProfileUpdateResult#toString()}
    *   <li>{@link TenantProfileUpdateResult#getAffectedTenants()}
    *   <li>{@link TenantProfileUpdateResult#getProfile()}
@@ -235,6 +227,10 @@ class TenantProfileUpdateResultDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TenantProfileUpdateResult.<init>(TenantProfile, Set)",
+      "Set TenantProfileUpdateResult.getAffectedTenants()", "TenantProfile TenantProfileUpdateResult.getProfile()",
+      "String TenantProfileUpdateResult.toString()"})
   void testGettersAndSetters() {
     // Arrange
     TenantProfile profile = new TenantProfile();

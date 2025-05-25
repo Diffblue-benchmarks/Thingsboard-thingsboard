@@ -6,10 +6,11 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.alarm.AlarmSearchStatus;
 import org.thingsboard.server.common.data.alarm.AlarmSeverity;
@@ -17,8 +18,7 @@ import org.thingsboard.server.common.data.id.UserId;
 
 class AlarmDataPageLinkDiffblueTest {
   /**
-   * Test {@link AlarmDataPageLink#equals(Object)}, and
-   * {@link AlarmDataPageLink#hashCode()}.
+   * Test {@link AlarmDataPageLink#equals(Object)}, and {@link AlarmDataPageLink#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -32,6 +32,8 @@ class AlarmDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataPageLink.equals(Object)", "int AlarmDataPageLink.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AlarmDataPageLink alarmDataPageLink = new AlarmDataPageLink();
@@ -44,8 +46,7 @@ class AlarmDataPageLinkDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmDataPageLink#equals(Object)}, and
-   * {@link AlarmDataPageLink#hashCode()}.
+   * Test {@link AlarmDataPageLink#equals(Object)}, and {@link AlarmDataPageLink#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -59,6 +60,8 @@ class AlarmDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataPageLink.equals(Object)", "int AlarmDataPageLink.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AlarmDataPageLink alarmDataPageLink = new AlarmDataPageLink();
@@ -74,8 +77,7 @@ class AlarmDataPageLinkDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmDataPageLink#equals(Object)}, and
-   * {@link AlarmDataPageLink#hashCode()}.
+   * Test {@link AlarmDataPageLink#equals(Object)}, and {@link AlarmDataPageLink#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -89,6 +91,8 @@ class AlarmDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataPageLink.equals(Object)", "int AlarmDataPageLink.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     AlarmDataPageLink alarmDataPageLink = new AlarmDataPageLink();
@@ -104,8 +108,7 @@ class AlarmDataPageLinkDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmDataPageLink#equals(Object)}, and
-   * {@link AlarmDataPageLink#hashCode()}.
+   * Test {@link AlarmDataPageLink#equals(Object)}, and {@link AlarmDataPageLink#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -119,6 +122,8 @@ class AlarmDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataPageLink.equals(Object)", "int AlarmDataPageLink.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     AlarmDataPageLink alarmDataPageLink = new AlarmDataPageLink();
@@ -134,8 +139,7 @@ class AlarmDataPageLinkDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmDataPageLink#equals(Object)}, and
-   * {@link AlarmDataPageLink#hashCode()}.
+   * Test {@link AlarmDataPageLink#equals(Object)}, and {@link AlarmDataPageLink#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -149,6 +153,8 @@ class AlarmDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataPageLink.equals(Object)", "int AlarmDataPageLink.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AlarmDataPageLink alarmDataPageLink = new AlarmDataPageLink();
@@ -170,10 +176,11 @@ class AlarmDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataPageLink.equals(Object)", "int AlarmDataPageLink.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlarmDataPageLink(), 1);
-    assertNotEquals(new AlarmDataPageLink(), mock(EntityDataPageLink.class));
   }
 
   /**
@@ -187,6 +194,8 @@ class AlarmDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataPageLink.equals(Object)", "int AlarmDataPageLink.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AlarmDataPageLink alarmDataPageLink = new AlarmDataPageLink();
@@ -207,6 +216,8 @@ class AlarmDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataPageLink.equals(Object)", "int AlarmDataPageLink.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AlarmDataPageLink alarmDataPageLink = new AlarmDataPageLink();
@@ -227,6 +238,8 @@ class AlarmDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataPageLink.equals(Object)", "int AlarmDataPageLink.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AlarmDataPageLink alarmDataPageLink = new AlarmDataPageLink();
@@ -247,6 +260,8 @@ class AlarmDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataPageLink.equals(Object)", "int AlarmDataPageLink.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     AlarmDataPageLink alarmDataPageLink = new AlarmDataPageLink();
@@ -267,6 +282,8 @@ class AlarmDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataPageLink.equals(Object)", "int AlarmDataPageLink.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AlarmDataPageLink alarmDataPageLink = new AlarmDataPageLink();
@@ -287,6 +304,8 @@ class AlarmDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataPageLink.equals(Object)", "int AlarmDataPageLink.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     AlarmDataPageLink alarmDataPageLink = new AlarmDataPageLink();
@@ -307,6 +326,8 @@ class AlarmDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataPageLink.equals(Object)", "int AlarmDataPageLink.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     AlarmDataPageLink alarmDataPageLink = new AlarmDataPageLink();
@@ -327,6 +348,8 @@ class AlarmDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataPageLink.equals(Object)", "int AlarmDataPageLink.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     AlarmDataPageLink alarmDataPageLink = new AlarmDataPageLink();
@@ -347,6 +370,8 @@ class AlarmDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataPageLink.equals(Object)", "int AlarmDataPageLink.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     AlarmDataPageLink alarmDataPageLink = new AlarmDataPageLink();
@@ -369,6 +394,8 @@ class AlarmDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataPageLink.equals(Object)", "int AlarmDataPageLink.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     AlarmDataPageLink alarmDataPageLink = new AlarmDataPageLink();
@@ -391,6 +418,8 @@ class AlarmDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataPageLink.equals(Object)", "int AlarmDataPageLink.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     AlarmDataPageLink alarmDataPageLink = new AlarmDataPageLink();
@@ -413,6 +442,8 @@ class AlarmDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataPageLink.equals(Object)", "int AlarmDataPageLink.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlarmDataPageLink(), null);
@@ -429,6 +460,8 @@ class AlarmDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmDataPageLink.equals(Object)", "int AlarmDataPageLink.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlarmDataPageLink(), "Different type to AlarmDataPageLink");
@@ -460,6 +493,16 @@ class AlarmDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmDataPageLink.<init>()", "UserId AlarmDataPageLink.getAssigneeId()",
+      "long AlarmDataPageLink.getEndTs()", "List AlarmDataPageLink.getSeverityList()",
+      "long AlarmDataPageLink.getStartTs()", "List AlarmDataPageLink.getStatusList()",
+      "long AlarmDataPageLink.getTimeWindow()", "List AlarmDataPageLink.getTypeList()",
+      "boolean AlarmDataPageLink.isSearchPropagatedAlarms()", "void AlarmDataPageLink.setAssigneeId(UserId)",
+      "void AlarmDataPageLink.setEndTs(long)", "void AlarmDataPageLink.setSearchPropagatedAlarms(boolean)",
+      "void AlarmDataPageLink.setSeverityList(List)", "void AlarmDataPageLink.setStartTs(long)",
+      "void AlarmDataPageLink.setStatusList(List)", "void AlarmDataPageLink.setTimeWindow(long)",
+      "void AlarmDataPageLink.setTypeList(List)", "String AlarmDataPageLink.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     AlarmDataPageLink actualAlarmDataPageLink = new AlarmDataPageLink();
@@ -474,7 +517,7 @@ class AlarmDataPageLinkDiffblueTest {
     ArrayList<String> typeList = new ArrayList<>();
     actualAlarmDataPageLink.setTypeList(typeList);
     String actualToStringResult = actualAlarmDataPageLink.toString();
-    actualAlarmDataPageLink.getAssigneeId();
+    UserId actualAssigneeId = actualAlarmDataPageLink.getAssigneeId();
     long actualEndTs = actualAlarmDataPageLink.getEndTs();
     List<AlarmSeverity> actualSeverityList = actualAlarmDataPageLink.getSeverityList();
     long actualStartTs = actualAlarmDataPageLink.getStartTs();
@@ -483,10 +526,13 @@ class AlarmDataPageLinkDiffblueTest {
     List<String> actualTypeList = actualAlarmDataPageLink.getTypeList();
     boolean actualIsSearchPropagatedAlarmsResult = actualAlarmDataPageLink.isSearchPropagatedAlarms();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("AlarmDataPageLink(super=EntityDataPageLink(pageSize=0, page=0, textSearch=null, sortOrder=null,"
         + " dynamic=false), startTs=1, endTs=1, timeWindow=10, typeList=[], statusList=[], severityList=[],"
         + " searchPropagatedAlarms=true, assigneeId=null)", actualToStringResult);
+    assertNull(actualAlarmDataPageLink.getTextSearch());
+    assertNull(actualAssigneeId);
+    assertNull(actualAlarmDataPageLink.getSortOrder());
     assertEquals(0, actualAlarmDataPageLink.getPage());
     assertEquals(0, actualAlarmDataPageLink.getPageSize());
     assertEquals(10L, actualTimeWindow);
@@ -503,18 +549,19 @@ class AlarmDataPageLinkDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}.
+   * Test {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}.
    * <ul>
    *   <li>Given {@code 42}.</li>
    *   <li>Then return TypeList is {@link ArrayList#ArrayList()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}
+   * Method under test: {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}
    */
   @Test
   @DisplayName("Test new AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId); given '42'; then return TypeList is ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void AlarmDataPageLink.<init>(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)"})
   void testNewAlarmDataPageLink_given42_thenReturnTypeListIsArrayList() {
     // Arrange
     EntityDataSortOrder sortOrder = new EntityDataSortOrder();
@@ -544,18 +591,18 @@ class AlarmDataPageLinkDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}.
+   * Test {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}.
    * <ul>
    *   <li>Given {@code 42}.</li>
    *   <li>Then return TypeList is {@link ArrayList#ArrayList()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}
+   * Method under test: {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}
    */
   @Test
   @DisplayName("Test new AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId); given '42'; then return TypeList is ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmDataPageLink.<init>(long, long, long, List, List, List, boolean, UserId)"})
   void testNewAlarmDataPageLink_given42_thenReturnTypeListIsArrayList2() {
     // Arrange
     ArrayList<String> typeList = new ArrayList<>();
@@ -583,18 +630,19 @@ class AlarmDataPageLinkDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}.
+   * Test {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}.
    * <ul>
    *   <li>Given {@code ACTIVE}.</li>
    *   <li>Then return StatusList is {@link ArrayList#ArrayList()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}
+   * Method under test: {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}
    */
   @Test
   @DisplayName("Test new AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId); given 'ACTIVE'; then return StatusList is ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void AlarmDataPageLink.<init>(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)"})
   void testNewAlarmDataPageLink_givenActive_thenReturnStatusListIsArrayList() {
     // Arrange
     EntityDataSortOrder sortOrder = new EntityDataSortOrder();
@@ -624,18 +672,18 @@ class AlarmDataPageLinkDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}.
+   * Test {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}.
    * <ul>
    *   <li>Given {@code ACTIVE}.</li>
    *   <li>Then return StatusList is {@link ArrayList#ArrayList()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}
+   * Method under test: {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}
    */
   @Test
   @DisplayName("Test new AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId); given 'ACTIVE'; then return StatusList is ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmDataPageLink.<init>(long, long, long, List, List, List, boolean, UserId)"})
   void testNewAlarmDataPageLink_givenActive_thenReturnStatusListIsArrayList2() {
     // Arrange
     ArrayList<String> typeList = new ArrayList<>();
@@ -664,18 +712,19 @@ class AlarmDataPageLinkDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}.
+   * Test {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}.
    * <ul>
    *   <li>Given {@code CLEARED}.</li>
    *   <li>When {@link ArrayList#ArrayList()} add {@code CLEARED}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}
+   * Method under test: {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}
    */
   @Test
   @DisplayName("Test new AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId); given 'CLEARED'; when ArrayList() add 'CLEARED'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void AlarmDataPageLink.<init>(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)"})
   void testNewAlarmDataPageLink_givenCleared_whenArrayListAddCleared() {
     // Arrange
     EntityDataSortOrder sortOrder = new EntityDataSortOrder();
@@ -706,18 +755,18 @@ class AlarmDataPageLinkDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}.
+   * Test {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}.
    * <ul>
    *   <li>Given {@code CLEARED}.</li>
    *   <li>When {@link ArrayList#ArrayList()} add {@code CLEARED}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}
+   * Method under test: {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}
    */
   @Test
   @DisplayName("Test new AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId); given 'CLEARED'; when ArrayList() add 'CLEARED'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmDataPageLink.<init>(long, long, long, List, List, List, boolean, UserId)"})
   void testNewAlarmDataPageLink_givenCleared_whenArrayListAddCleared2() {
     // Arrange
     ArrayList<String> typeList = new ArrayList<>();
@@ -747,18 +796,19 @@ class AlarmDataPageLinkDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}.
+   * Test {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}.
    * <ul>
    *   <li>Given empty string.</li>
    *   <li>When {@link ArrayList#ArrayList()} add empty string.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}
+   * Method under test: {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}
    */
   @Test
   @DisplayName("Test new AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId); given empty string; when ArrayList() add empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void AlarmDataPageLink.<init>(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)"})
   void testNewAlarmDataPageLink_givenEmptyString_whenArrayListAddEmptyString() {
     // Arrange
     EntityDataSortOrder sortOrder = new EntityDataSortOrder();
@@ -789,18 +839,18 @@ class AlarmDataPageLinkDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}.
+   * Test {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}.
    * <ul>
    *   <li>Given empty string.</li>
    *   <li>When {@link ArrayList#ArrayList()} add empty string.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}
+   * Method under test: {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}
    */
   @Test
   @DisplayName("Test new AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId); given empty string; when ArrayList() add empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmDataPageLink.<init>(long, long, long, List, List, List, boolean, UserId)"})
   void testNewAlarmDataPageLink_givenEmptyString_whenArrayListAddEmptyString2() {
     // Arrange
     ArrayList<String> typeList = new ArrayList<>();
@@ -829,18 +879,19 @@ class AlarmDataPageLinkDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}.
+   * Test {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}.
    * <ul>
    *   <li>Given {@code MAJOR}.</li>
    *   <li>Then return SeverityList is {@link ArrayList#ArrayList()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}
+   * Method under test: {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}
    */
   @Test
   @DisplayName("Test new AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId); given 'MAJOR'; then return SeverityList is ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void AlarmDataPageLink.<init>(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)"})
   void testNewAlarmDataPageLink_givenMajor_thenReturnSeverityListIsArrayList() {
     // Arrange
     EntityDataSortOrder sortOrder = new EntityDataSortOrder();
@@ -871,18 +922,18 @@ class AlarmDataPageLinkDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}.
+   * Test {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}.
    * <ul>
    *   <li>Given {@code MAJOR}.</li>
    *   <li>Then return SeverityList is {@link ArrayList#ArrayList()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}
+   * Method under test: {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}
    */
   @Test
   @DisplayName("Test new AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId); given 'MAJOR'; then return SeverityList is ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmDataPageLink.<init>(long, long, long, List, List, List, boolean, UserId)"})
   void testNewAlarmDataPageLink_givenMajor_thenReturnSeverityListIsArrayList2() {
     // Arrange
     ArrayList<String> typeList = new ArrayList<>();
@@ -912,18 +963,19 @@ class AlarmDataPageLinkDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}.
+   * Test {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}.
    * <ul>
    *   <li>Given {@code MINOR}.</li>
    *   <li>When {@link ArrayList#ArrayList()} add {@code MINOR}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}
+   * Method under test: {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}
    */
   @Test
   @DisplayName("Test new AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId); given 'MINOR'; when ArrayList() add 'MINOR'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void AlarmDataPageLink.<init>(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)"})
   void testNewAlarmDataPageLink_givenMinor_whenArrayListAddMinor() {
     // Arrange
     EntityDataSortOrder sortOrder = new EntityDataSortOrder();
@@ -955,18 +1007,18 @@ class AlarmDataPageLinkDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}.
+   * Test {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}.
    * <ul>
    *   <li>Given {@code MINOR}.</li>
    *   <li>When {@link ArrayList#ArrayList()} add {@code MINOR}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}
+   * Method under test: {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}
    */
   @Test
   @DisplayName("Test new AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId); given 'MINOR'; when ArrayList() add 'MINOR'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmDataPageLink.<init>(long, long, long, List, List, List, boolean, UserId)"})
   void testNewAlarmDataPageLink_givenMinor_whenArrayListAddMinor2() {
     // Arrange
     ArrayList<String> typeList = new ArrayList<>();
@@ -997,18 +1049,18 @@ class AlarmDataPageLinkDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}.
+   * Test {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}.
    * <ul>
    *   <li>When {@link ArrayList#ArrayList()}.</li>
    *   <li>Then return SeverityList Empty.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}
+   * Method under test: {@link AlarmDataPageLink#AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId)}
    */
   @Test
   @DisplayName("Test new AlarmDataPageLink(long, long, long, List, List, List, boolean, UserId); when ArrayList(); then return SeverityList Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmDataPageLink.<init>(long, long, long, List, List, List, boolean, UserId)"})
   void testNewAlarmDataPageLink_whenArrayList_thenReturnSeverityListEmpty() {
     // Arrange
     ArrayList<String> typeList = new ArrayList<>();
@@ -1035,18 +1087,19 @@ class AlarmDataPageLinkDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}.
+   * Test {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}.
    * <ul>
    *   <li>When {@link EntityDataSortOrder#EntityDataSortOrder()}.</li>
    *   <li>Then return SeverityList Empty.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}
+   * Method under test: {@link AlarmDataPageLink#AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)}
    */
   @Test
   @DisplayName("Test new AlarmDataPageLink(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId); when EntityDataSortOrder(); then return SeverityList Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void AlarmDataPageLink.<init>(int, int, String, EntityDataSortOrder, boolean, boolean, long, long, long, List, List, List, UserId)"})
   void testNewAlarmDataPageLink_whenEntityDataSortOrder_thenReturnSeverityListEmpty() {
     // Arrange
     EntityDataSortOrder sortOrder = new EntityDataSortOrder();
@@ -1076,8 +1129,7 @@ class AlarmDataPageLinkDiffblueTest {
   /**
    * Test {@link AlarmDataPageLink#nextPageLink()}.
    * <ul>
-   *   <li>Given {@link AlarmDataPageLink#AlarmDataPageLink()} Dynamic is
-   * {@code true}.</li>
+   *   <li>Given {@link AlarmDataPageLink#AlarmDataPageLink()} Dynamic is {@code true}.</li>
    *   <li>Then return Dynamic.</li>
    * </ul>
    * <p>
@@ -1085,6 +1137,8 @@ class AlarmDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test nextPageLink(); given AlarmDataPageLink() Dynamic is 'true'; then return Dynamic")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmDataPageLink AlarmDataPageLink.nextPageLink()"})
   void testNextPageLink_givenAlarmDataPageLinkDynamicIsTrue_thenReturnDynamic() {
     // Arrange
     AlarmDataPageLink alarmDataPageLink = new AlarmDataPageLink();
@@ -1120,6 +1174,8 @@ class AlarmDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test nextPageLink(); given AlarmDataPageLink(); then return not Dynamic")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"AlarmDataPageLink AlarmDataPageLink.nextPageLink()"})
   void testNextPageLink_givenAlarmDataPageLink_thenReturnNotDynamic() {
     // Arrange and Act
     AlarmDataPageLink actualNextPageLinkResult = (new AlarmDataPageLink()).nextPageLink();

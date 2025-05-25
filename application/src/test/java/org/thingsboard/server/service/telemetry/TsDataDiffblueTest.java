@@ -1,7 +1,9 @@
 package org.thingsboard.server.service.telemetry;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TsDataDiffblueTest {
@@ -12,9 +14,9 @@ class TsDataDiffblueTest {
    */
   @Test
   @DisplayName("Test new TsData(long, Object)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TsData.<init>(long, Object)"})
   void testNewTsData() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
     TsData actualTsData = new TsData(1L, "Value");
 
@@ -34,6 +36,8 @@ class TsDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long TsData.getTs()", "Object TsData.getValue()"})
   void testGettersAndSetters() {
     // Arrange
     TsData tsData = new TsData(1L, "Value");
@@ -49,8 +53,7 @@ class TsDataDiffblueTest {
   /**
    * Test {@link TsData#compareTo(TsData)} with {@code TsData}.
    * <ul>
-   *   <li>When {@link TsData#TsData(long, Object)} with ts is one and
-   * {@code Value}.</li>
+   *   <li>When {@link TsData#TsData(long, Object)} with ts is one and {@code Value}.</li>
    *   <li>Then return zero.</li>
    * </ul>
    * <p>
@@ -58,9 +61,9 @@ class TsDataDiffblueTest {
    */
   @Test
   @DisplayName("Test compareTo(TsData) with 'TsData'; when TsData(long, Object) with ts is one and 'Value'; then return zero")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int TsData.compareTo(TsData)"})
   void testCompareToWithTsData_whenTsDataWithTsIsOneAndValue_thenReturnZero() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TsData tsData = new TsData(1L, "Value");
 

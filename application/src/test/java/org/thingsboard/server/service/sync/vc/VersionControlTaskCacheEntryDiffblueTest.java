@@ -4,15 +4,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.aot.DisabledInAotMode;
 import org.thingsboard.server.common.data.sync.vc.EntityLoadError;
 import org.thingsboard.server.common.data.sync.vc.VersionCreationResult;
 import org.thingsboard.server.common.data.sync.vc.VersionLoadResult;
+import org.thingsboard.server.common.data.sync.vc.VersionLoadResult.VersionLoadResultBuilder;
 
 @DisabledInAotMode
 class VersionControlTaskCacheEntryDiffblueTest {
@@ -23,14 +25,14 @@ class VersionControlTaskCacheEntryDiffblueTest {
   private VersionLoadResult versionLoadResult;
 
   /**
-   * Test
-   * {@link VersionControlTaskCacheEntry#newForExport(VersionCreationResult)}.
+   * Test {@link VersionControlTaskCacheEntry#newForExport(VersionCreationResult)}.
    * <p>
-   * Method under test:
-   * {@link VersionControlTaskCacheEntry#newForExport(VersionCreationResult)}
+   * Method under test: {@link VersionControlTaskCacheEntry#newForExport(VersionCreationResult)}
    */
   @Test
   @DisplayName("Test newForExport(VersionCreationResult)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"VersionControlTaskCacheEntry VersionControlTaskCacheEntry.newForExport(VersionCreationResult)"})
   void testNewForExport() {
     // Arrange and Act
     VersionControlTaskCacheEntry actualNewForExportResult = VersionControlTaskCacheEntry
@@ -44,11 +46,12 @@ class VersionControlTaskCacheEntryDiffblueTest {
   /**
    * Test {@link VersionControlTaskCacheEntry#newForImport(VersionLoadResult)}.
    * <p>
-   * Method under test:
-   * {@link VersionControlTaskCacheEntry#newForImport(VersionLoadResult)}
+   * Method under test: {@link VersionControlTaskCacheEntry#newForImport(VersionLoadResult)}
    */
   @Test
   @DisplayName("Test newForImport(VersionLoadResult)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"VersionControlTaskCacheEntry VersionControlTaskCacheEntry.newForImport(VersionLoadResult)"})
   void testNewForImport() {
     // Arrange and Act
     VersionControlTaskCacheEntry actualNewForImportResult = VersionControlTaskCacheEntry
@@ -60,8 +63,7 @@ class VersionControlTaskCacheEntryDiffblueTest {
   }
 
   /**
-   * Test {@link VersionControlTaskCacheEntry#equals(Object)}, and
-   * {@link VersionControlTaskCacheEntry#hashCode()}.
+   * Test {@link VersionControlTaskCacheEntry#equals(Object)}, and {@link VersionControlTaskCacheEntry#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -75,6 +77,9 @@ class VersionControlTaskCacheEntryDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionControlTaskCacheEntry.equals(Object)",
+      "int VersionControlTaskCacheEntry.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     VersionControlTaskCacheEntry newForExportResult = VersionControlTaskCacheEntry
@@ -89,8 +94,7 @@ class VersionControlTaskCacheEntryDiffblueTest {
   }
 
   /**
-   * Test {@link VersionControlTaskCacheEntry#equals(Object)}, and
-   * {@link VersionControlTaskCacheEntry#hashCode()}.
+   * Test {@link VersionControlTaskCacheEntry#equals(Object)}, and {@link VersionControlTaskCacheEntry#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -104,6 +108,9 @@ class VersionControlTaskCacheEntryDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionControlTaskCacheEntry.equals(Object)",
+      "int VersionControlTaskCacheEntry.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     VersionControlTaskCacheEntry newForExportResult = VersionControlTaskCacheEntry.newForExport(null);
@@ -116,8 +123,7 @@ class VersionControlTaskCacheEntryDiffblueTest {
   }
 
   /**
-   * Test {@link VersionControlTaskCacheEntry#equals(Object)}, and
-   * {@link VersionControlTaskCacheEntry#hashCode()}.
+   * Test {@link VersionControlTaskCacheEntry#equals(Object)}, and {@link VersionControlTaskCacheEntry#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -131,29 +137,32 @@ class VersionControlTaskCacheEntryDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionControlTaskCacheEntry.equals(Object)",
+      "int VersionControlTaskCacheEntry.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     VersionCreationResult exportResult = new VersionCreationResult("An error occurred");
-    VersionLoadResult.VersionLoadResultBuilder doneResult = VersionLoadResult.builder().done(true);
+    VersionLoadResultBuilder doneResult = VersionLoadResult.builder().done(true);
     EntityLoadError error = EntityLoadError.builder()
         .message("Not all who wander are lost")
         .source(null)
         .target(null)
         .type("Type")
         .build();
-    VersionLoadResult.VersionLoadResultBuilder errorResult = doneResult.error(error);
+    VersionLoadResultBuilder errorResult = doneResult.error(error);
     VersionLoadResult importResult = errorResult.result(new ArrayList<>()).build();
     VersionControlTaskCacheEntry versionControlTaskCacheEntry = new VersionControlTaskCacheEntry(exportResult,
         importResult);
     VersionCreationResult exportResult2 = new VersionCreationResult("An error occurred");
-    VersionLoadResult.VersionLoadResultBuilder doneResult2 = VersionLoadResult.builder().done(true);
+    VersionLoadResultBuilder doneResult2 = VersionLoadResult.builder().done(true);
     EntityLoadError error2 = EntityLoadError.builder()
         .message("Not all who wander are lost")
         .source(null)
         .target(null)
         .type("Type")
         .build();
-    VersionLoadResult.VersionLoadResultBuilder errorResult2 = doneResult2.error(error2);
+    VersionLoadResultBuilder errorResult2 = doneResult2.error(error2);
     VersionLoadResult importResult2 = errorResult2.result(new ArrayList<>()).build();
     VersionControlTaskCacheEntry versionControlTaskCacheEntry2 = new VersionControlTaskCacheEntry(exportResult2,
         importResult2);
@@ -165,8 +174,7 @@ class VersionControlTaskCacheEntryDiffblueTest {
   }
 
   /**
-   * Test {@link VersionControlTaskCacheEntry#equals(Object)}, and
-   * {@link VersionControlTaskCacheEntry#hashCode()}.
+   * Test {@link VersionControlTaskCacheEntry#equals(Object)}, and {@link VersionControlTaskCacheEntry#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -180,6 +188,9 @@ class VersionControlTaskCacheEntryDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionControlTaskCacheEntry.equals(Object)",
+      "int VersionControlTaskCacheEntry.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     VersionControlTaskCacheEntry newForExportResult = VersionControlTaskCacheEntry
@@ -202,6 +213,9 @@ class VersionControlTaskCacheEntryDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionControlTaskCacheEntry.equals(Object)",
+      "int VersionControlTaskCacheEntry.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     VersionControlTaskCacheEntry newForExportResult = VersionControlTaskCacheEntry
@@ -223,6 +237,9 @@ class VersionControlTaskCacheEntryDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionControlTaskCacheEntry.equals(Object)",
+      "int VersionControlTaskCacheEntry.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     VersionControlTaskCacheEntry newForExportResult = VersionControlTaskCacheEntry.newForExport(null);
@@ -243,38 +260,20 @@ class VersionControlTaskCacheEntryDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionControlTaskCacheEntry.equals(Object)",
+      "int VersionControlTaskCacheEntry.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    VersionControlTaskCacheEntry newForExportResult = VersionControlTaskCacheEntry
-        .newForExport(mock(VersionCreationResult.class));
-
-    // Act and Assert
-    assertNotEquals(newForExportResult,
-        VersionControlTaskCacheEntry.newForExport(new VersionCreationResult("An error occurred")));
-  }
-
-  /**
-   * Test {@link VersionControlTaskCacheEntry#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link VersionControlTaskCacheEntry#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
-    // Arrange
     VersionCreationResult exportResult = new VersionCreationResult("An error occurred");
-    VersionLoadResult.VersionLoadResultBuilder doneResult = VersionLoadResult.builder().done(true);
+    VersionLoadResultBuilder doneResult = VersionLoadResult.builder().done(true);
     EntityLoadError error = EntityLoadError.builder()
         .message("Not all who wander are lost")
         .source(null)
         .target(null)
         .type("Type")
         .build();
-    VersionLoadResult.VersionLoadResultBuilder errorResult = doneResult.error(error);
+    VersionLoadResultBuilder errorResult = doneResult.error(error);
     VersionLoadResult importResult = errorResult.result(new ArrayList<>()).build();
     VersionControlTaskCacheEntry versionControlTaskCacheEntry = new VersionControlTaskCacheEntry(exportResult,
         importResult);
@@ -295,19 +294,22 @@ class VersionControlTaskCacheEntryDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionControlTaskCacheEntry.equals(Object)",
+      "int VersionControlTaskCacheEntry.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     VersionControlTaskCacheEntry newForExportResult = VersionControlTaskCacheEntry
         .newForExport(new VersionCreationResult("An error occurred"));
     VersionCreationResult exportResult = new VersionCreationResult("An error occurred");
-    VersionLoadResult.VersionLoadResultBuilder doneResult = VersionLoadResult.builder().done(true);
+    VersionLoadResultBuilder doneResult = VersionLoadResult.builder().done(true);
     EntityLoadError error = EntityLoadError.builder()
         .message("Not all who wander are lost")
         .source(null)
         .target(null)
         .type("Type")
         .build();
-    VersionLoadResult.VersionLoadResultBuilder errorResult = doneResult.error(error);
+    VersionLoadResultBuilder errorResult = doneResult.error(error);
     VersionLoadResult importResult = errorResult.result(new ArrayList<>()).build();
 
     // Act and Assert
@@ -325,6 +327,9 @@ class VersionControlTaskCacheEntryDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionControlTaskCacheEntry.equals(Object)",
+      "int VersionControlTaskCacheEntry.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(VersionControlTaskCacheEntry.newForExport(new VersionCreationResult("An error occurred")), null);
@@ -341,6 +346,9 @@ class VersionControlTaskCacheEntryDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean VersionControlTaskCacheEntry.equals(Object)",
+      "int VersionControlTaskCacheEntry.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(VersionControlTaskCacheEntry.newForExport(new VersionCreationResult("An error occurred")),

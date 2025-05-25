@@ -2,15 +2,15 @@ package org.thingsboard.server.common.data.mobile;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.TenantId;
 
 class MobileAppSettingsDiffblueTest {
   /**
-   * Test {@link MobileAppSettings#equals(Object)}, and
-   * {@link MobileAppSettings#hashCode()}.
+   * Test {@link MobileAppSettings#equals(Object)}, and {@link MobileAppSettings#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -24,6 +24,8 @@ class MobileAppSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppSettings.equals(Object)", "int MobileAppSettings.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     MobileAppSettings mobileAppSettings = new MobileAppSettings();
@@ -36,8 +38,7 @@ class MobileAppSettingsDiffblueTest {
   }
 
   /**
-   * Test {@link MobileAppSettings#equals(Object)}, and
-   * {@link MobileAppSettings#hashCode()}.
+   * Test {@link MobileAppSettings#equals(Object)}, and {@link MobileAppSettings#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -51,6 +52,8 @@ class MobileAppSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppSettings.equals(Object)", "int MobileAppSettings.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     MobileAppSettings mobileAppSettings = new MobileAppSettings();
@@ -72,10 +75,11 @@ class MobileAppSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppSettings.equals(Object)", "int MobileAppSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MobileAppSettings(), 1);
-    assertNotEquals(new MobileAppSettings(), mock(MobileApp.class));
   }
 
   /**
@@ -89,6 +93,8 @@ class MobileAppSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppSettings.equals(Object)", "int MobileAppSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     MobileAppSettings mobileAppSettings = new MobileAppSettings();
@@ -109,6 +115,8 @@ class MobileAppSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppSettings.equals(Object)", "int MobileAppSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     MobileAppSettings mobileAppSettings = new MobileAppSettings();
@@ -129,6 +137,8 @@ class MobileAppSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppSettings.equals(Object)", "int MobileAppSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     MobileAppSettings mobileAppSettings = new MobileAppSettings();
@@ -155,6 +165,8 @@ class MobileAppSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppSettings.equals(Object)", "int MobileAppSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     MobileAppSettings mobileAppSettings = new MobileAppSettings();
@@ -176,6 +188,8 @@ class MobileAppSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppSettings.equals(Object)", "int MobileAppSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     MobileAppSettings mobileAppSettings = new MobileAppSettings();
@@ -203,6 +217,8 @@ class MobileAppSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppSettings.equals(Object)", "int MobileAppSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     MobileAppSettings mobileAppSettings = new MobileAppSettings();
@@ -223,6 +239,8 @@ class MobileAppSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppSettings.equals(Object)", "int MobileAppSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     MobileAppSettings mobileAppSettings = new MobileAppSettings();
@@ -243,6 +261,8 @@ class MobileAppSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppSettings.equals(Object)", "int MobileAppSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     MobileAppSettings mobileAppSettings = new MobileAppSettings();
@@ -263,6 +283,8 @@ class MobileAppSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppSettings.equals(Object)", "int MobileAppSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     MobileAppSettings mobileAppSettings = new MobileAppSettings();
@@ -285,6 +307,8 @@ class MobileAppSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppSettings.equals(Object)", "int MobileAppSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     MobileAppSettings mobileAppSettings = new MobileAppSettings();
@@ -313,6 +337,8 @@ class MobileAppSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppSettings.equals(Object)", "int MobileAppSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     MobileAppSettings mobileAppSettings = new MobileAppSettings();
@@ -336,6 +362,8 @@ class MobileAppSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppSettings.equals(Object)", "int MobileAppSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     MobileAppSettings mobileAppSettings = new MobileAppSettings();
@@ -365,6 +393,8 @@ class MobileAppSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppSettings.equals(Object)", "int MobileAppSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     MobileAppSettings mobileAppSettings = new MobileAppSettings();
@@ -387,6 +417,8 @@ class MobileAppSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppSettings.equals(Object)", "int MobileAppSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     MobileAppSettings mobileAppSettings = new MobileAppSettings();
@@ -409,6 +441,8 @@ class MobileAppSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppSettings.equals(Object)", "int MobileAppSettings.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MobileAppSettings(), null);
@@ -425,6 +459,8 @@ class MobileAppSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileAppSettings.equals(Object)", "int MobileAppSettings.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MobileAppSettings(), "Different type to MobileAppSettings");

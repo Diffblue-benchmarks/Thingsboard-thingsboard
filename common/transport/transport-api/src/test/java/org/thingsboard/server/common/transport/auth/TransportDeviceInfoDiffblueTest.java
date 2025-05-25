@@ -1,13 +1,18 @@
 package org.thingsboard.server.common.transport.auth;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.device.data.PowerMode;
 import org.thingsboard.server.common.data.id.CustomerId;
+import org.thingsboard.server.common.data.id.DeviceId;
+import org.thingsboard.server.common.data.id.DeviceProfileId;
 import org.thingsboard.server.common.data.id.TenantId;
 
 class TransportDeviceInfoDiffblueTest {
@@ -44,11 +49,25 @@ class TransportDeviceInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TransportDeviceInfo.<init>()", "String TransportDeviceInfo.getAdditionalInfo()",
+      "CustomerId TransportDeviceInfo.getCustomerId()", "DeviceId TransportDeviceInfo.getDeviceId()",
+      "String TransportDeviceInfo.getDeviceName()", "DeviceProfileId TransportDeviceInfo.getDeviceProfileId()",
+      "String TransportDeviceInfo.getDeviceType()", "Long TransportDeviceInfo.getEdrxCycle()",
+      "Long TransportDeviceInfo.getPagingTransmissionWindow()", "PowerMode TransportDeviceInfo.getPowerMode()",
+      "Long TransportDeviceInfo.getPsmActivityTimer()", "TenantId TransportDeviceInfo.getTenantId()",
+      "boolean TransportDeviceInfo.isGateway()", "void TransportDeviceInfo.setAdditionalInfo(String)",
+      "void TransportDeviceInfo.setCustomerId(CustomerId)", "void TransportDeviceInfo.setDeviceId(DeviceId)",
+      "void TransportDeviceInfo.setDeviceName(String)", "void TransportDeviceInfo.setDeviceProfileId(DeviceProfileId)",
+      "void TransportDeviceInfo.setDeviceType(String)", "void TransportDeviceInfo.setEdrxCycle(Long)",
+      "void TransportDeviceInfo.setGateway(boolean)", "void TransportDeviceInfo.setPagingTransmissionWindow(Long)",
+      "void TransportDeviceInfo.setPowerMode(PowerMode)", "void TransportDeviceInfo.setPsmActivityTimer(Long)",
+      "void TransportDeviceInfo.setTenantId(TenantId)", "String TransportDeviceInfo.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TransportDeviceInfo actualTransportDeviceInfo = new TransportDeviceInfo();
     actualTransportDeviceInfo.setAdditionalInfo("Additional Info");
-    CustomerId customerId = new CustomerId(UUID.randomUUID());
+    CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     actualTransportDeviceInfo.setCustomerId(customerId);
     actualTransportDeviceInfo.setDeviceName("Device Name");
     actualTransportDeviceInfo.setDeviceType("Device Type");
@@ -57,14 +76,14 @@ class TransportDeviceInfoDiffblueTest {
     actualTransportDeviceInfo.setPagingTransmissionWindow(1L);
     actualTransportDeviceInfo.setPowerMode(PowerMode.PSM);
     actualTransportDeviceInfo.setPsmActivityTimer(1L);
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     actualTransportDeviceInfo.setTenantId(tenantId);
-    actualTransportDeviceInfo.toString();
+    String actualToStringResult = actualTransportDeviceInfo.toString();
     String actualAdditionalInfo = actualTransportDeviceInfo.getAdditionalInfo();
     CustomerId actualCustomerId = actualTransportDeviceInfo.getCustomerId();
-    actualTransportDeviceInfo.getDeviceId();
+    DeviceId actualDeviceId = actualTransportDeviceInfo.getDeviceId();
     String actualDeviceName = actualTransportDeviceInfo.getDeviceName();
-    actualTransportDeviceInfo.getDeviceProfileId();
+    DeviceProfileId actualDeviceProfileId = actualTransportDeviceInfo.getDeviceProfileId();
     String actualDeviceType = actualTransportDeviceInfo.getDeviceType();
     Long actualEdrxCycle = actualTransportDeviceInfo.getEdrxCycle();
     Long actualPagingTransmissionWindow = actualTransportDeviceInfo.getPagingTransmissionWindow();
@@ -73,10 +92,16 @@ class TransportDeviceInfoDiffblueTest {
     TenantId actualTenantId = actualTransportDeviceInfo.getTenantId();
     boolean actualIsGatewayResult = actualTransportDeviceInfo.isGateway();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Additional Info", actualAdditionalInfo);
     assertEquals("Device Name", actualDeviceName);
     assertEquals("Device Type", actualDeviceType);
+    assertEquals("TransportDeviceInfo(tenantId=784f394c-42b6-435a-983c-b7beff2784f9, customerId=784f394c-42b6-435a-983c"
+        + "-b7beff2784f9, deviceProfileId=null, deviceId=null, deviceName=Device Name, deviceType=Device Type,"
+        + " powerMode=PSM, additionalInfo=Additional Info, edrxCycle=1, psmActivityTimer=1, pagingTransmissionWindow=1,"
+        + " gateway=true)", actualToStringResult);
+    assertNull(actualDeviceId);
+    assertNull(actualDeviceProfileId);
     assertEquals(1L, actualEdrxCycle.longValue());
     assertEquals(1L, actualPagingTransmissionWindow.longValue());
     assertEquals(1L, actualPsmActivityTimer.longValue());

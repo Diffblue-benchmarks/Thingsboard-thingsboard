@@ -2,12 +2,14 @@ package org.thingsboard.server.dao.device;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 public class DeviceCredentialsEvictEventDiffblueTest {
   /**
-   * Test {@link DeviceCredentialsEvictEvent#equals(Object)}, and
-   * {@link DeviceCredentialsEvictEvent#hashCode()}.
+   * Test {@link DeviceCredentialsEvictEvent#equals(Object)}, and {@link DeviceCredentialsEvictEvent#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -20,6 +22,9 @@ public class DeviceCredentialsEvictEventDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DeviceCredentialsEvictEvent.equals(Object)",
+      "int DeviceCredentialsEvictEvent.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DeviceCredentialsEvictEvent deviceCredentialsEvictEvent = new DeviceCredentialsEvictEvent("42", "42");
@@ -32,8 +37,7 @@ public class DeviceCredentialsEvictEventDiffblueTest {
   }
 
   /**
-   * Test {@link DeviceCredentialsEvictEvent#equals(Object)}, and
-   * {@link DeviceCredentialsEvictEvent#hashCode()}.
+   * Test {@link DeviceCredentialsEvictEvent#equals(Object)}, and {@link DeviceCredentialsEvictEvent#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -46,6 +50,9 @@ public class DeviceCredentialsEvictEventDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DeviceCredentialsEvictEvent.equals(Object)",
+      "int DeviceCredentialsEvictEvent.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     DeviceCredentialsEvictEvent deviceCredentialsEvictEvent = new DeviceCredentialsEvictEvent(null, "42");
@@ -58,8 +65,7 @@ public class DeviceCredentialsEvictEventDiffblueTest {
   }
 
   /**
-   * Test {@link DeviceCredentialsEvictEvent#equals(Object)}, and
-   * {@link DeviceCredentialsEvictEvent#hashCode()}.
+   * Test {@link DeviceCredentialsEvictEvent#equals(Object)}, and {@link DeviceCredentialsEvictEvent#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -72,6 +78,9 @@ public class DeviceCredentialsEvictEventDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DeviceCredentialsEvictEvent.equals(Object)",
+      "int DeviceCredentialsEvictEvent.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     DeviceCredentialsEvictEvent deviceCredentialsEvictEvent = new DeviceCredentialsEvictEvent("42", null);
@@ -84,8 +93,7 @@ public class DeviceCredentialsEvictEventDiffblueTest {
   }
 
   /**
-   * Test {@link DeviceCredentialsEvictEvent#equals(Object)}, and
-   * {@link DeviceCredentialsEvictEvent#hashCode()}.
+   * Test {@link DeviceCredentialsEvictEvent#equals(Object)}, and {@link DeviceCredentialsEvictEvent#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -98,6 +106,9 @@ public class DeviceCredentialsEvictEventDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DeviceCredentialsEvictEvent.equals(Object)",
+      "int DeviceCredentialsEvictEvent.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DeviceCredentialsEvictEvent deviceCredentialsEvictEvent = new DeviceCredentialsEvictEvent("42", "42");
@@ -118,6 +129,9 @@ public class DeviceCredentialsEvictEventDiffblueTest {
    * Method under test: {@link DeviceCredentialsEvictEvent#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DeviceCredentialsEvictEvent.equals(Object)",
+      "int DeviceCredentialsEvictEvent.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     DeviceCredentialsEvictEvent deviceCredentialsEvictEvent = new DeviceCredentialsEvictEvent("New Cedentials Id",
@@ -137,6 +151,9 @@ public class DeviceCredentialsEvictEventDiffblueTest {
    * Method under test: {@link DeviceCredentialsEvictEvent#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DeviceCredentialsEvictEvent.equals(Object)",
+      "int DeviceCredentialsEvictEvent.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DeviceCredentialsEvictEvent deviceCredentialsEvictEvent = new DeviceCredentialsEvictEvent(null, "42");
@@ -155,6 +172,9 @@ public class DeviceCredentialsEvictEventDiffblueTest {
    * Method under test: {@link DeviceCredentialsEvictEvent#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DeviceCredentialsEvictEvent.equals(Object)",
+      "int DeviceCredentialsEvictEvent.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DeviceCredentialsEvictEvent deviceCredentialsEvictEvent = new DeviceCredentialsEvictEvent("42",
@@ -174,6 +194,9 @@ public class DeviceCredentialsEvictEventDiffblueTest {
    * Method under test: {@link DeviceCredentialsEvictEvent#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DeviceCredentialsEvictEvent.equals(Object)",
+      "int DeviceCredentialsEvictEvent.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     DeviceCredentialsEvictEvent deviceCredentialsEvictEvent = new DeviceCredentialsEvictEvent("42", null);
@@ -192,6 +215,9 @@ public class DeviceCredentialsEvictEventDiffblueTest {
    * Method under test: {@link DeviceCredentialsEvictEvent#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DeviceCredentialsEvictEvent.equals(Object)",
+      "int DeviceCredentialsEvictEvent.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DeviceCredentialsEvictEvent("42", "42"), null);
@@ -207,6 +233,9 @@ public class DeviceCredentialsEvictEventDiffblueTest {
    * Method under test: {@link DeviceCredentialsEvictEvent#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DeviceCredentialsEvictEvent.equals(Object)",
+      "int DeviceCredentialsEvictEvent.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DeviceCredentialsEvictEvent("42", "42"), "Different type to DeviceCredentialsEvictEvent");
@@ -217,14 +246,17 @@ public class DeviceCredentialsEvictEventDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link DeviceCredentialsEvictEvent#DeviceCredentialsEvictEvent(String, String)}
+   *   <li>{@link DeviceCredentialsEvictEvent#DeviceCredentialsEvictEvent(String, String)}
    *   <li>{@link DeviceCredentialsEvictEvent#toString()}
    *   <li>{@link DeviceCredentialsEvictEvent#getNewCedentialsId()}
    *   <li>{@link DeviceCredentialsEvictEvent#getOldCredentialsId()}
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DeviceCredentialsEvictEvent.<init>(String, String)",
+      "String DeviceCredentialsEvictEvent.getNewCedentialsId()",
+      "String DeviceCredentialsEvictEvent.getOldCredentialsId()", "String DeviceCredentialsEvictEvent.toString()"})
   public void testGettersAndSetters() {
     // Arrange and Act
     DeviceCredentialsEvictEvent actualDeviceCredentialsEvictEvent = new DeviceCredentialsEvictEvent("42", "42");

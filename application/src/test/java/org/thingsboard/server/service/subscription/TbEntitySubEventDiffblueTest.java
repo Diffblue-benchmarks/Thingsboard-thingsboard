@@ -2,12 +2,12 @@ package org.thingsboard.server.service.subscription;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashSet;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.thingsboard.server.common.data.id.AlarmId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.plugin.ComponentLifecycleEvent;
 
@@ -19,11 +19,11 @@ class TbEntitySubEventDiffblueTest {
    */
   @Test
   @DisplayName("Test hasTsOrAttrSub()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbEntitySubEvent.hasTsOrAttrSub()"})
   void testHasTsOrAttrSub() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertFalse((new TbEntitySubEvent(tenantId, null, ComponentLifecycleEvent.CREATED, new TbSubscriptionsInfo(), 10))
@@ -37,32 +37,12 @@ class TbEntitySubEventDiffblueTest {
    */
   @Test
   @DisplayName("Test hasTsOrAttrSub()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbEntitySubEvent.hasTsOrAttrSub()"})
   void testHasTsOrAttrSub2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    TenantId tenantId = new TenantId(UUID.randomUUID());
-    AlarmId entityId = mock(AlarmId.class);
-
-    // Act and Assert
-    assertFalse(
-        (new TbEntitySubEvent(tenantId, entityId, ComponentLifecycleEvent.CREATED, new TbSubscriptionsInfo(), 10))
-            .hasTsOrAttrSub());
-  }
-
-  /**
-   * Test {@link TbEntitySubEvent#hasTsOrAttrSub()}.
-   * <p>
-   * Method under test: {@link TbEntitySubEvent#hasTsOrAttrSub()}
-   */
-  @Test
-  @DisplayName("Test hasTsOrAttrSub()")
-  void testHasTsOrAttrSub3() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
-    assertFalse((new TbEntitySubEvent(new TenantId(UUID.randomUUID()), null, ComponentLifecycleEvent.CREATED, null, 10))
-        .hasTsOrAttrSub());
+    assertFalse((new TbEntitySubEvent(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null,
+        ComponentLifecycleEvent.CREATED, null, 10)).hasTsOrAttrSub());
   }
 
   /**
@@ -72,11 +52,11 @@ class TbEntitySubEventDiffblueTest {
    */
   @Test
   @DisplayName("Test hasTsOrAttrSub()")
-  void testHasTsOrAttrSub4() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbEntitySubEvent.hasTsOrAttrSub()"})
+  void testHasTsOrAttrSub3() {
     // Arrange
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     HashSet<String> tsKeys = new HashSet<>();
 
     // Act and Assert
@@ -91,11 +71,11 @@ class TbEntitySubEventDiffblueTest {
    */
   @Test
   @DisplayName("Test hasTsOrAttrSub()")
-  void testHasTsOrAttrSub5() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbEntitySubEvent.hasTsOrAttrSub()"})
+  void testHasTsOrAttrSub4() {
     // Arrange
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     HashSet<String> tsKeys = new HashSet<>();
 
     // Act and Assert
@@ -110,11 +90,11 @@ class TbEntitySubEventDiffblueTest {
    */
   @Test
   @DisplayName("Test hasTsOrAttrSub()")
-  void testHasTsOrAttrSub6() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbEntitySubEvent.hasTsOrAttrSub()"})
+  void testHasTsOrAttrSub5() {
     // Arrange
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     HashSet<String> tsKeys = new HashSet<>();
 
     // Act and Assert

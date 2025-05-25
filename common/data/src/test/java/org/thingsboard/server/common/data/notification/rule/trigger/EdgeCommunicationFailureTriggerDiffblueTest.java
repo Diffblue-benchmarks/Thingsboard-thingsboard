@@ -2,8 +2,10 @@ package org.thingsboard.server.common.data.notification.rule.trigger;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.EdgeId;
@@ -20,6 +22,8 @@ class EdgeCommunicationFailureTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test deduplicate(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeCommunicationFailureTrigger.deduplicate()"})
   void testDeduplicate_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue((new EdgeCommunicationFailureTrigger(TenantId.SYS_TENANT_ID,
@@ -30,11 +34,12 @@ class EdgeCommunicationFailureTriggerDiffblueTest {
   /**
    * Test {@link EdgeCommunicationFailureTrigger#getDeduplicationKey()}.
    * <p>
-   * Method under test:
-   * {@link EdgeCommunicationFailureTrigger#getDeduplicationKey()}
+   * Method under test: {@link EdgeCommunicationFailureTrigger#getDeduplicationKey()}
    */
   @Test
   @DisplayName("Test getDeduplicationKey()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String EdgeCommunicationFailureTrigger.getDeduplicationKey()"})
   void testGetDeduplicationKey() {
     // Arrange
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -47,17 +52,17 @@ class EdgeCommunicationFailureTriggerDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EdgeCommunicationFailureTrigger#getDefaultDeduplicationDuration()}.
+   * Test {@link EdgeCommunicationFailureTrigger#getDefaultDeduplicationDuration()}.
    * <ul>
    *   <li>Then return {@code 1800000}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EdgeCommunicationFailureTrigger#getDefaultDeduplicationDuration()}
+   * Method under test: {@link EdgeCommunicationFailureTrigger#getDefaultDeduplicationDuration()}
    */
   @Test
   @DisplayName("Test getDefaultDeduplicationDuration(); then return '1800000'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long EdgeCommunicationFailureTrigger.getDefaultDeduplicationDuration()"})
   void testGetDefaultDeduplicationDuration_thenReturn1800000() {
     // Arrange, Act and Assert
     assertEquals(1800000L,

@@ -3,11 +3,13 @@ package org.thingsboard.server.actors;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class AbstractTbActorDiffblueTest {
@@ -18,6 +20,8 @@ class AbstractTbActorDiffblueTest {
    */
   @Test
   @DisplayName("Test getCtx()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbActorCtx AbstractTbActor.getCtx()"})
   void testGetCtx() {
     // Arrange
     TbActorId actorId = mock(TbActorId.class);
@@ -35,6 +39,8 @@ class AbstractTbActorDiffblueTest {
    */
   @Test
   @DisplayName("Test init(TbActorCtx)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AbstractTbActor.init(TbActorCtx)"})
   void testInit() throws TbActorException {
     // Arrange
     TbActorId actorId = mock(TbActorId.class);
@@ -71,6 +77,8 @@ class AbstractTbActorDiffblueTest {
    */
   @Test
   @DisplayName("Test getActorRef()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbActorRef AbstractTbActor.getActorRef()"})
   void testGetActorRef() {
     // Arrange
     TbActorId actorId = mock(TbActorId.class);

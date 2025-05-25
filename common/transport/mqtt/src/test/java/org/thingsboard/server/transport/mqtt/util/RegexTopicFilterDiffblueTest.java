@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class RegexTopicFilterDiffblueTest {
@@ -15,6 +17,8 @@ class RegexTopicFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test new RegexTopicFilter(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void RegexTopicFilter.<init>(String)"})
   void testNewRegexTopicFilter() {
     // Arrange, Act and Assert
     assertEquals(".*", (new RegexTopicFilter(".*")).getRegex().pattern());
@@ -23,8 +27,7 @@ class RegexTopicFilterDiffblueTest {
   /**
    * Test {@link RegexTopicFilter#filter(String)}.
    * <ul>
-   *   <li>Given {@link RegexTopicFilter#RegexTopicFilter(String)} with regex is
-   * {@code .*}.</li>
+   *   <li>Given {@link RegexTopicFilter#RegexTopicFilter(String)} with regex is {@code .*}.</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
@@ -32,6 +35,8 @@ class RegexTopicFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test filter(String); given RegexTopicFilter(String) with regex is '.*'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RegexTopicFilter.filter(String)"})
   void testFilter_givenRegexTopicFilterWithRegexIsDotAsterisk_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue((new RegexTopicFilter(".*")).filter("Topic"));
@@ -40,8 +45,7 @@ class RegexTopicFilterDiffblueTest {
   /**
    * Test {@link RegexTopicFilter#filter(String)}.
    * <ul>
-   *   <li>Given {@link RegexTopicFilter#RegexTopicFilter(String)} with regex is
-   * {@code U}.</li>
+   *   <li>Given {@link RegexTopicFilter#RegexTopicFilter(String)} with regex is {@code U}.</li>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
@@ -49,14 +53,15 @@ class RegexTopicFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test filter(String); given RegexTopicFilter(String) with regex is 'U'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RegexTopicFilter.filter(String)"})
   void testFilter_givenRegexTopicFilterWithRegexIsU_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse((new RegexTopicFilter("U")).filter("Topic"));
   }
 
   /**
-   * Test {@link RegexTopicFilter#equals(Object)}, and
-   * {@link RegexTopicFilter#hashCode()}.
+   * Test {@link RegexTopicFilter#equals(Object)}, and {@link RegexTopicFilter#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -70,6 +75,8 @@ class RegexTopicFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RegexTopicFilter.equals(Object)", "int RegexTopicFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     RegexTopicFilter regexTopicFilter = new RegexTopicFilter(".*");
@@ -91,6 +98,8 @@ class RegexTopicFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RegexTopicFilter.equals(Object)", "int RegexTopicFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     RegexTopicFilter regexTopicFilter = new RegexTopicFilter(".*");
@@ -110,6 +119,8 @@ class RegexTopicFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RegexTopicFilter.equals(Object)", "int RegexTopicFilter.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new RegexTopicFilter(".*"), null);
@@ -126,6 +137,8 @@ class RegexTopicFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RegexTopicFilter.equals(Object)", "int RegexTopicFilter.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new RegexTopicFilter(".*"), "Different type to RegexTopicFilter");
@@ -142,6 +155,8 @@ class RegexTopicFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.util.regex.Pattern RegexTopicFilter.getRegex()", "String RegexTopicFilter.toString()"})
   void testGettersAndSetters() {
     // Arrange
     RegexTopicFilter regexTopicFilter = new RegexTopicFilter(".*");

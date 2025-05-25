@@ -3,15 +3,16 @@ package org.thingsboard.server.common.data.notification.targets.platform;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.EntityId;
 
 class CustomerUsersFilterDiffblueTest {
   /**
-   * Test {@link CustomerUsersFilter#equals(Object)}, and
-   * {@link CustomerUsersFilter#hashCode()}.
+   * Test {@link CustomerUsersFilter#equals(Object)}, and {@link CustomerUsersFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -25,6 +26,8 @@ class CustomerUsersFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CustomerUsersFilter.equals(Object)", "int CustomerUsersFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     CustomerUsersFilter customerUsersFilter = new CustomerUsersFilter();
@@ -40,8 +43,7 @@ class CustomerUsersFilterDiffblueTest {
   }
 
   /**
-   * Test {@link CustomerUsersFilter#equals(Object)}, and
-   * {@link CustomerUsersFilter#hashCode()}.
+   * Test {@link CustomerUsersFilter#equals(Object)}, and {@link CustomerUsersFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -55,6 +57,8 @@ class CustomerUsersFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CustomerUsersFilter.equals(Object)", "int CustomerUsersFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     CustomerUsersFilter customerUsersFilter = new CustomerUsersFilter();
@@ -70,8 +74,7 @@ class CustomerUsersFilterDiffblueTest {
   }
 
   /**
-   * Test {@link CustomerUsersFilter#equals(Object)}, and
-   * {@link CustomerUsersFilter#hashCode()}.
+   * Test {@link CustomerUsersFilter#equals(Object)}, and {@link CustomerUsersFilter#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -85,6 +88,8 @@ class CustomerUsersFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CustomerUsersFilter.equals(Object)", "int CustomerUsersFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     CustomerUsersFilter customerUsersFilter = new CustomerUsersFilter();
@@ -107,6 +112,8 @@ class CustomerUsersFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CustomerUsersFilter.equals(Object)", "int CustomerUsersFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     CustomerUsersFilter customerUsersFilter = new CustomerUsersFilter();
@@ -130,6 +137,8 @@ class CustomerUsersFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CustomerUsersFilter.equals(Object)", "int CustomerUsersFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     CustomerUsersFilter customerUsersFilter = new CustomerUsersFilter();
@@ -153,6 +162,8 @@ class CustomerUsersFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CustomerUsersFilter.equals(Object)", "int CustomerUsersFilter.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     CustomerUsersFilter customerUsersFilter = new CustomerUsersFilter();
@@ -173,6 +184,8 @@ class CustomerUsersFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CustomerUsersFilter.equals(Object)", "int CustomerUsersFilter.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     CustomerUsersFilter customerUsersFilter = new CustomerUsersFilter();
@@ -196,6 +209,10 @@ class CustomerUsersFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CustomerUsersFilter.<init>()", "UUID CustomerUsersFilter.getCustomerId()",
+      "UsersFilterType CustomerUsersFilter.getType()", "void CustomerUsersFilter.setCustomerId(UUID)",
+      "String CustomerUsersFilter.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     CustomerUsersFilter actualCustomerUsersFilter = new CustomerUsersFilter();
@@ -205,7 +222,7 @@ class CustomerUsersFilterDiffblueTest {
     UUID actualCustomerId = actualCustomerUsersFilter.getCustomerId();
     UsersFilterType actualType = actualCustomerUsersFilter.getType();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualCustomerId.toString());
     assertEquals("CustomerUsersFilter(customerId=784f394c-42b6-435a-983c-b7beff2784f9)", actualToStringResult);
     assertEquals(UsersFilterType.CUSTOMER_USERS, actualType);

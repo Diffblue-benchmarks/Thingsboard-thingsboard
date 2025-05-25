@@ -2,8 +2,10 @@ package org.thingsboard.server.queue.housekeeper;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Set;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.housekeeper.HousekeeperTaskType;
 
@@ -22,6 +24,10 @@ class HousekeeperConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Set HousekeeperConfig.getDisabledTaskTypes()",
+      "int HousekeeperConfig.getMaxReprocessingAttempts()", "int HousekeeperConfig.getPollInterval()",
+      "int HousekeeperConfig.getTaskProcessingTimeout()", "int HousekeeperConfig.getTaskReprocessingDelay()"})
   void testGettersAndSetters() {
     // Arrange
     HousekeeperConfig housekeeperConfig = new HousekeeperConfig();

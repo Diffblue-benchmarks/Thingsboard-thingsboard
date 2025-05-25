@@ -1,201 +1,94 @@
 package org.thingsboard.server.queue.kafka;
 
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import java.util.ArrayList;
-import org.junit.jupiter.api.Disabled;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.aot.DisabledInAotMode;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.thingsboard.server.common.data.TbProperty;
-import org.thingsboard.server.queue.discovery.PartitionService;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 
-@ContextConfiguration(classes = {TbKafkaConsumerStatsService.class, TbKafkaSettings.class})
-@ExtendWith(SpringExtension.class)
-@DisabledInAotMode
+@DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
+@ExtendWith(MockitoExtension.class)
 class TbKafkaConsumerStatsServiceDiffblueTest {
-  @MockBean
-  private PartitionService partitionService;
-
-  @MockBean
+  @Mock
   private TbKafkaConsumerStatisticConfig tbKafkaConsumerStatisticConfig;
 
-  @Autowired
+  @InjectMocks
   private TbKafkaConsumerStatsService tbKafkaConsumerStatsService;
 
-  @Autowired
-  private TbKafkaSettings tbKafkaSettings;
-
-  /**
-   * Test {@link TbKafkaConsumerStatsService#init()}.
-   * <p>
-   * Method under test: {@link TbKafkaConsumerStatsService#init()}
-   */
-  @Test
-  @DisplayName("Test init()")
-  @Disabled("TODO: Complete this test")
-  void testInit() {
-    // TODO: Diffblue Cover was only able to create a partial test for this method:
-    //   Reason: Missing beans when creating Spring context.
-    //   Failed to create Spring context due to missing beans
-    //   in the current Spring profile:
-    //   - org.thingsboard.server.queue.kafka.TbKafkaConsumerStatsService
-    //   - org.thingsboard.server.queue.kafka.TbKafkaSettings
-    //   when running class:
-    //   package org.thingsboard.server.queue.kafka;
-    //   @org.springframework.test.context.ContextConfiguration(classes = {org.thingsboard.server.queue.kafka.TbKafkaConsumerStatsService.class,org.thingsboard.server.queue.kafka.TbKafkaSettings.class})
-    //   @org.junit.runner.RunWith(value = org.springframework.test.context.junit4.SpringRunner.class) // if JUnit 4
-    //   @org.junit.jupiter.api.extension.ExtendWith(value = org.springframework.test.context.junit.jupiter.SpringExtension.class) // if JUnit 5
-    //   public class DiffblueFakeClass6914 {
-    //     @org.springframework.boot.test.mock.mockito.MockBean org.thingsboard.server.queue.discovery.PartitionService partitionService;
-    //     @org.springframework.boot.test.mock.mockito.MockBean org.thingsboard.server.queue.kafka.TbKafkaConsumerStatisticConfig tbKafkaConsumerStatisticConfig;
-    //     @org.springframework.beans.factory.annotation.Autowired org.thingsboard.server.queue.kafka.TbKafkaConsumerStatsService tbKafkaConsumerStatsService;
-    //     @org.springframework.beans.factory.annotation.Autowired org.thingsboard.server.queue.kafka.TbKafkaSettings tbKafkaSettings;
-    //     @org.junit.Test // if JUnit 4
-    //     @org.junit.jupiter.api.Test // if JUnit 5
-    //     public void testSpringContextLoads() {}
-    //   }
-    //   See https://diff.blue/R027 to resolve this issue.
-
-    // Arrange and Act
-    tbKafkaConsumerStatsService.init();
-  }
-
   /**
    * Test {@link TbKafkaConsumerStatsService#init()}.
    * <ul>
-   *   <li>Given {@link TbProperty} {@link TbProperty#setKey(String)} does
-   * nothing.</li>
-   *   <li>Then calls {@link TbProperty#setKey(String)}.</li>
+   *   <li>Then calls {@link TbKafkaConsumerStatisticConfig#getEnabled()}.</li>
    * </ul>
    * <p>
    * Method under test: {@link TbKafkaConsumerStatsService#init()}
    */
   @Test
-  @DisplayName("Test init(); given TbProperty setKey(String) does nothing; then calls setKey(String)")
-  void testInit_givenTbPropertySetKeyDoesNothing_thenCallsSetKey() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test init(); then calls getEnabled()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbKafkaConsumerStatsService.init()"})
+  void testInit_thenCallsGetEnabled() {
     // Arrange
-    TbProperty tbProperty = mock(TbProperty.class);
-    doNothing().when(tbProperty).setKey(Mockito.<String>any());
-    doNothing().when(tbProperty).setValue(Mockito.<String>any());
-    tbProperty.setKey("kafka-consumer-stats");
-    tbProperty.setValue("42");
-
-    ArrayList<TbProperty> other = new ArrayList<>();
-    other.add(tbProperty);
-
-    TbKafkaSettings kafkaSettings = new TbKafkaSettings();
-    kafkaSettings.setOther(other);
-    TbKafkaConsumerStatisticConfig statsConfig = mock(TbKafkaConsumerStatisticConfig.class);
-    when(statsConfig.getEnabled()).thenReturn(false);
+    when(tbKafkaConsumerStatisticConfig.getEnabled()).thenReturn(false);
 
     // Act
-    (new TbKafkaConsumerStatsService(kafkaSettings, statsConfig)).init();
+    tbKafkaConsumerStatsService.init();
 
-    // Assert that nothing has changed
-    verify(tbProperty).setKey(eq("kafka-consumer-stats"));
-    verify(tbProperty).setValue(eq("42"));
-    verify(statsConfig).getEnabled();
-  }
-
-  /**
-   * Test {@link TbKafkaConsumerStatsService#registerClientGroup(String)}.
-   * <p>
-   * Method under test:
-   * {@link TbKafkaConsumerStatsService#registerClientGroup(String)}
-   */
-  @Test
-  @DisplayName("Test registerClientGroup(String)")
-  @Disabled("TODO: Complete this test")
-  void testRegisterClientGroup() {
-    // TODO: Diffblue Cover was only able to create a partial test for this method:
-    //   Reason: Missing beans when creating Spring context.
-    //   Failed to create Spring context due to missing beans
-    //   in the current Spring profile:
-    //   - org.thingsboard.server.queue.kafka.TbKafkaConsumerStatsService
-    //   - org.thingsboard.server.queue.kafka.TbKafkaSettings
-    //   when running class:
-    //   package org.thingsboard.server.queue.kafka;
-    //   @org.springframework.test.context.ContextConfiguration(classes = {org.thingsboard.server.queue.kafka.TbKafkaConsumerStatsService.class,org.thingsboard.server.queue.kafka.TbKafkaSettings.class})
-    //   @org.junit.runner.RunWith(value = org.springframework.test.context.junit4.SpringRunner.class) // if JUnit 4
-    //   @org.junit.jupiter.api.extension.ExtendWith(value = org.springframework.test.context.junit.jupiter.SpringExtension.class) // if JUnit 5
-    //   public class DiffblueFakeClass6917 {
-    //     @org.springframework.boot.test.mock.mockito.MockBean org.thingsboard.server.queue.discovery.PartitionService partitionService;
-    //     @org.springframework.boot.test.mock.mockito.MockBean org.thingsboard.server.queue.kafka.TbKafkaConsumerStatisticConfig tbKafkaConsumerStatisticConfig;
-    //     @org.springframework.beans.factory.annotation.Autowired org.thingsboard.server.queue.kafka.TbKafkaConsumerStatsService tbKafkaConsumerStatsService;
-    //     @org.springframework.beans.factory.annotation.Autowired org.thingsboard.server.queue.kafka.TbKafkaSettings tbKafkaSettings;
-    //     @org.junit.Test // if JUnit 4
-    //     @org.junit.jupiter.api.Test // if JUnit 5
-    //     public void testSpringContextLoads() {}
-    //   }
-    //   See https://diff.blue/R027 to resolve this issue.
-
-    // Arrange and Act
-    tbKafkaConsumerStatsService.registerClientGroup("42");
+    // Assert
+    verify(tbKafkaConsumerStatisticConfig).getEnabled();
   }
 
   /**
    * Test {@link TbKafkaConsumerStatsService#registerClientGroup(String)}.
    * <ul>
-   *   <li>Given {@link TbKafkaConsumerStatisticConfig}
-   * {@link TbKafkaConsumerStatisticConfig#getEnabled()} return
-   * {@code false}.</li>
+   *   <li>Given {@link TbKafkaConsumerStatisticConfig} {@link TbKafkaConsumerStatisticConfig#getEnabled()} return {@code false}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbKafkaConsumerStatsService#registerClientGroup(String)}
+   * Method under test: {@link TbKafkaConsumerStatsService#registerClientGroup(String)}
    */
   @Test
   @DisplayName("Test registerClientGroup(String); given TbKafkaConsumerStatisticConfig getEnabled() return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbKafkaConsumerStatsService.registerClientGroup(String)"})
   void testRegisterClientGroup_givenTbKafkaConsumerStatisticConfigGetEnabledReturnFalse() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    TbKafkaConsumerStatisticConfig statsConfig = mock(TbKafkaConsumerStatisticConfig.class);
-    when(statsConfig.getEnabled()).thenReturn(false);
+    when(tbKafkaConsumerStatisticConfig.getEnabled()).thenReturn(false);
 
     // Act
-    (new TbKafkaConsumerStatsService(new TbKafkaSettings(), statsConfig)).registerClientGroup("42");
+    tbKafkaConsumerStatsService.registerClientGroup("42");
 
-    // Assert that nothing has changed
-    verify(statsConfig).getEnabled();
+    // Assert
+    verify(tbKafkaConsumerStatisticConfig).getEnabled();
   }
 
   /**
    * Test {@link TbKafkaConsumerStatsService#registerClientGroup(String)}.
    * <ul>
-   *   <li>Given {@link TbKafkaConsumerStatisticConfig}
-   * {@link TbKafkaConsumerStatisticConfig#getEnabled()} return {@code true}.</li>
+   *   <li>When {@code 42}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbKafkaConsumerStatsService#registerClientGroup(String)}
+   * Method under test: {@link TbKafkaConsumerStatsService#registerClientGroup(String)}
    */
   @Test
-  @DisplayName("Test registerClientGroup(String); given TbKafkaConsumerStatisticConfig getEnabled() return 'true'")
-  void testRegisterClientGroup_givenTbKafkaConsumerStatisticConfigGetEnabledReturnTrue() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test registerClientGroup(String); when '42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbKafkaConsumerStatsService.registerClientGroup(String)"})
+  void testRegisterClientGroup_when42() {
     // Arrange
-    TbKafkaConsumerStatisticConfig statsConfig = mock(TbKafkaConsumerStatisticConfig.class);
-    when(statsConfig.getEnabled()).thenReturn(true);
+    when(tbKafkaConsumerStatisticConfig.getEnabled()).thenReturn(true);
 
     // Act
-    (new TbKafkaConsumerStatsService(new TbKafkaSettings(), statsConfig)).registerClientGroup("42");
+    tbKafkaConsumerStatsService.registerClientGroup("42");
 
     // Assert
-    verify(statsConfig).getEnabled();
+    verify(tbKafkaConsumerStatisticConfig).getEnabled();
   }
 
   /**
@@ -204,103 +97,87 @@ class TbKafkaConsumerStatsServiceDiffblueTest {
    *   <li>When empty string.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbKafkaConsumerStatsService#registerClientGroup(String)}
+   * Method under test: {@link TbKafkaConsumerStatsService#registerClientGroup(String)}
    */
   @Test
   @DisplayName("Test registerClientGroup(String); when empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbKafkaConsumerStatsService.registerClientGroup(String)"})
   void testRegisterClientGroup_whenEmptyString() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    TbKafkaConsumerStatisticConfig statsConfig = mock(TbKafkaConsumerStatisticConfig.class);
-    when(statsConfig.getEnabled()).thenReturn(true);
+    when(tbKafkaConsumerStatisticConfig.getEnabled()).thenReturn(true);
 
     // Act
-    (new TbKafkaConsumerStatsService(new TbKafkaSettings(), statsConfig)).registerClientGroup("");
-
-    // Assert that nothing has changed
-    verify(statsConfig).getEnabled();
-  }
-
-  /**
-   * Test {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}.
-   * <p>
-   * Method under test:
-   * {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}
-   */
-  @Test
-  @DisplayName("Test unregisterClientGroup(String)")
-  void testUnregisterClientGroup() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    TbKafkaConsumerStatisticConfig statsConfig = mock(TbKafkaConsumerStatisticConfig.class);
-    when(statsConfig.getEnabled()).thenReturn(true);
-
-    // Act
-    (new TbKafkaConsumerStatsService(new TbKafkaSettings(), statsConfig)).unregisterClientGroup("42");
+    tbKafkaConsumerStatsService.registerClientGroup("");
 
     // Assert
-    verify(statsConfig).getEnabled();
+    verify(tbKafkaConsumerStatisticConfig).getEnabled();
   }
 
   /**
-   * Test {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}.
+   * Test {@link TbKafkaConsumerStatsService#registerClientGroup(String)}.
+   * <ul>
+   *   <li>When {@code null}.</li>
+   * </ul>
    * <p>
-   * Method under test:
-   * {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}
+   * Method under test: {@link TbKafkaConsumerStatsService#registerClientGroup(String)}
    */
   @Test
-  @DisplayName("Test unregisterClientGroup(String)")
-  void testUnregisterClientGroup2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test registerClientGroup(String); when 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbKafkaConsumerStatsService.registerClientGroup(String)"})
+  void testRegisterClientGroup_whenNull() {
     // Arrange
-    TbKafkaConsumerStatisticConfig statsConfig = mock(TbKafkaConsumerStatisticConfig.class);
-    when(statsConfig.getEnabled()).thenReturn(false);
+    when(tbKafkaConsumerStatisticConfig.getEnabled()).thenReturn(true);
 
     // Act
-    (new TbKafkaConsumerStatsService(new TbKafkaSettings(), statsConfig)).unregisterClientGroup("42");
+    tbKafkaConsumerStatsService.registerClientGroup(null);
 
-    // Assert that nothing has changed
-    verify(statsConfig).getEnabled();
+    // Assert
+    verify(tbKafkaConsumerStatisticConfig).getEnabled();
   }
 
   /**
    * Test {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}.
    * <p>
-   * Method under test:
-   * {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}
+   * Method under test: {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}
    */
   @Test
   @DisplayName("Test unregisterClientGroup(String)")
-  @Disabled("TODO: Complete this test")
-  void testUnregisterClientGroup3() {
-    // TODO: Diffblue Cover was only able to create a partial test for this method:
-    //   Reason: Missing beans when creating Spring context.
-    //   Failed to create Spring context due to missing beans
-    //   in the current Spring profile:
-    //   - org.thingsboard.server.queue.kafka.TbKafkaConsumerStatsService
-    //   - org.thingsboard.server.queue.kafka.TbKafkaSettings
-    //   when running class:
-    //   package org.thingsboard.server.queue.kafka;
-    //   @org.springframework.test.context.ContextConfiguration(classes = {org.thingsboard.server.queue.kafka.TbKafkaConsumerStatsService.class,org.thingsboard.server.queue.kafka.TbKafkaSettings.class})
-    //   @org.junit.runner.RunWith(value = org.springframework.test.context.junit4.SpringRunner.class) // if JUnit 4
-    //   @org.junit.jupiter.api.extension.ExtendWith(value = org.springframework.test.context.junit.jupiter.SpringExtension.class) // if JUnit 5
-    //   public class DiffblueFakeClass7436 {
-    //     @org.springframework.boot.test.mock.mockito.MockBean org.thingsboard.server.queue.discovery.PartitionService partitionService;
-    //     @org.springframework.boot.test.mock.mockito.MockBean org.thingsboard.server.queue.kafka.TbKafkaConsumerStatisticConfig tbKafkaConsumerStatisticConfig;
-    //     @org.springframework.beans.factory.annotation.Autowired org.thingsboard.server.queue.kafka.TbKafkaConsumerStatsService tbKafkaConsumerStatsService;
-    //     @org.springframework.beans.factory.annotation.Autowired org.thingsboard.server.queue.kafka.TbKafkaSettings tbKafkaSettings;
-    //     @org.junit.Test // if JUnit 4
-    //     @org.junit.jupiter.api.Test // if JUnit 5
-    //     public void testSpringContextLoads() {}
-    //   }
-    //   See https://diff.blue/R027 to resolve this issue.
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbKafkaConsumerStatsService.unregisterClientGroup(String)"})
+  void testUnregisterClientGroup() {
+    // Arrange
+    when(tbKafkaConsumerStatisticConfig.getEnabled()).thenReturn(false);
 
-    // Arrange and Act
+    // Act
     tbKafkaConsumerStatsService.unregisterClientGroup("42");
+
+    // Assert
+    verify(tbKafkaConsumerStatisticConfig).getEnabled();
+  }
+
+  /**
+   * Test {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}.
+   * <ul>
+   *   <li>When {@code 42}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}
+   */
+  @Test
+  @DisplayName("Test unregisterClientGroup(String); when '42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbKafkaConsumerStatsService.unregisterClientGroup(String)"})
+  void testUnregisterClientGroup_when42() {
+    // Arrange
+    when(tbKafkaConsumerStatisticConfig.getEnabled()).thenReturn(true);
+
+    // Act
+    tbKafkaConsumerStatsService.unregisterClientGroup("42");
+
+    // Assert
+    verify(tbKafkaConsumerStatisticConfig).getEnabled();
   }
 
   /**
@@ -309,57 +186,43 @@ class TbKafkaConsumerStatsServiceDiffblueTest {
    *   <li>When empty string.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}
+   * Method under test: {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}
    */
   @Test
   @DisplayName("Test unregisterClientGroup(String); when empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbKafkaConsumerStatsService.unregisterClientGroup(String)"})
   void testUnregisterClientGroup_whenEmptyString() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    TbKafkaConsumerStatisticConfig statsConfig = mock(TbKafkaConsumerStatisticConfig.class);
-    when(statsConfig.getEnabled()).thenReturn(true);
+    when(tbKafkaConsumerStatisticConfig.getEnabled()).thenReturn(true);
 
     // Act
-    (new TbKafkaConsumerStatsService(new TbKafkaSettings(), statsConfig)).unregisterClientGroup("");
+    tbKafkaConsumerStatsService.unregisterClientGroup("");
 
-    // Assert that nothing has changed
-    verify(statsConfig).getEnabled();
+    // Assert
+    verify(tbKafkaConsumerStatisticConfig).getEnabled();
   }
 
   /**
-   * Test {@link TbKafkaConsumerStatsService#destroy()}.
+   * Test {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}.
+   * <ul>
+   *   <li>When {@code null}.</li>
+   * </ul>
    * <p>
-   * Method under test: {@link TbKafkaConsumerStatsService#destroy()}
+   * Method under test: {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}
    */
   @Test
-  @DisplayName("Test destroy()")
-  @Disabled("TODO: Complete this test")
-  void testDestroy() {
-    // TODO: Diffblue Cover was only able to create a partial test for this method:
-    //   Reason: Missing beans when creating Spring context.
-    //   Failed to create Spring context due to missing beans
-    //   in the current Spring profile:
-    //   - org.thingsboard.server.queue.kafka.TbKafkaConsumerStatsService
-    //   - org.thingsboard.server.queue.kafka.TbKafkaSettings
-    //   when running class:
-    //   package org.thingsboard.server.queue.kafka;
-    //   @org.springframework.test.context.ContextConfiguration(classes = {org.thingsboard.server.queue.kafka.TbKafkaConsumerStatsService.class,org.thingsboard.server.queue.kafka.TbKafkaSettings.class})
-    //   @org.junit.runner.RunWith(value = org.springframework.test.context.junit4.SpringRunner.class) // if JUnit 4
-    //   @org.junit.jupiter.api.extension.ExtendWith(value = org.springframework.test.context.junit.jupiter.SpringExtension.class) // if JUnit 5
-    //   public class DiffblueFakeClass6911 {
-    //     @org.springframework.boot.test.mock.mockito.MockBean org.thingsboard.server.queue.discovery.PartitionService partitionService;
-    //     @org.springframework.boot.test.mock.mockito.MockBean org.thingsboard.server.queue.kafka.TbKafkaConsumerStatisticConfig tbKafkaConsumerStatisticConfig;
-    //     @org.springframework.beans.factory.annotation.Autowired org.thingsboard.server.queue.kafka.TbKafkaConsumerStatsService tbKafkaConsumerStatsService;
-    //     @org.springframework.beans.factory.annotation.Autowired org.thingsboard.server.queue.kafka.TbKafkaSettings tbKafkaSettings;
-    //     @org.junit.Test // if JUnit 4
-    //     @org.junit.jupiter.api.Test // if JUnit 5
-    //     public void testSpringContextLoads() {}
-    //   }
-    //   See https://diff.blue/R027 to resolve this issue.
+  @DisplayName("Test unregisterClientGroup(String); when 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbKafkaConsumerStatsService.unregisterClientGroup(String)"})
+  void testUnregisterClientGroup_whenNull() {
+    // Arrange
+    when(tbKafkaConsumerStatisticConfig.getEnabled()).thenReturn(true);
 
-    // Arrange and Act
-    tbKafkaConsumerStatsService.destroy();
+    // Act
+    tbKafkaConsumerStatsService.unregisterClientGroup(null);
+
+    // Assert
+    verify(tbKafkaConsumerStatisticConfig).getEnabled();
   }
 }

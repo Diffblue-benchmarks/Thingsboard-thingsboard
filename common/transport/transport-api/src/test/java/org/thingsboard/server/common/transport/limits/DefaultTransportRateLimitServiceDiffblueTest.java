@@ -1,5 +1,6 @@
 package org.thingsboard.server.common.transport.limits;
 
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.atLeast;
@@ -7,113 +8,317 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
+import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.TenantProfile;
+import org.thingsboard.server.common.data.id.DeviceId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.tenant.profile.DefaultTenantProfileConfiguration;
 import org.thingsboard.server.common.data.tenant.profile.TenantProfileConfiguration;
 import org.thingsboard.server.common.data.tenant.profile.TenantProfileData;
 import org.thingsboard.server.common.data.tenant.profile.TenantProfileQueueConfiguration;
+import org.thingsboard.server.common.data.util.TbPair;
 import org.thingsboard.server.common.transport.TransportTenantProfileCache;
 import org.thingsboard.server.common.transport.profile.TenantProfileUpdateResult;
-import org.thingsboard.server.common.transport.service.DefaultTransportTenantProfileCache;
 
+@DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
+@ExtendWith(MockitoExtension.class)
 class DefaultTransportRateLimitServiceDiffblueTest {
+  @InjectMocks
+  private DefaultTransportRateLimitService defaultTransportRateLimitService;
+
+  @Mock
+  private TransportTenantProfileCache transportTenantProfileCache;
+
   /**
-   * Test {@link DefaultTransportRateLimitService#update(TenantId)} with
-   * {@code tenantId}.
-   * <ul>
-   *   <li>Then calls {@link TransportTenantProfileCache#get(TenantId)}.</li>
-   * </ul>
+   * Test {@link DefaultTransportRateLimitService#checkLimits(TenantId, DeviceId, DeviceId, int, boolean)}.
    * <p>
-   * Method under test: {@link DefaultTransportRateLimitService#update(TenantId)}
+   * Method under test: {@link DefaultTransportRateLimitService#checkLimits(TenantId, DeviceId, DeviceId, int, boolean)}
    */
   @Test
-  @DisplayName("Test update(TenantId) with 'tenantId'; then calls get(TenantId)")
-  void testUpdateWithTenantId_thenCallsGet() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test checkLimits(TenantId, DeviceId, DeviceId, int, boolean)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbPair DefaultTransportRateLimitService.checkLimits(TenantId, DeviceId, DeviceId, int, boolean)"})
+  void testCheckLimits() {
     // Arrange
     TransportTenantProfileCache tenantProfileCache = mock(TransportTenantProfileCache.class);
     when(tenantProfileCache.get(Mockito.<TenantId>any())).thenReturn(new TenantProfile());
     DefaultTransportRateLimitService defaultTransportRateLimitService = new DefaultTransportRateLimitService(
         tenantProfileCache);
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    defaultTransportRateLimitService.update(new TenantId(UUID.randomUUID()));
+    TbPair<EntityType, Boolean> actualCheckLimitsResult = defaultTransportRateLimitService.checkLimits(tenantId, null,
+        new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), 0, true);
 
     // Assert
     verify(tenantProfileCache, atLeast(1)).get(isA(TenantId.class));
+    assertNull(actualCheckLimitsResult);
   }
 
   /**
-   * Test
-   * {@link DefaultTransportRateLimitService#update(TenantProfileUpdateResult)}
-   * with {@code update}.
+   * Test {@link DefaultTransportRateLimitService#checkLimits(TenantId, DeviceId, DeviceId, int, boolean)}.
    * <ul>
-   *   <li>Given {@link TenantId#TenantId(UUID)} with id is randomUUID.</li>
+   *   <li>Given {@link TenantProfileData} {@link TenantProfileData#getConfiguration()} return {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTransportRateLimitService#update(TenantProfileUpdateResult)}
+   * Method under test: {@link DefaultTransportRateLimitService#checkLimits(TenantId, DeviceId, DeviceId, int, boolean)}
    */
   @Test
-  @DisplayName("Test update(TenantProfileUpdateResult) with 'update'; given TenantId(UUID) with id is randomUUID")
-  void testUpdateWithUpdate_givenTenantIdWithIdIsRandomUUID() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test checkLimits(TenantId, DeviceId, DeviceId, int, boolean); given TenantProfileData getConfiguration() return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbPair DefaultTransportRateLimitService.checkLimits(TenantId, DeviceId, DeviceId, int, boolean)"})
+  void testCheckLimits_givenTenantProfileDataGetConfigurationReturnNull() {
     // Arrange
-    DefaultTransportRateLimitService defaultTransportRateLimitService = new DefaultTransportRateLimitService(
-        new DefaultTransportTenantProfileCache());
+    TenantProfileData tenantProfileData = mock(TenantProfileData.class);
+    when(tenantProfileData.getConfiguration()).thenReturn(null);
+    doNothing().when(tenantProfileData).setConfiguration(Mockito.<TenantProfileConfiguration>any());
+    doNothing().when(tenantProfileData).setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
+    tenantProfileData.setConfiguration(new DefaultTenantProfileConfiguration());
+    tenantProfileData.setQueueConfiguration(new ArrayList<>());
+    TenantProfile tenantProfile = mock(TenantProfile.class);
+    when(tenantProfile.getProfileData()).thenReturn(tenantProfileData);
+    when(transportTenantProfileCache.get(Mockito.<TenantId>any())).thenReturn(tenantProfile);
+
+    // Act
+    TbPair<EntityType, Boolean> actualCheckLimitsResult = defaultTransportRateLimitService
+        .checkLimits(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, null, 0, false);
+
+    // Assert
+    verify(tenantProfile).getProfileData();
+    verify(tenantProfileData).getConfiguration();
+    verify(tenantProfileData).setConfiguration(isA(TenantProfileConfiguration.class));
+    verify(tenantProfileData).setQueueConfiguration(isA(List.class));
+    verify(transportTenantProfileCache).get(isA(TenantId.class));
+    assertNull(actualCheckLimitsResult);
+  }
+
+  /**
+   * Test {@link DefaultTransportRateLimitService#checkLimits(TenantId, DeviceId, DeviceId, int, boolean)}.
+   * <ul>
+   *   <li>Given {@link TransportTenantProfileCache} {@link TransportTenantProfileCache#get(TenantId)} return {@link TenantProfile#TenantProfile()}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DefaultTransportRateLimitService#checkLimits(TenantId, DeviceId, DeviceId, int, boolean)}
+   */
+  @Test
+  @DisplayName("Test checkLimits(TenantId, DeviceId, DeviceId, int, boolean); given TransportTenantProfileCache get(TenantId) return TenantProfile()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbPair DefaultTransportRateLimitService.checkLimits(TenantId, DeviceId, DeviceId, int, boolean)"})
+  void testCheckLimits_givenTransportTenantProfileCacheGetReturnTenantProfile() {
+    // Arrange
+    when(transportTenantProfileCache.get(Mockito.<TenantId>any())).thenReturn(new TenantProfile());
+
+    // Act
+    TbPair<EntityType, Boolean> actualCheckLimitsResult = defaultTransportRateLimitService
+        .checkLimits(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, null, 0, false);
+
+    // Assert
+    verify(transportTenantProfileCache).get(isA(TenantId.class));
+    assertNull(actualCheckLimitsResult);
+  }
+
+  /**
+   * Test {@link DefaultTransportRateLimitService#checkLimits(TenantId, DeviceId, DeviceId, int, boolean)}.
+   * <ul>
+   *   <li>When {@link DeviceId#DeviceId(UUID)} with id is fromString {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DefaultTransportRateLimitService#checkLimits(TenantId, DeviceId, DeviceId, int, boolean)}
+   */
+  @Test
+  @DisplayName("Test checkLimits(TenantId, DeviceId, DeviceId, int, boolean); when DeviceId(UUID) with id is fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbPair DefaultTransportRateLimitService.checkLimits(TenantId, DeviceId, DeviceId, int, boolean)"})
+  void testCheckLimits_whenDeviceIdWithIdIsFromString784f394c42b6435a983cB7beff2784f9() {
+    // Arrange
     TenantProfileData tenantProfileData = mock(TenantProfileData.class);
     when(tenantProfileData.getConfiguration()).thenReturn(new DefaultTenantProfileConfiguration());
     doNothing().when(tenantProfileData).setConfiguration(Mockito.<TenantProfileConfiguration>any());
     doNothing().when(tenantProfileData).setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
     tenantProfileData.setConfiguration(new DefaultTenantProfileConfiguration());
     tenantProfileData.setQueueConfiguration(new ArrayList<>());
-    TenantProfile profile = mock(TenantProfile.class);
-    when(profile.getProfileData()).thenReturn(tenantProfileData);
-
-    HashSet<TenantId> affectedTenants = new HashSet<>();
-    affectedTenants.add(new TenantId(UUID.randomUUID()));
+    TenantProfile tenantProfile = mock(TenantProfile.class);
+    when(tenantProfile.getProfileData()).thenReturn(tenantProfileData);
+    when(transportTenantProfileCache.get(Mockito.<TenantId>any())).thenReturn(tenantProfile);
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    defaultTransportRateLimitService.update(new TenantProfileUpdateResult(profile, affectedTenants));
+    TbPair<EntityType, Boolean> actualCheckLimitsResult = defaultTransportRateLimitService.checkLimits(tenantId,
+        new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, 0, false);
 
     // Assert
-    verify(profile, atLeast(1)).getProfileData();
+    verify(tenantProfile, atLeast(1)).getProfileData();
     verify(tenantProfileData, atLeast(1)).getConfiguration();
     verify(tenantProfileData).setConfiguration(isA(TenantProfileConfiguration.class));
     verify(tenantProfileData).setQueueConfiguration(isA(List.class));
+    verify(transportTenantProfileCache, atLeast(1)).get(isA(TenantId.class));
+    assertNull(actualCheckLimitsResult);
   }
 
   /**
-   * Test
-   * {@link DefaultTransportRateLimitService#update(TenantProfileUpdateResult)}
-   * with {@code update}.
+   * Test {@link DefaultTransportRateLimitService#checkLimits(TenantId, DeviceId, DeviceId, int, boolean)}.
    * <ul>
-   *   <li>Given {@link TenantProfileData}
-   * {@link TenantProfileData#getConfiguration()} return {@code null}.</li>
+   *   <li>When {@link DeviceId#DeviceId(UUID)} with id is fromString {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultTransportRateLimitService#update(TenantProfileUpdateResult)}
+   * Method under test: {@link DefaultTransportRateLimitService#checkLimits(TenantId, DeviceId, DeviceId, int, boolean)}
    */
   @Test
-  @DisplayName("Test update(TenantProfileUpdateResult) with 'update'; given TenantProfileData getConfiguration() return 'null'")
-  void testUpdateWithUpdate_givenTenantProfileDataGetConfigurationReturnNull() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test checkLimits(TenantId, DeviceId, DeviceId, int, boolean); when DeviceId(UUID) with id is fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbPair DefaultTransportRateLimitService.checkLimits(TenantId, DeviceId, DeviceId, int, boolean)"})
+  void testCheckLimits_whenDeviceIdWithIdIsFromString784f394c42b6435a983cB7beff2784f92() {
     // Arrange
-    DefaultTransportRateLimitService defaultTransportRateLimitService = new DefaultTransportRateLimitService(
-        new DefaultTransportTenantProfileCache());
+    TenantProfileData tenantProfileData = mock(TenantProfileData.class);
+    when(tenantProfileData.getConfiguration()).thenReturn(new DefaultTenantProfileConfiguration());
+    doNothing().when(tenantProfileData).setConfiguration(Mockito.<TenantProfileConfiguration>any());
+    doNothing().when(tenantProfileData).setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
+    tenantProfileData.setConfiguration(new DefaultTenantProfileConfiguration());
+    tenantProfileData.setQueueConfiguration(new ArrayList<>());
+    TenantProfile tenantProfile = mock(TenantProfile.class);
+    when(tenantProfile.getProfileData()).thenReturn(tenantProfileData);
+    when(transportTenantProfileCache.get(Mockito.<TenantId>any())).thenReturn(tenantProfile);
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act
+    TbPair<EntityType, Boolean> actualCheckLimitsResult = defaultTransportRateLimitService.checkLimits(tenantId, null,
+        new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), 0, false);
+
+    // Assert
+    verify(tenantProfile, atLeast(1)).getProfileData();
+    verify(tenantProfileData, atLeast(1)).getConfiguration();
+    verify(tenantProfileData).setConfiguration(isA(TenantProfileConfiguration.class));
+    verify(tenantProfileData).setQueueConfiguration(isA(List.class));
+    verify(transportTenantProfileCache, atLeast(1)).get(isA(TenantId.class));
+    assertNull(actualCheckLimitsResult);
+  }
+
+  /**
+   * Test {@link DefaultTransportRateLimitService#checkLimits(TenantId, DeviceId, DeviceId, int, boolean)}.
+   * <ul>
+   *   <li>When one.</li>
+   *   <li>Then calls {@link TenantProfile#getProfileData()}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DefaultTransportRateLimitService#checkLimits(TenantId, DeviceId, DeviceId, int, boolean)}
+   */
+  @Test
+  @DisplayName("Test checkLimits(TenantId, DeviceId, DeviceId, int, boolean); when one; then calls getProfileData()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbPair DefaultTransportRateLimitService.checkLimits(TenantId, DeviceId, DeviceId, int, boolean)"})
+  void testCheckLimits_whenOne_thenCallsGetProfileData() {
+    // Arrange
+    TenantProfileData tenantProfileData = mock(TenantProfileData.class);
+    when(tenantProfileData.getConfiguration()).thenReturn(new DefaultTenantProfileConfiguration());
+    doNothing().when(tenantProfileData).setConfiguration(Mockito.<TenantProfileConfiguration>any());
+    doNothing().when(tenantProfileData).setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
+    tenantProfileData.setConfiguration(new DefaultTenantProfileConfiguration());
+    tenantProfileData.setQueueConfiguration(new ArrayList<>());
+    TenantProfile tenantProfile = mock(TenantProfile.class);
+    when(tenantProfile.getProfileData()).thenReturn(tenantProfileData);
+    when(transportTenantProfileCache.get(Mockito.<TenantId>any())).thenReturn(tenantProfile);
+
+    // Act
+    TbPair<EntityType, Boolean> actualCheckLimitsResult = defaultTransportRateLimitService
+        .checkLimits(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, null, 1, false);
+
+    // Assert
+    verify(tenantProfile).getProfileData();
+    verify(tenantProfileData).getConfiguration();
+    verify(tenantProfileData).setConfiguration(isA(TenantProfileConfiguration.class));
+    verify(tenantProfileData).setQueueConfiguration(isA(List.class));
+    verify(transportTenantProfileCache).get(isA(TenantId.class));
+    assertNull(actualCheckLimitsResult);
+  }
+
+  /**
+   * Test {@link DefaultTransportRateLimitService#update(TenantId)} with {@code tenantId}.
+   * <ul>
+   *   <li>Given {@link TransportTenantProfileCache} {@link TransportTenantProfileCache#get(TenantId)} return {@link TenantProfile#TenantProfile()}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DefaultTransportRateLimitService#update(TenantId)}
+   */
+  @Test
+  @DisplayName("Test update(TenantId) with 'tenantId'; given TransportTenantProfileCache get(TenantId) return TenantProfile()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultTransportRateLimitService.update(TenantId)"})
+  void testUpdateWithTenantId_givenTransportTenantProfileCacheGetReturnTenantProfile() {
+    // Arrange
+    when(transportTenantProfileCache.get(Mockito.<TenantId>any())).thenReturn(new TenantProfile());
+
+    // Act
+    defaultTransportRateLimitService.update(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    // Assert
+    verify(transportTenantProfileCache, atLeast(1)).get(isA(TenantId.class));
+  }
+
+  /**
+   * Test {@link DefaultTransportRateLimitService#update(TenantId)} with {@code tenantId}.
+   * <ul>
+   *   <li>Then calls {@link TenantProfile#getProfileData()}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DefaultTransportRateLimitService#update(TenantId)}
+   */
+  @Test
+  @DisplayName("Test update(TenantId) with 'tenantId'; then calls getProfileData()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultTransportRateLimitService.update(TenantId)"})
+  void testUpdateWithTenantId_thenCallsGetProfileData() {
+    // Arrange
+    TenantProfileData tenantProfileData = mock(TenantProfileData.class);
+    when(tenantProfileData.getConfiguration()).thenReturn(null);
+    doNothing().when(tenantProfileData).setConfiguration(Mockito.<TenantProfileConfiguration>any());
+    doNothing().when(tenantProfileData).setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
+    tenantProfileData.setConfiguration(new DefaultTenantProfileConfiguration());
+    tenantProfileData.setQueueConfiguration(new ArrayList<>());
+    TenantProfile tenantProfile = mock(TenantProfile.class);
+    when(tenantProfile.getProfileData()).thenReturn(tenantProfileData);
+    when(transportTenantProfileCache.get(Mockito.<TenantId>any())).thenReturn(tenantProfile);
+
+    // Act
+    defaultTransportRateLimitService.update(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    // Assert
+    verify(tenantProfile, atLeast(1)).getProfileData();
+    verify(tenantProfileData, atLeast(1)).getConfiguration();
+    verify(tenantProfileData).setConfiguration(isA(TenantProfileConfiguration.class));
+    verify(tenantProfileData).setQueueConfiguration(isA(List.class));
+    verify(transportTenantProfileCache, atLeast(1)).get(isA(TenantId.class));
+  }
+
+  /**
+   * Test {@link DefaultTransportRateLimitService#update(TenantProfileUpdateResult)} with {@code update}.
+   * <ul>
+   *   <li>Then calls {@link TenantProfile#getProfileData()}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DefaultTransportRateLimitService#update(TenantProfileUpdateResult)}
+   */
+  @Test
+  @DisplayName("Test update(TenantProfileUpdateResult) with 'update'; then calls getProfileData()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultTransportRateLimitService.update(TenantProfileUpdateResult)"})
+  void testUpdateWithUpdate_thenCallsGetProfileData() {
+    // Arrange
     TenantProfileData tenantProfileData = mock(TenantProfileData.class);
     when(tenantProfileData.getConfiguration()).thenReturn(null);
     doNothing().when(tenantProfileData).setConfiguration(Mockito.<TenantProfileConfiguration>any());
@@ -134,42 +339,16 @@ class DefaultTransportRateLimitServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultTransportRateLimitService#checkAddress(InetSocketAddress)}.
+   * Test {@link DefaultTransportRateLimitService#checkAddress(InetSocketAddress)}.
    * <p>
-   * Method under test:
-   * {@link DefaultTransportRateLimitService#checkAddress(InetSocketAddress)}
+   * Method under test: {@link DefaultTransportRateLimitService#checkAddress(InetSocketAddress)}
    */
   @Test
   @DisplayName("Test checkAddress(InetSocketAddress)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultTransportRateLimitService.checkAddress(InetSocketAddress)"})
   void testCheckAddress() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DefaultTransportRateLimitService defaultTransportRateLimitService = new DefaultTransportRateLimitService(
-        new DefaultTransportTenantProfileCache());
-
-    // Act and Assert
-    assertTrue(defaultTransportRateLimitService.checkAddress(InetSocketAddress.createUnresolved("foo", 1)));
-  }
-
-  /**
-   * Test
-   * {@link DefaultTransportRateLimitService#checkAddress(InetSocketAddress)}.
-   * <p>
-   * Method under test:
-   * {@link DefaultTransportRateLimitService#checkAddress(InetSocketAddress)}
-   */
-  @Test
-  @DisplayName("Test checkAddress(InetSocketAddress)")
-  void testCheckAddress2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DefaultTransportRateLimitService defaultTransportRateLimitService = new DefaultTransportRateLimitService(
-        mock(DefaultTransportTenantProfileCache.class));
-
-    // Act and Assert
+    // Arrange, Act and Assert
     assertTrue(defaultTransportRateLimitService.checkAddress(InetSocketAddress.createUnresolved("foo", 1)));
   }
 }

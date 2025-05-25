@@ -4,15 +4,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ErrorEventFilterDiffblueTest {
   /**
    * Test {@link ErrorEventFilter#isNotEmpty()}.
    * <ul>
-   *   <li>Given {@link ErrorEventFilter} (default constructor) ErrorStr is
-   * {@code foo}.</li>
+   *   <li>Given {@link ErrorEventFilter} (default constructor) ErrorStr is {@code foo}.</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
@@ -20,12 +21,14 @@ class ErrorEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test isNotEmpty(); given ErrorEventFilter (default constructor) ErrorStr is 'foo'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ErrorEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenErrorEventFilterErrorStrIsFoo_thenReturnTrue() {
     // Arrange
     ErrorEventFilter errorEventFilter = new ErrorEventFilter();
+    errorEventFilter.setServer("");
+    errorEventFilter.setMethod("");
     errorEventFilter.setErrorStr("foo");
-    errorEventFilter.setServer(null);
-    errorEventFilter.setMethod(null);
 
     // Act and Assert
     assertTrue(errorEventFilter.isNotEmpty());
@@ -34,21 +37,46 @@ class ErrorEventFilterDiffblueTest {
   /**
    * Test {@link ErrorEventFilter#isNotEmpty()}.
    * <ul>
-   *   <li>Given {@link ErrorEventFilter} (default constructor) Method is empty
-   * string.</li>
+   *   <li>Given {@link ErrorEventFilter} (default constructor) Method is {@code foo}.</li>
+   *   <li>Then return {@code true}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ErrorEventFilter#isNotEmpty()}
+   */
+  @Test
+  @DisplayName("Test isNotEmpty(); given ErrorEventFilter (default constructor) Method is 'foo'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ErrorEventFilter.isNotEmpty()"})
+  void testIsNotEmpty_givenErrorEventFilterMethodIsFoo_thenReturnTrue() {
+    // Arrange
+    ErrorEventFilter errorEventFilter = new ErrorEventFilter();
+    errorEventFilter.setServer("");
+    errorEventFilter.setMethod("foo");
+    errorEventFilter.setErrorStr("");
+
+    // Act and Assert
+    assertTrue(errorEventFilter.isNotEmpty());
+  }
+
+  /**
+   * Test {@link ErrorEventFilter#isNotEmpty()}.
+   * <ul>
+   *   <li>Given {@link ErrorEventFilter} (default constructor) Server is empty string.</li>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
    * Method under test: {@link ErrorEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given ErrorEventFilter (default constructor) Method is empty string; then return 'false'")
-  void testIsNotEmpty_givenErrorEventFilterMethodIsEmptyString_thenReturnFalse() {
+  @DisplayName("Test isNotEmpty(); given ErrorEventFilter (default constructor) Server is empty string; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ErrorEventFilter.isNotEmpty()"})
+  void testIsNotEmpty_givenErrorEventFilterServerIsEmptyString_thenReturnFalse() {
     // Arrange
     ErrorEventFilter errorEventFilter = new ErrorEventFilter();
-    errorEventFilter.setErrorStr(null);
-    errorEventFilter.setServer(null);
+    errorEventFilter.setServer("");
     errorEventFilter.setMethod("");
+    errorEventFilter.setErrorStr("");
 
     // Act and Assert
     assertFalse(errorEventFilter.isNotEmpty());
@@ -57,31 +85,7 @@ class ErrorEventFilterDiffblueTest {
   /**
    * Test {@link ErrorEventFilter#isNotEmpty()}.
    * <ul>
-   *   <li>Given {@link ErrorEventFilter} (default constructor) Method is
-   * {@code foo}.</li>
-   *   <li>Then return {@code true}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventFilter#isNotEmpty()}
-   */
-  @Test
-  @DisplayName("Test isNotEmpty(); given ErrorEventFilter (default constructor) Method is 'foo'; then return 'true'")
-  void testIsNotEmpty_givenErrorEventFilterMethodIsFoo_thenReturnTrue() {
-    // Arrange
-    ErrorEventFilter errorEventFilter = new ErrorEventFilter();
-    errorEventFilter.setErrorStr(null);
-    errorEventFilter.setServer(null);
-    errorEventFilter.setMethod("foo");
-
-    // Act and Assert
-    assertTrue(errorEventFilter.isNotEmpty());
-  }
-
-  /**
-   * Test {@link ErrorEventFilter#isNotEmpty()}.
-   * <ul>
-   *   <li>Given {@link ErrorEventFilter} (default constructor) Server is
-   * {@code foo}.</li>
+   *   <li>Given {@link ErrorEventFilter} (default constructor) Server is {@code foo}.</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
@@ -89,12 +93,14 @@ class ErrorEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test isNotEmpty(); given ErrorEventFilter (default constructor) Server is 'foo'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ErrorEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenErrorEventFilterServerIsFoo_thenReturnTrue() {
     // Arrange
     ErrorEventFilter errorEventFilter = new ErrorEventFilter();
-    errorEventFilter.setErrorStr(null);
     errorEventFilter.setServer("foo");
-    errorEventFilter.setMethod(null);
+    errorEventFilter.setMethod("");
+    errorEventFilter.setErrorStr("");
 
     // Act and Assert
     assertTrue(errorEventFilter.isNotEmpty());
@@ -111,14 +117,15 @@ class ErrorEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test isNotEmpty(); given ErrorEventFilter (default constructor); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ErrorEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenErrorEventFilter_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse((new ErrorEventFilter()).isNotEmpty());
   }
 
   /**
-   * Test {@link ErrorEventFilter#equals(Object)}, and
-   * {@link ErrorEventFilter#hashCode()}.
+   * Test {@link ErrorEventFilter#equals(Object)}, and {@link ErrorEventFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -132,6 +139,8 @@ class ErrorEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ErrorEventFilter.equals(Object)", "int ErrorEventFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ErrorEventFilter errorEventFilter = new ErrorEventFilter();
@@ -151,8 +160,7 @@ class ErrorEventFilterDiffblueTest {
   }
 
   /**
-   * Test {@link ErrorEventFilter#equals(Object)}, and
-   * {@link ErrorEventFilter#hashCode()}.
+   * Test {@link ErrorEventFilter#equals(Object)}, and {@link ErrorEventFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -166,6 +174,8 @@ class ErrorEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ErrorEventFilter.equals(Object)", "int ErrorEventFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     ErrorEventFilter errorEventFilter = new ErrorEventFilter();
@@ -185,8 +195,7 @@ class ErrorEventFilterDiffblueTest {
   }
 
   /**
-   * Test {@link ErrorEventFilter#equals(Object)}, and
-   * {@link ErrorEventFilter#hashCode()}.
+   * Test {@link ErrorEventFilter#equals(Object)}, and {@link ErrorEventFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -200,6 +209,8 @@ class ErrorEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ErrorEventFilter.equals(Object)", "int ErrorEventFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     ErrorEventFilter errorEventFilter = new ErrorEventFilter();
@@ -219,8 +230,7 @@ class ErrorEventFilterDiffblueTest {
   }
 
   /**
-   * Test {@link ErrorEventFilter#equals(Object)}, and
-   * {@link ErrorEventFilter#hashCode()}.
+   * Test {@link ErrorEventFilter#equals(Object)}, and {@link ErrorEventFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -234,6 +244,8 @@ class ErrorEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ErrorEventFilter.equals(Object)", "int ErrorEventFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     ErrorEventFilter errorEventFilter = new ErrorEventFilter();
@@ -253,8 +265,7 @@ class ErrorEventFilterDiffblueTest {
   }
 
   /**
-   * Test {@link ErrorEventFilter#equals(Object)}, and
-   * {@link ErrorEventFilter#hashCode()}.
+   * Test {@link ErrorEventFilter#equals(Object)}, and {@link ErrorEventFilter#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -268,6 +279,8 @@ class ErrorEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ErrorEventFilter.equals(Object)", "int ErrorEventFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ErrorEventFilter errorEventFilter = new ErrorEventFilter();
@@ -292,6 +305,8 @@ class ErrorEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ErrorEventFilter.equals(Object)", "int ErrorEventFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ErrorEventFilter errorEventFilter = new ErrorEventFilter();
@@ -319,6 +334,8 @@ class ErrorEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ErrorEventFilter.equals(Object)", "int ErrorEventFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ErrorEventFilter errorEventFilter = new ErrorEventFilter();
@@ -346,6 +363,8 @@ class ErrorEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ErrorEventFilter.equals(Object)", "int ErrorEventFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     ErrorEventFilter errorEventFilter = new ErrorEventFilter();
@@ -373,6 +392,8 @@ class ErrorEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ErrorEventFilter.equals(Object)", "int ErrorEventFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     ErrorEventFilter errorEventFilter = new ErrorEventFilter();
@@ -400,6 +421,8 @@ class ErrorEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ErrorEventFilter.equals(Object)", "int ErrorEventFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     ErrorEventFilter errorEventFilter = new ErrorEventFilter();
@@ -427,6 +450,8 @@ class ErrorEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ErrorEventFilter.equals(Object)", "int ErrorEventFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     ErrorEventFilter errorEventFilter = new ErrorEventFilter();
@@ -454,6 +479,8 @@ class ErrorEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ErrorEventFilter.equals(Object)", "int ErrorEventFilter.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     ErrorEventFilter errorEventFilter = new ErrorEventFilter();
@@ -476,6 +503,8 @@ class ErrorEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ErrorEventFilter.equals(Object)", "int ErrorEventFilter.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     ErrorEventFilter errorEventFilter = new ErrorEventFilter();
@@ -505,6 +534,12 @@ class ErrorEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ErrorEventFilter.<init>()", "String ErrorEventFilter.getErrorStr()",
+      "EventType ErrorEventFilter.getEventType()", "String ErrorEventFilter.getMethod()",
+      "String ErrorEventFilter.getServer()", "void ErrorEventFilter.setErrorStr(String)",
+      "void ErrorEventFilter.setMethod(String)", "void ErrorEventFilter.setServer(String)",
+      "String ErrorEventFilter.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     ErrorEventFilter actualErrorEventFilter = new ErrorEventFilter();
@@ -516,7 +551,7 @@ class ErrorEventFilterDiffblueTest {
     EventType actualEventType = actualErrorEventFilter.getEventType();
     String actualMethod = actualErrorEventFilter.getMethod();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("An error occurred", actualErrorStr);
     assertEquals("ErrorEventFilter(server=Server, method=Method, errorStr=An error occurred)", actualToStringResult);
     assertEquals("Method", actualMethod);

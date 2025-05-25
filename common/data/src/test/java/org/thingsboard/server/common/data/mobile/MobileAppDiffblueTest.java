@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.thingsboard.server.common.data.id.TenantId;
@@ -17,6 +19,8 @@ class MobileAppDiffblueTest {
    */
   @Test
   @DisplayName("Test new MobileApp(MobileApp)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MobileApp.<init>(MobileApp)"})
   void testNewMobileApp() {
     // Arrange
     MobileApp mobile = new MobileApp();
@@ -40,6 +44,8 @@ class MobileAppDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileApp.equals(Object)", "int MobileApp.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     MobileApp mobileApp = new MobileApp();
@@ -66,6 +72,8 @@ class MobileAppDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileApp.equals(Object)", "int MobileApp.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     MobileApp mobileApp = new MobileApp();
@@ -95,6 +103,8 @@ class MobileAppDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileApp.equals(Object)", "int MobileApp.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     MobileApp mobileApp = new MobileApp();
@@ -124,6 +134,8 @@ class MobileAppDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileApp.equals(Object)", "int MobileApp.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     MobileApp mobileApp = new MobileApp();
@@ -153,6 +165,8 @@ class MobileAppDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileApp.equals(Object)", "int MobileApp.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     MobileApp mobileApp = new MobileApp();
@@ -174,6 +188,8 @@ class MobileAppDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileApp.equals(Object)", "int MobileApp.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     MobileAppInfo mobileAppInfo = new MobileAppInfo();
@@ -193,6 +209,8 @@ class MobileAppDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileApp.equals(Object)", "int MobileApp.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     MobileApp mobileApp = new MobileApp();
@@ -212,6 +230,8 @@ class MobileAppDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileApp.equals(Object)", "int MobileApp.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     MobileApp mobileApp = new MobileApp();
@@ -233,6 +253,8 @@ class MobileAppDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileApp.equals(Object)", "int MobileApp.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     MobileApp mobileApp = new MobileApp();
@@ -253,6 +275,8 @@ class MobileAppDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileApp.equals(Object)", "int MobileApp.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     MobileApp mobileApp = new MobileApp();
@@ -273,6 +297,8 @@ class MobileAppDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileApp.equals(Object)", "int MobileApp.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     MobileApp mobileApp = new MobileApp();
@@ -293,6 +319,8 @@ class MobileAppDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileApp.equals(Object)", "int MobileApp.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     MobileApp mobileApp = new MobileApp();
@@ -313,6 +341,8 @@ class MobileAppDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileApp.equals(Object)", "int MobileApp.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     MobileApp mobileApp = new MobileApp();
@@ -335,6 +365,8 @@ class MobileAppDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileApp.equals(Object)", "int MobileApp.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     MobileApp mobileApp = new MobileApp();
@@ -357,6 +389,8 @@ class MobileAppDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileApp.equals(Object)", "int MobileApp.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     MobileApp mobileApp = new MobileApp();
@@ -379,6 +413,8 @@ class MobileAppDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileApp.equals(Object)", "int MobileApp.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MobileApp(), null);
@@ -395,6 +431,8 @@ class MobileAppDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileApp.equals(Object)", "int MobileApp.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MobileApp(), "Different type to MobileApp");

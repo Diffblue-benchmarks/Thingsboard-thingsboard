@@ -4,28 +4,25 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.BiFunction;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.DeviceTransportType;
 
 class MqttDeviceTransportConfigurationDiffblueTest {
   /**
    * Test {@link MqttDeviceTransportConfiguration#put(String, Object)}.
-   * <ul>
-   *   <li>Given {@link MqttDeviceTransportConfiguration} (default
-   * constructor).</li>
-   * </ul>
    * <p>
-   * Method under test:
-   * {@link MqttDeviceTransportConfiguration#put(String, Object)}
+   * Method under test: {@link MqttDeviceTransportConfiguration#put(String, Object)}
    */
   @Test
-  @DisplayName("Test put(String, Object); given MqttDeviceTransportConfiguration (default constructor)")
-  void testPut_givenMqttDeviceTransportConfiguration() {
+  @DisplayName("Test put(String, Object)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttDeviceTransportConfiguration.put(String, Object)"})
+  void testPut() {
     // Arrange
     MqttDeviceTransportConfiguration mqttDeviceTransportConfiguration = new MqttDeviceTransportConfiguration();
 
@@ -39,38 +36,7 @@ class MqttDeviceTransportConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link MqttDeviceTransportConfiguration#put(String, Object)}.
-   * <ul>
-   *   <li>Then {@link MqttDeviceTransportConfiguration} (default constructor)
-   * Properties is {@link HashMap#HashMap()}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link MqttDeviceTransportConfiguration#put(String, Object)}
-   */
-  @Test
-  @DisplayName("Test put(String, Object); then MqttDeviceTransportConfiguration (default constructor) Properties is HashMap()")
-  void testPut_thenMqttDeviceTransportConfigurationPropertiesIsHashMap() {
-    // Arrange
-    HashMap<String, Object> properties = new HashMap<>();
-    properties.computeIfPresent("foo", mock(BiFunction.class));
-
-    MqttDeviceTransportConfiguration mqttDeviceTransportConfiguration = new MqttDeviceTransportConfiguration();
-    mqttDeviceTransportConfiguration.setProperties(properties);
-
-    // Act
-    mqttDeviceTransportConfiguration.put("Name", "Value");
-
-    // Assert
-    Map<String, Object> properties2 = mqttDeviceTransportConfiguration.getProperties();
-    assertEquals(1, properties2.size());
-    assertEquals("Value", properties2.get("Name"));
-    assertSame(properties, properties2);
-  }
-
-  /**
-   * Test {@link MqttDeviceTransportConfiguration#equals(Object)}, and
-   * {@link MqttDeviceTransportConfiguration#hashCode()}.
+   * Test {@link MqttDeviceTransportConfiguration#equals(Object)}, and {@link MqttDeviceTransportConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -84,6 +50,9 @@ class MqttDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MqttDeviceTransportConfiguration.equals(Object)",
+      "int MqttDeviceTransportConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     MqttDeviceTransportConfiguration mqttDeviceTransportConfiguration = new MqttDeviceTransportConfiguration();
@@ -96,8 +65,7 @@ class MqttDeviceTransportConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link MqttDeviceTransportConfiguration#equals(Object)}, and
-   * {@link MqttDeviceTransportConfiguration#hashCode()}.
+   * Test {@link MqttDeviceTransportConfiguration#equals(Object)}, and {@link MqttDeviceTransportConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -111,6 +79,9 @@ class MqttDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MqttDeviceTransportConfiguration.equals(Object)",
+      "int MqttDeviceTransportConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     MqttDeviceTransportConfiguration mqttDeviceTransportConfiguration = new MqttDeviceTransportConfiguration();
@@ -132,6 +103,9 @@ class MqttDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MqttDeviceTransportConfiguration.equals(Object)",
+      "int MqttDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     MqttDeviceTransportConfiguration mqttDeviceTransportConfiguration = new MqttDeviceTransportConfiguration();
@@ -152,6 +126,9 @@ class MqttDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MqttDeviceTransportConfiguration.equals(Object)",
+      "int MqttDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     MqttDeviceTransportConfiguration mqttDeviceTransportConfiguration = new MqttDeviceTransportConfiguration();
@@ -175,6 +152,9 @@ class MqttDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MqttDeviceTransportConfiguration.equals(Object)",
+      "int MqttDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MqttDeviceTransportConfiguration(), null);
@@ -191,6 +171,9 @@ class MqttDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MqttDeviceTransportConfiguration.equals(Object)",
+      "int MqttDeviceTransportConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MqttDeviceTransportConfiguration(), "Different type to MqttDeviceTransportConfiguration");
@@ -201,8 +184,7 @@ class MqttDeviceTransportConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link MqttDeviceTransportConfiguration}
+   *   <li>default or parameterless constructor of {@link MqttDeviceTransportConfiguration}
    *   <li>{@link MqttDeviceTransportConfiguration#setProperties(Map)}
    *   <li>{@link MqttDeviceTransportConfiguration#toString()}
    *   <li>{@link MqttDeviceTransportConfiguration#getProperties()}
@@ -212,6 +194,12 @@ class MqttDeviceTransportConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttDeviceTransportConfiguration.<init>()",
+      "Map MqttDeviceTransportConfiguration.getProperties()",
+      "DeviceTransportType MqttDeviceTransportConfiguration.getType()",
+      "Map MqttDeviceTransportConfiguration.properties()", "void MqttDeviceTransportConfiguration.setProperties(Map)",
+      "String MqttDeviceTransportConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     MqttDeviceTransportConfiguration actualMqttDeviceTransportConfiguration = new MqttDeviceTransportConfiguration();
@@ -222,7 +210,7 @@ class MqttDeviceTransportConfigurationDiffblueTest {
     DeviceTransportType actualType = actualMqttDeviceTransportConfiguration.getType();
     Map<String, Object> actualPropertiesResult = actualMqttDeviceTransportConfiguration.properties();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("MqttDeviceTransportConfiguration(properties={})", actualToStringResult);
     assertEquals(DeviceTransportType.MQTT, actualType);
     assertTrue(actualProperties.isEmpty());

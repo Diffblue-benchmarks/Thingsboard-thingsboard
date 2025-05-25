@@ -1,54 +1,51 @@
 package org.thingsboard.rule.engine.action;
 
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.atLeast;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.databind.node.ArrayNode;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import com.fasterxml.jackson.databind.node.POJONode;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.rule.engine.api.TbNodeConfiguration;
 import org.thingsboard.rule.engine.api.TbNodeException;
+import org.thingsboard.server.common.data.EntityType;
 
 class TbCreateRelationNodeDiffblueTest {
   /**
-   * Test
-   * {@link TbCreateRelationNode#loadEntityNodeActionConfig(TbNodeConfiguration)}.
+   * Test {@link TbCreateRelationNode#loadEntityNodeActionConfig(TbNodeConfiguration)}.
    * <ul>
-   *   <li>Given {@code START_ARRAY}.</li>
-   *   <li>Then throw {@link RuntimeException}.</li>
+   *   <li>Then return {@link TbCreateRelationNodeConfiguration} (default constructor).</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbCreateRelationNode#loadEntityNodeActionConfig(TbNodeConfiguration)}
+   * Method under test: {@link TbCreateRelationNode#loadEntityNodeActionConfig(TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test loadEntityNodeActionConfig(TbNodeConfiguration); given 'START_ARRAY'; then throw RuntimeException")
-  void testLoadEntityNodeActionConfig_givenStartArray_thenThrowRuntimeException() throws TbNodeException {
+  @DisplayName("Test loadEntityNodeActionConfig(TbNodeConfiguration); then return TbCreateRelationNodeConfiguration (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "TbCreateRelationNodeConfiguration TbCreateRelationNode.loadEntityNodeActionConfig(TbNodeConfiguration)"})
+  void testLoadEntityNodeActionConfig_thenReturnTbCreateRelationNodeConfiguration() throws TbNodeException {
     // Arrange
     TbCreateRelationNode tbCreateRelationNode = new TbCreateRelationNode();
-    ArrayNode data = mock(ArrayNode.class);
-    when(data.elements()).thenThrow(new RuntimeException("foo"));
-    when(data.asToken()).thenReturn(JsonToken.START_ARRAY);
+
+    TbCreateRelationNodeConfiguration tbCreateRelationNodeConfiguration = new TbCreateRelationNodeConfiguration();
+    tbCreateRelationNodeConfiguration.setEntityType(EntityType.TENANT);
 
     // Act and Assert
-    assertThrows(RuntimeException.class,
-        () -> tbCreateRelationNode.loadEntityNodeActionConfig(new TbNodeConfiguration(data)));
-    verify(data, atLeast(1)).asToken();
-    verify(data).elements();
+    assertSame(tbCreateRelationNodeConfiguration, tbCreateRelationNode
+        .loadEntityNodeActionConfig(new TbNodeConfiguration(new POJONode(tbCreateRelationNodeConfiguration))));
   }
 
   /**
    * Test new {@link TbCreateRelationNode} (default constructor).
    * <p>
-   * Method under test: default or parameterless constructor of
-   * {@link TbCreateRelationNode}
+   * Method under test: default or parameterless constructor of {@link TbCreateRelationNode}
    */
   @Test
   @DisplayName("Test new TbCreateRelationNode (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbCreateRelationNode.<init>()"})
   void testNewTbCreateRelationNode() {
     // Arrange, Act and Assert
     assertNull((new TbCreateRelationNode()).config);

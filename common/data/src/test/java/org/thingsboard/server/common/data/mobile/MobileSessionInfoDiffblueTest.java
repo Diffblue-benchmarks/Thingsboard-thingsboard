@@ -2,13 +2,14 @@ package org.thingsboard.server.common.data.mobile;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class MobileSessionInfoDiffblueTest {
   /**
-   * Test {@link MobileSessionInfo#equals(Object)}, and
-   * {@link MobileSessionInfo#hashCode()}.
+   * Test {@link MobileSessionInfo#equals(Object)}, and {@link MobileSessionInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -22,6 +23,8 @@ class MobileSessionInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileSessionInfo.equals(Object)", "int MobileSessionInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     MobileSessionInfo mobileSessionInfo = new MobileSessionInfo();
@@ -37,8 +40,7 @@ class MobileSessionInfoDiffblueTest {
   }
 
   /**
-   * Test {@link MobileSessionInfo#equals(Object)}, and
-   * {@link MobileSessionInfo#hashCode()}.
+   * Test {@link MobileSessionInfo#equals(Object)}, and {@link MobileSessionInfo#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -52,6 +54,8 @@ class MobileSessionInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileSessionInfo.equals(Object)", "int MobileSessionInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     MobileSessionInfo mobileSessionInfo = new MobileSessionInfo();
@@ -74,6 +78,8 @@ class MobileSessionInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileSessionInfo.equals(Object)", "int MobileSessionInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     MobileSessionInfo mobileSessionInfo = new MobileSessionInfo();
@@ -97,6 +103,8 @@ class MobileSessionInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileSessionInfo.equals(Object)", "int MobileSessionInfo.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     MobileSessionInfo mobileSessionInfo = new MobileSessionInfo();
@@ -117,6 +125,8 @@ class MobileSessionInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MobileSessionInfo.equals(Object)", "int MobileSessionInfo.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     MobileSessionInfo mobileSessionInfo = new MobileSessionInfo();
@@ -139,13 +149,16 @@ class MobileSessionInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MobileSessionInfo.<init>()", "long MobileSessionInfo.getFcmTokenTimestamp()",
+      "void MobileSessionInfo.setFcmTokenTimestamp(long)", "String MobileSessionInfo.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     MobileSessionInfo actualMobileSessionInfo = new MobileSessionInfo();
     actualMobileSessionInfo.setFcmTokenTimestamp(1L);
     String actualToStringResult = actualMobileSessionInfo.toString();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("MobileSessionInfo(fcmTokenTimestamp=1)", actualToStringResult);
     assertEquals(1L, actualMobileSessionInfo.getFcmTokenTimestamp());
   }

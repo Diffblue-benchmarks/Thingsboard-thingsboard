@@ -7,7 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -15,8 +17,7 @@ class CmdUpdateDiffblueTest {
   /**
    * Test {@link CmdUpdate#canEqual(Object)}.
    * <ul>
-   *   <li>When {@link AlarmCountUpdate#AlarmCountUpdate(int, int)} with cmdId is
-   * one and count is three.</li>
+   *   <li>When {@link AlarmCountUpdate#AlarmCountUpdate(int, int)} with cmdId is one and count is three.</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
@@ -24,32 +25,14 @@ class CmdUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test canEqual(Object); when AlarmCountUpdate(int, int) with cmdId is one and count is three; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CmdUpdate.canEqual(Object)"})
   void testCanEqual_whenAlarmCountUpdateWithCmdIdIsOneAndCountIsThree_thenReturnTrue() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     AlarmCountUpdate alarmCountUpdate = new AlarmCountUpdate(1, 3);
 
     // Act and Assert
     assertTrue(alarmCountUpdate.canEqual(new AlarmCountUpdate(1, 3)));
-  }
-
-  /**
-   * Test {@link CmdUpdate#canEqual(Object)}.
-   * <ul>
-   *   <li>When {@link AlarmDataUpdate}.</li>
-   *   <li>Then return {@code true}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link CmdUpdate#canEqual(Object)}
-   */
-  @Test
-  @DisplayName("Test canEqual(Object); when AlarmDataUpdate; then return 'true'")
-  void testCanEqual_whenAlarmDataUpdate_thenReturnTrue() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange, Act and Assert
-    assertTrue((new AlarmCountUpdate(1, 3)).canEqual(mock(AlarmDataUpdate.class)));
   }
 
   /**
@@ -63,9 +46,9 @@ class CmdUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test canEqual(Object); when 'Other'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CmdUpdate.canEqual(Object)"})
   void testCanEqual_whenOther_thenReturnFalse() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertFalse((new AlarmCountUpdate(1, 3)).canEqual("Other"));
   }
@@ -85,6 +68,8 @@ class CmdUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CmdUpdate.equals(Object)", "int CmdUpdate.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AlarmCountUpdate alarmCountUpdate = new AlarmCountUpdate(1, 3);
@@ -111,6 +96,8 @@ class CmdUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CmdUpdate.equals(Object)", "int CmdUpdate.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AlarmCountUpdate alarmCountUpdate = new AlarmCountUpdate(1, -1, "An error occurred");
@@ -141,6 +128,8 @@ class CmdUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CmdUpdate.equals(Object)", "int CmdUpdate.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AlarmCountUpdate alarmCountUpdate = new AlarmCountUpdate(1, 3);
@@ -162,6 +151,8 @@ class CmdUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CmdUpdate.equals(Object)", "int CmdUpdate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AlarmCountUpdate alarmCountUpdate = new AlarmCountUpdate(2, 3);
@@ -181,6 +172,8 @@ class CmdUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CmdUpdate.equals(Object)", "int CmdUpdate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AlarmCountUpdate alarmCountUpdate = new AlarmCountUpdate(1, -1, "An error occurred");
@@ -200,6 +193,8 @@ class CmdUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CmdUpdate.equals(Object)", "int CmdUpdate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AlarmCountUpdate alarmCountUpdate = new AlarmCountUpdate(1, 3);
@@ -224,6 +219,8 @@ class CmdUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CmdUpdate.equals(Object)", "int CmdUpdate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AlarmCountUpdate alarmCountUpdate = new AlarmCountUpdate(1, 3);
@@ -248,6 +245,8 @@ class CmdUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CmdUpdate.equals(Object)", "int CmdUpdate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     AlarmCountUpdate alarmCountUpdate = new AlarmCountUpdate(1, 3);
@@ -272,6 +271,8 @@ class CmdUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CmdUpdate.equals(Object)", "int CmdUpdate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AlarmCountUpdate alarmCountUpdate = new AlarmCountUpdate(1, -1, "Error Msg");
@@ -296,6 +297,8 @@ class CmdUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CmdUpdate.equals(Object)", "int CmdUpdate.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlarmCountUpdate(1, 3), null);
@@ -312,6 +315,8 @@ class CmdUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CmdUpdate.equals(Object)", "int CmdUpdate.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlarmCountUpdate(1, 3), "Different type to CmdUpdate");
@@ -324,9 +329,9 @@ class CmdUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test getCmdId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int CmdUpdate.getCmdId()"})
   void testGetCmdId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertEquals(1, (new AlarmCountUpdate(1, 3)).getCmdId());
   }
@@ -338,9 +343,9 @@ class CmdUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test getErrorCode()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int CmdUpdate.getErrorCode()"})
   void testGetErrorCode() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertEquals(0, (new AlarmCountUpdate(1, 3)).getErrorCode());
   }
@@ -352,9 +357,9 @@ class CmdUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test getErrorMsg()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String CmdUpdate.getErrorMsg()"})
   void testGetErrorMsg() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertNull((new AlarmCountUpdate(1, 3)).getErrorMsg());
   }
@@ -366,9 +371,9 @@ class CmdUpdateDiffblueTest {
    */
   @Test
   @DisplayName("Test toString()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String CmdUpdate.toString()"})
   void testToString() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertEquals("AlarmCountUpdate(count=3)", (new AlarmCountUpdate(1, 3)).toString());
   }

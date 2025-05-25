@@ -6,16 +6,18 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.mockito.Mockito.anyBoolean;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.sync.ie.DeviceExportData;
 import org.thingsboard.server.common.data.sync.ie.EntityExportData;
 import org.thingsboard.server.common.data.sync.ie.EntityImportSettings;
+import org.thingsboard.server.common.data.sync.ie.EntityImportSettings.EntityImportSettingsBuilder;
 
 class ReimportTaskDiffblueTest {
   /**
-   * Test {@link ReimportTask#equals(Object)}, and
-   * {@link ReimportTask#hashCode()}.
+   * Test {@link ReimportTask#equals(Object)}, and {@link ReimportTask#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -29,6 +31,8 @@ class ReimportTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ReimportTask.equals(Object)", "int ReimportTask.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EntityExportData data = new EntityExportData();
@@ -53,8 +57,7 @@ class ReimportTaskDiffblueTest {
   }
 
   /**
-   * Test {@link ReimportTask#equals(Object)}, and
-   * {@link ReimportTask#hashCode()}.
+   * Test {@link ReimportTask#equals(Object)}, and {@link ReimportTask#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -68,6 +71,8 @@ class ReimportTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ReimportTask.equals(Object)", "int ReimportTask.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EntityExportData data = new EntityExportData();
@@ -95,6 +100,8 @@ class ReimportTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ReimportTask.equals(Object)", "int ReimportTask.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     DeviceExportData data = new DeviceExportData();
@@ -126,6 +133,8 @@ class ReimportTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ReimportTask.equals(Object)", "int ReimportTask.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EntityImportSettings settings = EntityImportSettings.builder()
@@ -156,41 +165,11 @@ class ReimportTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ReimportTask.equals(Object)", "int ReimportTask.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    DeviceExportData data = mock(DeviceExportData.class);
-    EntityImportSettings settings = EntityImportSettings.builder()
-        .saveAttributes(true)
-        .saveCredentials(true)
-        .updateRelations(true)
-        .build();
-    ReimportTask reimportTask = new ReimportTask(data, settings);
-    EntityExportData data2 = new EntityExportData();
-    EntityImportSettings settings2 = EntityImportSettings.builder()
-        .saveAttributes(true)
-        .saveCredentials(true)
-        .updateRelations(true)
-        .build();
-
-    // Act and Assert
-    assertNotEquals(reimportTask, new ReimportTask(data2, settings2));
-  }
-
-  /**
-   * Test {@link ReimportTask#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ReimportTask#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
-    // Arrange
-    EntityImportSettings.EntityImportSettingsBuilder entityImportSettingsBuilder = mock(
-        EntityImportSettings.EntityImportSettingsBuilder.class);
+    EntityImportSettingsBuilder entityImportSettingsBuilder = mock(EntityImportSettingsBuilder.class);
     when(entityImportSettingsBuilder.saveAttributes(anyBoolean())).thenReturn(EntityImportSettings.builder());
     EntityImportSettings settings = entityImportSettingsBuilder.saveAttributes(true)
         .saveCredentials(true)
@@ -219,10 +198,11 @@ class ReimportTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ReimportTask.equals(Object)", "int ReimportTask.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    EntityImportSettings.EntityImportSettingsBuilder entityImportSettingsBuilder = mock(
-        EntityImportSettings.EntityImportSettingsBuilder.class);
+    EntityImportSettingsBuilder entityImportSettingsBuilder = mock(EntityImportSettingsBuilder.class);
     when(entityImportSettingsBuilder.saveAttributes(anyBoolean())).thenReturn(EntityImportSettings.builder());
     EntityImportSettings settings = entityImportSettingsBuilder.saveAttributes(true)
         .saveCredentials(true)
@@ -250,6 +230,8 @@ class ReimportTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ReimportTask.equals(Object)", "int ReimportTask.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     EntityExportData data = new EntityExportData();
@@ -274,6 +256,8 @@ class ReimportTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ReimportTask.equals(Object)", "int ReimportTask.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     EntityExportData data = new EntityExportData();
@@ -300,6 +284,10 @@ class ReimportTaskDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ReimportTask.<init>(EntityExportData, EntityImportSettings)",
+      "EntityExportData ReimportTask.getData()", "EntityImportSettings ReimportTask.getSettings()",
+      "String ReimportTask.toString()"})
   void testGettersAndSetters() {
     // Arrange
     EntityExportData data = new EntityExportData();

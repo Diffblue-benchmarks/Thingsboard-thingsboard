@@ -2,917 +2,70 @@ package org.thingsboard.server.common.msg;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import com.google.protobuf.ByteString;
-import com.google.protobuf.DescriptorProtos;
-import com.google.protobuf.Descriptors;
-import com.google.protobuf.ProtocolStringList;
-import com.google.protobuf.UnknownFieldSet;
-import com.google.protobuf.WireFormat;
-import java.util.List;
-import java.util.Map;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.RuleChainId;
 import org.thingsboard.server.common.data.id.RuleNodeId;
 import org.thingsboard.server.common.msg.gen.MsgProtos;
+import org.thingsboard.server.common.msg.gen.MsgProtos.TbMsgProcessingStackItemProto;
 
 class TbMsgProcessingStackItemDiffblueTest {
   /**
    * Test {@link TbMsgProcessingStackItem#toProto()}.
+   * <ul>
+   *   <li>Then return RuleChainIdLSB is {@code -7476899250389416711}.</li>
+   * </ul>
    * <p>
    * Method under test: {@link TbMsgProcessingStackItem#toProto()}
    */
   @Test
-  @DisplayName("Test toProto()")
-  void testToProto() {
+  @DisplayName("Test toProto(); then return RuleChainIdLSB is '-7476899250389416711'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MsgProtos.TbMsgProcessingStackItemProto TbMsgProcessingStackItem.toProto()"})
+  void testToProto_thenReturnRuleChainIdLSBIs7476899250389416711() {
     // Arrange
-    RuleChainId ruleChainId = new RuleChainId(UUID.randomUUID());
+    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    MsgProtos.TbMsgProcessingStackItemProto actualToProtoResult = (new TbMsgProcessingStackItem(ruleChainId,
-        new RuleNodeId(UUID.randomUUID()))).toProto();
+    TbMsgProcessingStackItemProto actualToProtoResult = (new TbMsgProcessingStackItem(ruleChainId,
+        new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))).toProto();
 
     // Assert
-    Descriptors.Descriptor descriptorForType = actualToProtoResult.getDescriptorForType();
-    DescriptorProtos.DescriptorProto toProtoResult = descriptorForType.toProto();
-    Descriptors.Descriptor descriptorForType2 = toProtoResult.getDescriptorForType();
-    DescriptorProtos.DescriptorProto toProtoResult2 = descriptorForType2.toProto();
-    assertEquals("DescriptorProto", toProtoResult2.getName());
-    assertEquals("DescriptorProto", descriptorForType2.getName());
-    DescriptorProtos.MessageOptions options = descriptorForType.getOptions();
-    DescriptorProtos.FeatureSet features = options.getFeatures();
-    Descriptors.Descriptor descriptorForType3 = features.getDescriptorForType();
-    assertEquals("FeatureSet", descriptorForType3.getName());
-    Descriptors.FileDescriptor file = descriptorForType.getFile();
-    DescriptorProtos.FileDescriptorProto toProtoResult3 = file.toProto();
-    Descriptors.Descriptor descriptorForType4 = toProtoResult3.getDescriptorForType();
-    assertEquals("FileDescriptorProto", descriptorForType4.getName());
-    DescriptorProtos.FileOptions options2 = file.getOptions();
-    Descriptors.Descriptor descriptorForType5 = options2.getDescriptorForType();
-    assertEquals("FileOptions", descriptorForType5.getName());
-    Descriptors.Descriptor descriptorForType6 = options.getDescriptorForType();
-    DescriptorProtos.DescriptorProto toProtoResult4 = descriptorForType6.toProto();
-    assertEquals("MessageOptions", toProtoResult4.getName());
-    assertEquals("MessageOptions", descriptorForType6.getName());
-    ByteString javaOuterClassnameBytes = options2.getJavaOuterClassnameBytes();
-    assertEquals("MsgProtos", javaOuterClassnameBytes.toStringUtf8());
-    assertEquals("MsgProtos", options2.getJavaOuterClassname());
-    List<Descriptors.Descriptor> messageTypes = file.getMessageTypes();
-    assertEquals(4, messageTypes.size());
-    Descriptors.Descriptor getResult = messageTypes.get(0);
-    assertEquals("TbMsgMetaDataProto", getResult.getName());
-    Descriptors.Descriptor getResult2 = messageTypes.get(2);
-    assertEquals("TbMsgProcessingCtxProto", getResult2.getName());
-    ByteString nameBytes = toProtoResult.getNameBytes();
-    assertEquals("TbMsgProcessingStackItemProto", nameBytes.toStringUtf8());
-    assertEquals("TbMsgProcessingStackItemProto", toProtoResult.getName());
-    assertEquals("TbMsgProcessingStackItemProto", descriptorForType.getName());
-    Descriptors.Descriptor getResult3 = messageTypes.get(3);
-    assertEquals("TbMsgProto", getResult3.getName());
-    Descriptors.FileDescriptor file2 = descriptorForType6.getFile();
-    assertEquals("google.protobuf", file2.getPackage());
-    assertEquals("google.protobuf.DescriptorProto", descriptorForType2.getFullName());
-    assertEquals("google.protobuf.FeatureSet", descriptorForType3.getFullName());
-    assertEquals("google.protobuf.FileDescriptorProto", descriptorForType4.getFullName());
-    assertEquals("google.protobuf.FileOptions", descriptorForType5.getFullName());
-    assertEquals("google.protobuf.MessageOptions", descriptorForType6.getFullName());
-    assertEquals("google/protobuf/descriptor.proto", file2.getFullName());
-    assertEquals("google/protobuf/descriptor.proto", file2.getName());
-    ByteString packageBytes = toProtoResult3.getPackageBytes();
-    assertEquals("msgqueue", packageBytes.toStringUtf8());
-    assertEquals("msgqueue", toProtoResult3.getPackage());
-    assertEquals("msgqueue", file.getPackage());
-    assertEquals("msgqueue.TbMsgMetaDataProto", getResult.getFullName());
-    assertEquals("msgqueue.TbMsgProcessingCtxProto", getResult2.getFullName());
-    assertEquals("msgqueue.TbMsgProcessingStackItemProto", descriptorForType.getFullName());
-    List<Descriptors.FieldDescriptor> fields = descriptorForType.getFields();
-    assertEquals(4, fields.size());
-    Descriptors.FieldDescriptor getResult4 = fields.get(1);
-    assertEquals("msgqueue.TbMsgProcessingStackItemProto.ruleChainIdLSB", getResult4.getFullName());
-    Descriptors.FieldDescriptor getResult5 = fields.get(0);
-    assertEquals("msgqueue.TbMsgProcessingStackItemProto.ruleChainIdMSB", getResult5.getFullName());
-    Descriptors.FieldDescriptor getResult6 = fields.get(3);
-    assertEquals("msgqueue.TbMsgProcessingStackItemProto.ruleNodeIdLSB", getResult6.getFullName());
-    Descriptors.FieldDescriptor getResult7 = fields.get(2);
-    assertEquals("msgqueue.TbMsgProcessingStackItemProto.ruleNodeIdMSB", getResult7.getFullName());
-    assertEquals("msgqueue.TbMsgProto", getResult3.getFullName());
-    ByteString javaPackageBytes = options2.getJavaPackageBytes();
-    assertEquals("org.thingsboard.server.common.msg.gen", javaPackageBytes.toStringUtf8());
-    assertEquals("org.thingsboard.server.common.msg.gen", options2.getJavaPackage());
-    ByteString syntaxBytes = toProtoResult3.getSyntaxBytes();
-    assertEquals("proto3", syntaxBytes.toStringUtf8());
-    assertEquals("proto3", toProtoResult3.getSyntax());
-    DescriptorProtos.FieldDescriptorProto toProtoResult5 = getResult4.toProto();
-    assertEquals("ruleChainIdLSB", toProtoResult5.getName());
-    assertEquals("ruleChainIdLSB", getResult4.getJsonName());
-    assertEquals("ruleChainIdLSB", getResult4.getName());
-    DescriptorProtos.FieldDescriptorProto toProtoResult6 = getResult5.toProto();
-    assertEquals("ruleChainIdMSB", toProtoResult6.getName());
-    assertEquals("ruleChainIdMSB", getResult5.getJsonName());
-    assertEquals("ruleChainIdMSB", getResult5.getName());
-    DescriptorProtos.FieldDescriptorProto toProtoResult7 = getResult6.toProto();
-    assertEquals("ruleNodeIdLSB", toProtoResult7.getName());
-    assertEquals("ruleNodeIdLSB", getResult6.getJsonName());
-    assertEquals("ruleNodeIdLSB", getResult6.getName());
-    DescriptorProtos.FieldDescriptorProto toProtoResult8 = getResult7.toProto();
-    assertEquals("ruleNodeIdMSB", toProtoResult8.getName());
-    assertEquals("ruleNodeIdMSB", getResult7.getJsonName());
-    assertEquals("ruleNodeIdMSB", getResult7.getName());
-    ByteString nameBytes2 = toProtoResult3.getNameBytes();
-    assertEquals("tbmsg.proto", nameBytes2.toStringUtf8());
-    assertEquals("tbmsg.proto", toProtoResult3.getName());
-    assertEquals("tbmsg.proto", file.getFullName());
-    assertEquals("tbmsg.proto", file.getName());
-    assertNull(descriptorForType3.getContainingType());
-    assertNull(descriptorForType6.getContainingType());
-    assertNull(descriptorForType2.getContainingType());
-    assertNull(descriptorForType5.getContainingType());
-    assertNull(descriptorForType4.getContainingType());
-    assertNull(descriptorForType.getContainingType());
-    assertNull(getResult.getContainingType());
-    assertNull(getResult2.getContainingType());
-    assertNull(getResult3.getContainingType());
-    assertNull(getResult5.getContainingOneof());
-    assertNull(getResult4.getContainingOneof());
-    assertNull(getResult7.getContainingOneof());
-    assertNull(getResult6.getContainingOneof());
-    assertNull(getResult5.getRealContainingOneof());
-    assertNull(getResult4.getRealContainingOneof());
-    assertNull(getResult7.getRealContainingOneof());
-    assertNull(getResult6.getRealContainingOneof());
-    DescriptorProtos.DescriptorProto defaultInstanceForType = toProtoResult.getDefaultInstanceForType();
-    assertEquals(0, defaultInstanceForType.getEnumTypeCount());
-    assertEquals(0, toProtoResult4.getEnumTypeCount());
-    assertEquals(0, toProtoResult2.getEnumTypeCount());
-    assertEquals(0, toProtoResult.getEnumTypeCount());
-    assertEquals(0, defaultInstanceForType.getExtensionCount());
-    assertEquals(0, toProtoResult4.getExtensionCount());
-    assertEquals(0, toProtoResult2.getExtensionCount());
-    assertEquals(0, toProtoResult.getExtensionCount());
-    assertEquals(0, defaultInstanceForType.getExtensionRangeCount());
-    assertEquals(0, toProtoResult2.getExtensionRangeCount());
-    assertEquals(0, toProtoResult.getExtensionRangeCount());
-    assertEquals(0, defaultInstanceForType.getFieldCount());
-    assertEquals(0, defaultInstanceForType.getNestedTypeCount());
-    assertEquals(0, toProtoResult4.getNestedTypeCount());
-    assertEquals(0, toProtoResult.getNestedTypeCount());
-    assertEquals(0, defaultInstanceForType.getOneofDeclCount());
-    assertEquals(0, toProtoResult4.getOneofDeclCount());
-    assertEquals(0, toProtoResult2.getOneofDeclCount());
-    assertEquals(0, toProtoResult.getOneofDeclCount());
-    assertEquals(0, defaultInstanceForType.getReservedNameCount());
-    assertEquals(0, toProtoResult4.getReservedNameCount());
-    assertEquals(0, toProtoResult.getReservedNameCount());
-    assertEquals(0, defaultInstanceForType.getReservedRangeCount());
-    assertEquals(0, toProtoResult.getReservedRangeCount());
-    assertEquals(0, defaultInstanceForType.getSerializedSize());
-    assertEquals(0, features.getSerializedSize());
-    assertEquals(0, toProtoResult6.getOneofIndex());
-    assertEquals(0, toProtoResult5.getOneofIndex());
-    assertEquals(0, toProtoResult8.getOneofIndex());
-    assertEquals(0, toProtoResult7.getOneofIndex());
-    DescriptorProtos.FieldOptions options3 = getResult5.getOptions();
-    assertEquals(0, options3.getEditionDefaultsCount());
-    assertEquals(0, options3.getSerializedSize());
-    assertEquals(0, options3.getTargetsCount());
-    assertEquals(0, options3.getUninterpretedOptionCount());
-    DescriptorProtos.FileDescriptorProto defaultInstanceForType2 = toProtoResult3.getDefaultInstanceForType();
-    assertEquals(0, defaultInstanceForType2.getDependencyCount());
-    assertEquals(0, toProtoResult3.getDependencyCount());
-    assertEquals(0, defaultInstanceForType2.getEnumTypeCount());
-    assertEquals(0, toProtoResult3.getEnumTypeCount());
-    assertEquals(0, defaultInstanceForType2.getExtensionCount());
-    assertEquals(0, toProtoResult3.getExtensionCount());
-    assertEquals(0, defaultInstanceForType2.getMessageTypeCount());
-    assertEquals(0, defaultInstanceForType2.getPublicDependencyCount());
-    assertEquals(0, toProtoResult3.getPublicDependencyCount());
-    assertEquals(0, defaultInstanceForType2.getSerializedSize());
-    assertEquals(0, defaultInstanceForType2.getServiceCount());
-    assertEquals(0, toProtoResult3.getServiceCount());
-    assertEquals(0, defaultInstanceForType2.getWeakDependencyCount());
-    assertEquals(0, toProtoResult3.getWeakDependencyCount());
-    DescriptorProtos.FileOptions defaultInstanceForType3 = options2.getDefaultInstanceForType();
-    assertEquals(0, defaultInstanceForType3.getSerializedSize());
-    assertEquals(0, defaultInstanceForType3.getUninterpretedOptionCount());
-    assertEquals(0, options2.getUninterpretedOptionCount());
-    assertEquals(0, options.getSerializedSize());
-    assertEquals(0, options.getUninterpretedOptionCount());
-    DescriptorProtos.SourceCodeInfo sourceCodeInfo = toProtoResult3.getSourceCodeInfo();
-    assertEquals(0, sourceCodeInfo.getLocationCount());
-    assertEquals(0, sourceCodeInfo.getSerializedSize());
-    assertEquals(0, getResult.getIndex());
-    assertEquals(0, getResult5.getIndex());
-    UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
-    assertEquals(0, unknownFields.getSerializedSize());
-    assertEquals(0, unknownFields.getSerializedSizeAsMessageSet());
-    MsgProtos.TbMsgProcessingStackItemProto defaultInstanceForType4 = actualToProtoResult.getDefaultInstanceForType();
-    assertEquals(0, defaultInstanceForType4.getSerializedSize());
-    assertEquals(0L, defaultInstanceForType4.getRuleChainIdLSB());
-    assertEquals(0L, defaultInstanceForType4.getRuleChainIdMSB());
-    assertEquals(0L, defaultInstanceForType4.getRuleNodeIdLSB());
-    assertEquals(0L, defaultInstanceForType4.getRuleNodeIdMSB());
-    assertEquals(1, toProtoResult4.getExtensionRangeCount());
-    assertEquals(1, toProtoResult6.getNumber());
-    assertEquals(1, descriptorForType4.getIndex());
-    assertEquals(1, descriptorForType.getIndex());
-    assertEquals(1, getResult4.getIndex());
-    assertEquals(1, getResult5.getNumber());
-    assertEquals(10, toProtoResult2.getFieldCount());
-    assertEquals(10, descriptorForType5.getIndex());
-    assertEquals(10, descriptorForType2.getFields().size());
-    assertEquals(11, descriptorForType6.getIndex());
-    assertEquals(125, toProtoResult.getSerializedSize());
-    assertEquals(19, descriptorForType3.getIndex());
-    assertEquals(2, toProtoResult2.getNestedTypeCount());
-    assertEquals(2, toProtoResult5.getNumber());
-    assertEquals(2, descriptorForType2.getIndex());
-    assertEquals(2, getResult2.getIndex());
-    assertEquals(2, getResult7.getIndex());
-    assertEquals(2, getResult4.getNumber());
-    assertEquals(2, descriptorForType2.getNestedTypes().size());
-    assertEquals(2, toProtoResult.getAllFields().size());
-    Map<Descriptors.FieldDescriptor, Object> allFields = options2.getAllFields();
-    assertEquals(2, allFields.size());
-    assertEquals(21, toProtoResult8.getSerializedSize());
-    assertEquals(21, toProtoResult7.getSerializedSize());
-    assertEquals(22, toProtoResult6.getSerializedSize());
-    assertEquals(22, toProtoResult5.getSerializedSize());
-    assertEquals(3, toProtoResult8.getNumber());
-    assertEquals(3, getResult3.getIndex());
-    assertEquals(3, getResult6.getIndex());
-    assertEquals(3, getResult7.getNumber());
-    assertEquals(4, toProtoResult.getFieldCount());
-    assertEquals(4, toProtoResult7.getNumber());
-    assertEquals(4, toProtoResult3.getMessageTypeCount());
-    assertEquals(4, getResult6.getNumber());
-    List<DescriptorProtos.FieldDescriptorProto> fieldList = toProtoResult.getFieldList();
-    assertEquals(4, fieldList.size());
-    List<DescriptorProtos.DescriptorProto> messageTypeList = toProtoResult3.getMessageTypeList();
-    assertEquals(4, messageTypeList.size());
+    assertEquals(-7476899250389416711L, actualToProtoResult.getRuleChainIdLSB());
+    assertEquals(-7476899250389416711L, actualToProtoResult.getRuleNodeIdLSB());
     assertEquals(4, actualToProtoResult.getAllFields().size());
-    assertEquals(5, toProtoResult4.getReservedRangeCount());
-    assertEquals(5, toProtoResult3.getAllFields().size());
-    assertEquals(50, options2.getSerializedSize());
-    assertEquals(500, toProtoResult4.getSerializedSize());
-    assertEquals(7, toProtoResult4.getFieldCount());
-    assertEquals(7, descriptorForType6.getFields().size());
-    assertEquals(952, toProtoResult3.getSerializedSize());
-    assertEquals(DescriptorProtos.Edition.EDITION_UNKNOWN, defaultInstanceForType2.getEdition());
-    assertEquals(DescriptorProtos.Edition.EDITION_UNKNOWN, toProtoResult3.getEdition());
-    assertEquals(DescriptorProtos.Edition.EDITION_UNKNOWN, file2.getEdition());
-    assertEquals(DescriptorProtos.Edition.EDITION_UNKNOWN, file.getEdition());
-    assertEquals(DescriptorProtos.FeatureSet.EnumType.ENUM_TYPE_UNKNOWN, features.getEnumType());
-    assertEquals(DescriptorProtos.FeatureSet.FieldPresence.FIELD_PRESENCE_UNKNOWN, features.getFieldPresence());
-    assertEquals(DescriptorProtos.FeatureSet.JsonFormat.JSON_FORMAT_UNKNOWN, features.getJsonFormat());
-    assertEquals(DescriptorProtos.FeatureSet.MessageEncoding.MESSAGE_ENCODING_UNKNOWN, features.getMessageEncoding());
-    assertEquals(DescriptorProtos.FeatureSet.RepeatedFieldEncoding.REPEATED_FIELD_ENCODING_UNKNOWN,
-        features.getRepeatedFieldEncoding());
-    assertEquals(DescriptorProtos.FeatureSet.Utf8Validation.UTF8_VALIDATION_UNKNOWN, features.getUtf8Validation());
-    assertEquals(DescriptorProtos.FieldDescriptorProto.Label.LABEL_OPTIONAL, toProtoResult6.getLabel());
-    assertEquals(DescriptorProtos.FieldDescriptorProto.Label.LABEL_OPTIONAL, toProtoResult5.getLabel());
-    assertEquals(DescriptorProtos.FieldDescriptorProto.Label.LABEL_OPTIONAL, toProtoResult8.getLabel());
-    assertEquals(DescriptorProtos.FieldDescriptorProto.Label.LABEL_OPTIONAL, toProtoResult7.getLabel());
-    assertEquals(DescriptorProtos.FieldDescriptorProto.Type.TYPE_INT64, toProtoResult6.getType());
-    assertEquals(DescriptorProtos.FieldDescriptorProto.Type.TYPE_INT64, toProtoResult5.getType());
-    assertEquals(DescriptorProtos.FieldDescriptorProto.Type.TYPE_INT64, toProtoResult8.getType());
-    assertEquals(DescriptorProtos.FieldDescriptorProto.Type.TYPE_INT64, toProtoResult7.getType());
-    assertEquals(DescriptorProtos.FieldOptions.CType.STRING, options3.getCtype());
-    assertEquals(DescriptorProtos.FieldOptions.JSType.JS_NORMAL, options3.getJstype());
-    assertEquals(DescriptorProtos.FieldOptions.OptionRetention.RETENTION_UNKNOWN, options3.getRetention());
-    assertEquals(DescriptorProtos.FileOptions.OptimizeMode.SPEED, defaultInstanceForType3.getOptimizeFor());
-    assertEquals(DescriptorProtos.FileOptions.OptimizeMode.SPEED, options2.getOptimizeFor());
-    assertEquals(Descriptors.FieldDescriptor.JavaType.LONG, getResult5.getJavaType());
-    assertEquals(Descriptors.FieldDescriptor.JavaType.LONG, getResult4.getJavaType());
-    assertEquals(Descriptors.FieldDescriptor.JavaType.LONG, getResult7.getJavaType());
-    assertEquals(Descriptors.FieldDescriptor.JavaType.LONG, getResult6.getJavaType());
-    assertEquals(Descriptors.FieldDescriptor.Type.INT64, getResult5.getType());
-    assertEquals(Descriptors.FieldDescriptor.Type.INT64, getResult4.getType());
-    assertEquals(Descriptors.FieldDescriptor.Type.INT64, getResult7.getType());
-    assertEquals(Descriptors.FieldDescriptor.Type.INT64, getResult6.getType());
-    assertEquals(Descriptors.FileDescriptor.Syntax.PROTO2, file2.getSyntax());
-    assertEquals(Descriptors.FileDescriptor.Syntax.PROTO3, file.getSyntax());
-    assertEquals(WireFormat.FieldType.INT64, getResult5.getLiteType());
-    assertEquals(WireFormat.FieldType.INT64, getResult4.getLiteType());
-    assertEquals(WireFormat.FieldType.INT64, getResult7.getLiteType());
-    assertEquals(WireFormat.FieldType.INT64, getResult6.getLiteType());
-    assertEquals(WireFormat.JavaType.LONG, getResult5.getLiteJavaType());
-    assertEquals(WireFormat.JavaType.LONG, getResult4.getLiteJavaType());
-    assertEquals(WireFormat.JavaType.LONG, getResult7.getLiteJavaType());
-    assertEquals(WireFormat.JavaType.LONG, getResult6.getLiteJavaType());
-    assertFalse(nameBytes.isEmpty());
-    assertFalse(nameBytes2.isEmpty());
-    assertFalse(packageBytes.isEmpty());
-    assertFalse(syntaxBytes.isEmpty());
-    assertFalse(javaOuterClassnameBytes.isEmpty());
-    assertFalse(javaPackageBytes.isEmpty());
-    assertFalse(defaultInstanceForType.hasName());
-    assertFalse(defaultInstanceForType.hasOptions());
-    assertFalse(toProtoResult4.hasOptions());
-    assertFalse(toProtoResult.hasOptions());
-    assertFalse(features.hasEnumType());
-    assertFalse(features.hasFieldPresence());
-    assertFalse(features.hasJsonFormat());
-    assertFalse(features.hasMessageEncoding());
-    assertFalse(features.hasRepeatedFieldEncoding());
-    assertFalse(features.hasUtf8Validation());
-    assertFalse(toProtoResult6.getProto3Optional());
-    assertFalse(toProtoResult5.getProto3Optional());
-    assertFalse(toProtoResult8.getProto3Optional());
-    assertFalse(toProtoResult7.getProto3Optional());
-    assertFalse(toProtoResult6.hasDefaultValue());
-    assertFalse(toProtoResult5.hasDefaultValue());
-    assertFalse(toProtoResult8.hasDefaultValue());
-    assertFalse(toProtoResult7.hasDefaultValue());
-    assertFalse(toProtoResult6.hasExtendee());
-    assertFalse(toProtoResult5.hasExtendee());
-    assertFalse(toProtoResult8.hasExtendee());
-    assertFalse(toProtoResult7.hasExtendee());
-    assertFalse(toProtoResult6.hasJsonName());
-    assertFalse(toProtoResult5.hasJsonName());
-    assertFalse(toProtoResult8.hasJsonName());
-    assertFalse(toProtoResult7.hasJsonName());
-    assertFalse(toProtoResult6.hasOneofIndex());
-    assertFalse(toProtoResult5.hasOneofIndex());
-    assertFalse(toProtoResult8.hasOneofIndex());
-    assertFalse(toProtoResult7.hasOneofIndex());
-    assertFalse(toProtoResult6.hasOptions());
-    assertFalse(toProtoResult5.hasOptions());
-    assertFalse(toProtoResult8.hasOptions());
-    assertFalse(toProtoResult7.hasOptions());
-    assertFalse(toProtoResult6.hasProto3Optional());
-    assertFalse(toProtoResult5.hasProto3Optional());
-    assertFalse(toProtoResult8.hasProto3Optional());
-    assertFalse(toProtoResult7.hasProto3Optional());
-    assertFalse(toProtoResult6.hasTypeName());
-    assertFalse(toProtoResult5.hasTypeName());
-    assertFalse(toProtoResult8.hasTypeName());
-    assertFalse(toProtoResult7.hasTypeName());
-    assertFalse(options3.getDebugRedact());
-    assertFalse(options3.getDeprecated());
-    assertFalse(options3.getLazy());
-    assertFalse(options3.getPacked());
-    assertFalse(options3.getUnverifiedLazy());
-    assertFalse(options3.getWeak());
-    assertFalse(options3.hasCtype());
-    assertFalse(options3.hasDebugRedact());
-    assertFalse(options3.hasDeprecated());
-    assertFalse(options3.hasFeatures());
-    assertFalse(options3.hasJstype());
-    assertFalse(options3.hasLazy());
-    assertFalse(options3.hasPacked());
-    assertFalse(options3.hasRetention());
-    assertFalse(options3.hasUnverifiedLazy());
-    assertFalse(options3.hasWeak());
-    assertFalse(defaultInstanceForType2.hasEdition());
-    assertFalse(toProtoResult3.hasEdition());
-    assertFalse(defaultInstanceForType2.hasName());
-    assertFalse(defaultInstanceForType2.hasOptions());
-    assertFalse(defaultInstanceForType2.hasPackage());
-    assertFalse(defaultInstanceForType2.hasSourceCodeInfo());
-    assertFalse(toProtoResult3.hasSourceCodeInfo());
-    assertFalse(defaultInstanceForType2.hasSyntax());
-    assertFalse(defaultInstanceForType3.getCcGenericServices());
-    assertFalse(options2.getCcGenericServices());
-    assertFalse(defaultInstanceForType3.getDeprecated());
-    assertFalse(options2.getDeprecated());
-    assertFalse(defaultInstanceForType3.getJavaGenerateEqualsAndHash());
-    assertFalse(options2.getJavaGenerateEqualsAndHash());
-    assertFalse(defaultInstanceForType3.getJavaGenericServices());
-    assertFalse(options2.getJavaGenericServices());
-    assertFalse(defaultInstanceForType3.getJavaMultipleFiles());
-    assertFalse(options2.getJavaMultipleFiles());
-    assertFalse(defaultInstanceForType3.getJavaStringCheckUtf8());
-    assertFalse(options2.getJavaStringCheckUtf8());
-    assertFalse(defaultInstanceForType3.getPhpGenericServices());
-    assertFalse(options2.getPhpGenericServices());
-    assertFalse(defaultInstanceForType3.getPyGenericServices());
-    assertFalse(options2.getPyGenericServices());
-    assertFalse(defaultInstanceForType3.hasCcEnableArenas());
-    assertFalse(options2.hasCcEnableArenas());
-    assertFalse(defaultInstanceForType3.hasCcGenericServices());
-    assertFalse(options2.hasCcGenericServices());
-    assertFalse(defaultInstanceForType3.hasCsharpNamespace());
-    assertFalse(options2.hasCsharpNamespace());
-    assertFalse(defaultInstanceForType3.hasDeprecated());
-    assertFalse(options2.hasDeprecated());
-    assertFalse(defaultInstanceForType3.hasFeatures());
-    assertFalse(options2.hasFeatures());
-    assertFalse(defaultInstanceForType3.hasGoPackage());
-    assertFalse(options2.hasGoPackage());
-    assertFalse(defaultInstanceForType3.hasJavaGenerateEqualsAndHash());
-    assertFalse(options2.hasJavaGenerateEqualsAndHash());
-    assertFalse(defaultInstanceForType3.hasJavaGenericServices());
-    assertFalse(options2.hasJavaGenericServices());
-    assertFalse(defaultInstanceForType3.hasJavaMultipleFiles());
-    assertFalse(options2.hasJavaMultipleFiles());
-    assertFalse(defaultInstanceForType3.hasJavaOuterClassname());
-    assertFalse(defaultInstanceForType3.hasJavaPackage());
-    assertFalse(defaultInstanceForType3.hasJavaStringCheckUtf8());
-    assertFalse(options2.hasJavaStringCheckUtf8());
-    assertFalse(defaultInstanceForType3.hasObjcClassPrefix());
-    assertFalse(options2.hasObjcClassPrefix());
-    assertFalse(defaultInstanceForType3.hasOptimizeFor());
-    assertFalse(options2.hasOptimizeFor());
-    assertFalse(defaultInstanceForType3.hasPhpClassPrefix());
-    assertFalse(options2.hasPhpClassPrefix());
-    assertFalse(defaultInstanceForType3.hasPhpGenericServices());
-    assertFalse(options2.hasPhpGenericServices());
-    assertFalse(defaultInstanceForType3.hasPhpMetadataNamespace());
-    assertFalse(options2.hasPhpMetadataNamespace());
-    assertFalse(defaultInstanceForType3.hasPhpNamespace());
-    assertFalse(options2.hasPhpNamespace());
-    assertFalse(defaultInstanceForType3.hasPyGenericServices());
-    assertFalse(options2.hasPyGenericServices());
-    assertFalse(defaultInstanceForType3.hasRubyPackage());
-    assertFalse(options2.hasRubyPackage());
-    assertFalse(defaultInstanceForType3.hasSwiftPrefix());
-    assertFalse(options2.hasSwiftPrefix());
-    assertFalse(options.getDeprecated());
-    assertFalse(options.getDeprecatedLegacyJsonFieldConflicts());
-    assertFalse(options.getMapEntry());
-    assertFalse(options.getMessageSetWireFormat());
-    assertFalse(options.getNoStandardDescriptorAccessor());
-    assertFalse(options.hasDeprecated());
-    assertFalse(options.hasDeprecatedLegacyJsonFieldConflicts());
-    assertFalse(options.hasFeatures());
-    assertFalse(options.hasMapEntry());
-    assertFalse(options.hasMessageSetWireFormat());
-    assertFalse(options.hasNoStandardDescriptorAccessor());
-    assertFalse(descriptorForType2.isExtendable());
-    assertFalse(descriptorForType4.isExtendable());
-    assertFalse(descriptorForType.isExtendable());
-    assertFalse(getResult.isExtendable());
-    assertFalse(getResult2.isExtendable());
-    assertFalse(getResult3.isExtendable());
-    assertFalse(getResult5.hasDefaultValue());
-    assertFalse(getResult4.hasDefaultValue());
-    assertFalse(getResult7.hasDefaultValue());
-    assertFalse(getResult6.hasDefaultValue());
-    assertFalse(getResult5.hasOptionalKeyword());
-    assertFalse(getResult4.hasOptionalKeyword());
-    assertFalse(getResult7.hasOptionalKeyword());
-    assertFalse(getResult6.hasOptionalKeyword());
-    assertFalse(getResult5.hasPresence());
-    assertFalse(getResult4.hasPresence());
-    assertFalse(getResult7.hasPresence());
-    assertFalse(getResult6.hasPresence());
-    assertFalse(getResult5.isExtension());
-    assertFalse(getResult4.isExtension());
-    assertFalse(getResult7.isExtension());
-    assertFalse(getResult6.isExtension());
-    assertFalse(getResult5.isMapField());
-    assertFalse(getResult4.isMapField());
-    assertFalse(getResult7.isMapField());
-    assertFalse(getResult6.isMapField());
-    assertFalse(getResult5.isPackable());
-    assertFalse(getResult4.isPackable());
-    assertFalse(getResult7.isPackable());
-    assertFalse(getResult6.isPackable());
-    assertFalse(getResult5.isPacked());
-    assertFalse(getResult4.isPacked());
-    assertFalse(getResult7.isPacked());
-    assertFalse(getResult6.isPacked());
-    assertFalse(getResult5.isRepeated());
-    assertFalse(getResult4.isRepeated());
-    assertFalse(getResult7.isRepeated());
-    assertFalse(getResult6.isRepeated());
-    assertFalse(getResult5.isRequired());
-    assertFalse(getResult4.isRequired());
-    assertFalse(getResult7.isRequired());
-    assertFalse(getResult6.isRequired());
-    ByteString csharpNamespaceBytes = options2.getCsharpNamespaceBytes();
-    assertFalse(csharpNamespaceBytes.iterator().hasNext());
-    assertTrue(csharpNamespaceBytes.isEmpty());
-    assertTrue(toProtoResult4.hasName());
-    assertTrue(toProtoResult.hasName());
-    assertTrue(defaultInstanceForType.isInitialized());
-    assertTrue(toProtoResult4.isInitialized());
-    assertTrue(toProtoResult.isInitialized());
-    assertTrue(features.isInitialized());
-    assertTrue(toProtoResult6.hasLabel());
-    assertTrue(toProtoResult5.hasLabel());
-    assertTrue(toProtoResult8.hasLabel());
-    assertTrue(toProtoResult7.hasLabel());
-    assertTrue(toProtoResult6.hasName());
-    assertTrue(toProtoResult5.hasName());
-    assertTrue(toProtoResult8.hasName());
-    assertTrue(toProtoResult7.hasName());
-    assertTrue(toProtoResult6.hasNumber());
-    assertTrue(toProtoResult5.hasNumber());
-    assertTrue(toProtoResult8.hasNumber());
-    assertTrue(toProtoResult7.hasNumber());
-    assertTrue(toProtoResult6.hasType());
-    assertTrue(toProtoResult5.hasType());
-    assertTrue(toProtoResult8.hasType());
-    assertTrue(toProtoResult7.hasType());
-    assertTrue(toProtoResult6.isInitialized());
-    assertTrue(toProtoResult5.isInitialized());
-    assertTrue(toProtoResult8.isInitialized());
-    assertTrue(toProtoResult7.isInitialized());
-    assertTrue(options3.isInitialized());
-    assertTrue(toProtoResult3.hasName());
-    assertTrue(toProtoResult3.hasOptions());
-    assertTrue(toProtoResult3.hasPackage());
-    assertTrue(toProtoResult3.hasSyntax());
-    assertTrue(defaultInstanceForType2.isInitialized());
-    assertTrue(toProtoResult3.isInitialized());
-    assertTrue(defaultInstanceForType3.getCcEnableArenas());
-    assertTrue(options2.getCcEnableArenas());
-    assertTrue(options2.hasJavaOuterClassname());
-    assertTrue(options2.hasJavaPackage());
-    assertTrue(defaultInstanceForType3.isInitialized());
-    assertTrue(options2.isInitialized());
-    assertTrue(options.isInitialized());
-    assertTrue(sourceCodeInfo.isInitialized());
-    assertTrue(descriptorForType3.isExtendable());
-    assertTrue(descriptorForType6.isExtendable());
-    assertTrue(descriptorForType5.isExtendable());
-    assertTrue(getResult5.isOptional());
-    assertTrue(getResult4.isOptional());
-    assertTrue(getResult7.isOptional());
-    assertTrue(getResult6.isOptional());
-    assertTrue(unknownFields.isInitialized());
-    ByteString.ByteIterator iteratorResult = nameBytes.iterator();
-    assertTrue(iteratorResult.hasNext());
-    ByteString.ByteIterator iteratorResult2 = nameBytes2.iterator();
-    assertTrue(iteratorResult2.hasNext());
-    ByteString.ByteIterator iteratorResult3 = packageBytes.iterator();
-    assertTrue(iteratorResult3.hasNext());
-    ByteString.ByteIterator iteratorResult4 = syntaxBytes.iterator();
-    assertTrue(iteratorResult4.hasNext());
-    ByteString.ByteIterator iteratorResult5 = javaOuterClassnameBytes.iterator();
-    assertTrue(iteratorResult5.hasNext());
-    ByteString.ByteIterator iteratorResult6 = javaPackageBytes.iterator();
-    assertTrue(iteratorResult6.hasNext());
-    assertTrue(defaultInstanceForType.findInitializationErrors().isEmpty());
-    assertTrue(features.findInitializationErrors().isEmpty());
-    assertTrue(options.findInitializationErrors().isEmpty());
-    assertTrue(toProtoResult.findInitializationErrors().isEmpty());
-    assertTrue(options2.findInitializationErrors().isEmpty());
-    assertTrue(toProtoResult3.findInitializationErrors().isEmpty());
-    List<String> findInitializationErrorsResult = actualToProtoResult.findInitializationErrors();
-    assertTrue(findInitializationErrorsResult.isEmpty());
-    assertTrue(defaultInstanceForType4.findInitializationErrors().isEmpty());
-    ProtocolStringList reservedNameList = toProtoResult.getReservedNameList();
-    assertTrue(reservedNameList.isEmpty());
-    List<Integer> publicDependencyList = toProtoResult3.getPublicDependencyList();
-    assertTrue(publicDependencyList.isEmpty());
-    List<DescriptorProtos.UninterpretedOption> uninterpretedOptionList = options.getUninterpretedOptionList();
-    assertTrue(uninterpretedOptionList.isEmpty());
-    assertTrue(descriptorForType6.getEnumTypes().isEmpty());
-    assertTrue(descriptorForType2.getEnumTypes().isEmpty());
-    assertTrue(descriptorForType.getEnumTypes().isEmpty());
-    assertTrue(descriptorForType6.getExtensions().isEmpty());
-    assertTrue(descriptorForType2.getExtensions().isEmpty());
-    assertTrue(descriptorForType.getExtensions().isEmpty());
-    assertTrue(descriptorForType6.getNestedTypes().isEmpty());
-    assertTrue(descriptorForType.getNestedTypes().isEmpty());
-    assertTrue(descriptorForType6.getOneofs().isEmpty());
-    assertTrue(descriptorForType2.getOneofs().isEmpty());
-    assertTrue(descriptorForType.getOneofs().isEmpty());
-    assertTrue(descriptorForType6.getRealOneofs().isEmpty());
-    assertTrue(descriptorForType2.getRealOneofs().isEmpty());
-    assertTrue(descriptorForType.getRealOneofs().isEmpty());
-    assertTrue(file.getDependencies().isEmpty());
-    assertTrue(file.getEnumTypes().isEmpty());
-    assertTrue(file.getExtensions().isEmpty());
-    assertTrue(file.getPublicDependencies().isEmpty());
-    assertTrue(file.getServices().isEmpty());
-    assertTrue(defaultInstanceForType.getAllFields().isEmpty());
-    Map<Descriptors.FieldDescriptor, Object> allFields2 = defaultInstanceForType4.getAllFields();
-    assertTrue(allFields2.isEmpty());
-    assertTrue(features.getAllFields().isEmpty());
-    assertTrue(options.getAllFields().isEmpty());
-    assertTrue(features.getAllFieldsRaw().isEmpty());
-    assertTrue(options.getAllFieldsRaw().isEmpty());
+    assertEquals(42, actualToProtoResult.getSerializedSize());
+    assertEquals(8669210807411032922L, actualToProtoResult.getRuleChainIdMSB());
+    assertEquals(8669210807411032922L, actualToProtoResult.getRuleNodeIdMSB());
+    assertTrue(actualToProtoResult.findInitializationErrors().isEmpty());
     assertTrue(actualToProtoResult.isInitialized());
-    assertTrue(defaultInstanceForType4.isInitialized());
-    assertEquals(findInitializationErrorsResult, defaultInstanceForType2.findInitializationErrors());
-    assertEquals(findInitializationErrorsResult, sourceCodeInfo.findInitializationErrors());
-    assertEquals(findInitializationErrorsResult, defaultInstanceForType3.findInitializationErrors());
-    assertEquals(findInitializationErrorsResult, toProtoResult4.findInitializationErrors());
-    assertEquals(findInitializationErrorsResult, toProtoResult2.findInitializationErrors());
-    assertEquals(findInitializationErrorsResult, options3.findInitializationErrors());
-    assertEquals(findInitializationErrorsResult, toProtoResult6.findInitializationErrors());
-    assertEquals(findInitializationErrorsResult, toProtoResult5.findInitializationErrors());
-    assertEquals(findInitializationErrorsResult, toProtoResult8.findInitializationErrors());
-    assertEquals(findInitializationErrorsResult, toProtoResult7.findInitializationErrors());
-    assertEquals(findInitializationErrorsResult, options3.getTargetsList());
-    assertEquals(findInitializationErrorsResult, descriptorForType4.getEnumTypes());
-    assertEquals(findInitializationErrorsResult, getResult.getEnumTypes());
-    assertEquals(findInitializationErrorsResult, getResult2.getEnumTypes());
-    assertEquals(findInitializationErrorsResult, getResult3.getEnumTypes());
-    assertEquals(findInitializationErrorsResult, descriptorForType3.getExtensions());
-    assertEquals(findInitializationErrorsResult, descriptorForType5.getExtensions());
-    assertEquals(findInitializationErrorsResult, descriptorForType4.getExtensions());
-    assertEquals(findInitializationErrorsResult, getResult.getExtensions());
-    assertEquals(findInitializationErrorsResult, getResult2.getExtensions());
-    assertEquals(findInitializationErrorsResult, getResult3.getExtensions());
-    assertEquals(findInitializationErrorsResult, descriptorForType3.getNestedTypes());
-    assertEquals(findInitializationErrorsResult, descriptorForType5.getNestedTypes());
-    assertEquals(findInitializationErrorsResult, descriptorForType4.getNestedTypes());
-    assertEquals(findInitializationErrorsResult, getResult2.getNestedTypes());
-    assertEquals(findInitializationErrorsResult, getResult3.getNestedTypes());
-    assertEquals(findInitializationErrorsResult, descriptorForType3.getOneofs());
-    assertEquals(findInitializationErrorsResult, descriptorForType5.getOneofs());
-    assertEquals(findInitializationErrorsResult, descriptorForType4.getOneofs());
-    assertEquals(findInitializationErrorsResult, getResult.getOneofs());
-    assertEquals(findInitializationErrorsResult, getResult2.getOneofs());
-    assertEquals(findInitializationErrorsResult, getResult3.getOneofs());
-    assertEquals(findInitializationErrorsResult, descriptorForType3.getRealOneofs());
-    assertEquals(findInitializationErrorsResult, descriptorForType5.getRealOneofs());
-    assertEquals(findInitializationErrorsResult, descriptorForType4.getRealOneofs());
-    assertEquals(findInitializationErrorsResult, getResult.getRealOneofs());
-    assertEquals(findInitializationErrorsResult, getResult2.getRealOneofs());
-    assertEquals(findInitializationErrorsResult, getResult3.getRealOneofs());
-    assertEquals(findInitializationErrorsResult, file2.getDependencies());
-    assertEquals(findInitializationErrorsResult, file2.getExtensions());
-    assertEquals(findInitializationErrorsResult, file2.getPublicDependencies());
-    assertEquals(findInitializationErrorsResult, file2.getServices());
-    assertEquals(csharpNamespaceBytes, defaultInstanceForType.getNameBytes());
-    assertEquals(csharpNamespaceBytes, toProtoResult6.getDefaultValueBytes());
-    assertEquals(csharpNamespaceBytes, toProtoResult5.getDefaultValueBytes());
-    assertEquals(csharpNamespaceBytes, toProtoResult8.getDefaultValueBytes());
-    assertEquals(csharpNamespaceBytes, toProtoResult7.getDefaultValueBytes());
-    assertEquals(csharpNamespaceBytes, toProtoResult6.getExtendeeBytes());
-    assertEquals(csharpNamespaceBytes, toProtoResult5.getExtendeeBytes());
-    assertEquals(csharpNamespaceBytes, toProtoResult8.getExtendeeBytes());
-    assertEquals(csharpNamespaceBytes, toProtoResult7.getExtendeeBytes());
-    assertEquals(csharpNamespaceBytes, toProtoResult6.getJsonNameBytes());
-    assertEquals(csharpNamespaceBytes, toProtoResult5.getJsonNameBytes());
-    assertEquals(csharpNamespaceBytes, toProtoResult8.getJsonNameBytes());
-    assertEquals(csharpNamespaceBytes, toProtoResult7.getJsonNameBytes());
-    assertEquals(csharpNamespaceBytes, toProtoResult6.getTypeNameBytes());
-    assertEquals(csharpNamespaceBytes, toProtoResult5.getTypeNameBytes());
-    assertEquals(csharpNamespaceBytes, toProtoResult8.getTypeNameBytes());
-    assertEquals(csharpNamespaceBytes, toProtoResult7.getTypeNameBytes());
-    assertEquals(csharpNamespaceBytes, defaultInstanceForType2.getNameBytes());
-    assertEquals(csharpNamespaceBytes, defaultInstanceForType2.getPackageBytes());
-    assertEquals(csharpNamespaceBytes, defaultInstanceForType2.getSyntaxBytes());
-    assertEquals(csharpNamespaceBytes, defaultInstanceForType3.getCsharpNamespaceBytes());
-    assertEquals(csharpNamespaceBytes, defaultInstanceForType3.getGoPackageBytes());
-    assertEquals(csharpNamespaceBytes, options2.getGoPackageBytes());
-    assertEquals(csharpNamespaceBytes, defaultInstanceForType3.getJavaOuterClassnameBytes());
-    assertEquals(csharpNamespaceBytes, defaultInstanceForType3.getJavaPackageBytes());
-    assertEquals(csharpNamespaceBytes, defaultInstanceForType3.getObjcClassPrefixBytes());
-    assertEquals(csharpNamespaceBytes, options2.getObjcClassPrefixBytes());
-    assertEquals(csharpNamespaceBytes, defaultInstanceForType3.getPhpClassPrefixBytes());
-    assertEquals(csharpNamespaceBytes, options2.getPhpClassPrefixBytes());
-    assertEquals(csharpNamespaceBytes, defaultInstanceForType3.getPhpMetadataNamespaceBytes());
-    assertEquals(csharpNamespaceBytes, options2.getPhpMetadataNamespaceBytes());
-    assertEquals(csharpNamespaceBytes, defaultInstanceForType3.getPhpNamespaceBytes());
-    assertEquals(csharpNamespaceBytes, options2.getPhpNamespaceBytes());
-    assertEquals(csharpNamespaceBytes, defaultInstanceForType3.getRubyPackageBytes());
-    assertEquals(csharpNamespaceBytes, options2.getRubyPackageBytes());
-    assertEquals(csharpNamespaceBytes, defaultInstanceForType3.getSwiftPrefixBytes());
-    assertEquals(csharpNamespaceBytes, options2.getSwiftPrefixBytes());
-    assertEquals(allFields2, defaultInstanceForType2.getAllFields());
-    assertEquals(allFields2, sourceCodeInfo.getAllFields());
-    assertEquals(allFields2, defaultInstanceForType3.getAllFields());
-    assertEquals(allFields2, options3.getAllFields());
-    assertEquals(allFields2, defaultInstanceForType3.getAllFieldsRaw());
-    assertEquals(allFields2, options3.getAllFieldsRaw());
-    assertEquals(allFields, options2.getAllFieldsRaw());
-    assertEquals(TbMsg.EMPTY_STRING, defaultInstanceForType.getInitializationErrorString());
-    assertEquals(TbMsg.EMPTY_STRING, defaultInstanceForType2.getInitializationErrorString());
-    assertEquals(TbMsg.EMPTY_STRING, sourceCodeInfo.getInitializationErrorString());
-    assertEquals(TbMsg.EMPTY_STRING, defaultInstanceForType3.getInitializationErrorString());
-    assertEquals(TbMsg.EMPTY_STRING, features.getInitializationErrorString());
-    assertEquals(TbMsg.EMPTY_STRING, options.getInitializationErrorString());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult4.getInitializationErrorString());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult2.getInitializationErrorString());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult.getInitializationErrorString());
-    assertEquals(TbMsg.EMPTY_STRING, options3.getInitializationErrorString());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult6.getInitializationErrorString());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult5.getInitializationErrorString());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult8.getInitializationErrorString());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult7.getInitializationErrorString());
-    assertEquals(TbMsg.EMPTY_STRING, options2.getInitializationErrorString());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult3.getInitializationErrorString());
     assertEquals(TbMsg.EMPTY_STRING, actualToProtoResult.getInitializationErrorString());
-    assertEquals(TbMsg.EMPTY_STRING, defaultInstanceForType4.getInitializationErrorString());
-    assertEquals(TbMsg.EMPTY_STRING, csharpNamespaceBytes.toStringUtf8());
-    assertEquals(TbMsg.EMPTY_STRING, defaultInstanceForType.getName());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult6.getDefaultValue());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult5.getDefaultValue());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult8.getDefaultValue());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult7.getDefaultValue());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult6.getExtendee());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult5.getExtendee());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult8.getExtendee());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult7.getExtendee());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult6.getJsonName());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult5.getJsonName());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult8.getJsonName());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult7.getJsonName());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult6.getTypeName());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult5.getTypeName());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult8.getTypeName());
-    assertEquals(TbMsg.EMPTY_STRING, toProtoResult7.getTypeName());
-    assertEquals(TbMsg.EMPTY_STRING, defaultInstanceForType2.getName());
-    assertEquals(TbMsg.EMPTY_STRING, defaultInstanceForType2.getPackage());
-    assertEquals(TbMsg.EMPTY_STRING, defaultInstanceForType2.getSyntax());
-    assertEquals(TbMsg.EMPTY_STRING, defaultInstanceForType3.getCsharpNamespace());
-    assertEquals(TbMsg.EMPTY_STRING, options2.getCsharpNamespace());
-    assertEquals(TbMsg.EMPTY_STRING, defaultInstanceForType3.getGoPackage());
-    assertEquals(TbMsg.EMPTY_STRING, options2.getGoPackage());
-    assertEquals(TbMsg.EMPTY_STRING, defaultInstanceForType3.getJavaOuterClassname());
-    assertEquals(TbMsg.EMPTY_STRING, defaultInstanceForType3.getJavaPackage());
-    assertEquals(TbMsg.EMPTY_STRING, defaultInstanceForType3.getObjcClassPrefix());
-    assertEquals(TbMsg.EMPTY_STRING, options2.getObjcClassPrefix());
-    assertEquals(TbMsg.EMPTY_STRING, defaultInstanceForType3.getPhpClassPrefix());
-    assertEquals(TbMsg.EMPTY_STRING, options2.getPhpClassPrefix());
-    assertEquals(TbMsg.EMPTY_STRING, defaultInstanceForType3.getPhpMetadataNamespace());
-    assertEquals(TbMsg.EMPTY_STRING, options2.getPhpMetadataNamespace());
-    assertEquals(TbMsg.EMPTY_STRING, defaultInstanceForType3.getPhpNamespace());
-    assertEquals(TbMsg.EMPTY_STRING, options2.getPhpNamespace());
-    assertEquals(TbMsg.EMPTY_STRING, defaultInstanceForType3.getRubyPackage());
-    assertEquals(TbMsg.EMPTY_STRING, options2.getRubyPackage());
-    assertEquals(TbMsg.EMPTY_STRING, defaultInstanceForType3.getSwiftPrefix());
-    assertEquals(TbMsg.EMPTY_STRING, options2.getSwiftPrefix());
-    assertEquals(TbMsg.EMPTY_STRING, file2.getEditionName());
-    assertEquals(TbMsg.EMPTY_STRING, file.getEditionName());
-    assertEquals('M', iteratorResult5.next().byteValue());
-    assertEquals('T', iteratorResult.next().byteValue());
-    assertEquals('b', iteratorResult.next().byteValue());
-    assertEquals('m', iteratorResult3.next().byteValue());
-    assertEquals('o', iteratorResult6.next().byteValue());
-    assertEquals('p', iteratorResult4.next().byteValue());
-    assertEquals('t', iteratorResult2.next().byteValue());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
-    DescriptorProtos.DescriptorProto defaultInstanceForType5 = toProtoResult2.getDefaultInstanceForType();
-    assertSame(defaultInstanceForType5, toProtoResult4.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType5, defaultInstanceForType5);
-    assertSame(fieldList, toProtoResult.getFieldOrBuilderList());
-    assertSame(defaultInstanceForType2.getDefaultInstanceForType(),
-        defaultInstanceForType2.getDefaultInstanceForType());
-    assertSame(messageTypeList, toProtoResult3.getMessageTypeOrBuilderList());
-    assertSame(publicDependencyList, defaultInstanceForType2.getPublicDependencyList());
-    assertSame(publicDependencyList, defaultInstanceForType2.getWeakDependencyList());
-    assertSame(publicDependencyList, toProtoResult3.getWeakDependencyList());
-    assertSame(sourceCodeInfo, defaultInstanceForType2.getSourceCodeInfo());
-    assertSame(sourceCodeInfo, defaultInstanceForType2.getSourceCodeInfoOrBuilder());
-    assertSame(sourceCodeInfo, toProtoResult3.getSourceCodeInfoOrBuilder());
-    assertSame(sourceCodeInfo, sourceCodeInfo.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType3.getDefaultInstanceForType(),
-        defaultInstanceForType3.getDefaultInstanceForType());
-    assertSame(features, features.getDefaultInstanceForType());
-    assertSame(uninterpretedOptionList, defaultInstanceForType.getEnumTypeList());
-    assertSame(uninterpretedOptionList, toProtoResult4.getEnumTypeList());
-    assertSame(uninterpretedOptionList, toProtoResult2.getEnumTypeList());
-    assertSame(uninterpretedOptionList, toProtoResult.getEnumTypeList());
-    assertSame(uninterpretedOptionList, defaultInstanceForType.getEnumTypeOrBuilderList());
-    assertSame(uninterpretedOptionList, toProtoResult4.getEnumTypeOrBuilderList());
-    assertSame(uninterpretedOptionList, toProtoResult2.getEnumTypeOrBuilderList());
-    assertSame(uninterpretedOptionList, toProtoResult.getEnumTypeOrBuilderList());
-    assertSame(uninterpretedOptionList, defaultInstanceForType.getExtensionList());
-    assertSame(uninterpretedOptionList, toProtoResult4.getExtensionList());
-    assertSame(uninterpretedOptionList, toProtoResult2.getExtensionList());
-    assertSame(uninterpretedOptionList, toProtoResult.getExtensionList());
-    assertSame(uninterpretedOptionList, defaultInstanceForType.getExtensionOrBuilderList());
-    assertSame(uninterpretedOptionList, toProtoResult4.getExtensionOrBuilderList());
-    assertSame(uninterpretedOptionList, toProtoResult2.getExtensionOrBuilderList());
-    assertSame(uninterpretedOptionList, toProtoResult.getExtensionOrBuilderList());
-    assertSame(uninterpretedOptionList, defaultInstanceForType.getExtensionRangeList());
-    assertSame(uninterpretedOptionList, toProtoResult2.getExtensionRangeList());
-    assertSame(uninterpretedOptionList, toProtoResult.getExtensionRangeList());
-    assertSame(uninterpretedOptionList, defaultInstanceForType.getExtensionRangeOrBuilderList());
-    assertSame(uninterpretedOptionList, toProtoResult2.getExtensionRangeOrBuilderList());
-    assertSame(uninterpretedOptionList, toProtoResult.getExtensionRangeOrBuilderList());
-    assertSame(uninterpretedOptionList, defaultInstanceForType.getFieldList());
-    assertSame(uninterpretedOptionList, defaultInstanceForType.getFieldOrBuilderList());
-    assertSame(uninterpretedOptionList, defaultInstanceForType.getNestedTypeList());
-    assertSame(uninterpretedOptionList, toProtoResult4.getNestedTypeList());
-    assertSame(uninterpretedOptionList, toProtoResult.getNestedTypeList());
-    assertSame(uninterpretedOptionList, defaultInstanceForType.getNestedTypeOrBuilderList());
-    assertSame(uninterpretedOptionList, toProtoResult4.getNestedTypeOrBuilderList());
-    assertSame(uninterpretedOptionList, toProtoResult.getNestedTypeOrBuilderList());
-    assertSame(uninterpretedOptionList, defaultInstanceForType.getOneofDeclList());
-    assertSame(uninterpretedOptionList, toProtoResult4.getOneofDeclList());
-    assertSame(uninterpretedOptionList, toProtoResult2.getOneofDeclList());
-    assertSame(uninterpretedOptionList, toProtoResult.getOneofDeclList());
-    assertSame(uninterpretedOptionList, defaultInstanceForType.getOneofDeclOrBuilderList());
-    assertSame(uninterpretedOptionList, toProtoResult4.getOneofDeclOrBuilderList());
-    assertSame(uninterpretedOptionList, toProtoResult2.getOneofDeclOrBuilderList());
-    assertSame(uninterpretedOptionList, toProtoResult.getOneofDeclOrBuilderList());
-    assertSame(uninterpretedOptionList, defaultInstanceForType.getReservedRangeList());
-    assertSame(uninterpretedOptionList, toProtoResult.getReservedRangeList());
-    assertSame(uninterpretedOptionList, defaultInstanceForType.getReservedRangeOrBuilderList());
-    assertSame(uninterpretedOptionList, toProtoResult.getReservedRangeOrBuilderList());
-    assertSame(uninterpretedOptionList, options3.getEditionDefaultsList());
-    assertSame(uninterpretedOptionList, options3.getEditionDefaultsOrBuilderList());
-    assertSame(uninterpretedOptionList, options3.getUninterpretedOptionList());
-    assertSame(uninterpretedOptionList, options3.getUninterpretedOptionOrBuilderList());
-    assertSame(uninterpretedOptionList, defaultInstanceForType2.getEnumTypeList());
-    assertSame(uninterpretedOptionList, toProtoResult3.getEnumTypeList());
-    assertSame(uninterpretedOptionList, defaultInstanceForType2.getEnumTypeOrBuilderList());
-    assertSame(uninterpretedOptionList, toProtoResult3.getEnumTypeOrBuilderList());
-    assertSame(uninterpretedOptionList, defaultInstanceForType2.getExtensionList());
-    assertSame(uninterpretedOptionList, toProtoResult3.getExtensionList());
-    assertSame(uninterpretedOptionList, defaultInstanceForType2.getExtensionOrBuilderList());
-    assertSame(uninterpretedOptionList, toProtoResult3.getExtensionOrBuilderList());
-    assertSame(uninterpretedOptionList, defaultInstanceForType2.getMessageTypeList());
-    assertSame(uninterpretedOptionList, defaultInstanceForType2.getMessageTypeOrBuilderList());
-    assertSame(uninterpretedOptionList, defaultInstanceForType2.getServiceList());
-    assertSame(uninterpretedOptionList, toProtoResult3.getServiceList());
-    assertSame(uninterpretedOptionList, defaultInstanceForType2.getServiceOrBuilderList());
-    assertSame(uninterpretedOptionList, toProtoResult3.getServiceOrBuilderList());
-    assertSame(uninterpretedOptionList, defaultInstanceForType3.getUninterpretedOptionList());
-    assertSame(uninterpretedOptionList, options2.getUninterpretedOptionList());
-    assertSame(uninterpretedOptionList, defaultInstanceForType3.getUninterpretedOptionOrBuilderList());
-    assertSame(uninterpretedOptionList, options2.getUninterpretedOptionOrBuilderList());
-    assertSame(uninterpretedOptionList, options.getUninterpretedOptionOrBuilderList());
-    assertSame(uninterpretedOptionList, sourceCodeInfo.getLocationList());
-    assertSame(uninterpretedOptionList, sourceCodeInfo.getLocationOrBuilderList());
-    assertSame(file, getResult.getFile());
-    assertSame(file, getResult2.getFile());
-    assertSame(file, getResult3.getFile());
-    assertSame(file, getResult5.getFile());
-    assertSame(file, getResult4.getFile());
-    assertSame(file, getResult7.getFile());
-    assertSame(file, getResult6.getFile());
-    DescriptorProtos.MessageOptions options4 = descriptorForType6.getOptions();
-    assertSame(options4, defaultInstanceForType.getOptions());
-    assertSame(options4, toProtoResult4.getOptions());
-    assertSame(options4, toProtoResult.getOptions());
-    assertSame(options4, defaultInstanceForType.getOptionsOrBuilder());
-    assertSame(options4, toProtoResult4.getOptionsOrBuilder());
-    assertSame(options4, toProtoResult.getOptionsOrBuilder());
-    assertSame(options4, descriptorForType3.getOptions());
-    assertSame(options4, options4);
-    assertSame(options4, descriptorForType2.getOptions());
-    assertSame(options4, descriptorForType5.getOptions());
-    assertSame(options4, descriptorForType4.getOptions());
-    assertSame(options4, getResult.getOptions());
-    assertSame(options4, getResult2.getOptions());
-    assertSame(options4, getResult3.getOptions());
-    assertSame(options, options.getDefaultInstanceForType());
-    assertSame(options3, toProtoResult6.getOptions());
-    assertSame(options3, toProtoResult5.getOptions());
-    assertSame(options3, toProtoResult8.getOptions());
-    assertSame(options3, toProtoResult7.getOptions());
-    assertSame(options3, toProtoResult6.getOptionsOrBuilder());
-    assertSame(options3, toProtoResult5.getOptionsOrBuilder());
-    assertSame(options3, toProtoResult8.getOptionsOrBuilder());
-    assertSame(options3, toProtoResult7.getOptionsOrBuilder());
-    assertSame(options3, options3.getDefaultInstanceForType());
-    assertSame(options3, getResult4.getOptions());
-    assertSame(options3, getResult7.getOptions());
-    assertSame(options3, getResult6.getOptions());
-    assertSame(toProtoResult6, fieldList.get(0));
-    assertSame(descriptorForType, getResult5.getContainingType());
-    assertSame(descriptorForType, getResult4.getContainingType());
-    assertSame(descriptorForType, getResult7.getContainingType());
-    assertSame(descriptorForType, getResult6.getContainingType());
-    assertSame(descriptorForType, defaultInstanceForType4.getDescriptorForType());
-    assertSame(descriptorForType, messageTypes.get(1));
-    assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
-    assertSame(unknownFields, defaultInstanceForType2.getUnknownFields());
-    assertSame(unknownFields, sourceCodeInfo.getUnknownFields());
-    assertSame(unknownFields, defaultInstanceForType3.getUnknownFields());
-    assertSame(unknownFields, features.getUnknownFields());
-    assertSame(unknownFields, options.getUnknownFields());
-    assertSame(unknownFields, toProtoResult4.getUnknownFields());
-    assertSame(unknownFields, toProtoResult.getUnknownFields());
-    assertSame(unknownFields, options3.getUnknownFields());
-    assertSame(unknownFields, toProtoResult6.getUnknownFields());
-    assertSame(unknownFields, toProtoResult5.getUnknownFields());
-    assertSame(unknownFields, toProtoResult8.getUnknownFields());
-    assertSame(unknownFields, toProtoResult7.getUnknownFields());
-    assertSame(unknownFields, options2.getUnknownFields());
-    assertSame(unknownFields, toProtoResult3.getUnknownFields());
-    assertSame(unknownFields, defaultInstanceForType4.getUnknownFields());
-    assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType4.getDefaultInstanceForType(),
-        defaultInstanceForType4.getDefaultInstanceForType());
-    assertSame(reservedNameList, defaultInstanceForType.getReservedNameList());
-    assertSame(reservedNameList, toProtoResult4.getReservedNameList());
-    assertSame(reservedNameList, defaultInstanceForType2.getDependencyList());
-    assertSame(reservedNameList, toProtoResult3.getDependencyList());
   }
 
   /**
-   * Test
-   * {@link TbMsgProcessingStackItem#fromProto(TbMsgProcessingStackItemProto)}.
+   * Test {@link TbMsgProcessingStackItem#fromProto(TbMsgProcessingStackItemProto)}.
    * <ul>
-   *   <li>Then return RuleChainId Id toString is
-   * {@code 00000000-0000-0000-0000-000000000000}.</li>
+   *   <li>Then return RuleChainId Id toString is {@code 00000000-0000-0000-0000-000000000000}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbMsgProcessingStackItem#fromProto(MsgProtos.TbMsgProcessingStackItemProto)}
+   * Method under test: {@link TbMsgProcessingStackItem#fromProto(MsgProtos.TbMsgProcessingStackItemProto)}
    */
   @Test
   @DisplayName("Test fromProto(TbMsgProcessingStackItemProto); then return RuleChainId Id toString is '00000000-0000-0000-0000-000000000000'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "TbMsgProcessingStackItem TbMsgProcessingStackItem.fromProto(MsgProtos.TbMsgProcessingStackItemProto)"})
   void testFromProto_thenReturnRuleChainIdIdToStringIs00000000000000000000000000000000() {
     // Arrange and Act
     TbMsgProcessingStackItem actualFromProtoResult = TbMsgProcessingStackItem
-        .fromProto(MsgProtos.TbMsgProcessingStackItemProto.getDefaultInstance());
+        .fromProto(TbMsgProcessingStackItemProto.getDefaultInstance());
 
     // Assert
     RuleChainId ruleChainId = actualFromProtoResult.getRuleChainId();
@@ -926,12 +79,33 @@ class TbMsgProcessingStackItemDiffblueTest {
   }
 
   /**
+   * Test {@link TbMsgProcessingStackItem#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link TbMsgProcessingStackItem#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgProcessingStackItem.equals(Object)", "int TbMsgProcessingStackItem.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertNotEquals(new TbMsgProcessingStackItem(ruleChainId,
+        new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))), "42");
+  }
+
+  /**
    * Test getters and setters.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link TbMsgProcessingStackItem#TbMsgProcessingStackItem(RuleChainId, RuleNodeId)}
+   *   <li>{@link TbMsgProcessingStackItem#TbMsgProcessingStackItem(RuleChainId, RuleNodeId)}
    *   <li>{@link TbMsgProcessingStackItem#toString()}
    *   <li>{@link TbMsgProcessingStackItem#getRuleChainId()}
    *   <li>{@link TbMsgProcessingStackItem#getRuleNodeId()}
@@ -939,17 +113,23 @@ class TbMsgProcessingStackItemDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbMsgProcessingStackItem.<init>(RuleChainId, RuleNodeId)",
+      "RuleChainId TbMsgProcessingStackItem.getRuleChainId()", "RuleNodeId TbMsgProcessingStackItem.getRuleNodeId()",
+      "String TbMsgProcessingStackItem.toString()"})
   void testGettersAndSetters() {
     // Arrange
-    RuleChainId ruleChainId = new RuleChainId(UUID.randomUUID());
-    RuleNodeId ruleNodeId = new RuleNodeId(UUID.randomUUID());
+    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleNodeId ruleNodeId = new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
     TbMsgProcessingStackItem actualTbMsgProcessingStackItem = new TbMsgProcessingStackItem(ruleChainId, ruleNodeId);
-    actualTbMsgProcessingStackItem.toString();
+    String actualToStringResult = actualTbMsgProcessingStackItem.toString();
     RuleChainId actualRuleChainId = actualTbMsgProcessingStackItem.getRuleChainId();
 
     // Assert
+    assertEquals("TbMsgProcessingStackItem(ruleChainId=784f394c-42b6-435a-983c-b7beff2784f9, ruleNodeId=784f394c-42b6"
+        + "-435a-983c-b7beff2784f9)", actualToStringResult);
     assertSame(ruleChainId, actualRuleChainId);
     assertSame(ruleNodeId, actualTbMsgProcessingStackItem.getRuleNodeId());
   }

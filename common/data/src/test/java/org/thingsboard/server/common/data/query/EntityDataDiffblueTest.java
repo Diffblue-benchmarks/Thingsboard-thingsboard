@@ -5,11 +5,12 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.AlarmId;
 import org.thingsboard.server.common.data.id.EntityId;
@@ -31,6 +32,8 @@ class EntityDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityData.equals(Object)", "int EntityData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     HashMap<EntityKeyType, Map<String, TsValue>> latest = new HashMap<>();
@@ -59,6 +62,8 @@ class EntityDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityData.equals(Object)", "int EntityData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     HashMap<EntityKeyType, Map<String, TsValue>> latest = new HashMap<>();
@@ -87,6 +92,8 @@ class EntityDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityData.equals(Object)", "int EntityData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     HashMap<EntityKeyType, Map<String, TsValue>> latest = new HashMap<>();
@@ -117,6 +124,8 @@ class EntityDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityData.equals(Object)", "int EntityData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     HashMap<EntityKeyType, Map<String, TsValue>> latest = new HashMap<>();
@@ -139,6 +148,8 @@ class EntityDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityData.equals(Object)", "int EntityData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     HashMap<EntityKeyType, Map<String, TsValue>> latest = new HashMap<>();
@@ -160,6 +171,8 @@ class EntityDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityData.equals(Object)", "int EntityData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AlarmId entityId = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -182,29 +195,9 @@ class EntityDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityData.equals(Object)", "int EntityData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
-    // Arrange
-    EntityId entityId = mock(EntityId.class);
-    HashMap<EntityKeyType, Map<String, TsValue>> latest = new HashMap<>();
-    EntityData entityData = new EntityData(entityId, latest, new HashMap<>());
-    HashMap<EntityKeyType, Map<String, TsValue>> latest2 = new HashMap<>();
-
-    // Act and Assert
-    assertNotEquals(entityData, new EntityData(TenantId.SYS_TENANT_ID, latest2, new HashMap<>()));
-  }
-
-  /**
-   * Test {@link EntityData#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link EntityData#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     HashMap<EntityKeyType, Map<String, TsValue>> latest = new HashMap<>();
     latest.put(EntityKeyType.ATTRIBUTE, new HashMap<>());
@@ -226,7 +219,9 @@ class EntityDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityData.equals(Object)", "int EntityData.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     HashMap<String, TsValue[]> timeseries = new HashMap<>();
     timeseries.put("foo", new TsValue[]{TsValue.EMPTY});
@@ -248,7 +243,9 @@ class EntityDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityData.equals(Object)", "int EntityData.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     HashMap<EntityKeyType, Map<String, TsValue>> latest = new HashMap<>();
     HashMap<String, TsValue[]> timeseries = new HashMap<>();
@@ -270,7 +267,9 @@ class EntityDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityData.equals(Object)", "int EntityData.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     HashMap<EntityKeyType, Map<String, TsValue>> latest = new HashMap<>();
     EntityData entityData = new EntityData(TenantId.SYS_TENANT_ID, latest, new HashMap<>());
@@ -292,6 +291,8 @@ class EntityDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityData.equals(Object)", "int EntityData.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     HashMap<EntityKeyType, Map<String, TsValue>> latest = new HashMap<>();
@@ -311,6 +312,8 @@ class EntityDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityData.equals(Object)", "int EntityData.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     HashMap<EntityKeyType, Map<String, TsValue>> latest = new HashMap<>();
@@ -334,6 +337,10 @@ class EntityDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityData.<init>(EntityId, Map, Map)", "void EntityData.<init>(EntityId, Map, Map, Map)",
+      "Map EntityData.getAggLatest()", "EntityId EntityData.getEntityId()", "Map EntityData.getLatest()",
+      "Map EntityData.getTimeseries()", "String EntityData.toString()"})
   void testGettersAndSetters() {
     // Arrange
     HashMap<EntityKeyType, Map<String, TsValue>> latest = new HashMap<>();
@@ -373,6 +380,10 @@ class EntityDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityData.<init>(EntityId, Map, Map)", "void EntityData.<init>(EntityId, Map, Map, Map)",
+      "Map EntityData.getAggLatest()", "EntityId EntityData.getEntityId()", "Map EntityData.getLatest()",
+      "Map EntityData.getTimeseries()", "String EntityData.toString()"})
   void testGettersAndSetters2() {
     // Arrange
     HashMap<EntityKeyType, Map<String, TsValue>> latest = new HashMap<>();

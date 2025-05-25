@@ -2,14 +2,17 @@ package org.thingsboard.server.transport.mqtt.limits;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.thingsboard.server.transport.mqtt.limits.SessionLimits.SessionRateLimits;
 
 class GatewaySessionLimitsDiffblueTest {
   /**
-   * Test {@link GatewaySessionLimits#equals(Object)}, and
-   * {@link GatewaySessionLimits#hashCode()}.
+   * Test {@link GatewaySessionLimits#equals(Object)}, and {@link GatewaySessionLimits#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -23,23 +26,25 @@ class GatewaySessionLimitsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GatewaySessionLimits.equals(Object)", "int GatewaySessionLimits.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     GatewaySessionLimits gatewaySessionLimits = new GatewaySessionLimits();
-    gatewaySessionLimits.setGatewayRateLimits(
-        new SessionLimits.SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
+    gatewaySessionLimits
+        .setGatewayRateLimits(new SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
     gatewaySessionLimits.setMaxInflightMessages(3);
     gatewaySessionLimits.setMaxPayloadSize(3);
     gatewaySessionLimits
-        .setRateLimits(new SessionLimits.SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
+        .setRateLimits(new SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
 
     GatewaySessionLimits gatewaySessionLimits2 = new GatewaySessionLimits();
-    gatewaySessionLimits2.setGatewayRateLimits(
-        new SessionLimits.SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
+    gatewaySessionLimits2
+        .setGatewayRateLimits(new SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
     gatewaySessionLimits2.setMaxInflightMessages(3);
     gatewaySessionLimits2.setMaxPayloadSize(3);
     gatewaySessionLimits2
-        .setRateLimits(new SessionLimits.SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
+        .setRateLimits(new SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
 
     // Act and Assert
     assertEquals(gatewaySessionLimits, gatewaySessionLimits2);
@@ -48,8 +53,7 @@ class GatewaySessionLimitsDiffblueTest {
   }
 
   /**
-   * Test {@link GatewaySessionLimits#equals(Object)}, and
-   * {@link GatewaySessionLimits#hashCode()}.
+   * Test {@link GatewaySessionLimits#equals(Object)}, and {@link GatewaySessionLimits#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -63,6 +67,8 @@ class GatewaySessionLimitsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GatewaySessionLimits.equals(Object)", "int GatewaySessionLimits.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     GatewaySessionLimits gatewaySessionLimits = new GatewaySessionLimits();
@@ -70,14 +76,14 @@ class GatewaySessionLimitsDiffblueTest {
     gatewaySessionLimits.setMaxInflightMessages(3);
     gatewaySessionLimits.setMaxPayloadSize(3);
     gatewaySessionLimits
-        .setRateLimits(new SessionLimits.SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
+        .setRateLimits(new SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
 
     GatewaySessionLimits gatewaySessionLimits2 = new GatewaySessionLimits();
     gatewaySessionLimits2.setGatewayRateLimits(null);
     gatewaySessionLimits2.setMaxInflightMessages(3);
     gatewaySessionLimits2.setMaxPayloadSize(3);
     gatewaySessionLimits2
-        .setRateLimits(new SessionLimits.SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
+        .setRateLimits(new SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
 
     // Act and Assert
     assertEquals(gatewaySessionLimits, gatewaySessionLimits2);
@@ -86,8 +92,7 @@ class GatewaySessionLimitsDiffblueTest {
   }
 
   /**
-   * Test {@link GatewaySessionLimits#equals(Object)}, and
-   * {@link GatewaySessionLimits#hashCode()}.
+   * Test {@link GatewaySessionLimits#equals(Object)}, and {@link GatewaySessionLimits#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -101,15 +106,17 @@ class GatewaySessionLimitsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GatewaySessionLimits.equals(Object)", "int GatewaySessionLimits.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     GatewaySessionLimits gatewaySessionLimits = new GatewaySessionLimits();
-    gatewaySessionLimits.setGatewayRateLimits(
-        new SessionLimits.SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
+    gatewaySessionLimits
+        .setGatewayRateLimits(new SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
     gatewaySessionLimits.setMaxInflightMessages(3);
     gatewaySessionLimits.setMaxPayloadSize(3);
     gatewaySessionLimits
-        .setRateLimits(new SessionLimits.SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
+        .setRateLimits(new SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
 
     // Act and Assert
     assertEquals(gatewaySessionLimits, gatewaySessionLimits);
@@ -128,23 +135,25 @@ class GatewaySessionLimitsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GatewaySessionLimits.equals(Object)", "int GatewaySessionLimits.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     GatewaySessionLimits gatewaySessionLimits = new GatewaySessionLimits();
     gatewaySessionLimits
-        .setGatewayRateLimits(new SessionLimits.SessionRateLimits(null, "Telemetry Messages", "Telemetry Data Points"));
+        .setGatewayRateLimits(new SessionRateLimits(null, "Telemetry Messages", "Telemetry Data Points"));
     gatewaySessionLimits.setMaxInflightMessages(3);
     gatewaySessionLimits.setMaxPayloadSize(3);
     gatewaySessionLimits
-        .setRateLimits(new SessionLimits.SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
+        .setRateLimits(new SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
 
     GatewaySessionLimits gatewaySessionLimits2 = new GatewaySessionLimits();
-    gatewaySessionLimits2.setGatewayRateLimits(
-        new SessionLimits.SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
+    gatewaySessionLimits2
+        .setGatewayRateLimits(new SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
     gatewaySessionLimits2.setMaxInflightMessages(3);
     gatewaySessionLimits2.setMaxPayloadSize(3);
     gatewaySessionLimits2
-        .setRateLimits(new SessionLimits.SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
+        .setRateLimits(new SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
 
     // Act and Assert
     assertNotEquals(gatewaySessionLimits, gatewaySessionLimits2);
@@ -161,6 +170,8 @@ class GatewaySessionLimitsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GatewaySessionLimits.equals(Object)", "int GatewaySessionLimits.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     GatewaySessionLimits gatewaySessionLimits = new GatewaySessionLimits();
@@ -168,15 +179,15 @@ class GatewaySessionLimitsDiffblueTest {
     gatewaySessionLimits.setMaxInflightMessages(3);
     gatewaySessionLimits.setMaxPayloadSize(3);
     gatewaySessionLimits
-        .setRateLimits(new SessionLimits.SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
+        .setRateLimits(new SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
 
     GatewaySessionLimits gatewaySessionLimits2 = new GatewaySessionLimits();
-    gatewaySessionLimits2.setGatewayRateLimits(
-        new SessionLimits.SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
+    gatewaySessionLimits2
+        .setGatewayRateLimits(new SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
     gatewaySessionLimits2.setMaxInflightMessages(3);
     gatewaySessionLimits2.setMaxPayloadSize(3);
     gatewaySessionLimits2
-        .setRateLimits(new SessionLimits.SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
+        .setRateLimits(new SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
 
     // Act and Assert
     assertNotEquals(gatewaySessionLimits, gatewaySessionLimits2);
@@ -193,15 +204,17 @@ class GatewaySessionLimitsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GatewaySessionLimits.equals(Object)", "int GatewaySessionLimits.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     GatewaySessionLimits gatewaySessionLimits = new GatewaySessionLimits();
-    gatewaySessionLimits.setGatewayRateLimits(
-        new SessionLimits.SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
+    gatewaySessionLimits
+        .setGatewayRateLimits(new SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
     gatewaySessionLimits.setMaxInflightMessages(3);
     gatewaySessionLimits.setMaxPayloadSize(3);
     gatewaySessionLimits
-        .setRateLimits(new SessionLimits.SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
+        .setRateLimits(new SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
 
     // Act and Assert
     assertNotEquals(gatewaySessionLimits, null);
@@ -218,15 +231,17 @@ class GatewaySessionLimitsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GatewaySessionLimits.equals(Object)", "int GatewaySessionLimits.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     GatewaySessionLimits gatewaySessionLimits = new GatewaySessionLimits();
-    gatewaySessionLimits.setGatewayRateLimits(
-        new SessionLimits.SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
+    gatewaySessionLimits
+        .setGatewayRateLimits(new SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
     gatewaySessionLimits.setMaxInflightMessages(3);
     gatewaySessionLimits.setMaxPayloadSize(3);
     gatewaySessionLimits
-        .setRateLimits(new SessionLimits.SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
+        .setRateLimits(new SessionRateLimits("Messages", "Telemetry Messages", "Telemetry Data Points"));
 
     // Act and Assert
     assertNotEquals(gatewaySessionLimits, "Different type to GatewaySessionLimits");
@@ -238,29 +253,33 @@ class GatewaySessionLimitsDiffblueTest {
    * Methods under test:
    * <ul>
    *   <li>default or parameterless constructor of {@link GatewaySessionLimits}
-   *   <li>
-   * {@link GatewaySessionLimits#setGatewayRateLimits(SessionLimits.SessionRateLimits)}
+   *   <li>{@link GatewaySessionLimits#setGatewayRateLimits(SessionRateLimits)}
    *   <li>{@link GatewaySessionLimits#toString()}
    *   <li>{@link GatewaySessionLimits#getGatewayRateLimits()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void GatewaySessionLimits.<init>()",
+      "SessionRateLimits GatewaySessionLimits.getGatewayRateLimits()",
+      "void GatewaySessionLimits.setGatewayRateLimits(SessionRateLimits)", "String GatewaySessionLimits.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     GatewaySessionLimits actualGatewaySessionLimits = new GatewaySessionLimits();
-    SessionLimits.SessionRateLimits gatewayRateLimits = new SessionLimits.SessionRateLimits("Messages",
-        "Telemetry Messages", "Telemetry Data Points");
+    SessionRateLimits gatewayRateLimits = new SessionRateLimits("Messages", "Telemetry Messages",
+        "Telemetry Data Points");
 
     actualGatewaySessionLimits.setGatewayRateLimits(gatewayRateLimits);
     String actualToStringResult = actualGatewaySessionLimits.toString();
-    SessionLimits.SessionRateLimits actualGatewayRateLimits = actualGatewaySessionLimits.getGatewayRateLimits();
+    SessionRateLimits actualGatewayRateLimits = actualGatewaySessionLimits.getGatewayRateLimits();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "GatewaySessionLimits(gatewayRateLimits=SessionRateLimits[messages=Messages, telemetryMessages=Telemetry"
             + " Messages, telemetryDataPoints=Telemetry Data Points])",
         actualToStringResult);
+    assertNull(actualGatewaySessionLimits.getRateLimits());
     assertEquals(0, actualGatewaySessionLimits.getMaxInflightMessages());
     assertEquals(0, actualGatewaySessionLimits.getMaxPayloadSize());
     assertSame(gatewayRateLimits, actualGatewayRateLimits);

@@ -1,13 +1,17 @@
 package org.thingsboard.server.common.data.notification.rule.trigger;
 
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.node.MissingNode;
 import java.util.ArrayList;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.alarm.Alarm;
+import org.thingsboard.server.common.data.alarm.Alarm.AlarmBuilder;
 import org.thingsboard.server.common.data.alarm.AlarmApiCallResult;
+import org.thingsboard.server.common.data.alarm.AlarmApiCallResult.AlarmApiCallResultBuilder;
 import org.thingsboard.server.common.data.alarm.AlarmInfo;
 import org.thingsboard.server.common.data.alarm.AlarmSeverity;
 import org.thingsboard.server.common.data.id.CustomerId;
@@ -24,24 +28,26 @@ class AlarmTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test getOriginatorEntityId(); then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"org.thingsboard.server.common.data.id.EntityId AlarmTrigger.getOriginatorEntityId()"})
   void testGetOriginatorEntityId_thenReturnNull() {
     // Arrange
-    AlarmApiCallResult.AlarmApiCallResultBuilder builderResult = AlarmApiCallResult.builder();
-    AlarmApiCallResult.AlarmApiCallResultBuilder modifiedResult = builderResult.alarm(new AlarmInfo())
+    AlarmApiCallResultBuilder builderResult = AlarmApiCallResult.builder();
+    AlarmApiCallResultBuilder modifiedResult = builderResult.alarm(new AlarmInfo())
         .cleared(true)
         .created(true)
         .deleted(true)
         .modified(true);
-    Alarm.AlarmBuilder clearedResult = Alarm.builder()
+    AlarmBuilder clearedResult = Alarm.builder()
         .ackTs(1L)
         .acknowledged(true)
         .assignTs(1L)
         .assigneeId(null)
         .clearTs(1L)
         .cleared(true);
-    Alarm.AlarmBuilder customerIdResult = clearedResult
+    AlarmBuilder customerIdResult = clearedResult
         .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    Alarm.AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
+    AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
         .endTs(1L)
         .originator(TenantId.SYS_TENANT_ID)
         .propagate(true);
@@ -53,7 +59,7 @@ class AlarmTriggerDiffblueTest {
         .tenantId(TenantId.SYS_TENANT_ID)
         .type("Type")
         .build();
-    AlarmApiCallResult.AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
+    AlarmApiCallResultBuilder oldResult = modifiedResult.old(old);
     AlarmApiCallResult alarmUpdate = oldResult.propagatedEntitiesList(new ArrayList<>()).successful(true).build();
 
     // Act and Assert

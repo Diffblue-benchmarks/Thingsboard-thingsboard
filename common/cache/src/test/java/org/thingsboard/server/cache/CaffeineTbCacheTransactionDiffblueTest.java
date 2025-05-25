@@ -1,6 +1,5 @@
 package org.thingsboard.server.cache;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -9,13 +8,14 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -23,9 +23,7 @@ class CaffeineTbCacheTransactionDiffblueTest {
   /**
    * Test {@link CaffeineTbCacheTransaction#commit()}.
    * <ul>
-   *   <li>Given {@link CaffeineTbTransactionalCache}
-   * {@link CaffeineTbTransactionalCache#commit(UUID, Map)} return
-   * {@code false}.</li>
+   *   <li>Given {@link CaffeineTbTransactionalCache} {@link CaffeineTbTransactionalCache#commit(UUID, Map)} return {@code false}.</li>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
@@ -33,6 +31,8 @@ class CaffeineTbCacheTransactionDiffblueTest {
    */
   @Test
   @DisplayName("Test commit(); given CaffeineTbTransactionalCache commit(UUID, Map) return 'false'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CaffeineTbCacheTransaction.commit()"})
   void testCommit_givenCaffeineTbTransactionalCacheCommitReturnFalse_thenReturnFalse() {
     // Arrange
     CaffeineTbTransactionalCache<Serializable, Serializable> cache = mock(CaffeineTbTransactionalCache.class);
@@ -51,9 +51,7 @@ class CaffeineTbCacheTransactionDiffblueTest {
   /**
    * Test {@link CaffeineTbCacheTransaction#commit()}.
    * <ul>
-   *   <li>Given {@link CaffeineTbTransactionalCache}
-   * {@link CaffeineTbTransactionalCache#commit(UUID, Map)} return
-   * {@code true}.</li>
+   *   <li>Given {@link CaffeineTbTransactionalCache} {@link CaffeineTbTransactionalCache#commit(UUID, Map)} return {@code true}.</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
@@ -61,6 +59,8 @@ class CaffeineTbCacheTransactionDiffblueTest {
    */
   @Test
   @DisplayName("Test commit(); given CaffeineTbTransactionalCache commit(UUID, Map) return 'true'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CaffeineTbCacheTransaction.commit()"})
   void testCommit_givenCaffeineTbTransactionalCacheCommitReturnTrue_thenReturnTrue() {
     // Arrange
     CaffeineTbTransactionalCache<Serializable, Serializable> cache = mock(CaffeineTbTransactionalCache.class);
@@ -83,6 +83,8 @@ class CaffeineTbCacheTransactionDiffblueTest {
    */
   @Test
   @DisplayName("Test rollback()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CaffeineTbCacheTransaction.rollback()"})
   void testRollback() {
     // Arrange
     CaffeineTbTransactionalCache<Serializable, Serializable> cache = mock(CaffeineTbTransactionalCache.class);
@@ -93,7 +95,7 @@ class CaffeineTbCacheTransactionDiffblueTest {
     // Act
     caffeineTbCacheTransaction.rollback();
 
-    // Assert that nothing has changed
+    // Assert
     verify(cache).rollback(isA(UUID.class));
   }
 
@@ -110,6 +112,9 @@ class CaffeineTbCacheTransactionDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"UUID CaffeineTbCacheTransaction.getId()", "List CaffeineTbCacheTransaction.getKeys()",
+      "boolean CaffeineTbCacheTransaction.isFailed()", "void CaffeineTbCacheTransaction.setFailed(boolean)"})
   void testGettersAndSetters() {
     // Arrange
     ArrayList<Serializable> keys = new ArrayList<>();
@@ -122,83 +127,80 @@ class CaffeineTbCacheTransactionDiffblueTest {
     List<Serializable> actualKeys = caffeineTbCacheTransaction.getKeys();
     boolean actualIsFailedResult = caffeineTbCacheTransaction.isFailed();
 
-    // Assert that nothing has changed
+    // Assert
     assertTrue(actualKeys.isEmpty());
     assertTrue(actualIsFailedResult);
     assertSame(keys, actualKeys);
   }
 
   /**
-   * Test
-   * {@link CaffeineTbCacheTransaction#CaffeineTbCacheTransaction(CaffeineTbTransactionalCache, List)}.
+   * Test {@link CaffeineTbCacheTransaction#CaffeineTbCacheTransaction(CaffeineTbTransactionalCache, List)}.
    * <ul>
-   *   <li>Then return Keys size is one.</li>
+   *   <li>Then return Keys is {@link ArrayList#ArrayList()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link CaffeineTbCacheTransaction#CaffeineTbCacheTransaction(CaffeineTbTransactionalCache, List)}
+   * Method under test: {@link CaffeineTbCacheTransaction#CaffeineTbCacheTransaction(CaffeineTbTransactionalCache, List)}
    */
   @Test
-  @DisplayName("Test new CaffeineTbCacheTransaction(CaffeineTbTransactionalCache, List); then return Keys size is one")
-  void testNewCaffeineTbCacheTransaction_thenReturnKeysSizeIsOne() {
+  @DisplayName("Test new CaffeineTbCacheTransaction(CaffeineTbTransactionalCache, List); then return Keys is ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CaffeineTbCacheTransaction.<init>(CaffeineTbTransactionalCache, List)"})
+  void testNewCaffeineTbCacheTransaction_thenReturnKeysIsArrayList() {
     // Arrange
     CaffeineTbTransactionalCache<Serializable, Serializable> cache = mock(CaffeineTbTransactionalCache.class);
 
     ArrayList<Serializable> keys = new ArrayList<>();
-    keys.add(new SimpleDateFormat("yyyy/mm/dd"));
+    keys.add(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
     CaffeineTbCacheTransaction<Serializable, Serializable> actualCaffeineTbCacheTransaction = new CaffeineTbCacheTransaction<>(
         cache, keys);
 
     // Assert
-    assertEquals(1, actualCaffeineTbCacheTransaction.getKeys().size());
+    assertSame(keys, actualCaffeineTbCacheTransaction.getKeys());
   }
 
   /**
-   * Test
-   * {@link CaffeineTbCacheTransaction#CaffeineTbCacheTransaction(CaffeineTbTransactionalCache, List)}.
+   * Test {@link CaffeineTbCacheTransaction#CaffeineTbCacheTransaction(CaffeineTbTransactionalCache, List)}.
    * <ul>
-   *   <li>Then return Keys size is two.</li>
+   *   <li>Then return Keys is {@link ArrayList#ArrayList()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link CaffeineTbCacheTransaction#CaffeineTbCacheTransaction(CaffeineTbTransactionalCache, List)}
+   * Method under test: {@link CaffeineTbCacheTransaction#CaffeineTbCacheTransaction(CaffeineTbTransactionalCache, List)}
    */
   @Test
-  @DisplayName("Test new CaffeineTbCacheTransaction(CaffeineTbTransactionalCache, List); then return Keys size is two")
-  void testNewCaffeineTbCacheTransaction_thenReturnKeysSizeIsTwo() {
+  @DisplayName("Test new CaffeineTbCacheTransaction(CaffeineTbTransactionalCache, List); then return Keys is ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CaffeineTbCacheTransaction.<init>(CaffeineTbTransactionalCache, List)"})
+  void testNewCaffeineTbCacheTransaction_thenReturnKeysIsArrayList2() {
     // Arrange
     CaffeineTbTransactionalCache<Serializable, Serializable> cache = mock(CaffeineTbTransactionalCache.class);
 
     ArrayList<Serializable> keys = new ArrayList<>();
-    keys.add(new SimpleDateFormat("yyyy/mm/dd"));
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/mm/dd");
-    keys.add(simpleDateFormat);
+    keys.add(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    keys.add(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
     CaffeineTbCacheTransaction<Serializable, Serializable> actualCaffeineTbCacheTransaction = new CaffeineTbCacheTransaction<>(
         cache, keys);
 
     // Assert
-    List<Serializable> keys2 = actualCaffeineTbCacheTransaction.getKeys();
-    assertEquals(2, keys2.size());
-    assertSame(simpleDateFormat, keys2.get(1));
+    assertSame(keys, actualCaffeineTbCacheTransaction.getKeys());
   }
 
   /**
-   * Test
-   * {@link CaffeineTbCacheTransaction#CaffeineTbCacheTransaction(CaffeineTbTransactionalCache, List)}.
+   * Test {@link CaffeineTbCacheTransaction#CaffeineTbCacheTransaction(CaffeineTbTransactionalCache, List)}.
    * <ul>
    *   <li>When {@link ArrayList#ArrayList()}.</li>
    *   <li>Then return not Failed.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link CaffeineTbCacheTransaction#CaffeineTbCacheTransaction(CaffeineTbTransactionalCache, List)}
+   * Method under test: {@link CaffeineTbCacheTransaction#CaffeineTbCacheTransaction(CaffeineTbTransactionalCache, List)}
    */
   @Test
   @DisplayName("Test new CaffeineTbCacheTransaction(CaffeineTbTransactionalCache, List); when ArrayList(); then return not Failed")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CaffeineTbCacheTransaction.<init>(CaffeineTbTransactionalCache, List)"})
   void testNewCaffeineTbCacheTransaction_whenArrayList_thenReturnNotFailed() {
     // Arrange
     CaffeineTbTransactionalCache<Serializable, Serializable> cache = mock(CaffeineTbTransactionalCache.class);

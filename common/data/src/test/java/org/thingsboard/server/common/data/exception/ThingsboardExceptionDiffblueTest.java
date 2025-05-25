@@ -3,7 +3,9 @@ package org.thingsboard.server.common.data.exception;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ThingsboardExceptionDiffblueTest {
@@ -21,6 +23,13 @@ class ThingsboardExceptionDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; then return ErrorCode is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ThingsboardException.<init>()",
+      "void ThingsboardException.<init>(String, Throwable, ThingsboardErrorCode)",
+      "void ThingsboardException.<init>(String, ThingsboardErrorCode)",
+      "void ThingsboardException.<init>(Throwable, ThingsboardErrorCode)",
+      "void ThingsboardException.<init>(ThingsboardErrorCode)",
+      "ThingsboardErrorCode ThingsboardException.getErrorCode()"})
   void testGettersAndSetters_thenReturnErrorCodeIsNull() {
     // Arrange and Act
     ThingsboardException actualThingsboardException = new ThingsboardException();
@@ -41,13 +50,19 @@ class ThingsboardExceptionDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link ThingsboardException#ThingsboardException(String, Throwable, ThingsboardErrorCode)}
+   *   <li>{@link ThingsboardException#ThingsboardException(String, Throwable, ThingsboardErrorCode)}
    *   <li>{@link ThingsboardException#getErrorCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters; when 'An error occurred'; then return Message is 'An error occurred'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ThingsboardException.<init>()",
+      "void ThingsboardException.<init>(String, Throwable, ThingsboardErrorCode)",
+      "void ThingsboardException.<init>(String, ThingsboardErrorCode)",
+      "void ThingsboardException.<init>(Throwable, ThingsboardErrorCode)",
+      "void ThingsboardException.<init>(ThingsboardErrorCode)",
+      "ThingsboardErrorCode ThingsboardException.getErrorCode()"})
   void testGettersAndSetters_whenAnErrorOccurred_thenReturnMessageIsAnErrorOccurred() {
     // Arrange
     Throwable cause = new Throwable();
@@ -73,13 +88,19 @@ class ThingsboardExceptionDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link ThingsboardException#ThingsboardException(String, ThingsboardErrorCode)}
+   *   <li>{@link ThingsboardException#ThingsboardException(String, ThingsboardErrorCode)}
    *   <li>{@link ThingsboardException#getErrorCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters; when 'An error occurred'; then return Message is 'An error occurred'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ThingsboardException.<init>()",
+      "void ThingsboardException.<init>(String, Throwable, ThingsboardErrorCode)",
+      "void ThingsboardException.<init>(String, ThingsboardErrorCode)",
+      "void ThingsboardException.<init>(Throwable, ThingsboardErrorCode)",
+      "void ThingsboardException.<init>(ThingsboardErrorCode)",
+      "ThingsboardErrorCode ThingsboardException.getErrorCode()"})
   void testGettersAndSetters_whenAnErrorOccurred_thenReturnMessageIsAnErrorOccurred2() {
     // Arrange and Act
     ThingsboardException actualThingsboardException = new ThingsboardException("An error occurred",
@@ -108,6 +129,13 @@ class ThingsboardExceptionDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when 'GENERAL'; then return Message is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ThingsboardException.<init>()",
+      "void ThingsboardException.<init>(String, Throwable, ThingsboardErrorCode)",
+      "void ThingsboardException.<init>(String, ThingsboardErrorCode)",
+      "void ThingsboardException.<init>(Throwable, ThingsboardErrorCode)",
+      "void ThingsboardException.<init>(ThingsboardErrorCode)",
+      "ThingsboardErrorCode ThingsboardException.getErrorCode()"})
   void testGettersAndSetters_whenGeneral_thenReturnMessageIsNull() {
     // Arrange and Act
     ThingsboardException actualThingsboardException = new ThingsboardException(ThingsboardErrorCode.GENERAL);
@@ -124,18 +152,24 @@ class ThingsboardExceptionDiffblueTest {
    * Test getters and setters.
    * <ul>
    *   <li>When {@link Throwable#Throwable()}.</li>
-   *   <li>Then return Message is {@code java.lang.Throwable}.</li>
+   *   <li>Then return Message is {@code Throwable}.</li>
    * </ul>
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link ThingsboardException#ThingsboardException(Throwable, ThingsboardErrorCode)}
+   *   <li>{@link ThingsboardException#ThingsboardException(Throwable, ThingsboardErrorCode)}
    *   <li>{@link ThingsboardException#getErrorCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters; when Throwable(); then return Message is 'java.lang.Throwable'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ThingsboardException.<init>()",
+      "void ThingsboardException.<init>(String, Throwable, ThingsboardErrorCode)",
+      "void ThingsboardException.<init>(String, ThingsboardErrorCode)",
+      "void ThingsboardException.<init>(Throwable, ThingsboardErrorCode)",
+      "void ThingsboardException.<init>(ThingsboardErrorCode)",
+      "ThingsboardErrorCode ThingsboardException.getErrorCode()"})
   void testGettersAndSetters_whenThrowable_thenReturnMessageIsJavaLangThrowable() {
     // Arrange
     Throwable cause = new Throwable();

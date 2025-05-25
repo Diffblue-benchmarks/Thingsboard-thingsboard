@@ -4,15 +4,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class StatisticsEventFilterDiffblueTest {
   /**
    * Test {@link StatisticsEventFilter#isNotEmpty()}.
    * <ul>
-   *   <li>Given {@link StatisticsEventFilter} (default constructor)
-   * MaxErrorsOccurred is one.</li>
+   *   <li>Given {@link StatisticsEventFilter} (default constructor) MaxErrorsOccurred is one.</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
@@ -20,14 +21,16 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test isNotEmpty(); given StatisticsEventFilter (default constructor) MaxErrorsOccurred is one; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenStatisticsEventFilterMaxErrorsOccurredIsOne_thenReturnTrue() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
+    statisticsEventFilter.setServer("");
     statisticsEventFilter.setMinMessagesProcessed(null);
     statisticsEventFilter.setMinErrorsOccurred(null);
     statisticsEventFilter.setMaxMessagesProcessed(null);
     statisticsEventFilter.setMaxErrorsOccurred(1);
-    statisticsEventFilter.setServer(null);
 
     // Act and Assert
     assertTrue(statisticsEventFilter.isNotEmpty());
@@ -36,8 +39,7 @@ class StatisticsEventFilterDiffblueTest {
   /**
    * Test {@link StatisticsEventFilter#isNotEmpty()}.
    * <ul>
-   *   <li>Given {@link StatisticsEventFilter} (default constructor)
-   * MaxErrorsOccurred is zero.</li>
+   *   <li>Given {@link StatisticsEventFilter} (default constructor) MaxErrorsOccurred is zero.</li>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
@@ -45,14 +47,16 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test isNotEmpty(); given StatisticsEventFilter (default constructor) MaxErrorsOccurred is zero; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenStatisticsEventFilterMaxErrorsOccurredIsZero_thenReturnFalse() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
+    statisticsEventFilter.setServer("");
     statisticsEventFilter.setMinMessagesProcessed(null);
     statisticsEventFilter.setMinErrorsOccurred(null);
     statisticsEventFilter.setMaxMessagesProcessed(null);
     statisticsEventFilter.setMaxErrorsOccurred(0);
-    statisticsEventFilter.setServer(null);
 
     // Act and Assert
     assertFalse(statisticsEventFilter.isNotEmpty());
@@ -61,22 +65,23 @@ class StatisticsEventFilterDiffblueTest {
   /**
    * Test {@link StatisticsEventFilter#isNotEmpty()}.
    * <ul>
-   *   <li>Given {@link StatisticsEventFilter} (default constructor)
-   * MaxMessagesProcessed is one.</li>
+   *   <li>Given {@link StatisticsEventFilter} (default constructor) MaxMessagesProcessed is one.</li>
    * </ul>
    * <p>
    * Method under test: {@link StatisticsEventFilter#isNotEmpty()}
    */
   @Test
   @DisplayName("Test isNotEmpty(); given StatisticsEventFilter (default constructor) MaxMessagesProcessed is one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenStatisticsEventFilterMaxMessagesProcessedIsOne() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
+    statisticsEventFilter.setServer("");
     statisticsEventFilter.setMinMessagesProcessed(null);
     statisticsEventFilter.setMinErrorsOccurred(null);
     statisticsEventFilter.setMaxMessagesProcessed(1);
     statisticsEventFilter.setMaxErrorsOccurred(null);
-    statisticsEventFilter.setServer(null);
 
     // Act and Assert
     assertTrue(statisticsEventFilter.isNotEmpty());
@@ -85,22 +90,23 @@ class StatisticsEventFilterDiffblueTest {
   /**
    * Test {@link StatisticsEventFilter#isNotEmpty()}.
    * <ul>
-   *   <li>Given {@link StatisticsEventFilter} (default constructor)
-   * MaxMessagesProcessed is zero.</li>
+   *   <li>Given {@link StatisticsEventFilter} (default constructor) MaxMessagesProcessed is zero.</li>
    * </ul>
    * <p>
    * Method under test: {@link StatisticsEventFilter#isNotEmpty()}
    */
   @Test
   @DisplayName("Test isNotEmpty(); given StatisticsEventFilter (default constructor) MaxMessagesProcessed is zero")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenStatisticsEventFilterMaxMessagesProcessedIsZero() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
+    statisticsEventFilter.setServer("");
     statisticsEventFilter.setMinMessagesProcessed(null);
     statisticsEventFilter.setMinErrorsOccurred(null);
     statisticsEventFilter.setMaxMessagesProcessed(0);
     statisticsEventFilter.setMaxErrorsOccurred(null);
-    statisticsEventFilter.setServer(null);
 
     // Act and Assert
     assertFalse(statisticsEventFilter.isNotEmpty());
@@ -109,8 +115,33 @@ class StatisticsEventFilterDiffblueTest {
   /**
    * Test {@link StatisticsEventFilter#isNotEmpty()}.
    * <ul>
-   *   <li>Given {@link StatisticsEventFilter} (default constructor)
-   * MinErrorsOccurred is one.</li>
+   *   <li>Given {@link StatisticsEventFilter} (default constructor) MinErrorsOccurred is {@code null}.</li>
+   *   <li>Then return {@code false}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link StatisticsEventFilter#isNotEmpty()}
+   */
+  @Test
+  @DisplayName("Test isNotEmpty(); given StatisticsEventFilter (default constructor) MinErrorsOccurred is 'null'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.isNotEmpty()"})
+  void testIsNotEmpty_givenStatisticsEventFilterMinErrorsOccurredIsNull_thenReturnFalse() {
+    // Arrange
+    StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
+    statisticsEventFilter.setServer("");
+    statisticsEventFilter.setMinMessagesProcessed(null);
+    statisticsEventFilter.setMinErrorsOccurred(null);
+    statisticsEventFilter.setMaxMessagesProcessed(null);
+    statisticsEventFilter.setMaxErrorsOccurred(null);
+
+    // Act and Assert
+    assertFalse(statisticsEventFilter.isNotEmpty());
+  }
+
+  /**
+   * Test {@link StatisticsEventFilter#isNotEmpty()}.
+   * <ul>
+   *   <li>Given {@link StatisticsEventFilter} (default constructor) MinErrorsOccurred is one.</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
@@ -118,14 +149,16 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test isNotEmpty(); given StatisticsEventFilter (default constructor) MinErrorsOccurred is one; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenStatisticsEventFilterMinErrorsOccurredIsOne_thenReturnTrue() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
+    statisticsEventFilter.setServer("");
     statisticsEventFilter.setMinMessagesProcessed(null);
     statisticsEventFilter.setMinErrorsOccurred(1);
     statisticsEventFilter.setMaxMessagesProcessed(null);
     statisticsEventFilter.setMaxErrorsOccurred(null);
-    statisticsEventFilter.setServer("");
 
     // Act and Assert
     assertTrue(statisticsEventFilter.isNotEmpty());
@@ -134,8 +167,7 @@ class StatisticsEventFilterDiffblueTest {
   /**
    * Test {@link StatisticsEventFilter#isNotEmpty()}.
    * <ul>
-   *   <li>Given {@link StatisticsEventFilter} (default constructor)
-   * MinErrorsOccurred is zero.</li>
+   *   <li>Given {@link StatisticsEventFilter} (default constructor) MinErrorsOccurred is zero.</li>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
@@ -143,14 +175,16 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test isNotEmpty(); given StatisticsEventFilter (default constructor) MinErrorsOccurred is zero; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenStatisticsEventFilterMinErrorsOccurredIsZero_thenReturnFalse() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
+    statisticsEventFilter.setServer("");
     statisticsEventFilter.setMinMessagesProcessed(null);
     statisticsEventFilter.setMinErrorsOccurred(0);
     statisticsEventFilter.setMaxMessagesProcessed(null);
     statisticsEventFilter.setMaxErrorsOccurred(null);
-    statisticsEventFilter.setServer(null);
 
     // Act and Assert
     assertFalse(statisticsEventFilter.isNotEmpty());
@@ -159,14 +193,15 @@ class StatisticsEventFilterDiffblueTest {
   /**
    * Test {@link StatisticsEventFilter#isNotEmpty()}.
    * <ul>
-   *   <li>Given {@link StatisticsEventFilter} (default constructor)
-   * MinMessagesProcessed is one.</li>
+   *   <li>Given {@link StatisticsEventFilter} (default constructor) MinMessagesProcessed is one.</li>
    * </ul>
    * <p>
    * Method under test: {@link StatisticsEventFilter#isNotEmpty()}
    */
   @Test
   @DisplayName("Test isNotEmpty(); given StatisticsEventFilter (default constructor) MinMessagesProcessed is one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenStatisticsEventFilterMinMessagesProcessedIsOne() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
@@ -179,14 +214,15 @@ class StatisticsEventFilterDiffblueTest {
   /**
    * Test {@link StatisticsEventFilter#isNotEmpty()}.
    * <ul>
-   *   <li>Given {@link StatisticsEventFilter} (default constructor)
-   * MinMessagesProcessed is zero.</li>
+   *   <li>Given {@link StatisticsEventFilter} (default constructor) MinMessagesProcessed is zero.</li>
    * </ul>
    * <p>
    * Method under test: {@link StatisticsEventFilter#isNotEmpty()}
    */
   @Test
   @DisplayName("Test isNotEmpty(); given StatisticsEventFilter (default constructor) MinMessagesProcessed is zero")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenStatisticsEventFilterMinMessagesProcessedIsZero() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
@@ -199,48 +235,20 @@ class StatisticsEventFilterDiffblueTest {
   /**
    * Test {@link StatisticsEventFilter#isNotEmpty()}.
    * <ul>
-   *   <li>Given {@link StatisticsEventFilter} (default constructor) Server is empty
-   * string.</li>
-   *   <li>Then return {@code false}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link StatisticsEventFilter#isNotEmpty()}
-   */
-  @Test
-  @DisplayName("Test isNotEmpty(); given StatisticsEventFilter (default constructor) Server is empty string; then return 'false'")
-  void testIsNotEmpty_givenStatisticsEventFilterServerIsEmptyString_thenReturnFalse() {
-    // Arrange
-    StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
-    statisticsEventFilter.setMinMessagesProcessed(null);
-    statisticsEventFilter.setMinErrorsOccurred(null);
-    statisticsEventFilter.setMaxMessagesProcessed(null);
-    statisticsEventFilter.setMaxErrorsOccurred(null);
-    statisticsEventFilter.setServer("");
-
-    // Act and Assert
-    assertFalse(statisticsEventFilter.isNotEmpty());
-  }
-
-  /**
-   * Test {@link StatisticsEventFilter#isNotEmpty()}.
-   * <ul>
-   *   <li>Given {@link StatisticsEventFilter} (default constructor) Server is
-   * {@code foo}.</li>
+   *   <li>Given {@link StatisticsEventFilter} (default constructor) Server is {@code Server}.</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
    * Method under test: {@link StatisticsEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given StatisticsEventFilter (default constructor) Server is 'foo'; then return 'true'")
-  void testIsNotEmpty_givenStatisticsEventFilterServerIsFoo_thenReturnTrue() {
+  @DisplayName("Test isNotEmpty(); given StatisticsEventFilter (default constructor) Server is 'Server'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.isNotEmpty()"})
+  void testIsNotEmpty_givenStatisticsEventFilterServerIsServer_thenReturnTrue() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
-    statisticsEventFilter.setMinMessagesProcessed(null);
-    statisticsEventFilter.setMinErrorsOccurred(null);
-    statisticsEventFilter.setMaxMessagesProcessed(null);
-    statisticsEventFilter.setMaxErrorsOccurred(null);
-    statisticsEventFilter.setServer("foo");
+    statisticsEventFilter.setServer("Server");
 
     // Act and Assert
     assertTrue(statisticsEventFilter.isNotEmpty());
@@ -257,14 +265,15 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test isNotEmpty(); given StatisticsEventFilter (default constructor); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenStatisticsEventFilter_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse((new StatisticsEventFilter()).isNotEmpty());
   }
 
   /**
-   * Test {@link StatisticsEventFilter#equals(Object)}, and
-   * {@link StatisticsEventFilter#hashCode()}.
+   * Test {@link StatisticsEventFilter#equals(Object)}, and {@link StatisticsEventFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -278,6 +287,8 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.equals(Object)", "int StatisticsEventFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
@@ -301,8 +312,7 @@ class StatisticsEventFilterDiffblueTest {
   }
 
   /**
-   * Test {@link StatisticsEventFilter#equals(Object)}, and
-   * {@link StatisticsEventFilter#hashCode()}.
+   * Test {@link StatisticsEventFilter#equals(Object)}, and {@link StatisticsEventFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -316,6 +326,8 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.equals(Object)", "int StatisticsEventFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
@@ -339,8 +351,7 @@ class StatisticsEventFilterDiffblueTest {
   }
 
   /**
-   * Test {@link StatisticsEventFilter#equals(Object)}, and
-   * {@link StatisticsEventFilter#hashCode()}.
+   * Test {@link StatisticsEventFilter#equals(Object)}, and {@link StatisticsEventFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -354,6 +365,8 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.equals(Object)", "int StatisticsEventFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
@@ -377,8 +390,7 @@ class StatisticsEventFilterDiffblueTest {
   }
 
   /**
-   * Test {@link StatisticsEventFilter#equals(Object)}, and
-   * {@link StatisticsEventFilter#hashCode()}.
+   * Test {@link StatisticsEventFilter#equals(Object)}, and {@link StatisticsEventFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -392,6 +404,8 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.equals(Object)", "int StatisticsEventFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
@@ -415,8 +429,7 @@ class StatisticsEventFilterDiffblueTest {
   }
 
   /**
-   * Test {@link StatisticsEventFilter#equals(Object)}, and
-   * {@link StatisticsEventFilter#hashCode()}.
+   * Test {@link StatisticsEventFilter#equals(Object)}, and {@link StatisticsEventFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -430,6 +443,8 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.equals(Object)", "int StatisticsEventFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
@@ -453,8 +468,7 @@ class StatisticsEventFilterDiffblueTest {
   }
 
   /**
-   * Test {@link StatisticsEventFilter#equals(Object)}, and
-   * {@link StatisticsEventFilter#hashCode()}.
+   * Test {@link StatisticsEventFilter#equals(Object)}, and {@link StatisticsEventFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -468,6 +482,8 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.equals(Object)", "int StatisticsEventFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual6() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
@@ -491,8 +507,7 @@ class StatisticsEventFilterDiffblueTest {
   }
 
   /**
-   * Test {@link StatisticsEventFilter#equals(Object)}, and
-   * {@link StatisticsEventFilter#hashCode()}.
+   * Test {@link StatisticsEventFilter#equals(Object)}, and {@link StatisticsEventFilter#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -506,6 +521,8 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.equals(Object)", "int StatisticsEventFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
@@ -532,6 +549,8 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.equals(Object)", "int StatisticsEventFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
@@ -563,6 +582,8 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.equals(Object)", "int StatisticsEventFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
@@ -594,6 +615,8 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.equals(Object)", "int StatisticsEventFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
@@ -625,6 +648,8 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.equals(Object)", "int StatisticsEventFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
@@ -656,6 +681,8 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.equals(Object)", "int StatisticsEventFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
@@ -687,6 +714,8 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.equals(Object)", "int StatisticsEventFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
@@ -718,6 +747,8 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.equals(Object)", "int StatisticsEventFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
@@ -749,6 +780,8 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.equals(Object)", "int StatisticsEventFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
@@ -780,6 +813,8 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.equals(Object)", "int StatisticsEventFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
@@ -811,6 +846,8 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.equals(Object)", "int StatisticsEventFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
@@ -842,6 +879,8 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.equals(Object)", "int StatisticsEventFilter.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
@@ -866,6 +905,8 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StatisticsEventFilter.equals(Object)", "int StatisticsEventFilter.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     StatisticsEventFilter statisticsEventFilter = new StatisticsEventFilter();
@@ -901,6 +942,15 @@ class StatisticsEventFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void StatisticsEventFilter.<init>()", "EventType StatisticsEventFilter.getEventType()",
+      "Integer StatisticsEventFilter.getMaxErrorsOccurred()", "Integer StatisticsEventFilter.getMaxMessagesProcessed()",
+      "Integer StatisticsEventFilter.getMinErrorsOccurred()", "Integer StatisticsEventFilter.getMinMessagesProcessed()",
+      "String StatisticsEventFilter.getServer()", "void StatisticsEventFilter.setMaxErrorsOccurred(Integer)",
+      "void StatisticsEventFilter.setMaxMessagesProcessed(Integer)",
+      "void StatisticsEventFilter.setMinErrorsOccurred(Integer)",
+      "void StatisticsEventFilter.setMinMessagesProcessed(Integer)", "void StatisticsEventFilter.setServer(String)",
+      "String StatisticsEventFilter.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     StatisticsEventFilter actualStatisticsEventFilter = new StatisticsEventFilter();
@@ -916,7 +966,7 @@ class StatisticsEventFilterDiffblueTest {
     Integer actualMinErrorsOccurred = actualStatisticsEventFilter.getMinErrorsOccurred();
     Integer actualMinMessagesProcessed = actualStatisticsEventFilter.getMinMessagesProcessed();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Server", actualStatisticsEventFilter.getServer());
     assertEquals(
         "StatisticsEventFilter(server=Server, minMessagesProcessed=1, maxMessagesProcessed=3, minErrorsOccurred=-1,"

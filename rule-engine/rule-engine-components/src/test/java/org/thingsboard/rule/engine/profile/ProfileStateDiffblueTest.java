@@ -7,10 +7,12 @@ import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.TreeMap;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.DeviceProfile;
 import org.thingsboard.server.common.data.alarm.AlarmSeverity;
@@ -38,6 +40,8 @@ class ProfileStateDiffblueTest {
    */
   @Test
   @DisplayName("Test new ProfileState(DeviceProfile); then return AlarmSettings is ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ProfileState.<init>(DeviceProfile)"})
   void testNewProfileState_thenReturnAlarmSettingsIsArrayList() {
     // Arrange
     AlarmConditionSpec spec = mock(AlarmConditionSpec.class);
@@ -93,6 +97,8 @@ class ProfileStateDiffblueTest {
    */
   @Test
   @DisplayName("Test new ProfileState(DeviceProfile); then return ProfileId is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ProfileState.<init>(DeviceProfile)"})
   void testNewProfileState_thenReturnProfileIdIsNull() {
     // Arrange
     DeviceProfileData deviceProfileData = new DeviceProfileData();
@@ -123,6 +129,8 @@ class ProfileStateDiffblueTest {
    */
   @Test
   @DisplayName("Test updateDeviceProfile(DeviceProfile); then calls getProfileData()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ProfileState.updateDeviceProfile(DeviceProfile)"})
   void testUpdateDeviceProfile_thenCallsGetProfileData() {
     // Arrange
     DeviceProfileData deviceProfileData = new DeviceProfileData();
@@ -153,8 +161,7 @@ class ProfileStateDiffblueTest {
   /**
    * Test {@link ProfileState#getProfileId()}.
    * <ul>
-   *   <li>Given {@link DeviceProfileData} (default constructor) Alarms is
-   * {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@link DeviceProfileData} (default constructor) Alarms is {@link ArrayList#ArrayList()}.</li>
    *   <li>Then return {@code null}.</li>
    * </ul>
    * <p>
@@ -162,6 +169,8 @@ class ProfileStateDiffblueTest {
    */
   @Test
   @DisplayName("Test getProfileId(); given DeviceProfileData (default constructor) Alarms is ArrayList(); then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DeviceProfileId ProfileState.getProfileId()"})
   void testGetProfileId_givenDeviceProfileDataAlarmsIsArrayList_thenReturnNull() {
     // Arrange
     DeviceProfileData deviceProfileData = new DeviceProfileData();
@@ -185,16 +194,16 @@ class ProfileStateDiffblueTest {
   /**
    * Test {@link ProfileState#getCreateAlarmKeys(String, AlarmSeverity)}.
    * <ul>
-   *   <li>Given {@link DeviceProfileData} (default constructor) Alarms is
-   * {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@link DeviceProfileData} (default constructor) Alarms is {@link ArrayList#ArrayList()}.</li>
    *   <li>Then return Empty.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ProfileState#getCreateAlarmKeys(String, AlarmSeverity)}
+   * Method under test: {@link ProfileState#getCreateAlarmKeys(String, AlarmSeverity)}
    */
   @Test
   @DisplayName("Test getCreateAlarmKeys(String, AlarmSeverity); given DeviceProfileData (default constructor) Alarms is ArrayList(); then return Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Set ProfileState.getCreateAlarmKeys(String, AlarmSeverity)"})
   void testGetCreateAlarmKeys_givenDeviceProfileDataAlarmsIsArrayList_thenReturnEmpty() {
     // Arrange
     DeviceProfileData deviceProfileData = new DeviceProfileData();
@@ -217,8 +226,7 @@ class ProfileStateDiffblueTest {
   /**
    * Test {@link ProfileState#getClearAlarmKeys(String)}.
    * <ul>
-   *   <li>Given {@link DeviceProfileData} (default constructor) Alarms is
-   * {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@link DeviceProfileData} (default constructor) Alarms is {@link ArrayList#ArrayList()}.</li>
    *   <li>Then return Empty.</li>
    * </ul>
    * <p>
@@ -226,6 +234,8 @@ class ProfileStateDiffblueTest {
    */
   @Test
   @DisplayName("Test getClearAlarmKeys(String); given DeviceProfileData (default constructor) Alarms is ArrayList(); then return Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Set ProfileState.getClearAlarmKeys(String)"})
   void testGetClearAlarmKeys_givenDeviceProfileDataAlarmsIsArrayList_thenReturnEmpty() {
     // Arrange
     DeviceProfileData deviceProfileData = new DeviceProfileData();

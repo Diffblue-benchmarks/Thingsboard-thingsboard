@@ -1,7 +1,9 @@
 package org.thingsboard.server.exception;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,14 +18,14 @@ class ThingsboardCredentialsViolationResponseDiffblueTest {
   private ThingsboardCredentialsViolationResponse thingsboardCredentialsViolationResponse;
 
   /**
-   * Test
-   * {@link ThingsboardCredentialsViolationResponse#ThingsboardCredentialsViolationResponse(String)}.
+   * Test {@link ThingsboardCredentialsViolationResponse#ThingsboardCredentialsViolationResponse(String)}.
    * <p>
-   * Method under test:
-   * {@link ThingsboardCredentialsViolationResponse#ThingsboardCredentialsViolationResponse(String)}
+   * Method under test: {@link ThingsboardCredentialsViolationResponse#ThingsboardCredentialsViolationResponse(String)}
    */
   @Test
   @DisplayName("Test new ThingsboardCredentialsViolationResponse(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ThingsboardCredentialsViolationResponse.<init>(String)"})
   void testNewThingsboardCredentialsViolationResponse() {
     // Arrange and Act
     ThingsboardCredentialsViolationResponse actualThingsboardCredentialsViolationResponse = new ThingsboardCredentialsViolationResponse(
@@ -36,13 +38,14 @@ class ThingsboardCredentialsViolationResponseDiffblueTest {
   }
 
   /**
-   * Test {@link ThingsboardCredentialsViolationResponse#of(String)} with
-   * {@code message}.
+   * Test {@link ThingsboardCredentialsViolationResponse#of(String)} with {@code message}.
    * <p>
    * Method under test: {@link ThingsboardCredentialsViolationResponse#of(String)}
    */
   @Test
   @DisplayName("Test of(String) with 'message'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ThingsboardCredentialsViolationResponse ThingsboardCredentialsViolationResponse.of(String)"})
   void testOfWithMessage() {
     // Arrange and Act
     ThingsboardCredentialsViolationResponse actualOfResult = ThingsboardCredentialsViolationResponse

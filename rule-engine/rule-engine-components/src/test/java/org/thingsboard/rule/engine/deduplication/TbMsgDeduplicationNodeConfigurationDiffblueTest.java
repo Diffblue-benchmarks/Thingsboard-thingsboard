@@ -3,18 +3,21 @@ package org.thingsboard.rule.engine.deduplication;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TbMsgDeduplicationNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbMsgDeduplicationNodeConfiguration#defaultConfiguration()}.
    * <p>
-   * Method under test:
-   * {@link TbMsgDeduplicationNodeConfiguration#defaultConfiguration()}
+   * Method under test: {@link TbMsgDeduplicationNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbMsgDeduplicationNodeConfiguration TbMsgDeduplicationNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
     // Arrange and Act
     TbMsgDeduplicationNodeConfiguration actualDefaultConfigurationResult = (new TbMsgDeduplicationNodeConfiguration())
@@ -29,8 +32,7 @@ class TbMsgDeduplicationNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgDeduplicationNodeConfiguration#equals(Object)}, and
-   * {@link TbMsgDeduplicationNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgDeduplicationNodeConfiguration#equals(Object)}, and {@link TbMsgDeduplicationNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -44,6 +46,9 @@ class TbMsgDeduplicationNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeduplicationNodeConfiguration.equals(Object)",
+      "int TbMsgDeduplicationNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbMsgDeduplicationNodeConfiguration tbMsgDeduplicationNodeConfiguration = new TbMsgDeduplicationNodeConfiguration();
@@ -56,8 +61,7 @@ class TbMsgDeduplicationNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgDeduplicationNodeConfiguration#equals(Object)}, and
-   * {@link TbMsgDeduplicationNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgDeduplicationNodeConfiguration#equals(Object)}, and {@link TbMsgDeduplicationNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -71,6 +75,9 @@ class TbMsgDeduplicationNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeduplicationNodeConfiguration.equals(Object)",
+      "int TbMsgDeduplicationNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbMsgDeduplicationNodeConfiguration tbMsgDeduplicationNodeConfiguration = new TbMsgDeduplicationNodeConfiguration();
@@ -86,8 +93,7 @@ class TbMsgDeduplicationNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgDeduplicationNodeConfiguration#equals(Object)}, and
-   * {@link TbMsgDeduplicationNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgDeduplicationNodeConfiguration#equals(Object)}, and {@link TbMsgDeduplicationNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -101,6 +107,9 @@ class TbMsgDeduplicationNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeduplicationNodeConfiguration.equals(Object)",
+      "int TbMsgDeduplicationNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TbMsgDeduplicationNodeConfiguration tbMsgDeduplicationNodeConfiguration = new TbMsgDeduplicationNodeConfiguration();
@@ -116,8 +125,7 @@ class TbMsgDeduplicationNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgDeduplicationNodeConfiguration#equals(Object)}, and
-   * {@link TbMsgDeduplicationNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgDeduplicationNodeConfiguration#equals(Object)}, and {@link TbMsgDeduplicationNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -131,6 +139,9 @@ class TbMsgDeduplicationNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeduplicationNodeConfiguration.equals(Object)",
+      "int TbMsgDeduplicationNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbMsgDeduplicationNodeConfiguration tbMsgDeduplicationNodeConfiguration = new TbMsgDeduplicationNodeConfiguration();
@@ -152,6 +163,9 @@ class TbMsgDeduplicationNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeduplicationNodeConfiguration.equals(Object)",
+      "int TbMsgDeduplicationNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMsgDeduplicationNodeConfiguration(), 1);
@@ -168,6 +182,9 @@ class TbMsgDeduplicationNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeduplicationNodeConfiguration.equals(Object)",
+      "int TbMsgDeduplicationNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbMsgDeduplicationNodeConfiguration tbMsgDeduplicationNodeConfiguration = new TbMsgDeduplicationNodeConfiguration();
@@ -188,6 +205,9 @@ class TbMsgDeduplicationNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeduplicationNodeConfiguration.equals(Object)",
+      "int TbMsgDeduplicationNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbMsgDeduplicationNodeConfiguration tbMsgDeduplicationNodeConfiguration = new TbMsgDeduplicationNodeConfiguration();
@@ -208,6 +228,9 @@ class TbMsgDeduplicationNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeduplicationNodeConfiguration.equals(Object)",
+      "int TbMsgDeduplicationNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbMsgDeduplicationNodeConfiguration tbMsgDeduplicationNodeConfiguration = new TbMsgDeduplicationNodeConfiguration();
@@ -228,6 +251,9 @@ class TbMsgDeduplicationNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeduplicationNodeConfiguration.equals(Object)",
+      "int TbMsgDeduplicationNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbMsgDeduplicationNodeConfiguration tbMsgDeduplicationNodeConfiguration = new TbMsgDeduplicationNodeConfiguration();
@@ -248,6 +274,9 @@ class TbMsgDeduplicationNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeduplicationNodeConfiguration.equals(Object)",
+      "int TbMsgDeduplicationNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbMsgDeduplicationNodeConfiguration tbMsgDeduplicationNodeConfiguration = new TbMsgDeduplicationNodeConfiguration();
@@ -268,6 +297,9 @@ class TbMsgDeduplicationNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeduplicationNodeConfiguration.equals(Object)",
+      "int TbMsgDeduplicationNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TbMsgDeduplicationNodeConfiguration tbMsgDeduplicationNodeConfiguration = new TbMsgDeduplicationNodeConfiguration();
@@ -290,6 +322,9 @@ class TbMsgDeduplicationNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeduplicationNodeConfiguration.equals(Object)",
+      "int TbMsgDeduplicationNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TbMsgDeduplicationNodeConfiguration tbMsgDeduplicationNodeConfiguration = new TbMsgDeduplicationNodeConfiguration();
@@ -312,6 +347,9 @@ class TbMsgDeduplicationNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeduplicationNodeConfiguration.equals(Object)",
+      "int TbMsgDeduplicationNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMsgDeduplicationNodeConfiguration(), null);
@@ -328,6 +366,9 @@ class TbMsgDeduplicationNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgDeduplicationNodeConfiguration.equals(Object)",
+      "int TbMsgDeduplicationNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMsgDeduplicationNodeConfiguration(), "Different type to TbMsgDeduplicationNodeConfiguration");
@@ -338,14 +379,12 @@ class TbMsgDeduplicationNodeConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link TbMsgDeduplicationNodeConfiguration}
+   *   <li>default or parameterless constructor of {@link TbMsgDeduplicationNodeConfiguration}
    *   <li>{@link TbMsgDeduplicationNodeConfiguration#setInterval(int)}
    *   <li>{@link TbMsgDeduplicationNodeConfiguration#setMaxPendingMsgs(int)}
    *   <li>{@link TbMsgDeduplicationNodeConfiguration#setMaxRetries(int)}
    *   <li>{@link TbMsgDeduplicationNodeConfiguration#setOutMsgType(String)}
-   *   <li>
-   * {@link TbMsgDeduplicationNodeConfiguration#setStrategy(DeduplicationStrategy)}
+   *   <li>{@link TbMsgDeduplicationNodeConfiguration#setStrategy(DeduplicationStrategy)}
    *   <li>{@link TbMsgDeduplicationNodeConfiguration#toString()}
    *   <li>{@link TbMsgDeduplicationNodeConfiguration#getInterval()}
    *   <li>{@link TbMsgDeduplicationNodeConfiguration#getMaxPendingMsgs()}
@@ -356,6 +395,19 @@ class TbMsgDeduplicationNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbMsgDeduplicationNodeConfiguration.<init>()",
+      "int TbMsgDeduplicationNodeConfiguration.getInterval()",
+      "int TbMsgDeduplicationNodeConfiguration.getMaxPendingMsgs()",
+      "int TbMsgDeduplicationNodeConfiguration.getMaxRetries()",
+      "String TbMsgDeduplicationNodeConfiguration.getOutMsgType()",
+      "DeduplicationStrategy TbMsgDeduplicationNodeConfiguration.getStrategy()",
+      "void TbMsgDeduplicationNodeConfiguration.setInterval(int)",
+      "void TbMsgDeduplicationNodeConfiguration.setMaxPendingMsgs(int)",
+      "void TbMsgDeduplicationNodeConfiguration.setMaxRetries(int)",
+      "void TbMsgDeduplicationNodeConfiguration.setOutMsgType(String)",
+      "void TbMsgDeduplicationNodeConfiguration.setStrategy(DeduplicationStrategy)",
+      "String TbMsgDeduplicationNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbMsgDeduplicationNodeConfiguration actualTbMsgDeduplicationNodeConfiguration = new TbMsgDeduplicationNodeConfiguration();
@@ -370,7 +422,7 @@ class TbMsgDeduplicationNodeConfigurationDiffblueTest {
     int actualMaxRetries = actualTbMsgDeduplicationNodeConfiguration.getMaxRetries();
     String actualOutMsgType = actualTbMsgDeduplicationNodeConfiguration.getOutMsgType();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Out Msg Type", actualOutMsgType);
     assertEquals(
         "TbMsgDeduplicationNodeConfiguration(interval=42, strategy=FIRST, outMsgType=Out Msg Type, maxPendingMsgs=3,"

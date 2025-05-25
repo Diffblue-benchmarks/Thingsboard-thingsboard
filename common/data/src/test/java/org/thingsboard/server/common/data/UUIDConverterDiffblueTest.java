@@ -4,10 +4,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.EntityId;
 
@@ -22,6 +24,8 @@ class UUIDConverterDiffblueTest {
    */
   @Test
   @DisplayName("Test fromTimeUUID(UUID); then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String UUIDConverter.fromTimeUUID(UUID)"})
   void testFromTimeUUID_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class,
@@ -39,6 +43,8 @@ class UUIDConverterDiffblueTest {
    */
   @Test
   @DisplayName("Test fromTimeUUID(UUID); when NULL_UUID; then return '1b21dd2138140008080808080808080'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String UUIDConverter.fromTimeUUID(UUID)"})
   void testFromTimeUUID_whenNull_uuid_thenReturn1b21dd2138140008080808080808080() {
     // Arrange, Act and Assert
     assertEquals("1b21dd2138140008080808080808080", UUIDConverter.fromTimeUUID(EntityId.NULL_UUID));
@@ -55,6 +61,8 @@ class UUIDConverterDiffblueTest {
    */
   @Test
   @DisplayName("Test fromTimeUUIDs(List); given NULL_UUID; when ArrayList() add NULL_UUID")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List UUIDConverter.fromTimeUUIDs(List)"})
   void testFromTimeUUIDs_givenNull_uuid_whenArrayListAddNull_uuid() {
     // Arrange
     ArrayList<UUID> uuids = new ArrayList<>();
@@ -77,6 +85,8 @@ class UUIDConverterDiffblueTest {
    */
   @Test
   @DisplayName("Test fromTimeUUIDs(List); given NULL_UUID; when ArrayList() add NULL_UUID; then return size is one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List UUIDConverter.fromTimeUUIDs(List)"})
   void testFromTimeUUIDs_givenNull_uuid_whenArrayListAddNull_uuid_thenReturnSizeIsOne() {
     // Arrange
     ArrayList<UUID> uuids = new ArrayList<>();
@@ -100,6 +110,8 @@ class UUIDConverterDiffblueTest {
    */
   @Test
   @DisplayName("Test fromTimeUUIDs(List); then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List UUIDConverter.fromTimeUUIDs(List)"})
   void testFromTimeUUIDs_thenThrowIllegalArgumentException() {
     // Arrange
     ArrayList<UUID> uuids = new ArrayList<>();
@@ -119,6 +131,8 @@ class UUIDConverterDiffblueTest {
    */
   @Test
   @DisplayName("Test fromTimeUUIDs(List); then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List UUIDConverter.fromTimeUUIDs(List)"})
   void testFromTimeUUIDs_thenThrowIllegalArgumentException2() {
     // Arrange
     ArrayList<UUID> uuids = new ArrayList<>();
@@ -140,6 +154,8 @@ class UUIDConverterDiffblueTest {
    */
   @Test
   @DisplayName("Test fromTimeUUIDs(List); when ArrayList(); then return Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List UUIDConverter.fromTimeUUIDs(List)"})
   void testFromTimeUUIDs_whenArrayList_thenReturnEmpty() {
     // Arrange and Act
     List<String> actualFromTimeUUIDsResult = UUIDConverter.fromTimeUUIDs(new ArrayList<>());
@@ -159,6 +175,8 @@ class UUIDConverterDiffblueTest {
    */
   @Test
   @DisplayName("Test fromTimeUUIDs(List); when 'null'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List UUIDConverter.fromTimeUUIDs(List)"})
   void testFromTimeUUIDs_whenNull_thenReturnNull() {
     // Arrange and Act
     List<String> actualFromTimeUUIDsResult = UUIDConverter.fromTimeUUIDs(null);

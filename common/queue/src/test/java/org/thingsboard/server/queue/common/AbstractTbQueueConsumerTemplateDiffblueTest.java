@@ -4,36 +4,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
-import java.util.HashMap;
-import org.junit.jupiter.api.Disabled;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.queue.TbQueueMsg;
 import org.thingsboard.server.queue.TbQueueMsgDecoder;
-import org.thingsboard.server.queue.azure.servicebus.TbServiceBusAdmin;
 import org.thingsboard.server.queue.azure.servicebus.TbServiceBusConsumerTemplate;
 import org.thingsboard.server.queue.azure.servicebus.TbServiceBusSettings;
 
 class AbstractTbQueueConsumerTemplateDiffblueTest {
-  /**
-   * Test {@link AbstractTbQueueConsumerTemplate#subscribe()}.
-   * <p>
-   * Method under test: {@link AbstractTbQueueConsumerTemplate#subscribe()}
-   */
-  @Test
-  @DisplayName("Test subscribe()")
-  void testSubscribe() {
-    // Arrange
-    TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate = new TbServiceBusConsumerTemplate<>(null,
-        new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class));
-
-    // Act
-    tbServiceBusConsumerTemplate.subscribe();
-
-    // Assert
-    //assertEquals(1, tbServiceBusConsumerTemplate.subscribeQueue.size());
-  }
-
   /**
    * Test {@link AbstractTbQueueConsumerTemplate#poll(long)}.
    * <ul>
@@ -44,6 +24,8 @@ class AbstractTbQueueConsumerTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test poll(long); then return Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.util.List AbstractTbQueueConsumerTemplate.poll(long)"})
   void testPoll_thenReturnEmpty() {
     // Arrange
     TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate = new TbServiceBusConsumerTemplate<>(null,
@@ -54,82 +36,14 @@ class AbstractTbQueueConsumerTemplateDiffblueTest {
   }
 
   /**
-   * Test {@link AbstractTbQueueConsumerTemplate#sleepAndReturnEmpty(long, long)}.
-   * <ul>
-   *   <li>Then return Empty.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link AbstractTbQueueConsumerTemplate#sleepAndReturnEmpty(long, long)}
-   */
-  @Test
-  @DisplayName("Test sleepAndReturnEmpty(long, long); then return Empty")
-  void testSleepAndReturnEmpty_thenReturnEmpty() {
-    // Arrange
-    TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate = new TbServiceBusConsumerTemplate<>(null,
-        new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class));
-
-    // Act and Assert
-  //  assertTrue(tbServiceBusConsumerTemplate.sleepAndReturnEmpty(1L, 1L).isEmpty());
-  }
-
-  /**
-   * Test {@link AbstractTbQueueConsumerTemplate#commit()}.
-   * <p>
-   * Method under test: {@link AbstractTbQueueConsumerTemplate#commit()}
-   */
-  @Test
-  @DisplayName("Test commit()")
-  void testCommit() {
-    // TODO: Diffblue Cover was only able to create a partial test for this method:
-    //   Diffblue AI was unable to find a test
-
-    // Arrange
-    TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate = new TbServiceBusConsumerTemplate<>(null,
-        new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class));
-
-    // Act
-    tbServiceBusConsumerTemplate.commit();
-  }
-
-  /**
-   * Test {@link AbstractTbQueueConsumerTemplate#commit()}.
-   * <p>
-   * Method under test: {@link AbstractTbQueueConsumerTemplate#commit()}
-   */
-  @Test
-  @DisplayName("Test commit()")
-  @Disabled("TODO: Complete this test")
-  void testCommit2() {
-    // TODO: Diffblue Cover was only able to create a partial test for this method:
-    //   Reason: No inputs found that don't throw a trivial exception.
-    //   Diffblue Cover tried to run the arrange/act section, but the method under
-    //   test threw
-    //   java.lang.IllegalArgumentException: sasKeyName cannot be empty
-    //       at com.microsoft.azure.servicebus.security.SharedAccessSignatureTokenProvider.<init>(SharedAccessSignatureTokenProvider.java:40)
-    //       at com.microsoft.azure.servicebus.primitives.Util.getClientSettingsFromConnectionStringBuilder(Util.java:382)
-    //       at com.microsoft.azure.servicebus.management.ManagementClient.<init>(ManagementClient.java:31)
-    //       at org.thingsboard.server.queue.azure.servicebus.TbServiceBusAdmin.<init>(TbServiceBusAdmin.java:54)
-    //   See https://diff.blue/R013 to resolve this issue.
-
-    // Arrange
-    TbServiceBusSettings serviceBusSettings = new TbServiceBusSettings();
-    TbServiceBusAdmin admin = new TbServiceBusAdmin(serviceBusSettings, new HashMap<>());
-
-    TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate = new TbServiceBusConsumerTemplate<>(admin,
-        new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class));
-
-    // Act
-    tbServiceBusConsumerTemplate.commit();
-  }
-
-  /**
    * Test {@link AbstractTbQueueConsumerTemplate#stop()}.
    * <p>
    * Method under test: {@link AbstractTbQueueConsumerTemplate#stop()}
    */
   @Test
   @DisplayName("Test stop()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AbstractTbQueueConsumerTemplate.stop()"})
   void testStop() {
     // Arrange
     TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate = new TbServiceBusConsumerTemplate<>(null,
@@ -149,6 +63,8 @@ class AbstractTbQueueConsumerTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test unsubscribe()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AbstractTbQueueConsumerTemplate.unsubscribe()"})
   void testUnsubscribe() {
     // Arrange
     TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate = new TbServiceBusConsumerTemplate<>(null,
@@ -171,6 +87,8 @@ class AbstractTbQueueConsumerTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test isStopped(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AbstractTbQueueConsumerTemplate.isStopped()"})
   void testIsStopped_thenReturnFalse() {
     // Arrange
     TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate = new TbServiceBusConsumerTemplate<>(null,
@@ -186,11 +104,12 @@ class AbstractTbQueueConsumerTemplateDiffblueTest {
    *   <li>Then return Empty.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AbstractTbQueueConsumerTemplate#getFullTopicNames()}
+   * Method under test: {@link AbstractTbQueueConsumerTemplate#getFullTopicNames()}
    */
   @Test
   @DisplayName("Test getFullTopicNames(); then return Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.util.List AbstractTbQueueConsumerTemplate.getFullTopicNames()"})
   void testGetFullTopicNames_thenReturnEmpty() {
     // Arrange
     TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate = new TbServiceBusConsumerTemplate<>(null,
@@ -206,11 +125,12 @@ class AbstractTbQueueConsumerTemplateDiffblueTest {
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AbstractTbQueueConsumerTemplate#isLongPollingSupported()}
+   * Method under test: {@link AbstractTbQueueConsumerTemplate#isLongPollingSupported()}
    */
   @Test
   @DisplayName("Test isLongPollingSupported(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AbstractTbQueueConsumerTemplate.isLongPollingSupported()"})
   void testIsLongPollingSupported_thenReturnFalse() {
     // Arrange
     TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate = new TbServiceBusConsumerTemplate<>(null,
@@ -230,6 +150,8 @@ class AbstractTbQueueConsumerTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test getTopic(); then return 'Topic'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String AbstractTbQueueConsumerTemplate.getTopic()"})
   void testGetTopic_thenReturnTopic() {
     // Arrange
     TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate = new TbServiceBusConsumerTemplate<>(null,

@@ -4,58 +4,25 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.BiFunction;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.rule.engine.util.TbMsgSource;
 
 class TbRenameKeysNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbRenameKeysNodeConfiguration#defaultConfiguration()}.
-   * <ul>
-   *   <li>Given {@link HashMap#HashMap()} computeIfPresent {@code foo} and
-   * {@link BiFunction}.</li>
-   * </ul>
    * <p>
-   * Method under test:
-   * {@link TbRenameKeysNodeConfiguration#defaultConfiguration()}
+   * Method under test: {@link TbRenameKeysNodeConfiguration#defaultConfiguration()}
    */
   @Test
-  @DisplayName("Test defaultConfiguration(); given HashMap() computeIfPresent 'foo' and BiFunction")
-  void testDefaultConfiguration_givenHashMapComputeIfPresentFooAndBiFunction() {
-    // Arrange
-    HashMap<String, String> renameKeysMapping = new HashMap<>();
-    renameKeysMapping.computeIfPresent("foo", mock(BiFunction.class));
-
-    TbRenameKeysNodeConfiguration tbRenameKeysNodeConfiguration = new TbRenameKeysNodeConfiguration();
-    tbRenameKeysNodeConfiguration.setRenameKeysMapping(renameKeysMapping);
-
-    // Act
-    TbRenameKeysNodeConfiguration actualDefaultConfigurationResult = tbRenameKeysNodeConfiguration
-        .defaultConfiguration();
-
-    // Assert
-    Map<String, String> renameKeysMapping2 = actualDefaultConfigurationResult.getRenameKeysMapping();
-    assertEquals(1, renameKeysMapping2.size());
-    assertEquals("temperature", renameKeysMapping2.get("temperatureCelsius"));
-    assertEquals(TbMsgSource.DATA, actualDefaultConfigurationResult.getRenameIn());
-  }
-
-  /**
-   * Test {@link TbRenameKeysNodeConfiguration#defaultConfiguration()}.
-   * <ul>
-   *   <li>Given {@link TbRenameKeysNodeConfiguration} (default constructor).</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TbRenameKeysNodeConfiguration#defaultConfiguration()}
-   */
-  @Test
-  @DisplayName("Test defaultConfiguration(); given TbRenameKeysNodeConfiguration (default constructor)")
-  void testDefaultConfiguration_givenTbRenameKeysNodeConfiguration() {
+  @DisplayName("Test defaultConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbRenameKeysNodeConfiguration TbRenameKeysNodeConfiguration.defaultConfiguration()"})
+  void testDefaultConfiguration() {
     // Arrange and Act
     TbRenameKeysNodeConfiguration actualDefaultConfigurationResult = (new TbRenameKeysNodeConfiguration())
         .defaultConfiguration();
@@ -68,8 +35,7 @@ class TbRenameKeysNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbRenameKeysNodeConfiguration#equals(Object)}, and
-   * {@link TbRenameKeysNodeConfiguration#hashCode()}.
+   * Test {@link TbRenameKeysNodeConfiguration#equals(Object)}, and {@link TbRenameKeysNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -83,6 +49,9 @@ class TbRenameKeysNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRenameKeysNodeConfiguration.equals(Object)",
+      "int TbRenameKeysNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbRenameKeysNodeConfiguration tbRenameKeysNodeConfiguration = new TbRenameKeysNodeConfiguration();
@@ -95,8 +64,7 @@ class TbRenameKeysNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbRenameKeysNodeConfiguration#equals(Object)}, and
-   * {@link TbRenameKeysNodeConfiguration#hashCode()}.
+   * Test {@link TbRenameKeysNodeConfiguration#equals(Object)}, and {@link TbRenameKeysNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -110,6 +78,9 @@ class TbRenameKeysNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRenameKeysNodeConfiguration.equals(Object)",
+      "int TbRenameKeysNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbRenameKeysNodeConfiguration tbRenameKeysNodeConfiguration = new TbRenameKeysNodeConfiguration();
@@ -125,8 +96,7 @@ class TbRenameKeysNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbRenameKeysNodeConfiguration#equals(Object)}, and
-   * {@link TbRenameKeysNodeConfiguration#hashCode()}.
+   * Test {@link TbRenameKeysNodeConfiguration#equals(Object)}, and {@link TbRenameKeysNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -140,6 +110,9 @@ class TbRenameKeysNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRenameKeysNodeConfiguration.equals(Object)",
+      "int TbRenameKeysNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TbRenameKeysNodeConfiguration tbRenameKeysNodeConfiguration = new TbRenameKeysNodeConfiguration();
@@ -155,8 +128,7 @@ class TbRenameKeysNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbRenameKeysNodeConfiguration#equals(Object)}, and
-   * {@link TbRenameKeysNodeConfiguration#hashCode()}.
+   * Test {@link TbRenameKeysNodeConfiguration#equals(Object)}, and {@link TbRenameKeysNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -170,6 +142,9 @@ class TbRenameKeysNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRenameKeysNodeConfiguration.equals(Object)",
+      "int TbRenameKeysNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbRenameKeysNodeConfiguration tbRenameKeysNodeConfiguration = new TbRenameKeysNodeConfiguration();
@@ -191,6 +166,9 @@ class TbRenameKeysNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRenameKeysNodeConfiguration.equals(Object)",
+      "int TbRenameKeysNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbRenameKeysNodeConfiguration(), 1);
@@ -207,6 +185,9 @@ class TbRenameKeysNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRenameKeysNodeConfiguration.equals(Object)",
+      "int TbRenameKeysNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbRenameKeysNodeConfiguration tbRenameKeysNodeConfiguration = new TbRenameKeysNodeConfiguration();
@@ -227,6 +208,9 @@ class TbRenameKeysNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRenameKeysNodeConfiguration.equals(Object)",
+      "int TbRenameKeysNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbRenameKeysNodeConfiguration tbRenameKeysNodeConfiguration = new TbRenameKeysNodeConfiguration();
@@ -247,6 +231,9 @@ class TbRenameKeysNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRenameKeysNodeConfiguration.equals(Object)",
+      "int TbRenameKeysNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbRenameKeysNodeConfiguration tbRenameKeysNodeConfiguration = new TbRenameKeysNodeConfiguration();
@@ -269,6 +256,9 @@ class TbRenameKeysNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRenameKeysNodeConfiguration.equals(Object)",
+      "int TbRenameKeysNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbRenameKeysNodeConfiguration tbRenameKeysNodeConfiguration = new TbRenameKeysNodeConfiguration();
@@ -283,29 +273,6 @@ class TbRenameKeysNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbRenameKeysNodeConfiguration#equals(Object)}.
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbRenameKeysNodeConfiguration#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
-    // Arrange
-    HashMap<String, String> renameKeysMapping = new HashMap<>();
-    renameKeysMapping.computeIfPresent("foo", mock(BiFunction.class));
-
-    TbRenameKeysNodeConfiguration tbRenameKeysNodeConfiguration = new TbRenameKeysNodeConfiguration();
-    tbRenameKeysNodeConfiguration.setRenameKeysMapping(renameKeysMapping);
-
-    // Act and Assert
-    assertNotEquals(tbRenameKeysNodeConfiguration, new TbRenameKeysNodeConfiguration());
-  }
-
-  /**
-   * Test {@link TbRenameKeysNodeConfiguration#equals(Object)}.
-   * <ul>
    *   <li>When other is {@code null}.</li>
    *   <li>Then return not equal.</li>
    * </ul>
@@ -314,6 +281,9 @@ class TbRenameKeysNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRenameKeysNodeConfiguration.equals(Object)",
+      "int TbRenameKeysNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbRenameKeysNodeConfiguration(), null);
@@ -330,6 +300,9 @@ class TbRenameKeysNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRenameKeysNodeConfiguration.equals(Object)",
+      "int TbRenameKeysNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbRenameKeysNodeConfiguration(), "Different type to TbRenameKeysNodeConfiguration");
@@ -340,8 +313,7 @@ class TbRenameKeysNodeConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link TbRenameKeysNodeConfiguration}
+   *   <li>default or parameterless constructor of {@link TbRenameKeysNodeConfiguration}
    *   <li>{@link TbRenameKeysNodeConfiguration#setRenameIn(TbMsgSource)}
    *   <li>{@link TbRenameKeysNodeConfiguration#setRenameKeysMapping(Map)}
    *   <li>{@link TbRenameKeysNodeConfiguration#toString()}
@@ -351,6 +323,13 @@ class TbRenameKeysNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbRenameKeysNodeConfiguration.<init>()",
+      "TbMsgSource TbRenameKeysNodeConfiguration.getRenameIn()",
+      "Map TbRenameKeysNodeConfiguration.getRenameKeysMapping()",
+      "void TbRenameKeysNodeConfiguration.setRenameIn(TbMsgSource)",
+      "void TbRenameKeysNodeConfiguration.setRenameKeysMapping(Map)",
+      "String TbRenameKeysNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbRenameKeysNodeConfiguration actualTbRenameKeysNodeConfiguration = new TbRenameKeysNodeConfiguration();
@@ -361,7 +340,7 @@ class TbRenameKeysNodeConfigurationDiffblueTest {
     TbMsgSource actualRenameIn = actualTbRenameKeysNodeConfiguration.getRenameIn();
     Map<String, String> actualRenameKeysMapping = actualTbRenameKeysNodeConfiguration.getRenameKeysMapping();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("TbRenameKeysNodeConfiguration(renameIn=DATA, renameKeysMapping={})", actualToStringResult);
     assertEquals(TbMsgSource.DATA, actualRenameIn);
     assertTrue(actualRenameKeysMapping.isEmpty());

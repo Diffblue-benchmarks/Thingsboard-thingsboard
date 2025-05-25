@@ -1,26 +1,26 @@
 package org.thingsboard.server.dao.model.sql;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.common.data.BaseData;
 import org.thingsboard.server.common.data.event.ErrorEvent;
+import org.thingsboard.server.common.data.event.ErrorEvent.ErrorEventBuilder;
 import org.thingsboard.server.common.data.id.EventId;
-import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.dao.model.ModelConstants;
 
 public class ErrorEventEntityDiffblueTest {
   /**
-   * Test {@link ErrorEventEntity#equals(Object)}, and
-   * {@link ErrorEventEntity#hashCode()}.
+   * Test {@link ErrorEventEntity#equals(Object)}, and {@link ErrorEventEntity#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -33,29 +33,31 @@ public class ErrorEventEntityDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean ErrorEventEntity.equals(Object)", "int ErrorEventEntity.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ErrorEventEntity errorEventEntity = new ErrorEventEntity();
     errorEventEntity.setCreatedTime(1L);
-    errorEventEntity.setEntityId(ModelConstants.NULL_UUID);
+    errorEventEntity.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setError("An error occurred");
-    errorEventEntity.setId(ModelConstants.NULL_UUID);
+    errorEventEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setMethod("Method");
     errorEventEntity.setServiceId("42");
-    errorEventEntity.setTenantId(ModelConstants.NULL_UUID);
+    errorEventEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setTs(1L);
-    errorEventEntity.setUuid(ModelConstants.NULL_UUID);
+    errorEventEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     ErrorEventEntity errorEventEntity2 = new ErrorEventEntity();
     errorEventEntity2.setCreatedTime(1L);
-    errorEventEntity2.setEntityId(ModelConstants.NULL_UUID);
+    errorEventEntity2.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity2.setError("An error occurred");
-    errorEventEntity2.setId(ModelConstants.NULL_UUID);
+    errorEventEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity2.setMethod("Method");
     errorEventEntity2.setServiceId("42");
-    errorEventEntity2.setTenantId(ModelConstants.NULL_UUID);
+    errorEventEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity2.setTs(1L);
-    errorEventEntity2.setUuid(ModelConstants.NULL_UUID);
+    errorEventEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertEquals(errorEventEntity, errorEventEntity2);
@@ -64,8 +66,7 @@ public class ErrorEventEntityDiffblueTest {
   }
 
   /**
-   * Test {@link ErrorEventEntity#equals(Object)}, and
-   * {@link ErrorEventEntity#hashCode()}.
+   * Test {@link ErrorEventEntity#equals(Object)}, and {@link ErrorEventEntity#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -78,18 +79,20 @@ public class ErrorEventEntityDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean ErrorEventEntity.equals(Object)", "int ErrorEventEntity.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ErrorEventEntity errorEventEntity = new ErrorEventEntity();
     errorEventEntity.setCreatedTime(1L);
-    errorEventEntity.setEntityId(ModelConstants.NULL_UUID);
+    errorEventEntity.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setError("An error occurred");
-    errorEventEntity.setId(ModelConstants.NULL_UUID);
+    errorEventEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setMethod("Method");
     errorEventEntity.setServiceId("42");
-    errorEventEntity.setTenantId(ModelConstants.NULL_UUID);
+    errorEventEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setTs(1L);
-    errorEventEntity.setUuid(ModelConstants.NULL_UUID);
+    errorEventEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertEquals(errorEventEntity, errorEventEntity);
@@ -107,29 +110,31 @@ public class ErrorEventEntityDiffblueTest {
    * Method under test: {@link ErrorEventEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean ErrorEventEntity.equals(Object)", "int ErrorEventEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ErrorEventEntity errorEventEntity = new ErrorEventEntity();
     errorEventEntity.setCreatedTime(1L);
-    errorEventEntity.setEntityId(UUID.randomUUID());
+    errorEventEntity.setEntityId(ModelConstants.NULL_UUID);
     errorEventEntity.setError("An error occurred");
-    errorEventEntity.setId(ModelConstants.NULL_UUID);
+    errorEventEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setMethod("Method");
     errorEventEntity.setServiceId("42");
-    errorEventEntity.setTenantId(ModelConstants.NULL_UUID);
+    errorEventEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setTs(1L);
-    errorEventEntity.setUuid(ModelConstants.NULL_UUID);
+    errorEventEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     ErrorEventEntity errorEventEntity2 = new ErrorEventEntity();
     errorEventEntity2.setCreatedTime(1L);
-    errorEventEntity2.setEntityId(ModelConstants.NULL_UUID);
+    errorEventEntity2.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity2.setError("An error occurred");
-    errorEventEntity2.setId(ModelConstants.NULL_UUID);
+    errorEventEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity2.setMethod("Method");
     errorEventEntity2.setServiceId("42");
-    errorEventEntity2.setTenantId(ModelConstants.NULL_UUID);
+    errorEventEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity2.setTs(1L);
-    errorEventEntity2.setUuid(ModelConstants.NULL_UUID);
+    errorEventEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(errorEventEntity, errorEventEntity2);
@@ -145,29 +150,31 @@ public class ErrorEventEntityDiffblueTest {
    * Method under test: {@link ErrorEventEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean ErrorEventEntity.equals(Object)", "int ErrorEventEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ErrorEventEntity errorEventEntity = new ErrorEventEntity();
     errorEventEntity.setCreatedTime(1L);
-    errorEventEntity.setEntityId(ModelConstants.NULL_UUID);
+    errorEventEntity.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setError("42");
-    errorEventEntity.setId(ModelConstants.NULL_UUID);
+    errorEventEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setMethod("Method");
     errorEventEntity.setServiceId("42");
-    errorEventEntity.setTenantId(ModelConstants.NULL_UUID);
+    errorEventEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setTs(1L);
-    errorEventEntity.setUuid(ModelConstants.NULL_UUID);
+    errorEventEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     ErrorEventEntity errorEventEntity2 = new ErrorEventEntity();
     errorEventEntity2.setCreatedTime(1L);
-    errorEventEntity2.setEntityId(ModelConstants.NULL_UUID);
+    errorEventEntity2.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity2.setError("An error occurred");
-    errorEventEntity2.setId(ModelConstants.NULL_UUID);
+    errorEventEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity2.setMethod("Method");
     errorEventEntity2.setServiceId("42");
-    errorEventEntity2.setTenantId(ModelConstants.NULL_UUID);
+    errorEventEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity2.setTs(1L);
-    errorEventEntity2.setUuid(ModelConstants.NULL_UUID);
+    errorEventEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(errorEventEntity, errorEventEntity2);
@@ -183,29 +190,31 @@ public class ErrorEventEntityDiffblueTest {
    * Method under test: {@link ErrorEventEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean ErrorEventEntity.equals(Object)", "int ErrorEventEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     ErrorEventEntity errorEventEntity = new ErrorEventEntity();
     errorEventEntity.setCreatedTime(1L);
-    errorEventEntity.setEntityId(ModelConstants.NULL_UUID);
+    errorEventEntity.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setError(null);
-    errorEventEntity.setId(ModelConstants.NULL_UUID);
+    errorEventEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setMethod("Method");
     errorEventEntity.setServiceId("42");
-    errorEventEntity.setTenantId(ModelConstants.NULL_UUID);
+    errorEventEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setTs(1L);
-    errorEventEntity.setUuid(ModelConstants.NULL_UUID);
+    errorEventEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     ErrorEventEntity errorEventEntity2 = new ErrorEventEntity();
     errorEventEntity2.setCreatedTime(1L);
-    errorEventEntity2.setEntityId(ModelConstants.NULL_UUID);
+    errorEventEntity2.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity2.setError("An error occurred");
-    errorEventEntity2.setId(ModelConstants.NULL_UUID);
+    errorEventEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity2.setMethod("Method");
     errorEventEntity2.setServiceId("42");
-    errorEventEntity2.setTenantId(ModelConstants.NULL_UUID);
+    errorEventEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity2.setTs(1L);
-    errorEventEntity2.setUuid(ModelConstants.NULL_UUID);
+    errorEventEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(errorEventEntity, errorEventEntity2);
@@ -221,29 +230,31 @@ public class ErrorEventEntityDiffblueTest {
    * Method under test: {@link ErrorEventEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean ErrorEventEntity.equals(Object)", "int ErrorEventEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     ErrorEventEntity errorEventEntity = new ErrorEventEntity();
     errorEventEntity.setCreatedTime(1L);
-    errorEventEntity.setEntityId(ModelConstants.NULL_UUID);
+    errorEventEntity.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setError("An error occurred");
-    errorEventEntity.setId(ModelConstants.NULL_UUID);
+    errorEventEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setMethod("42");
     errorEventEntity.setServiceId("42");
-    errorEventEntity.setTenantId(ModelConstants.NULL_UUID);
+    errorEventEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setTs(1L);
-    errorEventEntity.setUuid(ModelConstants.NULL_UUID);
+    errorEventEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     ErrorEventEntity errorEventEntity2 = new ErrorEventEntity();
     errorEventEntity2.setCreatedTime(1L);
-    errorEventEntity2.setEntityId(ModelConstants.NULL_UUID);
+    errorEventEntity2.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity2.setError("An error occurred");
-    errorEventEntity2.setId(ModelConstants.NULL_UUID);
+    errorEventEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity2.setMethod("Method");
     errorEventEntity2.setServiceId("42");
-    errorEventEntity2.setTenantId(ModelConstants.NULL_UUID);
+    errorEventEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity2.setTs(1L);
-    errorEventEntity2.setUuid(ModelConstants.NULL_UUID);
+    errorEventEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(errorEventEntity, errorEventEntity2);
@@ -259,29 +270,31 @@ public class ErrorEventEntityDiffblueTest {
    * Method under test: {@link ErrorEventEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean ErrorEventEntity.equals(Object)", "int ErrorEventEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     ErrorEventEntity errorEventEntity = new ErrorEventEntity();
     errorEventEntity.setCreatedTime(1L);
-    errorEventEntity.setEntityId(ModelConstants.NULL_UUID);
+    errorEventEntity.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setError("An error occurred");
-    errorEventEntity.setId(ModelConstants.NULL_UUID);
+    errorEventEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setMethod(null);
     errorEventEntity.setServiceId("42");
-    errorEventEntity.setTenantId(ModelConstants.NULL_UUID);
+    errorEventEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setTs(1L);
-    errorEventEntity.setUuid(ModelConstants.NULL_UUID);
+    errorEventEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     ErrorEventEntity errorEventEntity2 = new ErrorEventEntity();
     errorEventEntity2.setCreatedTime(1L);
-    errorEventEntity2.setEntityId(ModelConstants.NULL_UUID);
+    errorEventEntity2.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity2.setError("An error occurred");
-    errorEventEntity2.setId(ModelConstants.NULL_UUID);
+    errorEventEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity2.setMethod("Method");
     errorEventEntity2.setServiceId("42");
-    errorEventEntity2.setTenantId(ModelConstants.NULL_UUID);
+    errorEventEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity2.setTs(1L);
-    errorEventEntity2.setUuid(ModelConstants.NULL_UUID);
+    errorEventEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(errorEventEntity, errorEventEntity2);
@@ -297,18 +310,20 @@ public class ErrorEventEntityDiffblueTest {
    * Method under test: {@link ErrorEventEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean ErrorEventEntity.equals(Object)", "int ErrorEventEntity.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     ErrorEventEntity errorEventEntity = new ErrorEventEntity();
     errorEventEntity.setCreatedTime(1L);
-    errorEventEntity.setEntityId(ModelConstants.NULL_UUID);
+    errorEventEntity.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setError("An error occurred");
-    errorEventEntity.setId(ModelConstants.NULL_UUID);
+    errorEventEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setMethod("Method");
     errorEventEntity.setServiceId("42");
-    errorEventEntity.setTenantId(ModelConstants.NULL_UUID);
+    errorEventEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setTs(1L);
-    errorEventEntity.setUuid(ModelConstants.NULL_UUID);
+    errorEventEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(errorEventEntity, null);
@@ -324,18 +339,20 @@ public class ErrorEventEntityDiffblueTest {
    * Method under test: {@link ErrorEventEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean ErrorEventEntity.equals(Object)", "int ErrorEventEntity.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     ErrorEventEntity errorEventEntity = new ErrorEventEntity();
     errorEventEntity.setCreatedTime(1L);
-    errorEventEntity.setEntityId(ModelConstants.NULL_UUID);
+    errorEventEntity.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setError("An error occurred");
-    errorEventEntity.setId(ModelConstants.NULL_UUID);
+    errorEventEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setMethod("Method");
     errorEventEntity.setServiceId("42");
-    errorEventEntity.setTenantId(ModelConstants.NULL_UUID);
+    errorEventEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setTs(1L);
-    errorEventEntity.setUuid(ModelConstants.NULL_UUID);
+    errorEventEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(errorEventEntity, "Different type to ErrorEventEntity");
@@ -355,6 +372,10 @@ public class ErrorEventEntityDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void ErrorEventEntity.<init>()", "String ErrorEventEntity.getError()",
+      "String ErrorEventEntity.getMethod()", "void ErrorEventEntity.setError(String)",
+      "void ErrorEventEntity.setMethod(String)", "String ErrorEventEntity.toString()"})
   public void testGettersAndSetters() {
     // Arrange and Act
     ErrorEventEntity actualErrorEventEntity = new ErrorEventEntity();
@@ -363,10 +384,15 @@ public class ErrorEventEntityDiffblueTest {
     String actualToStringResult = actualErrorEventEntity.toString();
     String actualError = actualErrorEventEntity.getError();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("An error occurred", actualError);
     assertEquals("ErrorEventEntity(method=Method, error=An error occurred)", actualToStringResult);
     assertEquals("Method", actualErrorEventEntity.getMethod());
+    assertNull(actualErrorEventEntity.getServiceId());
+    assertNull(actualErrorEventEntity.getEntityId());
+    assertNull(actualErrorEventEntity.getId());
+    assertNull(actualErrorEventEntity.getTenantId());
+    assertNull(actualErrorEventEntity.getUuid());
     assertEquals(0L, actualErrorEventEntity.getCreatedTime());
     assertEquals(0L, actualErrorEventEntity.getTs());
   }
@@ -377,12 +403,15 @@ public class ErrorEventEntityDiffblueTest {
    * Method under test: {@link ErrorEventEntity#ErrorEventEntity(ErrorEvent)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void ErrorEventEntity.<init>(ErrorEvent)"})
   public void testNewErrorEventEntity() {
     // Arrange
-    ErrorEvent event = ErrorEvent.builder()
-        .entityId(ModelConstants.NULL_UUID)
-        .error("An error occurred")
-        .id(ModelConstants.NULL_UUID)
+    ErrorEventBuilder builderResult = ErrorEvent.builder();
+    UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    ErrorEventBuilder errorResult = builderResult.entityId(entityId).error("An error occurred");
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    ErrorEvent event = errorResult.id(id)
         .method("Method")
         .serviceId("42")
         .tenantId(ModelConstants.SYSTEM_TENANT)
@@ -393,16 +422,19 @@ public class ErrorEventEntityDiffblueTest {
     ErrorEventEntity actualErrorEventEntity = new ErrorEventEntity(event);
 
     // Assert
-    UUID entityId = actualErrorEventEntity.getEntityId();
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", entityId.toString());
     assertEquals("13814000-1dd2-11b2-8080-808080808080", actualErrorEventEntity.getTenantId().toString());
     assertEquals("42", actualErrorEventEntity.getServiceId());
+    UUID entityId2 = actualErrorEventEntity.getEntityId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", entityId2.toString());
+    UUID id2 = actualErrorEventEntity.getId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id2.toString());
     assertEquals("An error occurred", actualErrorEventEntity.getError());
     assertEquals("Method", actualErrorEventEntity.getMethod());
     assertEquals(1L, actualErrorEventEntity.getCreatedTime());
     assertEquals(1L, actualErrorEventEntity.getTs());
-    assertSame(entityId, actualErrorEventEntity.getId());
-    assertSame(entityId, actualErrorEventEntity.getUuid());
+    assertSame(entityId, entityId2);
+    assertSame(id, id2);
+    assertSame(id, actualErrorEventEntity.getUuid());
   }
 
   /**
@@ -415,16 +447,20 @@ public class ErrorEventEntityDiffblueTest {
    * Method under test: {@link ErrorEventEntity#ErrorEventEntity(ErrorEvent)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void ErrorEventEntity.<init>(ErrorEvent)"})
   public void testNewErrorEventEntity_givenSystem_tenant_thenCallsGetCreatedTime() {
     // Arrange
     ErrorEvent event = mock(ErrorEvent.class);
     when(event.getError()).thenReturn("An error occurred");
     when(event.getMethod()).thenReturn("Method");
     when(event.getServiceId()).thenReturn("42");
-    when(event.getEntityId()).thenReturn(ModelConstants.NULL_UUID);
+    UUID fromStringResult = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    when(event.getEntityId()).thenReturn(fromStringResult);
     when(event.getCreatedTime()).thenReturn(1L);
     when(event.getTenantId()).thenReturn(ModelConstants.SYSTEM_TENANT);
-    when(event.getId()).thenReturn(new EventId(ModelConstants.NULL_UUID));
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    when(event.getId()).thenReturn(new EventId(id));
 
     // Act
     ErrorEventEntity actualErrorEventEntity = new ErrorEventEntity(event);
@@ -437,16 +473,19 @@ public class ErrorEventEntityDiffblueTest {
     verify(event).getServiceId();
     verify(event).getTenantId();
     verify(event).getId();
-    UUID entityId = actualErrorEventEntity.getEntityId();
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", entityId.toString());
     assertEquals("13814000-1dd2-11b2-8080-808080808080", actualErrorEventEntity.getTenantId().toString());
     assertEquals("42", actualErrorEventEntity.getServiceId());
+    UUID entityId = actualErrorEventEntity.getEntityId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", entityId.toString());
+    UUID id2 = actualErrorEventEntity.getId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id2.toString());
     assertEquals("An error occurred", actualErrorEventEntity.getError());
     assertEquals("Method", actualErrorEventEntity.getMethod());
     assertEquals(1L, actualErrorEventEntity.getCreatedTime());
     assertEquals(1L, actualErrorEventEntity.getTs());
-    assertSame(entityId, actualErrorEventEntity.getId());
-    assertSame(entityId, actualErrorEventEntity.getUuid());
+    assertSame(fromStringResult, entityId);
+    assertSame(id, id2);
+    assertSame(id, actualErrorEventEntity.getUuid());
   }
 
   /**
@@ -459,6 +498,8 @@ public class ErrorEventEntityDiffblueTest {
    * Method under test: {@link ErrorEventEntity#toData()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"ErrorEvent ErrorEventEntity.toData()"})
   public void testToData_givenErrorEventEntity_thenReturnErrorIsNull() {
     // Arrange and Act
     ErrorEvent actualToDataResult = (new ErrorEventEntity()).toData();
@@ -477,82 +518,89 @@ public class ErrorEventEntityDiffblueTest {
   /**
    * Test {@link ErrorEventEntity#toData()}.
    * <ul>
-   *   <li>Then return not TenantId NullUid.</li>
+   *   <li>Then return TenantId Id is randomUUID.</li>
    * </ul>
    * <p>
    * Method under test: {@link ErrorEventEntity#toData()}
    */
   @Test
-  public void testToData_thenReturnNotTenantIdNullUid() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"ErrorEvent ErrorEventEntity.toData()"})
+  public void testToData_thenReturnTenantIdIdIsRandomUUID() {
     // Arrange
     ErrorEventEntity errorEventEntity = new ErrorEventEntity();
     errorEventEntity.setCreatedTime(1L);
-    errorEventEntity.setEntityId(ModelConstants.NULL_UUID);
+    UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    errorEventEntity.setEntityId(entityId);
     errorEventEntity.setError("An error occurred");
-    errorEventEntity.setId(ModelConstants.NULL_UUID);
+    errorEventEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setMethod("Method");
     errorEventEntity.setServiceId("42");
     UUID tenantId = UUID.randomUUID();
     errorEventEntity.setTenantId(tenantId);
     errorEventEntity.setTs(1L);
-    errorEventEntity.setUuid(ModelConstants.NULL_UUID);
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    errorEventEntity.setUuid(id);
 
     // Act
     ErrorEvent actualToDataResult = errorEventEntity.toData();
 
     // Assert
-    UUID entityId = actualToDataResult.getEntityId();
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", entityId.toString());
     assertEquals("42", actualToDataResult.getServiceId());
+    UUID entityId2 = actualToDataResult.getEntityId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", entityId2.toString());
+    UUID uuidId = actualToDataResult.getUuidId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", uuidId.toString());
     assertEquals("An error occurred", actualToDataResult.getError());
     assertEquals("Method", actualToDataResult.getMethod());
     assertEquals(1L, actualToDataResult.getCreatedTime());
-    TenantId tenantId2 = actualToDataResult.getTenantId();
-    assertFalse(tenantId2.isNullUid());
-    assertFalse(tenantId2.isSysTenantId());
-    assertSame(entityId, actualToDataResult.getUuidId());
-    assertSame(entityId, actualToDataResult.getId().getId());
-    assertSame(tenantId, tenantId2.getId());
+    assertSame(entityId, entityId2);
+    assertSame(id, uuidId);
+    assertSame(id, actualToDataResult.getId().getId());
+    assertSame(tenantId, actualToDataResult.getTenantId().getId());
   }
 
   /**
    * Test {@link ErrorEventEntity#toData()}.
    * <ul>
-   *   <li>Then return TenantId Id toString is
-   * {@code 13814000-1dd2-11b2-8080-808080808080}.</li>
+   *   <li>Then return TenantId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
    * </ul>
    * <p>
    * Method under test: {@link ErrorEventEntity#toData()}
    */
   @Test
-  public void testToData_thenReturnTenantIdIdToStringIs138140001dd211b28080808080808080() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"ErrorEvent ErrorEventEntity.toData()"})
+  public void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     ErrorEventEntity errorEventEntity = new ErrorEventEntity();
     errorEventEntity.setCreatedTime(1L);
-    errorEventEntity.setEntityId(ModelConstants.NULL_UUID);
+    UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    errorEventEntity.setEntityId(entityId);
     errorEventEntity.setError("An error occurred");
-    errorEventEntity.setId(ModelConstants.NULL_UUID);
+    errorEventEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setMethod("Method");
     errorEventEntity.setServiceId("42");
-    errorEventEntity.setTenantId(ModelConstants.NULL_UUID);
+    errorEventEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     errorEventEntity.setTs(1L);
-    errorEventEntity.setUuid(ModelConstants.NULL_UUID);
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    errorEventEntity.setUuid(id);
 
     // Act
     ErrorEvent actualToDataResult = errorEventEntity.toData();
 
     // Assert
-    UUID entityId = actualToDataResult.getEntityId();
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", entityId.toString());
-    TenantId tenantId = actualToDataResult.getTenantId();
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", tenantId.getId().toString());
     assertEquals("42", actualToDataResult.getServiceId());
+    UUID entityId2 = actualToDataResult.getEntityId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", entityId2.toString());
+    UUID uuidId = actualToDataResult.getUuidId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", uuidId.toString());
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualToDataResult.getTenantId().getId().toString());
     assertEquals("An error occurred", actualToDataResult.getError());
     assertEquals("Method", actualToDataResult.getMethod());
     assertEquals(1L, actualToDataResult.getCreatedTime());
-    assertTrue(tenantId.isNullUid());
-    assertTrue(tenantId.isSysTenantId());
-    assertSame(entityId, actualToDataResult.getUuidId());
-    assertSame(entityId, actualToDataResult.getId().getId());
+    assertSame(entityId, entityId2);
+    assertSame(id, uuidId);
+    assertSame(id, actualToDataResult.getId().getId());
   }
 }

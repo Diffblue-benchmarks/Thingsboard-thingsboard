@@ -2,13 +2,14 @@ package org.thingsboard.server.service.security.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ChangePasswordRequestDiffblueTest {
   /**
-   * Test {@link ChangePasswordRequest#equals(Object)}, and
-   * {@link ChangePasswordRequest#hashCode()}.
+   * Test {@link ChangePasswordRequest#equals(Object)}, and {@link ChangePasswordRequest#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -22,6 +23,8 @@ class ChangePasswordRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ChangePasswordRequest.equals(Object)", "int ChangePasswordRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ChangePasswordRequest changePasswordRequest = new ChangePasswordRequest();
@@ -39,8 +42,7 @@ class ChangePasswordRequestDiffblueTest {
   }
 
   /**
-   * Test {@link ChangePasswordRequest#equals(Object)}, and
-   * {@link ChangePasswordRequest#hashCode()}.
+   * Test {@link ChangePasswordRequest#equals(Object)}, and {@link ChangePasswordRequest#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -54,6 +56,8 @@ class ChangePasswordRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ChangePasswordRequest.equals(Object)", "int ChangePasswordRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     ChangePasswordRequest changePasswordRequest = new ChangePasswordRequest();
@@ -71,8 +75,7 @@ class ChangePasswordRequestDiffblueTest {
   }
 
   /**
-   * Test {@link ChangePasswordRequest#equals(Object)}, and
-   * {@link ChangePasswordRequest#hashCode()}.
+   * Test {@link ChangePasswordRequest#equals(Object)}, and {@link ChangePasswordRequest#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -86,6 +89,8 @@ class ChangePasswordRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ChangePasswordRequest.equals(Object)", "int ChangePasswordRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     ChangePasswordRequest changePasswordRequest = new ChangePasswordRequest();
@@ -103,8 +108,7 @@ class ChangePasswordRequestDiffblueTest {
   }
 
   /**
-   * Test {@link ChangePasswordRequest#equals(Object)}, and
-   * {@link ChangePasswordRequest#hashCode()}.
+   * Test {@link ChangePasswordRequest#equals(Object)}, and {@link ChangePasswordRequest#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -118,6 +122,8 @@ class ChangePasswordRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ChangePasswordRequest.equals(Object)", "int ChangePasswordRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ChangePasswordRequest changePasswordRequest = new ChangePasswordRequest();
@@ -141,6 +147,8 @@ class ChangePasswordRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ChangePasswordRequest.equals(Object)", "int ChangePasswordRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ChangePasswordRequest changePasswordRequest = new ChangePasswordRequest();
@@ -166,6 +174,8 @@ class ChangePasswordRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ChangePasswordRequest.equals(Object)", "int ChangePasswordRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ChangePasswordRequest changePasswordRequest = new ChangePasswordRequest();
@@ -191,6 +201,8 @@ class ChangePasswordRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ChangePasswordRequest.equals(Object)", "int ChangePasswordRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     ChangePasswordRequest changePasswordRequest = new ChangePasswordRequest();
@@ -216,6 +228,8 @@ class ChangePasswordRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ChangePasswordRequest.equals(Object)", "int ChangePasswordRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     ChangePasswordRequest changePasswordRequest = new ChangePasswordRequest();
@@ -241,6 +255,8 @@ class ChangePasswordRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ChangePasswordRequest.equals(Object)", "int ChangePasswordRequest.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     ChangePasswordRequest changePasswordRequest = new ChangePasswordRequest();
@@ -262,6 +278,8 @@ class ChangePasswordRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ChangePasswordRequest.equals(Object)", "int ChangePasswordRequest.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     ChangePasswordRequest changePasswordRequest = new ChangePasswordRequest();
@@ -287,6 +305,10 @@ class ChangePasswordRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ChangePasswordRequest.<init>()", "String ChangePasswordRequest.getCurrentPassword()",
+      "String ChangePasswordRequest.getNewPassword()", "void ChangePasswordRequest.setCurrentPassword(String)",
+      "void ChangePasswordRequest.setNewPassword(String)", "String ChangePasswordRequest.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     ChangePasswordRequest actualChangePasswordRequest = new ChangePasswordRequest();
@@ -295,7 +317,7 @@ class ChangePasswordRequestDiffblueTest {
     String actualToStringResult = actualChangePasswordRequest.toString();
     String actualCurrentPassword = actualChangePasswordRequest.getCurrentPassword();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("ChangePasswordRequest(currentPassword=iloveyou, newPassword=iloveyou)", actualToStringResult);
     assertEquals("iloveyou", actualCurrentPassword);
     assertEquals("iloveyou", actualChangePasswordRequest.getNewPassword());

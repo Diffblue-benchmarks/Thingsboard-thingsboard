@@ -3,7 +3,9 @@ package org.thingsboard.server.service.ws.telemetry.cmd.v2;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.kv.Aggregation;
 
@@ -23,6 +25,8 @@ class AggKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggKey.equals(Object)", "int AggKey.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AggKey aggKey = new AggKey();
@@ -62,6 +66,8 @@ class AggKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggKey.equals(Object)", "int AggKey.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AggKey aggKey = new AggKey();
@@ -101,6 +107,8 @@ class AggKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggKey.equals(Object)", "int AggKey.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     AggKey aggKey = new AggKey();
@@ -140,6 +148,8 @@ class AggKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggKey.equals(Object)", "int AggKey.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     AggKey aggKey = new AggKey();
@@ -179,6 +189,8 @@ class AggKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggKey.equals(Object)", "int AggKey.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AggKey aggKey = new AggKey();
@@ -206,6 +218,8 @@ class AggKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggKey.equals(Object)", "int AggKey.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AggKey aggKey = new AggKey();
@@ -239,6 +253,8 @@ class AggKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggKey.equals(Object)", "int AggKey.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AggKey aggKey = new AggKey();
@@ -272,6 +288,8 @@ class AggKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggKey.equals(Object)", "int AggKey.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AggKey aggKey = new AggKey();
@@ -305,6 +323,8 @@ class AggKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggKey.equals(Object)", "int AggKey.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AggKey aggKey = new AggKey();
@@ -338,6 +358,8 @@ class AggKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggKey.equals(Object)", "int AggKey.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     AggKey aggKey = new AggKey();
@@ -371,6 +393,8 @@ class AggKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggKey.equals(Object)", "int AggKey.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AggKey aggKey = new AggKey();
@@ -404,6 +428,8 @@ class AggKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggKey.equals(Object)", "int AggKey.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     AggKey aggKey = new AggKey();
@@ -437,6 +463,8 @@ class AggKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggKey.equals(Object)", "int AggKey.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     AggKey aggKey = new AggKey();
@@ -470,6 +498,8 @@ class AggKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggKey.equals(Object)", "int AggKey.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     AggKey aggKey = new AggKey();
@@ -503,6 +533,8 @@ class AggKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggKey.equals(Object)", "int AggKey.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     AggKey aggKey = new AggKey();
@@ -536,6 +568,8 @@ class AggKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggKey.equals(Object)", "int AggKey.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     AggKey aggKey = new AggKey();
@@ -569,6 +603,8 @@ class AggKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggKey.equals(Object)", "int AggKey.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     AggKey aggKey = new AggKey();
@@ -594,6 +630,8 @@ class AggKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggKey.equals(Object)", "int AggKey.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     AggKey aggKey = new AggKey();
@@ -631,6 +669,12 @@ class AggKeyDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AggKey.<init>()", "Aggregation AggKey.getAgg()", "int AggKey.getId()",
+      "String AggKey.getKey()", "Long AggKey.getPreviousEndTs()", "Long AggKey.getPreviousStartTs()",
+      "Boolean AggKey.getPreviousValueOnly()", "void AggKey.setAgg(Aggregation)", "void AggKey.setId(int)",
+      "void AggKey.setKey(String)", "void AggKey.setPreviousEndTs(Long)", "void AggKey.setPreviousStartTs(Long)",
+      "void AggKey.setPreviousValueOnly(Boolean)", "String AggKey.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     AggKey actualAggKey = new AggKey();
@@ -648,7 +692,7 @@ class AggKeyDiffblueTest {
     Long actualPreviousStartTs = actualAggKey.getPreviousStartTs();
     Boolean actualPreviousValueOnly = actualAggKey.getPreviousValueOnly();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("AggKey(id=1, key=Key, agg=MIN, previousStartTs=1, previousEndTs=1, previousValueOnly=true)",
         actualToStringResult);
     assertEquals("Key", actualKey);

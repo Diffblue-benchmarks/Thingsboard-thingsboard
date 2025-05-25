@@ -1,12 +1,12 @@
 package org.thingsboard.server.service.lwm2m;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.grpc.netty.shaded.io.netty.handler.ssl.util.LazyX509Certificate;
 import java.io.UnsupportedEncodingException;
 import java.security.cert.X509Certificate;
@@ -14,14 +14,22 @@ import java.util.Optional;
 import oracle.security.crypto.core.DHPublicKey;
 import org.apache.sshd.common.config.keys.OpenSshCertificateImpl;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.thingsboard.server.common.data.device.profile.lwm2m.bootstrap.LwM2MServerSecurityConfigDefault;
 import org.thingsboard.server.common.transport.config.ssl.KeystoreSslCredentials;
 import org.thingsboard.server.common.transport.config.ssl.SslCredentials;
 import org.thingsboard.server.transport.lwm2m.config.LwM2MTransportBootstrapConfig;
 import org.thingsboard.server.transport.lwm2m.config.LwM2MTransportServerConfig;
 
+@ExtendWith(MockitoExtension.class)
 class LwM2MServiceImplDiffblueTest {
+  @InjectMocks
+  private LwM2MServiceImpl lwM2MServiceImpl;
+
   /**
    * Test {@link LwM2MServiceImpl#getServerSecurityInfo(boolean)}.
    * <p>
@@ -29,9 +37,9 @@ class LwM2MServiceImplDiffblueTest {
    */
   @Test
   @DisplayName("Test getServerSecurityInfo(boolean)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"LwM2MServerSecurityConfigDefault LwM2MServiceImpl.getServerSecurityInfo(boolean)"})
   void testGetServerSecurityInfo() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     LwM2MTransportBootstrapConfig lwM2MTransportBootstrapConfig = mock(LwM2MTransportBootstrapConfig.class);
     when(lwM2MTransportBootstrapConfig.getId()).thenReturn(1);
@@ -68,9 +76,9 @@ class LwM2MServiceImplDiffblueTest {
    */
   @Test
   @DisplayName("Test getServerSecurityInfo(boolean)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"LwM2MServerSecurityConfigDefault LwM2MServiceImpl.getServerSecurityInfo(boolean)"})
   void testGetServerSecurityInfo2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     LwM2MTransportBootstrapConfig lwM2MTransportBootstrapConfig = mock(LwM2MTransportBootstrapConfig.class);
     when(lwM2MTransportBootstrapConfig.getId()).thenReturn(1);
@@ -107,9 +115,9 @@ class LwM2MServiceImplDiffblueTest {
    */
   @Test
   @DisplayName("Test getServerSecurityInfo(boolean)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"LwM2MServerSecurityConfigDefault LwM2MServiceImpl.getServerSecurityInfo(boolean)"})
   void testGetServerSecurityInfo3() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     SslCredentials sslCredentials = mock(SslCredentials.class);
     when(sslCredentials.getPublicKey()).thenReturn(new DHPublicKey());
@@ -152,9 +160,9 @@ class LwM2MServiceImplDiffblueTest {
    */
   @Test
   @DisplayName("Test getServerSecurityInfo(boolean)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"LwM2MServerSecurityConfigDefault LwM2MServiceImpl.getServerSecurityInfo(boolean)"})
   void testGetServerSecurityInfo4() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     SslCredentials sslCredentials = mock(SslCredentials.class);
     when(sslCredentials.getPublicKey()).thenReturn(new DHPublicKey());
@@ -192,31 +200,20 @@ class LwM2MServiceImplDiffblueTest {
   /**
    * Test {@link LwM2MServiceImpl#getServerSecurityInfo(boolean)}.
    * <ul>
-   *   <li>Given {@link Optional} with {@link LwM2MTransportBootstrapConfig}
-   * (default constructor).</li>
+   *   <li>Given {@link LwM2MServiceImpl}.</li>
+   *   <li>When {@code false}.</li>
+   *   <li>Then return {@code null}.</li>
    * </ul>
    * <p>
    * Method under test: {@link LwM2MServiceImpl#getServerSecurityInfo(boolean)}
    */
   @Test
-  @DisplayName("Test getServerSecurityInfo(boolean); given Optional with LwM2MTransportBootstrapConfig (default constructor)")
-  void testGetServerSecurityInfo_givenOptionalWithLwM2MTransportBootstrapConfig() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    LwM2MTransportServerConfig serverConfig = new LwM2MTransportServerConfig();
-    Optional<LwM2MTransportBootstrapConfig> bootstrapConfig = Optional.of(new LwM2MTransportBootstrapConfig());
-
-    // Act
-    LwM2MServerSecurityConfigDefault actualServerSecurityInfo = (new LwM2MServiceImpl(serverConfig, bootstrapConfig))
-        .getServerSecurityInfo(true);
-
-    // Assert
-    assertNull(actualServerSecurityInfo.getPort());
-    assertNull(actualServerSecurityInfo.getShortServerId());
-    assertNull(actualServerSecurityInfo.getSecurityPort());
-    assertNull(actualServerSecurityInfo.getHost());
-    assertNull(actualServerSecurityInfo.getSecurityHost());
+  @DisplayName("Test getServerSecurityInfo(boolean); given LwM2MServiceImpl; when 'false'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"LwM2MServerSecurityConfigDefault LwM2MServiceImpl.getServerSecurityInfo(boolean)"})
+  void testGetServerSecurityInfo_givenLwM2MServiceImpl_whenFalse_thenReturnNull() {
+    // Arrange, Act and Assert
+    assertNull(lwM2MServiceImpl.getServerSecurityInfo(false));
   }
 
   /**
@@ -230,9 +227,9 @@ class LwM2MServiceImplDiffblueTest {
    */
   @Test
   @DisplayName("Test getServerSecurityInfo(boolean); given 'X'; then return ServerCertificate is '/1hBWEFYQVg='")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"LwM2MServerSecurityConfigDefault LwM2MServiceImpl.getServerSecurityInfo(boolean)"})
   void testGetServerSecurityInfo_givenX_thenReturnServerCertificateIs1hBWEFYQVg() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     SslCredentials sslCredentials = mock(SslCredentials.class);
     when(sslCredentials.getPublicKey()).thenReturn(new OpenSshCertificateImpl());
@@ -271,22 +268,30 @@ class LwM2MServiceImplDiffblueTest {
   /**
    * Test {@link LwM2MServiceImpl#getServerSecurityInfo(boolean)}.
    * <ul>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Then return Port is {@code null}.</li>
    * </ul>
    * <p>
    * Method under test: {@link LwM2MServiceImpl#getServerSecurityInfo(boolean)}
    */
   @Test
-  @DisplayName("Test getServerSecurityInfo(boolean); then return 'null'")
-  void testGetServerSecurityInfo_thenReturnNull() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test getServerSecurityInfo(boolean); then return Port is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"LwM2MServerSecurityConfigDefault LwM2MServiceImpl.getServerSecurityInfo(boolean)"})
+  void testGetServerSecurityInfo_thenReturnPortIsNull() {
     // Arrange
     LwM2MTransportServerConfig serverConfig = new LwM2MTransportServerConfig();
-    Optional<LwM2MTransportBootstrapConfig> bootstrapConfig = Optional.empty();
+    Optional<LwM2MTransportBootstrapConfig> bootstrapConfig = Optional.of(new LwM2MTransportBootstrapConfig());
 
-    // Act and Assert
-    assertNull((new LwM2MServiceImpl(serverConfig, bootstrapConfig)).getServerSecurityInfo(true));
+    // Act
+    LwM2MServerSecurityConfigDefault actualServerSecurityInfo = (new LwM2MServiceImpl(serverConfig, bootstrapConfig))
+        .getServerSecurityInfo(true);
+
+    // Assert
+    assertNull(actualServerSecurityInfo.getPort());
+    assertNull(actualServerSecurityInfo.getShortServerId());
+    assertNull(actualServerSecurityInfo.getSecurityPort());
+    assertNull(actualServerSecurityInfo.getHost());
+    assertNull(actualServerSecurityInfo.getSecurityHost());
   }
 
   /**
@@ -299,9 +304,9 @@ class LwM2MServiceImplDiffblueTest {
    */
   @Test
   @DisplayName("Test getServerSecurityInfo(boolean); then return ServerCertificate is 'QVhBWEFYQVg='")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"LwM2MServerSecurityConfigDefault LwM2MServiceImpl.getServerSecurityInfo(boolean)"})
   void testGetServerSecurityInfo_thenReturnServerCertificateIsQVhBWEFYQVg() throws UnsupportedEncodingException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     SslCredentials sslCredentials = mock(SslCredentials.class);
     when(sslCredentials.getPublicKey()).thenReturn(new DHPublicKey());
@@ -347,9 +352,9 @@ class LwM2MServiceImplDiffblueTest {
    */
   @Test
   @DisplayName("Test getServerSecurityInfo(boolean); then return ServerCertificate is 'QVhBWEFYQVg='")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"LwM2MServerSecurityConfigDefault LwM2MServiceImpl.getServerSecurityInfo(boolean)"})
   void testGetServerSecurityInfo_thenReturnServerCertificateIsQVhBWEFYQVg2() throws UnsupportedEncodingException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     SslCredentials sslCredentials = mock(SslCredentials.class);
     when(sslCredentials.getPublicKey()).thenReturn(new OpenSshCertificateImpl());
@@ -395,9 +400,9 @@ class LwM2MServiceImplDiffblueTest {
    */
   @Test
   @DisplayName("Test getServerSecurityInfo(boolean); then return ServerCertificate is 'QQFBAUEBQQFBAUEBQQFBAQ=='")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"LwM2MServerSecurityConfigDefault LwM2MServiceImpl.getServerSecurityInfo(boolean)"})
   void testGetServerSecurityInfo_thenReturnServerCertificateIsQqfbauebqqfbauebqqfbaq() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     SslCredentials sslCredentials = mock(SslCredentials.class);
     when(sslCredentials.getPublicKey()).thenReturn(new DHPublicKey());
@@ -431,36 +436,5 @@ class LwM2MServiceImplDiffblueTest {
     assertEquals(1, actualServerSecurityInfo.getShortServerId().intValue());
     assertEquals(8080, actualServerSecurityInfo.getPort().intValue());
     assertEquals(8080, actualServerSecurityInfo.getSecurityPort().intValue());
-  }
-
-  /**
-   * Test {@link LwM2MServiceImpl#getServerSecurityInfo(boolean)}.
-   * <ul>
-   *   <li>When {@code false}.</li>
-   *   <li>Then return not BootstrapServerIs.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServiceImpl#getServerSecurityInfo(boolean)}
-   */
-  @Test
-  @DisplayName("Test getServerSecurityInfo(boolean); when 'false'; then return not BootstrapServerIs")
-  void testGetServerSecurityInfo_whenFalse_thenReturnNotBootstrapServerIs() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    LwM2MTransportServerConfig serverConfig = new LwM2MTransportServerConfig();
-    Optional<LwM2MTransportBootstrapConfig> bootstrapConfig = Optional.of(mock(LwM2MTransportBootstrapConfig.class));
-
-    // Act
-    LwM2MServerSecurityConfigDefault actualServerSecurityInfo = (new LwM2MServiceImpl(serverConfig, bootstrapConfig))
-        .getServerSecurityInfo(false);
-
-    // Assert
-    assertNull(actualServerSecurityInfo.getPort());
-    assertNull(actualServerSecurityInfo.getShortServerId());
-    assertNull(actualServerSecurityInfo.getSecurityPort());
-    assertNull(actualServerSecurityInfo.getHost());
-    assertNull(actualServerSecurityInfo.getSecurityHost());
-    assertFalse(actualServerSecurityInfo.isBootstrapServerIs());
   }
 }

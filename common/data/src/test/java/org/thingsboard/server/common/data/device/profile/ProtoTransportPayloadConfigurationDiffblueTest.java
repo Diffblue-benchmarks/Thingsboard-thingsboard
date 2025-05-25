@@ -4,23 +4,26 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.TransportPayloadType;
 
 class ProtoTransportPayloadConfigurationDiffblueTest {
   /**
-   * Test
-   * {@link ProtoTransportPayloadConfiguration#getTelemetryDynamicMessageDescriptor(String)}.
+   * Test {@link ProtoTransportPayloadConfiguration#getTelemetryDynamicMessageDescriptor(String)}.
    * <ul>
    *   <li>When {@code Device Telemetry Proto Schema}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ProtoTransportPayloadConfiguration#getTelemetryDynamicMessageDescriptor(String)}
+   * Method under test: {@link ProtoTransportPayloadConfiguration#getTelemetryDynamicMessageDescriptor(String)}
    */
   @Test
   @DisplayName("Test getTelemetryDynamicMessageDescriptor(String); when 'Device Telemetry Proto Schema'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "com.google.protobuf.Descriptors.Descriptor ProtoTransportPayloadConfiguration.getTelemetryDynamicMessageDescriptor(String)"})
   void testGetTelemetryDynamicMessageDescriptor_whenDeviceTelemetryProtoSchema() {
     // Arrange, Act and Assert
     assertNull((new ProtoTransportPayloadConfiguration())
@@ -28,31 +31,33 @@ class ProtoTransportPayloadConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link ProtoTransportPayloadConfiguration#getTelemetryDynamicMessageDescriptor(String)}.
+   * Test {@link ProtoTransportPayloadConfiguration#getTelemetryDynamicMessageDescriptor(String)}.
    * <ul>
    *   <li>When empty string.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ProtoTransportPayloadConfiguration#getTelemetryDynamicMessageDescriptor(String)}
+   * Method under test: {@link ProtoTransportPayloadConfiguration#getTelemetryDynamicMessageDescriptor(String)}
    */
   @Test
   @DisplayName("Test getTelemetryDynamicMessageDescriptor(String); when empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "com.google.protobuf.Descriptors.Descriptor ProtoTransportPayloadConfiguration.getTelemetryDynamicMessageDescriptor(String)"})
   void testGetTelemetryDynamicMessageDescriptor_whenEmptyString() {
     // Arrange, Act and Assert
     assertNull((new ProtoTransportPayloadConfiguration()).getTelemetryDynamicMessageDescriptor(""));
   }
 
   /**
-   * Test
-   * {@link ProtoTransportPayloadConfiguration#getAttributesDynamicMessageDescriptor(String)}.
+   * Test {@link ProtoTransportPayloadConfiguration#getAttributesDynamicMessageDescriptor(String)}.
    * <p>
-   * Method under test:
-   * {@link ProtoTransportPayloadConfiguration#getAttributesDynamicMessageDescriptor(String)}
+   * Method under test: {@link ProtoTransportPayloadConfiguration#getAttributesDynamicMessageDescriptor(String)}
    */
   @Test
   @DisplayName("Test getAttributesDynamicMessageDescriptor(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "com.google.protobuf.Descriptors.Descriptor ProtoTransportPayloadConfiguration.getAttributesDynamicMessageDescriptor(String)"})
   void testGetAttributesDynamicMessageDescriptor() {
     // Arrange, Act and Assert
     assertNull((new ProtoTransportPayloadConfiguration())
@@ -60,14 +65,15 @@ class ProtoTransportPayloadConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link ProtoTransportPayloadConfiguration#getAttributesDynamicMessageDescriptor(String)}.
+   * Test {@link ProtoTransportPayloadConfiguration#getAttributesDynamicMessageDescriptor(String)}.
    * <p>
-   * Method under test:
-   * {@link ProtoTransportPayloadConfiguration#getAttributesDynamicMessageDescriptor(String)}
+   * Method under test: {@link ProtoTransportPayloadConfiguration#getAttributesDynamicMessageDescriptor(String)}
    */
   @Test
   @DisplayName("Test getAttributesDynamicMessageDescriptor(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "com.google.protobuf.Descriptors.Descriptor ProtoTransportPayloadConfiguration.getAttributesDynamicMessageDescriptor(String)"})
   void testGetAttributesDynamicMessageDescriptor2() {
     // Arrange
     ProtoTransportPayloadConfiguration protoTransportPayloadConfiguration = new ProtoTransportPayloadConfiguration();
@@ -80,34 +86,36 @@ class ProtoTransportPayloadConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link ProtoTransportPayloadConfiguration#getAttributesDynamicMessageDescriptor(String)}.
+   * Test {@link ProtoTransportPayloadConfiguration#getAttributesDynamicMessageDescriptor(String)}.
    * <ul>
    *   <li>When empty string.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ProtoTransportPayloadConfiguration#getAttributesDynamicMessageDescriptor(String)}
+   * Method under test: {@link ProtoTransportPayloadConfiguration#getAttributesDynamicMessageDescriptor(String)}
    */
   @Test
   @DisplayName("Test getAttributesDynamicMessageDescriptor(String); when empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "com.google.protobuf.Descriptors.Descriptor ProtoTransportPayloadConfiguration.getAttributesDynamicMessageDescriptor(String)"})
   void testGetAttributesDynamicMessageDescriptor_whenEmptyString() {
     // Arrange, Act and Assert
     assertNull((new ProtoTransportPayloadConfiguration()).getAttributesDynamicMessageDescriptor(""));
   }
 
   /**
-   * Test
-   * {@link ProtoTransportPayloadConfiguration#getRpcResponseDynamicMessageDescriptor(String)}.
+   * Test {@link ProtoTransportPayloadConfiguration#getRpcResponseDynamicMessageDescriptor(String)}.
    * <ul>
    *   <li>When {@code Device Rpc Response Proto Schema}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ProtoTransportPayloadConfiguration#getRpcResponseDynamicMessageDescriptor(String)}
+   * Method under test: {@link ProtoTransportPayloadConfiguration#getRpcResponseDynamicMessageDescriptor(String)}
    */
   @Test
   @DisplayName("Test getRpcResponseDynamicMessageDescriptor(String); when 'Device Rpc Response Proto Schema'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "com.google.protobuf.Descriptors.Descriptor ProtoTransportPayloadConfiguration.getRpcResponseDynamicMessageDescriptor(String)"})
   void testGetRpcResponseDynamicMessageDescriptor_whenDeviceRpcResponseProtoSchema() {
     // Arrange, Act and Assert
     assertNull((new ProtoTransportPayloadConfiguration())
@@ -115,35 +123,36 @@ class ProtoTransportPayloadConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link ProtoTransportPayloadConfiguration#getRpcResponseDynamicMessageDescriptor(String)}.
+   * Test {@link ProtoTransportPayloadConfiguration#getRpcResponseDynamicMessageDescriptor(String)}.
    * <ul>
    *   <li>When empty string.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ProtoTransportPayloadConfiguration#getRpcResponseDynamicMessageDescriptor(String)}
+   * Method under test: {@link ProtoTransportPayloadConfiguration#getRpcResponseDynamicMessageDescriptor(String)}
    */
   @Test
   @DisplayName("Test getRpcResponseDynamicMessageDescriptor(String); when empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "com.google.protobuf.Descriptors.Descriptor ProtoTransportPayloadConfiguration.getRpcResponseDynamicMessageDescriptor(String)"})
   void testGetRpcResponseDynamicMessageDescriptor_whenEmptyString() {
     // Arrange, Act and Assert
     assertNull((new ProtoTransportPayloadConfiguration()).getRpcResponseDynamicMessageDescriptor(""));
   }
 
   /**
-   * Test
-   * {@link ProtoTransportPayloadConfiguration#getRpcResponseDynamicMessageDescriptor(String)}.
+   * Test {@link ProtoTransportPayloadConfiguration#getRpcResponseDynamicMessageDescriptor(String)}.
    * <ul>
-   *   <li>When
-   * {@link ProtoTransportPayloadConfiguration#RPC_RESPONSE_PROTO_SCHEMA}.</li>
+   *   <li>When {@link ProtoTransportPayloadConfiguration#RPC_RESPONSE_PROTO_SCHEMA}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ProtoTransportPayloadConfiguration#getRpcResponseDynamicMessageDescriptor(String)}
+   * Method under test: {@link ProtoTransportPayloadConfiguration#getRpcResponseDynamicMessageDescriptor(String)}
    */
   @Test
   @DisplayName("Test getRpcResponseDynamicMessageDescriptor(String); when RPC_RESPONSE_PROTO_SCHEMA")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "com.google.protobuf.Descriptors.Descriptor ProtoTransportPayloadConfiguration.getRpcResponseDynamicMessageDescriptor(String)"})
   void testGetRpcResponseDynamicMessageDescriptor_whenRpc_response_proto_schema() {
     // Arrange, Act and Assert
     assertNull((new ProtoTransportPayloadConfiguration())
@@ -151,14 +160,14 @@ class ProtoTransportPayloadConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link ProtoTransportPayloadConfiguration#getDeviceRpcResponseProtoSchema()}.
+   * Test {@link ProtoTransportPayloadConfiguration#getDeviceRpcResponseProtoSchema()}.
    * <p>
-   * Method under test:
-   * {@link ProtoTransportPayloadConfiguration#getDeviceRpcResponseProtoSchema()}
+   * Method under test: {@link ProtoTransportPayloadConfiguration#getDeviceRpcResponseProtoSchema()}
    */
   @Test
   @DisplayName("Test getDeviceRpcResponseProtoSchema()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String ProtoTransportPayloadConfiguration.getDeviceRpcResponseProtoSchema()"})
   void testGetDeviceRpcResponseProtoSchema() {
     // Arrange, Act and Assert
     assertEquals("syntax =\"proto3\";\npackage rpc;\n\nmessage RpcResponseMsg {\n  optional string payload = 1;\n}",
@@ -166,14 +175,14 @@ class ProtoTransportPayloadConfigurationDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link ProtoTransportPayloadConfiguration#getDeviceRpcRequestProtoSchema()}.
+   * Test {@link ProtoTransportPayloadConfiguration#getDeviceRpcRequestProtoSchema()}.
    * <p>
-   * Method under test:
-   * {@link ProtoTransportPayloadConfiguration#getDeviceRpcRequestProtoSchema()}
+   * Method under test: {@link ProtoTransportPayloadConfiguration#getDeviceRpcRequestProtoSchema()}
    */
   @Test
   @DisplayName("Test getDeviceRpcRequestProtoSchema()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String ProtoTransportPayloadConfiguration.getDeviceRpcRequestProtoSchema()"})
   void testGetDeviceRpcRequestProtoSchema() {
     // Arrange, Act and Assert
     assertEquals(
@@ -184,8 +193,7 @@ class ProtoTransportPayloadConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link ProtoTransportPayloadConfiguration#equals(Object)}, and
-   * {@link ProtoTransportPayloadConfiguration#hashCode()}.
+   * Test {@link ProtoTransportPayloadConfiguration#equals(Object)}, and {@link ProtoTransportPayloadConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -199,6 +207,9 @@ class ProtoTransportPayloadConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ProtoTransportPayloadConfiguration.equals(Object)",
+      "int ProtoTransportPayloadConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ProtoTransportPayloadConfiguration protoTransportPayloadConfiguration = new ProtoTransportPayloadConfiguration();
@@ -216,8 +227,7 @@ class ProtoTransportPayloadConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link ProtoTransportPayloadConfiguration#equals(Object)}, and
-   * {@link ProtoTransportPayloadConfiguration#hashCode()}.
+   * Test {@link ProtoTransportPayloadConfiguration#equals(Object)}, and {@link ProtoTransportPayloadConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -231,6 +241,9 @@ class ProtoTransportPayloadConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ProtoTransportPayloadConfiguration.equals(Object)",
+      "int ProtoTransportPayloadConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ProtoTransportPayloadConfiguration protoTransportPayloadConfiguration = new ProtoTransportPayloadConfiguration();
@@ -254,6 +267,9 @@ class ProtoTransportPayloadConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ProtoTransportPayloadConfiguration.equals(Object)",
+      "int ProtoTransportPayloadConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ProtoTransportPayloadConfiguration protoTransportPayloadConfiguration = new ProtoTransportPayloadConfiguration();
@@ -279,6 +295,9 @@ class ProtoTransportPayloadConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ProtoTransportPayloadConfiguration.equals(Object)",
+      "int ProtoTransportPayloadConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ProtoTransportPayloadConfiguration protoTransportPayloadConfiguration = new ProtoTransportPayloadConfiguration();
@@ -304,6 +323,9 @@ class ProtoTransportPayloadConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ProtoTransportPayloadConfiguration.equals(Object)",
+      "int ProtoTransportPayloadConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     ProtoTransportPayloadConfiguration protoTransportPayloadConfiguration = new ProtoTransportPayloadConfiguration();
@@ -325,6 +347,9 @@ class ProtoTransportPayloadConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ProtoTransportPayloadConfiguration.equals(Object)",
+      "int ProtoTransportPayloadConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     ProtoTransportPayloadConfiguration protoTransportPayloadConfiguration = new ProtoTransportPayloadConfiguration();
@@ -340,34 +365,37 @@ class ProtoTransportPayloadConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link ProtoTransportPayloadConfiguration}
-   *   <li>
-   * {@link ProtoTransportPayloadConfiguration#setEnableCompatibilityWithJsonPayloadFormat(boolean)}
-   *   <li>
-   * {@link ProtoTransportPayloadConfiguration#setUseJsonPayloadFormatForDefaultDownlinkTopics(boolean)}
-   *   <li>
-   * {@link ProtoTransportPayloadConfiguration#setDeviceAttributesProtoSchema(String)}
-   *   <li>
-   * {@link ProtoTransportPayloadConfiguration#setDeviceRpcRequestProtoSchema(String)}
-   *   <li>
-   * {@link ProtoTransportPayloadConfiguration#setDeviceRpcResponseProtoSchema(String)}
-   *   <li>
-   * {@link ProtoTransportPayloadConfiguration#setDeviceTelemetryProtoSchema(String)}
+   *   <li>default or parameterless constructor of {@link ProtoTransportPayloadConfiguration}
+   *   <li>{@link ProtoTransportPayloadConfiguration#setEnableCompatibilityWithJsonPayloadFormat(boolean)}
+   *   <li>{@link ProtoTransportPayloadConfiguration#setUseJsonPayloadFormatForDefaultDownlinkTopics(boolean)}
+   *   <li>{@link ProtoTransportPayloadConfiguration#setDeviceAttributesProtoSchema(String)}
+   *   <li>{@link ProtoTransportPayloadConfiguration#setDeviceRpcRequestProtoSchema(String)}
+   *   <li>{@link ProtoTransportPayloadConfiguration#setDeviceRpcResponseProtoSchema(String)}
+   *   <li>{@link ProtoTransportPayloadConfiguration#setDeviceTelemetryProtoSchema(String)}
    *   <li>{@link ProtoTransportPayloadConfiguration#toString()}
-   *   <li>
-   * {@link ProtoTransportPayloadConfiguration#getDeviceAttributesProtoSchema()}
-   *   <li>
-   * {@link ProtoTransportPayloadConfiguration#getDeviceTelemetryProtoSchema()}
+   *   <li>{@link ProtoTransportPayloadConfiguration#getDeviceAttributesProtoSchema()}
+   *   <li>{@link ProtoTransportPayloadConfiguration#getDeviceTelemetryProtoSchema()}
    *   <li>{@link ProtoTransportPayloadConfiguration#getTransportPayloadType()}
-   *   <li>
-   * {@link ProtoTransportPayloadConfiguration#isEnableCompatibilityWithJsonPayloadFormat()}
-   *   <li>
-   * {@link ProtoTransportPayloadConfiguration#isUseJsonPayloadFormatForDefaultDownlinkTopics()}
+   *   <li>{@link ProtoTransportPayloadConfiguration#isEnableCompatibilityWithJsonPayloadFormat()}
+   *   <li>{@link ProtoTransportPayloadConfiguration#isUseJsonPayloadFormatForDefaultDownlinkTopics()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ProtoTransportPayloadConfiguration.<init>()",
+      "String ProtoTransportPayloadConfiguration.getDeviceAttributesProtoSchema()",
+      "String ProtoTransportPayloadConfiguration.getDeviceTelemetryProtoSchema()",
+      "TransportPayloadType ProtoTransportPayloadConfiguration.getTransportPayloadType()",
+      "boolean ProtoTransportPayloadConfiguration.isEnableCompatibilityWithJsonPayloadFormat()",
+      "boolean ProtoTransportPayloadConfiguration.isUseJsonPayloadFormatForDefaultDownlinkTopics()",
+      "void ProtoTransportPayloadConfiguration.setDeviceAttributesProtoSchema(String)",
+      "void ProtoTransportPayloadConfiguration.setDeviceRpcRequestProtoSchema(String)",
+      "void ProtoTransportPayloadConfiguration.setDeviceRpcResponseProtoSchema(String)",
+      "void ProtoTransportPayloadConfiguration.setDeviceTelemetryProtoSchema(String)",
+      "void ProtoTransportPayloadConfiguration.setEnableCompatibilityWithJsonPayloadFormat(boolean)",
+      "void ProtoTransportPayloadConfiguration.setUseJsonPayloadFormatForDefaultDownlinkTopics(boolean)",
+      "String ProtoTransportPayloadConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     ProtoTransportPayloadConfiguration actualProtoTransportPayloadConfiguration = new ProtoTransportPayloadConfiguration();
@@ -386,7 +414,7 @@ class ProtoTransportPayloadConfigurationDiffblueTest {
     boolean actualIsEnableCompatibilityWithJsonPayloadFormatResult = actualProtoTransportPayloadConfiguration
         .isEnableCompatibilityWithJsonPayloadFormat();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Device Attributes Proto Schema", actualDeviceAttributesProtoSchema);
     assertEquals("Device Telemetry Proto Schema", actualDeviceTelemetryProtoSchema);
     assertEquals(

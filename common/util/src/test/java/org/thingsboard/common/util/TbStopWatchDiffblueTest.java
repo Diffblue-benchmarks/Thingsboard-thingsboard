@@ -5,9 +5,12 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.util.StopWatch;
+import org.springframework.util.StopWatch.TaskInfo;
 
 class TbStopWatchDiffblueTest {
   /**
@@ -17,6 +20,8 @@ class TbStopWatchDiffblueTest {
    */
   @Test
   @DisplayName("Test create()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbStopWatch TbStopWatch.create()"})
   void testCreate() {
     // Arrange and Act
     TbStopWatch actualCreateResult = TbStopWatch.create();
@@ -39,6 +44,8 @@ class TbStopWatchDiffblueTest {
    */
   @Test
   @DisplayName("Test create(String) with 'String'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbStopWatch TbStopWatch.create(String)"})
   void testCreateWithString() {
     // Arrange and Act
     TbStopWatch actualCreateResult = TbStopWatch.create("Task Name");
@@ -65,6 +72,8 @@ class TbStopWatchDiffblueTest {
    */
   @Test
   @DisplayName("Test startNew(String); given create; then create LastTaskName is empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbStopWatch.startNew(String)"})
   void testStartNew_givenCreate_thenCreateLastTaskNameIsEmptyString() throws IllegalStateException {
     // Arrange
     TbStopWatch createResult = TbStopWatch.create();
@@ -74,13 +83,13 @@ class TbStopWatchDiffblueTest {
 
     // Assert
     assertEquals("", createResult.getLastTaskName());
-    StopWatch.TaskInfo lastTaskInfo = createResult.getLastTaskInfo();
+    TaskInfo lastTaskInfo = createResult.getLastTaskInfo();
     assertEquals("", lastTaskInfo.getTaskName());
     assertEquals("Task Name", createResult.currentTaskName());
     assertEquals(0L, createResult.getLastTaskTimeMillis());
     assertEquals(0L, lastTaskInfo.getTimeMillis());
     assertEquals(1, createResult.getTaskCount());
-    StopWatch.TaskInfo[] taskInfo = createResult.getTaskInfo();
+    TaskInfo[] taskInfo = createResult.getTaskInfo();
     assertEquals(1, taskInfo.length);
     assertSame(lastTaskInfo, taskInfo[0]);
   }
@@ -96,6 +105,8 @@ class TbStopWatchDiffblueTest {
    */
   @Test
   @DisplayName("Test stopAndGetTotalTimeMillis(); given create; then create LastTaskName is empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long TbStopWatch.stopAndGetTotalTimeMillis()"})
   void testStopAndGetTotalTimeMillis_givenCreate_thenCreateLastTaskNameIsEmptyString() throws IllegalStateException {
     // Arrange
     TbStopWatch createResult = TbStopWatch.create();
@@ -105,14 +116,14 @@ class TbStopWatchDiffblueTest {
 
     // Assert
     assertEquals("", createResult.getLastTaskName());
-    StopWatch.TaskInfo lastTaskInfo = createResult.getLastTaskInfo();
+    TaskInfo lastTaskInfo = createResult.getLastTaskInfo();
     assertEquals("", lastTaskInfo.getTaskName());
     assertNull(createResult.currentTaskName());
     assertEquals(0L, createResult.getLastTaskTimeMillis());
     assertEquals(0L, lastTaskInfo.getTimeMillis());
     assertEquals(0L, actualStopAndGetTotalTimeMillisResult);
     assertEquals(1, createResult.getTaskCount());
-    StopWatch.TaskInfo[] taskInfo = createResult.getTaskInfo();
+    TaskInfo[] taskInfo = createResult.getTaskInfo();
     assertEquals(1, taskInfo.length);
     assertFalse(createResult.isRunning());
     assertSame(lastTaskInfo, taskInfo[0]);
@@ -129,6 +140,8 @@ class TbStopWatchDiffblueTest {
    */
   @Test
   @DisplayName("Test stopAndGetTotalTimeNanos(); given create; then create LastTaskName is empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long TbStopWatch.stopAndGetTotalTimeNanos()"})
   void testStopAndGetTotalTimeNanos_givenCreate_thenCreateLastTaskNameIsEmptyString() throws IllegalStateException {
     // Arrange
     TbStopWatch createResult = TbStopWatch.create();
@@ -138,13 +151,13 @@ class TbStopWatchDiffblueTest {
 
     // Assert
     assertEquals("", createResult.getLastTaskName());
-    StopWatch.TaskInfo lastTaskInfo = createResult.getLastTaskInfo();
+    TaskInfo lastTaskInfo = createResult.getLastTaskInfo();
     assertEquals("", lastTaskInfo.getTaskName());
     assertNull(createResult.currentTaskName());
     assertEquals(0L, createResult.getLastTaskTimeMillis());
     assertEquals(0L, lastTaskInfo.getTimeMillis());
     assertEquals(1, createResult.getTaskCount());
-    StopWatch.TaskInfo[] taskInfo = createResult.getTaskInfo();
+    TaskInfo[] taskInfo = createResult.getTaskInfo();
     assertEquals(1, taskInfo.length);
     assertFalse(createResult.isRunning());
     assertSame(lastTaskInfo, taskInfo[0]);
@@ -161,6 +174,8 @@ class TbStopWatchDiffblueTest {
    */
   @Test
   @DisplayName("Test stopAndGetLastTaskTimeMillis(); given create; then create LastTaskName is empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long TbStopWatch.stopAndGetLastTaskTimeMillis()"})
   void testStopAndGetLastTaskTimeMillis_givenCreate_thenCreateLastTaskNameIsEmptyString() throws IllegalStateException {
     // Arrange
     TbStopWatch createResult = TbStopWatch.create();
@@ -170,14 +185,14 @@ class TbStopWatchDiffblueTest {
 
     // Assert
     assertEquals("", createResult.getLastTaskName());
-    StopWatch.TaskInfo lastTaskInfo = createResult.getLastTaskInfo();
+    TaskInfo lastTaskInfo = createResult.getLastTaskInfo();
     assertEquals("", lastTaskInfo.getTaskName());
     assertNull(createResult.currentTaskName());
     assertEquals(0L, createResult.getLastTaskTimeMillis());
     assertEquals(0L, lastTaskInfo.getTimeMillis());
     assertEquals(0L, actualStopAndGetLastTaskTimeMillisResult);
     assertEquals(1, createResult.getTaskCount());
-    StopWatch.TaskInfo[] taskInfo = createResult.getTaskInfo();
+    TaskInfo[] taskInfo = createResult.getTaskInfo();
     assertEquals(1, taskInfo.length);
     assertFalse(createResult.isRunning());
     assertSame(lastTaskInfo, taskInfo[0]);
@@ -194,6 +209,8 @@ class TbStopWatchDiffblueTest {
    */
   @Test
   @DisplayName("Test stopAndGetLastTaskTimeNanos(); given create; then create LastTaskName is empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long TbStopWatch.stopAndGetLastTaskTimeNanos()"})
   void testStopAndGetLastTaskTimeNanos_givenCreate_thenCreateLastTaskNameIsEmptyString() throws IllegalStateException {
     // Arrange
     TbStopWatch createResult = TbStopWatch.create();
@@ -203,13 +220,13 @@ class TbStopWatchDiffblueTest {
 
     // Assert
     assertEquals("", createResult.getLastTaskName());
-    StopWatch.TaskInfo lastTaskInfo = createResult.getLastTaskInfo();
+    TaskInfo lastTaskInfo = createResult.getLastTaskInfo();
     assertEquals("", lastTaskInfo.getTaskName());
     assertNull(createResult.currentTaskName());
     assertEquals(0L, createResult.getLastTaskTimeMillis());
     assertEquals(0L, lastTaskInfo.getTimeMillis());
     assertEquals(1, createResult.getTaskCount());
-    StopWatch.TaskInfo[] taskInfo = createResult.getTaskInfo();
+    TaskInfo[] taskInfo = createResult.getTaskInfo();
     assertEquals(1, taskInfo.length);
     assertFalse(createResult.isRunning());
     assertSame(lastTaskInfo, taskInfo[0]);
@@ -218,11 +235,12 @@ class TbStopWatchDiffblueTest {
   /**
    * Test new {@link TbStopWatch} (default constructor).
    * <p>
-   * Method under test: default or parameterless constructor of
-   * {@link TbStopWatch}
+   * Method under test: default or parameterless constructor of {@link TbStopWatch}
    */
   @Test
   @DisplayName("Test new TbStopWatch (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbStopWatch.<init>()"})
   void testNewTbStopWatch() {
     // Arrange and Act
     TbStopWatch actualTbStopWatch = new TbStopWatch();

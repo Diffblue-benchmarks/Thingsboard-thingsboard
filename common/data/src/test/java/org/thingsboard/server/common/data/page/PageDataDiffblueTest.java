@@ -6,10 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class PageDataDiffblueTest {
@@ -20,6 +22,8 @@ class PageDataDiffblueTest {
    */
   @Test
   @DisplayName("Test new PageData()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PageData.<init>()"})
   void testNewPageData() {
     // Arrange and Act
     PageData<Object> actualPageData = new PageData<>();
@@ -43,6 +47,8 @@ class PageDataDiffblueTest {
    */
   @Test
   @DisplayName("Test new PageData(List, int, long, boolean); given '42'; when ArrayList() add '42'; then return Data is ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PageData.<init>(List, int, long, boolean)"})
   void testNewPageData_given42_whenArrayListAdd42_thenReturnDataIsArrayList() {
     // Arrange
     ArrayList<Object> data = new ArrayList<>();
@@ -70,6 +76,8 @@ class PageDataDiffblueTest {
    */
   @Test
   @DisplayName("Test new PageData(List, int, long, boolean); given '42'; when ArrayList() add '42'; then return Data is ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PageData.<init>(List, int, long, boolean)"})
   void testNewPageData_given42_whenArrayListAdd42_thenReturnDataIsArrayList2() {
     // Arrange
     ArrayList<Object> data = new ArrayList<>();
@@ -97,6 +105,8 @@ class PageDataDiffblueTest {
    */
   @Test
   @DisplayName("Test new PageData(List, int, long, boolean); when ArrayList(); then return Data Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PageData.<init>(List, int, long, boolean)"})
   void testNewPageData_whenArrayList_thenReturnDataEmpty() {
     // Arrange and Act
     PageData<Object> actualPageData = new PageData<>(new ArrayList<>(), 1, 1L, true);
@@ -115,6 +125,8 @@ class PageDataDiffblueTest {
    */
   @Test
   @DisplayName("Test emptyPageData()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"PageData PageData.emptyPageData()"})
   void testEmptyPageData() {
     // Arrange and Act
     PageData<Object> actualEmptyPageDataResult = PageData.emptyPageData();
@@ -141,6 +153,8 @@ class PageDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PageData.equals(Object)", "int PageData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     PageData<Object> emptyPageDataResult = PageData.emptyPageData();
@@ -167,6 +181,8 @@ class PageDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PageData.equals(Object)", "int PageData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     PageData<Object> pageData = new PageData<>();
@@ -193,6 +209,8 @@ class PageDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PageData.equals(Object)", "int PageData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     PageData<Object> emptyPageDataResult = PageData.emptyPageData();
@@ -214,6 +232,8 @@ class PageDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PageData.equals(Object)", "int PageData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     PageData<Object> pageData = new PageData<>(new ArrayList<>(), 1, 1L, true);
@@ -234,6 +254,8 @@ class PageDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PageData.equals(Object)", "int PageData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     PageData<Object> pageData = new PageData<>(new ArrayList<>(), 0, 1L, true);
@@ -254,6 +276,8 @@ class PageDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PageData.equals(Object)", "int PageData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     PageData<Object> pageData = new PageData<>(new ArrayList<>(), 0, 0L, true);
@@ -274,6 +298,8 @@ class PageDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PageData.equals(Object)", "int PageData.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     PageData<Object> emptyPageDataResult = PageData.emptyPageData();
@@ -293,6 +319,8 @@ class PageDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PageData.equals(Object)", "int PageData.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     PageData<Object> emptyPageDataResult = PageData.emptyPageData();
@@ -315,6 +343,9 @@ class PageDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List PageData.getData()", "long PageData.getTotalElements()", "int PageData.getTotalPages()",
+      "boolean PageData.hasNext()", "String PageData.toString()"})
   void testGettersAndSetters() {
     // Arrange
     PageData<Object> emptyPageDataResult = PageData.emptyPageData();
@@ -340,6 +371,8 @@ class PageDataDiffblueTest {
    */
   @Test
   @DisplayName("Test mapData(Function)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"PageData PageData.mapData(Function)"})
   void testMapData() {
     // Arrange
     PageData<Object> pageData = new PageData<>(new ArrayList<>(), 3, 3L, true);
@@ -359,6 +392,8 @@ class PageDataDiffblueTest {
    */
   @Test
   @DisplayName("Test mapData(Function); given emptyPageData; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"PageData PageData.mapData(Function)"})
   void testMapData_givenEmptyPageData_thenReturnEmpty_page_data() {
     // Arrange
     PageData<Object> emptyPageDataResult = PageData.emptyPageData();

@@ -3,13 +3,14 @@ package org.thingsboard.server.common.data;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ImageDescriptorDiffblueTest {
   /**
-   * Test {@link ImageDescriptor#equals(Object)}, and
-   * {@link ImageDescriptor#hashCode()}.
+   * Test {@link ImageDescriptor#equals(Object)}, and {@link ImageDescriptor#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -23,6 +24,8 @@ class ImageDescriptorDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageDescriptor.equals(Object)", "int ImageDescriptor.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ImageDescriptor previewDescriptor = new ImageDescriptor();
@@ -112,8 +115,7 @@ class ImageDescriptorDiffblueTest {
   }
 
   /**
-   * Test {@link ImageDescriptor#equals(Object)}, and
-   * {@link ImageDescriptor#hashCode()}.
+   * Test {@link ImageDescriptor#equals(Object)}, and {@link ImageDescriptor#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -127,6 +129,8 @@ class ImageDescriptorDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageDescriptor.equals(Object)", "int ImageDescriptor.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ImageDescriptor previewDescriptor = new ImageDescriptor();
@@ -186,6 +190,8 @@ class ImageDescriptorDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageDescriptor.equals(Object)", "int ImageDescriptor.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ImageDescriptor previewDescriptor = new ImageDescriptor();
@@ -283,6 +289,8 @@ class ImageDescriptorDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageDescriptor.equals(Object)", "int ImageDescriptor.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ImageDescriptor previewDescriptor = new ImageDescriptor();
@@ -380,6 +388,8 @@ class ImageDescriptorDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageDescriptor.equals(Object)", "int ImageDescriptor.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     ImageDescriptor previewDescriptor = new ImageDescriptor();
@@ -477,6 +487,8 @@ class ImageDescriptorDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageDescriptor.equals(Object)", "int ImageDescriptor.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     ImageDescriptor previewDescriptor = new ImageDescriptor();
@@ -574,6 +586,8 @@ class ImageDescriptorDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageDescriptor.equals(Object)", "int ImageDescriptor.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     ImageDescriptor previewDescriptor = new ImageDescriptor();
@@ -671,6 +685,8 @@ class ImageDescriptorDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageDescriptor.equals(Object)", "int ImageDescriptor.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     ImageDescriptor previewDescriptor = new ImageDescriptor();
@@ -768,6 +784,8 @@ class ImageDescriptorDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageDescriptor.equals(Object)", "int ImageDescriptor.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     ImageDescriptor previewDescriptor = new ImageDescriptor();
@@ -865,6 +883,8 @@ class ImageDescriptorDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageDescriptor.equals(Object)", "int ImageDescriptor.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     ImageDescriptor previewDescriptor = new ImageDescriptor();
@@ -962,6 +982,8 @@ class ImageDescriptorDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageDescriptor.equals(Object)", "int ImageDescriptor.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     ImageDescriptor previewDescriptor = new ImageDescriptor();
@@ -1059,6 +1081,8 @@ class ImageDescriptorDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageDescriptor.equals(Object)", "int ImageDescriptor.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     ImageDescriptor previewDescriptor = new ImageDescriptor();
@@ -1116,6 +1140,8 @@ class ImageDescriptorDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageDescriptor.equals(Object)", "int ImageDescriptor.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     ImageDescriptor previewDescriptor = new ImageDescriptor();
@@ -1185,6 +1211,13 @@ class ImageDescriptorDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ImageDescriptor.<init>()", "String ImageDescriptor.getEtag()",
+      "int ImageDescriptor.getHeight()", "String ImageDescriptor.getMediaType()",
+      "ImageDescriptor ImageDescriptor.getPreviewDescriptor()", "long ImageDescriptor.getSize()",
+      "int ImageDescriptor.getWidth()", "void ImageDescriptor.setEtag(String)", "void ImageDescriptor.setHeight(int)",
+      "void ImageDescriptor.setMediaType(String)", "void ImageDescriptor.setPreviewDescriptor(ImageDescriptor)",
+      "void ImageDescriptor.setSize(long)", "void ImageDescriptor.setWidth(int)", "String ImageDescriptor.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     ImageDescriptor actualImageDescriptor = new ImageDescriptor();
@@ -1229,7 +1262,7 @@ class ImageDescriptorDiffblueTest {
     ImageDescriptor actualPreviewDescriptor = actualImageDescriptor.getPreviewDescriptor();
     long actualSize = actualImageDescriptor.getSize();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Etag", actualEtag);
     assertEquals(
         "ImageDescriptor(mediaType=Media Type, width=1, height=1, size=3, etag=Etag, previewDescriptor"

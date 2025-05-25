@@ -5,18 +5,21 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class CalculateDeltaNodeConfigurationDiffblueTest {
   /**
    * Test {@link CalculateDeltaNodeConfiguration#defaultConfiguration()}.
    * <p>
-   * Method under test:
-   * {@link CalculateDeltaNodeConfiguration#defaultConfiguration()}
+   * Method under test: {@link CalculateDeltaNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"CalculateDeltaNodeConfiguration CalculateDeltaNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
     // Arrange and Act
     CalculateDeltaNodeConfiguration actualDefaultConfigurationResult = (new CalculateDeltaNodeConfiguration())
@@ -34,8 +37,7 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link CalculateDeltaNodeConfiguration#equals(Object)}, and
-   * {@link CalculateDeltaNodeConfiguration#hashCode()}.
+   * Test {@link CalculateDeltaNodeConfiguration#equals(Object)}, and {@link CalculateDeltaNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -49,6 +51,9 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CalculateDeltaNodeConfiguration.equals(Object)",
+      "int CalculateDeltaNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     CalculateDeltaNodeConfiguration calculateDeltaNodeConfiguration = new CalculateDeltaNodeConfiguration();
@@ -61,8 +66,7 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link CalculateDeltaNodeConfiguration#equals(Object)}, and
-   * {@link CalculateDeltaNodeConfiguration#hashCode()}.
+   * Test {@link CalculateDeltaNodeConfiguration#equals(Object)}, and {@link CalculateDeltaNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -76,6 +80,9 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CalculateDeltaNodeConfiguration.equals(Object)",
+      "int CalculateDeltaNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     CalculateDeltaNodeConfiguration calculateDeltaNodeConfiguration = new CalculateDeltaNodeConfiguration();
@@ -91,8 +98,7 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link CalculateDeltaNodeConfiguration#equals(Object)}, and
-   * {@link CalculateDeltaNodeConfiguration#hashCode()}.
+   * Test {@link CalculateDeltaNodeConfiguration#equals(Object)}, and {@link CalculateDeltaNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -106,6 +112,9 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CalculateDeltaNodeConfiguration.equals(Object)",
+      "int CalculateDeltaNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     CalculateDeltaNodeConfiguration calculateDeltaNodeConfiguration = new CalculateDeltaNodeConfiguration();
@@ -121,8 +130,7 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link CalculateDeltaNodeConfiguration#equals(Object)}, and
-   * {@link CalculateDeltaNodeConfiguration#hashCode()}.
+   * Test {@link CalculateDeltaNodeConfiguration#equals(Object)}, and {@link CalculateDeltaNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -136,6 +144,9 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CalculateDeltaNodeConfiguration.equals(Object)",
+      "int CalculateDeltaNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     CalculateDeltaNodeConfiguration calculateDeltaNodeConfiguration = new CalculateDeltaNodeConfiguration();
@@ -151,8 +162,7 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link CalculateDeltaNodeConfiguration#equals(Object)}, and
-   * {@link CalculateDeltaNodeConfiguration#hashCode()}.
+   * Test {@link CalculateDeltaNodeConfiguration#equals(Object)}, and {@link CalculateDeltaNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -166,6 +176,9 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CalculateDeltaNodeConfiguration.equals(Object)",
+      "int CalculateDeltaNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     CalculateDeltaNodeConfiguration calculateDeltaNodeConfiguration = new CalculateDeltaNodeConfiguration();
@@ -181,8 +194,7 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link CalculateDeltaNodeConfiguration#equals(Object)}, and
-   * {@link CalculateDeltaNodeConfiguration#hashCode()}.
+   * Test {@link CalculateDeltaNodeConfiguration#equals(Object)}, and {@link CalculateDeltaNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -196,6 +208,9 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CalculateDeltaNodeConfiguration.equals(Object)",
+      "int CalculateDeltaNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     CalculateDeltaNodeConfiguration calculateDeltaNodeConfiguration = new CalculateDeltaNodeConfiguration();
@@ -217,6 +232,9 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CalculateDeltaNodeConfiguration.equals(Object)",
+      "int CalculateDeltaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new CalculateDeltaNodeConfiguration(), 1);
@@ -233,6 +251,9 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CalculateDeltaNodeConfiguration.equals(Object)",
+      "int CalculateDeltaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     CalculateDeltaNodeConfiguration calculateDeltaNodeConfiguration = new CalculateDeltaNodeConfiguration();
@@ -253,6 +274,9 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CalculateDeltaNodeConfiguration.equals(Object)",
+      "int CalculateDeltaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     CalculateDeltaNodeConfiguration calculateDeltaNodeConfiguration = new CalculateDeltaNodeConfiguration();
@@ -273,6 +297,9 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CalculateDeltaNodeConfiguration.equals(Object)",
+      "int CalculateDeltaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     CalculateDeltaNodeConfiguration calculateDeltaNodeConfiguration = new CalculateDeltaNodeConfiguration();
@@ -293,6 +320,9 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CalculateDeltaNodeConfiguration.equals(Object)",
+      "int CalculateDeltaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     CalculateDeltaNodeConfiguration calculateDeltaNodeConfiguration = new CalculateDeltaNodeConfiguration();
@@ -313,6 +343,9 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CalculateDeltaNodeConfiguration.equals(Object)",
+      "int CalculateDeltaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     CalculateDeltaNodeConfiguration calculateDeltaNodeConfiguration = new CalculateDeltaNodeConfiguration();
@@ -333,6 +366,9 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CalculateDeltaNodeConfiguration.equals(Object)",
+      "int CalculateDeltaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     CalculateDeltaNodeConfiguration calculateDeltaNodeConfiguration = new CalculateDeltaNodeConfiguration();
@@ -353,6 +389,9 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CalculateDeltaNodeConfiguration.equals(Object)",
+      "int CalculateDeltaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     CalculateDeltaNodeConfiguration calculateDeltaNodeConfiguration = new CalculateDeltaNodeConfiguration();
@@ -373,6 +412,9 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CalculateDeltaNodeConfiguration.equals(Object)",
+      "int CalculateDeltaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     CalculateDeltaNodeConfiguration calculateDeltaNodeConfiguration = new CalculateDeltaNodeConfiguration();
@@ -393,6 +435,9 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CalculateDeltaNodeConfiguration.equals(Object)",
+      "int CalculateDeltaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     CalculateDeltaNodeConfiguration calculateDeltaNodeConfiguration = new CalculateDeltaNodeConfiguration();
@@ -415,6 +460,9 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CalculateDeltaNodeConfiguration.equals(Object)",
+      "int CalculateDeltaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     CalculateDeltaNodeConfiguration calculateDeltaNodeConfiguration = new CalculateDeltaNodeConfiguration();
@@ -437,6 +485,9 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CalculateDeltaNodeConfiguration.equals(Object)",
+      "int CalculateDeltaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     CalculateDeltaNodeConfiguration calculateDeltaNodeConfiguration = new CalculateDeltaNodeConfiguration();
@@ -459,6 +510,9 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CalculateDeltaNodeConfiguration.equals(Object)",
+      "int CalculateDeltaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     CalculateDeltaNodeConfiguration calculateDeltaNodeConfiguration = new CalculateDeltaNodeConfiguration();
@@ -481,6 +535,9 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CalculateDeltaNodeConfiguration.equals(Object)",
+      "int CalculateDeltaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new CalculateDeltaNodeConfiguration(), null);
@@ -497,6 +554,9 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CalculateDeltaNodeConfiguration.equals(Object)",
+      "int CalculateDeltaNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new CalculateDeltaNodeConfiguration(), "Different type to CalculateDeltaNodeConfiguration");
@@ -507,16 +567,14 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link CalculateDeltaNodeConfiguration}
+   *   <li>default or parameterless constructor of {@link CalculateDeltaNodeConfiguration}
    *   <li>{@link CalculateDeltaNodeConfiguration#setAddPeriodBetweenMsgs(boolean)}
    *   <li>{@link CalculateDeltaNodeConfiguration#setExcludeZeroDeltas(boolean)}
    *   <li>{@link CalculateDeltaNodeConfiguration#setInputValueKey(String)}
    *   <li>{@link CalculateDeltaNodeConfiguration#setOutputValueKey(String)}
    *   <li>{@link CalculateDeltaNodeConfiguration#setPeriodValueKey(String)}
    *   <li>{@link CalculateDeltaNodeConfiguration#setRound(Integer)}
-   *   <li>
-   * {@link CalculateDeltaNodeConfiguration#setTellFailureIfDeltaIsNegative(boolean)}
+   *   <li>{@link CalculateDeltaNodeConfiguration#setTellFailureIfDeltaIsNegative(boolean)}
    *   <li>{@link CalculateDeltaNodeConfiguration#setUseCache(boolean)}
    *   <li>{@link CalculateDeltaNodeConfiguration#toString()}
    *   <li>{@link CalculateDeltaNodeConfiguration#getInputValueKey()}
@@ -531,6 +589,24 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CalculateDeltaNodeConfiguration.<init>()",
+      "String CalculateDeltaNodeConfiguration.getInputValueKey()",
+      "String CalculateDeltaNodeConfiguration.getOutputValueKey()",
+      "String CalculateDeltaNodeConfiguration.getPeriodValueKey()",
+      "Integer CalculateDeltaNodeConfiguration.getRound()",
+      "boolean CalculateDeltaNodeConfiguration.isAddPeriodBetweenMsgs()",
+      "boolean CalculateDeltaNodeConfiguration.isExcludeZeroDeltas()",
+      "boolean CalculateDeltaNodeConfiguration.isTellFailureIfDeltaIsNegative()",
+      "boolean CalculateDeltaNodeConfiguration.isUseCache()",
+      "void CalculateDeltaNodeConfiguration.setAddPeriodBetweenMsgs(boolean)",
+      "void CalculateDeltaNodeConfiguration.setExcludeZeroDeltas(boolean)",
+      "void CalculateDeltaNodeConfiguration.setInputValueKey(String)",
+      "void CalculateDeltaNodeConfiguration.setOutputValueKey(String)",
+      "void CalculateDeltaNodeConfiguration.setPeriodValueKey(String)",
+      "void CalculateDeltaNodeConfiguration.setRound(Integer)",
+      "void CalculateDeltaNodeConfiguration.setTellFailureIfDeltaIsNegative(boolean)",
+      "void CalculateDeltaNodeConfiguration.setUseCache(boolean)", "String CalculateDeltaNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     CalculateDeltaNodeConfiguration actualCalculateDeltaNodeConfiguration = new CalculateDeltaNodeConfiguration();
@@ -553,7 +629,7 @@ class CalculateDeltaNodeConfigurationDiffblueTest {
         .isTellFailureIfDeltaIsNegative();
     boolean actualIsUseCacheResult = actualCalculateDeltaNodeConfiguration.isUseCache();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("42", actualInputValueKey);
     assertEquals("42", actualOutputValueKey);
     assertEquals("42", actualPeriodValueKey);

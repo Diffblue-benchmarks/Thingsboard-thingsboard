@@ -4,8 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Optional;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.ota.OtaPackageUpdateStatus;
 import org.thingsboard.server.transport.lwm2m.server.ota.firmware.FirmwareUpdateResult;
@@ -15,14 +17,14 @@ import org.thingsboard.server.transport.lwm2m.server.ota.firmware.LwM2MFirmwareU
 
 class LwM2MClientOtaInfoDiffblueTest {
   /**
-   * Test
-   * {@link LwM2MClientOtaInfo#updateTarget(String, String, Optional, Optional)}.
+   * Test {@link LwM2MClientOtaInfo#updateTarget(String, String, Optional, Optional)}.
    * <p>
-   * Method under test:
-   * {@link LwM2MClientOtaInfo#updateTarget(String, String, Optional, Optional)}
+   * Method under test: {@link LwM2MClientOtaInfo#updateTarget(String, String, Optional, Optional)}
    */
   @Test
   @DisplayName("Test updateTarget(String, String, Optional, Optional)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MClientOtaInfo.updateTarget(String, String, Optional, Optional)"})
   void testUpdateTarget() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -49,6 +51,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isUpdateRequired()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isUpdateRequired()"})
   void testIsUpdateRequired() {
     // Arrange, Act and Assert
     assertFalse((new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com", "https://example.org/example",
@@ -62,6 +66,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isUpdateRequired()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isUpdateRequired()"})
   void testIsUpdateRequired2() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -79,6 +85,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isUpdateRequired()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isUpdateRequired()"})
   void testIsUpdateRequired3() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -98,6 +106,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isUpdateRequired()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isUpdateRequired()"})
   void testIsUpdateRequired4() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -117,6 +127,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isUpdateRequired()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isUpdateRequired()"})
   void testIsUpdateRequired5() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -136,6 +148,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isUpdateRequired()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isUpdateRequired()"})
   void testIsUpdateRequired6() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -156,6 +170,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isUpdateRequired()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isUpdateRequired()"})
   void testIsUpdateRequired7() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -176,6 +192,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isUpdateRequired()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isUpdateRequired()"})
   void testIsUpdateRequired8() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -196,6 +214,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isUpdateRequired()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isUpdateRequired()"})
   void testIsUpdateRequired9() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -216,6 +236,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isUpdateRequired()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isUpdateRequired()"})
   void testIsUpdateRequired10() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -236,6 +258,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isUpdateRequired()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isUpdateRequired()"})
   void testIsUpdateRequired11() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -257,6 +281,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isUpdateRequired()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isUpdateRequired()"})
   void testIsUpdateRequired12() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -278,6 +304,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isUpdateRequired()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isUpdateRequired()"})
   void testIsUpdateRequired13() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -302,6 +330,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isUpdateRequired(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isUpdateRequired()"})
   void testIsUpdateRequired_thenReturnFalse() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -322,6 +352,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isUpdateRequired(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isUpdateRequired()"})
   void testIsUpdateRequired_thenReturnFalse2() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -340,6 +372,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isSupported()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isSupported()"})
   void testIsSupported() {
     // Arrange, Act and Assert
     assertFalse((new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com", "https://example.org/example",
@@ -353,16 +387,18 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isSupported()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isSupported()"})
   void testIsSupported2() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
         "https://example.org/example", LwM2MFirmwareUpdateStrategy.OBJ_5_BINARY);
-    lwM2MClientFwOtaInfo.setCurrentVersion(null);
-    lwM2MClientFwOtaInfo.setCurrentVersion3(null);
-    lwM2MClientFwOtaInfo.setCurrentName("");
+    lwM2MClientFwOtaInfo.setCurrentName("not empty");
+    lwM2MClientFwOtaInfo.setCurrentVersion("not empty");
+    lwM2MClientFwOtaInfo.setCurrentVersion3("not empty");
 
     // Act and Assert
-    assertFalse(lwM2MClientFwOtaInfo.isSupported());
+    assertTrue(lwM2MClientFwOtaInfo.isSupported());
   }
 
   /**
@@ -372,13 +408,15 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isSupported()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isSupported()"})
   void testIsSupported3() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
         "https://example.org/example", LwM2MFirmwareUpdateStrategy.OBJ_5_BINARY);
-    lwM2MClientFwOtaInfo.setCurrentVersion(null);
-    lwM2MClientFwOtaInfo.setCurrentVersion3(null);
-    lwM2MClientFwOtaInfo.setCurrentName("foo");
+    lwM2MClientFwOtaInfo.setCurrentName(null);
+    lwM2MClientFwOtaInfo.setCurrentVersion("not empty");
+    lwM2MClientFwOtaInfo.setCurrentVersion3("not empty");
 
     // Act and Assert
     assertTrue(lwM2MClientFwOtaInfo.isSupported());
@@ -391,13 +429,15 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isSupported()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isSupported()"})
   void testIsSupported4() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
         "https://example.org/example", LwM2MFirmwareUpdateStrategy.OBJ_5_BINARY);
-    lwM2MClientFwOtaInfo.setCurrentVersion(null);
-    lwM2MClientFwOtaInfo.setCurrentVersion3("foo");
     lwM2MClientFwOtaInfo.setCurrentName(null);
+    lwM2MClientFwOtaInfo.setCurrentVersion(null);
+    lwM2MClientFwOtaInfo.setCurrentVersion3("not empty");
 
     // Act and Assert
     assertTrue(lwM2MClientFwOtaInfo.isSupported());
@@ -410,16 +450,18 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isSupported()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isSupported()"})
   void testIsSupported5() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
         "https://example.org/example", LwM2MFirmwareUpdateStrategy.OBJ_5_BINARY);
-    lwM2MClientFwOtaInfo.setCurrentVersion("foo");
-    lwM2MClientFwOtaInfo.setCurrentVersion3(null);
     lwM2MClientFwOtaInfo.setCurrentName(null);
+    lwM2MClientFwOtaInfo.setCurrentVersion(null);
+    lwM2MClientFwOtaInfo.setCurrentVersion3("");
 
     // Act and Assert
-    assertTrue(lwM2MClientFwOtaInfo.isSupported());
+    assertFalse(lwM2MClientFwOtaInfo.isSupported());
   }
 
   /**
@@ -429,6 +471,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isAssigned()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isAssigned()"})
   void testIsAssigned() {
     // Arrange, Act and Assert
     assertFalse((new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com", "https://example.org/example",
@@ -442,12 +486,14 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isAssigned()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isAssigned()"})
   void testIsAssigned2() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
         "https://example.org/example", LwM2MFirmwareUpdateStrategy.OBJ_5_BINARY);
+    lwM2MClientFwOtaInfo.setTargetName("not empty");
     lwM2MClientFwOtaInfo.setTargetVersion(null);
-    lwM2MClientFwOtaInfo.setTargetName("");
 
     // Act and Assert
     assertFalse(lwM2MClientFwOtaInfo.isAssigned());
@@ -460,12 +506,14 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isAssigned()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isAssigned()"})
   void testIsAssigned3() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
         "https://example.org/example", LwM2MFirmwareUpdateStrategy.OBJ_5_BINARY);
-    lwM2MClientFwOtaInfo.setTargetVersion(null);
-    lwM2MClientFwOtaInfo.setTargetName("foo");
+    lwM2MClientFwOtaInfo.setTargetName("not empty");
+    lwM2MClientFwOtaInfo.setTargetVersion("");
 
     // Act and Assert
     assertFalse(lwM2MClientFwOtaInfo.isAssigned());
@@ -481,12 +529,14 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test isAssigned(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2MClientOtaInfo.isAssigned()"})
   void testIsAssigned_thenReturnTrue() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
         "https://example.org/example", LwM2MFirmwareUpdateStrategy.OBJ_5_BINARY);
-    lwM2MClientFwOtaInfo.setTargetVersion("foo");
-    lwM2MClientFwOtaInfo.setTargetName("foo");
+    lwM2MClientFwOtaInfo.setTargetName("not empty");
+    lwM2MClientFwOtaInfo.setTargetVersion("not empty");
 
     // Act and Assert
     assertTrue(lwM2MClientFwOtaInfo.isAssigned());
@@ -499,6 +549,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getBaseUrl()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String LwM2MClientOtaInfo.getBaseUrl()"})
   void testGetBaseUrl() {
     // Arrange, Act and Assert
     assertEquals("https://example.org/example", (new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -512,6 +564,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getCurrentName()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String LwM2MClientOtaInfo.getCurrentName()"})
   void testGetCurrentName() {
     // Arrange, Act and Assert
     assertNull((new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com", "https://example.org/example",
@@ -525,6 +579,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getCurrentVersion()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String LwM2MClientOtaInfo.getCurrentVersion()"})
   void testGetCurrentVersion() {
     // Arrange, Act and Assert
     assertNull((new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com", "https://example.org/example",
@@ -538,6 +594,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getCurrentVersion3()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String LwM2MClientOtaInfo.getCurrentVersion3()"})
   void testGetCurrentVersion3() {
     // Arrange, Act and Assert
     assertNull((new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com", "https://example.org/example",
@@ -551,6 +609,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getEndpoint()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String LwM2MClientOtaInfo.getEndpoint()"})
   void testGetEndpoint() {
     // Arrange, Act and Assert
     assertEquals("https://config.us-east-2.amazonaws.com",
@@ -565,6 +625,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getFailedPackageId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String LwM2MClientOtaInfo.getFailedPackageId()"})
   void testGetFailedPackageId() {
     // Arrange, Act and Assert
     assertNull((new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com", "https://example.org/example",
@@ -575,16 +637,18 @@ class LwM2MClientOtaInfoDiffblueTest {
    * Test {@link LwM2MClientOtaInfo#getPackageId(String, String)}.
    * <ul>
    *   <li>When empty string.</li>
-   *   <li>Then return empty string.</li>
+   *   <li>Then return {@code not empty}.</li>
    * </ul>
    * <p>
    * Method under test: {@link LwM2MClientOtaInfo#getPackageId(String, String)}
    */
   @Test
-  @DisplayName("Test getPackageId(String, String); when empty string; then return empty string")
-  void testGetPackageId_whenEmptyString_thenReturnEmptyString() {
+  @DisplayName("Test getPackageId(String, String); when empty string; then return 'not empty'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String LwM2MClientOtaInfo.getPackageId(String, String)"})
+  void testGetPackageId_whenEmptyString_thenReturnNotEmpty() {
     // Arrange, Act and Assert
-    assertEquals("", LwM2MClientOtaInfo.getPackageId(null, ""));
+    assertEquals("not empty", LwM2MClientOtaInfo.getPackageId("not empty", ""));
   }
 
   /**
@@ -598,6 +662,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getPackageId(String, String); when 'Name'; then return 'Name1.0.2'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String LwM2MClientOtaInfo.getPackageId(String, String)"})
   void testGetPackageId_whenName_thenReturnName102() {
     // Arrange, Act and Assert
     assertEquals("Name1.0.2", LwM2MClientOtaInfo.getPackageId("Name", "1.0.2"));
@@ -607,16 +673,36 @@ class LwM2MClientOtaInfoDiffblueTest {
    * Test {@link LwM2MClientOtaInfo#getPackageId(String, String)}.
    * <ul>
    *   <li>When {@code null}.</li>
-   *   <li>Then return empty string.</li>
+   *   <li>Then return {@code not empty}.</li>
    * </ul>
    * <p>
    * Method under test: {@link LwM2MClientOtaInfo#getPackageId(String, String)}
    */
   @Test
-  @DisplayName("Test getPackageId(String, String); when 'null'; then return empty string")
-  void testGetPackageId_whenNull_thenReturnEmptyString() {
+  @DisplayName("Test getPackageId(String, String); when 'null'; then return 'not empty'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String LwM2MClientOtaInfo.getPackageId(String, String)"})
+  void testGetPackageId_whenNull_thenReturnNotEmpty() {
     // Arrange, Act and Assert
-    assertEquals("", LwM2MClientOtaInfo.getPackageId(null, null));
+    assertEquals("not empty", LwM2MClientOtaInfo.getPackageId("not empty", null));
+  }
+
+  /**
+   * Test {@link LwM2MClientOtaInfo#getPackageId(String, String)}.
+   * <ul>
+   *   <li>When {@code null}.</li>
+   *   <li>Then return {@code not empty}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link LwM2MClientOtaInfo#getPackageId(String, String)}
+   */
+  @Test
+  @DisplayName("Test getPackageId(String, String); when 'null'; then return 'not empty'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String LwM2MClientOtaInfo.getPackageId(String, String)"})
+  void testGetPackageId_whenNull_thenReturnNotEmpty2() {
+    // Arrange, Act and Assert
+    assertEquals("not empty", LwM2MClientOtaInfo.getPackageId(null, "not empty"));
   }
 
   /**
@@ -626,6 +712,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getTargetPackageId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String LwM2MClientOtaInfo.getTargetPackageId()"})
   void testGetTargetPackageId() {
     // Arrange, Act and Assert
     assertEquals("", (new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com", "https://example.org/example",
@@ -639,12 +727,14 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getTargetPackageId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String LwM2MClientOtaInfo.getTargetPackageId()"})
   void testGetTargetPackageId2() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
         "https://example.org/example", LwM2MFirmwareUpdateStrategy.OBJ_5_BINARY);
-    lwM2MClientFwOtaInfo.setTargetVersion(null);
-    lwM2MClientFwOtaInfo.setTargetName("");
+    lwM2MClientFwOtaInfo.setTargetName(null);
+    lwM2MClientFwOtaInfo.setTargetVersion("");
 
     // Act and Assert
     assertEquals("", lwM2MClientFwOtaInfo.getTargetPackageId());
@@ -652,38 +742,48 @@ class LwM2MClientOtaInfoDiffblueTest {
 
   /**
    * Test {@link LwM2MClientOtaInfo#getTargetPackageId()}.
+   * <ul>
+   *   <li>Then return {@code not empty}.</li>
+   * </ul>
    * <p>
    * Method under test: {@link LwM2MClientOtaInfo#getTargetPackageId()}
    */
   @Test
-  @DisplayName("Test getTargetPackageId()")
-  void testGetTargetPackageId3() {
+  @DisplayName("Test getTargetPackageId(); then return 'not empty'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String LwM2MClientOtaInfo.getTargetPackageId()"})
+  void testGetTargetPackageId_thenReturnNotEmpty() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
         "https://example.org/example", LwM2MFirmwareUpdateStrategy.OBJ_5_BINARY);
-    lwM2MClientFwOtaInfo.setTargetVersion(null);
-    lwM2MClientFwOtaInfo.setTargetName("foo");
+    lwM2MClientFwOtaInfo.setTargetName(null);
+    lwM2MClientFwOtaInfo.setTargetVersion("not empty");
 
     // Act and Assert
-    assertEquals("foo", lwM2MClientFwOtaInfo.getTargetPackageId());
+    assertEquals("not empty", lwM2MClientFwOtaInfo.getTargetPackageId());
   }
 
   /**
    * Test {@link LwM2MClientOtaInfo#getTargetPackageId()}.
+   * <ul>
+   *   <li>Then return {@code not emptynot empty}.</li>
+   * </ul>
    * <p>
    * Method under test: {@link LwM2MClientOtaInfo#getTargetPackageId()}
    */
   @Test
-  @DisplayName("Test getTargetPackageId()")
-  void testGetTargetPackageId4() {
+  @DisplayName("Test getTargetPackageId(); then return 'not emptynot empty'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String LwM2MClientOtaInfo.getTargetPackageId()"})
+  void testGetTargetPackageId_thenReturnNotEmptynotEmpty() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
         "https://example.org/example", LwM2MFirmwareUpdateStrategy.OBJ_5_BINARY);
-    lwM2MClientFwOtaInfo.setTargetVersion("foo");
-    lwM2MClientFwOtaInfo.setTargetName(null);
+    lwM2MClientFwOtaInfo.setTargetName("not empty");
+    lwM2MClientFwOtaInfo.setTargetVersion("not empty");
 
     // Act and Assert
-    assertEquals("foo", lwM2MClientFwOtaInfo.getTargetPackageId());
+    assertEquals("not emptynot empty", lwM2MClientFwOtaInfo.getTargetPackageId());
   }
 
   /**
@@ -693,6 +793,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getResult()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object LwM2MClientOtaInfo.getResult()"})
   void testGetResult() {
     // Arrange, Act and Assert
     assertNull((new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com", "https://example.org/example",
@@ -706,6 +808,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getRetryAttempts()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int LwM2MClientOtaInfo.getRetryAttempts()"})
   void testGetRetryAttempts() {
     // Arrange, Act and Assert
     assertEquals(0, (new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com", "https://example.org/example",
@@ -719,6 +823,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getStatus()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"OtaPackageUpdateStatus LwM2MClientOtaInfo.getStatus()"})
   void testGetStatus() {
     // Arrange, Act and Assert
     assertNull((new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com", "https://example.org/example",
@@ -732,6 +838,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getStrategy()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object LwM2MClientOtaInfo.getStrategy()"})
   void testGetStrategy() {
     // Arrange, Act and Assert
     assertEquals(LwM2MFirmwareUpdateStrategy.OBJ_5_BINARY,
@@ -746,6 +854,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getTargetName()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String LwM2MClientOtaInfo.getTargetName()"})
   void testGetTargetName() {
     // Arrange, Act and Assert
     assertNull((new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com", "https://example.org/example",
@@ -759,6 +869,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getTargetTag()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String LwM2MClientOtaInfo.getTargetTag()"})
   void testGetTargetTag() {
     // Arrange, Act and Assert
     assertNull((new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com", "https://example.org/example",
@@ -772,6 +884,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getTargetUrl()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String LwM2MClientOtaInfo.getTargetUrl()"})
   void testGetTargetUrl() {
     // Arrange, Act and Assert
     assertNull((new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com", "https://example.org/example",
@@ -785,6 +899,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getTargetVersion()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String LwM2MClientOtaInfo.getTargetVersion()"})
   void testGetTargetVersion() {
     // Arrange, Act and Assert
     assertNull((new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com", "https://example.org/example",
@@ -798,6 +914,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getUpdateState()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object LwM2MClientOtaInfo.getUpdateState()"})
   void testGetUpdateState() {
     // Arrange, Act and Assert
     assertNull((new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com", "https://example.org/example",
@@ -811,6 +929,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test setCurrentName(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MClientOtaInfo.setCurrentName(String)"})
   void testSetCurrentName() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -831,6 +951,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test setCurrentVersion(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MClientOtaInfo.setCurrentVersion(String)"})
   void testSetCurrentVersion() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -851,6 +973,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test setCurrentVersion3(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MClientOtaInfo.setCurrentVersion3(String)"})
   void testSetCurrentVersion3() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -871,6 +995,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test setFailedPackageId(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MClientOtaInfo.setFailedPackageId(String)"})
   void testSetFailedPackageId() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -890,6 +1016,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test setResult(Object)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MClientOtaInfo.setResult(Object)"})
   void testSetResult() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -909,6 +1037,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test setRetryAttempts(int)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MClientOtaInfo.setRetryAttempts(int)"})
   void testSetRetryAttempts() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -924,11 +1054,12 @@ class LwM2MClientOtaInfoDiffblueTest {
   /**
    * Test {@link LwM2MClientOtaInfo#setStatus(OtaPackageUpdateStatus)}.
    * <p>
-   * Method under test:
-   * {@link LwM2MClientOtaInfo#setStatus(OtaPackageUpdateStatus)}
+   * Method under test: {@link LwM2MClientOtaInfo#setStatus(OtaPackageUpdateStatus)}
    */
   @Test
   @DisplayName("Test setStatus(OtaPackageUpdateStatus)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MClientOtaInfo.setStatus(OtaPackageUpdateStatus)"})
   void testSetStatus() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -948,6 +1079,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test setTargetName(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MClientOtaInfo.setTargetName(String)"})
   void testSetTargetName() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -968,6 +1101,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test setTargetTag(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MClientOtaInfo.setTargetTag(String)"})
   void testSetTargetTag() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -987,6 +1122,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test setTargetUrl(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MClientOtaInfo.setTargetUrl(String)"})
   void testSetTargetUrl() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -1006,6 +1143,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test setTargetVersion(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MClientOtaInfo.setTargetVersion(String)"})
   void testSetTargetVersion() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",
@@ -1026,6 +1165,8 @@ class LwM2MClientOtaInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test setUpdateState(Object)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2MClientOtaInfo.setUpdateState(Object)"})
   void testSetUpdateState() {
     // Arrange
     LwM2MClientFwOtaInfo lwM2MClientFwOtaInfo = new LwM2MClientFwOtaInfo("https://config.us-east-2.amazonaws.com",

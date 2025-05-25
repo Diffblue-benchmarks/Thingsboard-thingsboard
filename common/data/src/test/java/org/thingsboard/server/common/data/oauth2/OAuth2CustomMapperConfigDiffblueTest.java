@@ -6,15 +6,25 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.anyBoolean;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.oauth2.OAuth2CustomMapperConfig.OAuth2CustomMapperConfigBuilder;
 
+@ContextConfiguration(classes = {OAuth2CustomMapperConfigBuilder.class})
+@ExtendWith(SpringExtension.class)
 class OAuth2CustomMapperConfigDiffblueTest {
+  @Autowired
+  private OAuth2CustomMapperConfigBuilder oAuth2CustomMapperConfigBuilder;
+
   /**
-   * Test {@link OAuth2CustomMapperConfig#equals(Object)}, and
-   * {@link OAuth2CustomMapperConfig#hashCode()}.
+   * Test {@link OAuth2CustomMapperConfig#equals(Object)}, and {@link OAuth2CustomMapperConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -28,6 +38,8 @@ class OAuth2CustomMapperConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2CustomMapperConfig.equals(Object)", "int OAuth2CustomMapperConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     OAuth2CustomMapperConfig buildResult = OAuth2CustomMapperConfig.builder()
@@ -50,8 +62,7 @@ class OAuth2CustomMapperConfigDiffblueTest {
   }
 
   /**
-   * Test {@link OAuth2CustomMapperConfig#equals(Object)}, and
-   * {@link OAuth2CustomMapperConfig#hashCode()}.
+   * Test {@link OAuth2CustomMapperConfig#equals(Object)}, and {@link OAuth2CustomMapperConfig#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -65,6 +76,8 @@ class OAuth2CustomMapperConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2CustomMapperConfig.equals(Object)", "int OAuth2CustomMapperConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     OAuth2CustomMapperConfig buildResult = OAuth2CustomMapperConfig.builder()
@@ -91,10 +104,11 @@ class OAuth2CustomMapperConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2CustomMapperConfig.equals(Object)", "int OAuth2CustomMapperConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    OAuth2CustomMapperConfig.OAuth2CustomMapperConfigBuilder oAuth2CustomMapperConfigBuilder = mock(
-        OAuth2CustomMapperConfig.OAuth2CustomMapperConfigBuilder.class);
+    OAuth2CustomMapperConfigBuilder oAuth2CustomMapperConfigBuilder = mock(OAuth2CustomMapperConfigBuilder.class);
     when(oAuth2CustomMapperConfigBuilder.password(Mockito.<String>any()))
         .thenReturn(OAuth2CustomMapperConfig.builder());
     OAuth2CustomMapperConfig buildResult = oAuth2CustomMapperConfigBuilder.password("iloveyou")
@@ -124,13 +138,13 @@ class OAuth2CustomMapperConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2CustomMapperConfig.equals(Object)", "int OAuth2CustomMapperConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    OAuth2CustomMapperConfig.OAuth2CustomMapperConfigBuilder oAuth2CustomMapperConfigBuilder = mock(
-        OAuth2CustomMapperConfig.OAuth2CustomMapperConfigBuilder.class);
+    OAuth2CustomMapperConfigBuilder oAuth2CustomMapperConfigBuilder = mock(OAuth2CustomMapperConfigBuilder.class);
     when(oAuth2CustomMapperConfigBuilder.sendToken(anyBoolean())).thenReturn(OAuth2CustomMapperConfig.builder());
-    OAuth2CustomMapperConfig.OAuth2CustomMapperConfigBuilder oAuth2CustomMapperConfigBuilder2 = mock(
-        OAuth2CustomMapperConfig.OAuth2CustomMapperConfigBuilder.class);
+    OAuth2CustomMapperConfigBuilder oAuth2CustomMapperConfigBuilder2 = mock(OAuth2CustomMapperConfigBuilder.class);
     when(oAuth2CustomMapperConfigBuilder2.password(Mockito.<String>any())).thenReturn(oAuth2CustomMapperConfigBuilder);
     OAuth2CustomMapperConfig buildResult = oAuth2CustomMapperConfigBuilder2.password("iloveyou")
         .sendToken(true)
@@ -159,6 +173,8 @@ class OAuth2CustomMapperConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2CustomMapperConfig.equals(Object)", "int OAuth2CustomMapperConfig.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     OAuth2CustomMapperConfig buildResult = OAuth2CustomMapperConfig.builder()
@@ -183,6 +199,8 @@ class OAuth2CustomMapperConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OAuth2CustomMapperConfig.equals(Object)", "int OAuth2CustomMapperConfig.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     OAuth2CustomMapperConfig buildResult = OAuth2CustomMapperConfig.builder()
@@ -201,8 +219,7 @@ class OAuth2CustomMapperConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link OAuth2CustomMapperConfig#OAuth2CustomMapperConfig(String, String, String, boolean)}
+   *   <li>{@link OAuth2CustomMapperConfig#OAuth2CustomMapperConfig(String, String, String, boolean)}
    *   <li>{@link OAuth2CustomMapperConfig#toString()}
    *   <li>{@link OAuth2CustomMapperConfig#getPassword()}
    *   <li>{@link OAuth2CustomMapperConfig#getUrl()}
@@ -213,6 +230,12 @@ class OAuth2CustomMapperConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void OAuth2CustomMapperConfig.<init>(String, String, String, boolean)",
+      "String OAuth2CustomMapperConfig.getPassword()", "String OAuth2CustomMapperConfig.getUrl()",
+      "String OAuth2CustomMapperConfig.getUsername()", "boolean OAuth2CustomMapperConfig.isSendToken()",
+      "OAuth2CustomMapperConfigBuilder OAuth2CustomMapperConfig.toBuilder()",
+      "String OAuth2CustomMapperConfig.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     OAuth2CustomMapperConfig actualOAuth2CustomMapperConfig = new OAuth2CustomMapperConfig(
@@ -234,24 +257,27 @@ class OAuth2CustomMapperConfigDiffblueTest {
   }
 
   /**
-   * Test OAuth2CustomMapperConfigBuilder
-   * {@link OAuth2CustomMapperConfigBuilder#build()}.
+   * Test OAuth2CustomMapperConfigBuilder {@link OAuth2CustomMapperConfigBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link OAuth2CustomMapperConfig.OAuth2CustomMapperConfigBuilder#build()}
-   *   <li>
-   * {@link OAuth2CustomMapperConfig.OAuth2CustomMapperConfigBuilder#password(String)}
-   *   <li>
-   * {@link OAuth2CustomMapperConfig.OAuth2CustomMapperConfigBuilder#sendToken(boolean)}
-   *   <li>
-   * {@link OAuth2CustomMapperConfig.OAuth2CustomMapperConfigBuilder#url(String)}
-   *   <li>
-   * {@link OAuth2CustomMapperConfig.OAuth2CustomMapperConfigBuilder#username(String)}
+   *   <li>{@link OAuth2CustomMapperConfigBuilder#build()}
+   *   <li>{@link OAuth2CustomMapperConfigBuilder#password(String)}
+   *   <li>{@link OAuth2CustomMapperConfigBuilder#sendToken(boolean)}
+   *   <li>{@link OAuth2CustomMapperConfigBuilder#url(String)}
+   *   <li>{@link OAuth2CustomMapperConfigBuilder#username(String)}
    * </ul>
    */
   @Test
   @DisplayName("Test OAuth2CustomMapperConfigBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void OAuth2CustomMapperConfigBuilder.<init>()",
+      "OAuth2CustomMapperConfig OAuth2CustomMapperConfigBuilder.build()",
+      "OAuth2CustomMapperConfigBuilder OAuth2CustomMapperConfigBuilder.password(String)",
+      "OAuth2CustomMapperConfigBuilder OAuth2CustomMapperConfigBuilder.sendToken(boolean)",
+      "String OAuth2CustomMapperConfigBuilder.toString()",
+      "OAuth2CustomMapperConfigBuilder OAuth2CustomMapperConfigBuilder.url(String)",
+      "OAuth2CustomMapperConfigBuilder OAuth2CustomMapperConfigBuilder.username(String)"})
   void testOAuth2CustomMapperConfigBuilderBuild() {
     // Arrange and Act
     OAuth2CustomMapperConfig actualBuildResult = OAuth2CustomMapperConfig.builder()

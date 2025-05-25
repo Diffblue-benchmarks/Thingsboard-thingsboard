@@ -3,13 +3,14 @@ package org.thingsboard.server.common.data.lwm2m;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class LwM2mResourceObserveDiffblueTest {
   /**
-   * Test {@link LwM2mResourceObserve#equals(Object)}, and
-   * {@link LwM2mResourceObserve#hashCode()}.
+   * Test {@link LwM2mResourceObserve#equals(Object)}, and {@link LwM2mResourceObserve#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -23,6 +24,8 @@ class LwM2mResourceObserveDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mResourceObserve.equals(Object)", "int LwM2mResourceObserve.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     LwM2mResourceObserve lwM2mResourceObserve = new LwM2mResourceObserve(1, "Name", true, true, true);
@@ -35,8 +38,7 @@ class LwM2mResourceObserveDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2mResourceObserve#equals(Object)}, and
-   * {@link LwM2mResourceObserve#hashCode()}.
+   * Test {@link LwM2mResourceObserve#equals(Object)}, and {@link LwM2mResourceObserve#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -50,6 +52,8 @@ class LwM2mResourceObserveDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mResourceObserve.equals(Object)", "int LwM2mResourceObserve.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     LwM2mResourceObserve lwM2mResourceObserve = new LwM2mResourceObserve(1, "Name", true, true, true);
@@ -71,6 +75,8 @@ class LwM2mResourceObserveDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mResourceObserve.equals(Object)", "int LwM2mResourceObserve.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     LwM2mResourceObserve lwM2mResourceObserve = new LwM2mResourceObserve(2, "Name", true, true, true);
@@ -90,6 +96,8 @@ class LwM2mResourceObserveDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mResourceObserve.equals(Object)", "int LwM2mResourceObserve.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     LwM2mResourceObserve lwM2mResourceObserve = new LwM2mResourceObserve(1, "name", true, true, true);
@@ -109,6 +117,8 @@ class LwM2mResourceObserveDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mResourceObserve.equals(Object)", "int LwM2mResourceObserve.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     LwM2mResourceObserve lwM2mResourceObserve = new LwM2mResourceObserve(1, "Name", false, true, true);
@@ -128,6 +138,8 @@ class LwM2mResourceObserveDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mResourceObserve.equals(Object)", "int LwM2mResourceObserve.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     LwM2mResourceObserve lwM2mResourceObserve = new LwM2mResourceObserve(1, "Name", true, false, true);
@@ -147,6 +159,8 @@ class LwM2mResourceObserveDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mResourceObserve.equals(Object)", "int LwM2mResourceObserve.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     LwM2mResourceObserve lwM2mResourceObserve = new LwM2mResourceObserve(1, "Name", true, true, false);
@@ -166,6 +180,8 @@ class LwM2mResourceObserveDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mResourceObserve.equals(Object)", "int LwM2mResourceObserve.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     LwM2mResourceObserve lwM2mResourceObserve = new LwM2mResourceObserve(1, "Name", true, true, true, "Name");
@@ -185,6 +201,8 @@ class LwM2mResourceObserveDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mResourceObserve.equals(Object)", "int LwM2mResourceObserve.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     LwM2mResourceObserve lwM2mResourceObserve = new LwM2mResourceObserve(1, null, true, true, true, "Name");
@@ -204,6 +222,8 @@ class LwM2mResourceObserveDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mResourceObserve.equals(Object)", "int LwM2mResourceObserve.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     LwM2mResourceObserve lwM2mResourceObserve = new LwM2mResourceObserve(1, "Name", true, true, true, null);
@@ -223,6 +243,8 @@ class LwM2mResourceObserveDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mResourceObserve.equals(Object)", "int LwM2mResourceObserve.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new LwM2mResourceObserve(1, "Name", true, true, true), null);
@@ -239,6 +261,8 @@ class LwM2mResourceObserveDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mResourceObserve.equals(Object)", "int LwM2mResourceObserve.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new LwM2mResourceObserve(1, "Name", true, true, true), "Different type to LwM2mResourceObserve");
@@ -249,8 +273,7 @@ class LwM2mResourceObserveDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link LwM2mResourceObserve#LwM2mResourceObserve(int, String, boolean, boolean, boolean, String)}
+   *   <li>{@link LwM2mResourceObserve#LwM2mResourceObserve(int, String, boolean, boolean, boolean, String)}
    *   <li>{@link LwM2mResourceObserve#setAttribute(boolean)}
    *   <li>{@link LwM2mResourceObserve#setId(int)}
    *   <li>{@link LwM2mResourceObserve#setKeyName(String)}
@@ -268,6 +291,15 @@ class LwM2mResourceObserveDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2mResourceObserve.<init>(int, String, boolean, boolean, boolean, String)",
+      "int LwM2mResourceObserve.getId()", "String LwM2mResourceObserve.getKeyName()",
+      "String LwM2mResourceObserve.getName()", "boolean LwM2mResourceObserve.isAttribute()",
+      "boolean LwM2mResourceObserve.isObserve()", "boolean LwM2mResourceObserve.isTelemetry()",
+      "void LwM2mResourceObserve.setAttribute(boolean)", "void LwM2mResourceObserve.setId(int)",
+      "void LwM2mResourceObserve.setKeyName(String)", "void LwM2mResourceObserve.setName(String)",
+      "void LwM2mResourceObserve.setObserve(boolean)", "void LwM2mResourceObserve.setTelemetry(boolean)",
+      "String LwM2mResourceObserve.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     LwM2mResourceObserve actualLwM2mResourceObserve = new LwM2mResourceObserve(1, "Name", true, true, true, "Key Name");
@@ -284,7 +316,7 @@ class LwM2mResourceObserveDiffblueTest {
     boolean actualIsAttributeResult = actualLwM2mResourceObserve.isAttribute();
     boolean actualIsObserveResult = actualLwM2mResourceObserve.isObserve();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Key Name", actualKeyName);
     assertEquals(
         "LwM2mResourceObserve(id=1, name=Name, observe=true, attribute=true, telemetry=true, keyName=Key" + " Name)",
@@ -297,17 +329,17 @@ class LwM2mResourceObserveDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link LwM2mResourceObserve#LwM2mResourceObserve(int, String, boolean, boolean, boolean)}.
+   * Test {@link LwM2mResourceObserve#LwM2mResourceObserve(int, String, boolean, boolean, boolean)}.
    * <ul>
    *   <li>Then return Name is {@link LwM2mConstants#LWM2M_SEPARATOR_KEY}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link LwM2mResourceObserve#LwM2mResourceObserve(int, String, boolean, boolean, boolean)}
+   * Method under test: {@link LwM2mResourceObserve#LwM2mResourceObserve(int, String, boolean, boolean, boolean)}
    */
   @Test
   @DisplayName("Test new LwM2mResourceObserve(int, String, boolean, boolean, boolean); then return Name is LWM2M_SEPARATOR_KEY")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2mResourceObserve.<init>(int, String, boolean, boolean, boolean)"})
   void testNewLwM2mResourceObserve_thenReturnNameIsLwm2m_separator_key() {
     // Arrange and Act
     LwM2mResourceObserve actualLwM2mResourceObserve = new LwM2mResourceObserve(1, LwM2mConstants.LWM2M_SEPARATOR_KEY,
@@ -323,18 +355,18 @@ class LwM2mResourceObserveDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link LwM2mResourceObserve#LwM2mResourceObserve(int, String, boolean, boolean, boolean)}.
+   * Test {@link LwM2mResourceObserve#LwM2mResourceObserve(int, String, boolean, boolean, boolean)}.
    * <ul>
    *   <li>When {@code -}.</li>
    *   <li>Then return Name is {@code -}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link LwM2mResourceObserve#LwM2mResourceObserve(int, String, boolean, boolean, boolean)}
+   * Method under test: {@link LwM2mResourceObserve#LwM2mResourceObserve(int, String, boolean, boolean, boolean)}
    */
   @Test
   @DisplayName("Test new LwM2mResourceObserve(int, String, boolean, boolean, boolean); when '-'; then return Name is '-'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2mResourceObserve.<init>(int, String, boolean, boolean, boolean)"})
   void testNewLwM2mResourceObserve_whenDash_thenReturnNameIsDash() {
     // Arrange and Act
     LwM2mResourceObserve actualLwM2mResourceObserve = new LwM2mResourceObserve(1, "-", true, true, true);
@@ -349,18 +381,18 @@ class LwM2mResourceObserveDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link LwM2mResourceObserve#LwM2mResourceObserve(int, String, boolean, boolean, boolean)}.
+   * Test {@link LwM2mResourceObserve#LwM2mResourceObserve(int, String, boolean, boolean, boolean)}.
    * <ul>
    *   <li>When empty string.</li>
    *   <li>Then return Name is empty string.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link LwM2mResourceObserve#LwM2mResourceObserve(int, String, boolean, boolean, boolean)}
+   * Method under test: {@link LwM2mResourceObserve#LwM2mResourceObserve(int, String, boolean, boolean, boolean)}
    */
   @Test
   @DisplayName("Test new LwM2mResourceObserve(int, String, boolean, boolean, boolean); when empty string; then return Name is empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2mResourceObserve.<init>(int, String, boolean, boolean, boolean)"})
   void testNewLwM2mResourceObserve_whenEmptyString_thenReturnNameIsEmptyString() {
     // Arrange and Act
     LwM2mResourceObserve actualLwM2mResourceObserve = new LwM2mResourceObserve(1, "", true, true, true);
@@ -375,18 +407,18 @@ class LwM2mResourceObserveDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link LwM2mResourceObserve#LwM2mResourceObserve(int, String, boolean, boolean, boolean)}.
+   * Test {@link LwM2mResourceObserve#LwM2mResourceObserve(int, String, boolean, boolean, boolean)}.
    * <ul>
    *   <li>When {@code Name}.</li>
    *   <li>Then return {@code Name}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link LwM2mResourceObserve#LwM2mResourceObserve(int, String, boolean, boolean, boolean)}
+   * Method under test: {@link LwM2mResourceObserve#LwM2mResourceObserve(int, String, boolean, boolean, boolean)}
    */
   @Test
   @DisplayName("Test new LwM2mResourceObserve(int, String, boolean, boolean, boolean); when 'Name'; then return 'Name'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void LwM2mResourceObserve.<init>(int, String, boolean, boolean, boolean)"})
   void testNewLwM2mResourceObserve_whenName_thenReturnName() {
     // Arrange and Act
     LwM2mResourceObserve actualLwM2mResourceObserve = new LwM2mResourceObserve(1, "Name", true, true, true);

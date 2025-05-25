@@ -6,50 +6,63 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashSet;
 import java.util.Set;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.alarm.AlarmSearchStatus;
 import org.thingsboard.server.common.data.alarm.AlarmSeverity;
+import org.thingsboard.server.common.data.notification.rule.trigger.config.AlarmAssignmentNotificationRuleTriggerConfig.Action;
 import org.thingsboard.server.common.data.notification.rule.trigger.config.AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder;
 
+@ContextConfiguration(classes = {AlarmAssignmentNotificationRuleTriggerConfigBuilder.class})
+@ExtendWith(SpringExtension.class)
 class AlarmAssignmentNotificationRuleTriggerConfigDiffblueTest {
+  @Autowired
+  private AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmAssignmentNotificationRuleTriggerConfigBuilder;
+
   /**
-   * Test AlarmAssignmentNotificationRuleTriggerConfigBuilder
-   * {@link AlarmAssignmentNotificationRuleTriggerConfigBuilder#build()}.
+   * Test AlarmAssignmentNotificationRuleTriggerConfigBuilder {@link AlarmAssignmentNotificationRuleTriggerConfigBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder#build()}
-   *   <li>
-   * {@link AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder#alarmSeverities(Set)}
-   *   <li>
-   * {@link AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder#alarmStatuses(Set)}
-   *   <li>
-   * {@link AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder#alarmTypes(Set)}
-   *   <li>
-   * {@link AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder#notifyOn(Set)}
+   *   <li>{@link AlarmAssignmentNotificationRuleTriggerConfigBuilder#build()}
+   *   <li>{@link AlarmAssignmentNotificationRuleTriggerConfigBuilder#alarmSeverities(Set)}
+   *   <li>{@link AlarmAssignmentNotificationRuleTriggerConfigBuilder#alarmStatuses(Set)}
+   *   <li>{@link AlarmAssignmentNotificationRuleTriggerConfigBuilder#alarmTypes(Set)}
+   *   <li>{@link AlarmAssignmentNotificationRuleTriggerConfigBuilder#notifyOn(Set)}
    * </ul>
    */
   @Test
   @DisplayName("Test AlarmAssignmentNotificationRuleTriggerConfigBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmAssignmentNotificationRuleTriggerConfigBuilder.<init>()",
+      "AlarmAssignmentNotificationRuleTriggerConfigBuilder AlarmAssignmentNotificationRuleTriggerConfigBuilder.alarmSeverities(Set)",
+      "AlarmAssignmentNotificationRuleTriggerConfigBuilder AlarmAssignmentNotificationRuleTriggerConfigBuilder.alarmStatuses(Set)",
+      "AlarmAssignmentNotificationRuleTriggerConfigBuilder AlarmAssignmentNotificationRuleTriggerConfigBuilder.alarmTypes(Set)",
+      "AlarmAssignmentNotificationRuleTriggerConfig AlarmAssignmentNotificationRuleTriggerConfigBuilder.build()",
+      "AlarmAssignmentNotificationRuleTriggerConfigBuilder AlarmAssignmentNotificationRuleTriggerConfigBuilder.notifyOn(Set)",
+      "String AlarmAssignmentNotificationRuleTriggerConfigBuilder.toString()"})
   void testAlarmAssignmentNotificationRuleTriggerConfigBuilderBuild() {
     // Arrange
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder builderResult = AlarmAssignmentNotificationRuleTriggerConfig
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder builderResult = AlarmAssignmentNotificationRuleTriggerConfig
         .builder();
     HashSet<AlarmSeverity> alarmSeverities = new HashSet<>();
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult = builderResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult = builderResult
         .alarmSeverities(alarmSeverities);
     HashSet<AlarmSearchStatus> alarmStatuses = new HashSet<>();
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult = alarmSeveritiesResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult = alarmSeveritiesResult
         .alarmStatuses(alarmStatuses);
     HashSet<String> alarmTypes = new HashSet<>();
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult = alarmStatusesResult
-        .alarmTypes(alarmTypes);
-    HashSet<AlarmAssignmentNotificationRuleTriggerConfig.Action> notifyOn = new HashSet<>();
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult = alarmStatusesResult.alarmTypes(alarmTypes);
+    HashSet<Action> notifyOn = new HashSet<>();
 
     // Act
     AlarmAssignmentNotificationRuleTriggerConfig actualBuildResult = alarmTypesResult.notifyOn(notifyOn).build();
@@ -63,7 +76,7 @@ class AlarmAssignmentNotificationRuleTriggerConfigDiffblueTest {
     assertTrue(alarmStatuses2.isEmpty());
     Set<String> alarmTypes2 = actualBuildResult.getAlarmTypes();
     assertTrue(alarmTypes2.isEmpty());
-    Set<AlarmAssignmentNotificationRuleTriggerConfig.Action> notifyOn2 = actualBuildResult.getNotifyOn();
+    Set<Action> notifyOn2 = actualBuildResult.getNotifyOn();
     assertTrue(notifyOn2.isEmpty());
     assertSame(alarmSeverities, alarmSeverities2);
     assertSame(alarmStatuses, alarmStatuses2);
@@ -72,8 +85,7 @@ class AlarmAssignmentNotificationRuleTriggerConfigDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmAssignmentNotificationRuleTriggerConfig#equals(Object)}, and
-   * {@link AlarmAssignmentNotificationRuleTriggerConfig#hashCode()}.
+   * Test {@link AlarmAssignmentNotificationRuleTriggerConfig#equals(Object)}, and {@link AlarmAssignmentNotificationRuleTriggerConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -87,24 +99,27 @@ class AlarmAssignmentNotificationRuleTriggerConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmAssignmentNotificationRuleTriggerConfig.equals(Object)",
+      "int AlarmAssignmentNotificationRuleTriggerConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder builderResult = AlarmAssignmentNotificationRuleTriggerConfig
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder builderResult = AlarmAssignmentNotificationRuleTriggerConfig
         .builder();
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult = builderResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult = builderResult
         .alarmSeverities(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult = alarmSeveritiesResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult = alarmSeveritiesResult
         .alarmStatuses(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult = alarmStatusesResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult = alarmStatusesResult
         .alarmTypes(new HashSet<>());
     AlarmAssignmentNotificationRuleTriggerConfig buildResult = alarmTypesResult.notifyOn(new HashSet<>()).build();
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder builderResult2 = AlarmAssignmentNotificationRuleTriggerConfig
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder builderResult2 = AlarmAssignmentNotificationRuleTriggerConfig
         .builder();
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult2 = builderResult2
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult2 = builderResult2
         .alarmSeverities(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult2 = alarmSeveritiesResult2
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult2 = alarmSeveritiesResult2
         .alarmStatuses(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult2 = alarmStatusesResult2
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult2 = alarmStatusesResult2
         .alarmTypes(new HashSet<>());
     AlarmAssignmentNotificationRuleTriggerConfig buildResult2 = alarmTypesResult2.notifyOn(new HashSet<>()).build();
 
@@ -115,8 +130,7 @@ class AlarmAssignmentNotificationRuleTriggerConfigDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmAssignmentNotificationRuleTriggerConfig#equals(Object)}, and
-   * {@link AlarmAssignmentNotificationRuleTriggerConfig#hashCode()}.
+   * Test {@link AlarmAssignmentNotificationRuleTriggerConfig#equals(Object)}, and {@link AlarmAssignmentNotificationRuleTriggerConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -130,28 +144,31 @@ class AlarmAssignmentNotificationRuleTriggerConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmAssignmentNotificationRuleTriggerConfig.equals(Object)",
+      "int AlarmAssignmentNotificationRuleTriggerConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmAssignmentNotificationRuleTriggerConfigBuilder = mock(
-        AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder.class);
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmAssignmentNotificationRuleTriggerConfigBuilder = mock(
+        AlarmAssignmentNotificationRuleTriggerConfigBuilder.class);
     when(alarmAssignmentNotificationRuleTriggerConfigBuilder.alarmSeverities(Mockito.<Set<AlarmSeverity>>any()))
         .thenReturn(AlarmAssignmentNotificationRuleTriggerConfig.builder());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult = alarmAssignmentNotificationRuleTriggerConfigBuilder
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult = alarmAssignmentNotificationRuleTriggerConfigBuilder
         .alarmSeverities(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult = alarmSeveritiesResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult = alarmSeveritiesResult
         .alarmStatuses(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult = alarmStatusesResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult = alarmStatusesResult
         .alarmTypes(new HashSet<>());
     AlarmAssignmentNotificationRuleTriggerConfig buildResult = alarmTypesResult.notifyOn(new HashSet<>()).build();
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmAssignmentNotificationRuleTriggerConfigBuilder2 = mock(
-        AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder.class);
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmAssignmentNotificationRuleTriggerConfigBuilder2 = mock(
+        AlarmAssignmentNotificationRuleTriggerConfigBuilder.class);
     when(alarmAssignmentNotificationRuleTriggerConfigBuilder2.alarmSeverities(Mockito.<Set<AlarmSeverity>>any()))
         .thenReturn(AlarmAssignmentNotificationRuleTriggerConfig.builder());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult2 = alarmAssignmentNotificationRuleTriggerConfigBuilder2
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult2 = alarmAssignmentNotificationRuleTriggerConfigBuilder2
         .alarmSeverities(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult2 = alarmSeveritiesResult2
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult2 = alarmSeveritiesResult2
         .alarmStatuses(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult2 = alarmStatusesResult2
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult2 = alarmStatusesResult2
         .alarmTypes(new HashSet<>());
     AlarmAssignmentNotificationRuleTriggerConfig buildResult2 = alarmTypesResult2.notifyOn(new HashSet<>()).build();
 
@@ -162,8 +179,7 @@ class AlarmAssignmentNotificationRuleTriggerConfigDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmAssignmentNotificationRuleTriggerConfig#equals(Object)}, and
-   * {@link AlarmAssignmentNotificationRuleTriggerConfig#hashCode()}.
+   * Test {@link AlarmAssignmentNotificationRuleTriggerConfig#equals(Object)}, and {@link AlarmAssignmentNotificationRuleTriggerConfig#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -177,15 +193,18 @@ class AlarmAssignmentNotificationRuleTriggerConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmAssignmentNotificationRuleTriggerConfig.equals(Object)",
+      "int AlarmAssignmentNotificationRuleTriggerConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder builderResult = AlarmAssignmentNotificationRuleTriggerConfig
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder builderResult = AlarmAssignmentNotificationRuleTriggerConfig
         .builder();
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult = builderResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult = builderResult
         .alarmSeverities(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult = alarmSeveritiesResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult = alarmSeveritiesResult
         .alarmStatuses(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult = alarmStatusesResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult = alarmStatusesResult
         .alarmTypes(new HashSet<>());
     AlarmAssignmentNotificationRuleTriggerConfig buildResult = alarmTypesResult.notifyOn(new HashSet<>()).build();
 
@@ -202,31 +221,33 @@ class AlarmAssignmentNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmAssignmentNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link AlarmAssignmentNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmAssignmentNotificationRuleTriggerConfig.equals(Object)",
+      "int AlarmAssignmentNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmAssignmentNotificationRuleTriggerConfigBuilder = mock(
-        AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder.class);
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmAssignmentNotificationRuleTriggerConfigBuilder = mock(
+        AlarmAssignmentNotificationRuleTriggerConfigBuilder.class);
     when(alarmAssignmentNotificationRuleTriggerConfigBuilder.alarmSeverities(Mockito.<Set<AlarmSeverity>>any()))
         .thenReturn(AlarmAssignmentNotificationRuleTriggerConfig.builder());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult = alarmAssignmentNotificationRuleTriggerConfigBuilder
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult = alarmAssignmentNotificationRuleTriggerConfigBuilder
         .alarmSeverities(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult = alarmSeveritiesResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult = alarmSeveritiesResult
         .alarmStatuses(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult = alarmStatusesResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult = alarmStatusesResult
         .alarmTypes(new HashSet<>());
     AlarmAssignmentNotificationRuleTriggerConfig buildResult = alarmTypesResult.notifyOn(new HashSet<>()).build();
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder builderResult = AlarmAssignmentNotificationRuleTriggerConfig
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder builderResult = AlarmAssignmentNotificationRuleTriggerConfig
         .builder();
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult2 = builderResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult2 = builderResult
         .alarmSeverities(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult2 = alarmSeveritiesResult2
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult2 = alarmSeveritiesResult2
         .alarmStatuses(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult2 = alarmStatusesResult2
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult2 = alarmStatusesResult2
         .alarmTypes(new HashSet<>());
     AlarmAssignmentNotificationRuleTriggerConfig buildResult2 = alarmTypesResult2.notifyOn(new HashSet<>()).build();
 
@@ -241,34 +262,35 @@ class AlarmAssignmentNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmAssignmentNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link AlarmAssignmentNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmAssignmentNotificationRuleTriggerConfig.equals(Object)",
+      "int AlarmAssignmentNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmAssignmentNotificationRuleTriggerConfigBuilder = mock(
-        AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder.class);
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmAssignmentNotificationRuleTriggerConfigBuilder = mock(
+        AlarmAssignmentNotificationRuleTriggerConfigBuilder.class);
     when(alarmAssignmentNotificationRuleTriggerConfigBuilder.alarmSeverities(Mockito.<Set<AlarmSeverity>>any()))
         .thenReturn(AlarmAssignmentNotificationRuleTriggerConfig.builder());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult = alarmAssignmentNotificationRuleTriggerConfigBuilder
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult = alarmAssignmentNotificationRuleTriggerConfigBuilder
         .alarmSeverities(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult = alarmSeveritiesResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult = alarmSeveritiesResult
         .alarmStatuses(new HashSet<>());
 
     HashSet<String> alarmTypes = new HashSet<>();
     alarmTypes.add("foo");
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult = alarmStatusesResult
-        .alarmTypes(alarmTypes);
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult = alarmStatusesResult.alarmTypes(alarmTypes);
     AlarmAssignmentNotificationRuleTriggerConfig buildResult = alarmTypesResult.notifyOn(new HashSet<>()).build();
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder builderResult = AlarmAssignmentNotificationRuleTriggerConfig
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder builderResult = AlarmAssignmentNotificationRuleTriggerConfig
         .builder();
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult2 = builderResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult2 = builderResult
         .alarmSeverities(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult2 = alarmSeveritiesResult2
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult2 = alarmSeveritiesResult2
         .alarmStatuses(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult2 = alarmStatusesResult2
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult2 = alarmStatusesResult2
         .alarmTypes(new HashSet<>());
     AlarmAssignmentNotificationRuleTriggerConfig buildResult2 = alarmTypesResult2.notifyOn(new HashSet<>()).build();
 
@@ -283,37 +305,39 @@ class AlarmAssignmentNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmAssignmentNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link AlarmAssignmentNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmAssignmentNotificationRuleTriggerConfig.equals(Object)",
+      "int AlarmAssignmentNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmAssignmentNotificationRuleTriggerConfigBuilder = mock(
-        AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder.class);
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmAssignmentNotificationRuleTriggerConfigBuilder = mock(
+        AlarmAssignmentNotificationRuleTriggerConfigBuilder.class);
     when(alarmAssignmentNotificationRuleTriggerConfigBuilder.alarmStatuses(Mockito.<Set<AlarmSearchStatus>>any()))
         .thenReturn(AlarmAssignmentNotificationRuleTriggerConfig.builder());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmAssignmentNotificationRuleTriggerConfigBuilder2 = mock(
-        AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder.class);
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmAssignmentNotificationRuleTriggerConfigBuilder2 = mock(
+        AlarmAssignmentNotificationRuleTriggerConfigBuilder.class);
     when(alarmAssignmentNotificationRuleTriggerConfigBuilder2.alarmSeverities(Mockito.<Set<AlarmSeverity>>any()))
         .thenReturn(alarmAssignmentNotificationRuleTriggerConfigBuilder);
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult = alarmAssignmentNotificationRuleTriggerConfigBuilder2
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult = alarmAssignmentNotificationRuleTriggerConfigBuilder2
         .alarmSeverities(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult = alarmSeveritiesResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult = alarmSeveritiesResult
         .alarmStatuses(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult = alarmStatusesResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult = alarmStatusesResult
         .alarmTypes(new HashSet<>());
     AlarmAssignmentNotificationRuleTriggerConfig buildResult = alarmTypesResult.notifyOn(new HashSet<>()).build();
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmAssignmentNotificationRuleTriggerConfigBuilder3 = mock(
-        AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder.class);
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmAssignmentNotificationRuleTriggerConfigBuilder3 = mock(
+        AlarmAssignmentNotificationRuleTriggerConfigBuilder.class);
     when(alarmAssignmentNotificationRuleTriggerConfigBuilder3.alarmSeverities(Mockito.<Set<AlarmSeverity>>any()))
         .thenReturn(AlarmAssignmentNotificationRuleTriggerConfig.builder());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult2 = alarmAssignmentNotificationRuleTriggerConfigBuilder3
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult2 = alarmAssignmentNotificationRuleTriggerConfigBuilder3
         .alarmSeverities(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult2 = alarmSeveritiesResult2
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult2 = alarmSeveritiesResult2
         .alarmStatuses(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult2 = alarmStatusesResult2
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult2 = alarmStatusesResult2
         .alarmTypes(new HashSet<>());
     AlarmAssignmentNotificationRuleTriggerConfig buildResult2 = alarmTypesResult2.notifyOn(new HashSet<>()).build();
 
@@ -328,41 +352,43 @@ class AlarmAssignmentNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmAssignmentNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link AlarmAssignmentNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmAssignmentNotificationRuleTriggerConfig.equals(Object)",
+      "int AlarmAssignmentNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmAssignmentNotificationRuleTriggerConfigBuilder = mock(
-        AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder.class);
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmAssignmentNotificationRuleTriggerConfigBuilder = mock(
+        AlarmAssignmentNotificationRuleTriggerConfigBuilder.class);
     when(alarmAssignmentNotificationRuleTriggerConfigBuilder.alarmTypes(Mockito.<Set<String>>any()))
         .thenReturn(AlarmAssignmentNotificationRuleTriggerConfig.builder());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmAssignmentNotificationRuleTriggerConfigBuilder2 = mock(
-        AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder.class);
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmAssignmentNotificationRuleTriggerConfigBuilder2 = mock(
+        AlarmAssignmentNotificationRuleTriggerConfigBuilder.class);
     when(alarmAssignmentNotificationRuleTriggerConfigBuilder2.alarmStatuses(Mockito.<Set<AlarmSearchStatus>>any()))
         .thenReturn(alarmAssignmentNotificationRuleTriggerConfigBuilder);
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmAssignmentNotificationRuleTriggerConfigBuilder3 = mock(
-        AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder.class);
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmAssignmentNotificationRuleTriggerConfigBuilder3 = mock(
+        AlarmAssignmentNotificationRuleTriggerConfigBuilder.class);
     when(alarmAssignmentNotificationRuleTriggerConfigBuilder3.alarmSeverities(Mockito.<Set<AlarmSeverity>>any()))
         .thenReturn(alarmAssignmentNotificationRuleTriggerConfigBuilder2);
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult = alarmAssignmentNotificationRuleTriggerConfigBuilder3
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult = alarmAssignmentNotificationRuleTriggerConfigBuilder3
         .alarmSeverities(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult = alarmSeveritiesResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult = alarmSeveritiesResult
         .alarmStatuses(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult = alarmStatusesResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult = alarmStatusesResult
         .alarmTypes(new HashSet<>());
     AlarmAssignmentNotificationRuleTriggerConfig buildResult = alarmTypesResult.notifyOn(new HashSet<>()).build();
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmAssignmentNotificationRuleTriggerConfigBuilder4 = mock(
-        AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder.class);
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmAssignmentNotificationRuleTriggerConfigBuilder4 = mock(
+        AlarmAssignmentNotificationRuleTriggerConfigBuilder.class);
     when(alarmAssignmentNotificationRuleTriggerConfigBuilder4.alarmSeverities(Mockito.<Set<AlarmSeverity>>any()))
         .thenReturn(AlarmAssignmentNotificationRuleTriggerConfig.builder());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult2 = alarmAssignmentNotificationRuleTriggerConfigBuilder4
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult2 = alarmAssignmentNotificationRuleTriggerConfigBuilder4
         .alarmSeverities(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult2 = alarmSeveritiesResult2
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult2 = alarmSeveritiesResult2
         .alarmStatuses(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult2 = alarmStatusesResult2
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult2 = alarmStatusesResult2
         .alarmTypes(new HashSet<>());
     AlarmAssignmentNotificationRuleTriggerConfig buildResult2 = alarmTypesResult2.notifyOn(new HashSet<>()).build();
 
@@ -377,20 +403,22 @@ class AlarmAssignmentNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmAssignmentNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link AlarmAssignmentNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmAssignmentNotificationRuleTriggerConfig.equals(Object)",
+      "int AlarmAssignmentNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder builderResult = AlarmAssignmentNotificationRuleTriggerConfig
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder builderResult = AlarmAssignmentNotificationRuleTriggerConfig
         .builder();
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult = builderResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult = builderResult
         .alarmSeverities(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult = alarmSeveritiesResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult = alarmSeveritiesResult
         .alarmStatuses(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult = alarmStatusesResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult = alarmStatusesResult
         .alarmTypes(new HashSet<>());
     AlarmAssignmentNotificationRuleTriggerConfig buildResult = alarmTypesResult.notifyOn(new HashSet<>()).build();
 
@@ -405,20 +433,22 @@ class AlarmAssignmentNotificationRuleTriggerConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link AlarmAssignmentNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link AlarmAssignmentNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmAssignmentNotificationRuleTriggerConfig.equals(Object)",
+      "int AlarmAssignmentNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder builderResult = AlarmAssignmentNotificationRuleTriggerConfig
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder builderResult = AlarmAssignmentNotificationRuleTriggerConfig
         .builder();
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult = builderResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmSeveritiesResult = builderResult
         .alarmSeverities(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult = alarmSeveritiesResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmStatusesResult = alarmSeveritiesResult
         .alarmStatuses(new HashSet<>());
-    AlarmAssignmentNotificationRuleTriggerConfig.AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult = alarmStatusesResult
+    AlarmAssignmentNotificationRuleTriggerConfigBuilder alarmTypesResult = alarmStatusesResult
         .alarmTypes(new HashSet<>());
     AlarmAssignmentNotificationRuleTriggerConfig buildResult = alarmTypesResult.notifyOn(new HashSet<>()).build();
 
@@ -431,12 +461,9 @@ class AlarmAssignmentNotificationRuleTriggerConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link AlarmAssignmentNotificationRuleTriggerConfig#AlarmAssignmentNotificationRuleTriggerConfig()}
-   *   <li>
-   * {@link AlarmAssignmentNotificationRuleTriggerConfig#setAlarmSeverities(Set)}
-   *   <li>
-   * {@link AlarmAssignmentNotificationRuleTriggerConfig#setAlarmStatuses(Set)}
+   *   <li>{@link AlarmAssignmentNotificationRuleTriggerConfig#AlarmAssignmentNotificationRuleTriggerConfig()}
+   *   <li>{@link AlarmAssignmentNotificationRuleTriggerConfig#setAlarmSeverities(Set)}
+   *   <li>{@link AlarmAssignmentNotificationRuleTriggerConfig#setAlarmStatuses(Set)}
    *   <li>{@link AlarmAssignmentNotificationRuleTriggerConfig#setAlarmTypes(Set)}
    *   <li>{@link AlarmAssignmentNotificationRuleTriggerConfig#setNotifyOn(Set)}
    *   <li>{@link AlarmAssignmentNotificationRuleTriggerConfig#toString()}
@@ -449,6 +476,19 @@ class AlarmAssignmentNotificationRuleTriggerConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmAssignmentNotificationRuleTriggerConfig.<init>()",
+      "void AlarmAssignmentNotificationRuleTriggerConfig.<init>(Set, Set, Set, Set)",
+      "Set AlarmAssignmentNotificationRuleTriggerConfig.getAlarmSeverities()",
+      "Set AlarmAssignmentNotificationRuleTriggerConfig.getAlarmStatuses()",
+      "Set AlarmAssignmentNotificationRuleTriggerConfig.getAlarmTypes()",
+      "Set AlarmAssignmentNotificationRuleTriggerConfig.getNotifyOn()",
+      "NotificationRuleTriggerType AlarmAssignmentNotificationRuleTriggerConfig.getTriggerType()",
+      "void AlarmAssignmentNotificationRuleTriggerConfig.setAlarmSeverities(Set)",
+      "void AlarmAssignmentNotificationRuleTriggerConfig.setAlarmStatuses(Set)",
+      "void AlarmAssignmentNotificationRuleTriggerConfig.setAlarmTypes(Set)",
+      "void AlarmAssignmentNotificationRuleTriggerConfig.setNotifyOn(Set)",
+      "String AlarmAssignmentNotificationRuleTriggerConfig.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     AlarmAssignmentNotificationRuleTriggerConfig actualAlarmAssignmentNotificationRuleTriggerConfig = new AlarmAssignmentNotificationRuleTriggerConfig();
@@ -458,16 +498,15 @@ class AlarmAssignmentNotificationRuleTriggerConfigDiffblueTest {
     actualAlarmAssignmentNotificationRuleTriggerConfig.setAlarmStatuses(alarmStatuses);
     HashSet<String> alarmTypes = new HashSet<>();
     actualAlarmAssignmentNotificationRuleTriggerConfig.setAlarmTypes(alarmTypes);
-    HashSet<AlarmAssignmentNotificationRuleTriggerConfig.Action> notifyOn = new HashSet<>();
+    HashSet<Action> notifyOn = new HashSet<>();
     actualAlarmAssignmentNotificationRuleTriggerConfig.setNotifyOn(notifyOn);
     String actualToStringResult = actualAlarmAssignmentNotificationRuleTriggerConfig.toString();
     Set<AlarmSeverity> actualAlarmSeverities = actualAlarmAssignmentNotificationRuleTriggerConfig.getAlarmSeverities();
     Set<AlarmSearchStatus> actualAlarmStatuses = actualAlarmAssignmentNotificationRuleTriggerConfig.getAlarmStatuses();
     Set<String> actualAlarmTypes = actualAlarmAssignmentNotificationRuleTriggerConfig.getAlarmTypes();
-    Set<AlarmAssignmentNotificationRuleTriggerConfig.Action> actualNotifyOn = actualAlarmAssignmentNotificationRuleTriggerConfig
-        .getNotifyOn();
+    Set<Action> actualNotifyOn = actualAlarmAssignmentNotificationRuleTriggerConfig.getNotifyOn();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("AlarmAssignmentNotificationRuleTriggerConfig(alarmTypes=[], alarmSeverities=[], alarmStatuses=[],"
         + " notifyOn=[])", actualToStringResult);
     assertEquals(NotificationRuleTriggerType.ALARM_ASSIGNMENT,
@@ -490,12 +529,9 @@ class AlarmAssignmentNotificationRuleTriggerConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link AlarmAssignmentNotificationRuleTriggerConfig#AlarmAssignmentNotificationRuleTriggerConfig(Set, Set, Set, Set)}
-   *   <li>
-   * {@link AlarmAssignmentNotificationRuleTriggerConfig#setAlarmSeverities(Set)}
-   *   <li>
-   * {@link AlarmAssignmentNotificationRuleTriggerConfig#setAlarmStatuses(Set)}
+   *   <li>{@link AlarmAssignmentNotificationRuleTriggerConfig#AlarmAssignmentNotificationRuleTriggerConfig(Set, Set, Set, Set)}
+   *   <li>{@link AlarmAssignmentNotificationRuleTriggerConfig#setAlarmSeverities(Set)}
+   *   <li>{@link AlarmAssignmentNotificationRuleTriggerConfig#setAlarmStatuses(Set)}
    *   <li>{@link AlarmAssignmentNotificationRuleTriggerConfig#setAlarmTypes(Set)}
    *   <li>{@link AlarmAssignmentNotificationRuleTriggerConfig#setNotifyOn(Set)}
    *   <li>{@link AlarmAssignmentNotificationRuleTriggerConfig#toString()}
@@ -508,6 +544,19 @@ class AlarmAssignmentNotificationRuleTriggerConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when HashSet()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmAssignmentNotificationRuleTriggerConfig.<init>()",
+      "void AlarmAssignmentNotificationRuleTriggerConfig.<init>(Set, Set, Set, Set)",
+      "Set AlarmAssignmentNotificationRuleTriggerConfig.getAlarmSeverities()",
+      "Set AlarmAssignmentNotificationRuleTriggerConfig.getAlarmStatuses()",
+      "Set AlarmAssignmentNotificationRuleTriggerConfig.getAlarmTypes()",
+      "Set AlarmAssignmentNotificationRuleTriggerConfig.getNotifyOn()",
+      "NotificationRuleTriggerType AlarmAssignmentNotificationRuleTriggerConfig.getTriggerType()",
+      "void AlarmAssignmentNotificationRuleTriggerConfig.setAlarmSeverities(Set)",
+      "void AlarmAssignmentNotificationRuleTriggerConfig.setAlarmStatuses(Set)",
+      "void AlarmAssignmentNotificationRuleTriggerConfig.setAlarmTypes(Set)",
+      "void AlarmAssignmentNotificationRuleTriggerConfig.setNotifyOn(Set)",
+      "String AlarmAssignmentNotificationRuleTriggerConfig.toString()"})
   void testGettersAndSetters_whenHashSet() {
     // Arrange
     HashSet<String> alarmTypes = new HashSet<>();
@@ -523,16 +572,15 @@ class AlarmAssignmentNotificationRuleTriggerConfigDiffblueTest {
     actualAlarmAssignmentNotificationRuleTriggerConfig.setAlarmStatuses(alarmStatuses2);
     HashSet<String> alarmTypes2 = new HashSet<>();
     actualAlarmAssignmentNotificationRuleTriggerConfig.setAlarmTypes(alarmTypes2);
-    HashSet<AlarmAssignmentNotificationRuleTriggerConfig.Action> notifyOn = new HashSet<>();
+    HashSet<Action> notifyOn = new HashSet<>();
     actualAlarmAssignmentNotificationRuleTriggerConfig.setNotifyOn(notifyOn);
     String actualToStringResult = actualAlarmAssignmentNotificationRuleTriggerConfig.toString();
     Set<AlarmSeverity> actualAlarmSeverities = actualAlarmAssignmentNotificationRuleTriggerConfig.getAlarmSeverities();
     Set<AlarmSearchStatus> actualAlarmStatuses = actualAlarmAssignmentNotificationRuleTriggerConfig.getAlarmStatuses();
     Set<String> actualAlarmTypes = actualAlarmAssignmentNotificationRuleTriggerConfig.getAlarmTypes();
-    Set<AlarmAssignmentNotificationRuleTriggerConfig.Action> actualNotifyOn = actualAlarmAssignmentNotificationRuleTriggerConfig
-        .getNotifyOn();
+    Set<Action> actualNotifyOn = actualAlarmAssignmentNotificationRuleTriggerConfig.getNotifyOn();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("AlarmAssignmentNotificationRuleTriggerConfig(alarmTypes=[], alarmSeverities=[], alarmStatuses=[],"
         + " notifyOn=[])", actualToStringResult);
     assertEquals(NotificationRuleTriggerType.ALARM_ASSIGNMENT,

@@ -1,7 +1,9 @@
 package org.thingsboard.server.service.sms;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class SmsExecutorServiceDiffblueTest {
@@ -12,6 +14,8 @@ class SmsExecutorServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test getThreadPollSize()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int SmsExecutorService.getThreadPollSize()"})
   void testGetThreadPollSize() {
     // Arrange, Act and Assert
     assertEquals(0, (new SmsExecutorService()).getThreadPollSize());

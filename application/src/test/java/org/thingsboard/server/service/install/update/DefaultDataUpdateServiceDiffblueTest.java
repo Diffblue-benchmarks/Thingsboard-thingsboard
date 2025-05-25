@@ -8,6 +8,7 @@ import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.BigIntegerNode;
@@ -18,10 +19,23 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.thingsboard.server.service.component.ComponentDiscoveryService;
 
+@ExtendWith(MockitoExtension.class)
 class DefaultDataUpdateServiceDiffblueTest {
+  @Mock
+  private ComponentDiscoveryService componentDiscoveryService;
+
+  @InjectMocks
+  private DefaultDataUpdateService defaultDataUpdateService;
+
   /**
    * Test {@link DefaultDataUpdateService#updateData(String)}.
    * <ul>
@@ -33,51 +47,65 @@ class DefaultDataUpdateServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test updateData(String); when 'jane.doe@example.org'; then throw RuntimeException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultDataUpdateService.updateData(String)"})
   void testUpdateData_whenJaneDoeExampleOrg_thenThrowRuntimeException() throws Exception {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
-    assertThrows(RuntimeException.class, () -> (new DefaultDataUpdateService()).updateData("jane.doe@example.org"));
+    assertThrows(RuntimeException.class, () -> defaultDataUpdateService.updateData("jane.doe@example.org"));
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#upgradeRuleNodes()}.
+   * <ul>
+   *   <li>Then calls {@link ComponentDiscoveryService#getVersionedNodes()}.</li>
+   * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#upgradeRuleNodes()}
+   */
+  @Test
+  @DisplayName("Test upgradeRuleNodes(); then calls getVersionedNodes()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultDataUpdateService.upgradeRuleNodes()"})
+  void testUpgradeRuleNodes_thenCallsGetVersionedNodes() {
+    // Arrange
+    when(componentDiscoveryService.getVersionedNodes()).thenReturn(new ArrayList<>());
+
+    // Act
+    defaultDataUpdateService.upgradeRuleNodes();
+
+    // Assert
+    verify(componentDiscoveryService).getVersionedNodes();
+  }
+
+  /**
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
+   * <p>
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileForVersion330(JsonNode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileForVersion330(JsonNode)"})
   void testConvertDeviceProfileForVersion330() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
-
-    // Act and Assert
+    // Arrange, Act and Assert
     assertFalse(defaultDataUpdateService
         .convertDeviceProfileForVersion330(new ArrayNode(JsonNodeFactory.withExactBigDecimals(true))));
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
    * <ul>
    *   <li>Given {@link ArrayList#ArrayList()} add Instance.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileForVersion330(JsonNode); given ArrayList() add Instance")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileForVersion330(JsonNode)"})
   void testConvertDeviceProfileForVersion330_givenArrayListAddInstance() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
-
     ArrayList<JsonNode> jsonNodeList = new ArrayList<>();
     jsonNodeList.add(MissingNode.getInstance());
     Iterator<JsonNode> iteratorResult = jsonNodeList.iterator();
@@ -101,23 +129,19 @@ class DefaultDataUpdateServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
    * <ul>
-   *   <li>Given {@link ArrayNode} {@link ArrayNode#get(String)} return
-   * Instance.</li>
+   *   <li>Given {@link ArrayNode} {@link ArrayNode#get(String)} return Instance.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileForVersion330(JsonNode); given ArrayNode get(String) return Instance")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileForVersion330(JsonNode)"})
   void testConvertDeviceProfileForVersion330_givenArrayNodeGetReturnInstance() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
     ArrayNode arrayNode = mock(ArrayNode.class);
     when(arrayNode.get(Mockito.<String>any())).thenReturn(MissingNode.getInstance());
     ArrayNode arrayNode2 = mock(ArrayNode.class);
@@ -157,23 +181,19 @@ class DefaultDataUpdateServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
    * <ul>
-   *   <li>Given {@link ArrayNode} {@link ArrayNode#get(String)} return
-   * Instance.</li>
+   *   <li>Given {@link ArrayNode} {@link ArrayNode#get(String)} return Instance.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileForVersion330(JsonNode); given ArrayNode get(String) return Instance")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileForVersion330(JsonNode)"})
   void testConvertDeviceProfileForVersion330_givenArrayNodeGetReturnInstance2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
     ArrayNode arrayNode = mock(ArrayNode.class);
     when(arrayNode.get(Mockito.<String>any())).thenReturn(MissingNode.getInstance());
     ArrayNode arrayNode2 = mock(ArrayNode.class);
@@ -216,23 +236,19 @@ class DefaultDataUpdateServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
    * <ul>
-   *   <li>Given {@link ArrayNode} {@link ArrayNode#get(String)} return
-   * Instance.</li>
+   *   <li>Given {@link ArrayNode} {@link ArrayNode#get(String)} return Instance.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileForVersion330(JsonNode); given ArrayNode get(String) return Instance")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileForVersion330(JsonNode)"})
   void testConvertDeviceProfileForVersion330_givenArrayNodeGetReturnInstance3() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
     ArrayNode arrayNode = mock(ArrayNode.class);
     when(arrayNode.get(Mockito.<String>any())).thenReturn(MissingNode.getInstance());
     when(arrayNode.has(Mockito.<String>any())).thenReturn(true);
@@ -280,23 +296,66 @@ class DefaultDataUpdateServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
    * <ul>
-   *   <li>Given {@link ArrayNode} {@link JsonNode#isNull()} return
-   * {@code true}.</li>
+   *   <li>Given {@link ArrayNode} {@link JsonNode#has(String)} return {@code false}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
+   */
+  @Test
+  @DisplayName("Test convertDeviceProfileForVersion330(JsonNode); given ArrayNode has(String) return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileForVersion330(JsonNode)"})
+  void testConvertDeviceProfileForVersion330_givenArrayNodeHasReturnFalse() {
+    // Arrange
+    ArrayNode arrayNode = mock(ArrayNode.class);
+    when(arrayNode.has(Mockito.<String>any())).thenReturn(false);
+    when(arrayNode.isNull()).thenReturn(true);
+    ArrayNode arrayNode2 = mock(ArrayNode.class);
+    when(arrayNode2.get(Mockito.<String>any())).thenReturn(arrayNode);
+    when(arrayNode2.has(Mockito.<String>any())).thenReturn(true);
+
+    ArrayList<JsonNode> jsonNodeList = new ArrayList<>();
+    jsonNodeList.add(arrayNode2);
+    Iterator<JsonNode> iteratorResult = jsonNodeList.iterator();
+    ArrayNode arrayNode3 = mock(ArrayNode.class);
+    when(arrayNode3.isNull()).thenReturn(false);
+    when(arrayNode3.iterator()).thenReturn(iteratorResult);
+    ArrayNode profileData = mock(ArrayNode.class);
+    when(profileData.get(Mockito.<String>any())).thenReturn(arrayNode3);
+    when(profileData.has(Mockito.<String>any())).thenReturn(true);
+
+    // Act
+    boolean actualConvertDeviceProfileForVersion330Result = defaultDataUpdateService
+        .convertDeviceProfileForVersion330(profileData);
+
+    // Assert
+    verify(arrayNode2, atLeast(1)).has(Mockito.<String>any());
+    verify(arrayNode, atLeast(1)).has(Mockito.<String>any());
+    verify(profileData).has(eq("alarms"));
+    verify(arrayNode3).isNull();
+    verify(arrayNode).isNull();
+    verify(arrayNode3).iterator();
+    verify(arrayNode2, atLeast(1)).get(Mockito.<String>any());
+    verify(profileData, atLeast(1)).get(eq("alarms"));
+    assertFalse(actualConvertDeviceProfileForVersion330Result);
+  }
+
+  /**
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
+   * <ul>
+   *   <li>Given {@link ArrayNode} {@link JsonNode#isNull()} return {@code true}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileForVersion330(JsonNode); given ArrayNode isNull() return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileForVersion330(JsonNode)"})
   void testConvertDeviceProfileForVersion330_givenArrayNodeIsNullReturnTrue() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
     ArrayNode arrayNode = mock(ArrayNode.class);
     when(arrayNode.isNull()).thenReturn(true);
     ArrayNode profileData = mock(ArrayNode.class);
@@ -315,23 +374,19 @@ class DefaultDataUpdateServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
    * <ul>
-   *   <li>Given {@link BigIntegerNode#BigIntegerNode(BigInteger)} with v is valueOf
-   * one.</li>
+   *   <li>Given {@link BigIntegerNode#BigIntegerNode(BigInteger)} with v is valueOf one.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileForVersion330(JsonNode); given BigIntegerNode(BigInteger) with v is valueOf one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileForVersion330(JsonNode)"})
   void testConvertDeviceProfileForVersion330_givenBigIntegerNodeWithVIsValueOfOne() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
     ArrayNode profileData = mock(ArrayNode.class);
     when(profileData.get(Mockito.<String>any())).thenReturn(new BigIntegerNode(BigInteger.valueOf(1L)));
     when(profileData.has(Mockito.<String>any())).thenReturn(true);
@@ -347,22 +402,19 @@ class DefaultDataUpdateServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
    * <ul>
    *   <li>Given Instance.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileForVersion330(JsonNode); given Instance")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileForVersion330(JsonNode)"})
   void testConvertDeviceProfileForVersion330_givenInstance() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
     ArrayNode profileData = mock(ArrayNode.class);
     when(profileData.get(Mockito.<String>any())).thenReturn(MissingNode.getInstance());
     when(profileData.has(Mockito.<String>any())).thenReturn(true);
@@ -378,23 +430,19 @@ class DefaultDataUpdateServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
    * <ul>
-   *   <li>Given {@link RuntimeException#RuntimeException(String)} with
-   * {@code alarms}.</li>
+   *   <li>Given {@link RuntimeException#RuntimeException(String)} with {@code alarms}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileForVersion330(JsonNode); given RuntimeException(String) with 'alarms'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileForVersion330(JsonNode)"})
   void testConvertDeviceProfileForVersion330_givenRuntimeExceptionWithAlarms() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
     ArrayNode profileData = mock(ArrayNode.class);
     when(profileData.get(Mockito.<String>any())).thenThrow(new RuntimeException("alarms"));
     when(profileData.has(Mockito.<String>any())).thenReturn(true);
@@ -406,22 +454,19 @@ class DefaultDataUpdateServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
    * <ul>
    *   <li>Then calls {@link ContainerNode#asText()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileForVersion330(JsonNode); then calls asText()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileForVersion330(JsonNode)"})
   void testConvertDeviceProfileForVersion330_thenCallsAsText() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
     ArrayNode arrayNode = mock(ArrayNode.class);
     when(arrayNode.asText()).thenReturn("As Text");
     ArrayNode arrayNode2 = mock(ArrayNode.class);
@@ -476,22 +521,19 @@ class DefaultDataUpdateServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
    * <ul>
    *   <li>Then calls {@link JsonNode#iterator()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileForVersion330(JsonNode); then calls iterator()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileForVersion330(JsonNode)"})
   void testConvertDeviceProfileForVersion330_thenCallsIterator() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
     ArrayNode arrayNode = mock(ArrayNode.class);
     when(arrayNode.isNull()).thenReturn(false);
 
@@ -514,42 +556,34 @@ class DefaultDataUpdateServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
    * <ul>
    *   <li>When Instance.</li>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileForVersion330(JsonNode); when Instance; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileForVersion330(JsonNode)"})
   void testConvertDeviceProfileForVersion330_whenInstance_thenReturnFalse() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
-
-    // Act and Assert
+    // Arrange, Act and Assert
     assertFalse(defaultDataUpdateService.convertDeviceProfileForVersion330(MissingNode.getInstance()));
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileForVersion330(JsonNode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileForVersion330(JsonNode)"})
   void testConvertDeviceProfileForVersion3302() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
     ArrayNode profileData = mock(ArrayNode.class);
     when(profileData.get(Mockito.<String>any())).thenReturn(new ArrayNode(JsonNodeFactory.withExactBigDecimals(true)));
     when(profileData.has(Mockito.<String>any())).thenReturn(true);
@@ -565,20 +599,16 @@ class DefaultDataUpdateServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileForVersion330(JsonNode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileForVersion330(JsonNode)"})
   void testConvertDeviceProfileForVersion3303() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
-
     ArrayList<JsonNode> jsonNodeList = new ArrayList<>();
     jsonNodeList.add(new ArrayNode(JsonNodeFactory.withExactBigDecimals(true)));
     Iterator<JsonNode> iteratorResult = jsonNodeList.iterator();
@@ -602,19 +632,16 @@ class DefaultDataUpdateServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileForVersion330(JsonNode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileForVersion330(JsonNode)"})
   void testConvertDeviceProfileForVersion3304() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
     ArrayNode arrayNode = mock(ArrayNode.class);
     when(arrayNode.get(Mockito.<String>any())).thenThrow(new RuntimeException("alarms"));
     when(arrayNode.has(Mockito.<String>any())).thenReturn(true);
@@ -640,19 +667,16 @@ class DefaultDataUpdateServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileForVersion330(JsonNode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileForVersion330(JsonNode)"})
   void testConvertDeviceProfileForVersion3305() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
     ArrayNode arrayNode = mock(ArrayNode.class);
     when(arrayNode.get(Mockito.<String>any())).thenReturn(new ArrayNode(JsonNodeFactory.withExactBigDecimals(true)));
     ArrayNode arrayNode2 = mock(ArrayNode.class);
@@ -692,19 +716,16 @@ class DefaultDataUpdateServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileForVersion330(JsonNode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileForVersion330(JsonNode)"})
   void testConvertDeviceProfileForVersion3306() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
     ArrayNode arrayNode = mock(ArrayNode.class);
     when(arrayNode.get(Mockito.<String>any())).thenReturn(new ArrayNode(JsonNodeFactory.withExactBigDecimals(true)));
     ArrayNode arrayNode2 = mock(ArrayNode.class);
@@ -747,19 +768,16 @@ class DefaultDataUpdateServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileForVersion330(JsonNode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileForVersion330(JsonNode)"})
   void testConvertDeviceProfileForVersion3307() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
     ArrayNode arrayNode = mock(ArrayNode.class);
     when(arrayNode.get(Mockito.<String>any())).thenThrow(new RuntimeException("alarms"));
     when(arrayNode.has(Mockito.<String>any())).thenReturn(true);
@@ -770,7 +788,6 @@ class DefaultDataUpdateServiceDiffblueTest {
     ArrayNode arrayNode4 = mock(ArrayNode.class);
     when(arrayNode4.has(Mockito.<String>any())).thenReturn(true);
     when(arrayNode4.get(Mockito.<String>any())).thenReturn(arrayNode3);
-    when(arrayNode4.isNull()).thenReturn(true);
     ArrayNode arrayNode5 = mock(ArrayNode.class);
     when(arrayNode5.get(Mockito.<String>any())).thenReturn(arrayNode4);
     when(arrayNode5.has(Mockito.<String>any())).thenReturn(true);
@@ -802,19 +819,16 @@ class DefaultDataUpdateServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}.
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileForVersion330(JsonNode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileForVersion330(JsonNode)"})
   void testConvertDeviceProfileForVersion3308() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
     ArrayNode arrayNode = mock(ArrayNode.class);
     when(arrayNode.get(Mockito.<String>any())).thenReturn(new ArrayNode(JsonNodeFactory.withExactBigDecimals(true)));
     when(arrayNode.has(Mockito.<String>any())).thenReturn(true);
@@ -862,42 +876,34 @@ class DefaultDataUpdateServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}.
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileAlarmRulesForVersion330(JsonNode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileAlarmRulesForVersion330(JsonNode)"})
   void testConvertDeviceProfileAlarmRulesForVersion330() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
-
-    // Act and Assert
+    // Arrange, Act and Assert
     assertFalse(defaultDataUpdateService
         .convertDeviceProfileAlarmRulesForVersion330(new ArrayNode(JsonNodeFactory.withExactBigDecimals(true))));
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}.
    * <ul>
    *   <li>Given Instance.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileAlarmRulesForVersion330(JsonNode); given Instance")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileAlarmRulesForVersion330(JsonNode)"})
   void testConvertDeviceProfileAlarmRulesForVersion330_givenInstance() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
     ArrayNode spec = mock(ArrayNode.class);
     when(spec.get(Mockito.<String>any())).thenReturn(MissingNode.getInstance());
     when(spec.has(Mockito.<String>any())).thenReturn(true);
@@ -913,22 +919,19 @@ class DefaultDataUpdateServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}.
    * <ul>
    *   <li>Then throw {@link RuntimeException}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileAlarmRulesForVersion330(JsonNode); then throw RuntimeException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileAlarmRulesForVersion330(JsonNode)"})
   void testConvertDeviceProfileAlarmRulesForVersion330_thenThrowRuntimeException() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
     ArrayNode spec = mock(ArrayNode.class);
     when(spec.get(Mockito.<String>any())).thenThrow(new RuntimeException("type"));
     when(spec.has(Mockito.<String>any())).thenReturn(true);
@@ -941,62 +944,52 @@ class DefaultDataUpdateServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}.
    * <ul>
    *   <li>When Instance.</li>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileAlarmRulesForVersion330(JsonNode); when Instance; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileAlarmRulesForVersion330(JsonNode)"})
   void testConvertDeviceProfileAlarmRulesForVersion330_whenInstance_thenReturnFalse() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
-
-    // Act and Assert
+    // Arrange, Act and Assert
     assertFalse(defaultDataUpdateService.convertDeviceProfileAlarmRulesForVersion330(MissingNode.getInstance()));
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}.
    * <ul>
    *   <li>When {@code null}.</li>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileAlarmRulesForVersion330(JsonNode); when 'null'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileAlarmRulesForVersion330(JsonNode)"})
   void testConvertDeviceProfileAlarmRulesForVersion330_whenNull_thenReturnFalse() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
-    assertFalse((new DefaultDataUpdateService()).convertDeviceProfileAlarmRulesForVersion330(null));
+    assertFalse(defaultDataUpdateService.convertDeviceProfileAlarmRulesForVersion330(null));
   }
 
   /**
-   * Test
-   * {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}.
+   * Test {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}.
    * <p>
-   * Method under test:
-   * {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}
+   * Method under test: {@link DefaultDataUpdateService#convertDeviceProfileAlarmRulesForVersion330(JsonNode)}
    */
   @Test
   @DisplayName("Test convertDeviceProfileAlarmRulesForVersion330(JsonNode)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.convertDeviceProfileAlarmRulesForVersion330(JsonNode)"})
   void testConvertDeviceProfileAlarmRulesForVersion3302() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DefaultDataUpdateService defaultDataUpdateService = new DefaultDataUpdateService();
     ArrayNode spec = mock(ArrayNode.class);
     when(spec.get(Mockito.<String>any())).thenReturn(new ArrayNode(JsonNodeFactory.withExactBigDecimals(true)));
     when(spec.has(Mockito.<String>any())).thenReturn(true);
@@ -1022,9 +1015,9 @@ class DefaultDataUpdateServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test getEnv(String, boolean); when 'false'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.getEnv(String, boolean)"})
   void testGetEnv_whenFalse_thenReturnFalse() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertFalse(DefaultDataUpdateService.getEnv("Name", false));
   }
@@ -1040,9 +1033,9 @@ class DefaultDataUpdateServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test getEnv(String, boolean); when 'Name'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultDataUpdateService.getEnv(String, boolean)"})
   void testGetEnv_whenName_thenReturnTrue() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
     assertTrue(DefaultDataUpdateService.getEnv("Name", true));
   }

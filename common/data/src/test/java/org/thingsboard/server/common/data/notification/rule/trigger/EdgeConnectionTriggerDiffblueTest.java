@@ -2,8 +2,10 @@ package org.thingsboard.server.common.data.notification.rule.trigger;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.EdgeId;
@@ -20,6 +22,8 @@ class EdgeConnectionTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test deduplicate(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeConnectionTrigger.deduplicate()"})
   void testDeduplicate_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue((new EdgeConnectionTrigger(TenantId.SYS_TENANT_ID,
@@ -34,6 +38,8 @@ class EdgeConnectionTriggerDiffblueTest {
    */
   @Test
   @DisplayName("Test getDeduplicationKey()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String EdgeConnectionTrigger.getDeduplicationKey()"})
   void testGetDeduplicationKey() {
     // Arrange
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -51,11 +57,12 @@ class EdgeConnectionTriggerDiffblueTest {
    *   <li>Then return {@code 60000}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EdgeConnectionTrigger#getDefaultDeduplicationDuration()}
+   * Method under test: {@link EdgeConnectionTrigger#getDefaultDeduplicationDuration()}
    */
   @Test
   @DisplayName("Test getDefaultDeduplicationDuration(); then return '60000'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long EdgeConnectionTrigger.getDefaultDeduplicationDuration()"})
   void testGetDefaultDeduplicationDuration_thenReturn60000() {
     // Arrange, Act and Assert
     assertEquals(60000L,

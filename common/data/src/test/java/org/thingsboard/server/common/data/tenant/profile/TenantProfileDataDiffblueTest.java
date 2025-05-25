@@ -4,11 +4,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.node.MissingNode;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.queue.ProcessingStrategy;
 import org.thingsboard.server.common.data.queue.ProcessingStrategyType;
@@ -17,8 +18,7 @@ import org.thingsboard.server.common.data.queue.SubmitStrategyType;
 
 class TenantProfileDataDiffblueTest {
   /**
-   * Test {@link TenantProfileData#equals(Object)}, and
-   * {@link TenantProfileData#hashCode()}.
+   * Test {@link TenantProfileData#equals(Object)}, and {@link TenantProfileData#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -32,6 +32,8 @@ class TenantProfileDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfileData.equals(Object)", "int TenantProfileData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TenantProfileData tenantProfileData = new TenantProfileData();
@@ -49,8 +51,7 @@ class TenantProfileDataDiffblueTest {
   }
 
   /**
-   * Test {@link TenantProfileData#equals(Object)}, and
-   * {@link TenantProfileData#hashCode()}.
+   * Test {@link TenantProfileData#equals(Object)}, and {@link TenantProfileData#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -64,6 +65,8 @@ class TenantProfileDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfileData.equals(Object)", "int TenantProfileData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TenantProfileData tenantProfileData = new TenantProfileData();
@@ -87,6 +90,8 @@ class TenantProfileDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfileData.equals(Object)", "int TenantProfileData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TenantProfileData tenantProfileData = new TenantProfileData();
@@ -173,6 +178,8 @@ class TenantProfileDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfileData.equals(Object)", "int TenantProfileData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TenantProfileData tenantProfileData = new TenantProfileData();
@@ -198,32 +205,9 @@ class TenantProfileDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfileData.equals(Object)", "int TenantProfileData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
-    // Arrange
-    TenantProfileData tenantProfileData = new TenantProfileData();
-    tenantProfileData.setConfiguration(mock(DefaultTenantProfileConfiguration.class));
-    tenantProfileData.setQueueConfiguration(new ArrayList<>());
-
-    TenantProfileData tenantProfileData2 = new TenantProfileData();
-    tenantProfileData2.setConfiguration(new DefaultTenantProfileConfiguration());
-    tenantProfileData2.setQueueConfiguration(new ArrayList<>());
-
-    // Act and Assert
-    assertNotEquals(tenantProfileData, tenantProfileData2);
-  }
-
-  /**
-   * Test {@link TenantProfileData#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TenantProfileData#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
     processingStrategy.setFailurePercentage(10.0d);
@@ -273,6 +257,8 @@ class TenantProfileDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfileData.equals(Object)", "int TenantProfileData.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     TenantProfileData tenantProfileData = new TenantProfileData();
@@ -294,6 +280,8 @@ class TenantProfileDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TenantProfileData.equals(Object)", "int TenantProfileData.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     TenantProfileData tenantProfileData = new TenantProfileData();
@@ -319,6 +307,12 @@ class TenantProfileDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TenantProfileData.<init>()",
+      "TenantProfileConfiguration TenantProfileData.getConfiguration()",
+      "List TenantProfileData.getQueueConfiguration()",
+      "void TenantProfileData.setConfiguration(TenantProfileConfiguration)",
+      "void TenantProfileData.setQueueConfiguration(List)", "String TenantProfileData.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TenantProfileData actualTenantProfileData = new TenantProfileData();
@@ -330,7 +324,7 @@ class TenantProfileDataDiffblueTest {
     TenantProfileConfiguration actualConfiguration = actualTenantProfileData.getConfiguration();
     List<TenantProfileQueueConfiguration> actualQueueConfiguration = actualTenantProfileData.getQueueConfiguration();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "TenantProfileData(configuration=DefaultTenantProfileConfiguration(maxDevices=0, maxAssets=0, maxCustomers=0,"
             + " maxUsers=0, maxDashboards=0, maxRuleChains=0, maxResourcesInBytes=0, maxOtaPackagesInBytes=0,"

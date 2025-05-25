@@ -1,101 +1,63 @@
 package org.thingsboard.server.service.edge.rpc.processor.device.profile;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.ArgumentMatchers.isA;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.thingsboard.server.common.data.DeviceProfile;
-import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.DashboardId;
 import org.thingsboard.server.common.data.id.RuleChainId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.gen.edge.v1.DeviceProfileUpdateMsg;
 
+@ExtendWith(MockitoExtension.class)
 class DeviceProfileEdgeProcessorV2DiffblueTest {
+  @InjectMocks
+  private DeviceProfileEdgeProcessorV2 deviceProfileEdgeProcessorV2;
+
   /**
-   * Test
-   * {@link DeviceProfileEdgeProcessorV2#setDefaultRuleChainId(TenantId, DeviceProfile, RuleChainId)}.
+   * Test {@link DeviceProfileEdgeProcessorV2#setDefaultRuleChainId(TenantId, DeviceProfile, RuleChainId)}.
    * <p>
-   * Method under test:
-   * {@link DeviceProfileEdgeProcessorV2#setDefaultRuleChainId(TenantId, DeviceProfile, RuleChainId)}
+   * Method under test: {@link DeviceProfileEdgeProcessorV2#setDefaultRuleChainId(TenantId, DeviceProfile, RuleChainId)}
    */
   @Test
   @DisplayName("Test setDefaultRuleChainId(TenantId, DeviceProfile, RuleChainId)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DeviceProfileEdgeProcessorV2.setDefaultRuleChainId(TenantId, DeviceProfile, RuleChainId)"})
   void testSetDefaultRuleChainId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DeviceProfileEdgeProcessorV2 deviceProfileEdgeProcessorV2 = new DeviceProfileEdgeProcessorV2();
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     DeviceProfile deviceProfile = new DeviceProfile();
-    UUID id = UUID.randomUUID();
-    RuleChainId ruleChainId = new RuleChainId(id);
+    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
     deviceProfileEdgeProcessorV2.setDefaultRuleChainId(tenantId, deviceProfile, ruleChainId);
 
     // Assert
     assertSame(ruleChainId, deviceProfile.getDefaultRuleChainId());
-    assertSame(id, ruleChainId.getId());
   }
 
   /**
-   * Test
-   * {@link DeviceProfileEdgeProcessorV2#setDefaultRuleChainId(TenantId, DeviceProfile, RuleChainId)}.
-   * <ul>
-   *   <li>Then calls {@link DeviceProfile#setDefaultRuleChainId(RuleChainId)}.</li>
-   * </ul>
+   * Test {@link DeviceProfileEdgeProcessorV2#setDefaultEdgeRuleChainId(DeviceProfile, RuleChainId, DeviceProfileUpdateMsg)}.
    * <p>
-   * Method under test:
-   * {@link DeviceProfileEdgeProcessorV2#setDefaultRuleChainId(TenantId, DeviceProfile, RuleChainId)}
-   */
-  @Test
-  @DisplayName("Test setDefaultRuleChainId(TenantId, DeviceProfile, RuleChainId); then calls setDefaultRuleChainId(RuleChainId)")
-  void testSetDefaultRuleChainId_thenCallsSetDefaultRuleChainId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileEdgeProcessorV2 deviceProfileEdgeProcessorV2 = new DeviceProfileEdgeProcessorV2();
-    TenantId tenantId = new TenantId(UUID.randomUUID());
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doNothing().when(deviceProfile).setDefaultRuleChainId(Mockito.<RuleChainId>any());
-    UUID id = UUID.randomUUID();
-    RuleChainId ruleChainId = new RuleChainId(id);
-
-    // Act
-    deviceProfileEdgeProcessorV2.setDefaultRuleChainId(tenantId, deviceProfile, ruleChainId);
-
-    // Assert that nothing has changed
-    verify(deviceProfile).setDefaultRuleChainId(isA(RuleChainId.class));
-    assertSame(id, ruleChainId.getId());
-  }
-
-  /**
-   * Test
-   * {@link DeviceProfileEdgeProcessorV2#setDefaultEdgeRuleChainId(DeviceProfile, RuleChainId, DeviceProfileUpdateMsg)}.
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileEdgeProcessorV2#setDefaultEdgeRuleChainId(DeviceProfile, RuleChainId, DeviceProfileUpdateMsg)}
+   * Method under test: {@link DeviceProfileEdgeProcessorV2#setDefaultEdgeRuleChainId(DeviceProfile, RuleChainId, DeviceProfileUpdateMsg)}
    */
   @Test
   @DisplayName("Test setDefaultEdgeRuleChainId(DeviceProfile, RuleChainId, DeviceProfileUpdateMsg)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void DeviceProfileEdgeProcessorV2.setDefaultEdgeRuleChainId(DeviceProfile, RuleChainId, DeviceProfileUpdateMsg)"})
   void testSetDefaultEdgeRuleChainId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DeviceProfileEdgeProcessorV2 deviceProfileEdgeProcessorV2 = new DeviceProfileEdgeProcessorV2();
     DeviceProfile deviceProfile = new DeviceProfile();
-    UUID id = UUID.randomUUID();
-    RuleChainId ruleChainId = new RuleChainId(id);
+    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
     deviceProfileEdgeProcessorV2.setDefaultEdgeRuleChainId(deviceProfile, ruleChainId,
@@ -103,87 +65,47 @@ class DeviceProfileEdgeProcessorV2DiffblueTest {
 
     // Assert
     assertEquals(ruleChainId, deviceProfile.getDefaultEdgeRuleChainId());
-    assertSame(id, ruleChainId.getId());
   }
 
   /**
-   * Test
-   * {@link DeviceProfileEdgeProcessorV2#setDefaultEdgeRuleChainId(DeviceProfile, RuleChainId, DeviceProfileUpdateMsg)}.
+   * Test {@link DeviceProfileEdgeProcessorV2#setDefaultEdgeRuleChainId(DeviceProfile, RuleChainId, DeviceProfileUpdateMsg)}.
    * <ul>
-   *   <li>Then calls
-   * {@link DeviceProfile#setDefaultEdgeRuleChainId(RuleChainId)}.</li>
+   *   <li>Then {@link DeviceProfile#DeviceProfile()} DefaultEdgeRuleChainId is {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DeviceProfileEdgeProcessorV2#setDefaultEdgeRuleChainId(DeviceProfile, RuleChainId, DeviceProfileUpdateMsg)}
-   */
-  @Test
-  @DisplayName("Test setDefaultEdgeRuleChainId(DeviceProfile, RuleChainId, DeviceProfileUpdateMsg); then calls setDefaultEdgeRuleChainId(RuleChainId)")
-  void testSetDefaultEdgeRuleChainId_thenCallsSetDefaultEdgeRuleChainId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileEdgeProcessorV2 deviceProfileEdgeProcessorV2 = new DeviceProfileEdgeProcessorV2();
-    DeviceProfile deviceProfile = mock(DeviceProfile.class);
-    doNothing().when(deviceProfile).setDefaultEdgeRuleChainId(Mockito.<RuleChainId>any());
-    UUID id = UUID.randomUUID();
-    RuleChainId ruleChainId = new RuleChainId(id);
-
-    // Act
-    deviceProfileEdgeProcessorV2.setDefaultEdgeRuleChainId(deviceProfile, ruleChainId,
-        DeviceProfileUpdateMsg.getDefaultInstance());
-
-    // Assert
-    verify(deviceProfile).setDefaultEdgeRuleChainId(isA(RuleChainId.class));
-    assertSame(id, ruleChainId.getId());
-  }
-
-  /**
-   * Test
-   * {@link DeviceProfileEdgeProcessorV2#setDefaultEdgeRuleChainId(DeviceProfile, RuleChainId, DeviceProfileUpdateMsg)}.
-   * <ul>
-   *   <li>Then {@link DeviceProfile#DeviceProfile()} DefaultEdgeRuleChainId is
-   * {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileEdgeProcessorV2#setDefaultEdgeRuleChainId(DeviceProfile, RuleChainId, DeviceProfileUpdateMsg)}
+   * Method under test: {@link DeviceProfileEdgeProcessorV2#setDefaultEdgeRuleChainId(DeviceProfile, RuleChainId, DeviceProfileUpdateMsg)}
    */
   @Test
   @DisplayName("Test setDefaultEdgeRuleChainId(DeviceProfile, RuleChainId, DeviceProfileUpdateMsg); then DeviceProfile() DefaultEdgeRuleChainId is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void DeviceProfileEdgeProcessorV2.setDefaultEdgeRuleChainId(DeviceProfile, RuleChainId, DeviceProfileUpdateMsg)"})
   void testSetDefaultEdgeRuleChainId_thenDeviceProfileDefaultEdgeRuleChainIdIsNull() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DeviceProfileEdgeProcessorV2 deviceProfileEdgeProcessorV2 = new DeviceProfileEdgeProcessorV2();
     DeviceProfile deviceProfile = new DeviceProfile();
 
     // Act
     deviceProfileEdgeProcessorV2.setDefaultEdgeRuleChainId(deviceProfile, null,
         DeviceProfileUpdateMsg.getDefaultInstance());
 
-    // Assert
+    // Assert that nothing has changed
     assertNull(deviceProfile.getDefaultEdgeRuleChainId());
   }
 
   /**
-   * Test
-   * {@link DeviceProfileEdgeProcessorV2#setDefaultDashboardId(TenantId, DashboardId, DeviceProfile, DeviceProfileUpdateMsg)}.
+   * Test {@link DeviceProfileEdgeProcessorV2#setDefaultDashboardId(TenantId, DashboardId, DeviceProfile, DeviceProfileUpdateMsg)}.
    * <p>
-   * Method under test:
-   * {@link DeviceProfileEdgeProcessorV2#setDefaultDashboardId(TenantId, DashboardId, DeviceProfile, DeviceProfileUpdateMsg)}
+   * Method under test: {@link DeviceProfileEdgeProcessorV2#setDefaultDashboardId(TenantId, DashboardId, DeviceProfile, DeviceProfileUpdateMsg)}
    */
   @Test
   @DisplayName("Test setDefaultDashboardId(TenantId, DashboardId, DeviceProfile, DeviceProfileUpdateMsg)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void DeviceProfileEdgeProcessorV2.setDefaultDashboardId(TenantId, DashboardId, DeviceProfile, DeviceProfileUpdateMsg)"})
   void testSetDefaultDashboardId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DeviceProfileEdgeProcessorV2 deviceProfileEdgeProcessorV2 = new DeviceProfileEdgeProcessorV2();
-    TenantId tenantId = new TenantId(UUID.randomUUID());
-    DashboardId dashboardId = mock(DashboardId.class);
-    UUID randomUUIDResult = UUID.randomUUID();
-    when(dashboardId.getId()).thenReturn(randomUUIDResult);
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    DashboardId dashboardId = new DashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     DeviceProfile deviceProfile = new DeviceProfile();
 
     // Act
@@ -191,34 +113,25 @@ class DeviceProfileEdgeProcessorV2DiffblueTest {
         DeviceProfileUpdateMsg.getDefaultInstance());
 
     // Assert
-    verify(dashboardId).getId();
-    DashboardId defaultDashboardId = deviceProfile.getDefaultDashboardId();
-    assertEquals(EntityType.DASHBOARD, defaultDashboardId.getEntityType());
-    assertFalse(defaultDashboardId.isNullUid());
-    assertSame(randomUUIDResult, defaultDashboardId.getId());
+    assertEquals(dashboardId, deviceProfile.getDefaultDashboardId());
   }
 
   /**
-   * Test
-   * {@link DeviceProfileEdgeProcessorV2#setDefaultDashboardId(TenantId, DashboardId, DeviceProfile, DeviceProfileUpdateMsg)}.
-   * <ul>
-   *   <li>Given {@link DashboardId#DashboardId(UUID)} with id is randomUUID.</li>
-   * </ul>
+   * Test {@link DeviceProfileEdgeProcessorV2#setDefaultDashboardId(TenantId, DashboardId, DeviceProfile, DeviceProfileUpdateMsg)}.
    * <p>
-   * Method under test:
-   * {@link DeviceProfileEdgeProcessorV2#setDefaultDashboardId(TenantId, DashboardId, DeviceProfile, DeviceProfileUpdateMsg)}
+   * Method under test: {@link DeviceProfileEdgeProcessorV2#setDefaultDashboardId(TenantId, DashboardId, DeviceProfile, DeviceProfileUpdateMsg)}
    */
   @Test
-  @DisplayName("Test setDefaultDashboardId(TenantId, DashboardId, DeviceProfile, DeviceProfileUpdateMsg); given DashboardId(UUID) with id is randomUUID")
-  void testSetDefaultDashboardId_givenDashboardIdWithIdIsRandomUUID() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test setDefaultDashboardId(TenantId, DashboardId, DeviceProfile, DeviceProfileUpdateMsg)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void DeviceProfileEdgeProcessorV2.setDefaultDashboardId(TenantId, DashboardId, DeviceProfile, DeviceProfileUpdateMsg)"})
+  void testSetDefaultDashboardId2() {
     // Arrange
-    DeviceProfileEdgeProcessorV2 deviceProfileEdgeProcessorV2 = new DeviceProfileEdgeProcessorV2();
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     DeviceProfile deviceProfile = new DeviceProfile();
-    DashboardId defaultDashboardId = new DashboardId(UUID.randomUUID());
+    DashboardId defaultDashboardId = new DashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     deviceProfile.setDefaultDashboardId(defaultDashboardId);
 
     // Act
@@ -230,25 +143,22 @@ class DeviceProfileEdgeProcessorV2DiffblueTest {
   }
 
   /**
-   * Test
-   * {@link DeviceProfileEdgeProcessorV2#setDefaultDashboardId(TenantId, DashboardId, DeviceProfile, DeviceProfileUpdateMsg)}.
+   * Test {@link DeviceProfileEdgeProcessorV2#setDefaultDashboardId(TenantId, DashboardId, DeviceProfile, DeviceProfileUpdateMsg)}.
    * <ul>
    *   <li>Given {@code null}.</li>
-   *   <li>Then {@link DeviceProfile#DeviceProfile()} DefaultDashboardId is
-   * {@code null}.</li>
+   *   <li>Then {@link DeviceProfile#DeviceProfile()} DefaultDashboardId is {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DeviceProfileEdgeProcessorV2#setDefaultDashboardId(TenantId, DashboardId, DeviceProfile, DeviceProfileUpdateMsg)}
+   * Method under test: {@link DeviceProfileEdgeProcessorV2#setDefaultDashboardId(TenantId, DashboardId, DeviceProfile, DeviceProfileUpdateMsg)}
    */
   @Test
   @DisplayName("Test setDefaultDashboardId(TenantId, DashboardId, DeviceProfile, DeviceProfileUpdateMsg); given 'null'; then DeviceProfile() DefaultDashboardId is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void DeviceProfileEdgeProcessorV2.setDefaultDashboardId(TenantId, DashboardId, DeviceProfile, DeviceProfileUpdateMsg)"})
   void testSetDefaultDashboardId_givenNull_thenDeviceProfileDefaultDashboardIdIsNull() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    DeviceProfileEdgeProcessorV2 deviceProfileEdgeProcessorV2 = new DeviceProfileEdgeProcessorV2();
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     DeviceProfile deviceProfile = new DeviceProfile();
     deviceProfile.setDefaultDashboardId(null);
@@ -257,36 +167,7 @@ class DeviceProfileEdgeProcessorV2DiffblueTest {
     deviceProfileEdgeProcessorV2.setDefaultDashboardId(tenantId, null, deviceProfile,
         DeviceProfileUpdateMsg.getDefaultInstance());
 
-    // Assert
+    // Assert that nothing has changed
     assertNull(deviceProfile.getDefaultDashboardId());
-  }
-
-  /**
-   * Test
-   * {@link DeviceProfileEdgeProcessorV2#setDefaultDashboardId(TenantId, DashboardId, DeviceProfile, DeviceProfileUpdateMsg)}.
-   * <ul>
-   *   <li>When {@link DashboardId#DashboardId(UUID)} with id is randomUUID.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link DeviceProfileEdgeProcessorV2#setDefaultDashboardId(TenantId, DashboardId, DeviceProfile, DeviceProfileUpdateMsg)}
-   */
-  @Test
-  @DisplayName("Test setDefaultDashboardId(TenantId, DashboardId, DeviceProfile, DeviceProfileUpdateMsg); when DashboardId(UUID) with id is randomUUID")
-  void testSetDefaultDashboardId_whenDashboardIdWithIdIsRandomUUID() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DeviceProfileEdgeProcessorV2 deviceProfileEdgeProcessorV2 = new DeviceProfileEdgeProcessorV2();
-    TenantId tenantId = new TenantId(UUID.randomUUID());
-    DashboardId dashboardId = new DashboardId(UUID.randomUUID());
-    DeviceProfile deviceProfile = new DeviceProfile();
-
-    // Act
-    deviceProfileEdgeProcessorV2.setDefaultDashboardId(tenantId, dashboardId, deviceProfile,
-        DeviceProfileUpdateMsg.getDefaultInstance());
-
-    // Assert
-    assertEquals(dashboardId, deviceProfile.getDefaultDashboardId());
   }
 }

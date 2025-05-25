@@ -5,21 +5,33 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.notification.info.NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder;
 
+@ContextConfiguration(classes = {NewPlatformVersionNotificationInfoBuilder.class})
+@ExtendWith(SpringExtension.class)
 class NewPlatformVersionNotificationInfoDiffblueTest {
+  @Autowired
+  private NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder;
+
   /**
    * Test {@link NewPlatformVersionNotificationInfo#getTemplateData()}.
    * <p>
-   * Method under test:
-   * {@link NewPlatformVersionNotificationInfo#getTemplateData()}
+   * Method under test: {@link NewPlatformVersionNotificationInfo#getTemplateData()}
    */
   @Test
   @DisplayName("Test getTemplateData()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Map NewPlatformVersionNotificationInfo.getTemplateData()"})
   void testGetTemplateData() {
     // Arrange and Act
     Map<String, String> actualTemplateData = (new NewPlatformVersionNotificationInfo("1.0.2",
@@ -36,8 +48,7 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link NewPlatformVersionNotificationInfo#equals(Object)}, and
-   * {@link NewPlatformVersionNotificationInfo#hashCode()}.
+   * Test {@link NewPlatformVersionNotificationInfo#equals(Object)}, and {@link NewPlatformVersionNotificationInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -51,6 +62,9 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NewPlatformVersionNotificationInfo.equals(Object)",
+      "int NewPlatformVersionNotificationInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     NewPlatformVersionNotificationInfo buildResult = NewPlatformVersionNotificationInfo.builder()
@@ -75,8 +89,7 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link NewPlatformVersionNotificationInfo#equals(Object)}, and
-   * {@link NewPlatformVersionNotificationInfo#hashCode()}.
+   * Test {@link NewPlatformVersionNotificationInfo#equals(Object)}, and {@link NewPlatformVersionNotificationInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -90,10 +103,13 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NewPlatformVersionNotificationInfo.equals(Object)",
+      "int NewPlatformVersionNotificationInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder.currentVersion(Mockito.<String>any()))
         .thenReturn(NewPlatformVersionNotificationInfo.builder());
     NewPlatformVersionNotificationInfo buildResult = newPlatformVersionNotificationInfoBuilder.currentVersion("1.0.2")
@@ -102,8 +118,8 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
         .latestVersionReleaseNotesUrl("https://example.org/example")
         .upgradeInstructionsUrl("https://example.org/example")
         .build();
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder2 = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder2 = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder2.currentVersion(Mockito.<String>any()))
         .thenReturn(NewPlatformVersionNotificationInfo.builder());
     NewPlatformVersionNotificationInfo buildResult2 = newPlatformVersionNotificationInfoBuilder2.currentVersion("1.0.2")
@@ -120,8 +136,7 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link NewPlatformVersionNotificationInfo#equals(Object)}, and
-   * {@link NewPlatformVersionNotificationInfo#hashCode()}.
+   * Test {@link NewPlatformVersionNotificationInfo#equals(Object)}, and {@link NewPlatformVersionNotificationInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -135,14 +150,17 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NewPlatformVersionNotificationInfo.equals(Object)",
+      "int NewPlatformVersionNotificationInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder.currentVersionReleaseNotesUrl(Mockito.<String>any()))
         .thenReturn(NewPlatformVersionNotificationInfo.builder());
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder2 = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder2 = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder2.currentVersion(Mockito.<String>any()))
         .thenReturn(newPlatformVersionNotificationInfoBuilder);
     NewPlatformVersionNotificationInfo buildResult = newPlatformVersionNotificationInfoBuilder2.currentVersion("1.0.2")
@@ -151,12 +169,12 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
         .latestVersionReleaseNotesUrl("https://example.org/example")
         .upgradeInstructionsUrl("https://example.org/example")
         .build();
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder3 = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder3 = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder3.currentVersionReleaseNotesUrl(Mockito.<String>any()))
         .thenReturn(NewPlatformVersionNotificationInfo.builder());
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder4 = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder4 = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder4.currentVersion(Mockito.<String>any()))
         .thenReturn(newPlatformVersionNotificationInfoBuilder3);
     NewPlatformVersionNotificationInfo buildResult2 = newPlatformVersionNotificationInfoBuilder4.currentVersion("1.0.2")
@@ -173,8 +191,7 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link NewPlatformVersionNotificationInfo#equals(Object)}, and
-   * {@link NewPlatformVersionNotificationInfo#hashCode()}.
+   * Test {@link NewPlatformVersionNotificationInfo#equals(Object)}, and {@link NewPlatformVersionNotificationInfo#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -188,6 +205,9 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NewPlatformVersionNotificationInfo.equals(Object)",
+      "int NewPlatformVersionNotificationInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     NewPlatformVersionNotificationInfo buildResult = NewPlatformVersionNotificationInfo.builder()
@@ -215,10 +235,13 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NewPlatformVersionNotificationInfo.equals(Object)",
+      "int NewPlatformVersionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder.currentVersion(Mockito.<String>any()))
         .thenReturn(NewPlatformVersionNotificationInfo.builder());
     NewPlatformVersionNotificationInfo buildResult = newPlatformVersionNotificationInfoBuilder.currentVersion("1.0.2")
@@ -250,10 +273,13 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NewPlatformVersionNotificationInfo.equals(Object)",
+      "int NewPlatformVersionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder.currentVersion(Mockito.<String>any()))
         .thenReturn(NewPlatformVersionNotificationInfo.builder());
     NewPlatformVersionNotificationInfo buildResult = newPlatformVersionNotificationInfoBuilder.currentVersion("1.0.2")
@@ -285,10 +311,13 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NewPlatformVersionNotificationInfo.equals(Object)",
+      "int NewPlatformVersionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder.currentVersion(Mockito.<String>any()))
         .thenReturn(NewPlatformVersionNotificationInfo.builder());
     NewPlatformVersionNotificationInfo buildResult = newPlatformVersionNotificationInfoBuilder.currentVersion("1.0.2")
@@ -320,10 +349,13 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NewPlatformVersionNotificationInfo.equals(Object)",
+      "int NewPlatformVersionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder.currentVersion(Mockito.<String>any()))
         .thenReturn(NewPlatformVersionNotificationInfo.builder());
     NewPlatformVersionNotificationInfo buildResult = newPlatformVersionNotificationInfoBuilder.currentVersion("1.0.2")
@@ -355,10 +387,13 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NewPlatformVersionNotificationInfo.equals(Object)",
+      "int NewPlatformVersionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder.currentVersion(Mockito.<String>any()))
         .thenReturn(NewPlatformVersionNotificationInfo.builder());
     NewPlatformVersionNotificationInfo buildResult = newPlatformVersionNotificationInfoBuilder.currentVersion("1.0.2")
@@ -390,10 +425,13 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NewPlatformVersionNotificationInfo.equals(Object)",
+      "int NewPlatformVersionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder.currentVersion(Mockito.<String>any()))
         .thenReturn(NewPlatformVersionNotificationInfo.builder());
     NewPlatformVersionNotificationInfo buildResult = newPlatformVersionNotificationInfoBuilder.currentVersion("1.0.2")
@@ -425,10 +463,13 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NewPlatformVersionNotificationInfo.equals(Object)",
+      "int NewPlatformVersionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder.currentVersion(Mockito.<String>any()))
         .thenReturn(NewPlatformVersionNotificationInfo.builder());
     NewPlatformVersionNotificationInfo buildResult = newPlatformVersionNotificationInfoBuilder.currentVersion("1.0.2")
@@ -460,14 +501,17 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NewPlatformVersionNotificationInfo.equals(Object)",
+      "int NewPlatformVersionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder.currentVersionReleaseNotesUrl(Mockito.<String>any()))
         .thenReturn(NewPlatformVersionNotificationInfo.builder());
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder2 = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder2 = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder2.currentVersion(Mockito.<String>any()))
         .thenReturn(newPlatformVersionNotificationInfoBuilder);
     NewPlatformVersionNotificationInfo buildResult = newPlatformVersionNotificationInfoBuilder2.currentVersion("1.0.2")
@@ -476,8 +520,8 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
         .latestVersionReleaseNotesUrl("https://example.org/example")
         .upgradeInstructionsUrl("https://example.org/example")
         .build();
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder3 = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder3 = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder3.currentVersion(Mockito.<String>any()))
         .thenReturn(NewPlatformVersionNotificationInfo.builder());
     NewPlatformVersionNotificationInfo buildResult2 = newPlatformVersionNotificationInfoBuilder3.currentVersion("1.0.2")
@@ -502,17 +546,19 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NewPlatformVersionNotificationInfo.equals(Object)",
+      "int NewPlatformVersionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder builderResult = NewPlatformVersionNotificationInfo
-        .builder();
+    NewPlatformVersionNotificationInfoBuilder builderResult = NewPlatformVersionNotificationInfo.builder();
     builderResult.currentVersion("1.0.2");
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder.currentVersionReleaseNotesUrl(Mockito.<String>any()))
         .thenReturn(builderResult);
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder2 = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder2 = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder2.currentVersion(Mockito.<String>any()))
         .thenReturn(newPlatformVersionNotificationInfoBuilder);
     NewPlatformVersionNotificationInfo buildResult = newPlatformVersionNotificationInfoBuilder2.currentVersion("1.0.2")
@@ -521,12 +567,12 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
         .latestVersionReleaseNotesUrl("https://example.org/example")
         .upgradeInstructionsUrl("https://example.org/example")
         .build();
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder3 = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder3 = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder3.currentVersionReleaseNotesUrl(Mockito.<String>any()))
         .thenReturn(NewPlatformVersionNotificationInfo.builder());
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder4 = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder4 = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder4.currentVersion(Mockito.<String>any()))
         .thenReturn(newPlatformVersionNotificationInfoBuilder3);
     NewPlatformVersionNotificationInfo buildResult2 = newPlatformVersionNotificationInfoBuilder4.currentVersion("1.0.2")
@@ -551,17 +597,19 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NewPlatformVersionNotificationInfo.equals(Object)",
+      "int NewPlatformVersionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder builderResult = NewPlatformVersionNotificationInfo
-        .builder();
+    NewPlatformVersionNotificationInfoBuilder builderResult = NewPlatformVersionNotificationInfo.builder();
     builderResult.currentVersionReleaseNotesUrl("https://example.org/example");
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder.currentVersionReleaseNotesUrl(Mockito.<String>any()))
         .thenReturn(builderResult);
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder2 = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder2 = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder2.currentVersion(Mockito.<String>any()))
         .thenReturn(newPlatformVersionNotificationInfoBuilder);
     NewPlatformVersionNotificationInfo buildResult = newPlatformVersionNotificationInfoBuilder2.currentVersion("1.0.2")
@@ -570,12 +618,12 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
         .latestVersionReleaseNotesUrl("https://example.org/example")
         .upgradeInstructionsUrl("https://example.org/example")
         .build();
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder3 = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder3 = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder3.currentVersionReleaseNotesUrl(Mockito.<String>any()))
         .thenReturn(NewPlatformVersionNotificationInfo.builder());
-    NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder4 = mock(
-        NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder.class);
+    NewPlatformVersionNotificationInfoBuilder newPlatformVersionNotificationInfoBuilder4 = mock(
+        NewPlatformVersionNotificationInfoBuilder.class);
     when(newPlatformVersionNotificationInfoBuilder4.currentVersion(Mockito.<String>any()))
         .thenReturn(newPlatformVersionNotificationInfoBuilder3);
     NewPlatformVersionNotificationInfo buildResult2 = newPlatformVersionNotificationInfoBuilder4.currentVersion("1.0.2")
@@ -600,6 +648,9 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NewPlatformVersionNotificationInfo.equals(Object)",
+      "int NewPlatformVersionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     NewPlatformVersionNotificationInfo buildResult = NewPlatformVersionNotificationInfo.builder()
@@ -625,6 +676,9 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NewPlatformVersionNotificationInfo.equals(Object)",
+      "int NewPlatformVersionNotificationInfo.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     NewPlatformVersionNotificationInfo buildResult = NewPlatformVersionNotificationInfo.builder()
@@ -644,28 +698,36 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link NewPlatformVersionNotificationInfo#NewPlatformVersionNotificationInfo()}
+   *   <li>{@link NewPlatformVersionNotificationInfo#NewPlatformVersionNotificationInfo()}
    *   <li>{@link NewPlatformVersionNotificationInfo#setCurrentVersion(String)}
-   *   <li>
-   * {@link NewPlatformVersionNotificationInfo#setCurrentVersionReleaseNotesUrl(String)}
+   *   <li>{@link NewPlatformVersionNotificationInfo#setCurrentVersionReleaseNotesUrl(String)}
    *   <li>{@link NewPlatformVersionNotificationInfo#setLatestVersion(String)}
-   *   <li>
-   * {@link NewPlatformVersionNotificationInfo#setLatestVersionReleaseNotesUrl(String)}
-   *   <li>
-   * {@link NewPlatformVersionNotificationInfo#setUpgradeInstructionsUrl(String)}
+   *   <li>{@link NewPlatformVersionNotificationInfo#setLatestVersionReleaseNotesUrl(String)}
+   *   <li>{@link NewPlatformVersionNotificationInfo#setUpgradeInstructionsUrl(String)}
    *   <li>{@link NewPlatformVersionNotificationInfo#toString()}
    *   <li>{@link NewPlatformVersionNotificationInfo#getCurrentVersion()}
-   *   <li>
-   * {@link NewPlatformVersionNotificationInfo#getCurrentVersionReleaseNotesUrl()}
+   *   <li>{@link NewPlatformVersionNotificationInfo#getCurrentVersionReleaseNotesUrl()}
    *   <li>{@link NewPlatformVersionNotificationInfo#getLatestVersion()}
-   *   <li>
-   * {@link NewPlatformVersionNotificationInfo#getLatestVersionReleaseNotesUrl()}
+   *   <li>{@link NewPlatformVersionNotificationInfo#getLatestVersionReleaseNotesUrl()}
    *   <li>{@link NewPlatformVersionNotificationInfo#getUpgradeInstructionsUrl()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NewPlatformVersionNotificationInfo.<init>()",
+      "void NewPlatformVersionNotificationInfo.<init>(String, String, String, String, String)",
+      "String NewPlatformVersionNotificationInfo.getCurrentVersion()",
+      "String NewPlatformVersionNotificationInfo.getCurrentVersionReleaseNotesUrl()",
+      "String NewPlatformVersionNotificationInfo.getLatestVersion()",
+      "String NewPlatformVersionNotificationInfo.getLatestVersionReleaseNotesUrl()",
+      "String NewPlatformVersionNotificationInfo.getUpgradeInstructionsUrl()",
+      "void NewPlatformVersionNotificationInfo.setCurrentVersion(String)",
+      "void NewPlatformVersionNotificationInfo.setCurrentVersionReleaseNotesUrl(String)",
+      "void NewPlatformVersionNotificationInfo.setLatestVersion(String)",
+      "void NewPlatformVersionNotificationInfo.setLatestVersionReleaseNotesUrl(String)",
+      "void NewPlatformVersionNotificationInfo.setUpgradeInstructionsUrl(String)",
+      "String NewPlatformVersionNotificationInfo.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     NewPlatformVersionNotificationInfo actualNewPlatformVersionNotificationInfo = new NewPlatformVersionNotificationInfo();
@@ -682,7 +744,7 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
     String actualLatestVersionReleaseNotesUrl = actualNewPlatformVersionNotificationInfo
         .getLatestVersionReleaseNotesUrl();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("1.0.2", actualCurrentVersion);
     assertEquals("1.0.2", actualLatestVersion);
     assertEquals("NewPlatformVersionNotificationInfo(latestVersion=1.0.2, latestVersionReleaseNotesUrl=https://example"
@@ -701,28 +763,36 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link NewPlatformVersionNotificationInfo#NewPlatformVersionNotificationInfo(String, String, String, String, String)}
+   *   <li>{@link NewPlatformVersionNotificationInfo#NewPlatformVersionNotificationInfo(String, String, String, String, String)}
    *   <li>{@link NewPlatformVersionNotificationInfo#setCurrentVersion(String)}
-   *   <li>
-   * {@link NewPlatformVersionNotificationInfo#setCurrentVersionReleaseNotesUrl(String)}
+   *   <li>{@link NewPlatformVersionNotificationInfo#setCurrentVersionReleaseNotesUrl(String)}
    *   <li>{@link NewPlatformVersionNotificationInfo#setLatestVersion(String)}
-   *   <li>
-   * {@link NewPlatformVersionNotificationInfo#setLatestVersionReleaseNotesUrl(String)}
-   *   <li>
-   * {@link NewPlatformVersionNotificationInfo#setUpgradeInstructionsUrl(String)}
+   *   <li>{@link NewPlatformVersionNotificationInfo#setLatestVersionReleaseNotesUrl(String)}
+   *   <li>{@link NewPlatformVersionNotificationInfo#setUpgradeInstructionsUrl(String)}
    *   <li>{@link NewPlatformVersionNotificationInfo#toString()}
    *   <li>{@link NewPlatformVersionNotificationInfo#getCurrentVersion()}
-   *   <li>
-   * {@link NewPlatformVersionNotificationInfo#getCurrentVersionReleaseNotesUrl()}
+   *   <li>{@link NewPlatformVersionNotificationInfo#getCurrentVersionReleaseNotesUrl()}
    *   <li>{@link NewPlatformVersionNotificationInfo#getLatestVersion()}
-   *   <li>
-   * {@link NewPlatformVersionNotificationInfo#getLatestVersionReleaseNotesUrl()}
+   *   <li>{@link NewPlatformVersionNotificationInfo#getLatestVersionReleaseNotesUrl()}
    *   <li>{@link NewPlatformVersionNotificationInfo#getUpgradeInstructionsUrl()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters; when '1.0.2'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NewPlatformVersionNotificationInfo.<init>()",
+      "void NewPlatformVersionNotificationInfo.<init>(String, String, String, String, String)",
+      "String NewPlatformVersionNotificationInfo.getCurrentVersion()",
+      "String NewPlatformVersionNotificationInfo.getCurrentVersionReleaseNotesUrl()",
+      "String NewPlatformVersionNotificationInfo.getLatestVersion()",
+      "String NewPlatformVersionNotificationInfo.getLatestVersionReleaseNotesUrl()",
+      "String NewPlatformVersionNotificationInfo.getUpgradeInstructionsUrl()",
+      "void NewPlatformVersionNotificationInfo.setCurrentVersion(String)",
+      "void NewPlatformVersionNotificationInfo.setCurrentVersionReleaseNotesUrl(String)",
+      "void NewPlatformVersionNotificationInfo.setLatestVersion(String)",
+      "void NewPlatformVersionNotificationInfo.setLatestVersionReleaseNotesUrl(String)",
+      "void NewPlatformVersionNotificationInfo.setUpgradeInstructionsUrl(String)",
+      "String NewPlatformVersionNotificationInfo.toString()"})
   void testGettersAndSetters_when102() {
     // Arrange and Act
     NewPlatformVersionNotificationInfo actualNewPlatformVersionNotificationInfo = new NewPlatformVersionNotificationInfo(
@@ -740,7 +810,7 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
     String actualLatestVersionReleaseNotesUrl = actualNewPlatformVersionNotificationInfo
         .getLatestVersionReleaseNotesUrl();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("1.0.2", actualCurrentVersion);
     assertEquals("1.0.2", actualLatestVersion);
     assertEquals("NewPlatformVersionNotificationInfo(latestVersion=1.0.2, latestVersionReleaseNotesUrl=https://example"
@@ -752,27 +822,29 @@ class NewPlatformVersionNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test NewPlatformVersionNotificationInfoBuilder
-   * {@link NewPlatformVersionNotificationInfoBuilder#build()}.
+   * Test NewPlatformVersionNotificationInfoBuilder {@link NewPlatformVersionNotificationInfoBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder#build()}
-   *   <li>
-   * {@link NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder#currentVersion(String)}
-   *   <li>
-   * {@link NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder#currentVersionReleaseNotesUrl(String)}
-   *   <li>
-   * {@link NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder#latestVersion(String)}
-   *   <li>
-   * {@link NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder#latestVersionReleaseNotesUrl(String)}
-   *   <li>
-   * {@link NewPlatformVersionNotificationInfo.NewPlatformVersionNotificationInfoBuilder#upgradeInstructionsUrl(String)}
+   *   <li>{@link NewPlatformVersionNotificationInfoBuilder#build()}
+   *   <li>{@link NewPlatformVersionNotificationInfoBuilder#currentVersion(String)}
+   *   <li>{@link NewPlatformVersionNotificationInfoBuilder#currentVersionReleaseNotesUrl(String)}
+   *   <li>{@link NewPlatformVersionNotificationInfoBuilder#latestVersion(String)}
+   *   <li>{@link NewPlatformVersionNotificationInfoBuilder#latestVersionReleaseNotesUrl(String)}
+   *   <li>{@link NewPlatformVersionNotificationInfoBuilder#upgradeInstructionsUrl(String)}
    * </ul>
    */
   @Test
   @DisplayName("Test NewPlatformVersionNotificationInfoBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NewPlatformVersionNotificationInfoBuilder.<init>()",
+      "NewPlatformVersionNotificationInfo NewPlatformVersionNotificationInfoBuilder.build()",
+      "NewPlatformVersionNotificationInfoBuilder NewPlatformVersionNotificationInfoBuilder.currentVersion(String)",
+      "NewPlatformVersionNotificationInfoBuilder NewPlatformVersionNotificationInfoBuilder.currentVersionReleaseNotesUrl(String)",
+      "NewPlatformVersionNotificationInfoBuilder NewPlatformVersionNotificationInfoBuilder.latestVersion(String)",
+      "NewPlatformVersionNotificationInfoBuilder NewPlatformVersionNotificationInfoBuilder.latestVersionReleaseNotesUrl(String)",
+      "String NewPlatformVersionNotificationInfoBuilder.toString()",
+      "NewPlatformVersionNotificationInfoBuilder NewPlatformVersionNotificationInfoBuilder.upgradeInstructionsUrl(String)"})
   void testNewPlatformVersionNotificationInfoBuilderBuild() {
     // Arrange and Act
     NewPlatformVersionNotificationInfo actualBuildResult = NewPlatformVersionNotificationInfo.builder()

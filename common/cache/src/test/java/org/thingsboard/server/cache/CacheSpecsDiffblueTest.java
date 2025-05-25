@@ -2,7 +2,9 @@ package org.thingsboard.server.cache;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class CacheSpecsDiffblueTest {
@@ -21,6 +23,8 @@ class CacheSpecsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CacheSpecs.equals(Object)", "int CacheSpecs.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     CacheSpecs cacheSpecs = new CacheSpecs();
@@ -52,6 +56,8 @@ class CacheSpecsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CacheSpecs.equals(Object)", "int CacheSpecs.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     CacheSpecs cacheSpecs = new CacheSpecs();
@@ -83,6 +89,8 @@ class CacheSpecsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CacheSpecs.equals(Object)", "int CacheSpecs.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     CacheSpecs cacheSpecs = new CacheSpecs();
@@ -114,6 +122,8 @@ class CacheSpecsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CacheSpecs.equals(Object)", "int CacheSpecs.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     CacheSpecs cacheSpecs = new CacheSpecs();
@@ -137,6 +147,8 @@ class CacheSpecsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CacheSpecs.equals(Object)", "int CacheSpecs.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     CacheSpecs cacheSpecs = new CacheSpecs();
@@ -162,6 +174,8 @@ class CacheSpecsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CacheSpecs.equals(Object)", "int CacheSpecs.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     CacheSpecs cacheSpecs = new CacheSpecs();
@@ -187,6 +201,8 @@ class CacheSpecsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CacheSpecs.equals(Object)", "int CacheSpecs.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     CacheSpecs cacheSpecs = new CacheSpecs();
@@ -212,6 +228,8 @@ class CacheSpecsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CacheSpecs.equals(Object)", "int CacheSpecs.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     CacheSpecs cacheSpecs = new CacheSpecs();
@@ -237,6 +255,8 @@ class CacheSpecsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CacheSpecs.equals(Object)", "int CacheSpecs.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     CacheSpecs cacheSpecs = new CacheSpecs();
@@ -258,6 +278,8 @@ class CacheSpecsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CacheSpecs.equals(Object)", "int CacheSpecs.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     CacheSpecs cacheSpecs = new CacheSpecs();
@@ -283,6 +305,10 @@ class CacheSpecsDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CacheSpecs.<init>()", "Integer CacheSpecs.getMaxSize()",
+      "Integer CacheSpecs.getTimeToLiveInMinutes()", "void CacheSpecs.setMaxSize(Integer)",
+      "void CacheSpecs.setTimeToLiveInMinutes(Integer)", "String CacheSpecs.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     CacheSpecs actualCacheSpecs = new CacheSpecs();
@@ -291,7 +317,7 @@ class CacheSpecsDiffblueTest {
     String actualToStringResult = actualCacheSpecs.toString();
     Integer actualMaxSize = actualCacheSpecs.getMaxSize();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("CacheSpecs(timeToLiveInMinutes=1, maxSize=3)", actualToStringResult);
     assertEquals(1, actualCacheSpecs.getTimeToLiveInMinutes().intValue());
     assertEquals(3, actualMaxSize.intValue());

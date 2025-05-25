@@ -2,7 +2,9 @@ package org.thingsboard.server.common.data.device.profile;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.query.DynamicValue;
 
@@ -19,6 +21,9 @@ class AnyTimeScheduleDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AnyTimeSchedule.<init>()", "DynamicValue AnyTimeSchedule.getDynamicValue()",
+      "AlarmScheduleType AnyTimeSchedule.getType()"})
   void testGettersAndSetters() {
     // Arrange and Act
     AnyTimeSchedule actualAnyTimeSchedule = new AnyTimeSchedule();

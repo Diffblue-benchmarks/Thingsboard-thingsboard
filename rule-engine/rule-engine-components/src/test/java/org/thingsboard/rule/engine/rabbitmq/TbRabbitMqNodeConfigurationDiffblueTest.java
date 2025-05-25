@@ -6,62 +6,24 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.BiFunction;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TbRabbitMqNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbRabbitMqNodeConfiguration#defaultConfiguration()}.
-   * <ul>
-   *   <li>Given {@link HashMap#HashMap()} computeIfPresent {@code foo} and
-   * {@link BiFunction}.</li>
-   * </ul>
    * <p>
    * Method under test: {@link TbRabbitMqNodeConfiguration#defaultConfiguration()}
    */
   @Test
-  @DisplayName("Test defaultConfiguration(); given HashMap() computeIfPresent 'foo' and BiFunction")
-  void testDefaultConfiguration_givenHashMapComputeIfPresentFooAndBiFunction() {
-    // Arrange
-    HashMap<String, String> clientProperties = new HashMap<>();
-    clientProperties.computeIfPresent("foo", mock(BiFunction.class));
-
-    TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
-    tbRabbitMqNodeConfiguration.setClientProperties(clientProperties);
-
-    // Act
-    TbRabbitMqNodeConfiguration actualDefaultConfigurationResult = tbRabbitMqNodeConfiguration.defaultConfiguration();
-
-    // Assert
-    assertEquals("", actualDefaultConfigurationResult.getExchangeNamePattern());
-    assertEquals("", actualDefaultConfigurationResult.getRoutingKeyPattern());
-    assertEquals("/", actualDefaultConfigurationResult.getVirtualHost());
-    assertEquals("guest", actualDefaultConfigurationResult.getPassword());
-    assertEquals("guest", actualDefaultConfigurationResult.getUsername());
-    assertEquals("localhost", actualDefaultConfigurationResult.getHost());
-    assertNull(actualDefaultConfigurationResult.getMessageProperties());
-    assertEquals(10000, actualDefaultConfigurationResult.getHandshakeTimeout());
-    assertEquals(5672, actualDefaultConfigurationResult.getPort());
-    assertEquals(60000, actualDefaultConfigurationResult.getConnectionTimeout());
-    assertFalse(actualDefaultConfigurationResult.isAutomaticRecoveryEnabled());
-    assertTrue(actualDefaultConfigurationResult.getClientProperties().isEmpty());
-  }
-
-  /**
-   * Test {@link TbRabbitMqNodeConfiguration#defaultConfiguration()}.
-   * <ul>
-   *   <li>Given {@link TbRabbitMqNodeConfiguration} (default constructor).</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbRabbitMqNodeConfiguration#defaultConfiguration()}
-   */
-  @Test
-  @DisplayName("Test defaultConfiguration(); given TbRabbitMqNodeConfiguration (default constructor)")
-  void testDefaultConfiguration_givenTbRabbitMqNodeConfiguration() {
+  @DisplayName("Test defaultConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbRabbitMqNodeConfiguration TbRabbitMqNodeConfiguration.defaultConfiguration()"})
+  void testDefaultConfiguration() {
     // Arrange and Act
     TbRabbitMqNodeConfiguration actualDefaultConfigurationResult = (new TbRabbitMqNodeConfiguration())
         .defaultConfiguration();
@@ -82,8 +44,7 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbRabbitMqNodeConfiguration#equals(Object)}, and
-   * {@link TbRabbitMqNodeConfiguration#hashCode()}.
+   * Test {@link TbRabbitMqNodeConfiguration#equals(Object)}, and {@link TbRabbitMqNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -97,6 +58,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -109,8 +73,7 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbRabbitMqNodeConfiguration#equals(Object)}, and
-   * {@link TbRabbitMqNodeConfiguration#hashCode()}.
+   * Test {@link TbRabbitMqNodeConfiguration#equals(Object)}, and {@link TbRabbitMqNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -124,6 +87,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -139,8 +105,7 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbRabbitMqNodeConfiguration#equals(Object)}, and
-   * {@link TbRabbitMqNodeConfiguration#hashCode()}.
+   * Test {@link TbRabbitMqNodeConfiguration#equals(Object)}, and {@link TbRabbitMqNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -154,6 +119,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -169,8 +137,7 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbRabbitMqNodeConfiguration#equals(Object)}, and
-   * {@link TbRabbitMqNodeConfiguration#hashCode()}.
+   * Test {@link TbRabbitMqNodeConfiguration#equals(Object)}, and {@link TbRabbitMqNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -184,6 +151,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -199,8 +169,7 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbRabbitMqNodeConfiguration#equals(Object)}, and
-   * {@link TbRabbitMqNodeConfiguration#hashCode()}.
+   * Test {@link TbRabbitMqNodeConfiguration#equals(Object)}, and {@link TbRabbitMqNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -214,6 +183,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -229,8 +201,7 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbRabbitMqNodeConfiguration#equals(Object)}, and
-   * {@link TbRabbitMqNodeConfiguration#hashCode()}.
+   * Test {@link TbRabbitMqNodeConfiguration#equals(Object)}, and {@link TbRabbitMqNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -244,6 +215,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual6() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -259,8 +233,7 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbRabbitMqNodeConfiguration#equals(Object)}, and
-   * {@link TbRabbitMqNodeConfiguration#hashCode()}.
+   * Test {@link TbRabbitMqNodeConfiguration#equals(Object)}, and {@link TbRabbitMqNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -274,6 +247,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual7() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -289,8 +265,7 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbRabbitMqNodeConfiguration#equals(Object)}, and
-   * {@link TbRabbitMqNodeConfiguration#hashCode()}.
+   * Test {@link TbRabbitMqNodeConfiguration#equals(Object)}, and {@link TbRabbitMqNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -304,6 +279,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual8() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -319,8 +297,7 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbRabbitMqNodeConfiguration#equals(Object)}, and
-   * {@link TbRabbitMqNodeConfiguration#hashCode()}.
+   * Test {@link TbRabbitMqNodeConfiguration#equals(Object)}, and {@link TbRabbitMqNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -334,6 +311,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual9() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -349,8 +329,7 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbRabbitMqNodeConfiguration#equals(Object)}, and
-   * {@link TbRabbitMqNodeConfiguration#hashCode()}.
+   * Test {@link TbRabbitMqNodeConfiguration#equals(Object)}, and {@link TbRabbitMqNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -364,6 +343,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -385,6 +367,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbRabbitMqNodeConfiguration(), 1);
@@ -401,6 +386,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -421,6 +409,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -441,6 +432,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -461,6 +455,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -481,6 +478,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -501,6 +501,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -521,6 +524,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -541,6 +547,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -561,6 +570,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -581,6 +593,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -601,6 +616,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -621,6 +639,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -641,6 +662,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -663,6 +687,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -685,6 +712,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -707,6 +737,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -729,6 +762,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -751,6 +787,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -773,6 +812,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -795,6 +837,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -809,29 +854,6 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbRabbitMqNodeConfiguration#equals(Object)}.
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbRabbitMqNodeConfiguration#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
-    // Arrange
-    HashMap<String, String> clientProperties = new HashMap<>();
-    clientProperties.computeIfPresent("foo", mock(BiFunction.class));
-
-    TbRabbitMqNodeConfiguration tbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
-    tbRabbitMqNodeConfiguration.setClientProperties(clientProperties);
-
-    // Act and Assert
-    assertNotEquals(tbRabbitMqNodeConfiguration, new TbRabbitMqNodeConfiguration());
-  }
-
-  /**
-   * Test {@link TbRabbitMqNodeConfiguration#equals(Object)}.
-   * <ul>
    *   <li>When other is {@code null}.</li>
    *   <li>Then return not equal.</li>
    * </ul>
@@ -840,6 +862,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbRabbitMqNodeConfiguration(), null);
@@ -856,6 +881,9 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbRabbitMqNodeConfiguration.equals(Object)",
+      "int TbRabbitMqNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbRabbitMqNodeConfiguration(), "Different type to TbRabbitMqNodeConfiguration");
@@ -866,8 +894,7 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link TbRabbitMqNodeConfiguration}
+   *   <li>default or parameterless constructor of {@link TbRabbitMqNodeConfiguration}
    *   <li>{@link TbRabbitMqNodeConfiguration#setAutomaticRecoveryEnabled(boolean)}
    *   <li>{@link TbRabbitMqNodeConfiguration#setClientProperties(Map)}
    *   <li>{@link TbRabbitMqNodeConfiguration#setConnectionTimeout(int)}
@@ -897,6 +924,25 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbRabbitMqNodeConfiguration.<init>()",
+      "Map TbRabbitMqNodeConfiguration.getClientProperties()", "int TbRabbitMqNodeConfiguration.getConnectionTimeout()",
+      "String TbRabbitMqNodeConfiguration.getExchangeNamePattern()",
+      "int TbRabbitMqNodeConfiguration.getHandshakeTimeout()", "String TbRabbitMqNodeConfiguration.getHost()",
+      "String TbRabbitMqNodeConfiguration.getMessageProperties()", "String TbRabbitMqNodeConfiguration.getPassword()",
+      "int TbRabbitMqNodeConfiguration.getPort()", "String TbRabbitMqNodeConfiguration.getRoutingKeyPattern()",
+      "String TbRabbitMqNodeConfiguration.getUsername()", "String TbRabbitMqNodeConfiguration.getVirtualHost()",
+      "boolean TbRabbitMqNodeConfiguration.isAutomaticRecoveryEnabled()",
+      "void TbRabbitMqNodeConfiguration.setAutomaticRecoveryEnabled(boolean)",
+      "void TbRabbitMqNodeConfiguration.setClientProperties(Map)",
+      "void TbRabbitMqNodeConfiguration.setConnectionTimeout(int)",
+      "void TbRabbitMqNodeConfiguration.setExchangeNamePattern(String)",
+      "void TbRabbitMqNodeConfiguration.setHandshakeTimeout(int)", "void TbRabbitMqNodeConfiguration.setHost(String)",
+      "void TbRabbitMqNodeConfiguration.setMessageProperties(String)",
+      "void TbRabbitMqNodeConfiguration.setPassword(String)", "void TbRabbitMqNodeConfiguration.setPort(int)",
+      "void TbRabbitMqNodeConfiguration.setRoutingKeyPattern(String)",
+      "void TbRabbitMqNodeConfiguration.setUsername(String)", "void TbRabbitMqNodeConfiguration.setVirtualHost(String)",
+      "String TbRabbitMqNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbRabbitMqNodeConfiguration actualTbRabbitMqNodeConfiguration = new TbRabbitMqNodeConfiguration();
@@ -927,7 +973,7 @@ class TbRabbitMqNodeConfigurationDiffblueTest {
     String actualVirtualHost = actualTbRabbitMqNodeConfiguration.getVirtualHost();
     boolean actualIsAutomaticRecoveryEnabledResult = actualTbRabbitMqNodeConfiguration.isAutomaticRecoveryEnabled();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Exchange Name Pattern", actualExchangeNamePattern);
     assertEquals("Message Properties", actualMessageProperties);
     assertEquals("Routing Key Pattern", actualRoutingKeyPattern);

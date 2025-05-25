@@ -2,11 +2,12 @@ package org.thingsboard.rule.engine.credentials;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.security.KeyStore;
 import java.security.Provider;
 import javax.net.ssl.TrustManagerFactory;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.rule.engine.mqtt.azure.AzureIotHubSasCredentials;
 
@@ -17,11 +18,12 @@ class CertPemCredentialsDiffblueTest {
    *   <li>Then return Provider size is twenty-five.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link CertPemCredentials#createAndInitTrustManagerFactory()}
+   * Method under test: {@link CertPemCredentials#createAndInitTrustManagerFactory()}
    */
   @Test
   @DisplayName("Test createAndInitTrustManagerFactory(); then return Provider size is twenty-five")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TrustManagerFactory CertPemCredentials.createAndInitTrustManagerFactory()"})
   void testCreateAndInitTrustManagerFactory_thenReturnProviderSizeIsTwentyFive() throws Exception {
     // Arrange
     CertPemCredentials certPemCredentials = new CertPemCredentials();
@@ -47,14 +49,15 @@ class CertPemCredentialsDiffblueTest {
   /**
    * Test {@link CertPemCredentials#loadKeyStore()}.
    * <ul>
-   *   <li>Given {@link CertPemCredentials} (default constructor) Password is empty
-   * string.</li>
+   *   <li>Given {@link CertPemCredentials} (default constructor) Password is empty string.</li>
    * </ul>
    * <p>
    * Method under test: {@link CertPemCredentials#loadKeyStore()}
    */
   @Test
   @DisplayName("Test loadKeyStore(); given CertPemCredentials (default constructor) Password is empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"KeyStore CertPemCredentials.loadKeyStore()"})
   void testLoadKeyStore_givenCertPemCredentialsPasswordIsEmptyString() throws Exception {
     // Arrange
     CertPemCredentials certPemCredentials = new CertPemCredentials();
@@ -81,14 +84,15 @@ class CertPemCredentialsDiffblueTest {
   /**
    * Test {@link CertPemCredentials#loadKeyStore()}.
    * <ul>
-   *   <li>Given {@link CertPemCredentials} (default constructor) Password is
-   * {@code iloveyou}.</li>
+   *   <li>Given {@link CertPemCredentials} (default constructor) Password is {@code iloveyou}.</li>
    * </ul>
    * <p>
    * Method under test: {@link CertPemCredentials#loadKeyStore()}
    */
   @Test
   @DisplayName("Test loadKeyStore(); given CertPemCredentials (default constructor) Password is 'iloveyou'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"KeyStore CertPemCredentials.loadKeyStore()"})
   void testLoadKeyStore_givenCertPemCredentialsPasswordIsIloveyou() throws Exception {
     // Arrange
     CertPemCredentials certPemCredentials = new CertPemCredentials();
@@ -115,14 +119,15 @@ class CertPemCredentialsDiffblueTest {
   /**
    * Test {@link CertPemCredentials#loadKeyStore()}.
    * <ul>
-   *   <li>Given {@link CertPemCredentials} (default constructor) PrivateKey is
-   * empty string.</li>
+   *   <li>Given {@link CertPemCredentials} (default constructor) PrivateKey is empty string.</li>
    * </ul>
    * <p>
    * Method under test: {@link CertPemCredentials#loadKeyStore()}
    */
   @Test
   @DisplayName("Test loadKeyStore(); given CertPemCredentials (default constructor) PrivateKey is empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"KeyStore CertPemCredentials.loadKeyStore()"})
   void testLoadKeyStore_givenCertPemCredentialsPrivateKeyIsEmptyString() throws Exception {
     // Arrange
     CertPemCredentials certPemCredentials = new CertPemCredentials();
@@ -148,14 +153,15 @@ class CertPemCredentialsDiffblueTest {
   /**
    * Test {@link CertPemCredentials#loadKeyStore()}.
    * <ul>
-   *   <li>Given {@link CertPemCredentials} (default constructor) PrivateKey is
-   * {@code Private Key}.</li>
+   *   <li>Given {@link CertPemCredentials} (default constructor) PrivateKey is {@code Private Key}.</li>
    * </ul>
    * <p>
    * Method under test: {@link CertPemCredentials#loadKeyStore()}
    */
   @Test
   @DisplayName("Test loadKeyStore(); given CertPemCredentials (default constructor) PrivateKey is 'Private Key'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"KeyStore CertPemCredentials.loadKeyStore()"})
   void testLoadKeyStore_givenCertPemCredentialsPrivateKeyIsPrivateKey() throws Exception {
     // Arrange
     CertPemCredentials certPemCredentials = new CertPemCredentials();
@@ -188,6 +194,8 @@ class CertPemCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test loadKeyStore(); then return Provider size is one hundred eighty-eight")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"KeyStore CertPemCredentials.loadKeyStore()"})
   void testLoadKeyStore_thenReturnProviderSizeIsOneHundredEightyEight() throws Exception {
     // Arrange
     CertPemCredentials certPemCredentials = new CertPemCredentials();
@@ -210,8 +218,7 @@ class CertPemCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link CertPemCredentials#equals(Object)}, and
-   * {@link CertPemCredentials#hashCode()}.
+   * Test {@link CertPemCredentials#equals(Object)}, and {@link CertPemCredentials#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -225,6 +232,8 @@ class CertPemCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CertPemCredentials.equals(Object)", "int CertPemCredentials.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     CertPemCredentials certPemCredentials = new CertPemCredentials();
@@ -237,8 +246,7 @@ class CertPemCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link CertPemCredentials#equals(Object)}, and
-   * {@link CertPemCredentials#hashCode()}.
+   * Test {@link CertPemCredentials#equals(Object)}, and {@link CertPemCredentials#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -252,6 +260,8 @@ class CertPemCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CertPemCredentials.equals(Object)", "int CertPemCredentials.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     CertPemCredentials certPemCredentials = new CertPemCredentials();
@@ -267,8 +277,7 @@ class CertPemCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link CertPemCredentials#equals(Object)}, and
-   * {@link CertPemCredentials#hashCode()}.
+   * Test {@link CertPemCredentials#equals(Object)}, and {@link CertPemCredentials#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -282,6 +291,8 @@ class CertPemCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CertPemCredentials.equals(Object)", "int CertPemCredentials.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     CertPemCredentials certPemCredentials = new CertPemCredentials();
@@ -297,8 +308,7 @@ class CertPemCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link CertPemCredentials#equals(Object)}, and
-   * {@link CertPemCredentials#hashCode()}.
+   * Test {@link CertPemCredentials#equals(Object)}, and {@link CertPemCredentials#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -312,6 +322,8 @@ class CertPemCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CertPemCredentials.equals(Object)", "int CertPemCredentials.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     CertPemCredentials certPemCredentials = new CertPemCredentials();
@@ -327,8 +339,7 @@ class CertPemCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link CertPemCredentials#equals(Object)}, and
-   * {@link CertPemCredentials#hashCode()}.
+   * Test {@link CertPemCredentials#equals(Object)}, and {@link CertPemCredentials#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -342,6 +353,8 @@ class CertPemCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CertPemCredentials.equals(Object)", "int CertPemCredentials.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     CertPemCredentials certPemCredentials = new CertPemCredentials();
@@ -357,8 +370,7 @@ class CertPemCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link CertPemCredentials#equals(Object)}, and
-   * {@link CertPemCredentials#hashCode()}.
+   * Test {@link CertPemCredentials#equals(Object)}, and {@link CertPemCredentials#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -372,6 +384,8 @@ class CertPemCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CertPemCredentials.equals(Object)", "int CertPemCredentials.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     CertPemCredentials certPemCredentials = new CertPemCredentials();
@@ -393,6 +407,8 @@ class CertPemCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CertPemCredentials.equals(Object)", "int CertPemCredentials.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AzureIotHubSasCredentials azureIotHubSasCredentials = new AzureIotHubSasCredentials();
@@ -412,6 +428,8 @@ class CertPemCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CertPemCredentials.equals(Object)", "int CertPemCredentials.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     CertPemCredentials certPemCredentials = new CertPemCredentials();
@@ -431,23 +449,9 @@ class CertPemCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CertPemCredentials.equals(Object)", "int CertPemCredentials.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
-    // Arrange, Act and Assert
-    assertNotEquals(new CertPemCredentials(), mock(AzureIotHubSasCredentials.class));
-  }
-
-  /**
-   * Test {@link CertPemCredentials#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link CertPemCredentials#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     CertPemCredentials certPemCredentials = new CertPemCredentials();
     certPemCredentials.setCaCert("Ca Cert");
@@ -467,7 +471,9 @@ class CertPemCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CertPemCredentials.equals(Object)", "int CertPemCredentials.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     CertPemCredentials certPemCredentials = new CertPemCredentials();
     certPemCredentials.setCert("Cert");
@@ -487,7 +493,9 @@ class CertPemCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CertPemCredentials.equals(Object)", "int CertPemCredentials.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     CertPemCredentials certPemCredentials = new CertPemCredentials();
     certPemCredentials.setPrivateKey("Private Key");
@@ -507,7 +515,9 @@ class CertPemCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CertPemCredentials.equals(Object)", "int CertPemCredentials.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     CertPemCredentials certPemCredentials = new CertPemCredentials();
     certPemCredentials.setPassword("iloveyou");
@@ -527,7 +537,9 @@ class CertPemCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CertPemCredentials.equals(Object)", "int CertPemCredentials.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     CertPemCredentials certPemCredentials = new CertPemCredentials();
 
@@ -549,7 +561,9 @@ class CertPemCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CertPemCredentials.equals(Object)", "int CertPemCredentials.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     CertPemCredentials certPemCredentials = new CertPemCredentials();
 
@@ -571,7 +585,9 @@ class CertPemCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CertPemCredentials.equals(Object)", "int CertPemCredentials.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     CertPemCredentials certPemCredentials = new CertPemCredentials();
 
@@ -593,7 +609,9 @@ class CertPemCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CertPemCredentials.equals(Object)", "int CertPemCredentials.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     CertPemCredentials certPemCredentials = new CertPemCredentials();
 
@@ -615,6 +633,8 @@ class CertPemCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CertPemCredentials.equals(Object)", "int CertPemCredentials.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new CertPemCredentials(), null);
@@ -631,6 +651,8 @@ class CertPemCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean CertPemCredentials.equals(Object)", "int CertPemCredentials.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new CertPemCredentials(), "Different type to CertPemCredentials");
@@ -656,6 +678,13 @@ class CertPemCredentialsDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CertPemCredentials.<init>()", "String CertPemCredentials.getCaCert()",
+      "String CertPemCredentials.getCert()", "String CertPemCredentials.getPassword()",
+      "String CertPemCredentials.getPrivateKey()", "CredentialsType CertPemCredentials.getType()",
+      "void CertPemCredentials.setCaCert(String)", "void CertPemCredentials.setCert(String)",
+      "void CertPemCredentials.setPassword(String)", "void CertPemCredentials.setPrivateKey(String)",
+      "String CertPemCredentials.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     CertPemCredentials actualCertPemCredentials = new CertPemCredentials();
@@ -669,7 +698,7 @@ class CertPemCredentialsDiffblueTest {
     String actualPassword = actualCertPemCredentials.getPassword();
     String actualPrivateKey = actualCertPemCredentials.getPrivateKey();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Ca Cert", actualCaCert);
     assertEquals("Cert", actualCert);
     assertEquals("CertPemCredentials(caCert=Ca Cert, cert=Cert, privateKey=Private Key, password=iloveyou)",

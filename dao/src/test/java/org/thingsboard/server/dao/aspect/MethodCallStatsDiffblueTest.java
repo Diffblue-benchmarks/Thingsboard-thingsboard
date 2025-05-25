@@ -2,7 +2,10 @@ package org.thingsboard.server.dao.aspect;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 public class MethodCallStatsDiffblueTest {
   /**
@@ -11,6 +14,8 @@ public class MethodCallStatsDiffblueTest {
    * Method under test: {@link MethodCallStats#snapshot()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"MethodCallStatsSnapshot MethodCallStats.snapshot()"})
   public void testSnapshot() {
     // Arrange and Act
     MethodCallStatsSnapshot actualSnapshotResult = (new MethodCallStats()).snapshot();
@@ -22,8 +27,7 @@ public class MethodCallStatsDiffblueTest {
   }
 
   /**
-   * Test {@link MethodCallStats#equals(Object)}, and
-   * {@link MethodCallStats#hashCode()}.
+   * Test {@link MethodCallStats#equals(Object)}, and {@link MethodCallStats#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -36,6 +40,8 @@ public class MethodCallStatsDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean MethodCallStats.equals(Object)", "int MethodCallStats.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     MethodCallStats methodCallStats = new MethodCallStats();
@@ -56,6 +62,8 @@ public class MethodCallStatsDiffblueTest {
    * Method under test: {@link MethodCallStats#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean MethodCallStats.equals(Object)", "int MethodCallStats.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     MethodCallStats methodCallStats = new MethodCallStats();
@@ -74,6 +82,8 @@ public class MethodCallStatsDiffblueTest {
    * Method under test: {@link MethodCallStats#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean MethodCallStats.equals(Object)", "int MethodCallStats.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MethodCallStats(), null);
@@ -89,6 +99,8 @@ public class MethodCallStatsDiffblueTest {
    * Method under test: {@link MethodCallStats#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean MethodCallStats.equals(Object)", "int MethodCallStats.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MethodCallStats(), "Different type to MethodCallStats");

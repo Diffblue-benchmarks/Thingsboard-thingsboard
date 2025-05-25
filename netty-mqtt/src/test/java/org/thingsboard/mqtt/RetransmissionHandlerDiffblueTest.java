@@ -8,9 +8,9 @@ import static org.mockito.Mockito.anyLong;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.netty.channel.DefaultEventLoop;
 import io.netty.channel.EventLoop;
-import io.netty.handler.codec.mqtt.MqttFixedHeader;
 import io.netty.handler.codec.mqtt.MqttMessage;
 import io.netty.util.concurrent.AbstractScheduledEventExecutor;
 import io.netty.util.concurrent.Future;
@@ -18,6 +18,7 @@ import io.netty.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.function.BiConsumer;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -25,8 +26,7 @@ class RetransmissionHandlerDiffblueTest {
   /**
    * Test {@link RetransmissionHandler#start(EventLoop)}.
    * <ul>
-   *   <li>Given {@link PendingOperation} {@link PendingOperation#isCanceled()}
-   * return {@code true}.</li>
+   *   <li>Given {@link PendingOperation} {@link PendingOperation#isCanceled()} return {@code true}.</li>
    *   <li>Then calls {@link PendingOperation#isCanceled()}.</li>
    * </ul>
    * <p>
@@ -34,6 +34,8 @@ class RetransmissionHandlerDiffblueTest {
    */
   @Test
   @DisplayName("Test start(EventLoop); given PendingOperation isCanceled() return 'true'; then calls isCanceled()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void RetransmissionHandler.start(EventLoop)"})
   void testStart_givenPendingOperationIsCanceledReturnTrue_thenCallsIsCanceled() {
     // Arrange
     PendingOperation pendingOperation = mock(PendingOperation.class);
@@ -53,14 +55,15 @@ class RetransmissionHandlerDiffblueTest {
    * Test {@link RetransmissionHandler#start(EventLoop)}.
    * <ul>
    *   <li>Given {@link ScheduledFuture}.</li>
-   *   <li>Then calls
-   * {@link AbstractScheduledEventExecutor#schedule(Runnable, long, TimeUnit)}.</li>
+   *   <li>Then calls {@link AbstractScheduledEventExecutor#schedule(Runnable, long, TimeUnit)}.</li>
    * </ul>
    * <p>
    * Method under test: {@link RetransmissionHandler#start(EventLoop)}
    */
   @Test
   @DisplayName("Test start(EventLoop); given ScheduledFuture; then calls schedule(Runnable, long, TimeUnit)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void RetransmissionHandler.start(EventLoop)"})
   void testStart_givenScheduledFuture_thenCallsSchedule() {
     // Arrange
     PendingOperation pendingOperation = mock(PendingOperation.class);
@@ -90,6 +93,8 @@ class RetransmissionHandlerDiffblueTest {
    */
   @Test
   @DisplayName("Test start(EventLoop); then not DefaultEventLoop() Terminated")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void RetransmissionHandler.start(EventLoop)"})
   void testStart_thenNotDefaultEventLoopTerminated() {
     // Arrange
     PendingOperation pendingOperation = mock(PendingOperation.class);
@@ -110,16 +115,15 @@ class RetransmissionHandlerDiffblueTest {
   /**
    * Test {@link RetransmissionHandler#stop()}.
    * <ul>
-   *   <li>Given
-   * {@link RetransmissionHandler#RetransmissionHandler(PendingOperation)} with
-   * {@link PendingOperation} start
-   * {@link DefaultEventLoop#DefaultEventLoop()}.</li>
+   *   <li>Given {@link RetransmissionHandler#RetransmissionHandler(PendingOperation)} with {@link PendingOperation} start {@link DefaultEventLoop#DefaultEventLoop()}.</li>
    * </ul>
    * <p>
    * Method under test: {@link RetransmissionHandler#stop()}
    */
   @Test
   @DisplayName("Test stop(); given RetransmissionHandler(PendingOperation) with PendingOperation start DefaultEventLoop()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void RetransmissionHandler.stop()"})
   void testStop_givenRetransmissionHandlerWithPendingOperationStartDefaultEventLoop() {
     // Arrange
     PendingOperation pendingOperation = mock(PendingOperation.class);
@@ -139,16 +143,16 @@ class RetransmissionHandlerDiffblueTest {
   /**
    * Test {@link RetransmissionHandler#stop()}.
    * <ul>
-   *   <li>Given {@link ScheduledFuture} {@link Future#cancel(boolean)} return
-   * {@code true}.</li>
-   *   <li>Then calls
-   * {@link AbstractScheduledEventExecutor#schedule(Runnable, long, TimeUnit)}.</li>
+   *   <li>Given {@link ScheduledFuture} {@link Future#cancel(boolean)} return {@code true}.</li>
+   *   <li>Then calls {@link AbstractScheduledEventExecutor#schedule(Runnable, long, TimeUnit)}.</li>
    * </ul>
    * <p>
    * Method under test: {@link RetransmissionHandler#stop()}
    */
   @Test
   @DisplayName("Test stop(); given ScheduledFuture cancel(boolean) return 'true'; then calls schedule(Runnable, long, TimeUnit)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void RetransmissionHandler.stop()"})
   void testStop_givenScheduledFutureCancelReturnTrue_thenCallsSchedule() {
     // Arrange
     PendingOperation pendingOperation = mock(PendingOperation.class);

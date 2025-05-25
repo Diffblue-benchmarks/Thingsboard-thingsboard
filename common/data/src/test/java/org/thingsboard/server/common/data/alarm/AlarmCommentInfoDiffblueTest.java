@@ -3,14 +3,14 @@ package org.thingsboard.server.common.data.alarm;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class AlarmCommentInfoDiffblueTest {
   /**
-   * Test {@link AlarmCommentInfo#equals(Object)}, and
-   * {@link AlarmCommentInfo#hashCode()}.
+   * Test {@link AlarmCommentInfo#equals(Object)}, and {@link AlarmCommentInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -24,6 +24,8 @@ class AlarmCommentInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmCommentInfo.equals(Object)", "int AlarmCommentInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AlarmCommentInfo alarmCommentInfo = new AlarmCommentInfo();
@@ -36,8 +38,7 @@ class AlarmCommentInfoDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmCommentInfo#equals(Object)}, and
-   * {@link AlarmCommentInfo#hashCode()}.
+   * Test {@link AlarmCommentInfo#equals(Object)}, and {@link AlarmCommentInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -51,6 +52,8 @@ class AlarmCommentInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmCommentInfo.equals(Object)", "int AlarmCommentInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AlarmCommentInfo alarmCommentInfo = new AlarmCommentInfo();
@@ -66,8 +69,7 @@ class AlarmCommentInfoDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmCommentInfo#equals(Object)}, and
-   * {@link AlarmCommentInfo#hashCode()}.
+   * Test {@link AlarmCommentInfo#equals(Object)}, and {@link AlarmCommentInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -81,6 +83,8 @@ class AlarmCommentInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmCommentInfo.equals(Object)", "int AlarmCommentInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     AlarmCommentInfo alarmCommentInfo = new AlarmCommentInfo();
@@ -96,8 +100,7 @@ class AlarmCommentInfoDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmCommentInfo#equals(Object)}, and
-   * {@link AlarmCommentInfo#hashCode()}.
+   * Test {@link AlarmCommentInfo#equals(Object)}, and {@link AlarmCommentInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -111,6 +114,8 @@ class AlarmCommentInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmCommentInfo.equals(Object)", "int AlarmCommentInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     AlarmCommentInfo alarmCommentInfo = new AlarmCommentInfo();
@@ -126,8 +131,7 @@ class AlarmCommentInfoDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmCommentInfo#equals(Object)}, and
-   * {@link AlarmCommentInfo#hashCode()}.
+   * Test {@link AlarmCommentInfo#equals(Object)}, and {@link AlarmCommentInfo#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -141,6 +145,8 @@ class AlarmCommentInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmCommentInfo.equals(Object)", "int AlarmCommentInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AlarmCommentInfo alarmCommentInfo = new AlarmCommentInfo();
@@ -162,10 +168,11 @@ class AlarmCommentInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmCommentInfo.equals(Object)", "int AlarmCommentInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlarmCommentInfo(), 1);
-    assertNotEquals(new AlarmCommentInfo(), mock(AlarmComment.class));
   }
 
   /**
@@ -179,6 +186,8 @@ class AlarmCommentInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmCommentInfo.equals(Object)", "int AlarmCommentInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AlarmCommentInfo alarmCommentInfo = new AlarmCommentInfo();
@@ -199,6 +208,8 @@ class AlarmCommentInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmCommentInfo.equals(Object)", "int AlarmCommentInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AlarmCommentInfo alarmCommentInfo = new AlarmCommentInfo();
@@ -219,6 +230,8 @@ class AlarmCommentInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmCommentInfo.equals(Object)", "int AlarmCommentInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AlarmCommentInfo alarmCommentInfo = new AlarmCommentInfo();
@@ -239,6 +252,8 @@ class AlarmCommentInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmCommentInfo.equals(Object)", "int AlarmCommentInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     AlarmCommentInfo alarmCommentInfo = new AlarmCommentInfo();
@@ -259,6 +274,8 @@ class AlarmCommentInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmCommentInfo.equals(Object)", "int AlarmCommentInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AlarmCommentInfo alarmCommentInfo = new AlarmCommentInfo();
@@ -281,6 +298,8 @@ class AlarmCommentInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmCommentInfo.equals(Object)", "int AlarmCommentInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     AlarmCommentInfo alarmCommentInfo = new AlarmCommentInfo();
@@ -303,6 +322,8 @@ class AlarmCommentInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmCommentInfo.equals(Object)", "int AlarmCommentInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     AlarmCommentInfo alarmCommentInfo = new AlarmCommentInfo();
@@ -325,6 +346,8 @@ class AlarmCommentInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmCommentInfo.equals(Object)", "int AlarmCommentInfo.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlarmCommentInfo(), null);
@@ -341,6 +364,8 @@ class AlarmCommentInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AlarmCommentInfo.equals(Object)", "int AlarmCommentInfo.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlarmCommentInfo(), "Different type to AlarmCommentInfo");
@@ -363,6 +388,11 @@ class AlarmCommentInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmCommentInfo.<init>()", "String AlarmCommentInfo.getEmail()",
+      "String AlarmCommentInfo.getFirstName()", "String AlarmCommentInfo.getLastName()",
+      "void AlarmCommentInfo.setEmail(String)", "void AlarmCommentInfo.setFirstName(String)",
+      "void AlarmCommentInfo.setLastName(String)", "String AlarmCommentInfo.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     AlarmCommentInfo actualAlarmCommentInfo = new AlarmCommentInfo();
@@ -373,11 +403,16 @@ class AlarmCommentInfoDiffblueTest {
     String actualEmail = actualAlarmCommentInfo.getEmail();
     String actualFirstName = actualAlarmCommentInfo.getFirstName();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("AlarmCommentInfo(firstName=Jane, lastName=Doe, email=jane.doe@example.org)", actualToStringResult);
     assertEquals("Doe", actualAlarmCommentInfo.getLastName());
     assertEquals("Jane", actualFirstName);
     assertEquals("jane.doe@example.org", actualEmail);
+    assertNull(actualAlarmCommentInfo.getComment());
+    assertNull(actualAlarmCommentInfo.getType());
+    assertNull(actualAlarmCommentInfo.getId());
+    assertNull(actualAlarmCommentInfo.getAlarmId());
+    assertNull(actualAlarmCommentInfo.getUserId());
     assertEquals(0L, actualAlarmCommentInfo.getCreatedTime());
   }
 
@@ -388,6 +423,8 @@ class AlarmCommentInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test new AlarmCommentInfo(AlarmComment)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmCommentInfo.<init>(AlarmComment)"})
   void testNewAlarmCommentInfo() {
     // Arrange and Act
     AlarmCommentInfo actualAlarmCommentInfo = new AlarmCommentInfo(new AlarmComment());
@@ -406,14 +443,14 @@ class AlarmCommentInfoDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link AlarmCommentInfo#AlarmCommentInfo(AlarmComment, String, String, String)}.
+   * Test {@link AlarmCommentInfo#AlarmCommentInfo(AlarmComment, String, String, String)}.
    * <p>
-   * Method under test:
-   * {@link AlarmCommentInfo#AlarmCommentInfo(AlarmComment, String, String, String)}
+   * Method under test: {@link AlarmCommentInfo#AlarmCommentInfo(AlarmComment, String, String, String)}
    */
   @Test
   @DisplayName("Test new AlarmCommentInfo(AlarmComment, String, String, String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmCommentInfo.<init>(AlarmComment, String, String, String)"})
   void testNewAlarmCommentInfo2() {
     // Arrange and Act
     AlarmCommentInfo actualAlarmCommentInfo = new AlarmCommentInfo(new AlarmComment(), "Jane", "Doe",

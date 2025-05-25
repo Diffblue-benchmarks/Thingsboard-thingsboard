@@ -8,14 +8,15 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 class EntityDataPageLinkDiffblueTest {
   /**
-   * Test {@link EntityDataPageLink#equals(Object)}, and
-   * {@link EntityDataPageLink#hashCode()}.
+   * Test {@link EntityDataPageLink#equals(Object)}, and {@link EntityDataPageLink#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -29,6 +30,8 @@ class EntityDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityDataPageLink.equals(Object)", "int EntityDataPageLink.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EntityDataPageLink entityDataPageLink = new EntityDataPageLink();
@@ -41,8 +44,7 @@ class EntityDataPageLinkDiffblueTest {
   }
 
   /**
-   * Test {@link EntityDataPageLink#equals(Object)}, and
-   * {@link EntityDataPageLink#hashCode()}.
+   * Test {@link EntityDataPageLink#equals(Object)}, and {@link EntityDataPageLink#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -56,6 +58,8 @@ class EntityDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityDataPageLink.equals(Object)", "int EntityDataPageLink.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     EntityDataPageLink entityDataPageLink = new EntityDataPageLink(3, 1, "Text Search", new EntityDataSortOrder(),
@@ -75,8 +79,7 @@ class EntityDataPageLinkDiffblueTest {
   }
 
   /**
-   * Test {@link EntityDataPageLink#equals(Object)}, and
-   * {@link EntityDataPageLink#hashCode()}.
+   * Test {@link EntityDataPageLink#equals(Object)}, and {@link EntityDataPageLink#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -90,6 +93,8 @@ class EntityDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityDataPageLink.equals(Object)", "int EntityDataPageLink.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EntityDataPageLink entityDataPageLink = new EntityDataPageLink();
@@ -111,6 +116,8 @@ class EntityDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityDataPageLink.equals(Object)", "int EntityDataPageLink.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AlarmDataPageLink alarmDataPageLink = new AlarmDataPageLink();
@@ -130,6 +137,8 @@ class EntityDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityDataPageLink.equals(Object)", "int EntityDataPageLink.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EntityDataPageLink entityDataPageLink = new EntityDataPageLink(3, 1, "Text Search", new EntityDataSortOrder());
@@ -149,6 +158,8 @@ class EntityDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityDataPageLink.equals(Object)", "int EntityDataPageLink.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     EntityDataPageLink entityDataPageLink = new EntityDataPageLink();
@@ -168,6 +179,8 @@ class EntityDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityDataPageLink.equals(Object)", "int EntityDataPageLink.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     EntityDataPageLink entityDataPageLink = new EntityDataPageLink();
@@ -194,6 +207,8 @@ class EntityDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityDataPageLink.equals(Object)", "int EntityDataPageLink.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     EntityDataPageLink entityDataPageLink = new EntityDataPageLink(3, 1, "Text Search", new EntityDataSortOrder());
@@ -220,6 +235,8 @@ class EntityDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityDataPageLink.equals(Object)", "int EntityDataPageLink.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     EntityDataPageLink entityDataPageLink = new EntityDataPageLink();
@@ -246,6 +263,8 @@ class EntityDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityDataPageLink.equals(Object)", "int EntityDataPageLink.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     EntityDataPageLink entityDataPageLink = new EntityDataPageLink(3, 1, null, new EntityDataSortOrder(), true);
@@ -272,6 +291,8 @@ class EntityDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityDataPageLink.equals(Object)", "int EntityDataPageLink.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     EntityDataPageLink entityDataPageLink = new EntityDataPageLink(3, 1,
@@ -299,6 +320,8 @@ class EntityDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityDataPageLink.equals(Object)", "int EntityDataPageLink.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     EntityDataPageLink entityDataPageLink = new EntityDataPageLink(3, 1, "Text Search", null, true);
@@ -325,6 +348,8 @@ class EntityDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityDataPageLink.equals(Object)", "int EntityDataPageLink.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     EntityDataPageLink entityDataPageLink = new EntityDataPageLink(3, 1, "Text Search",
@@ -352,6 +377,8 @@ class EntityDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityDataPageLink.equals(Object)", "int EntityDataPageLink.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EntityDataPageLink(), null);
@@ -368,6 +395,8 @@ class EntityDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityDataPageLink.equals(Object)", "int EntityDataPageLink.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EntityDataPageLink(), "Different type to EntityDataPageLink");
@@ -394,6 +423,16 @@ class EntityDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityDataPageLink.<init>()",
+      "void EntityDataPageLink.<init>(int, int, String, EntityDataSortOrder)",
+      "void EntityDataPageLink.<init>(int, int, String, EntityDataSortOrder, boolean)",
+      "int EntityDataPageLink.getPage()", "int EntityDataPageLink.getPageSize()",
+      "EntityDataSortOrder EntityDataPageLink.getSortOrder()", "String EntityDataPageLink.getTextSearch()",
+      "boolean EntityDataPageLink.isDynamic()", "void EntityDataPageLink.setDynamic(boolean)",
+      "void EntityDataPageLink.setPage(int)", "void EntityDataPageLink.setPageSize(int)",
+      "void EntityDataPageLink.setSortOrder(EntityDataSortOrder)", "void EntityDataPageLink.setTextSearch(String)",
+      "String EntityDataPageLink.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     EntityDataPageLink actualEntityDataPageLink = new EntityDataPageLink();
@@ -409,7 +448,7 @@ class EntityDataPageLinkDiffblueTest {
     EntityDataSortOrder actualSortOrder = actualEntityDataPageLink.getSortOrder();
     String actualTextSearch = actualEntityDataPageLink.getTextSearch();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "EntityDataPageLink(pageSize=3, page=1, textSearch=Text Search, sortOrder=EntityDataSortOrder(key=null,"
             + " direction=null), dynamic=true)",
@@ -429,8 +468,7 @@ class EntityDataPageLinkDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link EntityDataPageLink#EntityDataPageLink(int, int, String, EntityDataSortOrder)}
+   *   <li>{@link EntityDataPageLink#EntityDataPageLink(int, int, String, EntityDataSortOrder)}
    *   <li>{@link EntityDataPageLink#setDynamic(boolean)}
    *   <li>{@link EntityDataPageLink#setPage(int)}
    *   <li>{@link EntityDataPageLink#setPageSize(int)}
@@ -446,6 +484,16 @@ class EntityDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityDataPageLink.<init>()",
+      "void EntityDataPageLink.<init>(int, int, String, EntityDataSortOrder)",
+      "void EntityDataPageLink.<init>(int, int, String, EntityDataSortOrder, boolean)",
+      "int EntityDataPageLink.getPage()", "int EntityDataPageLink.getPageSize()",
+      "EntityDataSortOrder EntityDataPageLink.getSortOrder()", "String EntityDataPageLink.getTextSearch()",
+      "boolean EntityDataPageLink.isDynamic()", "void EntityDataPageLink.setDynamic(boolean)",
+      "void EntityDataPageLink.setPage(int)", "void EntityDataPageLink.setPageSize(int)",
+      "void EntityDataPageLink.setSortOrder(EntityDataSortOrder)", "void EntityDataPageLink.setTextSearch(String)",
+      "String EntityDataPageLink.toString()"})
   void testGettersAndSetters_whenThree() {
     // Arrange and Act
     EntityDataPageLink actualEntityDataPageLink = new EntityDataPageLink(3, 1, "Text Search",
@@ -462,7 +510,7 @@ class EntityDataPageLinkDiffblueTest {
     EntityDataSortOrder actualSortOrder = actualEntityDataPageLink.getSortOrder();
     String actualTextSearch = actualEntityDataPageLink.getTextSearch();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "EntityDataPageLink(pageSize=3, page=1, textSearch=Text Search, sortOrder=EntityDataSortOrder(key=null,"
             + " direction=null), dynamic=true)",
@@ -482,8 +530,7 @@ class EntityDataPageLinkDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link EntityDataPageLink#EntityDataPageLink(int, int, String, EntityDataSortOrder, boolean)}
+   *   <li>{@link EntityDataPageLink#EntityDataPageLink(int, int, String, EntityDataSortOrder, boolean)}
    *   <li>{@link EntityDataPageLink#setDynamic(boolean)}
    *   <li>{@link EntityDataPageLink#setPage(int)}
    *   <li>{@link EntityDataPageLink#setPageSize(int)}
@@ -499,6 +546,16 @@ class EntityDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityDataPageLink.<init>()",
+      "void EntityDataPageLink.<init>(int, int, String, EntityDataSortOrder)",
+      "void EntityDataPageLink.<init>(int, int, String, EntityDataSortOrder, boolean)",
+      "int EntityDataPageLink.getPage()", "int EntityDataPageLink.getPageSize()",
+      "EntityDataSortOrder EntityDataPageLink.getSortOrder()", "String EntityDataPageLink.getTextSearch()",
+      "boolean EntityDataPageLink.isDynamic()", "void EntityDataPageLink.setDynamic(boolean)",
+      "void EntityDataPageLink.setPage(int)", "void EntityDataPageLink.setPageSize(int)",
+      "void EntityDataPageLink.setSortOrder(EntityDataSortOrder)", "void EntityDataPageLink.setTextSearch(String)",
+      "String EntityDataPageLink.toString()"})
   void testGettersAndSetters_whenTrue() {
     // Arrange and Act
     EntityDataPageLink actualEntityDataPageLink = new EntityDataPageLink(3, 1, "Text Search", new EntityDataSortOrder(),
@@ -515,7 +572,7 @@ class EntityDataPageLinkDiffblueTest {
     EntityDataSortOrder actualSortOrder = actualEntityDataPageLink.getSortOrder();
     String actualTextSearch = actualEntityDataPageLink.getTextSearch();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "EntityDataPageLink(pageSize=3, page=1, textSearch=Text Search, sortOrder=EntityDataSortOrder(key=null,"
             + " direction=null), dynamic=true)",
@@ -530,8 +587,7 @@ class EntityDataPageLinkDiffblueTest {
   /**
    * Test {@link EntityDataPageLink#nextPageLink()}.
    * <ul>
-   *   <li>Given {@link AlarmDataPageLink#AlarmDataPageLink()} Dynamic is
-   * {@code true}.</li>
+   *   <li>Given {@link AlarmDataPageLink#AlarmDataPageLink()} Dynamic is {@code true}.</li>
    *   <li>Then return Dynamic.</li>
    * </ul>
    * <p>
@@ -539,6 +595,8 @@ class EntityDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test nextPageLink(); given AlarmDataPageLink() Dynamic is 'true'; then return Dynamic")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityDataPageLink EntityDataPageLink.nextPageLink()"})
   void testNextPageLink_givenAlarmDataPageLinkDynamicIsTrue_thenReturnDynamic() {
     // Arrange
     AlarmDataPageLink alarmDataPageLink = new AlarmDataPageLink();
@@ -564,14 +622,16 @@ class EntityDataPageLinkDiffblueTest {
    * Test {@link EntityDataPageLink#nextPageLink()}.
    * <ul>
    *   <li>Given {@link AlarmDataPageLink#AlarmDataPageLink()}.</li>
-   *   <li>Then return {@link AlarmDataPageLink}.</li>
+   *   <li>Then return not Dynamic.</li>
    * </ul>
    * <p>
    * Method under test: {@link EntityDataPageLink#nextPageLink()}
    */
   @Test
-  @DisplayName("Test nextPageLink(); given AlarmDataPageLink(); then return AlarmDataPageLink")
-  void testNextPageLink_givenAlarmDataPageLink_thenReturnAlarmDataPageLink() {
+  @DisplayName("Test nextPageLink(); given AlarmDataPageLink(); then return not Dynamic")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityDataPageLink EntityDataPageLink.nextPageLink()"})
+  void testNextPageLink_givenAlarmDataPageLink_thenReturnNotDynamic() {
     // Arrange and Act
     AlarmDataPageLink actualNextPageLinkResult = (new AlarmDataPageLink()).nextPageLink();
 
@@ -599,6 +659,8 @@ class EntityDataPageLinkDiffblueTest {
    */
   @Test
   @DisplayName("Test nextPageLink(); given EntityDataPageLink(); then return TextSearch is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityDataPageLink EntityDataPageLink.nextPageLink()"})
   void testNextPageLink_givenEntityDataPageLink_thenReturnTextSearchIsNull() {
     // Arrange and Act
     EntityDataPageLink actualNextPageLinkResult = (new EntityDataPageLink()).nextPageLink();
@@ -608,6 +670,5 @@ class EntityDataPageLinkDiffblueTest {
     assertNull(actualNextPageLinkResult.getSortOrder());
     assertEquals(0, actualNextPageLinkResult.getPageSize());
     assertEquals(1, actualNextPageLinkResult.getPage());
-    assertFalse(actualNextPageLinkResult.isDynamic());
   }
 }

@@ -4,13 +4,15 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.common.data.kv.BaseDeleteTsKvQuery;
 import org.thingsboard.server.common.data.kv.TsKvQuery;
-import org.thingsboard.server.dao.model.ModelConstants;
 
 public class QueryCursorDiffblueTest {
   /**
@@ -20,13 +22,14 @@ public class QueryCursorDiffblueTest {
    *   <li>Then return {@link QueryCursor#partitions} Empty.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link QueryCursor#QueryCursor(String, UUID, TsKvQuery, List)}
+   * Method under test: {@link QueryCursor#QueryCursor(String, UUID, TsKvQuery, List)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void QueryCursor.<init>(String, UUID, TsKvQuery, List)"})
   public void testNewQueryCursor_whenArrayList_thenReturnPartitionsEmpty() {
     // Arrange
-    UUID entityId = ModelConstants.NULL_UUID;
+    UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     BaseDeleteTsKvQuery baseQuery = new BaseDeleteTsKvQuery("Key", 1L, 1L);
 
     // Act
@@ -52,15 +55,17 @@ public class QueryCursorDiffblueTest {
    * Method under test: {@link QueryCursor#hasNextPartition()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean QueryCursor.hasNextPartition()"})
   public void testHasNextPartition_givenArrayListAddMinusOne_thenReturnTrue() {
     // Arrange
     ArrayList<Long> partitions = new ArrayList<>();
     partitions.add(-1L);
+    UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
-    assertTrue(
-        (new QueryCursor("Entity Type", ModelConstants.NULL_UUID, new BaseDeleteTsKvQuery("Key", 1L, 1L), partitions))
-            .hasNextPartition());
+    assertTrue((new QueryCursor("Entity Type", entityId, new BaseDeleteTsKvQuery("Key", 1L, 1L), partitions))
+        .hasNextPartition());
   }
 
   /**
@@ -72,13 +77,15 @@ public class QueryCursorDiffblueTest {
    * Method under test: {@link QueryCursor#hasNextPartition()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean QueryCursor.hasNextPartition()"})
   public void testHasNextPartition_thenReturnFalse() {
     // Arrange
+    UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     BaseDeleteTsKvQuery baseQuery = new BaseDeleteTsKvQuery("Key", 1L, 1L);
 
     // Act and Assert
-    assertFalse(
-        (new QueryCursor("Entity Type", ModelConstants.NULL_UUID, baseQuery, new ArrayList<>())).hasNextPartition());
+    assertFalse((new QueryCursor("Entity Type", entityId, baseQuery, new ArrayList<>())).hasNextPartition());
   }
 
   /**
@@ -91,15 +98,17 @@ public class QueryCursorDiffblueTest {
    * Method under test: {@link QueryCursor#getNextPartition()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"long QueryCursor.getNextPartition()"})
   public void testGetNextPartition_givenArrayListAddOne_thenReturnOne() {
     // Arrange
     ArrayList<Long> partitions = new ArrayList<>();
     partitions.add(1L);
+    UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
-    assertEquals(1L,
-        (new QueryCursor("Entity Type", ModelConstants.NULL_UUID, new BaseDeleteTsKvQuery("Key", 1L, 1L), partitions))
-            .getNextPartition());
+    assertEquals(1L, (new QueryCursor("Entity Type", entityId, new BaseDeleteTsKvQuery("Key", 1L, 1L), partitions))
+        .getNextPartition());
   }
 
   /**
@@ -115,11 +124,15 @@ public class QueryCursorDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"long QueryCursor.getEndTs()", "UUID QueryCursor.getEntityId()",
+      "String QueryCursor.getEntityType()", "String QueryCursor.getKey()", "long QueryCursor.getStartTs()"})
   public void testGettersAndSetters() {
     // Arrange
+    UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     BaseDeleteTsKvQuery baseQuery = new BaseDeleteTsKvQuery("Key", 1L, 1L);
 
-    QueryCursor queryCursor = new QueryCursor("Entity Type", ModelConstants.NULL_UUID, baseQuery, new ArrayList<>());
+    QueryCursor queryCursor = new QueryCursor("Entity Type", entityId, baseQuery, new ArrayList<>());
 
     // Act
     long actualEndTs = queryCursor.getEndTs();
@@ -129,7 +142,7 @@ public class QueryCursorDiffblueTest {
     long actualStartTs = queryCursor.getStartTs();
 
     // Assert
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualEntityId.toString());
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualEntityId.toString());
     assertEquals("Entity Type", actualEntityType);
     assertEquals("Key", actualKey);
     assertEquals(1L, actualEndTs);

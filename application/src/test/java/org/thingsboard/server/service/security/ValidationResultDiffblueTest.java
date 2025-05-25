@@ -3,7 +3,9 @@ package org.thingsboard.server.service.security;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ValidationResultDiffblueTest {
@@ -14,6 +16,8 @@ class ValidationResultDiffblueTest {
    */
   @Test
   @DisplayName("Test ok(Object)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ValidationResult ValidationResult.ok(Object)"})
   void testOk() {
     // Arrange and Act
     ValidationResult<Object> actualOkResult = ValidationResult.ok("42");
@@ -31,6 +35,8 @@ class ValidationResultDiffblueTest {
    */
   @Test
   @DisplayName("Test accessDenied(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ValidationResult ValidationResult.accessDenied(String)"})
   void testAccessDenied() {
     // Arrange and Act
     ValidationResult<Object> actualAccessDeniedResult = ValidationResult.accessDenied("Not all who wander are lost");
@@ -48,6 +54,8 @@ class ValidationResultDiffblueTest {
    */
   @Test
   @DisplayName("Test entityNotFound(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ValidationResult ValidationResult.entityNotFound(String)"})
   void testEntityNotFound() {
     // Arrange and Act
     ValidationResult<Object> actualEntityNotFoundResult = ValidationResult
@@ -66,6 +74,8 @@ class ValidationResultDiffblueTest {
    */
   @Test
   @DisplayName("Test unauthorized(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ValidationResult ValidationResult.unauthorized(String)"})
   void testUnauthorized() {
     // Arrange and Act
     ValidationResult<Object> actualUnauthorizedResult = ValidationResult.unauthorized("Not all who wander are lost");
@@ -83,6 +93,8 @@ class ValidationResultDiffblueTest {
    */
   @Test
   @DisplayName("Test internalError(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ValidationResult ValidationResult.internalError(String)"})
   void testInternalError() {
     // Arrange and Act
     ValidationResult<Object> actualInternalErrorResult = ValidationResult.internalError("Not all who wander are lost");
@@ -94,8 +106,7 @@ class ValidationResultDiffblueTest {
   }
 
   /**
-   * Test {@link ValidationResult#equals(Object)}, and
-   * {@link ValidationResult#hashCode()}.
+   * Test {@link ValidationResult#equals(Object)}, and {@link ValidationResult#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -109,6 +120,8 @@ class ValidationResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ValidationResult.equals(Object)", "int ValidationResult.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ValidationResult<Object> accessDeniedResult = ValidationResult.accessDenied("Not all who wander are lost");
@@ -121,8 +134,7 @@ class ValidationResultDiffblueTest {
   }
 
   /**
-   * Test {@link ValidationResult#equals(Object)}, and
-   * {@link ValidationResult#hashCode()}.
+   * Test {@link ValidationResult#equals(Object)}, and {@link ValidationResult#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -136,6 +148,8 @@ class ValidationResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ValidationResult.equals(Object)", "int ValidationResult.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     ValidationResult<Object> accessDeniedResult = ValidationResult.accessDenied(null);
@@ -148,8 +162,7 @@ class ValidationResultDiffblueTest {
   }
 
   /**
-   * Test {@link ValidationResult#equals(Object)}, and
-   * {@link ValidationResult#hashCode()}.
+   * Test {@link ValidationResult#equals(Object)}, and {@link ValidationResult#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -163,6 +176,8 @@ class ValidationResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ValidationResult.equals(Object)", "int ValidationResult.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ValidationResult<Object> accessDeniedResult = ValidationResult.accessDenied("Not all who wander are lost");
@@ -184,6 +199,8 @@ class ValidationResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ValidationResult.equals(Object)", "int ValidationResult.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ValidationResult<Object> accessDeniedResult = ValidationResult.accessDenied("Message");
@@ -204,6 +221,8 @@ class ValidationResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ValidationResult.equals(Object)", "int ValidationResult.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ValidationResult<Object> accessDeniedResult = ValidationResult.accessDenied(null);
@@ -224,6 +243,8 @@ class ValidationResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ValidationResult.equals(Object)", "int ValidationResult.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     ValidationResult<Object> entityNotFoundResult = ValidationResult.entityNotFound("Not all who wander are lost");
@@ -244,6 +265,8 @@ class ValidationResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ValidationResult.equals(Object)", "int ValidationResult.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     ValidationResult<Object> accessDeniedResult = ValidationResult.accessDenied("Not all who wander are lost");
@@ -263,6 +286,8 @@ class ValidationResultDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ValidationResult.equals(Object)", "int ValidationResult.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     ValidationResult<Object> accessDeniedResult = ValidationResult.accessDenied("Not all who wander are lost");
@@ -276,8 +301,7 @@ class ValidationResultDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link ValidationResult#ValidationResult(ValidationResultCode, String, Object)}
+   *   <li>{@link ValidationResult#ValidationResult(ValidationResultCode, String, Object)}
    *   <li>{@link ValidationResult#toString()}
    *   <li>{@link ValidationResult#getMessage()}
    *   <li>{@link ValidationResult#getResultCode()}
@@ -286,6 +310,10 @@ class ValidationResultDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ValidationResult.<init>(ValidationResultCode, String, Object)",
+      "String ValidationResult.getMessage()", "ValidationResultCode ValidationResult.getResultCode()",
+      "Object ValidationResult.getV()", "String ValidationResult.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     ValidationResult<Object> actualValidationResult = new ValidationResult<>(ValidationResultCode.OK,

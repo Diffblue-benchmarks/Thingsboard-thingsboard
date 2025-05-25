@@ -6,20 +6,15 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-import com.fasterxml.jackson.core.JsonLocation;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonStreamContext;
-import com.fasterxml.jackson.core.Version;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.JsonNodeType;
 import com.fasterxml.jackson.databind.node.NullNode;
-import com.fasterxml.jackson.databind.node.TreeTraversingParser;
-import java.io.IOException;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+import org.thingsboard.server.common.data.id.TenantId;
+import org.thingsboard.server.common.data.ota.ChecksumAlgorithm;
+import org.thingsboard.server.common.data.ota.OtaPackageType;
 
 class OtaPackageInfoDiffblueTest {
   /**
@@ -33,7 +28,9 @@ class OtaPackageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test new OtaPackageInfo(OtaPackageInfo); given 'true'; then return HasData")
-  void testNewOtaPackageInfo_givenTrue_thenReturnHasData() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void OtaPackageInfo.<init>(OtaPackageInfo)"})
+  void testNewOtaPackageInfo_givenTrue_thenReturnHasData() {
     // Arrange
     OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
     otaPackageInfo.setHasData(true);
@@ -42,35 +39,8 @@ class OtaPackageInfoDiffblueTest {
     OtaPackageInfo actualOtaPackageInfo = new OtaPackageInfo(otaPackageInfo);
 
     // Assert
-    JsonNode additionalInfo = actualOtaPackageInfo.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
+    assertTrue(actualOtaPackageInfo.getAdditionalInfo() instanceof NullNode);
     assertNull(actualOtaPackageInfo.getDataSize());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
     assertNull(actualOtaPackageInfo.getChecksum());
     assertNull(actualOtaPackageInfo.getContentType());
     assertNull(actualOtaPackageInfo.getFileName());
@@ -85,112 +55,30 @@ class OtaPackageInfoDiffblueTest {
     assertNull(actualOtaPackageInfo.getTenantId());
     assertNull(actualOtaPackageInfo.getChecksumAlgorithm());
     assertNull(actualOtaPackageInfo.getType());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
     assertEquals(0L, actualOtaPackageInfo.getCreatedTime());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
     assertFalse(actualOtaPackageInfo.hasUrl());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
     assertTrue(actualOtaPackageInfo.isHasData());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getColumnNr());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getLineNr());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
   }
 
   /**
    * Test {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}.
    * <ul>
-   *   <li>When {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)} with
-   * otaPackageInfo is {@link OtaPackageInfo#OtaPackageInfo()}.</li>
+   *   <li>When {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)} with otaPackageInfo is {@link OtaPackageInfo#OtaPackageInfo()}.</li>
    * </ul>
    * <p>
    * Method under test: {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}
    */
   @Test
   @DisplayName("Test new OtaPackageInfo(OtaPackageInfo); when OtaPackageInfo(OtaPackageInfo) with otaPackageInfo is OtaPackageInfo()")
-  void testNewOtaPackageInfo_whenOtaPackageInfoWithOtaPackageInfoIsOtaPackageInfo() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void OtaPackageInfo.<init>(OtaPackageInfo)"})
+  void testNewOtaPackageInfo_whenOtaPackageInfoWithOtaPackageInfoIsOtaPackageInfo() {
     // Arrange and Act
     OtaPackageInfo actualOtaPackageInfo = new OtaPackageInfo(new OtaPackageInfo(new OtaPackageInfo()));
 
     // Assert
-    JsonNode additionalInfo = actualOtaPackageInfo.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
+    assertTrue(actualOtaPackageInfo.getAdditionalInfo() instanceof NullNode);
     assertNull(actualOtaPackageInfo.getDataSize());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
     assertNull(actualOtaPackageInfo.getChecksum());
     assertNull(actualOtaPackageInfo.getContentType());
     assertNull(actualOtaPackageInfo.getFileName());
@@ -205,113 +93,31 @@ class OtaPackageInfoDiffblueTest {
     assertNull(actualOtaPackageInfo.getTenantId());
     assertNull(actualOtaPackageInfo.getChecksumAlgorithm());
     assertNull(actualOtaPackageInfo.getType());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
     assertEquals(0L, actualOtaPackageInfo.getCreatedTime());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
     assertFalse(actualOtaPackageInfo.hasUrl());
     assertFalse(actualOtaPackageInfo.isHasData());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getColumnNr());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getLineNr());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
   }
 
   /**
    * Test {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}.
    * <ul>
-   *   <li>When {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)} with
-   * otaPackageInfo is {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}.</li>
+   *   <li>When {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)} with otaPackageInfo is {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}.</li>
    * </ul>
    * <p>
    * Method under test: {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}
    */
   @Test
   @DisplayName("Test new OtaPackageInfo(OtaPackageInfo); when OtaPackageInfo(OtaPackageInfo) with otaPackageInfo is OtaPackageInfo(OtaPackageInfo)")
-  void testNewOtaPackageInfo_whenOtaPackageInfoWithOtaPackageInfoIsOtaPackageInfo2() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void OtaPackageInfo.<init>(OtaPackageInfo)"})
+  void testNewOtaPackageInfo_whenOtaPackageInfoWithOtaPackageInfoIsOtaPackageInfo2() {
     // Arrange and Act
     OtaPackageInfo actualOtaPackageInfo = new OtaPackageInfo(
         new OtaPackageInfo(new OtaPackageInfo(new OtaPackageInfo())));
 
     // Assert
-    JsonNode additionalInfo = actualOtaPackageInfo.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
+    assertTrue(actualOtaPackageInfo.getAdditionalInfo() instanceof NullNode);
     assertNull(actualOtaPackageInfo.getDataSize());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
     assertNull(actualOtaPackageInfo.getChecksum());
     assertNull(actualOtaPackageInfo.getContentType());
     assertNull(actualOtaPackageInfo.getFileName());
@@ -326,65 +132,9 @@ class OtaPackageInfoDiffblueTest {
     assertNull(actualOtaPackageInfo.getTenantId());
     assertNull(actualOtaPackageInfo.getChecksumAlgorithm());
     assertNull(actualOtaPackageInfo.getType());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
     assertEquals(0L, actualOtaPackageInfo.getCreatedTime());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
     assertFalse(actualOtaPackageInfo.hasUrl());
     assertFalse(actualOtaPackageInfo.isHasData());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getColumnNr());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getLineNr());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
   }
 
   /**
@@ -398,40 +148,15 @@ class OtaPackageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test new OtaPackageInfo(OtaPackageInfo); when OtaPackageInfo(); then return not HasData")
-  void testNewOtaPackageInfo_whenOtaPackageInfo_thenReturnNotHasData() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void OtaPackageInfo.<init>(OtaPackageInfo)"})
+  void testNewOtaPackageInfo_whenOtaPackageInfo_thenReturnNotHasData() {
     // Arrange and Act
     OtaPackageInfo actualOtaPackageInfo = new OtaPackageInfo(new OtaPackageInfo());
 
     // Assert
-    JsonNode additionalInfo = actualOtaPackageInfo.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
+    assertTrue(actualOtaPackageInfo.getAdditionalInfo() instanceof NullNode);
     assertNull(actualOtaPackageInfo.getDataSize());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
     assertNull(actualOtaPackageInfo.getChecksum());
     assertNull(actualOtaPackageInfo.getContentType());
     assertNull(actualOtaPackageInfo.getFileName());
@@ -446,65 +171,9 @@ class OtaPackageInfoDiffblueTest {
     assertNull(actualOtaPackageInfo.getTenantId());
     assertNull(actualOtaPackageInfo.getChecksumAlgorithm());
     assertNull(actualOtaPackageInfo.getType());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
     assertEquals(0L, actualOtaPackageInfo.getCreatedTime());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
     assertFalse(actualOtaPackageInfo.hasUrl());
     assertFalse(actualOtaPackageInfo.isHasData());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getColumnNr());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getLineNr());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
   }
 
   /**
@@ -514,6 +183,8 @@ class OtaPackageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"org.thingsboard.server.common.data.id.OtaPackageId OtaPackageInfo.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
     assertNull((new OtaPackageInfo()).getId());
@@ -526,6 +197,8 @@ class OtaPackageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getCreatedTime()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long OtaPackageInfo.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
     assertEquals(0L, (new OtaPackageInfo()).getCreatedTime());
@@ -534,8 +207,7 @@ class OtaPackageInfoDiffblueTest {
   /**
    * Test {@link OtaPackageInfo#hasUrl()}.
    * <ul>
-   *   <li>Given {@link OtaPackageInfo#OtaPackageInfo()} Url is
-   * {@link DataConstants#DEFAULT_SECRET_KEY}.</li>
+   *   <li>Given {@link OtaPackageInfo#OtaPackageInfo()} Url is {@link DataConstants#DEFAULT_SECRET_KEY}.</li>
    *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
@@ -543,6 +215,8 @@ class OtaPackageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test hasUrl(); given OtaPackageInfo() Url is DEFAULT_SECRET_KEY; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.hasUrl()"})
   void testHasUrl_givenOtaPackageInfoUrlIsDefault_secret_key_thenReturnFalse() {
     // Arrange
     OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
@@ -555,18 +229,20 @@ class OtaPackageInfoDiffblueTest {
   /**
    * Test {@link OtaPackageInfo#hasUrl()}.
    * <ul>
-   *   <li>Given {@link OtaPackageInfo#OtaPackageInfo()} Url is {@code foo}.</li>
+   *   <li>Given {@link OtaPackageInfo#OtaPackageInfo()} Url is {@code not empty}.</li>
    *   <li>Then return {@code true}.</li>
    * </ul>
    * <p>
    * Method under test: {@link OtaPackageInfo#hasUrl()}
    */
   @Test
-  @DisplayName("Test hasUrl(); given OtaPackageInfo() Url is 'foo'; then return 'true'")
-  void testHasUrl_givenOtaPackageInfoUrlIsFoo_thenReturnTrue() {
+  @DisplayName("Test hasUrl(); given OtaPackageInfo() Url is 'not empty'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.hasUrl()"})
+  void testHasUrl_givenOtaPackageInfoUrlIsNotEmpty_thenReturnTrue() {
     // Arrange
     OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
-    otaPackageInfo.setUrl("foo");
+    otaPackageInfo.setUrl("not empty");
 
     // Act and Assert
     assertTrue(otaPackageInfo.hasUrl());
@@ -583,6 +259,8 @@ class OtaPackageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test hasUrl(); given OtaPackageInfo(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.hasUrl()"})
   void testHasUrl_givenOtaPackageInfo_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse((new OtaPackageInfo()).hasUrl());
@@ -591,14 +269,15 @@ class OtaPackageInfoDiffblueTest {
   /**
    * Test {@link OtaPackageInfo#getAdditionalInfo()}.
    * <ul>
-   *   <li>Given {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)} with
-   * otaPackageInfo is {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}.</li>
+   *   <li>Given {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)} with otaPackageInfo is {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}.</li>
    * </ul>
    * <p>
    * Method under test: {@link OtaPackageInfo#getAdditionalInfo()}
    */
   @Test
   @DisplayName("Test getAdditionalInfo(); given OtaPackageInfo(OtaPackageInfo) with otaPackageInfo is OtaPackageInfo(OtaPackageInfo)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode OtaPackageInfo.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenOtaPackageInfoWithOtaPackageInfoIsOtaPackageInfo() {
     // Arrange and Act
     JsonNode actualAdditionalInfo = (new OtaPackageInfo(new OtaPackageInfo(new OtaPackageInfo()))).getAdditionalInfo();
@@ -618,6 +297,8 @@ class OtaPackageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getAdditionalInfo(); given OtaPackageInfo(); then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode OtaPackageInfo.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenOtaPackageInfo_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull((new OtaPackageInfo()).getAdditionalInfo());
@@ -633,6 +314,8 @@ class OtaPackageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getAdditionalInfo(); then return instance")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode OtaPackageInfo.getAdditionalInfo()"})
   void testGetAdditionalInfo_thenReturnInstance() {
     // Arrange and Act
     JsonNode actualAdditionalInfo = (new OtaPackageInfo(new OtaPackageInfo())).getAdditionalInfo();
@@ -642,8 +325,7 @@ class OtaPackageInfoDiffblueTest {
   }
 
   /**
-   * Test {@link OtaPackageInfo#equals(Object)}, and
-   * {@link OtaPackageInfo#hashCode()}.
+   * Test {@link OtaPackageInfo#equals(Object)}, and {@link OtaPackageInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -657,6 +339,8 @@ class OtaPackageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
@@ -669,8 +353,7 @@ class OtaPackageInfoDiffblueTest {
   }
 
   /**
-   * Test {@link OtaPackageInfo#equals(Object)}, and
-   * {@link OtaPackageInfo#hashCode()}.
+   * Test {@link OtaPackageInfo#equals(Object)}, and {@link OtaPackageInfo#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -684,6 +367,8 @@ class OtaPackageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
@@ -705,6 +390,8 @@ class OtaPackageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     OtaPackage otaPackage = new OtaPackage();
@@ -724,6 +411,8 @@ class OtaPackageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     OtaPackageInfo otaPackageInfo = new OtaPackageInfo(new OtaPackageInfo());
@@ -743,6 +432,8 @@ class OtaPackageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
@@ -762,14 +453,521 @@ class OtaPackageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
-    OtaPackage otaPackage = mock(OtaPackage.class);
-    when(otaPackage.canEqual(Mockito.<Object>any())).thenReturn(true);
+    otaPackageInfo.setTenantId(TenantId.SYS_TENANT_ID);
 
     // Act and Assert
-    assertNotEquals(otaPackageInfo, otaPackage);
+    assertNotEquals(otaPackageInfo, new OtaPackageInfo());
+  }
+
+  /**
+   * Test {@link OtaPackageInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+    // Arrange
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
+    otaPackageInfo.setType(OtaPackageType.FIRMWARE);
+
+    // Act and Assert
+    assertNotEquals(otaPackageInfo, new OtaPackageInfo());
+  }
+
+  /**
+   * Test {@link OtaPackageInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+    // Arrange
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
+    otaPackageInfo.setTitle("Dr");
+
+    // Act and Assert
+    assertNotEquals(otaPackageInfo, new OtaPackageInfo());
+  }
+
+  /**
+   * Test {@link OtaPackageInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+    // Arrange
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
+    otaPackageInfo.setVersion("1.0.2");
+
+    // Act and Assert
+    assertNotEquals(otaPackageInfo, new OtaPackageInfo());
+  }
+
+  /**
+   * Test {@link OtaPackageInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+    // Arrange
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
+    otaPackageInfo.setTag("Tag");
+
+    // Act and Assert
+    assertNotEquals(otaPackageInfo, new OtaPackageInfo());
+  }
+
+  /**
+   * Test {@link OtaPackageInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+    // Arrange
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
+    otaPackageInfo.setUrl("https://example.org/example");
+
+    // Act and Assert
+    assertNotEquals(otaPackageInfo, new OtaPackageInfo());
+  }
+
+  /**
+   * Test {@link OtaPackageInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+    // Arrange
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
+    otaPackageInfo.setHasData(true);
+
+    // Act and Assert
+    assertNotEquals(otaPackageInfo, new OtaPackageInfo());
+  }
+
+  /**
+   * Test {@link OtaPackageInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+    // Arrange
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
+    otaPackageInfo.setFileName("foo.txt");
+
+    // Act and Assert
+    assertNotEquals(otaPackageInfo, new OtaPackageInfo());
+  }
+
+  /**
+   * Test {@link OtaPackageInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+    // Arrange
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
+    otaPackageInfo.setContentType("text/plain");
+
+    // Act and Assert
+    assertNotEquals(otaPackageInfo, new OtaPackageInfo());
+  }
+
+  /**
+   * Test {@link OtaPackageInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+    // Arrange
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
+    otaPackageInfo.setChecksumAlgorithm(ChecksumAlgorithm.MD5);
+
+    // Act and Assert
+    assertNotEquals(otaPackageInfo, new OtaPackageInfo());
+  }
+
+  /**
+   * Test {@link OtaPackageInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+    // Arrange
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
+    otaPackageInfo.setChecksum("Checksum");
+
+    // Act and Assert
+    assertNotEquals(otaPackageInfo, new OtaPackageInfo());
+  }
+
+  /**
+   * Test {@link OtaPackageInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+    // Arrange
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
+    otaPackageInfo.setDataSize(3L);
+
+    // Act and Assert
+    assertNotEquals(otaPackageInfo, new OtaPackageInfo());
+  }
+
+  /**
+   * Test {@link OtaPackageInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+    // Arrange
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
+
+    OtaPackageInfo otaPackageInfo2 = new OtaPackageInfo();
+    otaPackageInfo2.setTenantId(TenantId.SYS_TENANT_ID);
+
+    // Act and Assert
+    assertNotEquals(otaPackageInfo, otaPackageInfo2);
+  }
+
+  /**
+   * Test {@link OtaPackageInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+    // Arrange
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
+
+    OtaPackageInfo otaPackageInfo2 = new OtaPackageInfo();
+    otaPackageInfo2.setType(OtaPackageType.FIRMWARE);
+
+    // Act and Assert
+    assertNotEquals(otaPackageInfo, otaPackageInfo2);
+  }
+
+  /**
+   * Test {@link OtaPackageInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
+    // Arrange
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
+
+    OtaPackageInfo otaPackageInfo2 = new OtaPackageInfo();
+    otaPackageInfo2.setTitle("Dr");
+
+    // Act and Assert
+    assertNotEquals(otaPackageInfo, otaPackageInfo2);
+  }
+
+  /**
+   * Test {@link OtaPackageInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
+    // Arrange
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
+
+    OtaPackageInfo otaPackageInfo2 = new OtaPackageInfo();
+    otaPackageInfo2.setVersion("1.0.2");
+
+    // Act and Assert
+    assertNotEquals(otaPackageInfo, otaPackageInfo2);
+  }
+
+  /**
+   * Test {@link OtaPackageInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
+    // Arrange
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
+
+    OtaPackageInfo otaPackageInfo2 = new OtaPackageInfo();
+    otaPackageInfo2.setTag("Tag");
+
+    // Act and Assert
+    assertNotEquals(otaPackageInfo, otaPackageInfo2);
+  }
+
+  /**
+   * Test {@link OtaPackageInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
+    // Arrange
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
+
+    OtaPackageInfo otaPackageInfo2 = new OtaPackageInfo();
+    otaPackageInfo2.setUrl("https://example.org/example");
+
+    // Act and Assert
+    assertNotEquals(otaPackageInfo, otaPackageInfo2);
+  }
+
+  /**
+   * Test {@link OtaPackageInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
+    // Arrange
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
+
+    OtaPackageInfo otaPackageInfo2 = new OtaPackageInfo();
+    otaPackageInfo2.setFileName("foo.txt");
+
+    // Act and Assert
+    assertNotEquals(otaPackageInfo, otaPackageInfo2);
+  }
+
+  /**
+   * Test {@link OtaPackageInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
+    // Arrange
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
+
+    OtaPackageInfo otaPackageInfo2 = new OtaPackageInfo();
+    otaPackageInfo2.setContentType("text/plain");
+
+    // Act and Assert
+    assertNotEquals(otaPackageInfo, otaPackageInfo2);
+  }
+
+  /**
+   * Test {@link OtaPackageInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
+    // Arrange
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
+
+    OtaPackageInfo otaPackageInfo2 = new OtaPackageInfo();
+    otaPackageInfo2.setChecksumAlgorithm(ChecksumAlgorithm.MD5);
+
+    // Act and Assert
+    assertNotEquals(otaPackageInfo, otaPackageInfo2);
+  }
+
+  /**
+   * Test {@link OtaPackageInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
+    // Arrange
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
+
+    OtaPackageInfo otaPackageInfo2 = new OtaPackageInfo();
+    otaPackageInfo2.setChecksum("Checksum");
+
+    // Act and Assert
+    assertNotEquals(otaPackageInfo, otaPackageInfo2);
+  }
+
+  /**
+   * Test {@link OtaPackageInfo#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() {
+    // Arrange
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
+
+    OtaPackageInfo otaPackageInfo2 = new OtaPackageInfo();
+    otaPackageInfo2.setDataSize(3L);
+
+    // Act and Assert
+    assertNotEquals(otaPackageInfo, otaPackageInfo2);
   }
 
   /**
@@ -783,6 +981,8 @@ class OtaPackageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new OtaPackageInfo(), null);
@@ -799,6 +999,8 @@ class OtaPackageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.equals(Object)", "int OtaPackageInfo.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new OtaPackageInfo(), "Different type to OtaPackageInfo");

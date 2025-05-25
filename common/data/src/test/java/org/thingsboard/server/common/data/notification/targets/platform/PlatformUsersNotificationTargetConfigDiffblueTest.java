@@ -2,16 +2,18 @@ package org.thingsboard.server.common.data.notification.targets.platform;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.notification.targets.NotificationTargetType;
 
 class PlatformUsersNotificationTargetConfigDiffblueTest {
   /**
-   * Test {@link PlatformUsersNotificationTargetConfig#equals(Object)}, and
-   * {@link PlatformUsersNotificationTargetConfig#hashCode()}.
+   * Test {@link PlatformUsersNotificationTargetConfig#equals(Object)}, and {@link PlatformUsersNotificationTargetConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -25,6 +27,9 @@ class PlatformUsersNotificationTargetConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformUsersNotificationTargetConfig.equals(Object)",
+      "int PlatformUsersNotificationTargetConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     PlatformUsersNotificationTargetConfig platformUsersNotificationTargetConfig = new PlatformUsersNotificationTargetConfig();
@@ -42,8 +47,7 @@ class PlatformUsersNotificationTargetConfigDiffblueTest {
   }
 
   /**
-   * Test {@link PlatformUsersNotificationTargetConfig#equals(Object)}, and
-   * {@link PlatformUsersNotificationTargetConfig#hashCode()}.
+   * Test {@link PlatformUsersNotificationTargetConfig#equals(Object)}, and {@link PlatformUsersNotificationTargetConfig#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -57,6 +61,9 @@ class PlatformUsersNotificationTargetConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformUsersNotificationTargetConfig.equals(Object)",
+      "int PlatformUsersNotificationTargetConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     PlatformUsersNotificationTargetConfig platformUsersNotificationTargetConfig = new PlatformUsersNotificationTargetConfig();
@@ -76,11 +83,13 @@ class PlatformUsersNotificationTargetConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link PlatformUsersNotificationTargetConfig#equals(Object)}
+   * Method under test: {@link PlatformUsersNotificationTargetConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformUsersNotificationTargetConfig.equals(Object)",
+      "int PlatformUsersNotificationTargetConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     PlatformUsersNotificationTargetConfig platformUsersNotificationTargetConfig = new PlatformUsersNotificationTargetConfig();
@@ -102,11 +111,13 @@ class PlatformUsersNotificationTargetConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link PlatformUsersNotificationTargetConfig#equals(Object)}
+   * Method under test: {@link PlatformUsersNotificationTargetConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformUsersNotificationTargetConfig.equals(Object)",
+      "int PlatformUsersNotificationTargetConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     PlatformUsersNotificationTargetConfig platformUsersNotificationTargetConfig = new PlatformUsersNotificationTargetConfig();
@@ -128,11 +139,13 @@ class PlatformUsersNotificationTargetConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link PlatformUsersNotificationTargetConfig#equals(Object)}
+   * Method under test: {@link PlatformUsersNotificationTargetConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformUsersNotificationTargetConfig.equals(Object)",
+      "int PlatformUsersNotificationTargetConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     PlatformUsersNotificationTargetConfig platformUsersNotificationTargetConfig = new PlatformUsersNotificationTargetConfig();
@@ -154,11 +167,13 @@ class PlatformUsersNotificationTargetConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link PlatformUsersNotificationTargetConfig#equals(Object)}
+   * Method under test: {@link PlatformUsersNotificationTargetConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformUsersNotificationTargetConfig.equals(Object)",
+      "int PlatformUsersNotificationTargetConfig.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     PlatformUsersNotificationTargetConfig platformUsersNotificationTargetConfig = new PlatformUsersNotificationTargetConfig();
@@ -176,11 +191,13 @@ class PlatformUsersNotificationTargetConfigDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link PlatformUsersNotificationTargetConfig#equals(Object)}
+   * Method under test: {@link PlatformUsersNotificationTargetConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PlatformUsersNotificationTargetConfig.equals(Object)",
+      "int PlatformUsersNotificationTargetConfig.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     PlatformUsersNotificationTargetConfig platformUsersNotificationTargetConfig = new PlatformUsersNotificationTargetConfig();
@@ -196,8 +213,7 @@ class PlatformUsersNotificationTargetConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link PlatformUsersNotificationTargetConfig}
+   *   <li>default or parameterless constructor of {@link PlatformUsersNotificationTargetConfig}
    *   <li>{@link PlatformUsersNotificationTargetConfig#setUsersFilter(UsersFilter)}
    *   <li>{@link PlatformUsersNotificationTargetConfig#toString()}
    *   <li>{@link PlatformUsersNotificationTargetConfig#getType()}
@@ -206,6 +222,12 @@ class PlatformUsersNotificationTargetConfigDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void PlatformUsersNotificationTargetConfig.<init>()",
+      "NotificationTargetType PlatformUsersNotificationTargetConfig.getType()",
+      "UsersFilter PlatformUsersNotificationTargetConfig.getUsersFilter()",
+      "void PlatformUsersNotificationTargetConfig.setUsersFilter(UsersFilter)",
+      "java.lang.String PlatformUsersNotificationTargetConfig.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     PlatformUsersNotificationTargetConfig actualPlatformUsersNotificationTargetConfig = new PlatformUsersNotificationTargetConfig();
@@ -213,9 +235,11 @@ class PlatformUsersNotificationTargetConfigDiffblueTest {
     actualPlatformUsersNotificationTargetConfig.setUsersFilter(usersFilter);
     actualPlatformUsersNotificationTargetConfig.toString();
     NotificationTargetType actualType = actualPlatformUsersNotificationTargetConfig.getType();
+    UsersFilter actualUsersFilter = actualPlatformUsersNotificationTargetConfig.getUsersFilter();
 
-    // Assert that nothing has changed
+    // Assert
+    assertNull(actualPlatformUsersNotificationTargetConfig.getDescription());
     assertEquals(NotificationTargetType.PLATFORM_USERS, actualType);
-    assertSame(usersFilter, actualPlatformUsersNotificationTargetConfig.getUsersFilter());
+    assertSame(usersFilter, actualUsersFilter);
   }
 }

@@ -3,9 +3,10 @@ package org.thingsboard.server.common.data.kv;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Optional;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class BooleanDataEntryDiffblueTest {
@@ -22,17 +23,21 @@ class BooleanDataEntryDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BooleanDataEntry.<init>(String, Boolean)", "DataType BooleanDataEntry.getDataType()",
+      "Object BooleanDataEntry.getValue()", "String BooleanDataEntry.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     BooleanDataEntry actualBooleanDataEntry = new BooleanDataEntry("Key", true);
     String actualToStringResult = actualBooleanDataEntry.toString();
     DataType actualDataType = actualBooleanDataEntry.getDataType();
-    actualBooleanDataEntry.getValue();
+    Object actualValue = actualBooleanDataEntry.getValue();
 
     // Assert
     assertEquals("BooleanDataEntry{value=true} BasicKvEntry{key='Key'}", actualToStringResult);
     assertEquals("Key", actualBooleanDataEntry.getKey());
     assertEquals(DataType.BOOLEAN, actualDataType);
+    assertTrue((Boolean) actualValue);
   }
 
   /**
@@ -42,6 +47,8 @@ class BooleanDataEntryDiffblueTest {
    */
   @Test
   @DisplayName("Test getBooleanValue()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Optional BooleanDataEntry.getBooleanValue()"})
   void testGetBooleanValue() {
     // Arrange and Act
     Optional<Boolean> actualBooleanValue = (new BooleanDataEntry("Key", true)).getBooleanValue();
@@ -52,8 +59,7 @@ class BooleanDataEntryDiffblueTest {
   }
 
   /**
-   * Test {@link BooleanDataEntry#equals(Object)}, and
-   * {@link BooleanDataEntry#hashCode()}.
+   * Test {@link BooleanDataEntry#equals(Object)}, and {@link BooleanDataEntry#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -67,6 +73,8 @@ class BooleanDataEntryDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BooleanDataEntry.equals(Object)", "int BooleanDataEntry.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     BooleanDataEntry booleanDataEntry = new BooleanDataEntry("Key", true);
@@ -79,8 +87,7 @@ class BooleanDataEntryDiffblueTest {
   }
 
   /**
-   * Test {@link BooleanDataEntry#equals(Object)}, and
-   * {@link BooleanDataEntry#hashCode()}.
+   * Test {@link BooleanDataEntry#equals(Object)}, and {@link BooleanDataEntry#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -94,6 +101,8 @@ class BooleanDataEntryDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BooleanDataEntry.equals(Object)", "int BooleanDataEntry.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     BooleanDataEntry booleanDataEntry = new BooleanDataEntry("Key", true);
@@ -115,6 +124,8 @@ class BooleanDataEntryDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BooleanDataEntry.equals(Object)", "int BooleanDataEntry.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     BooleanDataEntry booleanDataEntry = new BooleanDataEntry("org.thingsboard.server.common.data.kv.BooleanDataEntry",
@@ -122,22 +133,6 @@ class BooleanDataEntryDiffblueTest {
 
     // Act and Assert
     assertNotEquals(booleanDataEntry, new BooleanDataEntry("Key", true));
-  }
-
-  /**
-   * Test {@link BooleanDataEntry#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link BooleanDataEntry#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange, Act and Assert
-    assertNotEquals(new BooleanDataEntry("Key", true), mock(DoubleDataEntry.class));
   }
 
   /**
@@ -151,6 +146,8 @@ class BooleanDataEntryDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BooleanDataEntry.equals(Object)", "int BooleanDataEntry.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new BooleanDataEntry("Key", true), null);
@@ -167,6 +164,8 @@ class BooleanDataEntryDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BooleanDataEntry.equals(Object)", "int BooleanDataEntry.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new BooleanDataEntry("Key", true), "Different type to BooleanDataEntry");
@@ -179,6 +178,8 @@ class BooleanDataEntryDiffblueTest {
    */
   @Test
   @DisplayName("Test getValueAsString()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String BooleanDataEntry.getValueAsString()"})
   void testGetValueAsString() {
     // Arrange and Act
     String actualValueAsString = (new BooleanDataEntry("Key", true)).getValueAsString();

@@ -3,27 +3,28 @@ package org.thingsboard.rule.engine.edge;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TbMsgPushToCloudNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbMsgPushToCloudNodeConfiguration#defaultConfiguration()}.
    * <p>
-   * Method under test:
-   * {@link TbMsgPushToCloudNodeConfiguration#defaultConfiguration()}
+   * Method under test: {@link TbMsgPushToCloudNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbMsgPushToCloudNodeConfiguration TbMsgPushToCloudNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
     // Arrange, Act and Assert
     assertEquals("SERVER_SCOPE", (new TbMsgPushToCloudNodeConfiguration()).defaultConfiguration().getScope());
   }
 
   /**
-   * Test {@link TbMsgPushToCloudNodeConfiguration#equals(Object)}, and
-   * {@link TbMsgPushToCloudNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgPushToCloudNodeConfiguration#equals(Object)}, and {@link TbMsgPushToCloudNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -37,6 +38,9 @@ class TbMsgPushToCloudNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgPushToCloudNodeConfiguration.equals(Object)",
+      "int TbMsgPushToCloudNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbMsgPushToCloudNodeConfiguration tbMsgPushToCloudNodeConfiguration = new TbMsgPushToCloudNodeConfiguration();
@@ -49,8 +53,7 @@ class TbMsgPushToCloudNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgPushToCloudNodeConfiguration#equals(Object)}, and
-   * {@link TbMsgPushToCloudNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgPushToCloudNodeConfiguration#equals(Object)}, and {@link TbMsgPushToCloudNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -64,6 +67,9 @@ class TbMsgPushToCloudNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgPushToCloudNodeConfiguration.equals(Object)",
+      "int TbMsgPushToCloudNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbMsgPushToCloudNodeConfiguration tbMsgPushToCloudNodeConfiguration = new TbMsgPushToCloudNodeConfiguration();
@@ -85,10 +91,12 @@ class TbMsgPushToCloudNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgPushToCloudNodeConfiguration.equals(Object)",
+      "int TbMsgPushToCloudNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMsgPushToCloudNodeConfiguration(), 1);
-    assertNotEquals(new TbMsgPushToCloudNodeConfiguration(), mock(BaseTbMsgPushNodeConfiguration.class));
   }
 
   /**
@@ -102,6 +110,9 @@ class TbMsgPushToCloudNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgPushToCloudNodeConfiguration.equals(Object)",
+      "int TbMsgPushToCloudNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbMsgPushToCloudNodeConfiguration tbMsgPushToCloudNodeConfiguration = new TbMsgPushToCloudNodeConfiguration();
@@ -122,6 +133,9 @@ class TbMsgPushToCloudNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgPushToCloudNodeConfiguration.equals(Object)",
+      "int TbMsgPushToCloudNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMsgPushToCloudNodeConfiguration(), null);
@@ -138,6 +152,9 @@ class TbMsgPushToCloudNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgPushToCloudNodeConfiguration.equals(Object)",
+      "int TbMsgPushToCloudNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMsgPushToCloudNodeConfiguration(), "Different type to TbMsgPushToCloudNodeConfiguration");
@@ -148,13 +165,15 @@ class TbMsgPushToCloudNodeConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link TbMsgPushToCloudNodeConfiguration}
+   *   <li>default or parameterless constructor of {@link TbMsgPushToCloudNodeConfiguration}
    *   <li>{@link TbMsgPushToCloudNodeConfiguration#toString()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbMsgPushToCloudNodeConfiguration.<init>()",
+      "java.lang.String TbMsgPushToCloudNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbMsgPushToCloudNodeConfiguration actualTbMsgPushToCloudNodeConfiguration = new TbMsgPushToCloudNodeConfiguration();

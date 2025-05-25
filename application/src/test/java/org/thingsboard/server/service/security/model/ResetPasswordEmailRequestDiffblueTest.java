@@ -2,13 +2,14 @@ package org.thingsboard.server.service.security.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ResetPasswordEmailRequestDiffblueTest {
   /**
-   * Test {@link ResetPasswordEmailRequest#equals(Object)}, and
-   * {@link ResetPasswordEmailRequest#hashCode()}.
+   * Test {@link ResetPasswordEmailRequest#equals(Object)}, and {@link ResetPasswordEmailRequest#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -22,6 +23,8 @@ class ResetPasswordEmailRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResetPasswordEmailRequest.equals(Object)", "int ResetPasswordEmailRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ResetPasswordEmailRequest resetPasswordEmailRequest = new ResetPasswordEmailRequest();
@@ -37,8 +40,7 @@ class ResetPasswordEmailRequestDiffblueTest {
   }
 
   /**
-   * Test {@link ResetPasswordEmailRequest#equals(Object)}, and
-   * {@link ResetPasswordEmailRequest#hashCode()}.
+   * Test {@link ResetPasswordEmailRequest#equals(Object)}, and {@link ResetPasswordEmailRequest#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -52,6 +54,8 @@ class ResetPasswordEmailRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResetPasswordEmailRequest.equals(Object)", "int ResetPasswordEmailRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     ResetPasswordEmailRequest resetPasswordEmailRequest = new ResetPasswordEmailRequest();
@@ -67,8 +71,7 @@ class ResetPasswordEmailRequestDiffblueTest {
   }
 
   /**
-   * Test {@link ResetPasswordEmailRequest#equals(Object)}, and
-   * {@link ResetPasswordEmailRequest#hashCode()}.
+   * Test {@link ResetPasswordEmailRequest#equals(Object)}, and {@link ResetPasswordEmailRequest#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -82,6 +85,8 @@ class ResetPasswordEmailRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResetPasswordEmailRequest.equals(Object)", "int ResetPasswordEmailRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ResetPasswordEmailRequest resetPasswordEmailRequest = new ResetPasswordEmailRequest();
@@ -104,6 +109,8 @@ class ResetPasswordEmailRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResetPasswordEmailRequest.equals(Object)", "int ResetPasswordEmailRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ResetPasswordEmailRequest resetPasswordEmailRequest = new ResetPasswordEmailRequest();
@@ -127,6 +134,8 @@ class ResetPasswordEmailRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResetPasswordEmailRequest.equals(Object)", "int ResetPasswordEmailRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ResetPasswordEmailRequest resetPasswordEmailRequest = new ResetPasswordEmailRequest();
@@ -150,6 +159,8 @@ class ResetPasswordEmailRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResetPasswordEmailRequest.equals(Object)", "int ResetPasswordEmailRequest.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     ResetPasswordEmailRequest resetPasswordEmailRequest = new ResetPasswordEmailRequest();
@@ -170,6 +181,8 @@ class ResetPasswordEmailRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResetPasswordEmailRequest.equals(Object)", "int ResetPasswordEmailRequest.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     ResetPasswordEmailRequest resetPasswordEmailRequest = new ResetPasswordEmailRequest();
@@ -192,13 +205,16 @@ class ResetPasswordEmailRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ResetPasswordEmailRequest.<init>()", "String ResetPasswordEmailRequest.getEmail()",
+      "void ResetPasswordEmailRequest.setEmail(String)", "String ResetPasswordEmailRequest.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     ResetPasswordEmailRequest actualResetPasswordEmailRequest = new ResetPasswordEmailRequest();
     actualResetPasswordEmailRequest.setEmail("jane.doe@example.org");
     String actualToStringResult = actualResetPasswordEmailRequest.toString();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("ResetPasswordEmailRequest(email=jane.doe@example.org)", actualToStringResult);
     assertEquals("jane.doe@example.org", actualResetPasswordEmailRequest.getEmail());
   }

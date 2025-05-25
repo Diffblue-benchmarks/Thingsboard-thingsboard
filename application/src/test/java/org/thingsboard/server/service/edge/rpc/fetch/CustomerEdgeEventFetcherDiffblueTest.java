@@ -3,15 +3,15 @@ package org.thingsboard.server.service.edge.rpc.fetch;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.List;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
@@ -27,11 +27,15 @@ import org.thingsboard.server.common.data.page.PageData;
 import org.thingsboard.server.common.data.page.PageLink;
 
 @ContextConfiguration(classes = {CustomerEdgeEventFetcher.class, CustomerId.class})
-@ExtendWith(SpringExtension.class)
 @DisabledInAotMode
+@ExtendWith(MockitoExtension.class)
+@ExtendWith(SpringExtension.class)
 class CustomerEdgeEventFetcherDiffblueTest {
   @Autowired
   private CustomerEdgeEventFetcher customerEdgeEventFetcher;
+
+  @InjectMocks
+  private CustomerId customerId;
 
   @MockBean
   private UUID uUID;
@@ -43,62 +47,29 @@ class CustomerEdgeEventFetcherDiffblueTest {
    */
   @Test
   @DisplayName("Test getPageLink(int)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"PageLink CustomerEdgeEventFetcher.getPageLink(int)"})
   void testGetPageLink() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
-    assertNull((new CustomerEdgeEventFetcher(new CustomerId(UUID.randomUUID()))).getPageLink(3));
+    assertNull(customerEdgeEventFetcher.getPageLink(3));
   }
 
   /**
-   * Test
-   * {@link CustomerEdgeEventFetcher#fetchEdgeEvents(TenantId, Edge, PageLink)}.
+   * Test {@link CustomerEdgeEventFetcher#fetchEdgeEvents(TenantId, Edge, PageLink)}.
    * <ul>
-   *   <li>Then return Data first TenantId is {@link TenantId#TenantId(UUID)} with
-   * id is randomUUID.</li>
+   *   <li>Given {@link CustomerEdgeEventFetcher}.</li>
+   *   <li>Then return Data size is one.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link CustomerEdgeEventFetcher#fetchEdgeEvents(TenantId, Edge, PageLink)}
+   * Method under test: {@link CustomerEdgeEventFetcher#fetchEdgeEvents(TenantId, Edge, PageLink)}
    */
   @Test
-  @DisplayName("Test fetchEdgeEvents(TenantId, Edge, PageLink); then return Data first TenantId is TenantId(UUID) with id is randomUUID")
-  void testFetchEdgeEvents_thenReturnDataFirstTenantIdIsTenantIdWithIdIsRandomUUID() {
+  @DisplayName("Test fetchEdgeEvents(TenantId, Edge, PageLink); given CustomerEdgeEventFetcher; then return Data size is one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"PageData CustomerEdgeEventFetcher.fetchEdgeEvents(TenantId, Edge, PageLink)"})
+  void testFetchEdgeEvents_givenCustomerEdgeEventFetcher_thenReturnDataSizeIsOne() {
     // Arrange
-    TenantId tenantId = new TenantId(UUID.randomUUID());
-    Edge edge = mock(Edge.class);
-    when(edge.getId()).thenReturn(null);
-    TenantId tenantId2 = new TenantId(UUID.randomUUID());
-    when(edge.getTenantId()).thenReturn(tenantId2);
-
-    // Act
-    PageData<EdgeEvent> actualFetchEdgeEventsResult = customerEdgeEventFetcher.fetchEdgeEvents(tenantId, edge,
-        new PageLink(3));
-
-    // Assert
-    verify(edge).getId();
-    verify(edge).getTenantId();
-    List<EdgeEvent> data = actualFetchEdgeEventsResult.getData();
-    assertEquals(1, data.size());
-    assertSame(tenantId2, data.get(0).getTenantId());
-  }
-
-  /**
-   * Test
-   * {@link CustomerEdgeEventFetcher#fetchEdgeEvents(TenantId, Edge, PageLink)}.
-   * <ul>
-   *   <li>When {@link Edge#Edge()}.</li>
-   *   <li>Then return Data first Body is {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link CustomerEdgeEventFetcher#fetchEdgeEvents(TenantId, Edge, PageLink)}
-   */
-  @Test
-  @DisplayName("Test fetchEdgeEvents(TenantId, Edge, PageLink); when Edge(); then return Data first Body is 'null'")
-  void testFetchEdgeEvents_whenEdge_thenReturnDataFirstBodyIsNull() {
-    // Arrange
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     Edge edge = new Edge();
 
     // Act
@@ -111,6 +82,48 @@ class CustomerEdgeEventFetcherDiffblueTest {
     EdgeEvent getResult = data.get(0);
     assertNull(getResult.getBody());
     assertNull(getResult.getUid());
+    assertNull(getResult.getUuidId());
+    assertNull(getResult.getId());
+    assertNull(getResult.getEdgeId());
+    assertNull(getResult.getTenantId());
+    assertEquals(0L, getResult.getCreatedTime());
+    assertEquals(0L, getResult.getSeqId());
+    assertEquals(1, actualFetchEdgeEventsResult.getTotalPages());
+    assertEquals(1L, actualFetchEdgeEventsResult.getTotalElements());
+    assertEquals(EdgeEventActionType.ADDED, getResult.getAction());
+    assertEquals(EdgeEventType.CUSTOMER, getResult.getType());
+    assertFalse(actualFetchEdgeEventsResult.hasNext());
+  }
+
+  /**
+   * Test {@link CustomerEdgeEventFetcher#fetchEdgeEvents(TenantId, Edge, PageLink)}.
+   * <ul>
+   *   <li>Then return Data first EntityId is {@code null}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link CustomerEdgeEventFetcher#fetchEdgeEvents(TenantId, Edge, PageLink)}
+   */
+  @Test
+  @DisplayName("Test fetchEdgeEvents(TenantId, Edge, PageLink); then return Data first EntityId is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"PageData CustomerEdgeEventFetcher.fetchEdgeEvents(TenantId, Edge, PageLink)"})
+  void testFetchEdgeEvents_thenReturnDataFirstEntityIdIsNull() {
+    // Arrange
+    CustomerEdgeEventFetcher customerEdgeEventFetcher = new CustomerEdgeEventFetcher(null);
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    Edge edge = new Edge();
+
+    // Act
+    PageData<EdgeEvent> actualFetchEdgeEventsResult = customerEdgeEventFetcher.fetchEdgeEvents(tenantId, edge,
+        new PageLink(3));
+
+    // Assert
+    List<EdgeEvent> data = actualFetchEdgeEventsResult.getData();
+    assertEquals(1, data.size());
+    EdgeEvent getResult = data.get(0);
+    assertNull(getResult.getBody());
+    assertNull(getResult.getUid());
+    assertNull(getResult.getEntityId());
     assertNull(getResult.getUuidId());
     assertNull(getResult.getId());
     assertNull(getResult.getEdgeId());

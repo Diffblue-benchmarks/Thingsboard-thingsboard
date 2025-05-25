@@ -2,14 +2,15 @@ package org.thingsboard.server.common.data.device.profile;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.DeviceProfileProvisionType;
 
 class DisabledDeviceProfileProvisionConfigurationDiffblueTest {
   /**
-   * Test {@link DisabledDeviceProfileProvisionConfiguration#equals(Object)}, and
-   * {@link DisabledDeviceProfileProvisionConfiguration#hashCode()}.
+   * Test {@link DisabledDeviceProfileProvisionConfiguration#equals(Object)}, and {@link DisabledDeviceProfileProvisionConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -23,6 +24,9 @@ class DisabledDeviceProfileProvisionConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DisabledDeviceProfileProvisionConfiguration.equals(Object)",
+      "int DisabledDeviceProfileProvisionConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DisabledDeviceProfileProvisionConfiguration disabledDeviceProfileProvisionConfiguration = new DisabledDeviceProfileProvisionConfiguration(
@@ -37,8 +41,7 @@ class DisabledDeviceProfileProvisionConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link DisabledDeviceProfileProvisionConfiguration#equals(Object)}, and
-   * {@link DisabledDeviceProfileProvisionConfiguration#hashCode()}.
+   * Test {@link DisabledDeviceProfileProvisionConfiguration#equals(Object)}, and {@link DisabledDeviceProfileProvisionConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -52,6 +55,9 @@ class DisabledDeviceProfileProvisionConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DisabledDeviceProfileProvisionConfiguration.equals(Object)",
+      "int DisabledDeviceProfileProvisionConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     DisabledDeviceProfileProvisionConfiguration disabledDeviceProfileProvisionConfiguration = new DisabledDeviceProfileProvisionConfiguration(
@@ -66,8 +72,7 @@ class DisabledDeviceProfileProvisionConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link DisabledDeviceProfileProvisionConfiguration#equals(Object)}, and
-   * {@link DisabledDeviceProfileProvisionConfiguration#hashCode()}.
+   * Test {@link DisabledDeviceProfileProvisionConfiguration#equals(Object)}, and {@link DisabledDeviceProfileProvisionConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -81,6 +86,9 @@ class DisabledDeviceProfileProvisionConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DisabledDeviceProfileProvisionConfiguration.equals(Object)",
+      "int DisabledDeviceProfileProvisionConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DisabledDeviceProfileProvisionConfiguration disabledDeviceProfileProvisionConfiguration = new DisabledDeviceProfileProvisionConfiguration(
@@ -99,11 +107,13 @@ class DisabledDeviceProfileProvisionConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DisabledDeviceProfileProvisionConfiguration#equals(Object)}
+   * Method under test: {@link DisabledDeviceProfileProvisionConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DisabledDeviceProfileProvisionConfiguration.equals(Object)",
+      "int DisabledDeviceProfileProvisionConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     DisabledDeviceProfileProvisionConfiguration disabledDeviceProfileProvisionConfiguration = new DisabledDeviceProfileProvisionConfiguration(
@@ -121,11 +131,13 @@ class DisabledDeviceProfileProvisionConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DisabledDeviceProfileProvisionConfiguration#equals(Object)}
+   * Method under test: {@link DisabledDeviceProfileProvisionConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DisabledDeviceProfileProvisionConfiguration.equals(Object)",
+      "int DisabledDeviceProfileProvisionConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DisabledDeviceProfileProvisionConfiguration disabledDeviceProfileProvisionConfiguration = new DisabledDeviceProfileProvisionConfiguration(
@@ -143,11 +155,13 @@ class DisabledDeviceProfileProvisionConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DisabledDeviceProfileProvisionConfiguration#equals(Object)}
+   * Method under test: {@link DisabledDeviceProfileProvisionConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DisabledDeviceProfileProvisionConfiguration.equals(Object)",
+      "int DisabledDeviceProfileProvisionConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DisabledDeviceProfileProvisionConfiguration("Provision Device Secret"), null);
@@ -160,11 +174,13 @@ class DisabledDeviceProfileProvisionConfigurationDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link DisabledDeviceProfileProvisionConfiguration#equals(Object)}
+   * Method under test: {@link DisabledDeviceProfileProvisionConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DisabledDeviceProfileProvisionConfiguration.equals(Object)",
+      "int DisabledDeviceProfileProvisionConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DisabledDeviceProfileProvisionConfiguration("Provision Device Secret"),
@@ -176,16 +192,19 @@ class DisabledDeviceProfileProvisionConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link DisabledDeviceProfileProvisionConfiguration#DisabledDeviceProfileProvisionConfiguration(String)}
+   *   <li>{@link DisabledDeviceProfileProvisionConfiguration#DisabledDeviceProfileProvisionConfiguration(String)}
    *   <li>{@link DisabledDeviceProfileProvisionConfiguration#toString()}
-   *   <li>
-   * {@link DisabledDeviceProfileProvisionConfiguration#getProvisionDeviceSecret()}
+   *   <li>{@link DisabledDeviceProfileProvisionConfiguration#getProvisionDeviceSecret()}
    *   <li>{@link DisabledDeviceProfileProvisionConfiguration#getType()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DisabledDeviceProfileProvisionConfiguration.<init>(String)",
+      "String DisabledDeviceProfileProvisionConfiguration.getProvisionDeviceSecret()",
+      "DeviceProfileProvisionType DisabledDeviceProfileProvisionConfiguration.getType()",
+      "String DisabledDeviceProfileProvisionConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     DisabledDeviceProfileProvisionConfiguration actualDisabledDeviceProfileProvisionConfiguration = new DisabledDeviceProfileProvisionConfiguration(

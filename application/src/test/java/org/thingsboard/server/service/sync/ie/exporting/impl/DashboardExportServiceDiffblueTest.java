@@ -2,12 +2,21 @@ package org.thingsboard.server.service.sync.ie.exporting.impl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Set;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.thingsboard.server.common.data.EntityType;
 
+@ExtendWith(MockitoExtension.class)
 class DashboardExportServiceDiffblueTest {
+  @InjectMocks
+  private DashboardExportService dashboardExportService;
+
   /**
    * Test {@link DashboardExportService#getSupportedEntityTypes()}.
    * <p>
@@ -15,11 +24,11 @@ class DashboardExportServiceDiffblueTest {
    */
   @Test
   @DisplayName("Test getSupportedEntityTypes()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Set DashboardExportService.getSupportedEntityTypes()"})
   void testGetSupportedEntityTypes() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    Set<EntityType> actualSupportedEntityTypes = (new DashboardExportService()).getSupportedEntityTypes();
+    Set<EntityType> actualSupportedEntityTypes = dashboardExportService.getSupportedEntityTypes();
 
     // Assert
     assertEquals(1, actualSupportedEntityTypes.size());

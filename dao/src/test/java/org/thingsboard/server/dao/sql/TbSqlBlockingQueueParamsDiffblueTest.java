@@ -6,13 +6,24 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.thingsboard.server.dao.sql.TbSqlBlockingQueueParams.TbSqlBlockingQueueParamsBuilder;
 
+@ContextConfiguration(classes = {TbSqlBlockingQueueParamsBuilder.class})
+@RunWith(SpringJUnit4ClassRunner.class)
 public class TbSqlBlockingQueueParamsDiffblueTest {
+  @Autowired
+  private TbSqlBlockingQueueParamsBuilder tbSqlBlockingQueueParamsBuilder;
+
   /**
-   * Test {@link TbSqlBlockingQueueParams#equals(Object)}, and
-   * {@link TbSqlBlockingQueueParams#hashCode()}.
+   * Test {@link TbSqlBlockingQueueParams#equals(Object)}, and {@link TbSqlBlockingQueueParams#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -25,6 +36,8 @@ public class TbSqlBlockingQueueParamsDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TbSqlBlockingQueueParams.equals(Object)", "int TbSqlBlockingQueueParams.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbSqlBlockingQueueParams buildResult = TbSqlBlockingQueueParams.builder()
@@ -53,8 +66,7 @@ public class TbSqlBlockingQueueParamsDiffblueTest {
   }
 
   /**
-   * Test {@link TbSqlBlockingQueueParams#equals(Object)}, and
-   * {@link TbSqlBlockingQueueParams#hashCode()}.
+   * Test {@link TbSqlBlockingQueueParams#equals(Object)}, and {@link TbSqlBlockingQueueParams#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -67,6 +79,8 @@ public class TbSqlBlockingQueueParamsDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TbSqlBlockingQueueParams.equals(Object)", "int TbSqlBlockingQueueParams.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbSqlBlockingQueueParams buildResult = TbSqlBlockingQueueParams.builder()
@@ -95,10 +109,11 @@ public class TbSqlBlockingQueueParamsDiffblueTest {
    * Method under test: {@link TbSqlBlockingQueueParams#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TbSqlBlockingQueueParams.equals(Object)", "int TbSqlBlockingQueueParams.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    TbSqlBlockingQueueParams.TbSqlBlockingQueueParamsBuilder tbSqlBlockingQueueParamsBuilder = mock(
-        TbSqlBlockingQueueParams.TbSqlBlockingQueueParamsBuilder.class);
+    TbSqlBlockingQueueParamsBuilder tbSqlBlockingQueueParamsBuilder = mock(TbSqlBlockingQueueParamsBuilder.class);
     when(tbSqlBlockingQueueParamsBuilder.batchSize(anyInt())).thenReturn(TbSqlBlockingQueueParams.builder());
     TbSqlBlockingQueueParams buildResult = tbSqlBlockingQueueParamsBuilder.batchSize(3)
         .batchSortEnabled(true)
@@ -132,6 +147,8 @@ public class TbSqlBlockingQueueParamsDiffblueTest {
    * Method under test: {@link TbSqlBlockingQueueParams#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TbSqlBlockingQueueParams.equals(Object)", "int TbSqlBlockingQueueParams.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     TbSqlBlockingQueueParams buildResult = TbSqlBlockingQueueParams.builder()
@@ -158,6 +175,8 @@ public class TbSqlBlockingQueueParamsDiffblueTest {
    * Method under test: {@link TbSqlBlockingQueueParams#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TbSqlBlockingQueueParams.equals(Object)", "int TbSqlBlockingQueueParams.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     TbSqlBlockingQueueParams buildResult = TbSqlBlockingQueueParams.builder()
@@ -190,6 +209,12 @@ public class TbSqlBlockingQueueParamsDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"int TbSqlBlockingQueueParams.getBatchSize()", "String TbSqlBlockingQueueParams.getLogName()",
+      "long TbSqlBlockingQueueParams.getMaxDelay()", "String TbSqlBlockingQueueParams.getStatsNamePrefix()",
+      "long TbSqlBlockingQueueParams.getStatsPrintIntervalMs()",
+      "boolean TbSqlBlockingQueueParams.isBatchSortEnabled()", "boolean TbSqlBlockingQueueParams.isWithResponse()",
+      "String TbSqlBlockingQueueParams.toString()"})
   public void testGettersAndSetters() {
     // Arrange
     TbSqlBlockingQueueParams buildResult = TbSqlBlockingQueueParams.builder()
@@ -224,13 +249,13 @@ public class TbSqlBlockingQueueParamsDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link TbSqlBlockingQueueParams#TbSqlBlockingQueueParams(String, int, long, long, String, boolean, boolean)}.
+   * Test {@link TbSqlBlockingQueueParams#TbSqlBlockingQueueParams(String, int, long, long, String, boolean, boolean)}.
    * <p>
-   * Method under test:
-   * {@link TbSqlBlockingQueueParams#TbSqlBlockingQueueParams(String, int, long, long, String, boolean, boolean)}
+   * Method under test: {@link TbSqlBlockingQueueParams#TbSqlBlockingQueueParams(String, int, long, long, String, boolean, boolean)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void TbSqlBlockingQueueParams.<init>(String, int, long, long, String, boolean, boolean)"})
   public void testNewTbSqlBlockingQueueParams() {
     // Arrange and Act
     TbSqlBlockingQueueParams actualTbSqlBlockingQueueParams = new TbSqlBlockingQueueParams("Log Name", 3, 1L, 42L,
@@ -247,29 +272,32 @@ public class TbSqlBlockingQueueParamsDiffblueTest {
   }
 
   /**
-   * Test TbSqlBlockingQueueParamsBuilder
-   * {@link TbSqlBlockingQueueParamsBuilder#build()}.
+   * Test TbSqlBlockingQueueParamsBuilder {@link TbSqlBlockingQueueParamsBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TbSqlBlockingQueueParams.TbSqlBlockingQueueParamsBuilder#build()}
-   *   <li>
-   * {@link TbSqlBlockingQueueParams.TbSqlBlockingQueueParamsBuilder#batchSize(int)}
-   *   <li>
-   * {@link TbSqlBlockingQueueParams.TbSqlBlockingQueueParamsBuilder#batchSortEnabled(boolean)}
-   *   <li>
-   * {@link TbSqlBlockingQueueParams.TbSqlBlockingQueueParamsBuilder#logName(String)}
-   *   <li>
-   * {@link TbSqlBlockingQueueParams.TbSqlBlockingQueueParamsBuilder#maxDelay(long)}
-   *   <li>
-   * {@link TbSqlBlockingQueueParams.TbSqlBlockingQueueParamsBuilder#statsNamePrefix(String)}
-   *   <li>
-   * {@link TbSqlBlockingQueueParams.TbSqlBlockingQueueParamsBuilder#statsPrintIntervalMs(long)}
-   *   <li>
-   * {@link TbSqlBlockingQueueParams.TbSqlBlockingQueueParamsBuilder#withResponse(boolean)}
+   *   <li>{@link TbSqlBlockingQueueParamsBuilder#build()}
+   *   <li>{@link TbSqlBlockingQueueParamsBuilder#batchSize(int)}
+   *   <li>{@link TbSqlBlockingQueueParamsBuilder#batchSortEnabled(boolean)}
+   *   <li>{@link TbSqlBlockingQueueParamsBuilder#logName(String)}
+   *   <li>{@link TbSqlBlockingQueueParamsBuilder#maxDelay(long)}
+   *   <li>{@link TbSqlBlockingQueueParamsBuilder#statsNamePrefix(String)}
+   *   <li>{@link TbSqlBlockingQueueParamsBuilder#statsPrintIntervalMs(long)}
+   *   <li>{@link TbSqlBlockingQueueParamsBuilder#withResponse(boolean)}
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void TbSqlBlockingQueueParamsBuilder.<init>()",
+      "TbSqlBlockingQueueParamsBuilder TbSqlBlockingQueueParamsBuilder.batchSize(int)",
+      "TbSqlBlockingQueueParamsBuilder TbSqlBlockingQueueParamsBuilder.batchSortEnabled(boolean)",
+      "TbSqlBlockingQueueParams TbSqlBlockingQueueParamsBuilder.build()",
+      "TbSqlBlockingQueueParamsBuilder TbSqlBlockingQueueParamsBuilder.logName(String)",
+      "TbSqlBlockingQueueParamsBuilder TbSqlBlockingQueueParamsBuilder.maxDelay(long)",
+      "TbSqlBlockingQueueParamsBuilder TbSqlBlockingQueueParamsBuilder.statsNamePrefix(String)",
+      "TbSqlBlockingQueueParamsBuilder TbSqlBlockingQueueParamsBuilder.statsPrintIntervalMs(long)",
+      "String TbSqlBlockingQueueParamsBuilder.toString()",
+      "TbSqlBlockingQueueParamsBuilder TbSqlBlockingQueueParamsBuilder.withResponse(boolean)"})
   public void testTbSqlBlockingQueueParamsBuilderBuild() {
     // Arrange and Act
     TbSqlBlockingQueueParams actualBuildResult = TbSqlBlockingQueueParams.builder()

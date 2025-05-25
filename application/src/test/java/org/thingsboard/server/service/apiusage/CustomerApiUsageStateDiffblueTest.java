@@ -3,7 +3,9 @@ package org.thingsboard.server.service.apiusage;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +17,8 @@ import org.thingsboard.server.common.data.ApiUsageState;
 import org.thingsboard.server.common.data.EntityType;
 
 @ContextConfiguration(classes = {CustomerApiUsageState.class})
-@ExtendWith(SpringExtension.class)
 @DisabledInAotMode
+@ExtendWith(SpringExtension.class)
 class CustomerApiUsageStateDiffblueTest {
   @MockBean
   private ApiUsageState apiUsageState;
@@ -27,11 +29,12 @@ class CustomerApiUsageStateDiffblueTest {
   /**
    * Test {@link CustomerApiUsageState#CustomerApiUsageState(ApiUsageState)}.
    * <p>
-   * Method under test:
-   * {@link CustomerApiUsageState#CustomerApiUsageState(ApiUsageState)}
+   * Method under test: {@link CustomerApiUsageState#CustomerApiUsageState(ApiUsageState)}
    */
   @Test
   @DisplayName("Test new CustomerApiUsageState(ApiUsageState)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CustomerApiUsageState.<init>(ApiUsageState)"})
   void testNewCustomerApiUsageState() {
     // Arrange and Act
     CustomerApiUsageState actualCustomerApiUsageState = new CustomerApiUsageState(apiUsageState);
@@ -50,6 +53,8 @@ class CustomerApiUsageStateDiffblueTest {
    */
   @Test
   @DisplayName("Test getEntityType()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityType CustomerApiUsageState.getEntityType()"})
   void testGetEntityType() {
     // Arrange, Act and Assert
     assertEquals(EntityType.CUSTOMER, (new CustomerApiUsageState(new ApiUsageState())).getEntityType());

@@ -3,10 +3,48 @@ package org.thingsboard.server.transport.lwm2m.server.ota.software;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class SoftwareUpdateResultDiffblueTest {
+  /**
+   * Test {@link SoftwareUpdateResult#fromUpdateResultSwByType(String)}.
+   * <ul>
+   *   <li>When {@code Initial value}.</li>
+   *   <li>Then return {@code INITIAL}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link SoftwareUpdateResult#fromUpdateResultSwByType(String)}
+   */
+  @Test
+  @DisplayName("Test fromUpdateResultSwByType(String); when 'Initial value'; then return 'INITIAL'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"SoftwareUpdateResult SoftwareUpdateResult.fromUpdateResultSwByType(String)"})
+  void testFromUpdateResultSwByType_whenInitialValue_thenReturnInitial() {
+    // Arrange, Act and Assert
+    assertEquals(SoftwareUpdateResult.INITIAL, SoftwareUpdateResult.fromUpdateResultSwByType("Initial value"));
+  }
+
+  /**
+   * Test {@link SoftwareUpdateResult#fromUpdateResultSwByType(String)}.
+   * <ul>
+   *   <li>When {@code Type}.</li>
+   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link SoftwareUpdateResult#fromUpdateResultSwByType(String)}
+   */
+  @Test
+  @DisplayName("Test fromUpdateResultSwByType(String); when 'Type'; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"SoftwareUpdateResult SoftwareUpdateResult.fromUpdateResultSwByType(String)"})
+  void testFromUpdateResultSwByType_whenType_thenThrowIllegalArgumentException() {
+    // Arrange, Act and Assert
+    assertThrows(IllegalArgumentException.class, () -> SoftwareUpdateResult.fromUpdateResultSwByType("Type"));
+  }
+
   /**
    * Test {@link SoftwareUpdateResult#fromUpdateResultSwByCode(int)}.
    * <ul>
@@ -18,6 +56,8 @@ class SoftwareUpdateResultDiffblueTest {
    */
   @Test
   @DisplayName("Test fromUpdateResultSwByCode(int); when one; then return 'DOWNLOADING'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"SoftwareUpdateResult SoftwareUpdateResult.fromUpdateResultSwByCode(int)"})
   void testFromUpdateResultSwByCode_whenOne_thenReturnDownloading() {
     // Arrange, Act and Assert
     assertEquals(SoftwareUpdateResult.DOWNLOADING, SoftwareUpdateResult.fromUpdateResultSwByCode(1));
@@ -34,43 +74,11 @@ class SoftwareUpdateResultDiffblueTest {
    */
   @Test
   @DisplayName("Test fromUpdateResultSwByCode(int); when thirteen; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"SoftwareUpdateResult SoftwareUpdateResult.fromUpdateResultSwByCode(int)"})
   void testFromUpdateResultSwByCode_whenThirteen_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class, () -> SoftwareUpdateResult.fromUpdateResultSwByCode(13));
-  }
-
-  /**
-   * Test {@link SoftwareUpdateResult#fromUpdateResultSwByType(String)}.
-   * <ul>
-   *   <li>When {@code Initial value}.</li>
-   *   <li>Then return {@code INITIAL}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link SoftwareUpdateResult#fromUpdateResultSwByType(String)}
-   */
-  @Test
-  @DisplayName("Test fromUpdateResultSwByType(String); when 'Initial value'; then return 'INITIAL'")
-  void testFromUpdateResultSwByType_whenInitialValue_thenReturnInitial() {
-    // Arrange, Act and Assert
-    assertEquals(SoftwareUpdateResult.INITIAL, SoftwareUpdateResult.fromUpdateResultSwByType("Initial value"));
-  }
-
-  /**
-   * Test {@link SoftwareUpdateResult#fromUpdateResultSwByType(String)}.
-   * <ul>
-   *   <li>When {@code Type}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link SoftwareUpdateResult#fromUpdateResultSwByType(String)}
-   */
-  @Test
-  @DisplayName("Test fromUpdateResultSwByType(String); when 'Type'; then throw IllegalArgumentException")
-  void testFromUpdateResultSwByType_whenType_thenThrowIllegalArgumentException() {
-    // Arrange, Act and Assert
-    assertThrows(IllegalArgumentException.class, () -> SoftwareUpdateResult.fromUpdateResultSwByType("Type"));
   }
 
   /**
@@ -85,6 +93,9 @@ class SoftwareUpdateResultDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int SoftwareUpdateResult.getCode()", "String SoftwareUpdateResult.getType()",
+      "boolean SoftwareUpdateResult.isAgain()"})
   void testGettersAndSetters() {
     // Arrange
     SoftwareUpdateResult valueOfResult = SoftwareUpdateResult.valueOf("INITIAL");

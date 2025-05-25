@@ -6,13 +6,15 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.List;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.notification.NotificationDeliveryMethod;
 import org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate.Button;
+import org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate.Button.LinkType;
 
 class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
   /**
@@ -24,18 +26,18 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#equals(Object)}
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#hashCode()}
+   *   <li>{@link Button#equals(Object)}
+   *   <li>{@link Button#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Button equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Button.equals(Object)", "int Button.hashCode()"})
   void testButtonEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button2 = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button = new Button();
+    Button button2 = new Button();
 
     // Act and Assert
     assertEquals(button, button2);
@@ -52,20 +54,20 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#equals(Object)}
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#hashCode()}
+   *   <li>{@link Button#equals(Object)}
+   *   <li>{@link Button#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Button equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Button.equals(Object)", "int Button.hashCode()"})
   void testButtonEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button = new Button();
     button.setText("Text");
 
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button2 = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button2 = new Button();
     button2.setText("Text");
 
     // Act and Assert
@@ -83,21 +85,21 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#equals(Object)}
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#hashCode()}
+   *   <li>{@link Button#equals(Object)}
+   *   <li>{@link Button#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Button equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Button.equals(Object)", "int Button.hashCode()"})
   void testButtonEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
-    button.setLinkType(MicrosoftTeamsDeliveryMethodNotificationTemplate.Button.LinkType.LINK);
+    Button button = new Button();
+    button.setLinkType(LinkType.LINK);
 
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button2 = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
-    button2.setLinkType(MicrosoftTeamsDeliveryMethodNotificationTemplate.Button.LinkType.LINK);
+    Button button2 = new Button();
+    button2.setLinkType(LinkType.LINK);
 
     // Act and Assert
     assertEquals(button, button2);
@@ -114,20 +116,20 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#equals(Object)}
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#hashCode()}
+   *   <li>{@link Button#equals(Object)}
+   *   <li>{@link Button#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Button equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Button.equals(Object)", "int Button.hashCode()"})
   void testButtonEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button = new Button();
     button.setLink("Link");
 
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button2 = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button2 = new Button();
     button2.setLink("Link");
 
     // Act and Assert
@@ -145,20 +147,20 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#equals(Object)}
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#hashCode()}
+   *   <li>{@link Button#equals(Object)}
+   *   <li>{@link Button#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Button equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Button.equals(Object)", "int Button.hashCode()"})
   void testButtonEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button = new Button();
     button.setDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button2 = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button2 = new Button();
     button2.setDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
@@ -176,20 +178,20 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#equals(Object)}
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#hashCode()}
+   *   <li>{@link Button#equals(Object)}
+   *   <li>{@link Button#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Button equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Button.equals(Object)", "int Button.hashCode()"})
   void testButtonEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual6() {
     // Arrange
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button = new Button();
     button.setDashboardState("Dashboard State");
 
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button2 = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button2 = new Button();
     button2.setDashboardState("Dashboard State");
 
     // Act and Assert
@@ -207,17 +209,17 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#equals(Object)}
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#hashCode()}
+   *   <li>{@link Button#equals(Object)}
+   *   <li>{@link Button#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Button equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Button.equals(Object)", "int Button.hashCode()"})
   void testButtonEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button = new Button();
 
     // Act and Assert
     assertEquals(button, button);
@@ -232,14 +234,15 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#equals(Object)}
+   * Method under test: {@link Button#equals(Object)}
    */
   @Test
   @DisplayName("Test Button equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Button.equals(Object)", "int Button.hashCode()"})
   void testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button(), 1);
+    assertNotEquals(new Button(), 1);
   }
 
   /**
@@ -249,18 +252,19 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#equals(Object)}
+   * Method under test: {@link Button#equals(Object)}
    */
   @Test
   @DisplayName("Test Button equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Button.equals(Object)", "int Button.hashCode()"})
   void testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button = new Button();
     button.setEnabled(true);
 
     // Act and Assert
-    assertNotEquals(button, new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button());
+    assertNotEquals(button, new Button());
   }
 
   /**
@@ -270,18 +274,19 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#equals(Object)}
+   * Method under test: {@link Button#equals(Object)}
    */
   @Test
   @DisplayName("Test Button equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Button.equals(Object)", "int Button.hashCode()"})
   void testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button = new Button();
     button.setText("Text");
 
     // Act and Assert
-    assertNotEquals(button, new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button());
+    assertNotEquals(button, new Button());
   }
 
   /**
@@ -291,18 +296,19 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#equals(Object)}
+   * Method under test: {@link Button#equals(Object)}
    */
   @Test
   @DisplayName("Test Button equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Button.equals(Object)", "int Button.hashCode()"})
   void testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
-    button.setLinkType(MicrosoftTeamsDeliveryMethodNotificationTemplate.Button.LinkType.LINK);
+    Button button = new Button();
+    button.setLinkType(LinkType.LINK);
 
     // Act and Assert
-    assertNotEquals(button, new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button());
+    assertNotEquals(button, new Button());
   }
 
   /**
@@ -312,18 +318,19 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#equals(Object)}
+   * Method under test: {@link Button#equals(Object)}
    */
   @Test
   @DisplayName("Test Button equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Button.equals(Object)", "int Button.hashCode()"})
   void testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button = new Button();
     button.setLink("Link");
 
     // Act and Assert
-    assertNotEquals(button, new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button());
+    assertNotEquals(button, new Button());
   }
 
   /**
@@ -333,18 +340,19 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#equals(Object)}
+   * Method under test: {@link Button#equals(Object)}
    */
   @Test
   @DisplayName("Test Button equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Button.equals(Object)", "int Button.hashCode()"})
   void testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button = new Button();
     button.setDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertNotEquals(button, new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button());
+    assertNotEquals(button, new Button());
   }
 
   /**
@@ -354,18 +362,19 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#equals(Object)}
+   * Method under test: {@link Button#equals(Object)}
    */
   @Test
   @DisplayName("Test Button equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Button.equals(Object)", "int Button.hashCode()"})
   void testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button = new Button();
     button.setDashboardState("Dashboard State");
 
     // Act and Assert
-    assertNotEquals(button, new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button());
+    assertNotEquals(button, new Button());
   }
 
   /**
@@ -375,18 +384,19 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#equals(Object)}
+   * Method under test: {@link Button#equals(Object)}
    */
   @Test
   @DisplayName("Test Button equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Button.equals(Object)", "int Button.hashCode()"})
   void testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button = new Button();
     button.setSetEntityIdInState(true);
 
     // Act and Assert
-    assertNotEquals(button, new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button());
+    assertNotEquals(button, new Button());
   }
 
   /**
@@ -396,16 +406,17 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#equals(Object)}
+   * Method under test: {@link Button#equals(Object)}
    */
   @Test
   @DisplayName("Test Button equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Button.equals(Object)", "int Button.hashCode()"})
   void testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button = new Button();
 
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button2 = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button2 = new Button();
     button2.setText("Text");
 
     // Act and Assert
@@ -419,17 +430,18 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#equals(Object)}
+   * Method under test: {@link Button#equals(Object)}
    */
   @Test
   @DisplayName("Test Button equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Button.equals(Object)", "int Button.hashCode()"})
   void testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button = new Button();
 
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button2 = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
-    button2.setLinkType(MicrosoftTeamsDeliveryMethodNotificationTemplate.Button.LinkType.LINK);
+    Button button2 = new Button();
+    button2.setLinkType(LinkType.LINK);
 
     // Act and Assert
     assertNotEquals(button, button2);
@@ -442,16 +454,17 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#equals(Object)}
+   * Method under test: {@link Button#equals(Object)}
    */
   @Test
   @DisplayName("Test Button equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Button.equals(Object)", "int Button.hashCode()"})
   void testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button = new Button();
 
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button2 = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button2 = new Button();
     button2.setLink("Link");
 
     // Act and Assert
@@ -465,16 +478,17 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#equals(Object)}
+   * Method under test: {@link Button#equals(Object)}
    */
   @Test
   @DisplayName("Test Button equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Button.equals(Object)", "int Button.hashCode()"})
   void testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button = new Button();
 
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button2 = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button2 = new Button();
     button2.setDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
@@ -488,16 +502,17 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#equals(Object)}
+   * Method under test: {@link Button#equals(Object)}
    */
   @Test
   @DisplayName("Test Button equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Button.equals(Object)", "int Button.hashCode()"})
   void testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button = new Button();
 
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button2 = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button2 = new Button();
     button2.setDashboardState("Dashboard State");
 
     // Act and Assert
@@ -511,14 +526,15 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#equals(Object)}
+   * Method under test: {@link Button#equals(Object)}
    */
   @Test
   @DisplayName("Test Button equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Button.equals(Object)", "int Button.hashCode()"})
   void testButtonEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button(), null);
+    assertNotEquals(new Button(), null);
   }
 
   /**
@@ -528,14 +544,15 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#equals(Object)}
+   * Method under test: {@link Button#equals(Object)}
    */
   @Test
   @DisplayName("Test Button equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Button.equals(Object)", "int Button.hashCode()"})
   void testButtonEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button(), "Different type to Button");
+    assertNotEquals(new Button(), "Different type to Button");
   }
 
   /**
@@ -543,60 +560,54 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#Button()}
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#setDashboardId(UUID)}
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#setDashboardState(String)}
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#setEnabled(boolean)}
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#setLink(String)}
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#setLinkType(MicrosoftTeamsDeliveryMethodNotificationTemplate.Button.LinkType)}
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#setSetEntityIdInState(boolean)}
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#setText(String)}
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#toString()}
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#getDashboardId()}
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#getDashboardState()}
-   *   <li>{@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#getLink()}
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#getLinkType()}
-   *   <li>{@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#getText()}
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#isEnabled()}
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#isSetEntityIdInState()}
+   *   <li>{@link Button#Button()}
+   *   <li>{@link Button#setDashboardId(UUID)}
+   *   <li>{@link Button#setDashboardState(String)}
+   *   <li>{@link Button#setEnabled(boolean)}
+   *   <li>{@link Button#setLink(String)}
+   *   <li>{@link Button#setLinkType(Button.LinkType)}
+   *   <li>{@link Button#setSetEntityIdInState(boolean)}
+   *   <li>{@link Button#setText(String)}
+   *   <li>{@link Button#toString()}
+   *   <li>{@link Button#getDashboardId()}
+   *   <li>{@link Button#getDashboardState()}
+   *   <li>{@link Button#getLink()}
+   *   <li>{@link Button#getLinkType()}
+   *   <li>{@link Button#getText()}
+   *   <li>{@link Button#isEnabled()}
+   *   <li>{@link Button#isSetEntityIdInState()}
    * </ul>
    */
   @Test
   @DisplayName("Test Button getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Button.<init>()", "UUID Button.getDashboardId()", "String Button.getDashboardState()",
+      "String Button.getLink()", "Button.LinkType Button.getLinkType()", "String Button.getText()",
+      "boolean Button.isEnabled()", "boolean Button.isSetEntityIdInState()", "void Button.setDashboardId(UUID)",
+      "void Button.setDashboardState(String)", "void Button.setEnabled(boolean)", "void Button.setLink(String)",
+      "void Button.setLinkType(Button.LinkType)", "void Button.setSetEntityIdInState(boolean)",
+      "void Button.setText(String)", "String Button.toString()"})
   void testButtonGettersAndSetters() {
     // Arrange and Act
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button actualButton = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button actualButton = new Button();
     UUID dashboardId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     actualButton.setDashboardId(dashboardId);
     actualButton.setDashboardState("Dashboard State");
     actualButton.setEnabled(true);
     actualButton.setLink("Link");
-    actualButton.setLinkType(MicrosoftTeamsDeliveryMethodNotificationTemplate.Button.LinkType.LINK);
+    actualButton.setLinkType(LinkType.LINK);
     actualButton.setSetEntityIdInState(true);
     actualButton.setText("Text");
     String actualToStringResult = actualButton.toString();
     UUID actualDashboardId = actualButton.getDashboardId();
     String actualDashboardState = actualButton.getDashboardState();
     String actualLink = actualButton.getLink();
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button.LinkType actualLinkType = actualButton.getLinkType();
+    LinkType actualLinkType = actualButton.getLinkType();
     String actualText = actualButton.getText();
     boolean actualIsEnabledResult = actualButton.isEnabled();
     boolean actualIsSetEntityIdInStateResult = actualButton.isSetEntityIdInState();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualDashboardId.toString());
     assertEquals("Dashboard State", actualDashboardState);
     assertEquals("Link", actualLink);
@@ -604,7 +615,7 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
         + " link=Link, dashboardId=784f394c-42b6-435a-983c-b7beff2784f9, dashboardState=Dashboard State,"
         + " setEntityIdInState=true)", actualToStringResult);
     assertEquals("Text", actualText);
-    assertEquals(MicrosoftTeamsDeliveryMethodNotificationTemplate.Button.LinkType.LINK, actualLinkType);
+    assertEquals(LinkType.LINK, actualLinkType);
     assertTrue(actualIsEnabledResult);
     assertTrue(actualIsSetEntityIdInStateResult);
     assertSame(dashboardId, actualDashboardId);
@@ -617,28 +628,29 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return {@link Button#Button()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate.Button#Button(MicrosoftTeamsDeliveryMethodNotificationTemplate.Button)}
+   * Method under test: {@link Button#Button(Button)}
    */
   @Test
   @DisplayName("Test Button new Button(Button); when Button(); then return Button()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Button.<init>(Button)"})
   void testButtonNewButton_whenButton_thenReturnButton() {
     // Arrange
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button other = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button other = new Button();
 
     // Act and Assert
-    assertEquals(other, new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button(other));
+    assertEquals(other, new Button(other));
   }
 
   /**
-   * Test
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#MicrosoftTeamsDeliveryMethodNotificationTemplate()}.
+   * Test {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#MicrosoftTeamsDeliveryMethodNotificationTemplate()}.
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#MicrosoftTeamsDeliveryMethodNotificationTemplate()}
+   * Method under test: {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#MicrosoftTeamsDeliveryMethodNotificationTemplate()}
    */
   @Test
   @DisplayName("Test new MicrosoftTeamsDeliveryMethodNotificationTemplate()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MicrosoftTeamsDeliveryMethodNotificationTemplate.<init>()"})
   void testNewMicrosoftTeamsDeliveryMethodNotificationTemplate() {
     // Arrange and Act
     MicrosoftTeamsDeliveryMethodNotificationTemplate actualMicrosoftTeamsDeliveryMethodNotificationTemplate = new MicrosoftTeamsDeliveryMethodNotificationTemplate();
@@ -661,17 +673,18 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#MicrosoftTeamsDeliveryMethodNotificationTemplate(MicrosoftTeamsDeliveryMethodNotificationTemplate)}.
+   * Test {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#MicrosoftTeamsDeliveryMethodNotificationTemplate(MicrosoftTeamsDeliveryMethodNotificationTemplate)}.
    * <ul>
    *   <li>Then return Body is {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#MicrosoftTeamsDeliveryMethodNotificationTemplate(MicrosoftTeamsDeliveryMethodNotificationTemplate)}
+   * Method under test: {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#MicrosoftTeamsDeliveryMethodNotificationTemplate(MicrosoftTeamsDeliveryMethodNotificationTemplate)}
    */
   @Test
   @DisplayName("Test new MicrosoftTeamsDeliveryMethodNotificationTemplate(MicrosoftTeamsDeliveryMethodNotificationTemplate); then return Body is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void MicrosoftTeamsDeliveryMethodNotificationTemplate.<init>(MicrosoftTeamsDeliveryMethodNotificationTemplate)"})
   void testNewMicrosoftTeamsDeliveryMethodNotificationTemplate_thenReturnBodyIsNull() {
     // Arrange and Act
     MicrosoftTeamsDeliveryMethodNotificationTemplate actualMicrosoftTeamsDeliveryMethodNotificationTemplate = new MicrosoftTeamsDeliveryMethodNotificationTemplate(
@@ -695,21 +708,22 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#MicrosoftTeamsDeliveryMethodNotificationTemplate(MicrosoftTeamsDeliveryMethodNotificationTemplate)}.
+   * Test {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#MicrosoftTeamsDeliveryMethodNotificationTemplate(MicrosoftTeamsDeliveryMethodNotificationTemplate)}.
    * <ul>
    *   <li>Then return Button is {@link Button#Button()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#MicrosoftTeamsDeliveryMethodNotificationTemplate(MicrosoftTeamsDeliveryMethodNotificationTemplate)}
+   * Method under test: {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#MicrosoftTeamsDeliveryMethodNotificationTemplate(MicrosoftTeamsDeliveryMethodNotificationTemplate)}
    */
   @Test
   @DisplayName("Test new MicrosoftTeamsDeliveryMethodNotificationTemplate(MicrosoftTeamsDeliveryMethodNotificationTemplate); then return Button is Button()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void MicrosoftTeamsDeliveryMethodNotificationTemplate.<init>(MicrosoftTeamsDeliveryMethodNotificationTemplate)"})
   void testNewMicrosoftTeamsDeliveryMethodNotificationTemplate_thenReturnButtonIsButton() {
     // Arrange
     MicrosoftTeamsDeliveryMethodNotificationTemplate other = new MicrosoftTeamsDeliveryMethodNotificationTemplate();
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button = new Button();
     other.setButton(button);
 
     // Act and Assert
@@ -722,11 +736,13 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return Body is {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#copy()}
+   * Method under test: {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#copy()}
    */
   @Test
   @DisplayName("Test copy(); then return Body is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "MicrosoftTeamsDeliveryMethodNotificationTemplate MicrosoftTeamsDeliveryMethodNotificationTemplate.copy()"})
   void testCopy_thenReturnBodyIsNull() {
     // Arrange and Act
     MicrosoftTeamsDeliveryMethodNotificationTemplate actualCopyResult = (new MicrosoftTeamsDeliveryMethodNotificationTemplate())
@@ -753,15 +769,17 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return Button is {@link Button#Button()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#copy()}
+   * Method under test: {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#copy()}
    */
   @Test
   @DisplayName("Test copy(); then return Button is Button()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "MicrosoftTeamsDeliveryMethodNotificationTemplate MicrosoftTeamsDeliveryMethodNotificationTemplate.copy()"})
   void testCopy_thenReturnButtonIsButton() {
     // Arrange
     MicrosoftTeamsDeliveryMethodNotificationTemplate microsoftTeamsDeliveryMethodNotificationTemplate = new MicrosoftTeamsDeliveryMethodNotificationTemplate();
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button = new Button();
     microsoftTeamsDeliveryMethodNotificationTemplate.setButton(button);
 
     // Act and Assert
@@ -769,8 +787,7 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
   }
 
   /**
-   * Test {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)},
-   * and {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#hashCode()}.
+   * Test {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}, and {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -784,6 +801,9 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MicrosoftTeamsDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MicrosoftTeamsDeliveryMethodNotificationTemplate.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     MicrosoftTeamsDeliveryMethodNotificationTemplate microsoftTeamsDeliveryMethodNotificationTemplate = new MicrosoftTeamsDeliveryMethodNotificationTemplate();
@@ -801,11 +821,13 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MicrosoftTeamsDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MicrosoftTeamsDeliveryMethodNotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     MicrosoftTeamsDeliveryMethodNotificationTemplate microsoftTeamsDeliveryMethodNotificationTemplate = new MicrosoftTeamsDeliveryMethodNotificationTemplate();
@@ -822,30 +844,14 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MicrosoftTeamsDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MicrosoftTeamsDeliveryMethodNotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange, Act and Assert
-    assertNotEquals(new MicrosoftTeamsDeliveryMethodNotificationTemplate(),
-        mock(EmailDeliveryMethodNotificationTemplate.class));
-  }
-
-  /**
-   * Test {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     MicrosoftTeamsDeliveryMethodNotificationTemplate microsoftTeamsDeliveryMethodNotificationTemplate = new MicrosoftTeamsDeliveryMethodNotificationTemplate();
     microsoftTeamsDeliveryMethodNotificationTemplate.setSubject("Hello from the Dreaming Spires");
@@ -862,12 +868,14 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MicrosoftTeamsDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MicrosoftTeamsDeliveryMethodNotificationTemplate.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     MicrosoftTeamsDeliveryMethodNotificationTemplate microsoftTeamsDeliveryMethodNotificationTemplate = new MicrosoftTeamsDeliveryMethodNotificationTemplate();
     microsoftTeamsDeliveryMethodNotificationTemplate.setThemeColor("Theme Color");
@@ -884,16 +892,17 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MicrosoftTeamsDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MicrosoftTeamsDeliveryMethodNotificationTemplate.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     MicrosoftTeamsDeliveryMethodNotificationTemplate microsoftTeamsDeliveryMethodNotificationTemplate = new MicrosoftTeamsDeliveryMethodNotificationTemplate();
-    microsoftTeamsDeliveryMethodNotificationTemplate
-        .setButton(new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button());
+    microsoftTeamsDeliveryMethodNotificationTemplate.setButton(new Button());
 
     // Act and Assert
     assertNotEquals(microsoftTeamsDeliveryMethodNotificationTemplate,
@@ -907,12 +916,14 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MicrosoftTeamsDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MicrosoftTeamsDeliveryMethodNotificationTemplate.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     MicrosoftTeamsDeliveryMethodNotificationTemplate microsoftTeamsDeliveryMethodNotificationTemplate = new MicrosoftTeamsDeliveryMethodNotificationTemplate();
     microsoftTeamsDeliveryMethodNotificationTemplate.setEnabled(true);
@@ -929,12 +940,14 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MicrosoftTeamsDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MicrosoftTeamsDeliveryMethodNotificationTemplate.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     MicrosoftTeamsDeliveryMethodNotificationTemplate microsoftTeamsDeliveryMethodNotificationTemplate = new MicrosoftTeamsDeliveryMethodNotificationTemplate();
 
@@ -953,12 +966,14 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MicrosoftTeamsDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MicrosoftTeamsDeliveryMethodNotificationTemplate.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     MicrosoftTeamsDeliveryMethodNotificationTemplate microsoftTeamsDeliveryMethodNotificationTemplate = new MicrosoftTeamsDeliveryMethodNotificationTemplate();
 
@@ -977,18 +992,19 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MicrosoftTeamsDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MicrosoftTeamsDeliveryMethodNotificationTemplate.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     MicrosoftTeamsDeliveryMethodNotificationTemplate microsoftTeamsDeliveryMethodNotificationTemplate = new MicrosoftTeamsDeliveryMethodNotificationTemplate();
 
     MicrosoftTeamsDeliveryMethodNotificationTemplate microsoftTeamsDeliveryMethodNotificationTemplate2 = new MicrosoftTeamsDeliveryMethodNotificationTemplate();
-    microsoftTeamsDeliveryMethodNotificationTemplate2
-        .setButton(new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button());
+    microsoftTeamsDeliveryMethodNotificationTemplate2.setButton(new Button());
 
     // Act and Assert
     assertNotEquals(microsoftTeamsDeliveryMethodNotificationTemplate,
@@ -1002,12 +1018,14 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MicrosoftTeamsDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MicrosoftTeamsDeliveryMethodNotificationTemplate.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     MicrosoftTeamsDeliveryMethodNotificationTemplate microsoftTeamsDeliveryMethodNotificationTemplate = new MicrosoftTeamsDeliveryMethodNotificationTemplate();
     microsoftTeamsDeliveryMethodNotificationTemplate.setSubject("Hello from the Dreaming Spires");
@@ -1027,12 +1045,14 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MicrosoftTeamsDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MicrosoftTeamsDeliveryMethodNotificationTemplate.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     MicrosoftTeamsDeliveryMethodNotificationTemplate microsoftTeamsDeliveryMethodNotificationTemplate = new MicrosoftTeamsDeliveryMethodNotificationTemplate();
     microsoftTeamsDeliveryMethodNotificationTemplate.setThemeColor("Theme Color");
@@ -1052,20 +1072,20 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MicrosoftTeamsDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MicrosoftTeamsDeliveryMethodNotificationTemplate.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     MicrosoftTeamsDeliveryMethodNotificationTemplate microsoftTeamsDeliveryMethodNotificationTemplate = new MicrosoftTeamsDeliveryMethodNotificationTemplate();
-    microsoftTeamsDeliveryMethodNotificationTemplate
-        .setButton(new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button());
+    microsoftTeamsDeliveryMethodNotificationTemplate.setButton(new Button());
 
     MicrosoftTeamsDeliveryMethodNotificationTemplate microsoftTeamsDeliveryMethodNotificationTemplate2 = new MicrosoftTeamsDeliveryMethodNotificationTemplate();
-    microsoftTeamsDeliveryMethodNotificationTemplate2
-        .setButton(new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button());
+    microsoftTeamsDeliveryMethodNotificationTemplate2.setButton(new Button());
 
     // Act and Assert
     assertNotEquals(microsoftTeamsDeliveryMethodNotificationTemplate,
@@ -1079,11 +1099,13 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MicrosoftTeamsDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MicrosoftTeamsDeliveryMethodNotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MicrosoftTeamsDeliveryMethodNotificationTemplate(), null);
@@ -1096,11 +1118,13 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
+   * Method under test: {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean MicrosoftTeamsDeliveryMethodNotificationTemplate.equals(Object)",
+      "int MicrosoftTeamsDeliveryMethodNotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MicrosoftTeamsDeliveryMethodNotificationTemplate(),
@@ -1112,46 +1136,54 @@ class MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#setButton(MicrosoftTeamsDeliveryMethodNotificationTemplate.Button)}
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#setSubject(String)}
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#setThemeColor(String)}
+   *   <li>{@link MicrosoftTeamsDeliveryMethodNotificationTemplate#setButton(Button)}
+   *   <li>{@link MicrosoftTeamsDeliveryMethodNotificationTemplate#setSubject(String)}
+   *   <li>{@link MicrosoftTeamsDeliveryMethodNotificationTemplate#setThemeColor(String)}
    *   <li>{@link MicrosoftTeamsDeliveryMethodNotificationTemplate#toString()}
    *   <li>{@link MicrosoftTeamsDeliveryMethodNotificationTemplate#getButton()}
    *   <li>{@link MicrosoftTeamsDeliveryMethodNotificationTemplate#getMethod()}
    *   <li>{@link MicrosoftTeamsDeliveryMethodNotificationTemplate#getSubject()}
-   *   <li>
-   * {@link MicrosoftTeamsDeliveryMethodNotificationTemplate#getTemplatableValues()}
+   *   <li>{@link MicrosoftTeamsDeliveryMethodNotificationTemplate#getTemplatableValues()}
    *   <li>{@link MicrosoftTeamsDeliveryMethodNotificationTemplate#getThemeColor()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Button MicrosoftTeamsDeliveryMethodNotificationTemplate.getButton()",
+      "NotificationDeliveryMethod MicrosoftTeamsDeliveryMethodNotificationTemplate.getMethod()",
+      "String MicrosoftTeamsDeliveryMethodNotificationTemplate.getSubject()",
+      "List MicrosoftTeamsDeliveryMethodNotificationTemplate.getTemplatableValues()",
+      "String MicrosoftTeamsDeliveryMethodNotificationTemplate.getThemeColor()",
+      "void MicrosoftTeamsDeliveryMethodNotificationTemplate.setButton(Button)",
+      "void MicrosoftTeamsDeliveryMethodNotificationTemplate.setSubject(String)",
+      "void MicrosoftTeamsDeliveryMethodNotificationTemplate.setThemeColor(String)",
+      "String MicrosoftTeamsDeliveryMethodNotificationTemplate.toString()"})
   void testGettersAndSetters() {
     // Arrange
     MicrosoftTeamsDeliveryMethodNotificationTemplate microsoftTeamsDeliveryMethodNotificationTemplate = new MicrosoftTeamsDeliveryMethodNotificationTemplate();
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button button = new MicrosoftTeamsDeliveryMethodNotificationTemplate.Button();
+    Button button = new Button();
 
     // Act
     microsoftTeamsDeliveryMethodNotificationTemplate.setButton(button);
     microsoftTeamsDeliveryMethodNotificationTemplate.setSubject("Hello from the Dreaming Spires");
     microsoftTeamsDeliveryMethodNotificationTemplate.setThemeColor("Theme Color");
     microsoftTeamsDeliveryMethodNotificationTemplate.toString();
-    MicrosoftTeamsDeliveryMethodNotificationTemplate.Button actualButton = microsoftTeamsDeliveryMethodNotificationTemplate
-        .getButton();
+    Button actualButton = microsoftTeamsDeliveryMethodNotificationTemplate.getButton();
     NotificationDeliveryMethod actualMethod = microsoftTeamsDeliveryMethodNotificationTemplate.getMethod();
     String actualSubject = microsoftTeamsDeliveryMethodNotificationTemplate.getSubject();
     List<TemplatableValue> actualTemplatableValues = microsoftTeamsDeliveryMethodNotificationTemplate
         .getTemplatableValues();
     String actualThemeColor = microsoftTeamsDeliveryMethodNotificationTemplate.getThemeColor();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Hello from the Dreaming Spires", actualSubject);
     assertEquals(4, actualTemplatableValues.size());
     assertEquals("Hello from the Dreaming Spires", actualTemplatableValues.get(1).get());
     assertEquals("Theme Color", actualThemeColor);
+    assertNull(actualTemplatableValues.get(0).get());
+    assertNull(actualTemplatableValues.get(2).get());
+    assertNull(actualTemplatableValues.get(3).get());
     assertEquals(NotificationDeliveryMethod.MICROSOFT_TEAMS, actualMethod);
     assertSame(button, actualButton);
   }

@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializer;
@@ -18,6 +20,8 @@ class TbJavaRedisSerializerDiffblueTest {
    */
   @Test
   @DisplayName("Test serialize(Object)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"byte[] TbJavaRedisSerializer.serialize(Object)"})
   void testSerialize() throws SerializationException {
     // Arrange
     TbJavaRedisSerializer<Object, Object> tbJavaRedisSerializer = new TbJavaRedisSerializer<>();
@@ -38,6 +42,8 @@ class TbJavaRedisSerializerDiffblueTest {
    */
   @Test
   @DisplayName("Test deserialize(Object, byte[]); when empty array of byte; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object TbJavaRedisSerializer.deserialize(Object, byte[])"})
   void testDeserialize_whenEmptyArrayOfByte_thenReturnNull() throws SerializationException {
     // Arrange
     TbJavaRedisSerializer<Object, Object> tbJavaRedisSerializer = new TbJavaRedisSerializer<>();
@@ -49,11 +55,12 @@ class TbJavaRedisSerializerDiffblueTest {
   /**
    * Test new {@link TbJavaRedisSerializer} (default constructor).
    * <p>
-   * Method under test: default or parameterless constructor of
-   * {@link TbJavaRedisSerializer}
+   * Method under test: default or parameterless constructor of {@link TbJavaRedisSerializer}
    */
   @Test
   @DisplayName("Test new TbJavaRedisSerializer (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbJavaRedisSerializer.<init>()"})
   void testNewTbJavaRedisSerializer() {
     // Arrange and Act
     TbJavaRedisSerializer<Object, Object> actualTbJavaRedisSerializer = new TbJavaRedisSerializer<>();

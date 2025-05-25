@@ -2,13 +2,14 @@ package org.thingsboard.server.service.edge.rpc;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class EdgeEventStorageSettingsDiffblueTest {
   /**
-   * Test {@link EdgeEventStorageSettings#equals(Object)}, and
-   * {@link EdgeEventStorageSettings#hashCode()}.
+   * Test {@link EdgeEventStorageSettings#equals(Object)}, and {@link EdgeEventStorageSettings#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -22,6 +23,8 @@ class EdgeEventStorageSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeEventStorageSettings.equals(Object)", "int EdgeEventStorageSettings.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EdgeEventStorageSettings edgeEventStorageSettings = new EdgeEventStorageSettings();
@@ -34,8 +37,7 @@ class EdgeEventStorageSettingsDiffblueTest {
   }
 
   /**
-   * Test {@link EdgeEventStorageSettings#equals(Object)}, and
-   * {@link EdgeEventStorageSettings#hashCode()}.
+   * Test {@link EdgeEventStorageSettings#equals(Object)}, and {@link EdgeEventStorageSettings#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -49,6 +51,8 @@ class EdgeEventStorageSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeEventStorageSettings.equals(Object)", "int EdgeEventStorageSettings.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EdgeEventStorageSettings edgeEventStorageSettings = new EdgeEventStorageSettings();
@@ -70,6 +74,8 @@ class EdgeEventStorageSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeEventStorageSettings.equals(Object)", "int EdgeEventStorageSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EdgeEventStorageSettings(), 1);
@@ -86,6 +92,8 @@ class EdgeEventStorageSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeEventStorageSettings.equals(Object)", "int EdgeEventStorageSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EdgeEventStorageSettings edgeEventStorageSettings = new EdgeEventStorageSettings();
@@ -106,6 +114,8 @@ class EdgeEventStorageSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeEventStorageSettings.equals(Object)", "int EdgeEventStorageSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     EdgeEventStorageSettings edgeEventStorageSettings = new EdgeEventStorageSettings();
@@ -126,6 +136,8 @@ class EdgeEventStorageSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeEventStorageSettings.equals(Object)", "int EdgeEventStorageSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     EdgeEventStorageSettings edgeEventStorageSettings = new EdgeEventStorageSettings();
@@ -146,6 +158,8 @@ class EdgeEventStorageSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeEventStorageSettings.equals(Object)", "int EdgeEventStorageSettings.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EdgeEventStorageSettings(), null);
@@ -162,6 +176,8 @@ class EdgeEventStorageSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeEventStorageSettings.equals(Object)", "int EdgeEventStorageSettings.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EdgeEventStorageSettings(), "Different type to EdgeEventStorageSettings");
@@ -183,6 +199,14 @@ class EdgeEventStorageSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int EdgeEventStorageSettings.getMaxReadRecordsCount()",
+      "long EdgeEventStorageSettings.getNoRecordsSleepInterval()",
+      "long EdgeEventStorageSettings.getSleepIntervalBetweenBatches()",
+      "void EdgeEventStorageSettings.setMaxReadRecordsCount(int)",
+      "void EdgeEventStorageSettings.setNoRecordsSleepInterval(long)",
+      "void EdgeEventStorageSettings.setSleepIntervalBetweenBatches(long)",
+      "String EdgeEventStorageSettings.toString()"})
   void testGettersAndSetters() {
     // Arrange
     EdgeEventStorageSettings edgeEventStorageSettings = new EdgeEventStorageSettings();
@@ -195,7 +219,7 @@ class EdgeEventStorageSettingsDiffblueTest {
     int actualMaxReadRecordsCount = edgeEventStorageSettings.getMaxReadRecordsCount();
     long actualNoRecordsSleepInterval = edgeEventStorageSettings.getNoRecordsSleepInterval();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "EdgeEventStorageSettings(maxReadRecordsCount=3, noRecordsSleepInterval=42, sleepIntervalBetweenBatches"
             + "=42)",

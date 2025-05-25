@@ -2,7 +2,9 @@ package org.thingsboard.server.common.data.edge;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 
@@ -18,6 +20,8 @@ class EdgeEventTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityType EdgeEventType.getEntityType()", "boolean EdgeEventType.isAllEdgesRelated()"})
   void testGettersAndSetters() {
     // Arrange
     EdgeEventType valueOfResult = EdgeEventType.valueOf("DASHBOARD");

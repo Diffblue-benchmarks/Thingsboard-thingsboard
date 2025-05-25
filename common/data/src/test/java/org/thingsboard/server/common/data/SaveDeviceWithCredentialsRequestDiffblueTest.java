@@ -3,17 +3,17 @@ package org.thingsboard.server.common.data;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.DeviceCredentialsId;
 import org.thingsboard.server.common.data.security.DeviceCredentials;
 
 class SaveDeviceWithCredentialsRequestDiffblueTest {
   /**
-   * Test {@link SaveDeviceWithCredentialsRequest#equals(Object)}, and
-   * {@link SaveDeviceWithCredentialsRequest#hashCode()}.
+   * Test {@link SaveDeviceWithCredentialsRequest#equals(Object)}, and {@link SaveDeviceWithCredentialsRequest#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -27,6 +27,9 @@ class SaveDeviceWithCredentialsRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SaveDeviceWithCredentialsRequest.equals(Object)",
+      "int SaveDeviceWithCredentialsRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     Device device = new Device();
@@ -43,8 +46,7 @@ class SaveDeviceWithCredentialsRequestDiffblueTest {
   }
 
   /**
-   * Test {@link SaveDeviceWithCredentialsRequest#equals(Object)}, and
-   * {@link SaveDeviceWithCredentialsRequest#hashCode()}.
+   * Test {@link SaveDeviceWithCredentialsRequest#equals(Object)}, and {@link SaveDeviceWithCredentialsRequest#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -58,6 +60,9 @@ class SaveDeviceWithCredentialsRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SaveDeviceWithCredentialsRequest.equals(Object)",
+      "int SaveDeviceWithCredentialsRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     SaveDeviceWithCredentialsRequest saveDeviceWithCredentialsRequest = new SaveDeviceWithCredentialsRequest(null,
@@ -72,8 +77,7 @@ class SaveDeviceWithCredentialsRequestDiffblueTest {
   }
 
   /**
-   * Test {@link SaveDeviceWithCredentialsRequest#equals(Object)}, and
-   * {@link SaveDeviceWithCredentialsRequest#hashCode()}.
+   * Test {@link SaveDeviceWithCredentialsRequest#equals(Object)}, and {@link SaveDeviceWithCredentialsRequest#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -87,6 +91,9 @@ class SaveDeviceWithCredentialsRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SaveDeviceWithCredentialsRequest.equals(Object)",
+      "int SaveDeviceWithCredentialsRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     SaveDeviceWithCredentialsRequest saveDeviceWithCredentialsRequest = new SaveDeviceWithCredentialsRequest(
@@ -101,8 +108,7 @@ class SaveDeviceWithCredentialsRequestDiffblueTest {
   }
 
   /**
-   * Test {@link SaveDeviceWithCredentialsRequest#equals(Object)}, and
-   * {@link SaveDeviceWithCredentialsRequest#hashCode()}.
+   * Test {@link SaveDeviceWithCredentialsRequest#equals(Object)}, and {@link SaveDeviceWithCredentialsRequest#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -116,6 +122,9 @@ class SaveDeviceWithCredentialsRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SaveDeviceWithCredentialsRequest.equals(Object)",
+      "int SaveDeviceWithCredentialsRequest.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     Device device = new Device();
@@ -139,6 +148,9 @@ class SaveDeviceWithCredentialsRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SaveDeviceWithCredentialsRequest.equals(Object)",
+      "int SaveDeviceWithCredentialsRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     SaveDeviceWithCredentialsRequest saveDeviceWithCredentialsRequest = new SaveDeviceWithCredentialsRequest(null,
@@ -161,6 +173,9 @@ class SaveDeviceWithCredentialsRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SaveDeviceWithCredentialsRequest.equals(Object)",
+      "int SaveDeviceWithCredentialsRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DeviceInfo device = new DeviceInfo();
@@ -184,30 +199,10 @@ class SaveDeviceWithCredentialsRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SaveDeviceWithCredentialsRequest.equals(Object)",
+      "int SaveDeviceWithCredentialsRequest.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
-    // Arrange
-    Device device = mock(Device.class);
-    SaveDeviceWithCredentialsRequest saveDeviceWithCredentialsRequest = new SaveDeviceWithCredentialsRequest(device,
-        new DeviceCredentials());
-    Device device2 = new Device();
-
-    // Act and Assert
-    assertNotEquals(saveDeviceWithCredentialsRequest,
-        new SaveDeviceWithCredentialsRequest(device2, new DeviceCredentials()));
-  }
-
-  /**
-   * Test {@link SaveDeviceWithCredentialsRequest#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link SaveDeviceWithCredentialsRequest#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     SaveDeviceWithCredentialsRequest saveDeviceWithCredentialsRequest = new SaveDeviceWithCredentialsRequest(
         new Device(), null);
@@ -229,7 +224,10 @@ class SaveDeviceWithCredentialsRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SaveDeviceWithCredentialsRequest.equals(Object)",
+      "int SaveDeviceWithCredentialsRequest.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     Device device = new Device();
     SaveDeviceWithCredentialsRequest saveDeviceWithCredentialsRequest = new SaveDeviceWithCredentialsRequest(device,
@@ -252,6 +250,9 @@ class SaveDeviceWithCredentialsRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SaveDeviceWithCredentialsRequest.equals(Object)",
+      "int SaveDeviceWithCredentialsRequest.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     Device device = new Device();
@@ -271,6 +272,9 @@ class SaveDeviceWithCredentialsRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean SaveDeviceWithCredentialsRequest.equals(Object)",
+      "int SaveDeviceWithCredentialsRequest.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     Device device = new Device();
@@ -285,8 +289,7 @@ class SaveDeviceWithCredentialsRequestDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link SaveDeviceWithCredentialsRequest#SaveDeviceWithCredentialsRequest(Device, DeviceCredentials)}
+   *   <li>{@link SaveDeviceWithCredentialsRequest#SaveDeviceWithCredentialsRequest(Device, DeviceCredentials)}
    *   <li>{@link SaveDeviceWithCredentialsRequest#toString()}
    *   <li>{@link SaveDeviceWithCredentialsRequest#getCredentials()}
    *   <li>{@link SaveDeviceWithCredentialsRequest#getDevice()}
@@ -294,6 +297,10 @@ class SaveDeviceWithCredentialsRequestDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SaveDeviceWithCredentialsRequest.<init>(Device, DeviceCredentials)",
+      "DeviceCredentials SaveDeviceWithCredentialsRequest.getCredentials()",
+      "Device SaveDeviceWithCredentialsRequest.getDevice()", "String SaveDeviceWithCredentialsRequest.toString()"})
   void testGettersAndSetters() {
     // Arrange
     Device device = new Device();

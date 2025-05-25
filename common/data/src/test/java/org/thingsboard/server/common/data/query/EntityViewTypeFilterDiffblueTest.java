@@ -4,9 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class EntityViewTypeFilterDiffblueTest {
@@ -21,6 +23,8 @@ class EntityViewTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test getEntityViewTypes(); given ArrayList() add 'foo'; then return first is 'foo'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List EntityViewTypeFilter.getEntityViewTypes()"})
   void testGetEntityViewTypes_givenArrayListAddFoo_thenReturnFirstIsFoo() {
     // Arrange
     ArrayList<String> entityViewTypes = new ArrayList<>();
@@ -49,6 +53,8 @@ class EntityViewTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test getEntityViewTypes(); given EntityViewTypeFilter (default constructor); then return first is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List EntityViewTypeFilter.getEntityViewTypes()"})
   void testGetEntityViewTypes_givenEntityViewTypeFilter_thenReturnFirstIsNull() {
     // Arrange and Act
     List<String> actualEntityViewTypes = (new EntityViewTypeFilter()).getEntityViewTypes();
@@ -59,8 +65,7 @@ class EntityViewTypeFilterDiffblueTest {
   }
 
   /**
-   * Test {@link EntityViewTypeFilter#equals(Object)}, and
-   * {@link EntityViewTypeFilter#hashCode()}.
+   * Test {@link EntityViewTypeFilter#equals(Object)}, and {@link EntityViewTypeFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -74,6 +79,8 @@ class EntityViewTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityViewTypeFilter.equals(Object)", "int EntityViewTypeFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EntityViewTypeFilter entityViewTypeFilter = new EntityViewTypeFilter();
@@ -93,8 +100,7 @@ class EntityViewTypeFilterDiffblueTest {
   }
 
   /**
-   * Test {@link EntityViewTypeFilter#equals(Object)}, and
-   * {@link EntityViewTypeFilter#hashCode()}.
+   * Test {@link EntityViewTypeFilter#equals(Object)}, and {@link EntityViewTypeFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -108,6 +114,8 @@ class EntityViewTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityViewTypeFilter.equals(Object)", "int EntityViewTypeFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     ArrayList<String> entityViewTypes = new ArrayList<>();
@@ -130,8 +138,7 @@ class EntityViewTypeFilterDiffblueTest {
   }
 
   /**
-   * Test {@link EntityViewTypeFilter#equals(Object)}, and
-   * {@link EntityViewTypeFilter#hashCode()}.
+   * Test {@link EntityViewTypeFilter#equals(Object)}, and {@link EntityViewTypeFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -145,6 +152,8 @@ class EntityViewTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityViewTypeFilter.equals(Object)", "int EntityViewTypeFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     EntityViewTypeFilter entityViewTypeFilter = new EntityViewTypeFilter();
@@ -164,8 +173,7 @@ class EntityViewTypeFilterDiffblueTest {
   }
 
   /**
-   * Test {@link EntityViewTypeFilter#equals(Object)}, and
-   * {@link EntityViewTypeFilter#hashCode()}.
+   * Test {@link EntityViewTypeFilter#equals(Object)}, and {@link EntityViewTypeFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -179,6 +187,8 @@ class EntityViewTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityViewTypeFilter.equals(Object)", "int EntityViewTypeFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     EntityViewTypeFilter entityViewTypeFilter = new EntityViewTypeFilter();
@@ -198,8 +208,7 @@ class EntityViewTypeFilterDiffblueTest {
   }
 
   /**
-   * Test {@link EntityViewTypeFilter#equals(Object)}, and
-   * {@link EntityViewTypeFilter#hashCode()}.
+   * Test {@link EntityViewTypeFilter#equals(Object)}, and {@link EntityViewTypeFilter#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -213,6 +222,8 @@ class EntityViewTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityViewTypeFilter.equals(Object)", "int EntityViewTypeFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EntityViewTypeFilter entityViewTypeFilter = new EntityViewTypeFilter();
@@ -237,6 +248,8 @@ class EntityViewTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityViewTypeFilter.equals(Object)", "int EntityViewTypeFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     EntityViewTypeFilter entityViewTypeFilter = new EntityViewTypeFilter();
@@ -264,6 +277,8 @@ class EntityViewTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityViewTypeFilter.equals(Object)", "int EntityViewTypeFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EntityViewTypeFilter entityViewTypeFilter = new EntityViewTypeFilter();
@@ -291,6 +306,8 @@ class EntityViewTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityViewTypeFilter.equals(Object)", "int EntityViewTypeFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     EntityViewTypeFilter entityViewTypeFilter = new EntityViewTypeFilter();
@@ -318,6 +335,8 @@ class EntityViewTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityViewTypeFilter.equals(Object)", "int EntityViewTypeFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     EntityViewTypeFilter entityViewTypeFilter = new EntityViewTypeFilter();
@@ -345,6 +364,8 @@ class EntityViewTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityViewTypeFilter.equals(Object)", "int EntityViewTypeFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     ArrayList<String> entityViewTypes = new ArrayList<>();
@@ -376,6 +397,8 @@ class EntityViewTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityViewTypeFilter.equals(Object)", "int EntityViewTypeFilter.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     EntityViewTypeFilter entityViewTypeFilter = new EntityViewTypeFilter();
@@ -398,6 +421,8 @@ class EntityViewTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityViewTypeFilter.equals(Object)", "int EntityViewTypeFilter.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     EntityViewTypeFilter entityViewTypeFilter = new EntityViewTypeFilter();
@@ -425,6 +450,11 @@ class EntityViewTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityViewTypeFilter.<init>()", "String EntityViewTypeFilter.getEntityViewNameFilter()",
+      "EntityFilterType EntityViewTypeFilter.getType()", "void EntityViewTypeFilter.setEntityViewNameFilter(String)",
+      "void EntityViewTypeFilter.setEntityViewType(String)", "void EntityViewTypeFilter.setEntityViewTypes(List)",
+      "String EntityViewTypeFilter.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     EntityViewTypeFilter actualEntityViewTypeFilter = new EntityViewTypeFilter();
@@ -434,7 +464,7 @@ class EntityViewTypeFilterDiffblueTest {
     String actualToStringResult = actualEntityViewTypeFilter.toString();
     String actualEntityViewNameFilter = actualEntityViewTypeFilter.getEntityViewNameFilter();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Entity View Name Filter", actualEntityViewNameFilter);
     assertEquals("EntityViewTypeFilter(entityViewType=Entity View Type, entityViewTypes=[Entity View Type], entityView"
         + "NameFilter=Entity View Name Filter)", actualToStringResult);

@@ -1,53 +1,27 @@
 package org.thingsboard.server.dao.sqlts.insert;
 
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.junit.Assert.assertEquals;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.aot.DisabledInAotMode;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.support.TransactionTemplate;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.dao.sql.attributes.AttributeKvInsertRepository;
 
-@ContextConfiguration(classes = {AttributeKvInsertRepository.class})
-@RunWith(SpringJUnit4ClassRunner.class)
-@PropertySource("classpath:application-test.properties")
-@EnableConfigurationProperties
-@DisabledInAotMode
 public class AbstractInsertRepositoryDiffblueTest {
-  @Autowired
-  private AbstractInsertRepository abstractInsertRepository;
-
-  @MockBean
-  private JdbcTemplate jdbcTemplate;
-
-  @MockBean
-  private TransactionTemplate transactionTemplate;
-
   /**
    * Test {@link AbstractInsertRepository#replaceNullChars(String)}.
    * <p>
    * Method under test: {@link AbstractInsertRepository#replaceNullChars(String)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"String AbstractInsertRepository.replaceNullChars(String)"})
   public void testReplaceNullChars() {
-    // Arrange
-    AbstractInsertRepository abstractInsertRepository2 = mock(AbstractInsertRepository.class);
-    when(abstractInsertRepository2.replaceNullChars(Mockito.<String>any())).thenReturn("Replace Null Chars");
+    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+    //   Run dcover create --keep-partial-tests to gain insights into why
+    //   a non-Spring test was created.
 
-    // Act
-    abstractInsertRepository2.replaceNullChars("42");
-
-    // Assert
-    verify(abstractInsertRepository2).replaceNullChars(eq("42"));
+    // Arrange, Act and Assert
+    assertEquals("42", (new AttributeKvInsertRepository()).replaceNullChars("42"));
   }
 }

@@ -4,9 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class EdgeTypeFilterDiffblueTest {
@@ -21,6 +23,8 @@ class EdgeTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test getEdgeTypes(); given ArrayList() add 'foo'; then return first is 'foo'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List EdgeTypeFilter.getEdgeTypes()"})
   void testGetEdgeTypes_givenArrayListAddFoo_thenReturnFirstIsFoo() {
     // Arrange
     ArrayList<String> edgeTypes = new ArrayList<>();
@@ -49,6 +53,8 @@ class EdgeTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test getEdgeTypes(); given EdgeTypeFilter (default constructor); then return first is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List EdgeTypeFilter.getEdgeTypes()"})
   void testGetEdgeTypes_givenEdgeTypeFilter_thenReturnFirstIsNull() {
     // Arrange and Act
     List<String> actualEdgeTypes = (new EdgeTypeFilter()).getEdgeTypes();
@@ -59,8 +65,7 @@ class EdgeTypeFilterDiffblueTest {
   }
 
   /**
-   * Test {@link EdgeTypeFilter#equals(Object)}, and
-   * {@link EdgeTypeFilter#hashCode()}.
+   * Test {@link EdgeTypeFilter#equals(Object)}, and {@link EdgeTypeFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -74,6 +79,8 @@ class EdgeTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeTypeFilter.equals(Object)", "int EdgeTypeFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EdgeTypeFilter edgeTypeFilter = new EdgeTypeFilter();
@@ -93,8 +100,7 @@ class EdgeTypeFilterDiffblueTest {
   }
 
   /**
-   * Test {@link EdgeTypeFilter#equals(Object)}, and
-   * {@link EdgeTypeFilter#hashCode()}.
+   * Test {@link EdgeTypeFilter#equals(Object)}, and {@link EdgeTypeFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -108,6 +114,8 @@ class EdgeTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeTypeFilter.equals(Object)", "int EdgeTypeFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     ArrayList<String> edgeTypes = new ArrayList<>();
@@ -130,8 +138,7 @@ class EdgeTypeFilterDiffblueTest {
   }
 
   /**
-   * Test {@link EdgeTypeFilter#equals(Object)}, and
-   * {@link EdgeTypeFilter#hashCode()}.
+   * Test {@link EdgeTypeFilter#equals(Object)}, and {@link EdgeTypeFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -145,6 +152,8 @@ class EdgeTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeTypeFilter.equals(Object)", "int EdgeTypeFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     EdgeTypeFilter edgeTypeFilter = new EdgeTypeFilter();
@@ -164,8 +173,7 @@ class EdgeTypeFilterDiffblueTest {
   }
 
   /**
-   * Test {@link EdgeTypeFilter#equals(Object)}, and
-   * {@link EdgeTypeFilter#hashCode()}.
+   * Test {@link EdgeTypeFilter#equals(Object)}, and {@link EdgeTypeFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -179,6 +187,8 @@ class EdgeTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeTypeFilter.equals(Object)", "int EdgeTypeFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     EdgeTypeFilter edgeTypeFilter = new EdgeTypeFilter();
@@ -198,8 +208,7 @@ class EdgeTypeFilterDiffblueTest {
   }
 
   /**
-   * Test {@link EdgeTypeFilter#equals(Object)}, and
-   * {@link EdgeTypeFilter#hashCode()}.
+   * Test {@link EdgeTypeFilter#equals(Object)}, and {@link EdgeTypeFilter#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -213,6 +222,8 @@ class EdgeTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeTypeFilter.equals(Object)", "int EdgeTypeFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EdgeTypeFilter edgeTypeFilter = new EdgeTypeFilter();
@@ -237,6 +248,8 @@ class EdgeTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeTypeFilter.equals(Object)", "int EdgeTypeFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     EdgeTypeFilter edgeTypeFilter = new EdgeTypeFilter();
@@ -264,6 +277,8 @@ class EdgeTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeTypeFilter.equals(Object)", "int EdgeTypeFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EdgeTypeFilter edgeTypeFilter = new EdgeTypeFilter();
@@ -291,6 +306,8 @@ class EdgeTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeTypeFilter.equals(Object)", "int EdgeTypeFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     EdgeTypeFilter edgeTypeFilter = new EdgeTypeFilter();
@@ -318,6 +335,8 @@ class EdgeTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeTypeFilter.equals(Object)", "int EdgeTypeFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     EdgeTypeFilter edgeTypeFilter = new EdgeTypeFilter();
@@ -345,6 +364,8 @@ class EdgeTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeTypeFilter.equals(Object)", "int EdgeTypeFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     ArrayList<String> edgeTypes = new ArrayList<>();
@@ -376,6 +397,8 @@ class EdgeTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeTypeFilter.equals(Object)", "int EdgeTypeFilter.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     EdgeTypeFilter edgeTypeFilter = new EdgeTypeFilter();
@@ -398,6 +421,8 @@ class EdgeTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeTypeFilter.equals(Object)", "int EdgeTypeFilter.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     EdgeTypeFilter edgeTypeFilter = new EdgeTypeFilter();
@@ -425,6 +450,11 @@ class EdgeTypeFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EdgeTypeFilter.<init>()", "String EdgeTypeFilter.getEdgeNameFilter()",
+      "EntityFilterType EdgeTypeFilter.getType()", "void EdgeTypeFilter.setEdgeNameFilter(String)",
+      "void EdgeTypeFilter.setEdgeType(String)", "void EdgeTypeFilter.setEdgeTypes(List)",
+      "String EdgeTypeFilter.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     EdgeTypeFilter actualEdgeTypeFilter = new EdgeTypeFilter();
@@ -434,7 +464,7 @@ class EdgeTypeFilterDiffblueTest {
     String actualToStringResult = actualEdgeTypeFilter.toString();
     String actualEdgeNameFilter = actualEdgeTypeFilter.getEdgeNameFilter();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Edge Name Filter", actualEdgeNameFilter);
     assertEquals("EdgeTypeFilter(edgeType=Edge Type, edgeTypes=[Edge Type], edgeNameFilter=Edge Name Filter)",
         actualToStringResult);

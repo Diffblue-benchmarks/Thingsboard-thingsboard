@@ -2,17 +2,18 @@ package org.thingsboard.server.common.data.sync.ie;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.rule.RuleChain;
 import org.thingsboard.server.common.data.rule.RuleChainMetaData;
 
 class RuleChainExportDataDiffblueTest {
   /**
-   * Test {@link RuleChainExportData#equals(Object)}, and
-   * {@link RuleChainExportData#hashCode()}.
+   * Test {@link RuleChainExportData#equals(Object)}, and {@link RuleChainExportData#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -26,6 +27,8 @@ class RuleChainExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainExportData.equals(Object)", "int RuleChainExportData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     RuleChainExportData ruleChainExportData = new RuleChainExportData();
@@ -38,8 +41,7 @@ class RuleChainExportDataDiffblueTest {
   }
 
   /**
-   * Test {@link RuleChainExportData#equals(Object)}, and
-   * {@link RuleChainExportData#hashCode()}.
+   * Test {@link RuleChainExportData#equals(Object)}, and {@link RuleChainExportData#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -53,6 +55,8 @@ class RuleChainExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainExportData.equals(Object)", "int RuleChainExportData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     RuleChainExportData ruleChainExportData = new RuleChainExportData();
@@ -68,8 +72,7 @@ class RuleChainExportDataDiffblueTest {
   }
 
   /**
-   * Test {@link RuleChainExportData#equals(Object)}, and
-   * {@link RuleChainExportData#hashCode()}.
+   * Test {@link RuleChainExportData#equals(Object)}, and {@link RuleChainExportData#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -83,6 +86,8 @@ class RuleChainExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainExportData.equals(Object)", "int RuleChainExportData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     RuleChainExportData ruleChainExportData = new RuleChainExportData();
@@ -104,10 +109,11 @@ class RuleChainExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainExportData.equals(Object)", "int RuleChainExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new RuleChainExportData(), 1);
-    assertNotEquals(new RuleChainExportData(), mock(DeviceExportData.class));
   }
 
   /**
@@ -121,6 +127,8 @@ class RuleChainExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainExportData.equals(Object)", "int RuleChainExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     RuleChainExportData ruleChainExportData = new RuleChainExportData();
@@ -141,6 +149,8 @@ class RuleChainExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainExportData.equals(Object)", "int RuleChainExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     RuleChainExportData ruleChainExportData = new RuleChainExportData();
@@ -161,6 +171,8 @@ class RuleChainExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainExportData.equals(Object)", "int RuleChainExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     RuleChainExportData ruleChainExportData = new RuleChainExportData();
@@ -183,6 +195,8 @@ class RuleChainExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainExportData.equals(Object)", "int RuleChainExportData.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new RuleChainExportData(), null);
@@ -199,6 +213,8 @@ class RuleChainExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean RuleChainExportData.equals(Object)", "int RuleChainExportData.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new RuleChainExportData(), "Different type to RuleChainExportData");
@@ -217,19 +233,27 @@ class RuleChainExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void RuleChainExportData.<init>()", "RuleChainMetaData RuleChainExportData.getMetaData()",
+      "void RuleChainExportData.setMetaData(RuleChainMetaData)", "String RuleChainExportData.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     RuleChainExportData actualRuleChainExportData = new RuleChainExportData();
     RuleChainMetaData metaData = new RuleChainMetaData();
     actualRuleChainExportData.setMetaData(metaData);
     String actualToStringResult = actualRuleChainExportData.toString();
+    RuleChainMetaData actualMetaData = actualRuleChainExportData.getMetaData();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "RuleChainExportData(super=EntityExportData(entity=null, entityType=null, relations=null, attributes=null),"
             + " metaData=RuleChainMetaData(ruleChainId=null, version=null, firstNodeIndex=null, nodes=null,"
             + " connections=null, ruleChainConnections=null))",
         actualToStringResult);
-    assertSame(metaData, actualRuleChainExportData.getMetaData());
+    assertNull(actualRuleChainExportData.getRelations());
+    assertNull(actualRuleChainExportData.getAttributes());
+    assertNull(actualRuleChainExportData.getEntityType());
+    assertNull(actualRuleChainExportData.getEntity());
+    assertSame(metaData, actualMetaData);
   }
 }

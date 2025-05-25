@@ -1,10 +1,14 @@
 package org.thingsboard.server.common.data.security;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.LinkedHashMap;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.thingsboard.server.common.data.id.UserId;
 import org.thingsboard.server.common.data.security.model.mfa.account.AccountTwoFaSettings;
 
 class UserAuthSettingsDiffblueTest {
@@ -22,6 +26,10 @@ class UserAuthSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void UserAuthSettings.<init>()", "AccountTwoFaSettings UserAuthSettings.getTwoFaSettings()",
+      "UserId UserAuthSettings.getUserId()", "void UserAuthSettings.setTwoFaSettings(AccountTwoFaSettings)",
+      "void UserAuthSettings.setUserId(UserId)", "String UserAuthSettings.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     UserAuthSettings actualUserAuthSettings = new UserAuthSettings();
@@ -30,10 +38,12 @@ class UserAuthSettingsDiffblueTest {
     actualUserAuthSettings.setTwoFaSettings(twoFaSettings);
     String actualToStringResult = actualUserAuthSettings.toString();
     AccountTwoFaSettings actualTwoFaSettings = actualUserAuthSettings.getTwoFaSettings();
-    actualUserAuthSettings.getUserId();
+    UserId actualUserId = actualUserAuthSettings.getUserId();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("UserAuthSettings(userId=null, twoFaSettings=AccountTwoFaSettings(configs={}))", actualToStringResult);
+    assertNull(actualUserAuthSettings.getId());
+    assertNull(actualUserId);
     assertEquals(0L, actualUserAuthSettings.getCreatedTime());
     assertSame(twoFaSettings, actualTwoFaSettings);
   }

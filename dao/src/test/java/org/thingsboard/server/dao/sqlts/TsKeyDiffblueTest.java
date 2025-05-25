@@ -3,8 +3,11 @@ package org.thingsboard.server.dao.sqlts;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertSame;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.dao.model.ModelConstants;
 
 public class TsKeyDiffblueTest {
@@ -22,10 +25,12 @@ public class TsKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsKey.equals(Object)", "int TsKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TsKey tsKey = new TsKey(ModelConstants.NULL_UUID, 1);
-    TsKey tsKey2 = new TsKey(ModelConstants.NULL_UUID, 1);
+    TsKey tsKey = new TsKey(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1);
+    TsKey tsKey2 = new TsKey(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1);
 
     // Act and Assert
     assertEquals(tsKey, tsKey2);
@@ -47,6 +52,8 @@ public class TsKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsKey.equals(Object)", "int TsKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TsKey tsKey = new TsKey(null, 1);
@@ -72,9 +79,11 @@ public class TsKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsKey.equals(Object)", "int TsKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TsKey tsKey = new TsKey(ModelConstants.NULL_UUID, 1);
+    TsKey tsKey = new TsKey(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1);
 
     // Act and Assert
     assertEquals(tsKey, tsKey);
@@ -92,12 +101,14 @@ public class TsKeyDiffblueTest {
    * Method under test: {@link TsKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsKey.equals(Object)", "int TsKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    TsKey tsKey = new TsKey(UUID.randomUUID(), 1);
+    TsKey tsKey = new TsKey(ModelConstants.NULL_UUID, 1);
 
     // Act and Assert
-    assertNotEquals(tsKey, new TsKey(ModelConstants.NULL_UUID, 1));
+    assertNotEquals(tsKey, new TsKey(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1));
   }
 
   /**
@@ -110,12 +121,14 @@ public class TsKeyDiffblueTest {
    * Method under test: {@link TsKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsKey.equals(Object)", "int TsKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TsKey tsKey = new TsKey(null, 1);
 
     // Act and Assert
-    assertNotEquals(tsKey, new TsKey(ModelConstants.NULL_UUID, 1));
+    assertNotEquals(tsKey, new TsKey(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1));
   }
 
   /**
@@ -128,12 +141,14 @@ public class TsKeyDiffblueTest {
    * Method under test: {@link TsKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsKey.equals(Object)", "int TsKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TsKey tsKey = new TsKey(ModelConstants.NULL_UUID, 3);
+    TsKey tsKey = new TsKey(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 3);
 
     // Act and Assert
-    assertNotEquals(tsKey, new TsKey(ModelConstants.NULL_UUID, 1));
+    assertNotEquals(tsKey, new TsKey(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1));
   }
 
   /**
@@ -146,9 +161,11 @@ public class TsKeyDiffblueTest {
    * Method under test: {@link TsKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsKey.equals(Object)", "int TsKey.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TsKey(ModelConstants.NULL_UUID, 1), null);
+    assertNotEquals(new TsKey(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1), null);
   }
 
   /**
@@ -161,9 +178,11 @@ public class TsKeyDiffblueTest {
    * Method under test: {@link TsKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean TsKey.equals(Object)", "int TsKey.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TsKey(ModelConstants.NULL_UUID, 1), "Different type to TsKey");
+    assertNotEquals(new TsKey(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1), "Different type to TsKey");
   }
 
   /**
@@ -178,9 +197,12 @@ public class TsKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void TsKey.<init>(UUID, int)", "UUID TsKey.getEntityId()", "int TsKey.getKey()",
+      "String TsKey.toString()"})
   public void testGettersAndSetters() {
     // Arrange
-    UUID entityId = ModelConstants.NULL_UUID;
+    UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
     TsKey actualTsKey = new TsKey(entityId, 1);
@@ -189,8 +211,8 @@ public class TsKeyDiffblueTest {
     int actualKey = actualTsKey.getKey();
 
     // Assert
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualEntityId.toString());
-    assertEquals("TsKey(entityId=13814000-1dd2-11b2-8080-808080808080, key=1)", actualToStringResult);
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualEntityId.toString());
+    assertEquals("TsKey(entityId=784f394c-42b6-435a-983c-b7beff2784f9, key=1)", actualToStringResult);
     assertEquals(1, actualKey);
     assertSame(entityId, actualEntityId);
   }

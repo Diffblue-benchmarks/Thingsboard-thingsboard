@@ -7,9 +7,11 @@ import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletRequestWrapper;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -31,11 +33,12 @@ class JwtHeaderTokenExtractorDiffblueTest {
    *   <li>Given empty string.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link JwtHeaderTokenExtractor#extract(HttpServletRequest)}
+   * Method under test: {@link JwtHeaderTokenExtractor#extract(HttpServletRequest)}
    */
   @Test
   @DisplayName("Test extract(HttpServletRequest); given empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String JwtHeaderTokenExtractor.extract(HttpServletRequest)"})
   void testExtract_givenEmptyString() {
     // Arrange
     HttpServletRequestWrapper request = mock(HttpServletRequestWrapper.class);
@@ -50,15 +53,15 @@ class JwtHeaderTokenExtractorDiffblueTest {
    * Test {@link JwtHeaderTokenExtractor#extract(HttpServletRequest)}.
    * <ul>
    *   <li>Given {@code foo}.</li>
-   *   <li>When {@link HttpServletRequestWrapper}
-   * {@link HttpServletRequestWrapper#getHeader(String)} return {@code foo}.</li>
+   *   <li>When {@link HttpServletRequestWrapper} {@link HttpServletRequestWrapper#getHeader(String)} return {@code foo}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link JwtHeaderTokenExtractor#extract(HttpServletRequest)}
+   * Method under test: {@link JwtHeaderTokenExtractor#extract(HttpServletRequest)}
    */
   @Test
   @DisplayName("Test extract(HttpServletRequest); given 'foo'; when HttpServletRequestWrapper getHeader(String) return 'foo'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String JwtHeaderTokenExtractor.extract(HttpServletRequest)"})
   void testExtract_givenFoo_whenHttpServletRequestWrapperGetHeaderReturnFoo() {
     // Arrange
     HttpServletRequestWrapper request = mock(HttpServletRequestWrapper.class);
@@ -76,11 +79,12 @@ class JwtHeaderTokenExtractorDiffblueTest {
    *   <li>Then return {@code /example.org/example}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link JwtHeaderTokenExtractor#extract(HttpServletRequest)}
+   * Method under test: {@link JwtHeaderTokenExtractor#extract(HttpServletRequest)}
    */
   @Test
   @DisplayName("Test extract(HttpServletRequest); given 'https://example.org/example'; then return '/example.org/example'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String JwtHeaderTokenExtractor.extract(HttpServletRequest)"})
   void testExtract_givenHttpsExampleOrgExample_thenReturnExampleOrgExample() {
     // Arrange
     HttpServletRequestWrapper request = mock(HttpServletRequestWrapper.class);
@@ -101,11 +105,12 @@ class JwtHeaderTokenExtractorDiffblueTest {
    *   <li>Then throw {@link AuthenticationServiceException}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link JwtHeaderTokenExtractor#extract(HttpServletRequest)}
+   * Method under test: {@link JwtHeaderTokenExtractor#extract(HttpServletRequest)}
    */
   @Test
   @DisplayName("Test extract(HttpServletRequest); when MockHttpServletRequest(); then throw AuthenticationServiceException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String JwtHeaderTokenExtractor.extract(HttpServletRequest)"})
   void testExtract_whenMockHttpServletRequest_thenThrowAuthenticationServiceException() {
     // Arrange, Act and Assert
     assertThrows(AuthenticationServiceException.class,

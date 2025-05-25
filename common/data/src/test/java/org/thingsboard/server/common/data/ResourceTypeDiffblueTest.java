@@ -2,7 +2,9 @@ package org.thingsboard.server.common.data;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ResourceTypeDiffblueTest {
@@ -18,6 +20,9 @@ class ResourceTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String ResourceType.getMediaType()", "boolean ResourceType.isCustomerAccess()",
+      "boolean ResourceType.isUpdatable()"})
   void testGettersAndSetters() {
     // Arrange
     ResourceType valueOfResult = ResourceType.valueOf("LWM2M_MODEL");

@@ -3,7 +3,10 @@ package org.thingsboard.server.dao.relation;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.EntityId;
 import org.thingsboard.server.common.data.relation.EntityRelation;
@@ -21,6 +24,8 @@ public class EntityRelationEventDiffblueTest {
    * Method under test: {@link EntityRelationEvent#from(EntityRelation)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"EntityRelationEvent EntityRelationEvent.from(EntityRelation)"})
   public void testFrom_whenEntityRelation_thenReturnTypeIsNull() {
     // Arrange and Act
     EntityRelationEvent actualFromResult = EntityRelationEvent.from(new EntityRelation());
@@ -37,8 +42,7 @@ public class EntityRelationEventDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link EntityRelationEvent#EntityRelationEvent(EntityId, EntityId, String, RelationTypeGroup)}
+   *   <li>{@link EntityRelationEvent#EntityRelationEvent(EntityId, EntityId, String, RelationTypeGroup)}
    *   <li>{@link EntityRelationEvent#toString()}
    *   <li>{@link EntityRelationEvent#getFrom()}
    *   <li>{@link EntityRelationEvent#getTo()}
@@ -47,6 +51,11 @@ public class EntityRelationEventDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void EntityRelationEvent.<init>(EntityId, EntityId, String, RelationTypeGroup)",
+      "EntityId EntityRelationEvent.getFrom()", "EntityId EntityRelationEvent.getTo()",
+      "String EntityRelationEvent.getType()", "RelationTypeGroup EntityRelationEvent.getTypeGroup()",
+      "String EntityRelationEvent.toString()"})
   public void testGettersAndSetters() {
     // Arrange
     CustomerId resultTo = BaseEntityService.NULL_CUSTOMER_ID;

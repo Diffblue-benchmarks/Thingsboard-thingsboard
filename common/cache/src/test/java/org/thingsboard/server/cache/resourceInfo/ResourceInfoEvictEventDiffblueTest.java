@@ -3,17 +3,79 @@ package org.thingsboard.server.cache.resourceInfo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.TbResourceId;
 import org.thingsboard.server.common.data.id.TenantId;
 
 class ResourceInfoEvictEventDiffblueTest {
   /**
-   * Test {@link ResourceInfoEvictEvent#equals(Object)}, and
-   * {@link ResourceInfoEvictEvent#hashCode()}.
+   * Test {@link ResourceInfoEvictEvent#equals(Object)}, and {@link ResourceInfoEvictEvent#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link ResourceInfoEvictEvent#equals(Object)}
+   *   <li>{@link ResourceInfoEvictEvent#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResourceInfoEvictEvent.equals(Object)", "int ResourceInfoEvictEvent.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ResourceInfoEvictEvent resourceInfoEvictEvent = new ResourceInfoEvictEvent(tenantId,
+        new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TenantId tenantId2 = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ResourceInfoEvictEvent resourceInfoEvictEvent2 = new ResourceInfoEvictEvent(tenantId2,
+        new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    // Act and Assert
+    assertEquals(resourceInfoEvictEvent, resourceInfoEvictEvent2);
+    int expectedHashCodeResult = resourceInfoEvictEvent.hashCode();
+    assertEquals(expectedHashCodeResult, resourceInfoEvictEvent2.hashCode());
+  }
+
+  /**
+   * Test {@link ResourceInfoEvictEvent#equals(Object)}, and {@link ResourceInfoEvictEvent#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link ResourceInfoEvictEvent#equals(Object)}
+   *   <li>{@link ResourceInfoEvictEvent#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResourceInfoEvictEvent.equals(Object)", "int ResourceInfoEvictEvent.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    ResourceInfoEvictEvent resourceInfoEvictEvent = new ResourceInfoEvictEvent(null,
+        new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ResourceInfoEvictEvent resourceInfoEvictEvent2 = new ResourceInfoEvictEvent(null,
+        new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    // Act and Assert
+    assertEquals(resourceInfoEvictEvent, resourceInfoEvictEvent2);
+    int expectedHashCodeResult = resourceInfoEvictEvent.hashCode();
+    assertEquals(expectedHashCodeResult, resourceInfoEvictEvent2.hashCode());
+  }
+
+  /**
+   * Test {@link ResourceInfoEvictEvent#equals(Object)}, and {@link ResourceInfoEvictEvent#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -27,11 +89,13 @@ class ResourceInfoEvictEventDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResourceInfoEvictEvent.equals(Object)", "int ResourceInfoEvictEvent.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ResourceInfoEvictEvent resourceInfoEvictEvent = new ResourceInfoEvictEvent(tenantId,
-        new TbResourceId(UUID.randomUUID()));
+        new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertEquals(resourceInfoEvictEvent, resourceInfoEvictEvent);
@@ -50,15 +114,18 @@ class ResourceInfoEvictEventDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResourceInfoEvictEvent.equals(Object)", "int ResourceInfoEvictEvent.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.randomUUID());
     ResourceInfoEvictEvent resourceInfoEvictEvent = new ResourceInfoEvictEvent(tenantId,
-        new TbResourceId(UUID.randomUUID()));
-    TenantId tenantId2 = new TenantId(UUID.randomUUID());
+        new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TenantId tenantId2 = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertNotEquals(resourceInfoEvictEvent, new ResourceInfoEvictEvent(tenantId2, new TbResourceId(UUID.randomUUID())));
+    assertNotEquals(resourceInfoEvictEvent, new ResourceInfoEvictEvent(tenantId2,
+        new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
   }
 
   /**
@@ -72,14 +139,17 @@ class ResourceInfoEvictEventDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResourceInfoEvictEvent.equals(Object)", "int ResourceInfoEvictEvent.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ResourceInfoEvictEvent resourceInfoEvictEvent = new ResourceInfoEvictEvent(null,
-        new TbResourceId(UUID.randomUUID()));
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+        new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertNotEquals(resourceInfoEvictEvent, new ResourceInfoEvictEvent(tenantId, new TbResourceId(UUID.randomUUID())));
+    assertNotEquals(resourceInfoEvictEvent, new ResourceInfoEvictEvent(tenantId,
+        new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
   }
 
   /**
@@ -93,36 +163,18 @@ class ResourceInfoEvictEventDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResourceInfoEvictEvent.equals(Object)", "int ResourceInfoEvictEvent.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    ResourceInfoEvictEvent resourceInfoEvictEvent = new ResourceInfoEvictEvent(new TenantId(UUID.randomUUID()),
-        mock(TbResourceId.class));
-    TenantId tenantId = new TenantId(UUID.randomUUID());
-
-    // Act and Assert
-    assertNotEquals(resourceInfoEvictEvent, new ResourceInfoEvictEvent(tenantId, new TbResourceId(UUID.randomUUID())));
-  }
-
-  /**
-   * Test {@link ResourceInfoEvictEvent#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ResourceInfoEvictEvent#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
-    // Arrange
-    TenantId tenantId = new TenantId(null);
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ResourceInfoEvictEvent resourceInfoEvictEvent = new ResourceInfoEvictEvent(tenantId,
         new TbResourceId(UUID.randomUUID()));
-    TenantId tenantId2 = new TenantId(null);
+    TenantId tenantId2 = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertNotEquals(resourceInfoEvictEvent, new ResourceInfoEvictEvent(tenantId2, new TbResourceId(UUID.randomUUID())));
+    assertNotEquals(resourceInfoEvictEvent, new ResourceInfoEvictEvent(tenantId2,
+        new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
   }
 
   /**
@@ -136,13 +188,17 @@ class ResourceInfoEvictEventDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResourceInfoEvictEvent.equals(Object)", "int ResourceInfoEvictEvent.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    ResourceInfoEvictEvent resourceInfoEvictEvent = new ResourceInfoEvictEvent(null,
-        new TbResourceId(UUID.randomUUID()));
+    ResourceInfoEvictEvent resourceInfoEvictEvent = new ResourceInfoEvictEvent(
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null);
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertNotEquals(resourceInfoEvictEvent, new ResourceInfoEvictEvent(null, new TbResourceId(UUID.randomUUID())));
+    assertNotEquals(resourceInfoEvictEvent, new ResourceInfoEvictEvent(tenantId,
+        new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
   }
 
   /**
@@ -156,12 +212,16 @@ class ResourceInfoEvictEventDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResourceInfoEvictEvent.equals(Object)", "int ResourceInfoEvictEvent.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertNotEquals(new ResourceInfoEvictEvent(tenantId, new TbResourceId(UUID.randomUUID())), null);
+    assertNotEquals(
+        new ResourceInfoEvictEvent(tenantId, new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))),
+        null);
   }
 
   /**
@@ -175,12 +235,15 @@ class ResourceInfoEvictEventDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ResourceInfoEvictEvent.equals(Object)", "int ResourceInfoEvictEvent.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertNotEquals(new ResourceInfoEvictEvent(tenantId, new TbResourceId(UUID.randomUUID())),
+    assertNotEquals(
+        new ResourceInfoEvictEvent(tenantId, new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))),
         "Different type to ResourceInfoEvictEvent");
   }
 
@@ -189,8 +252,7 @@ class ResourceInfoEvictEventDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link ResourceInfoEvictEvent#ResourceInfoEvictEvent(TenantId, TbResourceId)}
+   *   <li>{@link ResourceInfoEvictEvent#ResourceInfoEvictEvent(TenantId, TbResourceId)}
    *   <li>{@link ResourceInfoEvictEvent#toString()}
    *   <li>{@link ResourceInfoEvictEvent#getResourceId()}
    *   <li>{@link ResourceInfoEvictEvent#getTenantId()}
@@ -198,17 +260,23 @@ class ResourceInfoEvictEventDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ResourceInfoEvictEvent.<init>(TenantId, TbResourceId)",
+      "TbResourceId ResourceInfoEvictEvent.getResourceId()", "TenantId ResourceInfoEvictEvent.getTenantId()",
+      "String ResourceInfoEvictEvent.toString()"})
   void testGettersAndSetters() {
     // Arrange
-    TenantId tenantId = new TenantId(UUID.randomUUID());
-    TbResourceId resourceId = new TbResourceId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbResourceId resourceId = new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
     ResourceInfoEvictEvent actualResourceInfoEvictEvent = new ResourceInfoEvictEvent(tenantId, resourceId);
-    actualResourceInfoEvictEvent.toString();
+    String actualToStringResult = actualResourceInfoEvictEvent.toString();
     TbResourceId actualResourceId = actualResourceInfoEvictEvent.getResourceId();
 
     // Assert
+    assertEquals("ResourceInfoEvictEvent(tenantId=784f394c-42b6-435a-983c-b7beff2784f9, resourceId=784f394c-42b6-435a"
+        + "-983c-b7beff2784f9)", actualToStringResult);
     assertSame(resourceId, actualResourceId);
     assertSame(tenantId, actualResourceInfoEvictEvent.getTenantId());
   }

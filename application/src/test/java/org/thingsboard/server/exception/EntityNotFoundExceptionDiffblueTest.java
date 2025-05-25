@@ -3,7 +3,9 @@ package org.thingsboard.server.exception;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +24,12 @@ class EntityNotFoundExceptionDiffblueTest {
   /**
    * Test {@link EntityNotFoundException#EntityNotFoundException(String)}.
    * <p>
-   * Method under test:
-   * {@link EntityNotFoundException#EntityNotFoundException(String)}
+   * Method under test: {@link EntityNotFoundException#EntityNotFoundException(String)}
    */
   @Test
   @DisplayName("Test new EntityNotFoundException(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityNotFoundException.<init>(String)"})
   void testNewEntityNotFoundException() {
     // Arrange and Act
     EntityNotFoundException actualEntityNotFoundException = new EntityNotFoundException("An error occurred");
@@ -44,6 +47,8 @@ class EntityNotFoundExceptionDiffblueTest {
    */
   @Test
   @DisplayName("Test toErrorResponseEntity()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ResponseEntity EntityNotFoundException.toErrorResponseEntity()"})
   void testToErrorResponseEntity() {
     // Arrange and Act
     ResponseEntity<String> actualToErrorResponseEntityResult = entityNotFoundException.toErrorResponseEntity();

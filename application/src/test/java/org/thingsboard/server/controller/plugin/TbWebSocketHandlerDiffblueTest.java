@@ -1,115 +1,149 @@
 package org.thingsboard.server.controller.plugin;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.io.IOException;
-import java.net.InetSocketAddress;
 import java.security.InvalidParameterException;
+import org.apache.kafka.common.network.NetworkReceive;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.web.socket.CloseStatus;
-import org.thingsboard.server.service.security.model.SecurityUser;
+import org.springframework.web.socket.PongMessage;
+import org.springframework.web.socket.TextMessage;
+import org.springframework.web.socket.WebSocketSession;
+import org.springframework.web.socket.adapter.standard.StandardWebSocketSession;
+import org.springframework.web.socket.handler.ConcurrentWebSocketSessionDecorator;
+import org.springframework.web.socket.handler.WebSocketSessionDecorator;
 import org.thingsboard.server.service.ws.WebSocketSessionRef;
-import org.thingsboard.server.service.ws.WebSocketSessionRef.WebSocketSessionRefBuilder;
-import org.thingsboard.server.service.ws.WebSocketSessionType;
 
+@ExtendWith(MockitoExtension.class)
 class TbWebSocketHandlerDiffblueTest {
+  @InjectMocks
+  private TbWebSocketHandler tbWebSocketHandler;
+
+  /**
+   * Test {@link TbWebSocketHandler#handleTextMessage(WebSocketSession, TextMessage)}.
+   * <ul>
+   *   <li>Then throw {@link InvalidParameterException}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link TbWebSocketHandler#handleTextMessage(WebSocketSession, TextMessage)}
+   */
+  @Test
+  @DisplayName("Test handleTextMessage(WebSocketSession, TextMessage); then throw InvalidParameterException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbWebSocketHandler.handleTextMessage(WebSocketSession, TextMessage)"})
+  void testHandleTextMessage_thenThrowInvalidParameterException() {
+    // Arrange
+    StandardWebSocketSession delegate = mock(StandardWebSocketSession.class);
+    when(delegate.getId()).thenThrow(new InvalidParameterException("foo"));
+    WebSocketSessionDecorator session = new WebSocketSessionDecorator(
+        new ConcurrentWebSocketSessionDecorator(delegate, 3, 3));
+
+    // Act and Assert
+    assertThrows(InvalidParameterException.class,
+        () -> tbWebSocketHandler.handleTextMessage(session, new TextMessage(NetworkReceive.UNKNOWN_SOURCE)));
+    verify(delegate).getId();
+  }
+
+  /**
+   * Test {@link TbWebSocketHandler#handlePongMessage(WebSocketSession, PongMessage)}.
+   * <ul>
+   *   <li>Then throw {@link InvalidParameterException}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link TbWebSocketHandler#handlePongMessage(WebSocketSession, PongMessage)}
+   */
+  @Test
+  @DisplayName("Test handlePongMessage(WebSocketSession, PongMessage); then throw InvalidParameterException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbWebSocketHandler.handlePongMessage(WebSocketSession, PongMessage)"})
+  void testHandlePongMessage_thenThrowInvalidParameterException() throws Exception {
+    // Arrange
+    StandardWebSocketSession delegate = mock(StandardWebSocketSession.class);
+    when(delegate.getId()).thenThrow(new InvalidParameterException("foo"));
+    WebSocketSessionDecorator session = new WebSocketSessionDecorator(
+        new ConcurrentWebSocketSessionDecorator(delegate, 3, 3));
+
+    // Act and Assert
+    assertThrows(InvalidParameterException.class,
+        () -> tbWebSocketHandler.handlePongMessage(session, new PongMessage()));
+    verify(delegate).getId();
+  }
+
   /**
    * Test {@link TbWebSocketHandler#send(WebSocketSessionRef, int, String)}.
    * <ul>
-   *   <li>Then calls
-   * {@link WebSocketSessionRefBuilder#localAddress(InetSocketAddress)}.</li>
+   *   <li>Given {@code 42}.</li>
+   *   <li>Then calls {@link WebSocketSessionRef#getSessionId()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbWebSocketHandler#send(WebSocketSessionRef, int, String)}
+   * Method under test: {@link TbWebSocketHandler#send(WebSocketSessionRef, int, String)}
    */
   @Test
-  @DisplayName("Test send(WebSocketSessionRef, int, String); then calls localAddress(InetSocketAddress)")
-  void testSend_thenCallsLocalAddress() throws IOException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test send(WebSocketSessionRef, int, String); given '42'; then calls getSessionId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbWebSocketHandler.send(WebSocketSessionRef, int, String)"})
+  void testSend_given42_thenCallsGetSessionId() throws IOException {
     // Arrange
-    TbWebSocketHandler tbWebSocketHandler = new TbWebSocketHandler();
-    WebSocketSessionRef.WebSocketSessionRefBuilder webSocketSessionRefBuilder = mock(
-        WebSocketSessionRef.WebSocketSessionRefBuilder.class);
-    when(webSocketSessionRefBuilder.localAddress(Mockito.<InetSocketAddress>any()))
-        .thenReturn(WebSocketSessionRef.builder());
-    WebSocketSessionRef.WebSocketSessionRefBuilder localAddressResult = webSocketSessionRefBuilder
-        .localAddress(InetSocketAddress.createUnresolved("foo", 1));
-    WebSocketSessionRef.WebSocketSessionRefBuilder remoteAddressResult = localAddressResult
-        .remoteAddress(InetSocketAddress.createUnresolved("foo", 1));
-    WebSocketSessionRef sessionRef = remoteAddressResult.securityCtx(new SecurityUser())
-        .sessionId("42")
-        .sessionType(WebSocketSessionType.GENERAL)
-        .build();
+    WebSocketSessionRef sessionRef = mock(WebSocketSessionRef.class);
+    when(sessionRef.getSessionId()).thenReturn("42");
 
     // Act
     tbWebSocketHandler.send(sessionRef, 1, "Msg");
 
-    // Assert that nothing has changed
-    verify(webSocketSessionRefBuilder).localAddress(isA(InetSocketAddress.class));
+    // Assert
+    verify(sessionRef).getSessionId();
   }
 
   /**
    * Test {@link TbWebSocketHandler#sendPing(WebSocketSessionRef, long)}.
    * <ul>
-   *   <li>Then calls
-   * {@link WebSocketSessionRefBuilder#localAddress(InetSocketAddress)}.</li>
+   *   <li>Given {@code 42}.</li>
+   *   <li>Then calls {@link WebSocketSessionRef#getSessionId()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbWebSocketHandler#sendPing(WebSocketSessionRef, long)}
+   * Method under test: {@link TbWebSocketHandler#sendPing(WebSocketSessionRef, long)}
    */
   @Test
-  @DisplayName("Test sendPing(WebSocketSessionRef, long); then calls localAddress(InetSocketAddress)")
-  void testSendPing_thenCallsLocalAddress() throws IOException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test sendPing(WebSocketSessionRef, long); given '42'; then calls getSessionId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbWebSocketHandler.sendPing(WebSocketSessionRef, long)"})
+  void testSendPing_given42_thenCallsGetSessionId() throws IOException {
     // Arrange
-    TbWebSocketHandler tbWebSocketHandler = new TbWebSocketHandler();
-    WebSocketSessionRef.WebSocketSessionRefBuilder webSocketSessionRefBuilder = mock(
-        WebSocketSessionRef.WebSocketSessionRefBuilder.class);
-    when(webSocketSessionRefBuilder.localAddress(Mockito.<InetSocketAddress>any()))
-        .thenReturn(WebSocketSessionRef.builder());
-    WebSocketSessionRef.WebSocketSessionRefBuilder localAddressResult = webSocketSessionRefBuilder
-        .localAddress(InetSocketAddress.createUnresolved("foo", 1));
-    WebSocketSessionRef.WebSocketSessionRefBuilder remoteAddressResult = localAddressResult
-        .remoteAddress(InetSocketAddress.createUnresolved("foo", 1));
-    WebSocketSessionRef sessionRef = remoteAddressResult.securityCtx(new SecurityUser())
-        .sessionId("42")
-        .sessionType(WebSocketSessionType.GENERAL)
-        .build();
+    WebSocketSessionRef sessionRef = mock(WebSocketSessionRef.class);
+    when(sessionRef.getSessionId()).thenReturn("42");
 
     // Act
     tbWebSocketHandler.sendPing(sessionRef, 1L);
 
-    // Assert that nothing has changed
-    verify(webSocketSessionRefBuilder).localAddress(isA(InetSocketAddress.class));
+    // Assert
+    verify(sessionRef).getSessionId();
   }
 
   /**
    * Test {@link TbWebSocketHandler#close(WebSocketSessionRef, CloseStatus)}.
    * <ul>
    *   <li>Given {@code 42}.</li>
-   *   <li>When {@link WebSocketSessionRef}
-   * {@link WebSocketSessionRef#getSessionId()} return {@code 42}.</li>
+   *   <li>Then calls {@link WebSocketSessionRef#getSessionId()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbWebSocketHandler#close(WebSocketSessionRef, CloseStatus)}
+   * Method under test: {@link TbWebSocketHandler#close(WebSocketSessionRef, CloseStatus)}
    */
   @Test
-  @DisplayName("Test close(WebSocketSessionRef, CloseStatus); given '42'; when WebSocketSessionRef getSessionId() return '42'")
-  void testClose_given42_whenWebSocketSessionRefGetSessionIdReturn42() throws IOException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test close(WebSocketSessionRef, CloseStatus); given '42'; then calls getSessionId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbWebSocketHandler.close(WebSocketSessionRef, CloseStatus)"})
+  void testClose_given42_thenCallsGetSessionId() throws IOException {
     // Arrange
-    TbWebSocketHandler tbWebSocketHandler = new TbWebSocketHandler();
     WebSocketSessionRef sessionRef = mock(WebSocketSessionRef.class);
     when(sessionRef.getSessionId()).thenReturn("42");
 
@@ -121,26 +155,20 @@ class TbWebSocketHandlerDiffblueTest {
   }
 
   /**
-   * Test {@link TbWebSocketHandler#close(WebSocketSessionRef, CloseStatus)}.
+   * Test {@link TbWebSocketHandler#isOpen(String)}.
    * <ul>
-   *   <li>Then throw {@link InvalidParameterException}.</li>
+   *   <li>When {@code 42}.</li>
+   *   <li>Then return {@code false}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbWebSocketHandler#close(WebSocketSessionRef, CloseStatus)}
+   * Method under test: {@link TbWebSocketHandler#isOpen(String)}
    */
   @Test
-  @DisplayName("Test close(WebSocketSessionRef, CloseStatus); then throw InvalidParameterException")
-  void testClose_thenThrowInvalidParameterException() throws IOException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    TbWebSocketHandler tbWebSocketHandler = new TbWebSocketHandler();
-    WebSocketSessionRef sessionRef = mock(WebSocketSessionRef.class);
-    when(sessionRef.getSessionId()).thenThrow(new InvalidParameterException("{} Processing close request"));
-
-    // Act and Assert
-    assertThrows(InvalidParameterException.class, () -> tbWebSocketHandler.close(sessionRef, null));
-    verify(sessionRef).getSessionId();
+  @DisplayName("Test isOpen(String); when '42'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbWebSocketHandler.isOpen(String)"})
+  void testIsOpen_when42_thenReturnFalse() {
+    // Arrange, Act and Assert
+    assertFalse(tbWebSocketHandler.isOpen("42"));
   }
 }

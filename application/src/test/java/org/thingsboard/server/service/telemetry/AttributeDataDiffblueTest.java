@@ -1,7 +1,9 @@
 package org.thingsboard.server.service.telemetry;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class AttributeDataDiffblueTest {
@@ -12,9 +14,9 @@ class AttributeDataDiffblueTest {
    */
   @Test
   @DisplayName("Test new AttributeData(long, String, Object)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AttributeData.<init>(long, String, Object)"})
   void testNewAttributeData() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
     AttributeData actualAttributeData = new AttributeData(1L, "Key", "Value");
 
@@ -36,6 +38,9 @@ class AttributeDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String AttributeData.getKey()", "long AttributeData.getLastUpdateTs()",
+      "Object AttributeData.getValue()"})
   void testGettersAndSetters() {
     // Arrange
     AttributeData attributeData = new AttributeData(1L, "Key", "Value");
@@ -51,8 +56,7 @@ class AttributeDataDiffblueTest {
   }
 
   /**
-   * Test {@link AttributeData#compareTo(AttributeData)} with
-   * {@code AttributeData}.
+   * Test {@link AttributeData#compareTo(AttributeData)} with {@code AttributeData}.
    * <ul>
    *   <li>Then return zero.</li>
    * </ul>
@@ -61,9 +65,9 @@ class AttributeDataDiffblueTest {
    */
   @Test
   @DisplayName("Test compareTo(AttributeData) with 'AttributeData'; then return zero")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int AttributeData.compareTo(AttributeData)"})
   void testCompareToWithAttributeData_thenReturnZero() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     AttributeData attributeData = new AttributeData(1L, "Key", "Value");
 

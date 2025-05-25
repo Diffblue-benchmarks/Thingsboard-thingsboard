@@ -1,7 +1,9 @@
 package org.thingsboard.server.transport.mqtt;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TopicTypeDiffblueTest {
@@ -18,6 +20,9 @@ class TopicTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String TopicType.getAttributesResponseTopicBase()", "String TopicType.getAttributesSubTopic()",
+      "String TopicType.getRpcRequestTopicBase()", "String TopicType.getRpcResponseTopicBase()"})
   void testGettersAndSetters() {
     // Arrange
     TopicType valueOfResult = TopicType.valueOf("V1");

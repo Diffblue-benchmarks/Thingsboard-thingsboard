@@ -6,32 +6,45 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.notification.rule.trigger.config.EdgeCommunicationFailureNotificationRuleTriggerConfig.EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder;
 
+@ContextConfiguration(classes = {EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder.class})
+@ExtendWith(SpringExtension.class)
 class EdgeCommunicationFailureNotificationRuleTriggerConfigDiffblueTest {
+  @Autowired
+  private EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder edgeCommunicationFailureNotificationRuleTriggerConfigBuilder;
+
   /**
-   * Test EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder
-   * {@link EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder#build()}.
+   * Test EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder {@link EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link EdgeCommunicationFailureNotificationRuleTriggerConfig.EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder#build()}
-   *   <li>
-   * {@link EdgeCommunicationFailureNotificationRuleTriggerConfig.EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder#edges(Set)}
+   *   <li>{@link EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder#build()}
+   *   <li>{@link EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder#edges(Set)}
    * </ul>
    */
   @Test
   @DisplayName("Test EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder.<init>()",
+      "EdgeCommunicationFailureNotificationRuleTriggerConfig EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder.build()",
+      "EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder.edges(Set)",
+      "String EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder.toString()"})
   void testEdgeCommunicationFailureNotificationRuleTriggerConfigBuilderBuild() {
     // Arrange
-    EdgeCommunicationFailureNotificationRuleTriggerConfig.EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder builderResult = EdgeCommunicationFailureNotificationRuleTriggerConfig
+    EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder builderResult = EdgeCommunicationFailureNotificationRuleTriggerConfig
         .builder();
     HashSet<UUID> edges = new HashSet<>();
 
@@ -47,9 +60,7 @@ class EdgeCommunicationFailureNotificationRuleTriggerConfigDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)},
-   * and {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#hashCode()}.
+   * Test {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}, and {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -57,19 +68,21 @@ class EdgeCommunicationFailureNotificationRuleTriggerConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}
+   *   <li>{@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}
    *   <li>{@link EdgeCommunicationFailureNotificationRuleTriggerConfig#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeCommunicationFailureNotificationRuleTriggerConfig.equals(Object)",
+      "int EdgeCommunicationFailureNotificationRuleTriggerConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    EdgeCommunicationFailureNotificationRuleTriggerConfig.EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder builderResult = EdgeCommunicationFailureNotificationRuleTriggerConfig
+    EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder builderResult = EdgeCommunicationFailureNotificationRuleTriggerConfig
         .builder();
     EdgeCommunicationFailureNotificationRuleTriggerConfig buildResult = builderResult.edges(new HashSet<>()).build();
-    EdgeCommunicationFailureNotificationRuleTriggerConfig.EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder builderResult2 = EdgeCommunicationFailureNotificationRuleTriggerConfig
+    EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder builderResult2 = EdgeCommunicationFailureNotificationRuleTriggerConfig
         .builder();
     EdgeCommunicationFailureNotificationRuleTriggerConfig buildResult2 = builderResult2.edges(new HashSet<>()).build();
 
@@ -80,9 +93,7 @@ class EdgeCommunicationFailureNotificationRuleTriggerConfigDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)},
-   * and {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#hashCode()}.
+   * Test {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}, and {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -90,24 +101,26 @@ class EdgeCommunicationFailureNotificationRuleTriggerConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}
+   *   <li>{@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}
    *   <li>{@link EdgeCommunicationFailureNotificationRuleTriggerConfig#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeCommunicationFailureNotificationRuleTriggerConfig.equals(Object)",
+      "int EdgeCommunicationFailureNotificationRuleTriggerConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    EdgeCommunicationFailureNotificationRuleTriggerConfig.EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder edgeCommunicationFailureNotificationRuleTriggerConfigBuilder = mock(
-        EdgeCommunicationFailureNotificationRuleTriggerConfig.EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder.class);
+    EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder edgeCommunicationFailureNotificationRuleTriggerConfigBuilder = mock(
+        EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder.class);
     when(edgeCommunicationFailureNotificationRuleTriggerConfigBuilder.edges(Mockito.<Set<UUID>>any()))
         .thenReturn(EdgeCommunicationFailureNotificationRuleTriggerConfig.builder());
     EdgeCommunicationFailureNotificationRuleTriggerConfig buildResult = edgeCommunicationFailureNotificationRuleTriggerConfigBuilder
         .edges(new HashSet<>())
         .build();
-    EdgeCommunicationFailureNotificationRuleTriggerConfig.EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder edgeCommunicationFailureNotificationRuleTriggerConfigBuilder2 = mock(
-        EdgeCommunicationFailureNotificationRuleTriggerConfig.EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder.class);
+    EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder edgeCommunicationFailureNotificationRuleTriggerConfigBuilder2 = mock(
+        EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder.class);
     when(edgeCommunicationFailureNotificationRuleTriggerConfigBuilder2.edges(Mockito.<Set<UUID>>any()))
         .thenReturn(EdgeCommunicationFailureNotificationRuleTriggerConfig.builder());
     EdgeCommunicationFailureNotificationRuleTriggerConfig buildResult2 = edgeCommunicationFailureNotificationRuleTriggerConfigBuilder2
@@ -121,9 +134,7 @@ class EdgeCommunicationFailureNotificationRuleTriggerConfigDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)},
-   * and {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#hashCode()}.
+   * Test {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}, and {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -131,16 +142,18 @@ class EdgeCommunicationFailureNotificationRuleTriggerConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}
+   *   <li>{@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}
    *   <li>{@link EdgeCommunicationFailureNotificationRuleTriggerConfig#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeCommunicationFailureNotificationRuleTriggerConfig.equals(Object)",
+      "int EdgeCommunicationFailureNotificationRuleTriggerConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    EdgeCommunicationFailureNotificationRuleTriggerConfig.EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder builderResult = EdgeCommunicationFailureNotificationRuleTriggerConfig
+    EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder builderResult = EdgeCommunicationFailureNotificationRuleTriggerConfig
         .builder();
     EdgeCommunicationFailureNotificationRuleTriggerConfig buildResult = builderResult.edges(new HashSet<>()).build();
 
@@ -151,28 +164,29 @@ class EdgeCommunicationFailureNotificationRuleTriggerConfigDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}.
+   * Test {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}.
    * <ul>
    *   <li>When other is different.</li>
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeCommunicationFailureNotificationRuleTriggerConfig.equals(Object)",
+      "int EdgeCommunicationFailureNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    EdgeCommunicationFailureNotificationRuleTriggerConfig.EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder edgeCommunicationFailureNotificationRuleTriggerConfigBuilder = mock(
-        EdgeCommunicationFailureNotificationRuleTriggerConfig.EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder.class);
+    EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder edgeCommunicationFailureNotificationRuleTriggerConfigBuilder = mock(
+        EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder.class);
     when(edgeCommunicationFailureNotificationRuleTriggerConfigBuilder.edges(Mockito.<Set<UUID>>any()))
         .thenReturn(EdgeCommunicationFailureNotificationRuleTriggerConfig.builder());
     EdgeCommunicationFailureNotificationRuleTriggerConfig buildResult = edgeCommunicationFailureNotificationRuleTriggerConfigBuilder
         .edges(new HashSet<>())
         .build();
-    EdgeCommunicationFailureNotificationRuleTriggerConfig.EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder builderResult = EdgeCommunicationFailureNotificationRuleTriggerConfig
+    EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder builderResult = EdgeCommunicationFailureNotificationRuleTriggerConfig
         .builder();
     EdgeCommunicationFailureNotificationRuleTriggerConfig buildResult2 = builderResult.edges(new HashSet<>()).build();
 
@@ -181,35 +195,36 @@ class EdgeCommunicationFailureNotificationRuleTriggerConfigDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}.
+   * Test {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}.
    * <ul>
    *   <li>When other is different.</li>
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeCommunicationFailureNotificationRuleTriggerConfig.equals(Object)",
+      "int EdgeCommunicationFailureNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    EdgeCommunicationFailureNotificationRuleTriggerConfig.EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder edgeCommunicationFailureNotificationRuleTriggerConfigBuilder = mock(
-        EdgeCommunicationFailureNotificationRuleTriggerConfig.EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder.class);
-    EdgeCommunicationFailureNotificationRuleTriggerConfig.EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder builderResult = EdgeCommunicationFailureNotificationRuleTriggerConfig
+    EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder edgeCommunicationFailureNotificationRuleTriggerConfigBuilder = mock(
+        EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder.class);
+    EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder builderResult = EdgeCommunicationFailureNotificationRuleTriggerConfig
         .builder();
     EdgeCommunicationFailureNotificationRuleTriggerConfig buildResult = builderResult.edges(new HashSet<>()).build();
     when(edgeCommunicationFailureNotificationRuleTriggerConfigBuilder.build()).thenReturn(buildResult);
-    EdgeCommunicationFailureNotificationRuleTriggerConfig.EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder edgeCommunicationFailureNotificationRuleTriggerConfigBuilder2 = mock(
-        EdgeCommunicationFailureNotificationRuleTriggerConfig.EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder.class);
+    EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder edgeCommunicationFailureNotificationRuleTriggerConfigBuilder2 = mock(
+        EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder.class);
     when(edgeCommunicationFailureNotificationRuleTriggerConfigBuilder2.edges(Mockito.<Set<UUID>>any()))
         .thenReturn(edgeCommunicationFailureNotificationRuleTriggerConfigBuilder);
     EdgeCommunicationFailureNotificationRuleTriggerConfig buildResult2 = edgeCommunicationFailureNotificationRuleTriggerConfigBuilder2
         .edges(new HashSet<>())
         .build();
-    EdgeCommunicationFailureNotificationRuleTriggerConfig.EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder edgeCommunicationFailureNotificationRuleTriggerConfigBuilder3 = mock(
-        EdgeCommunicationFailureNotificationRuleTriggerConfig.EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder.class);
+    EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder edgeCommunicationFailureNotificationRuleTriggerConfigBuilder3 = mock(
+        EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder.class);
     when(edgeCommunicationFailureNotificationRuleTriggerConfigBuilder3.edges(Mockito.<Set<UUID>>any()))
         .thenReturn(EdgeCommunicationFailureNotificationRuleTriggerConfig.builder());
     EdgeCommunicationFailureNotificationRuleTriggerConfig buildResult3 = edgeCommunicationFailureNotificationRuleTriggerConfigBuilder3
@@ -221,21 +236,22 @@ class EdgeCommunicationFailureNotificationRuleTriggerConfigDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}.
+   * Test {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}.
    * <ul>
    *   <li>When other is {@code null}.</li>
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeCommunicationFailureNotificationRuleTriggerConfig.equals(Object)",
+      "int EdgeCommunicationFailureNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    EdgeCommunicationFailureNotificationRuleTriggerConfig.EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder builderResult = EdgeCommunicationFailureNotificationRuleTriggerConfig
+    EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder builderResult = EdgeCommunicationFailureNotificationRuleTriggerConfig
         .builder();
     EdgeCommunicationFailureNotificationRuleTriggerConfig buildResult = builderResult.edges(new HashSet<>()).build();
 
@@ -244,21 +260,22 @@ class EdgeCommunicationFailureNotificationRuleTriggerConfigDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}.
+   * Test {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}.
    * <ul>
    *   <li>When other is wrong type.</li>
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}
+   * Method under test: {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EdgeCommunicationFailureNotificationRuleTriggerConfig.equals(Object)",
+      "int EdgeCommunicationFailureNotificationRuleTriggerConfig.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    EdgeCommunicationFailureNotificationRuleTriggerConfig.EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder builderResult = EdgeCommunicationFailureNotificationRuleTriggerConfig
+    EdgeCommunicationFailureNotificationRuleTriggerConfigBuilder builderResult = EdgeCommunicationFailureNotificationRuleTriggerConfig
         .builder();
     EdgeCommunicationFailureNotificationRuleTriggerConfig buildResult = builderResult.edges(new HashSet<>()).build();
 
@@ -271,18 +288,22 @@ class EdgeCommunicationFailureNotificationRuleTriggerConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#EdgeCommunicationFailureNotificationRuleTriggerConfig()}
-   *   <li>
-   * {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#setEdges(Set)}
+   *   <li>{@link EdgeCommunicationFailureNotificationRuleTriggerConfig#EdgeCommunicationFailureNotificationRuleTriggerConfig()}
+   *   <li>{@link EdgeCommunicationFailureNotificationRuleTriggerConfig#setEdges(Set)}
    *   <li>{@link EdgeCommunicationFailureNotificationRuleTriggerConfig#toString()}
    *   <li>{@link EdgeCommunicationFailureNotificationRuleTriggerConfig#getEdges()}
-   *   <li>
-   * {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#getTriggerType()}
+   *   <li>{@link EdgeCommunicationFailureNotificationRuleTriggerConfig#getTriggerType()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EdgeCommunicationFailureNotificationRuleTriggerConfig.<init>()",
+      "void EdgeCommunicationFailureNotificationRuleTriggerConfig.<init>(Set)",
+      "Set EdgeCommunicationFailureNotificationRuleTriggerConfig.getEdges()",
+      "NotificationRuleTriggerType EdgeCommunicationFailureNotificationRuleTriggerConfig.getTriggerType()",
+      "void EdgeCommunicationFailureNotificationRuleTriggerConfig.setEdges(Set)",
+      "String EdgeCommunicationFailureNotificationRuleTriggerConfig.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     EdgeCommunicationFailureNotificationRuleTriggerConfig actualEdgeCommunicationFailureNotificationRuleTriggerConfig = new EdgeCommunicationFailureNotificationRuleTriggerConfig();
@@ -291,7 +312,7 @@ class EdgeCommunicationFailureNotificationRuleTriggerConfigDiffblueTest {
     String actualToStringResult = actualEdgeCommunicationFailureNotificationRuleTriggerConfig.toString();
     Set<UUID> actualEdges = actualEdgeCommunicationFailureNotificationRuleTriggerConfig.getEdges();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("EdgeCommunicationFailureNotificationRuleTriggerConfig(edges=[])", actualToStringResult);
     assertEquals(NotificationRuleTriggerType.EDGE_COMMUNICATION_FAILURE,
         actualEdgeCommunicationFailureNotificationRuleTriggerConfig.getTriggerType());
@@ -307,18 +328,22 @@ class EdgeCommunicationFailureNotificationRuleTriggerConfigDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#EdgeCommunicationFailureNotificationRuleTriggerConfig(Set)}
-   *   <li>
-   * {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#setEdges(Set)}
+   *   <li>{@link EdgeCommunicationFailureNotificationRuleTriggerConfig#EdgeCommunicationFailureNotificationRuleTriggerConfig(Set)}
+   *   <li>{@link EdgeCommunicationFailureNotificationRuleTriggerConfig#setEdges(Set)}
    *   <li>{@link EdgeCommunicationFailureNotificationRuleTriggerConfig#toString()}
    *   <li>{@link EdgeCommunicationFailureNotificationRuleTriggerConfig#getEdges()}
-   *   <li>
-   * {@link EdgeCommunicationFailureNotificationRuleTriggerConfig#getTriggerType()}
+   *   <li>{@link EdgeCommunicationFailureNotificationRuleTriggerConfig#getTriggerType()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters; when HashSet()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EdgeCommunicationFailureNotificationRuleTriggerConfig.<init>()",
+      "void EdgeCommunicationFailureNotificationRuleTriggerConfig.<init>(Set)",
+      "Set EdgeCommunicationFailureNotificationRuleTriggerConfig.getEdges()",
+      "NotificationRuleTriggerType EdgeCommunicationFailureNotificationRuleTriggerConfig.getTriggerType()",
+      "void EdgeCommunicationFailureNotificationRuleTriggerConfig.setEdges(Set)",
+      "String EdgeCommunicationFailureNotificationRuleTriggerConfig.toString()"})
   void testGettersAndSetters_whenHashSet() {
     // Arrange and Act
     EdgeCommunicationFailureNotificationRuleTriggerConfig actualEdgeCommunicationFailureNotificationRuleTriggerConfig = new EdgeCommunicationFailureNotificationRuleTriggerConfig(
@@ -328,7 +353,7 @@ class EdgeCommunicationFailureNotificationRuleTriggerConfigDiffblueTest {
     String actualToStringResult = actualEdgeCommunicationFailureNotificationRuleTriggerConfig.toString();
     Set<UUID> actualEdges = actualEdgeCommunicationFailureNotificationRuleTriggerConfig.getEdges();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("EdgeCommunicationFailureNotificationRuleTriggerConfig(edges=[])", actualToStringResult);
     assertEquals(NotificationRuleTriggerType.EDGE_COMMUNICATION_FAILURE,
         actualEdgeCommunicationFailureNotificationRuleTriggerConfig.getTriggerType());

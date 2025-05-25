@@ -2,13 +2,14 @@ package org.thingsboard.server.common.data.sms.config;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TwilioSmsProviderConfigurationDiffblueTest {
   /**
-   * Test {@link TwilioSmsProviderConfiguration#equals(Object)}, and
-   * {@link TwilioSmsProviderConfiguration#hashCode()}.
+   * Test {@link TwilioSmsProviderConfiguration#equals(Object)}, and {@link TwilioSmsProviderConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -22,6 +23,9 @@ class TwilioSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwilioSmsProviderConfiguration.equals(Object)",
+      "int TwilioSmsProviderConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TwilioSmsProviderConfiguration twilioSmsProviderConfiguration = new TwilioSmsProviderConfiguration();
@@ -41,8 +45,7 @@ class TwilioSmsProviderConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TwilioSmsProviderConfiguration#equals(Object)}, and
-   * {@link TwilioSmsProviderConfiguration#hashCode()}.
+   * Test {@link TwilioSmsProviderConfiguration#equals(Object)}, and {@link TwilioSmsProviderConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -56,6 +59,9 @@ class TwilioSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwilioSmsProviderConfiguration.equals(Object)",
+      "int TwilioSmsProviderConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TwilioSmsProviderConfiguration twilioSmsProviderConfiguration = new TwilioSmsProviderConfiguration();
@@ -75,8 +81,7 @@ class TwilioSmsProviderConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TwilioSmsProviderConfiguration#equals(Object)}, and
-   * {@link TwilioSmsProviderConfiguration#hashCode()}.
+   * Test {@link TwilioSmsProviderConfiguration#equals(Object)}, and {@link TwilioSmsProviderConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -90,6 +95,9 @@ class TwilioSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwilioSmsProviderConfiguration.equals(Object)",
+      "int TwilioSmsProviderConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TwilioSmsProviderConfiguration twilioSmsProviderConfiguration = new TwilioSmsProviderConfiguration();
@@ -109,8 +117,7 @@ class TwilioSmsProviderConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TwilioSmsProviderConfiguration#equals(Object)}, and
-   * {@link TwilioSmsProviderConfiguration#hashCode()}.
+   * Test {@link TwilioSmsProviderConfiguration#equals(Object)}, and {@link TwilioSmsProviderConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -124,6 +131,9 @@ class TwilioSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwilioSmsProviderConfiguration.equals(Object)",
+      "int TwilioSmsProviderConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     TwilioSmsProviderConfiguration twilioSmsProviderConfiguration = new TwilioSmsProviderConfiguration();
@@ -143,8 +153,7 @@ class TwilioSmsProviderConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TwilioSmsProviderConfiguration#equals(Object)}, and
-   * {@link TwilioSmsProviderConfiguration#hashCode()}.
+   * Test {@link TwilioSmsProviderConfiguration#equals(Object)}, and {@link TwilioSmsProviderConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -158,6 +167,9 @@ class TwilioSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwilioSmsProviderConfiguration.equals(Object)",
+      "int TwilioSmsProviderConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TwilioSmsProviderConfiguration twilioSmsProviderConfiguration = new TwilioSmsProviderConfiguration();
@@ -182,6 +194,9 @@ class TwilioSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwilioSmsProviderConfiguration.equals(Object)",
+      "int TwilioSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TwilioSmsProviderConfiguration twilioSmsProviderConfiguration = new TwilioSmsProviderConfiguration();
@@ -209,6 +224,9 @@ class TwilioSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwilioSmsProviderConfiguration.equals(Object)",
+      "int TwilioSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TwilioSmsProviderConfiguration twilioSmsProviderConfiguration = new TwilioSmsProviderConfiguration();
@@ -236,6 +254,9 @@ class TwilioSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwilioSmsProviderConfiguration.equals(Object)",
+      "int TwilioSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TwilioSmsProviderConfiguration twilioSmsProviderConfiguration = new TwilioSmsProviderConfiguration();
@@ -263,6 +284,9 @@ class TwilioSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwilioSmsProviderConfiguration.equals(Object)",
+      "int TwilioSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TwilioSmsProviderConfiguration twilioSmsProviderConfiguration = new TwilioSmsProviderConfiguration();
@@ -290,6 +314,9 @@ class TwilioSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwilioSmsProviderConfiguration.equals(Object)",
+      "int TwilioSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TwilioSmsProviderConfiguration twilioSmsProviderConfiguration = new TwilioSmsProviderConfiguration();
@@ -317,6 +344,9 @@ class TwilioSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwilioSmsProviderConfiguration.equals(Object)",
+      "int TwilioSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TwilioSmsProviderConfiguration twilioSmsProviderConfiguration = new TwilioSmsProviderConfiguration();
@@ -344,6 +374,9 @@ class TwilioSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwilioSmsProviderConfiguration.equals(Object)",
+      "int TwilioSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     TwilioSmsProviderConfiguration twilioSmsProviderConfiguration = new TwilioSmsProviderConfiguration();
@@ -366,6 +399,9 @@ class TwilioSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TwilioSmsProviderConfiguration.equals(Object)",
+      "int TwilioSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     TwilioSmsProviderConfiguration twilioSmsProviderConfiguration = new TwilioSmsProviderConfiguration();
@@ -382,8 +418,7 @@ class TwilioSmsProviderConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link TwilioSmsProviderConfiguration}
+   *   <li>default or parameterless constructor of {@link TwilioSmsProviderConfiguration}
    *   <li>{@link TwilioSmsProviderConfiguration#setAccountSid(String)}
    *   <li>{@link TwilioSmsProviderConfiguration#setAccountToken(String)}
    *   <li>{@link TwilioSmsProviderConfiguration#setNumberFrom(String)}
@@ -396,6 +431,15 @@ class TwilioSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TwilioSmsProviderConfiguration.<init>()",
+      "String TwilioSmsProviderConfiguration.getAccountSid()",
+      "String TwilioSmsProviderConfiguration.getAccountToken()",
+      "String TwilioSmsProviderConfiguration.getNumberFrom()",
+      "SmsProviderType TwilioSmsProviderConfiguration.getType()",
+      "void TwilioSmsProviderConfiguration.setAccountSid(String)",
+      "void TwilioSmsProviderConfiguration.setAccountToken(String)",
+      "void TwilioSmsProviderConfiguration.setNumberFrom(String)", "String TwilioSmsProviderConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TwilioSmsProviderConfiguration actualTwilioSmsProviderConfiguration = new TwilioSmsProviderConfiguration();
@@ -407,7 +451,7 @@ class TwilioSmsProviderConfigurationDiffblueTest {
     String actualAccountToken = actualTwilioSmsProviderConfiguration.getAccountToken();
     String actualNumberFrom = actualTwilioSmsProviderConfiguration.getNumberFrom();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("3", actualAccountSid);
     assertEquals("42", actualNumberFrom);
     assertEquals("ABC123", actualAccountToken);

@@ -3,7 +3,9 @@ package org.thingsboard.rule.engine.api.sms.exception;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class SmsParseExceptionDiffblueTest {
@@ -18,6 +20,8 @@ class SmsParseExceptionDiffblueTest {
    */
   @Test
   @DisplayName("Test new SmsParseException(String); when 'Msg'; then return Cause is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SmsParseException.<init>(String)", "void SmsParseException.<init>(String, Throwable)"})
   void testNewSmsParseException_whenMsg_thenReturnCauseIsNull() {
     // Arrange and Act
     SmsParseException actualSmsParseException = new SmsParseException("Msg");
@@ -35,11 +39,12 @@ class SmsParseExceptionDiffblueTest {
    *   <li>Then return Cause is {@link Throwable#Throwable()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SmsParseException#SmsParseException(String, Throwable)}
+   * Method under test: {@link SmsParseException#SmsParseException(String, Throwable)}
    */
   @Test
   @DisplayName("Test new SmsParseException(String, Throwable); when Throwable(); then return Cause is Throwable()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SmsParseException.<init>(String)", "void SmsParseException.<init>(String, Throwable)"})
   void testNewSmsParseException_whenThrowable_thenReturnCauseIsThrowable() {
     // Arrange
     Throwable cause = new Throwable();

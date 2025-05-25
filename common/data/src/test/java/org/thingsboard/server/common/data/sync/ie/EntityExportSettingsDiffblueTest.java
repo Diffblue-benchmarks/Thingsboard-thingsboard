@@ -6,27 +6,42 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.anyBoolean;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.sync.ie.EntityExportSettings.EntityExportSettingsBuilder;
 
+@ContextConfiguration(classes = {EntityExportSettingsBuilder.class})
+@ExtendWith(SpringExtension.class)
 class EntityExportSettingsDiffblueTest {
+  @Autowired
+  private EntityExportSettingsBuilder entityExportSettingsBuilder;
+
   /**
    * Test EntityExportSettingsBuilder {@link EntityExportSettingsBuilder#build()}.
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link EntityExportSettings.EntityExportSettingsBuilder#build()}
-   *   <li>
-   * {@link EntityExportSettings.EntityExportSettingsBuilder#exportAttributes(boolean)}
-   *   <li>
-   * {@link EntityExportSettings.EntityExportSettingsBuilder#exportCredentials(boolean)}
-   *   <li>
-   * {@link EntityExportSettings.EntityExportSettingsBuilder#exportRelations(boolean)}
+   *   <li>{@link EntityExportSettingsBuilder#build()}
+   *   <li>{@link EntityExportSettingsBuilder#exportAttributes(boolean)}
+   *   <li>{@link EntityExportSettingsBuilder#exportCredentials(boolean)}
+   *   <li>{@link EntityExportSettingsBuilder#exportRelations(boolean)}
    * </ul>
    */
   @Test
   @DisplayName("Test EntityExportSettingsBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityExportSettingsBuilder.<init>()",
+      "EntityExportSettings EntityExportSettingsBuilder.build()",
+      "EntityExportSettingsBuilder EntityExportSettingsBuilder.exportAttributes(boolean)",
+      "EntityExportSettingsBuilder EntityExportSettingsBuilder.exportCredentials(boolean)",
+      "EntityExportSettingsBuilder EntityExportSettingsBuilder.exportRelations(boolean)",
+      "String EntityExportSettingsBuilder.toString()"})
   void testEntityExportSettingsBuilderBuild() {
     // Arrange and Act
     EntityExportSettings actualBuildResult = EntityExportSettings.builder()
@@ -42,8 +57,7 @@ class EntityExportSettingsDiffblueTest {
   }
 
   /**
-   * Test {@link EntityExportSettings#equals(Object)}, and
-   * {@link EntityExportSettings#hashCode()}.
+   * Test {@link EntityExportSettings#equals(Object)}, and {@link EntityExportSettings#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -57,6 +71,8 @@ class EntityExportSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportSettings.equals(Object)", "int EntityExportSettings.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EntityExportSettings buildResult = EntityExportSettings.builder()
@@ -77,8 +93,7 @@ class EntityExportSettingsDiffblueTest {
   }
 
   /**
-   * Test {@link EntityExportSettings#equals(Object)}, and
-   * {@link EntityExportSettings#hashCode()}.
+   * Test {@link EntityExportSettings#equals(Object)}, and {@link EntityExportSettings#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -92,6 +107,8 @@ class EntityExportSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportSettings.equals(Object)", "int EntityExportSettings.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EntityExportSettings buildResult = EntityExportSettings.builder()
@@ -117,10 +134,11 @@ class EntityExportSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportSettings.equals(Object)", "int EntityExportSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    EntityExportSettings.EntityExportSettingsBuilder entityExportSettingsBuilder = mock(
-        EntityExportSettings.EntityExportSettingsBuilder.class);
+    EntityExportSettingsBuilder entityExportSettingsBuilder = mock(EntityExportSettingsBuilder.class);
     when(entityExportSettingsBuilder.exportAttributes(anyBoolean())).thenReturn(EntityExportSettings.builder());
     EntityExportSettings buildResult = entityExportSettingsBuilder.exportAttributes(true)
         .exportCredentials(true)
@@ -147,10 +165,11 @@ class EntityExportSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportSettings.equals(Object)", "int EntityExportSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    EntityExportSettings.EntityExportSettingsBuilder entityExportSettingsBuilder = mock(
-        EntityExportSettings.EntityExportSettingsBuilder.class);
+    EntityExportSettingsBuilder entityExportSettingsBuilder = mock(EntityExportSettingsBuilder.class);
     when(entityExportSettingsBuilder.exportAttributes(anyBoolean())).thenReturn(EntityExportSettings.builder());
     EntityExportSettings buildResult = entityExportSettingsBuilder.exportAttributes(true)
         .exportCredentials(true)
@@ -177,10 +196,11 @@ class EntityExportSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportSettings.equals(Object)", "int EntityExportSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    EntityExportSettings.EntityExportSettingsBuilder entityExportSettingsBuilder = mock(
-        EntityExportSettings.EntityExportSettingsBuilder.class);
+    EntityExportSettingsBuilder entityExportSettingsBuilder = mock(EntityExportSettingsBuilder.class);
     when(entityExportSettingsBuilder.exportAttributes(anyBoolean())).thenReturn(EntityExportSettings.builder());
     EntityExportSettings buildResult = entityExportSettingsBuilder.exportAttributes(true)
         .exportCredentials(false)
@@ -207,6 +227,8 @@ class EntityExportSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportSettings.equals(Object)", "int EntityExportSettings.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     EntityExportSettings buildResult = EntityExportSettings.builder()
@@ -230,6 +252,8 @@ class EntityExportSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityExportSettings.equals(Object)", "int EntityExportSettings.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     EntityExportSettings buildResult = EntityExportSettings.builder()
@@ -259,6 +283,13 @@ class EntityExportSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityExportSettings.<init>()",
+      "void EntityExportSettings.<init>(boolean, boolean, boolean)",
+      "boolean EntityExportSettings.isExportAttributes()", "boolean EntityExportSettings.isExportCredentials()",
+      "boolean EntityExportSettings.isExportRelations()", "void EntityExportSettings.setExportAttributes(boolean)",
+      "void EntityExportSettings.setExportCredentials(boolean)",
+      "void EntityExportSettings.setExportRelations(boolean)", "String EntityExportSettings.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     EntityExportSettings actualEntityExportSettings = new EntityExportSettings();
@@ -269,7 +300,7 @@ class EntityExportSettingsDiffblueTest {
     boolean actualIsExportAttributesResult = actualEntityExportSettings.isExportAttributes();
     boolean actualIsExportCredentialsResult = actualEntityExportSettings.isExportCredentials();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("EntityExportSettings(exportRelations=true, exportAttributes=true, exportCredentials=true)",
         actualToStringResult);
     assertTrue(actualIsExportAttributesResult);
@@ -285,8 +316,7 @@ class EntityExportSettingsDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link EntityExportSettings#EntityExportSettings(boolean, boolean, boolean)}
+   *   <li>{@link EntityExportSettings#EntityExportSettings(boolean, boolean, boolean)}
    *   <li>{@link EntityExportSettings#setExportAttributes(boolean)}
    *   <li>{@link EntityExportSettings#setExportCredentials(boolean)}
    *   <li>{@link EntityExportSettings#setExportRelations(boolean)}
@@ -298,6 +328,13 @@ class EntityExportSettingsDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityExportSettings.<init>()",
+      "void EntityExportSettings.<init>(boolean, boolean, boolean)",
+      "boolean EntityExportSettings.isExportAttributes()", "boolean EntityExportSettings.isExportCredentials()",
+      "boolean EntityExportSettings.isExportRelations()", "void EntityExportSettings.setExportAttributes(boolean)",
+      "void EntityExportSettings.setExportCredentials(boolean)",
+      "void EntityExportSettings.setExportRelations(boolean)", "String EntityExportSettings.toString()"})
   void testGettersAndSetters_whenTrue() {
     // Arrange and Act
     EntityExportSettings actualEntityExportSettings = new EntityExportSettings(true, true, true);
@@ -308,7 +345,7 @@ class EntityExportSettingsDiffblueTest {
     boolean actualIsExportAttributesResult = actualEntityExportSettings.isExportAttributes();
     boolean actualIsExportCredentialsResult = actualEntityExportSettings.isExportCredentials();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("EntityExportSettings(exportRelations=true, exportAttributes=true, exportCredentials=true)",
         actualToStringResult);
     assertTrue(actualIsExportAttributesResult);

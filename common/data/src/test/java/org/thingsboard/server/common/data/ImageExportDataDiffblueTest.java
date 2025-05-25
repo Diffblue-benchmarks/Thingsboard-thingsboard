@@ -6,15 +6,25 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.ImageExportData.ImageExportDataBuilder;
 
+@ContextConfiguration(classes = {ImageExportDataBuilder.class})
+@ExtendWith(SpringExtension.class)
 class ImageExportDataDiffblueTest {
+  @Autowired
+  private ImageExportDataBuilder imageExportDataBuilder;
+
   /**
-   * Test {@link ImageExportData#equals(Object)}, and
-   * {@link ImageExportData#hashCode()}.
+   * Test {@link ImageExportData#equals(Object)}, and {@link ImageExportData#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -28,6 +38,8 @@ class ImageExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageExportData.equals(Object)", "int ImageExportData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ImageExportData buildResult = ImageExportData.builder()
@@ -56,8 +68,7 @@ class ImageExportDataDiffblueTest {
   }
 
   /**
-   * Test {@link ImageExportData#equals(Object)}, and
-   * {@link ImageExportData#hashCode()}.
+   * Test {@link ImageExportData#equals(Object)}, and {@link ImageExportData#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -71,6 +82,8 @@ class ImageExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageExportData.equals(Object)", "int ImageExportData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ImageExportData buildResult = ImageExportData.builder()
@@ -100,9 +113,11 @@ class ImageExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageExportData.equals(Object)", "int ImageExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder.data(Mockito.<String>any())).thenReturn(ImageExportData.builder());
     ImageExportData buildResult = imageExportDataBuilder.data("Data")
         .fileName("foo.txt")
@@ -137,11 +152,13 @@ class ImageExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageExportData.equals(Object)", "int ImageExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder.fileName(Mockito.<String>any())).thenReturn(ImageExportData.builder());
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder2.data(Mockito.<String>any())).thenReturn(imageExportDataBuilder);
     ImageExportData buildResult = imageExportDataBuilder2.data("Data")
         .fileName("foo.txt")
@@ -176,13 +193,15 @@ class ImageExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageExportData.equals(Object)", "int ImageExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder.mediaType(Mockito.<String>any())).thenReturn(ImageExportData.builder());
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder2.fileName(Mockito.<String>any())).thenReturn(imageExportDataBuilder);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder3.data(Mockito.<String>any())).thenReturn(imageExportDataBuilder2);
     ImageExportData buildResult = imageExportDataBuilder3.data("Data")
         .fileName("foo.txt")
@@ -217,13 +236,15 @@ class ImageExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageExportData.equals(Object)", "int ImageExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder.mediaType(Mockito.<String>any())).thenReturn(ImageExportData.builder());
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder2.fileName(Mockito.<String>any())).thenReturn(imageExportDataBuilder);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder3.data(Mockito.<String>any())).thenReturn(imageExportDataBuilder2);
     ImageExportData buildResult = imageExportDataBuilder3.data("Data")
         .fileName("foo.txt")
@@ -258,13 +279,15 @@ class ImageExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageExportData.equals(Object)", "int ImageExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder.mediaType(Mockito.<String>any())).thenReturn(ImageExportData.builder());
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder2.fileName(Mockito.<String>any())).thenReturn(imageExportDataBuilder);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder3.data(Mockito.<String>any())).thenReturn(imageExportDataBuilder2);
     ImageExportData buildResult = imageExportDataBuilder3.data("Data")
         .fileName("foo.txt")
@@ -299,15 +322,17 @@ class ImageExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageExportData.equals(Object)", "int ImageExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    ImageExportData.ImageExportDataBuilder builderResult = ImageExportData.builder();
+    ImageExportDataBuilder builderResult = ImageExportData.builder();
     builderResult.mediaType("Media Type");
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder.mediaType(Mockito.<String>any())).thenReturn(builderResult);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder2.fileName(Mockito.<String>any())).thenReturn(imageExportDataBuilder);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder3.data(Mockito.<String>any())).thenReturn(imageExportDataBuilder2);
     ImageExportData buildResult = imageExportDataBuilder3.data("Data")
         .fileName("foo.txt")
@@ -342,15 +367,17 @@ class ImageExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageExportData.equals(Object)", "int ImageExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder.publicResourceKey(Mockito.<String>any())).thenReturn(ImageExportData.builder());
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder2.mediaType(Mockito.<String>any())).thenReturn(imageExportDataBuilder);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder3.fileName(Mockito.<String>any())).thenReturn(imageExportDataBuilder2);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder4 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder4 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder4.data(Mockito.<String>any())).thenReturn(imageExportDataBuilder3);
     ImageExportData buildResult = imageExportDataBuilder4.data("Data")
         .fileName("foo.txt")
@@ -385,17 +412,19 @@ class ImageExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageExportData.equals(Object)", "int ImageExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder.resourceKey(Mockito.<String>any())).thenReturn(ImageExportData.builder());
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder2.publicResourceKey(Mockito.<String>any())).thenReturn(imageExportDataBuilder);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder3.mediaType(Mockito.<String>any())).thenReturn(imageExportDataBuilder2);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder4 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder4 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder4.fileName(Mockito.<String>any())).thenReturn(imageExportDataBuilder3);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder5 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder5 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder5.data(Mockito.<String>any())).thenReturn(imageExportDataBuilder4);
     ImageExportData buildResult = imageExportDataBuilder5.data("Data")
         .fileName("foo.txt")
@@ -430,19 +459,21 @@ class ImageExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageExportData.equals(Object)", "int ImageExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder.subType(Mockito.<String>any())).thenReturn(ImageExportData.builder());
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder2.resourceKey(Mockito.<String>any())).thenReturn(imageExportDataBuilder);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder3.publicResourceKey(Mockito.<String>any())).thenReturn(imageExportDataBuilder2);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder4 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder4 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder4.mediaType(Mockito.<String>any())).thenReturn(imageExportDataBuilder3);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder5 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder5 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder5.fileName(Mockito.<String>any())).thenReturn(imageExportDataBuilder4);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder6 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder6 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder6.data(Mockito.<String>any())).thenReturn(imageExportDataBuilder5);
     ImageExportData buildResult = imageExportDataBuilder6.data("Data")
         .fileName("foo.txt")
@@ -477,21 +508,23 @@ class ImageExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageExportData.equals(Object)", "int ImageExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder.title(Mockito.<String>any())).thenReturn(ImageExportData.builder());
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder2.subType(Mockito.<String>any())).thenReturn(imageExportDataBuilder);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder3.resourceKey(Mockito.<String>any())).thenReturn(imageExportDataBuilder2);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder4 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder4 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder4.publicResourceKey(Mockito.<String>any())).thenReturn(imageExportDataBuilder3);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder5 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder5 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder5.mediaType(Mockito.<String>any())).thenReturn(imageExportDataBuilder4);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder6 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder6 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder6.fileName(Mockito.<String>any())).thenReturn(imageExportDataBuilder5);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder7 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder7 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder7.data(Mockito.<String>any())).thenReturn(imageExportDataBuilder6);
     ImageExportData buildResult = imageExportDataBuilder7.data("Data")
         .fileName("foo.txt")
@@ -526,21 +559,23 @@ class ImageExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageExportData.equals(Object)", "int ImageExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder.title(Mockito.<String>any())).thenReturn(ImageExportData.builder());
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder2.subType(Mockito.<String>any())).thenReturn(imageExportDataBuilder);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder3.resourceKey(Mockito.<String>any())).thenReturn(imageExportDataBuilder2);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder4 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder4 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder4.publicResourceKey(Mockito.<String>any())).thenReturn(imageExportDataBuilder3);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder5 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder5 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder5.mediaType(Mockito.<String>any())).thenReturn(imageExportDataBuilder4);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder6 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder6 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder6.fileName(Mockito.<String>any())).thenReturn(imageExportDataBuilder5);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder7 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder7 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder7.data(Mockito.<String>any())).thenReturn(imageExportDataBuilder6);
     ImageExportData buildResult = imageExportDataBuilder7.data("Data")
         .fileName("foo.txt")
@@ -575,23 +610,25 @@ class ImageExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageExportData.equals(Object)", "int ImageExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
-    ImageExportData.ImageExportDataBuilder builderResult = ImageExportData.builder();
+    ImageExportDataBuilder builderResult = ImageExportData.builder();
     builderResult.fileName("foo.txt");
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder.title(Mockito.<String>any())).thenReturn(builderResult);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder2.subType(Mockito.<String>any())).thenReturn(imageExportDataBuilder);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder3.resourceKey(Mockito.<String>any())).thenReturn(imageExportDataBuilder2);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder4 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder4 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder4.publicResourceKey(Mockito.<String>any())).thenReturn(imageExportDataBuilder3);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder5 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder5 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder5.mediaType(Mockito.<String>any())).thenReturn(imageExportDataBuilder4);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder6 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder6 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder6.fileName(Mockito.<String>any())).thenReturn(imageExportDataBuilder5);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder7 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder7 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder7.data(Mockito.<String>any())).thenReturn(imageExportDataBuilder6);
     ImageExportData buildResult = imageExportDataBuilder7.data("Data")
         .fileName("foo.txt")
@@ -626,21 +663,23 @@ class ImageExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageExportData.equals(Object)", "int ImageExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder.title(Mockito.<String>any())).thenReturn(ImageExportData.builder());
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder2.subType(Mockito.<String>any())).thenReturn(imageExportDataBuilder);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder3.resourceKey(Mockito.<String>any())).thenReturn(imageExportDataBuilder2);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder4 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder4 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder4.publicResourceKey(Mockito.<String>any())).thenReturn(imageExportDataBuilder3);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder5 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder5 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder5.mediaType(Mockito.<String>any())).thenReturn(imageExportDataBuilder4);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder6 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder6 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder6.fileName(Mockito.<String>any())).thenReturn(imageExportDataBuilder5);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder7 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder7 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder7.data(Mockito.<String>any())).thenReturn(imageExportDataBuilder6);
     ImageExportData buildResult = imageExportDataBuilder7.data("Data")
         .fileName("foo.txt")
@@ -675,23 +714,25 @@ class ImageExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageExportData.equals(Object)", "int ImageExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
-    ImageExportData.ImageExportDataBuilder builderResult = ImageExportData.builder();
+    ImageExportDataBuilder builderResult = ImageExportData.builder();
     builderResult.title("Dr");
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder.title(Mockito.<String>any())).thenReturn(builderResult);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder2.subType(Mockito.<String>any())).thenReturn(imageExportDataBuilder);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder3.resourceKey(Mockito.<String>any())).thenReturn(imageExportDataBuilder2);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder4 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder4 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder4.publicResourceKey(Mockito.<String>any())).thenReturn(imageExportDataBuilder3);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder5 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder5 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder5.mediaType(Mockito.<String>any())).thenReturn(imageExportDataBuilder4);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder6 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder6 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder6.fileName(Mockito.<String>any())).thenReturn(imageExportDataBuilder5);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder7 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder7 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder7.data(Mockito.<String>any())).thenReturn(imageExportDataBuilder6);
     ImageExportData buildResult = imageExportDataBuilder7.data("Data")
         .fileName("foo.txt")
@@ -726,21 +767,23 @@ class ImageExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageExportData.equals(Object)", "int ImageExportData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder.title(Mockito.<String>any())).thenReturn(ImageExportData.builder());
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder2 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder2.subType(Mockito.<String>any())).thenReturn(imageExportDataBuilder);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder3 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder3.resourceKey(Mockito.<String>any())).thenReturn(imageExportDataBuilder2);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder4 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder4 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder4.publicResourceKey(Mockito.<String>any())).thenReturn(imageExportDataBuilder3);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder5 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder5 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder5.mediaType(Mockito.<String>any())).thenReturn(imageExportDataBuilder4);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder6 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder6 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder6.fileName(Mockito.<String>any())).thenReturn(imageExportDataBuilder5);
-    ImageExportData.ImageExportDataBuilder imageExportDataBuilder7 = mock(ImageExportData.ImageExportDataBuilder.class);
+    ImageExportDataBuilder imageExportDataBuilder7 = mock(ImageExportDataBuilder.class);
     when(imageExportDataBuilder7.data(Mockito.<String>any())).thenReturn(imageExportDataBuilder6);
     ImageExportData buildResult = imageExportDataBuilder7.data("Data")
         .fileName("foo.txt")
@@ -775,6 +818,8 @@ class ImageExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageExportData.equals(Object)", "int ImageExportData.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     ImageExportData buildResult = ImageExportData.builder()
@@ -802,6 +847,8 @@ class ImageExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ImageExportData.equals(Object)", "int ImageExportData.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     ImageExportData buildResult = ImageExportData.builder()
@@ -845,6 +892,17 @@ class ImageExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ImageExportData.<init>()",
+      "void ImageExportData.<init>(String, String, String, String, String, boolean, String, String)",
+      "String ImageExportData.getData()", "String ImageExportData.getFileName()",
+      "String ImageExportData.getMediaType()", "String ImageExportData.getPublicResourceKey()",
+      "String ImageExportData.getResourceKey()", "String ImageExportData.getSubType()",
+      "String ImageExportData.getTitle()", "boolean ImageExportData.isPublic()", "void ImageExportData.setData(String)",
+      "void ImageExportData.setFileName(String)", "void ImageExportData.setMediaType(String)",
+      "void ImageExportData.setPublic(boolean)", "void ImageExportData.setPublicResourceKey(String)",
+      "void ImageExportData.setResourceKey(String)", "void ImageExportData.setSubType(String)",
+      "void ImageExportData.setTitle(String)", "String ImageExportData.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     ImageExportData actualImageExportData = new ImageExportData();
@@ -865,7 +923,7 @@ class ImageExportDataDiffblueTest {
     String actualSubType = actualImageExportData.getSubType();
     String actualTitle = actualImageExportData.getTitle();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Data", actualData);
     assertEquals("Dr", actualTitle);
     assertEquals(
@@ -888,8 +946,7 @@ class ImageExportDataDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link ImageExportData#ImageExportData(String, String, String, String, String, boolean, String, String)}
+   *   <li>{@link ImageExportData#ImageExportData(String, String, String, String, String, boolean, String, String)}
    *   <li>{@link ImageExportData#setData(String)}
    *   <li>{@link ImageExportData#setFileName(String)}
    *   <li>{@link ImageExportData#setMediaType(String)}
@@ -911,6 +968,17 @@ class ImageExportDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when 'Media Type'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ImageExportData.<init>()",
+      "void ImageExportData.<init>(String, String, String, String, String, boolean, String, String)",
+      "String ImageExportData.getData()", "String ImageExportData.getFileName()",
+      "String ImageExportData.getMediaType()", "String ImageExportData.getPublicResourceKey()",
+      "String ImageExportData.getResourceKey()", "String ImageExportData.getSubType()",
+      "String ImageExportData.getTitle()", "boolean ImageExportData.isPublic()", "void ImageExportData.setData(String)",
+      "void ImageExportData.setFileName(String)", "void ImageExportData.setMediaType(String)",
+      "void ImageExportData.setPublic(boolean)", "void ImageExportData.setPublicResourceKey(String)",
+      "void ImageExportData.setResourceKey(String)", "void ImageExportData.setSubType(String)",
+      "void ImageExportData.setTitle(String)", "String ImageExportData.toString()"})
   void testGettersAndSetters_whenMediaType() {
     // Arrange and Act
     ImageExportData actualImageExportData = new ImageExportData("Media Type", "foo.txt", "Dr", "Sub Type",
@@ -932,7 +1000,7 @@ class ImageExportDataDiffblueTest {
     String actualSubType = actualImageExportData.getSubType();
     String actualTitle = actualImageExportData.getTitle();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Data", actualData);
     assertEquals("Dr", actualTitle);
     assertEquals(
@@ -952,18 +1020,28 @@ class ImageExportDataDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link ImageExportData.ImageExportDataBuilder#build()}
-   *   <li>{@link ImageExportData.ImageExportDataBuilder#data(String)}
-   *   <li>{@link ImageExportData.ImageExportDataBuilder#fileName(String)}
-   *   <li>{@link ImageExportData.ImageExportDataBuilder#mediaType(String)}
-   *   <li>{@link ImageExportData.ImageExportDataBuilder#publicResourceKey(String)}
-   *   <li>{@link ImageExportData.ImageExportDataBuilder#resourceKey(String)}
-   *   <li>{@link ImageExportData.ImageExportDataBuilder#subType(String)}
-   *   <li>{@link ImageExportData.ImageExportDataBuilder#title(String)}
+   *   <li>{@link ImageExportDataBuilder#build()}
+   *   <li>{@link ImageExportDataBuilder#data(String)}
+   *   <li>{@link ImageExportDataBuilder#fileName(String)}
+   *   <li>{@link ImageExportDataBuilder#mediaType(String)}
+   *   <li>{@link ImageExportDataBuilder#publicResourceKey(String)}
+   *   <li>{@link ImageExportDataBuilder#resourceKey(String)}
+   *   <li>{@link ImageExportDataBuilder#subType(String)}
+   *   <li>{@link ImageExportDataBuilder#title(String)}
    * </ul>
    */
   @Test
   @DisplayName("Test ImageExportDataBuilder build()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ImageExportDataBuilder.<init>()", "ImageExportData ImageExportDataBuilder.build()",
+      "ImageExportDataBuilder ImageExportDataBuilder.data(String)",
+      "ImageExportDataBuilder ImageExportDataBuilder.fileName(String)",
+      "ImageExportDataBuilder ImageExportDataBuilder.isPublic(boolean)",
+      "ImageExportDataBuilder ImageExportDataBuilder.mediaType(String)",
+      "ImageExportDataBuilder ImageExportDataBuilder.publicResourceKey(String)",
+      "ImageExportDataBuilder ImageExportDataBuilder.resourceKey(String)",
+      "ImageExportDataBuilder ImageExportDataBuilder.subType(String)",
+      "ImageExportDataBuilder ImageExportDataBuilder.title(String)", "String ImageExportDataBuilder.toString()"})
   void testImageExportDataBuilderBuild() {
     // Arrange and Act
     ImageExportData actualBuildResult = ImageExportData.builder()

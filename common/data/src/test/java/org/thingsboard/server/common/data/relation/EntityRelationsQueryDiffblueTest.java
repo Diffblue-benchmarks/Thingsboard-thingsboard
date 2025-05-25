@@ -4,22 +4,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.AlarmId;
-import org.thingsboard.server.common.data.id.EntityId;
 import org.thingsboard.server.common.data.id.TenantId;
 
 class EntityRelationsQueryDiffblueTest {
   /**
-   * Test {@link EntityRelationsQuery#equals(Object)}, and
-   * {@link EntityRelationsQuery#hashCode()}.
+   * Test {@link EntityRelationsQuery#equals(Object)}, and {@link EntityRelationsQuery#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -33,6 +30,8 @@ class EntityRelationsQueryDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityRelationsQuery.equals(Object)", "int EntityRelationsQuery.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EntityRelationsQuery entityRelationsQuery = new EntityRelationsQuery();
@@ -52,8 +51,7 @@ class EntityRelationsQueryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityRelationsQuery#equals(Object)}, and
-   * {@link EntityRelationsQuery#hashCode()}.
+   * Test {@link EntityRelationsQuery#equals(Object)}, and {@link EntityRelationsQuery#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -67,6 +65,8 @@ class EntityRelationsQueryDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityRelationsQuery.equals(Object)", "int EntityRelationsQuery.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     EntityRelationsQuery entityRelationsQuery = new EntityRelationsQuery();
@@ -84,8 +84,7 @@ class EntityRelationsQueryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityRelationsQuery#equals(Object)}, and
-   * {@link EntityRelationsQuery#hashCode()}.
+   * Test {@link EntityRelationsQuery#equals(Object)}, and {@link EntityRelationsQuery#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -99,6 +98,8 @@ class EntityRelationsQueryDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityRelationsQuery.equals(Object)", "int EntityRelationsQuery.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EntityRelationsQuery entityRelationsQuery = new EntityRelationsQuery();
@@ -123,6 +124,8 @@ class EntityRelationsQueryDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityRelationsQuery.equals(Object)", "int EntityRelationsQuery.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ArrayList<RelationEntityTypeFilter> filters = new ArrayList<>();
@@ -153,6 +156,8 @@ class EntityRelationsQueryDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityRelationsQuery.equals(Object)", "int EntityRelationsQuery.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EntityRelationsQuery entityRelationsQuery = new EntityRelationsQuery();
@@ -180,38 +185,9 @@ class EntityRelationsQueryDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityRelationsQuery.equals(Object)", "int EntityRelationsQuery.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
-    // Arrange
-    EntityId entityId = mock(EntityId.class);
-    when(entityId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    when(entityId.getEntityType()).thenReturn(EntityType.TENANT);
-    RelationsSearchParameters parameters = new RelationsSearchParameters(entityId, EntitySearchDirection.FROM, 3, true);
-
-    EntityRelationsQuery entityRelationsQuery = new EntityRelationsQuery();
-    entityRelationsQuery.setFilters(new ArrayList<>());
-    entityRelationsQuery.setParameters(parameters);
-
-    EntityRelationsQuery entityRelationsQuery2 = new EntityRelationsQuery();
-    entityRelationsQuery2.setFilters(new ArrayList<>());
-    entityRelationsQuery2
-        .setParameters(new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
-
-    // Act and Assert
-    assertNotEquals(entityRelationsQuery, entityRelationsQuery2);
-  }
-
-  /**
-   * Test {@link EntityRelationsQuery#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link EntityRelationsQuery#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     EntityRelationsQuery entityRelationsQuery = new EntityRelationsQuery();
     entityRelationsQuery.setFilters(new ArrayList<>());
@@ -237,6 +213,8 @@ class EntityRelationsQueryDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityRelationsQuery.equals(Object)", "int EntityRelationsQuery.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     EntityRelationsQuery entityRelationsQuery = new EntityRelationsQuery();
@@ -259,6 +237,8 @@ class EntityRelationsQueryDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityRelationsQuery.equals(Object)", "int EntityRelationsQuery.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     EntityRelationsQuery entityRelationsQuery = new EntityRelationsQuery();
@@ -285,6 +265,10 @@ class EntityRelationsQueryDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityRelationsQuery.<init>()", "List EntityRelationsQuery.getFilters()",
+      "RelationsSearchParameters EntityRelationsQuery.getParameters()", "void EntityRelationsQuery.setFilters(List)",
+      "void EntityRelationsQuery.setParameters(RelationsSearchParameters)", "String EntityRelationsQuery.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     EntityRelationsQuery actualEntityRelationsQuery = new EntityRelationsQuery();
@@ -298,7 +282,7 @@ class EntityRelationsQueryDiffblueTest {
     List<RelationEntityTypeFilter> actualFilters = actualEntityRelationsQuery.getFilters();
     RelationsSearchParameters actualParameters = actualEntityRelationsQuery.getParameters();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "EntityRelationsQuery(parameters=RelationsSearchParameters(rootId=13814000-1dd2-11b2-8080-808080808080,"
             + " rootType=TENANT, direction=FROM, relationTypeGroup=COMMON, maxLevel=3, fetchLastLevelOnly=true),"

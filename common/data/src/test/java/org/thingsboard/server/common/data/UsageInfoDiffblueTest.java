@@ -3,7 +3,9 @@ package org.thingsboard.server.common.data;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class UsageInfoDiffblueTest {
@@ -22,6 +24,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -95,6 +99,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -139,6 +145,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -206,6 +214,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -273,6 +283,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -340,6 +352,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -407,6 +421,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -474,6 +490,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -541,6 +559,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -608,6 +628,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -675,6 +697,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -742,6 +766,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -809,6 +835,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -876,6 +904,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -943,6 +973,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -1010,6 +1042,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -1077,6 +1111,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -1144,6 +1180,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -1211,6 +1249,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -1278,6 +1318,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -1345,6 +1387,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -1412,6 +1456,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -1479,6 +1525,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -1546,6 +1594,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -1613,6 +1663,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -1680,6 +1732,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -1747,6 +1801,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -1789,6 +1845,8 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UsageInfo.equals(Object)", "int UsageInfo.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     UsageInfo usageInfo = new UsageInfo();
@@ -1877,6 +1935,25 @@ class UsageInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void UsageInfo.<init>()", "long UsageInfo.getAlarms()", "long UsageInfo.getAssets()",
+      "long UsageInfo.getCustomers()", "long UsageInfo.getDashboards()", "long UsageInfo.getDevices()",
+      "long UsageInfo.getEmails()", "long UsageInfo.getJsExecutions()", "long UsageInfo.getMaxAlarms()",
+      "long UsageInfo.getMaxAssets()", "long UsageInfo.getMaxCustomers()", "long UsageInfo.getMaxDashboards()",
+      "long UsageInfo.getMaxDevices()", "long UsageInfo.getMaxEmails()", "long UsageInfo.getMaxJsExecutions()",
+      "long UsageInfo.getMaxSms()", "long UsageInfo.getMaxTbelExecutions()", "long UsageInfo.getMaxTransportMessages()",
+      "long UsageInfo.getMaxUsers()", "long UsageInfo.getSms()", "Boolean UsageInfo.getSmsEnabled()",
+      "long UsageInfo.getTbelExecutions()", "long UsageInfo.getTransportMessages()", "long UsageInfo.getUsers()",
+      "void UsageInfo.setAlarms(long)", "void UsageInfo.setAssets(long)", "void UsageInfo.setCustomers(long)",
+      "void UsageInfo.setDashboards(long)", "void UsageInfo.setDevices(long)", "void UsageInfo.setEmails(long)",
+      "void UsageInfo.setJsExecutions(long)", "void UsageInfo.setMaxAlarms(long)", "void UsageInfo.setMaxAssets(long)",
+      "void UsageInfo.setMaxCustomers(long)", "void UsageInfo.setMaxDashboards(long)",
+      "void UsageInfo.setMaxDevices(long)", "void UsageInfo.setMaxEmails(long)",
+      "void UsageInfo.setMaxJsExecutions(long)", "void UsageInfo.setMaxSms(long)",
+      "void UsageInfo.setMaxTbelExecutions(long)", "void UsageInfo.setMaxTransportMessages(long)",
+      "void UsageInfo.setMaxUsers(long)", "void UsageInfo.setSms(long)", "void UsageInfo.setSmsEnabled(Boolean)",
+      "void UsageInfo.setTbelExecutions(long)", "void UsageInfo.setTransportMessages(long)",
+      "void UsageInfo.setUsers(long)", "String UsageInfo.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     UsageInfo actualUsageInfo = new UsageInfo();
@@ -1927,7 +2004,7 @@ class UsageInfoDiffblueTest {
     long actualTbelExecutions = actualUsageInfo.getTbelExecutions();
     long actualTransportMessages = actualUsageInfo.getTransportMessages();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("UsageInfo(devices=1, maxDevices=1, assets=1, maxAssets=1, customers=1, maxCustomers=1, users=1,"
         + " maxUsers=1, dashboards=1, maxDashboards=1, transportMessages=1, maxTransportMessages=1, jsExecutions=1,"
         + " tbelExecutions=1, maxJsExecutions=1, maxTbelExecutions=1, emails=1, maxEmails=1, sms=1, maxSms=1,"

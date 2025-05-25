@@ -6,15 +6,14 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import java.util.function.BiFunction;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.thingsboard.server.common.data.AdminSettings;
 import org.thingsboard.server.common.data.id.NotificationTemplateId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.notification.NotificationDeliveryMethod;
@@ -22,8 +21,7 @@ import org.thingsboard.server.common.data.notification.NotificationType;
 
 class NotificationTemplateDiffblueTest {
   /**
-   * Test {@link NotificationTemplate#equals(Object)}, and
-   * {@link NotificationTemplate#hashCode()}.
+   * Test {@link NotificationTemplate#equals(Object)}, and {@link NotificationTemplate#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -37,6 +35,8 @@ class NotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplate.equals(Object)", "int NotificationTemplate.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     NotificationTemplate notificationTemplate = new NotificationTemplate();
@@ -49,8 +49,7 @@ class NotificationTemplateDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationTemplate#equals(Object)}, and
-   * {@link NotificationTemplate#hashCode()}.
+   * Test {@link NotificationTemplate#equals(Object)}, and {@link NotificationTemplate#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -64,6 +63,8 @@ class NotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplate.equals(Object)", "int NotificationTemplate.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     NotificationTemplate notificationTemplate = new NotificationTemplate();
@@ -79,8 +80,7 @@ class NotificationTemplateDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationTemplate#equals(Object)}, and
-   * {@link NotificationTemplate#hashCode()}.
+   * Test {@link NotificationTemplate#equals(Object)}, and {@link NotificationTemplate#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -94,6 +94,8 @@ class NotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplate.equals(Object)", "int NotificationTemplate.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     NotificationTemplate notificationTemplate = new NotificationTemplate();
@@ -109,8 +111,7 @@ class NotificationTemplateDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationTemplate#equals(Object)}, and
-   * {@link NotificationTemplate#hashCode()}.
+   * Test {@link NotificationTemplate#equals(Object)}, and {@link NotificationTemplate#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -124,6 +125,8 @@ class NotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplate.equals(Object)", "int NotificationTemplate.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     NotificationTemplate notificationTemplate = new NotificationTemplate();
@@ -139,8 +142,7 @@ class NotificationTemplateDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationTemplate#equals(Object)}, and
-   * {@link NotificationTemplate#hashCode()}.
+   * Test {@link NotificationTemplate#equals(Object)}, and {@link NotificationTemplate#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -154,6 +156,8 @@ class NotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplate.equals(Object)", "int NotificationTemplate.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     NotificationTemplate notificationTemplate = new NotificationTemplate();
@@ -169,8 +173,7 @@ class NotificationTemplateDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationTemplate#equals(Object)}, and
-   * {@link NotificationTemplate#hashCode()}.
+   * Test {@link NotificationTemplate#equals(Object)}, and {@link NotificationTemplate#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -184,6 +187,8 @@ class NotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplate.equals(Object)", "int NotificationTemplate.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual6() {
     // Arrange
     NotificationTemplate notificationTemplate = new NotificationTemplate();
@@ -201,8 +206,7 @@ class NotificationTemplateDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationTemplate#equals(Object)}, and
-   * {@link NotificationTemplate#hashCode()}.
+   * Test {@link NotificationTemplate#equals(Object)}, and {@link NotificationTemplate#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -216,6 +220,8 @@ class NotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplate.equals(Object)", "int NotificationTemplate.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     NotificationTemplate notificationTemplate = new NotificationTemplate();
@@ -237,10 +243,11 @@ class NotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplate.equals(Object)", "int NotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new NotificationTemplate(), 1);
-    assertNotEquals(new NotificationTemplate(), mock(AdminSettings.class));
   }
 
   /**
@@ -254,6 +261,8 @@ class NotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplate.equals(Object)", "int NotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     NotificationTemplate notificationTemplate = new NotificationTemplate();
@@ -274,6 +283,8 @@ class NotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplate.equals(Object)", "int NotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     NotificationTemplate notificationTemplate = new NotificationTemplate();
@@ -294,6 +305,8 @@ class NotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplate.equals(Object)", "int NotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     NotificationTemplate notificationTemplate = new NotificationTemplate();
@@ -314,6 +327,8 @@ class NotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplate.equals(Object)", "int NotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     NotificationTemplate notificationTemplate = new NotificationTemplate();
@@ -334,6 +349,8 @@ class NotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplate.equals(Object)", "int NotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     NotificationTemplate notificationTemplate = new NotificationTemplate();
@@ -355,6 +372,8 @@ class NotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplate.equals(Object)", "int NotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     NotificationTemplate notificationTemplate = new NotificationTemplate();
@@ -375,6 +394,8 @@ class NotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplate.equals(Object)", "int NotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     NotificationTemplate notificationTemplate = new NotificationTemplate();
@@ -397,6 +418,8 @@ class NotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplate.equals(Object)", "int NotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     NotificationTemplate notificationTemplate = new NotificationTemplate();
@@ -419,6 +442,8 @@ class NotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplate.equals(Object)", "int NotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     NotificationTemplate notificationTemplate = new NotificationTemplate();
@@ -441,6 +466,8 @@ class NotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplate.equals(Object)", "int NotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     NotificationTemplate notificationTemplate = new NotificationTemplate();
@@ -463,6 +490,8 @@ class NotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplate.equals(Object)", "int NotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     NotificationTemplate notificationTemplate = new NotificationTemplate();
@@ -486,6 +515,8 @@ class NotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplate.equals(Object)", "int NotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new NotificationTemplate(), null);
@@ -502,6 +533,8 @@ class NotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NotificationTemplate.equals(Object)", "int NotificationTemplate.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new NotificationTemplate(), "Different type to NotificationTemplate");
@@ -514,6 +547,8 @@ class NotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test getExternalId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"NotificationTemplateId NotificationTemplate.getExternalId()"})
   void testGetExternalId() {
     // Arrange, Act and Assert
     assertNull((new NotificationTemplate()).getExternalId());
@@ -539,6 +574,14 @@ class NotificationTemplateDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NotificationTemplate.<init>()",
+      "NotificationTemplateConfig NotificationTemplate.getConfiguration()", "String NotificationTemplate.getName()",
+      "NotificationType NotificationTemplate.getNotificationType()", "TenantId NotificationTemplate.getTenantId()",
+      "void NotificationTemplate.setConfiguration(NotificationTemplateConfig)",
+      "void NotificationTemplate.setExternalId(NotificationTemplateId)", "void NotificationTemplate.setName(String)",
+      "void NotificationTemplate.setNotificationType(NotificationType)",
+      "void NotificationTemplate.setTenantId(TenantId)", "String NotificationTemplate.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     NotificationTemplate actualNotificationTemplate = new NotificationTemplate();
@@ -556,13 +599,15 @@ class NotificationTemplateDiffblueTest {
     NotificationType actualNotificationType = actualNotificationTemplate.getNotificationType();
     TenantId actualTenantId = actualNotificationTemplate.getTenantId();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Name", actualName);
     assertEquals(
         "NotificationTemplate(tenantId=13814000-1dd2-11b2-8080-808080808080, name=Name, notificationType=GENERAL,"
             + " configuration=NotificationTemplateConfig(deliveryMethodsTemplates=null), externalId=784f394c-42b6"
             + "-435a-983c-b7beff2784f9)",
         actualToStringResult);
+    assertNull(actualConfiguration.getDeliveryMethodsTemplates());
+    assertNull(actualNotificationTemplate.getId());
     assertEquals(0L, actualNotificationTemplate.getCreatedTime());
     assertEquals(NotificationType.GENERAL, actualNotificationType);
     assertSame(externalId, actualNotificationTemplate.getExternalId());
@@ -573,11 +618,12 @@ class NotificationTemplateDiffblueTest {
   /**
    * Test {@link NotificationTemplate#NotificationTemplate(NotificationTemplate)}.
    * <p>
-   * Method under test:
-   * {@link NotificationTemplate#NotificationTemplate(NotificationTemplate)}
+   * Method under test: {@link NotificationTemplate#NotificationTemplate(NotificationTemplate)}
    */
   @Test
   @DisplayName("Test new NotificationTemplate(NotificationTemplate)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NotificationTemplate.<init>(NotificationTemplate)"})
   void testNewNotificationTemplate() {
     // Arrange
     HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> deliveryMethodsTemplates = new HashMap<>();
@@ -608,11 +654,12 @@ class NotificationTemplateDiffblueTest {
   /**
    * Test {@link NotificationTemplate#NotificationTemplate(NotificationTemplate)}.
    * <p>
-   * Method under test:
-   * {@link NotificationTemplate#NotificationTemplate(NotificationTemplate)}
+   * Method under test: {@link NotificationTemplate#NotificationTemplate(NotificationTemplate)}
    */
   @Test
   @DisplayName("Test new NotificationTemplate(NotificationTemplate)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NotificationTemplate.<init>(NotificationTemplate)"})
   void testNewNotificationTemplate2() {
     // Arrange
     HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> deliveryMethodsTemplates = new HashMap<>();
@@ -645,41 +692,35 @@ class NotificationTemplateDiffblueTest {
   /**
    * Test {@link NotificationTemplate#NotificationTemplate(NotificationTemplate)}.
    * <ul>
-   *   <li>Given {@link HashMap#HashMap()} computeIfPresent {@code WEB} and
-   * {@link BiFunction}.</li>
+   *   <li>Then return Name is {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link NotificationTemplate#NotificationTemplate(NotificationTemplate)}
+   * Method under test: {@link NotificationTemplate#NotificationTemplate(NotificationTemplate)}
    */
   @Test
-  @DisplayName("Test new NotificationTemplate(NotificationTemplate); given HashMap() computeIfPresent 'WEB' and BiFunction")
-  void testNewNotificationTemplate_givenHashMapComputeIfPresentWebAndBiFunction() {
+  @DisplayName("Test new NotificationTemplate(NotificationTemplate); then return Name is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NotificationTemplate.<init>(NotificationTemplate)"})
+  void testNewNotificationTemplate_thenReturnNameIsNull() {
     // Arrange
-    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> deliveryMethodsTemplates = new HashMap<>();
-    deliveryMethodsTemplates.computeIfPresent(NotificationDeliveryMethod.WEB, mock(BiFunction.class));
-    deliveryMethodsTemplates.put(NotificationDeliveryMethod.WEB, new EmailDeliveryMethodNotificationTemplate());
-
     NotificationTemplateConfig configuration = new NotificationTemplateConfig();
-    configuration.setDeliveryMethodsTemplates(deliveryMethodsTemplates);
+    configuration.setDeliveryMethodsTemplates(new HashMap<>());
 
     NotificationTemplate other = new NotificationTemplate();
     other.setConfiguration(configuration);
 
-    // Act and Assert
-    Map<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> deliveryMethodsTemplates2 = (new NotificationTemplate(
-        other)).getConfiguration().getDeliveryMethodsTemplates();
-    assertEquals(1, deliveryMethodsTemplates2.size());
-    DeliveryMethodNotificationTemplate getResult = deliveryMethodsTemplates2.get(NotificationDeliveryMethod.WEB);
-    assertTrue(getResult instanceof EmailDeliveryMethodNotificationTemplate);
-    assertNull(getResult.getBody());
-    assertNull(((EmailDeliveryMethodNotificationTemplate) getResult).getSubject());
-    List<TemplatableValue> templatableValues = getResult.getTemplatableValues();
-    assertEquals(2, templatableValues.size());
-    assertNull(templatableValues.get(0).get());
-    assertNull(templatableValues.get(1).get());
-    assertEquals(NotificationDeliveryMethod.EMAIL, getResult.getMethod());
-    assertFalse(getResult.isEnabled());
+    // Act
+    NotificationTemplate actualNotificationTemplate = new NotificationTemplate(other);
+
+    // Assert
+    assertNull(actualNotificationTemplate.getName());
+    assertNull(actualNotificationTemplate.getUuidId());
+    assertNull(actualNotificationTemplate.getId());
+    assertNull(actualNotificationTemplate.getExternalId());
+    assertNull(actualNotificationTemplate.getTenantId());
+    assertNull(actualNotificationTemplate.getNotificationType());
+    assertEquals(0L, actualNotificationTemplate.getCreatedTime());
+    assertTrue(actualNotificationTemplate.getConfiguration().getDeliveryMethodsTemplates().isEmpty());
   }
 
   /**
@@ -688,35 +729,13 @@ class NotificationTemplateDiffblueTest {
    *   <li>Then return {@link NotificationTemplate#NotificationTemplate()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link NotificationTemplate#NotificationTemplate(NotificationTemplate)}
+   * Method under test: {@link NotificationTemplate#NotificationTemplate(NotificationTemplate)}
    */
   @Test
   @DisplayName("Test new NotificationTemplate(NotificationTemplate); then return NotificationTemplate()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NotificationTemplate.<init>(NotificationTemplate)"})
   void testNewNotificationTemplate_thenReturnNotificationTemplate() {
-    // Arrange
-    NotificationTemplateConfig configuration = new NotificationTemplateConfig();
-    configuration.setDeliveryMethodsTemplates(new HashMap<>());
-
-    NotificationTemplate other = new NotificationTemplate();
-    other.setConfiguration(configuration);
-
-    // Act and Assert
-    assertEquals(other, new NotificationTemplate(other));
-  }
-
-  /**
-   * Test {@link NotificationTemplate#NotificationTemplate(NotificationTemplate)}.
-   * <ul>
-   *   <li>When {@link NotificationTemplate#NotificationTemplate()}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link NotificationTemplate#NotificationTemplate(NotificationTemplate)}
-   */
-  @Test
-  @DisplayName("Test new NotificationTemplate(NotificationTemplate); when NotificationTemplate()")
-  void testNewNotificationTemplate_whenNotificationTemplate() {
     // Arrange
     NotificationTemplate other = new NotificationTemplate();
 

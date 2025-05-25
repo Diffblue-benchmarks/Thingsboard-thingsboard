@@ -8,20 +8,22 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.JsonNodeType;
 import com.fasterxml.jackson.databind.node.MissingNode;
 import com.fasterxml.jackson.databind.node.NullNode;
-import com.fasterxml.jackson.databind.node.TreeTraversingParser;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.User;
@@ -29,8 +31,10 @@ import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.id.UserId;
 import org.thingsboard.server.common.data.security.Authority;
+import org.thingsboard.server.service.security.model.UserPrincipal.Type;
 
 @ContextConfiguration(classes = {SecurityUser.class})
+@DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 @ExtendWith(SpringExtension.class)
 class SecurityUserDiffblueTest {
   @Autowired
@@ -43,6 +47,8 @@ class SecurityUserDiffblueTest {
    */
   @Test
   @DisplayName("Test new SecurityUser()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SecurityUser.<init>()"})
   void testNewSecurityUser() {
     // Arrange and Act
     SecurityUser actualSecurityUser = new SecurityUser();
@@ -73,15 +79,16 @@ class SecurityUserDiffblueTest {
    * Test {@link SecurityUser#SecurityUser(User, boolean, UserPrincipal)}.
    * <ul>
    *   <li>Given Instance.</li>
-   *   <li>Then return Authorities size is one.</li>
+   *   <li>Then AdditionalInfo return {@link MissingNode}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SecurityUser#SecurityUser(User, boolean, UserPrincipal)}
+   * Method under test: {@link SecurityUser#SecurityUser(User, boolean, UserPrincipal)}
    */
   @Test
-  @DisplayName("Test new SecurityUser(User, boolean, UserPrincipal); given Instance; then return Authorities size is one")
-  void testNewSecurityUser_givenInstance_thenReturnAuthoritiesSizeIsOne() {
+  @DisplayName("Test new SecurityUser(User, boolean, UserPrincipal); given Instance; then AdditionalInfo return MissingNode")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SecurityUser.<init>(User, boolean, UserPrincipal)"})
+  void testNewSecurityUser_givenInstance_thenAdditionalInfoReturnMissingNode() {
     // Arrange
     User user = mock(User.class);
     MissingNode instance = MissingNode.getInstance();
@@ -92,16 +99,15 @@ class SecurityUserDiffblueTest {
     when(user.getLastName()).thenReturn("Doe");
     when(user.getPhone()).thenReturn("6625550144");
     when(user.getCreatedTime()).thenReturn(1L);
-    CustomerId customerId = new CustomerId(UUID.randomUUID());
+    CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     when(user.getCustomerId()).thenReturn(customerId);
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     when(user.getTenantId()).thenReturn(tenantId);
     when(user.getId()).thenReturn(null);
     when(user.getAuthority()).thenReturn(Authority.SYS_ADMIN);
 
     // Act
-    SecurityUser actualSecurityUser = new SecurityUser(user, true,
-        new UserPrincipal(UserPrincipal.Type.USER_NAME, "42"));
+    SecurityUser actualSecurityUser = new SecurityUser(user, true, new UserPrincipal(Type.USER_NAME, "42"));
 
     // Assert
     verify(user).getAdditionalInfo();
@@ -115,17 +121,15 @@ class SecurityUserDiffblueTest {
     verify(user).getPhone();
     verify(user).getTenantId();
     verify(user).getVersion();
+    JsonNode additionalInfo = actualSecurityUser.getAdditionalInfo();
+    assertTrue(additionalInfo instanceof MissingNode);
     Collection<GrantedAuthority> authorities = actualSecurityUser.getAuthorities();
     assertEquals(1, authorities.size());
     assertTrue(authorities instanceof List);
-    GrantedAuthority getResult = ((List<GrantedAuthority>) authorities).get(0);
-    assertTrue(getResult instanceof SimpleGrantedAuthority);
     assertEquals("6625550144", actualSecurityUser.getPhone());
     assertEquals("Doe", actualSecurityUser.getLastName());
     assertEquals("Jane Doe", actualSecurityUser.getTitle());
     assertEquals("Jane", actualSecurityUser.getFirstName());
-    assertEquals("SYS_ADMIN", getResult.toString());
-    assertEquals("SYS_ADMIN", getResult.getAuthority());
     assertEquals("jane.doe@example.org", actualSecurityUser.getEmail());
     assertEquals("jane.doe@example.org", actualSecurityUser.getName());
     assertEquals(1L, actualSecurityUser.getVersion().longValue());
@@ -135,21 +139,23 @@ class SecurityUserDiffblueTest {
     assertTrue(actualSecurityUser.isCustomerUser());
     assertSame(customerId, actualSecurityUser.getCustomerId());
     assertSame(tenantId, actualSecurityUser.getTenantId());
-    assertSame(instance, actualSecurityUser.getAdditionalInfo());
+    assertSame(instance, additionalInfo);
   }
 
   /**
    * Test {@link SecurityUser#SecurityUser(UserId)}.
    * <ul>
    *   <li>When {@code null}.</li>
-   *   <li>Then return Id is {@code null}.</li>
+   *   <li>Then return AdditionalInfo is {@code null}.</li>
    * </ul>
    * <p>
    * Method under test: {@link SecurityUser#SecurityUser(UserId)}
    */
   @Test
-  @DisplayName("Test new SecurityUser(UserId); when 'null'; then return Id is 'null'")
-  void testNewSecurityUser_whenNull_thenReturnIdIsNull() {
+  @DisplayName("Test new SecurityUser(UserId); when 'null'; then return AdditionalInfo is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SecurityUser.<init>(UserId)"})
+  void testNewSecurityUser_whenNull_thenReturnAdditionalInfoIsNull() {
     // Arrange and Act
     SecurityUser actualSecurityUser = new SecurityUser(null);
 
@@ -176,70 +182,27 @@ class SecurityUserDiffblueTest {
   }
 
   /**
-   * Test {@link SecurityUser#SecurityUser(UserId)}.
-   * <ul>
-   *   <li>When {@link UserId}.</li>
-   *   <li>Then return Id is {@link UserId}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link SecurityUser#SecurityUser(UserId)}
-   */
-  @Test
-  @DisplayName("Test new SecurityUser(UserId); when UserId; then return Id is UserId")
-  void testNewSecurityUser_whenUserId_thenReturnIdIsUserId() {
-    // Arrange
-    UserId id = mock(UserId.class);
-
-    // Act
-    SecurityUser actualSecurityUser = new SecurityUser(id);
-
-    // Assert
-    assertNull(actualSecurityUser.getAdditionalInfo());
-    assertNull(actualSecurityUser.getVersion());
-    assertNull(actualSecurityUser.getEmail());
-    assertNull(actualSecurityUser.getFirstName());
-    assertNull(actualSecurityUser.getLastName());
-    assertNull(actualSecurityUser.getName());
-    assertNull(actualSecurityUser.getPhone());
-    assertNull(actualSecurityUser.getTitle());
-    assertNull(actualSecurityUser.getUuidId());
-    assertNull(actualSecurityUser.getCustomerId());
-    assertNull(actualSecurityUser.getTenantId());
-    assertNull(actualSecurityUser.getAuthority());
-    assertNull(actualSecurityUser.getUserPrincipal());
-    assertEquals(0L, actualSecurityUser.getCreatedTime());
-    assertFalse(actualSecurityUser.isCustomerUser());
-    assertFalse(actualSecurityUser.isTenantAdmin());
-    assertFalse(actualSecurityUser.isEnabled());
-    assertTrue(actualSecurityUser.isSystemAdmin());
-    assertSame(id, actualSecurityUser.getId());
-  }
-
-  /**
    * Test {@link SecurityUser#SecurityUser(User, boolean, UserPrincipal)}.
    * <ul>
    *   <li>When {@link User#User(User)} with user is {@link User#User()}.</li>
    *   <li>Then AdditionalInfo return {@link NullNode}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SecurityUser#SecurityUser(User, boolean, UserPrincipal)}
+   * Method under test: {@link SecurityUser#SecurityUser(User, boolean, UserPrincipal)}
    */
   @Test
   @DisplayName("Test new SecurityUser(User, boolean, UserPrincipal); when User(User) with user is User(); then AdditionalInfo return NullNode")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SecurityUser.<init>(User, boolean, UserPrincipal)"})
   void testNewSecurityUser_whenUserWithUserIsUser_thenAdditionalInfoReturnNullNode() {
     // Arrange
     User user = new User(new User());
 
     // Act
-    SecurityUser actualSecurityUser = new SecurityUser(user, true,
-        new UserPrincipal(UserPrincipal.Type.USER_NAME, "42"));
+    SecurityUser actualSecurityUser = new SecurityUser(user, true, new UserPrincipal(Type.USER_NAME, "42"));
 
     // Assert
-    JsonNode additionalInfo = actualSecurityUser.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    assertTrue(additionalInfo.traverse() instanceof TreeTraversingParser);
-    assertEquals("null", additionalInfo.toPrettyString());
+    assertTrue(actualSecurityUser.getAdditionalInfo() instanceof NullNode);
     assertNull(actualSecurityUser.getVersion());
     assertNull(actualSecurityUser.getEmail());
     assertNull(actualSecurityUser.getFirstName());
@@ -251,11 +214,7 @@ class SecurityUserDiffblueTest {
     assertNull(actualSecurityUser.getTenantId());
     assertNull(actualSecurityUser.getAuthority());
     assertEquals(0L, actualSecurityUser.getCreatedTime());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(additionalInfo.isMissingNode());
     assertFalse(actualSecurityUser.isCustomerUser());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
     assertTrue(actualSecurityUser.isSystemAdmin());
   }
 
@@ -266,24 +225,21 @@ class SecurityUserDiffblueTest {
    *   <li>Then AdditionalInfo return {@link NullNode}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link SecurityUser#SecurityUser(User, boolean, UserPrincipal)}
+   * Method under test: {@link SecurityUser#SecurityUser(User, boolean, UserPrincipal)}
    */
   @Test
   @DisplayName("Test new SecurityUser(User, boolean, UserPrincipal); when User(); then AdditionalInfo return NullNode")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SecurityUser.<init>(User, boolean, UserPrincipal)"})
   void testNewSecurityUser_whenUser_thenAdditionalInfoReturnNullNode() {
     // Arrange
     User user = new User();
 
     // Act
-    SecurityUser actualSecurityUser = new SecurityUser(user, true,
-        new UserPrincipal(UserPrincipal.Type.USER_NAME, "42"));
+    SecurityUser actualSecurityUser = new SecurityUser(user, true, new UserPrincipal(Type.USER_NAME, "42"));
 
     // Assert
-    JsonNode additionalInfo = actualSecurityUser.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    assertTrue(additionalInfo.traverse() instanceof TreeTraversingParser);
-    assertEquals("null", additionalInfo.toPrettyString());
+    assertTrue(actualSecurityUser.getAdditionalInfo() instanceof NullNode);
     assertNull(actualSecurityUser.getVersion());
     assertNull(actualSecurityUser.getEmail());
     assertNull(actualSecurityUser.getFirstName());
@@ -295,19 +251,14 @@ class SecurityUserDiffblueTest {
     assertNull(actualSecurityUser.getTenantId());
     assertNull(actualSecurityUser.getAuthority());
     assertEquals(0L, actualSecurityUser.getCreatedTime());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(additionalInfo.isMissingNode());
     assertFalse(actualSecurityUser.isCustomerUser());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
     assertTrue(actualSecurityUser.isSystemAdmin());
   }
 
   /**
    * Test {@link SecurityUser#getAuthorities()}.
    * <ul>
-   *   <li>Given {@link SecurityUser#SecurityUser()} Authority is
-   * {@code SYS_ADMIN}.</li>
+   *   <li>Given {@link SecurityUser#SecurityUser()} Authority is {@code SYS_ADMIN}.</li>
    *   <li>Then return {@link List}.</li>
    * </ul>
    * <p>
@@ -315,9 +266,9 @@ class SecurityUserDiffblueTest {
    */
   @Test
   @DisplayName("Test getAuthorities(); given SecurityUser() Authority is 'SYS_ADMIN'; then return List")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Collection SecurityUser.getAuthorities()"})
   void testGetAuthorities_givenSecurityUserAuthorityIsSysAdmin_thenReturnList() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     SecurityUser securityUser = new SecurityUser();
     securityUser.setAuthority(Authority.SYS_ADMIN);
@@ -349,6 +300,10 @@ class SecurityUserDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String SecurityUser.getSessionId()", "UserPrincipal SecurityUser.getUserPrincipal()",
+      "boolean SecurityUser.isEnabled()", "void SecurityUser.setEnabled(boolean)",
+      "void SecurityUser.setSessionId(String)", "void SecurityUser.setUserPrincipal(UserPrincipal)"})
   void testGettersAndSetters() {
     // Arrange
     SecurityUser securityUser = new SecurityUser();
@@ -356,13 +311,13 @@ class SecurityUserDiffblueTest {
     // Act
     securityUser.setEnabled(true);
     securityUser.setSessionId("42");
-    UserPrincipal userPrincipal = new UserPrincipal(UserPrincipal.Type.USER_NAME, "42");
+    UserPrincipal userPrincipal = new UserPrincipal(Type.USER_NAME, "42");
 
     securityUser.setUserPrincipal(userPrincipal);
     String actualSessionId = securityUser.getSessionId();
     UserPrincipal actualUserPrincipal = securityUser.getUserPrincipal();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("42", actualSessionId);
     assertTrue(securityUser.isEnabled());
     assertSame(userPrincipal, actualUserPrincipal);

@@ -4,18 +4,21 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TbMsgAttributesNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbMsgAttributesNodeConfiguration#defaultConfiguration()}.
    * <p>
-   * Method under test:
-   * {@link TbMsgAttributesNodeConfiguration#defaultConfiguration()}
+   * Method under test: {@link TbMsgAttributesNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbMsgAttributesNodeConfiguration TbMsgAttributesNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
     // Arrange and Act
     TbMsgAttributesNodeConfiguration actualDefaultConfigurationResult = (new TbMsgAttributesNodeConfiguration())
@@ -29,8 +32,7 @@ class TbMsgAttributesNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgAttributesNodeConfiguration#equals(Object)}, and
-   * {@link TbMsgAttributesNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgAttributesNodeConfiguration#equals(Object)}, and {@link TbMsgAttributesNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -44,6 +46,9 @@ class TbMsgAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgAttributesNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbMsgAttributesNodeConfiguration tbMsgAttributesNodeConfiguration = new TbMsgAttributesNodeConfiguration();
@@ -56,8 +61,7 @@ class TbMsgAttributesNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgAttributesNodeConfiguration#equals(Object)}, and
-   * {@link TbMsgAttributesNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgAttributesNodeConfiguration#equals(Object)}, and {@link TbMsgAttributesNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -71,6 +75,9 @@ class TbMsgAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgAttributesNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbMsgAttributesNodeConfiguration tbMsgAttributesNodeConfiguration = new TbMsgAttributesNodeConfiguration();
@@ -86,8 +93,7 @@ class TbMsgAttributesNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgAttributesNodeConfiguration#equals(Object)}, and
-   * {@link TbMsgAttributesNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgAttributesNodeConfiguration#equals(Object)}, and {@link TbMsgAttributesNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -101,6 +107,9 @@ class TbMsgAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgAttributesNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbMsgAttributesNodeConfiguration tbMsgAttributesNodeConfiguration = new TbMsgAttributesNodeConfiguration();
@@ -122,6 +131,9 @@ class TbMsgAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgAttributesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMsgAttributesNodeConfiguration(), 1);
@@ -138,6 +150,9 @@ class TbMsgAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgAttributesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbMsgAttributesNodeConfiguration tbMsgAttributesNodeConfiguration = new TbMsgAttributesNodeConfiguration();
@@ -158,6 +173,9 @@ class TbMsgAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgAttributesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbMsgAttributesNodeConfiguration tbMsgAttributesNodeConfiguration = new TbMsgAttributesNodeConfiguration();
@@ -178,6 +196,9 @@ class TbMsgAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgAttributesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbMsgAttributesNodeConfiguration tbMsgAttributesNodeConfiguration = new TbMsgAttributesNodeConfiguration();
@@ -198,6 +219,9 @@ class TbMsgAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgAttributesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbMsgAttributesNodeConfiguration tbMsgAttributesNodeConfiguration = new TbMsgAttributesNodeConfiguration();
@@ -218,6 +242,9 @@ class TbMsgAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgAttributesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbMsgAttributesNodeConfiguration tbMsgAttributesNodeConfiguration = new TbMsgAttributesNodeConfiguration();
@@ -240,6 +267,9 @@ class TbMsgAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgAttributesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMsgAttributesNodeConfiguration(), null);
@@ -256,6 +286,9 @@ class TbMsgAttributesNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbMsgAttributesNodeConfiguration.equals(Object)",
+      "int TbMsgAttributesNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMsgAttributesNodeConfiguration(), "Different type to TbMsgAttributesNodeConfiguration");
@@ -266,25 +299,30 @@ class TbMsgAttributesNodeConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link TbMsgAttributesNodeConfiguration}
+   *   <li>default or parameterless constructor of {@link TbMsgAttributesNodeConfiguration}
    *   <li>{@link TbMsgAttributesNodeConfiguration#setNotifyDevice(boolean)}
    *   <li>{@link TbMsgAttributesNodeConfiguration#setScope(String)}
-   *   <li>
-   * {@link TbMsgAttributesNodeConfiguration#setSendAttributesUpdatedNotification(boolean)}
-   *   <li>
-   * {@link TbMsgAttributesNodeConfiguration#setUpdateAttributesOnlyOnValueChange(boolean)}
+   *   <li>{@link TbMsgAttributesNodeConfiguration#setSendAttributesUpdatedNotification(boolean)}
+   *   <li>{@link TbMsgAttributesNodeConfiguration#setUpdateAttributesOnlyOnValueChange(boolean)}
    *   <li>{@link TbMsgAttributesNodeConfiguration#toString()}
    *   <li>{@link TbMsgAttributesNodeConfiguration#getScope()}
    *   <li>{@link TbMsgAttributesNodeConfiguration#isNotifyDevice()}
-   *   <li>
-   * {@link TbMsgAttributesNodeConfiguration#isSendAttributesUpdatedNotification()}
-   *   <li>
-   * {@link TbMsgAttributesNodeConfiguration#isUpdateAttributesOnlyOnValueChange()}
+   *   <li>{@link TbMsgAttributesNodeConfiguration#isSendAttributesUpdatedNotification()}
+   *   <li>{@link TbMsgAttributesNodeConfiguration#isUpdateAttributesOnlyOnValueChange()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbMsgAttributesNodeConfiguration.<init>()",
+      "String TbMsgAttributesNodeConfiguration.getScope()", "boolean TbMsgAttributesNodeConfiguration.isNotifyDevice()",
+      "boolean TbMsgAttributesNodeConfiguration.isSendAttributesUpdatedNotification()",
+      "boolean TbMsgAttributesNodeConfiguration.isUpdateAttributesOnlyOnValueChange()",
+      "void TbMsgAttributesNodeConfiguration.setNotifyDevice(boolean)",
+      "void TbMsgAttributesNodeConfiguration.setScope(String)",
+      "void TbMsgAttributesNodeConfiguration.setSendAttributesUpdatedNotification(boolean)",
+      "void TbMsgAttributesNodeConfiguration.setUpdateAttributesOnlyOnValueChange(boolean)",
+      "String TbMsgAttributesNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbMsgAttributesNodeConfiguration actualTbMsgAttributesNodeConfiguration = new TbMsgAttributesNodeConfiguration();
@@ -298,7 +336,7 @@ class TbMsgAttributesNodeConfigurationDiffblueTest {
     boolean actualIsSendAttributesUpdatedNotificationResult = actualTbMsgAttributesNodeConfiguration
         .isSendAttributesUpdatedNotification();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Scope", actualScope);
     assertEquals(
         "TbMsgAttributesNodeConfiguration(scope=Scope, notifyDevice=true, sendAttributesUpdatedNotification=true,"

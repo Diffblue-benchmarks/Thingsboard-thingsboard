@@ -4,20 +4,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.anyInt;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.thingsboard.server.common.data.kv.Aggregation;
 
 class AggTimeSeriesCmdDiffblueTest {
   /**
-   * Test {@link AggTimeSeriesCmd#equals(Object)}, and
-   * {@link AggTimeSeriesCmd#hashCode()}.
+   * Test {@link AggTimeSeriesCmd#equals(Object)}, and {@link AggTimeSeriesCmd#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -31,6 +28,8 @@ class AggTimeSeriesCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggTimeSeriesCmd.equals(Object)", "int AggTimeSeriesCmd.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AggTimeSeriesCmd aggTimeSeriesCmd = new AggTimeSeriesCmd();
@@ -50,8 +49,7 @@ class AggTimeSeriesCmdDiffblueTest {
   }
 
   /**
-   * Test {@link AggTimeSeriesCmd#equals(Object)}, and
-   * {@link AggTimeSeriesCmd#hashCode()}.
+   * Test {@link AggTimeSeriesCmd#equals(Object)}, and {@link AggTimeSeriesCmd#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -65,6 +63,8 @@ class AggTimeSeriesCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggTimeSeriesCmd.equals(Object)", "int AggTimeSeriesCmd.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AggTimeSeriesCmd aggTimeSeriesCmd = new AggTimeSeriesCmd();
@@ -89,6 +89,8 @@ class AggTimeSeriesCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggTimeSeriesCmd.equals(Object)", "int AggTimeSeriesCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AggKey aggKey = new AggKey();
@@ -127,6 +129,8 @@ class AggTimeSeriesCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggTimeSeriesCmd.equals(Object)", "int AggTimeSeriesCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AggTimeSeriesCmd aggTimeSeriesCmd = new AggTimeSeriesCmd();
@@ -154,56 +158,14 @@ class AggTimeSeriesCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggTimeSeriesCmd.equals(Object)", "int AggTimeSeriesCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AggTimeSeriesCmd aggTimeSeriesCmd = new AggTimeSeriesCmd();
     aggTimeSeriesCmd.setKeys(new ArrayList<>());
     aggTimeSeriesCmd.setStartTs(1L);
     aggTimeSeriesCmd.setTimeWindow(1L);
-
-    AggTimeSeriesCmd aggTimeSeriesCmd2 = new AggTimeSeriesCmd();
-    aggTimeSeriesCmd2.setKeys(new ArrayList<>());
-    aggTimeSeriesCmd2.setStartTs(1L);
-    aggTimeSeriesCmd2.setTimeWindow(10L);
-
-    // Act and Assert
-    assertNotEquals(aggTimeSeriesCmd, aggTimeSeriesCmd2);
-  }
-
-  /**
-   * Test {@link AggTimeSeriesCmd#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link AggTimeSeriesCmd#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
-    // Arrange
-    AggKey aggKey = mock(AggKey.class);
-    doNothing().when(aggKey).setAgg(Mockito.<Aggregation>any());
-    doNothing().when(aggKey).setId(anyInt());
-    doNothing().when(aggKey).setKey(Mockito.<String>any());
-    doNothing().when(aggKey).setPreviousEndTs(Mockito.<Long>any());
-    doNothing().when(aggKey).setPreviousStartTs(Mockito.<Long>any());
-    doNothing().when(aggKey).setPreviousValueOnly(Mockito.<Boolean>any());
-    aggKey.setAgg(Aggregation.MIN);
-    aggKey.setId(1);
-    aggKey.setKey("Key");
-    aggKey.setPreviousEndTs(1L);
-    aggKey.setPreviousStartTs(1L);
-    aggKey.setPreviousValueOnly(true);
-
-    ArrayList<AggKey> keys = new ArrayList<>();
-    keys.add(aggKey);
-
-    AggTimeSeriesCmd aggTimeSeriesCmd = new AggTimeSeriesCmd();
-    aggTimeSeriesCmd.setKeys(keys);
-    aggTimeSeriesCmd.setStartTs(1L);
-    aggTimeSeriesCmd.setTimeWindow(10L);
 
     AggTimeSeriesCmd aggTimeSeriesCmd2 = new AggTimeSeriesCmd();
     aggTimeSeriesCmd2.setKeys(new ArrayList<>());
@@ -225,6 +187,8 @@ class AggTimeSeriesCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggTimeSeriesCmd.equals(Object)", "int AggTimeSeriesCmd.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     AggTimeSeriesCmd aggTimeSeriesCmd = new AggTimeSeriesCmd();
@@ -247,6 +211,8 @@ class AggTimeSeriesCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AggTimeSeriesCmd.equals(Object)", "int AggTimeSeriesCmd.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     AggTimeSeriesCmd aggTimeSeriesCmd = new AggTimeSeriesCmd();
@@ -275,6 +241,11 @@ class AggTimeSeriesCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AggTimeSeriesCmd.<init>()", "List AggTimeSeriesCmd.getKeys()",
+      "long AggTimeSeriesCmd.getStartTs()", "long AggTimeSeriesCmd.getTimeWindow()",
+      "void AggTimeSeriesCmd.setKeys(List)", "void AggTimeSeriesCmd.setStartTs(long)",
+      "void AggTimeSeriesCmd.setTimeWindow(long)", "String AggTimeSeriesCmd.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     AggTimeSeriesCmd actualAggTimeSeriesCmd = new AggTimeSeriesCmd();
@@ -286,7 +257,7 @@ class AggTimeSeriesCmdDiffblueTest {
     List<AggKey> actualKeys = actualAggTimeSeriesCmd.getKeys();
     long actualStartTs = actualAggTimeSeriesCmd.getStartTs();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("AggTimeSeriesCmd(keys=[], startTs=1, timeWindow=10)", actualToStringResult);
     assertEquals(10L, actualAggTimeSeriesCmd.getTimeWindow());
     assertEquals(1L, actualStartTs);

@@ -4,16 +4,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class UserListFilterDiffblueTest {
   /**
-   * Test {@link UserListFilter#equals(Object)}, and
-   * {@link UserListFilter#hashCode()}.
+   * Test {@link UserListFilter#equals(Object)}, and {@link UserListFilter#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -27,6 +28,8 @@ class UserListFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UserListFilter.equals(Object)", "int UserListFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     UserListFilter userListFilter = new UserListFilter();
@@ -42,8 +45,7 @@ class UserListFilterDiffblueTest {
   }
 
   /**
-   * Test {@link UserListFilter#equals(Object)}, and
-   * {@link UserListFilter#hashCode()}.
+   * Test {@link UserListFilter#equals(Object)}, and {@link UserListFilter#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -57,6 +59,8 @@ class UserListFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UserListFilter.equals(Object)", "int UserListFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     UserListFilter userListFilter = new UserListFilter();
@@ -79,6 +83,8 @@ class UserListFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UserListFilter.equals(Object)", "int UserListFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ArrayList<UUID> usersIds = new ArrayList<>();
@@ -105,6 +111,8 @@ class UserListFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UserListFilter.equals(Object)", "int UserListFilter.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     UserListFilter userListFilter = new UserListFilter();
@@ -125,6 +133,8 @@ class UserListFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UserListFilter.equals(Object)", "int UserListFilter.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     UserListFilter userListFilter = new UserListFilter();
@@ -148,6 +158,9 @@ class UserListFilterDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void UserListFilter.<init>()", "UsersFilterType UserListFilter.getType()",
+      "List UserListFilter.getUsersIds()", "void UserListFilter.setUsersIds(List)", "String UserListFilter.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     UserListFilter actualUserListFilter = new UserListFilter();
@@ -157,7 +170,7 @@ class UserListFilterDiffblueTest {
     UsersFilterType actualType = actualUserListFilter.getType();
     List<UUID> actualUsersIds = actualUserListFilter.getUsersIds();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("UserListFilter(usersIds=[])", actualToStringResult);
     assertEquals(UsersFilterType.USER_LIST, actualType);
     assertTrue(actualUsersIds.isEmpty());

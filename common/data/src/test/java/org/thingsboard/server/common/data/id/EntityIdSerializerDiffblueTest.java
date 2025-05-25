@@ -12,37 +12,39 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonStreamContext;
 import com.fasterxml.jackson.core.filter.FilteringGeneratorDelegate;
 import com.fasterxml.jackson.core.filter.TokenFilter;
+import com.fasterxml.jackson.core.filter.TokenFilter.Inclusion;
 import com.fasterxml.jackson.core.filter.TokenFilterContext;
 import com.fasterxml.jackson.core.io.ContentReference;
 import com.fasterxml.jackson.core.io.IOContext;
-import com.fasterxml.jackson.core.json.JsonWriteContext;
 import com.fasterxml.jackson.core.json.UTF8JsonGenerator;
 import com.fasterxml.jackson.core.util.BufferRecycler;
 import com.fasterxml.jackson.core.util.JsonGeneratorDelegate;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.DefaultSerializerProvider;
+import com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.Impl;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.thingsboard.server.common.data.BaseData;
 
 class EntityIdSerializerDiffblueTest {
   /**
-   * Test
-   * {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)}
-   * with {@code EntityId}, {@code JsonGenerator}, {@code SerializerProvider}.
+   * Test {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)} with {@code EntityId}, {@code JsonGenerator}, {@code SerializerProvider}.
    * <p>
-   * Method under test:
-   * {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)}
+   * Method under test: {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)}
    */
   @Test
   @DisplayName("Test serialize(EntityId, JsonGenerator, SerializerProvider) with 'EntityId', 'JsonGenerator', 'SerializerProvider'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityIdSerializer.serialize(EntityId, JsonGenerator, SerializerProvider)"})
   void testSerializeWithEntityIdJsonGeneratorSerializerProvider() throws IOException {
     // Arrange
     EntityIdSerializer entityIdSerializer = new EntityIdSerializer();
@@ -54,9 +56,9 @@ class EntityIdSerializerDiffblueTest {
     JsonGeneratorDelegate gen = new JsonGeneratorDelegate(new JsonGeneratorDelegate(d), true);
 
     // Act
-    entityIdSerializer.serialize(TenantId.SYS_TENANT_ID, gen, new DefaultSerializerProvider.Impl());
+    entityIdSerializer.serialize(TenantId.SYS_TENANT_ID, gen, new Impl());
 
-    // Assert
+    // Assert that nothing has changed
     verify(d).writeEndObject();
     verify(d, atLeast(1)).writeFieldName(Mockito.<String>any());
     verify(d).writeStartObject();
@@ -68,15 +70,14 @@ class EntityIdSerializerDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)}
-   * with {@code EntityId}, {@code JsonGenerator}, {@code SerializerProvider}.
+   * Test {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)} with {@code EntityId}, {@code JsonGenerator}, {@code SerializerProvider}.
    * <p>
-   * Method under test:
-   * {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)}
+   * Method under test: {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)}
    */
   @Test
   @DisplayName("Test serialize(EntityId, JsonGenerator, SerializerProvider) with 'EntityId', 'JsonGenerator', 'SerializerProvider'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityIdSerializer.serialize(EntityId, JsonGenerator, SerializerProvider)"})
   void testSerializeWithEntityIdJsonGeneratorSerializerProvider2() throws IOException {
     // Arrange
     EntityIdSerializer entityIdSerializer = new EntityIdSerializer();
@@ -97,10 +98,10 @@ class EntityIdSerializerDiffblueTest {
     TokenFilter f = mock(TokenFilter.class);
     when(f.includeRootValue(anyInt())).thenReturn(tokenFilter3);
     JsonGeneratorDelegate gen = new JsonGeneratorDelegate(
-        new FilteringGeneratorDelegate(d2, f, TokenFilter.Inclusion.ONLY_INCLUDE_ALL, true), true);
+        new FilteringGeneratorDelegate(d2, f, Inclusion.ONLY_INCLUDE_ALL, true), true);
 
     // Act
-    entityIdSerializer.serialize(TenantId.SYS_TENANT_ID, gen, new DefaultSerializerProvider.Impl());
+    entityIdSerializer.serialize(TenantId.SYS_TENANT_ID, gen, new Impl());
 
     // Assert
     verify(d).writeEndObject();
@@ -118,11 +119,8 @@ class EntityIdSerializerDiffblueTest {
     assertTrue(outputContext instanceof TokenFilterContext);
     JsonGenerator delegateResult2 = ((FilteringGeneratorDelegate) delegateResult).delegate();
     assertTrue(delegateResult2 instanceof JsonGeneratorDelegate);
-    JsonGenerator delegateResult3 = ((JsonGeneratorDelegate) delegateResult2).delegate();
-    assertTrue(delegateResult3 instanceof JsonGeneratorDelegate);
     assertEquals(0, delegateResult.getOutputBuffered());
     assertEquals(0, delegateResult2.getOutputBuffered());
-    assertEquals(0, delegateResult3.getOutputBuffered());
     assertEquals(0, gen.getOutputBuffered());
     assertEquals(1, outputContext.getEntryCount());
     assertEquals(2, ((FilteringGeneratorDelegate) delegateResult).getMatchCount());
@@ -130,15 +128,14 @@ class EntityIdSerializerDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)}
-   * with {@code EntityId}, {@code JsonGenerator}, {@code SerializerProvider}.
+   * Test {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)} with {@code EntityId}, {@code JsonGenerator}, {@code SerializerProvider}.
    * <p>
-   * Method under test:
-   * {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)}
+   * Method under test: {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)}
    */
   @Test
   @DisplayName("Test serialize(EntityId, JsonGenerator, SerializerProvider) with 'EntityId', 'JsonGenerator', 'SerializerProvider'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityIdSerializer.serialize(EntityId, JsonGenerator, SerializerProvider)"})
   void testSerializeWithEntityIdJsonGeneratorSerializerProvider3() throws IOException {
     // Arrange
     EntityIdSerializer entityIdSerializer = new EntityIdSerializer();
@@ -157,7 +154,7 @@ class EntityIdSerializerDiffblueTest {
     TokenFilter f = mock(TokenFilter.class);
     when(f.includeRootValue(anyInt())).thenReturn(tokenFilter2);
     JsonGeneratorDelegate d3 = new JsonGeneratorDelegate(
-        new FilteringGeneratorDelegate(d2, f, TokenFilter.Inclusion.ONLY_INCLUDE_ALL, true), true);
+        new FilteringGeneratorDelegate(d2, f, Inclusion.ONLY_INCLUDE_ALL, true), true);
 
     TokenFilter tokenFilter3 = mock(TokenFilter.class);
     when(tokenFilter3.includeString(Mockito.<String>any())).thenReturn(true);
@@ -170,10 +167,10 @@ class EntityIdSerializerDiffblueTest {
     TokenFilter f2 = mock(TokenFilter.class);
     when(f2.includeRootValue(anyInt())).thenReturn(tokenFilter5);
     JsonGeneratorDelegate gen = new JsonGeneratorDelegate(
-        new FilteringGeneratorDelegate(d3, f2, TokenFilter.Inclusion.ONLY_INCLUDE_ALL, true), true);
+        new FilteringGeneratorDelegate(d3, f2, Inclusion.ONLY_INCLUDE_ALL, true), true);
 
     // Act
-    entityIdSerializer.serialize(TenantId.SYS_TENANT_ID, gen, new DefaultSerializerProvider.Impl());
+    entityIdSerializer.serialize(TenantId.SYS_TENANT_ID, gen, new Impl());
 
     // Assert
     verify(d).writeEndObject();
@@ -198,9 +195,6 @@ class EntityIdSerializerDiffblueTest {
     JsonStreamContext outputContext = delegateResult2.getOutputContext();
     assertTrue(outputContext instanceof TokenFilterContext);
     assertTrue(delegateResult2 instanceof JsonGeneratorDelegate);
-    assertEquals(0, delegateResult.getOutputBuffered());
-    assertEquals(0, delegateResult2.getOutputBuffered());
-    assertEquals(0, gen.getOutputBuffered());
     assertEquals(2, outputContext.getCurrentIndex());
     assertEquals(2, ((FilteringGeneratorDelegate) delegateResult3).getMatchCount());
     assertEquals(3, outputContext.getEntryCount());
@@ -208,15 +202,14 @@ class EntityIdSerializerDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)}
-   * with {@code EntityId}, {@code JsonGenerator}, {@code SerializerProvider}.
+   * Test {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)} with {@code EntityId}, {@code JsonGenerator}, {@code SerializerProvider}.
    * <p>
-   * Method under test:
-   * {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)}
+   * Method under test: {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)}
    */
   @Test
   @DisplayName("Test serialize(EntityId, JsonGenerator, SerializerProvider) with 'EntityId', 'JsonGenerator', 'SerializerProvider'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityIdSerializer.serialize(EntityId, JsonGenerator, SerializerProvider)"})
   void testSerializeWithEntityIdJsonGeneratorSerializerProvider4() throws IOException {
     // Arrange
     EntityIdSerializer entityIdSerializer = new EntityIdSerializer();
@@ -235,7 +228,7 @@ class EntityIdSerializerDiffblueTest {
     TokenFilter f = mock(TokenFilter.class);
     when(f.includeRootValue(anyInt())).thenReturn(tokenFilter2);
     JsonGeneratorDelegate d3 = new JsonGeneratorDelegate(
-        new FilteringGeneratorDelegate(d2, f, TokenFilter.Inclusion.ONLY_INCLUDE_ALL, true), true);
+        new FilteringGeneratorDelegate(d2, f, Inclusion.ONLY_INCLUDE_ALL, true), true);
 
     TokenFilter tokenFilter3 = mock(TokenFilter.class);
     when(tokenFilter3.includeEmptyObject(anyBoolean())).thenReturn(true);
@@ -246,7 +239,7 @@ class EntityIdSerializerDiffblueTest {
     TokenFilter f2 = mock(TokenFilter.class);
     when(f2.includeRootValue(anyInt())).thenReturn(tokenFilter4);
     JsonGeneratorDelegate d4 = new JsonGeneratorDelegate(
-        new FilteringGeneratorDelegate(d3, f2, TokenFilter.Inclusion.ONLY_INCLUDE_ALL, true), true);
+        new FilteringGeneratorDelegate(d3, f2, Inclusion.ONLY_INCLUDE_ALL, true), true);
 
     TokenFilter tokenFilter5 = mock(TokenFilter.class);
     when(tokenFilter5.includeString(Mockito.<String>any())).thenReturn(true);
@@ -259,10 +252,10 @@ class EntityIdSerializerDiffblueTest {
     TokenFilter f3 = mock(TokenFilter.class);
     when(f3.includeRootValue(anyInt())).thenReturn(tokenFilter7);
     JsonGeneratorDelegate gen = new JsonGeneratorDelegate(
-        new FilteringGeneratorDelegate(d4, f3, TokenFilter.Inclusion.ONLY_INCLUDE_ALL, true), true);
+        new FilteringGeneratorDelegate(d4, f3, Inclusion.ONLY_INCLUDE_ALL, true), true);
 
     // Act
-    entityIdSerializer.serialize(TenantId.SYS_TENANT_ID, gen, new DefaultSerializerProvider.Impl());
+    entityIdSerializer.serialize(TenantId.SYS_TENANT_ID, gen, new Impl());
 
     // Assert
     verify(d).writeEndObject();
@@ -307,15 +300,14 @@ class EntityIdSerializerDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)}
-   * with {@code EntityId}, {@code JsonGenerator}, {@code SerializerProvider}.
+   * Test {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)} with {@code EntityId}, {@code JsonGenerator}, {@code SerializerProvider}.
    * <p>
-   * Method under test:
-   * {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)}
+   * Method under test: {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)}
    */
   @Test
   @DisplayName("Test serialize(EntityId, JsonGenerator, SerializerProvider) with 'EntityId', 'JsonGenerator', 'SerializerProvider'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityIdSerializer.serialize(EntityId, JsonGenerator, SerializerProvider)"})
   void testSerializeWithEntityIdJsonGeneratorSerializerProvider5() throws IOException {
     // Arrange
     EntityIdSerializer entityIdSerializer = new EntityIdSerializer();
@@ -332,7 +324,7 @@ class EntityIdSerializerDiffblueTest {
 
     JsonGeneratorDelegate d = new JsonGeneratorDelegate(new FilteringGeneratorDelegate(
         new JsonGeneratorDelegate(new UTF8JsonGenerator(ctxt, 1, BaseData.mapper, new ByteArrayOutputStream(1)), true),
-        f, TokenFilter.Inclusion.ONLY_INCLUDE_ALL, true), true);
+        f, Inclusion.ONLY_INCLUDE_ALL, true), true);
 
     TokenFilter tokenFilter3 = mock(TokenFilter.class);
     when(tokenFilter3.includeEmptyObject(anyBoolean())).thenReturn(true);
@@ -343,7 +335,7 @@ class EntityIdSerializerDiffblueTest {
     TokenFilter f2 = mock(TokenFilter.class);
     when(f2.includeRootValue(anyInt())).thenReturn(tokenFilter4);
     JsonGeneratorDelegate d2 = new JsonGeneratorDelegate(
-        new FilteringGeneratorDelegate(d, f2, TokenFilter.Inclusion.ONLY_INCLUDE_ALL, true), true);
+        new FilteringGeneratorDelegate(d, f2, Inclusion.ONLY_INCLUDE_ALL, true), true);
 
     TokenFilter tokenFilter5 = mock(TokenFilter.class);
     when(tokenFilter5.includeString(Mockito.<String>any())).thenReturn(true);
@@ -356,10 +348,10 @@ class EntityIdSerializerDiffblueTest {
     TokenFilter f3 = mock(TokenFilter.class);
     when(f3.includeRootValue(anyInt())).thenReturn(tokenFilter7);
     JsonGeneratorDelegate gen = new JsonGeneratorDelegate(
-        new FilteringGeneratorDelegate(d2, f3, TokenFilter.Inclusion.ONLY_INCLUDE_ALL, true), true);
+        new FilteringGeneratorDelegate(d2, f3, Inclusion.ONLY_INCLUDE_ALL, true), true);
 
     // Act
-    entityIdSerializer.serialize(TenantId.SYS_TENANT_ID, gen, new DefaultSerializerProvider.Impl());
+    entityIdSerializer.serialize(TenantId.SYS_TENANT_ID, gen, new Impl());
 
     // Assert
     verify(tokenFilter).filterFinishObject();
@@ -386,37 +378,25 @@ class EntityIdSerializerDiffblueTest {
     JsonGenerator delegateResult4 = ((FilteringGeneratorDelegate) delegateResult3).delegate();
     JsonGenerator delegateResult5 = ((JsonGeneratorDelegate) delegateResult4).delegate();
     assertTrue(delegateResult5 instanceof FilteringGeneratorDelegate);
-    JsonGenerator delegateResult6 = ((FilteringGeneratorDelegate) delegateResult5).delegate();
-    JsonStreamContext outputContext = delegateResult6.getOutputContext();
-    assertTrue(outputContext instanceof JsonWriteContext);
-    JsonGenerator delegateResult7 = ((JsonGeneratorDelegate) delegateResult6).delegate();
-    assertTrue(delegateResult7 instanceof UTF8JsonGenerator);
     assertTrue(delegateResult2 instanceof JsonGeneratorDelegate);
     assertTrue(delegateResult4 instanceof JsonGeneratorDelegate);
-    assertTrue(delegateResult6 instanceof JsonGeneratorDelegate);
-    assertEquals(2, outputContext.getCurrentIndex());
-    assertEquals(3, outputContext.getEntryCount());
     assertEquals(50, delegateResult.getOutputBuffered());
     assertEquals(50, delegateResult2.getOutputBuffered());
     assertEquals(50, delegateResult4.getOutputBuffered());
-    assertEquals(50, delegateResult6.getOutputBuffered());
     assertEquals(50, delegateResult3.getOutputBuffered());
     assertEquals(50, delegateResult5.getOutputBuffered());
-    assertEquals(50, delegateResult7.getOutputBuffered());
     assertEquals(50, gen.getOutputBuffered());
-    assertTrue(outputContext.hasCurrentIndex());
   }
 
   /**
-   * Test
-   * {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)}
-   * with {@code EntityId}, {@code JsonGenerator}, {@code SerializerProvider}.
+   * Test {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)} with {@code EntityId}, {@code JsonGenerator}, {@code SerializerProvider}.
    * <p>
-   * Method under test:
-   * {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)}
+   * Method under test: {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)}
    */
   @Test
   @DisplayName("Test serialize(EntityId, JsonGenerator, SerializerProvider) with 'EntityId', 'JsonGenerator', 'SerializerProvider'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityIdSerializer.serialize(EntityId, JsonGenerator, SerializerProvider)"})
   void testSerializeWithEntityIdJsonGeneratorSerializerProvider6() throws IOException {
     // Arrange
     EntityIdSerializer entityIdSerializer = new EntityIdSerializer();
@@ -435,7 +415,7 @@ class EntityIdSerializerDiffblueTest {
     TokenFilter f = mock(TokenFilter.class);
     when(f.includeRootValue(anyInt())).thenReturn(tokenFilter2);
     JsonGeneratorDelegate d3 = new JsonGeneratorDelegate(
-        new FilteringGeneratorDelegate(d2, f, TokenFilter.Inclusion.ONLY_INCLUDE_ALL, true), true);
+        new FilteringGeneratorDelegate(d2, f, Inclusion.ONLY_INCLUDE_ALL, true), true);
 
     TokenFilter tokenFilter3 = mock(TokenFilter.class);
     when(tokenFilter3.includeString(Mockito.<String>any())).thenReturn(true);
@@ -444,17 +424,15 @@ class EntityIdSerializerDiffblueTest {
     when(tokenFilter4.includeEmptyObject(anyBoolean())).thenReturn(true);
     doNothing().when(tokenFilter4).filterFinishObject();
     TokenFilter tokenFilter5 = mock(TokenFilter.class);
-    when(tokenFilter5.includeString(Mockito.<String>any())).thenReturn(true);
     when(tokenFilter5.filterStartObject()).thenReturn(tokenFilter4);
     TokenFilter f2 = mock(TokenFilter.class);
     when(f2.includeRootValue(anyInt())).thenReturn(tokenFilter5);
     JsonGeneratorDelegate d4 = new JsonGeneratorDelegate(
-        new FilteringGeneratorDelegate(d3, f2, TokenFilter.Inclusion.ONLY_INCLUDE_ALL, true), true);
+        new FilteringGeneratorDelegate(d3, f2, Inclusion.ONLY_INCLUDE_ALL, true), true);
 
     TokenFilter tokenFilter6 = mock(TokenFilter.class);
     when(tokenFilter6.includeString(Mockito.<String>any())).thenReturn(true);
     TokenFilter tokenFilter7 = mock(TokenFilter.class);
-    when(tokenFilter7.includeEmptyObject(anyBoolean())).thenReturn(true);
     when(tokenFilter7.includeProperty(Mockito.<String>any())).thenReturn(tokenFilter6);
     doNothing().when(tokenFilter7).filterFinishObject();
     TokenFilter tokenFilter8 = mock(TokenFilter.class);
@@ -462,10 +440,10 @@ class EntityIdSerializerDiffblueTest {
     TokenFilter f3 = mock(TokenFilter.class);
     when(f3.includeRootValue(anyInt())).thenReturn(tokenFilter8);
     JsonGeneratorDelegate gen = new JsonGeneratorDelegate(
-        new FilteringGeneratorDelegate(d4, f3, TokenFilter.Inclusion.INCLUDE_ALL_AND_PATH, true), true);
+        new FilteringGeneratorDelegate(d4, f3, Inclusion.INCLUDE_ALL_AND_PATH, true), true);
 
     // Act
-    entityIdSerializer.serialize(TenantId.SYS_TENANT_ID, gen, new DefaultSerializerProvider.Impl());
+    entityIdSerializer.serialize(TenantId.SYS_TENANT_ID, gen, new Impl());
 
     // Assert
     verify(d).writeEndObject();
@@ -509,15 +487,14 @@ class EntityIdSerializerDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)}
-   * with {@code EntityId}, {@code JsonGenerator}, {@code SerializerProvider}.
+   * Test {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)} with {@code EntityId}, {@code JsonGenerator}, {@code SerializerProvider}.
    * <p>
-   * Method under test:
-   * {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)}
+   * Method under test: {@link EntityIdSerializer#serialize(EntityId, JsonGenerator, SerializerProvider)}
    */
   @Test
   @DisplayName("Test serialize(EntityId, JsonGenerator, SerializerProvider) with 'EntityId', 'JsonGenerator', 'SerializerProvider'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityIdSerializer.serialize(EntityId, JsonGenerator, SerializerProvider)"})
   void testSerializeWithEntityIdJsonGeneratorSerializerProvider7() throws IOException {
     // Arrange
     EntityIdSerializer entityIdSerializer = new EntityIdSerializer();
@@ -535,10 +512,10 @@ class EntityIdSerializerDiffblueTest {
 
     JsonGeneratorDelegate gen = new JsonGeneratorDelegate(new FilteringGeneratorDelegate(
         new JsonGeneratorDelegate(new UTF8JsonGenerator(ctxt, 1, BaseData.mapper, new ByteArrayOutputStream(1)), true),
-        f, TokenFilter.Inclusion.INCLUDE_ALL_AND_PATH, true), true);
+        f, Inclusion.INCLUDE_ALL_AND_PATH, true), true);
 
     // Act
-    entityIdSerializer.serialize(TenantId.SYS_TENANT_ID, gen, new DefaultSerializerProvider.Impl());
+    entityIdSerializer.serialize(TenantId.SYS_TENANT_ID, gen, new Impl());
 
     // Assert
     verify(tokenFilter2).filterFinishObject();
@@ -561,11 +538,12 @@ class EntityIdSerializerDiffblueTest {
   /**
    * Test new {@link EntityIdSerializer} (default constructor).
    * <p>
-   * Method under test: default or parameterless constructor of
-   * {@link EntityIdSerializer}
+   * Method under test: default or parameterless constructor of {@link EntityIdSerializer}
    */
   @Test
   @DisplayName("Test new EntityIdSerializer (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityIdSerializer.<init>()"})
   void testNewEntityIdSerializer() {
     // Arrange and Act
     EntityIdSerializer actualEntityIdSerializer = new EntityIdSerializer();

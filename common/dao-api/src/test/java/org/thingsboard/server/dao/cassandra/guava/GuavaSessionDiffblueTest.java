@@ -13,9 +13,11 @@ import com.datastax.oss.driver.api.core.session.Session;
 import com.datastax.oss.driver.api.core.type.reflect.GenericType;
 import com.datastax.oss.driver.internal.core.cql.DefaultPrepareRequest;
 import com.datastax.oss.driver.internal.core.cql.DefaultSimpleStatement;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.SettableFuture;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -30,6 +32,8 @@ class GuavaSessionDiffblueTest {
    */
   @Test
   @DisplayName("Test executeAsync(String) with 'String'; then return SettableFuture")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ListenableFuture GuavaSession.executeAsync(String)"})
   void testExecuteAsyncWithString_thenReturnSettableFuture() {
     // Arrange
     Session delegate = mock(Session.class);
@@ -57,6 +61,8 @@ class GuavaSessionDiffblueTest {
    */
   @Test
   @DisplayName("Test prepareAsync(String) with 'String'; then return SettableFuture")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ListenableFuture GuavaSession.prepareAsync(String)"})
   void testPrepareAsyncWithString_thenReturnSettableFuture() {
     // Arrange
     Session delegate = mock(Session.class);

@@ -1,24 +1,19 @@
 package org.thingsboard.server.common.data;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
-import com.fasterxml.jackson.core.JsonLocation;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonStreamContext;
-import com.fasterxml.jackson.core.Version;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.JsonNodeType;
 import com.fasterxml.jackson.databind.node.NullNode;
-import com.fasterxml.jackson.databind.node.TreeTraversingParser;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.device.data.CoapDeviceTransportConfiguration;
 import org.thingsboard.server.common.data.device.data.DefaultDeviceConfiguration;
@@ -38,6 +33,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test getExternalId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"org.thingsboard.server.common.data.id.DeviceId Device.getExternalId()"})
   void testGetExternalId() {
     // Arrange, Act and Assert
     assertNull((new Device()).getExternalId());
@@ -53,7 +50,9 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test new Device(Device); given array of byte with 'A' and minus one")
-  void testNewDevice_givenArrayOfByteWithAAndMinusOne() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Device.<init>(Device)"})
+  void testNewDevice_givenArrayOfByteWithAAndMinusOne() {
     // Arrange
     Device device = new Device();
     device.setDeviceDataBytes(new byte[]{'A', -1, 'A', 'X', 'A', 'X', 'A', 'X'});
@@ -62,36 +61,9 @@ class DeviceDiffblueTest {
     Device actualDevice = new Device(device);
 
     // Assert
-    JsonNode additionalInfo = actualDevice.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
+    assertTrue(actualDevice.getAdditionalInfo() instanceof NullNode);
     assertNull(actualDevice.getDeviceDataBytes());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
     assertNull(actualDevice.getVersion());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
     assertNull(actualDevice.getLabel());
     assertNull(actualDevice.getName());
     assertNull(actualDevice.getType());
@@ -104,77 +76,22 @@ class DeviceDiffblueTest {
     assertNull(actualDevice.getFirmwareId());
     assertNull(actualDevice.getSoftwareId());
     assertNull(actualDevice.getTenantId());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
     assertEquals(0L, actualDevice.getCreatedTime());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getColumnNr());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getLineNr());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
   }
 
   /**
    * Test {@link Device#Device(Device)}.
    * <ul>
-   *   <li>Given array of {@code byte} with {@link Byte#MAX_VALUE} and
-   * {@code X}.</li>
+   *   <li>Given array of {@code byte} with {@link Byte#MAX_VALUE} and {@code X}.</li>
    * </ul>
    * <p>
    * Method under test: {@link Device#Device(Device)}
    */
   @Test
   @DisplayName("Test new Device(Device); given array of byte with MAX_VALUE and 'X'")
-  void testNewDevice_givenArrayOfByteWithMax_valueAndX() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Device.<init>(Device)"})
+  void testNewDevice_givenArrayOfByteWithMax_valueAndX() {
     // Arrange
     Device device = new Device();
     device.setDeviceDataBytes(new byte[]{Byte.MAX_VALUE, 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
@@ -183,36 +100,9 @@ class DeviceDiffblueTest {
     Device actualDevice = new Device(device);
 
     // Assert
-    JsonNode additionalInfo = actualDevice.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
+    assertTrue(actualDevice.getAdditionalInfo() instanceof NullNode);
     assertNull(actualDevice.getDeviceDataBytes());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
     assertNull(actualDevice.getVersion());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
     assertNull(actualDevice.getLabel());
     assertNull(actualDevice.getName());
     assertNull(actualDevice.getType());
@@ -225,63 +115,7 @@ class DeviceDiffblueTest {
     assertNull(actualDevice.getFirmwareId());
     assertNull(actualDevice.getSoftwareId());
     assertNull(actualDevice.getTenantId());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
     assertEquals(0L, actualDevice.getCreatedTime());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getColumnNr());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getLineNr());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
   }
 
   /**
@@ -294,7 +128,9 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test new Device(Device); given array of byte with zero and 'X'")
-  void testNewDevice_givenArrayOfByteWithZeroAndX() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Device.<init>(Device)"})
+  void testNewDevice_givenArrayOfByteWithZeroAndX() {
     // Arrange
     Device device = new Device();
     device.setDeviceDataBytes(new byte[]{0, 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
@@ -303,36 +139,9 @@ class DeviceDiffblueTest {
     Device actualDevice = new Device(device);
 
     // Assert
-    JsonNode additionalInfo = actualDevice.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
+    assertTrue(actualDevice.getAdditionalInfo() instanceof NullNode);
     assertNull(actualDevice.getDeviceDataBytes());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
     assertNull(actualDevice.getVersion());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
     assertNull(actualDevice.getLabel());
     assertNull(actualDevice.getName());
     assertNull(actualDevice.getType());
@@ -345,63 +154,7 @@ class DeviceDiffblueTest {
     assertNull(actualDevice.getFirmwareId());
     assertNull(actualDevice.getSoftwareId());
     assertNull(actualDevice.getTenantId());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
     assertEquals(0L, actualDevice.getCreatedTime());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getColumnNr());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getLineNr());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
   }
 
   /**
@@ -414,7 +167,9 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test new Device(Device); given 'AXAXAXAX' Bytes is 'UTF-8'")
-  void testNewDevice_givenAxaxaxaxBytesIsUtf8() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Device.<init>(Device)"})
+  void testNewDevice_givenAxaxaxaxBytesIsUtf8() throws UnsupportedEncodingException {
     // Arrange
     Device device = new Device();
     device.setDeviceDataBytes("AXAXAXAX".getBytes("UTF-8"));
@@ -423,36 +178,9 @@ class DeviceDiffblueTest {
     Device actualDevice = new Device(device);
 
     // Assert
-    JsonNode additionalInfo = actualDevice.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
+    assertTrue(actualDevice.getAdditionalInfo() instanceof NullNode);
     assertNull(actualDevice.getDeviceDataBytes());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
     assertNull(actualDevice.getVersion());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
     assertNull(actualDevice.getLabel());
     assertNull(actualDevice.getName());
     assertNull(actualDevice.getType());
@@ -465,78 +193,23 @@ class DeviceDiffblueTest {
     assertNull(actualDevice.getFirmwareId());
     assertNull(actualDevice.getSoftwareId());
     assertNull(actualDevice.getTenantId());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
     assertEquals(0L, actualDevice.getCreatedTime());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getColumnNr());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getLineNr());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
   }
 
   /**
    * Test {@link Device#Device(Device)}.
    * <ul>
    *   <li>Given empty array of {@code byte}.</li>
-   *   <li>When {@link Device#Device()} DeviceDataBytes is empty array of
-   * {@code byte}.</li>
+   *   <li>When {@link Device#Device()} DeviceDataBytes is empty array of {@code byte}.</li>
    * </ul>
    * <p>
    * Method under test: {@link Device#Device(Device)}
    */
   @Test
   @DisplayName("Test new Device(Device); given empty array of byte; when Device() DeviceDataBytes is empty array of byte")
-  void testNewDevice_givenEmptyArrayOfByte_whenDeviceDeviceDataBytesIsEmptyArrayOfByte() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Device.<init>(Device)"})
+  void testNewDevice_givenEmptyArrayOfByte_whenDeviceDeviceDataBytesIsEmptyArrayOfByte() {
     // Arrange
     Device device = new Device();
     device.setDeviceDataBytes(new byte[]{});
@@ -545,36 +218,9 @@ class DeviceDiffblueTest {
     Device actualDevice = new Device(device);
 
     // Assert
-    JsonNode additionalInfo = actualDevice.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
+    assertTrue(actualDevice.getAdditionalInfo() instanceof NullNode);
     assertNull(actualDevice.getDeviceDataBytes());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
     assertNull(actualDevice.getVersion());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
     assertNull(actualDevice.getLabel());
     assertNull(actualDevice.getName());
     assertNull(actualDevice.getType());
@@ -587,63 +233,7 @@ class DeviceDiffblueTest {
     assertNull(actualDevice.getFirmwareId());
     assertNull(actualDevice.getSoftwareId());
     assertNull(actualDevice.getTenantId());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
     assertEquals(0L, actualDevice.getCreatedTime());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getColumnNr());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getLineNr());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
   }
 
   /**
@@ -656,41 +246,16 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test new Device(Device); when Device()")
-  void testNewDevice_whenDevice() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Device.<init>(Device)"})
+  void testNewDevice_whenDevice() {
     // Arrange and Act
     Device actualDevice = new Device(new Device());
 
     // Assert
-    JsonNode additionalInfo = actualDevice.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
+    assertTrue(actualDevice.getAdditionalInfo() instanceof NullNode);
     assertNull(actualDevice.getDeviceDataBytes());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
     assertNull(actualDevice.getVersion());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
     assertNull(actualDevice.getLabel());
     assertNull(actualDevice.getName());
     assertNull(actualDevice.getType());
@@ -703,111 +268,29 @@ class DeviceDiffblueTest {
     assertNull(actualDevice.getFirmwareId());
     assertNull(actualDevice.getSoftwareId());
     assertNull(actualDevice.getTenantId());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
     assertEquals(0L, actualDevice.getCreatedTime());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getColumnNr());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getLineNr());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
   }
 
   /**
    * Test {@link Device#Device(Device)}.
    * <ul>
-   *   <li>When {@link Device#Device(Device)} with device is
-   * {@link Device#Device()}.</li>
+   *   <li>When {@link Device#Device(Device)} with device is {@link Device#Device()}.</li>
    * </ul>
    * <p>
    * Method under test: {@link Device#Device(Device)}
    */
   @Test
   @DisplayName("Test new Device(Device); when Device(Device) with device is Device()")
-  void testNewDevice_whenDeviceWithDeviceIsDevice() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Device.<init>(Device)"})
+  void testNewDevice_whenDeviceWithDeviceIsDevice() {
     // Arrange and Act
     Device actualDevice = new Device(new Device(new Device()));
 
     // Assert
-    JsonNode additionalInfo = actualDevice.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
+    assertTrue(actualDevice.getAdditionalInfo() instanceof NullNode);
     assertNull(actualDevice.getDeviceDataBytes());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
     assertNull(actualDevice.getVersion());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
     assertNull(actualDevice.getLabel());
     assertNull(actualDevice.getName());
     assertNull(actualDevice.getType());
@@ -820,111 +303,29 @@ class DeviceDiffblueTest {
     assertNull(actualDevice.getFirmwareId());
     assertNull(actualDevice.getSoftwareId());
     assertNull(actualDevice.getTenantId());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
     assertEquals(0L, actualDevice.getCreatedTime());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getColumnNr());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getLineNr());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
   }
 
   /**
    * Test {@link Device#Device(Device)}.
    * <ul>
-   *   <li>When {@link Device#Device(Device)} with device is
-   * {@link Device#Device(Device)}.</li>
+   *   <li>When {@link Device#Device(Device)} with device is {@link Device#Device(Device)}.</li>
    * </ul>
    * <p>
    * Method under test: {@link Device#Device(Device)}
    */
   @Test
   @DisplayName("Test new Device(Device); when Device(Device) with device is Device(Device)")
-  void testNewDevice_whenDeviceWithDeviceIsDevice2() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Device.<init>(Device)"})
+  void testNewDevice_whenDeviceWithDeviceIsDevice2() {
     // Arrange and Act
     Device actualDevice = new Device(new Device(new Device(new Device())));
 
     // Assert
-    JsonNode additionalInfo = actualDevice.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
+    assertTrue(actualDevice.getAdditionalInfo() instanceof NullNode);
     assertNull(actualDevice.getDeviceDataBytes());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
     assertNull(actualDevice.getVersion());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
     assertNull(actualDevice.getLabel());
     assertNull(actualDevice.getName());
     assertNull(actualDevice.getType());
@@ -937,63 +338,7 @@ class DeviceDiffblueTest {
     assertNull(actualDevice.getFirmwareId());
     assertNull(actualDevice.getSoftwareId());
     assertNull(actualDevice.getTenantId());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
     assertEquals(0L, actualDevice.getCreatedTime());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getColumnNr());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getLineNr());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
   }
 
   /**
@@ -1006,6 +351,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test updateDevice(Device); given array of byte with 'A' and minus one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Device Device.updateDevice(Device)"})
   void testUpdateDevice_givenArrayOfByteWithAAndMinusOne() {
     // Arrange
     Device device = new Device();
@@ -1038,14 +385,15 @@ class DeviceDiffblueTest {
   /**
    * Test {@link Device#updateDevice(Device)}.
    * <ul>
-   *   <li>Given array of {@code byte} with {@link Byte#MAX_VALUE} and
-   * {@code X}.</li>
+   *   <li>Given array of {@code byte} with {@link Byte#MAX_VALUE} and {@code X}.</li>
    * </ul>
    * <p>
    * Method under test: {@link Device#updateDevice(Device)}
    */
   @Test
   @DisplayName("Test updateDevice(Device); given array of byte with MAX_VALUE and 'X'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Device Device.updateDevice(Device)"})
   void testUpdateDevice_givenArrayOfByteWithMax_valueAndX() {
     // Arrange
     Device device = new Device();
@@ -1085,6 +433,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test updateDevice(Device); given array of byte with zero and 'X'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Device Device.updateDevice(Device)"})
   void testUpdateDevice_givenArrayOfByteWithZeroAndX() {
     // Arrange
     Device device = new Device();
@@ -1124,6 +474,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test updateDevice(Device); given 'AXAXAXAX' Bytes is 'UTF-8'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Device Device.updateDevice(Device)"})
   void testUpdateDevice_givenAxaxaxaxBytesIsUtf8() throws UnsupportedEncodingException {
     // Arrange
     Device device = new Device();
@@ -1163,6 +515,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test updateDevice(Device); given empty array of byte")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Device Device.updateDevice(Device)"})
   void testUpdateDevice_givenEmptyArrayOfByte() {
     // Arrange
     Device device = new Device();
@@ -1195,8 +549,7 @@ class DeviceDiffblueTest {
   /**
    * Test {@link Device#updateDevice(Device)}.
    * <ul>
-   *   <li>When {@link Device#Device(Device)} with device is
-   * {@link Device#Device()}.</li>
+   *   <li>When {@link Device#Device(Device)} with device is {@link Device#Device()}.</li>
    *   <li>Then AdditionalInfo return {@link NullNode}.</li>
    * </ul>
    * <p>
@@ -1204,102 +557,20 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test updateDevice(Device); when Device(Device) with device is Device(); then AdditionalInfo return NullNode")
-  void testUpdateDevice_whenDeviceWithDeviceIsDevice_thenAdditionalInfoReturnNullNode() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Device Device.updateDevice(Device)"})
+  void testUpdateDevice_whenDeviceWithDeviceIsDevice_thenAdditionalInfoReturnNullNode() {
     // Arrange
     Device device = new Device();
 
     // Act and Assert
-    JsonNode additionalInfo = device.updateDevice(new Device(new Device())).getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getColumnNr());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getLineNr());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
+    assertTrue(device.updateDevice(new Device(new Device())).getAdditionalInfo() instanceof NullNode);
   }
 
   /**
    * Test {@link Device#updateDevice(Device)}.
    * <ul>
-   *   <li>When {@link Device#Device(Device)} with device is
-   * {@link Device#Device(Device)}.</li>
+   *   <li>When {@link Device#Device(Device)} with device is {@link Device#Device(Device)}.</li>
    *   <li>Then AdditionalInfo return {@link NullNode}.</li>
    * </ul>
    * <p>
@@ -1307,95 +578,14 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test updateDevice(Device); when Device(Device) with device is Device(Device); then AdditionalInfo return NullNode")
-  void testUpdateDevice_whenDeviceWithDeviceIsDevice_thenAdditionalInfoReturnNullNode2() throws IOException {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Device Device.updateDevice(Device)"})
+  void testUpdateDevice_whenDeviceWithDeviceIsDevice_thenAdditionalInfoReturnNullNode2() {
     // Arrange
     Device device = new Device();
 
     // Act and Assert
-    JsonNode additionalInfo = device.updateDevice(new Device(new Device(new Device()))).getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble());
-    assertEquals(0L, traverseResult.getValueAsLong());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getColumnNr());
-    assertEquals(StringUtils.INDEX_NOT_FOUND, currentLocation.getLineNr());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
+    assertTrue(device.updateDevice(new Device(new Device(new Device()))).getAdditionalInfo() instanceof NullNode);
   }
 
   /**
@@ -1409,6 +599,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test updateDevice(Device); when Device(); then return Device()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Device Device.updateDevice(Device)"})
   void testUpdateDevice_whenDevice_thenReturnDevice() {
     // Arrange
     Device device = new Device();
@@ -1424,6 +616,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test getId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"org.thingsboard.server.common.data.id.DeviceId Device.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
     assertNull((new Device()).getId());
@@ -1436,6 +630,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test getCreatedTime()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long Device.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
     assertEquals(0L, (new Device()).getCreatedTime());
@@ -1448,6 +644,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test getDeviceData()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DeviceData Device.getDeviceData()"})
   void testGetDeviceData() {
     // Arrange
     Device device = new Device(new Device());
@@ -1467,6 +665,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test getDeviceData(); given Device()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DeviceData Device.getDeviceData()"})
   void testGetDeviceData_givenDevice() {
     // Arrange, Act and Assert
     assertNull((new Device()).getDeviceData());
@@ -1475,14 +675,15 @@ class DeviceDiffblueTest {
   /**
    * Test {@link Device#getDeviceData()}.
    * <ul>
-   *   <li>Given {@link Device#Device()} DeviceDataBytes is array of {@code byte}
-   * with {@code A} and minus one.</li>
+   *   <li>Given {@link Device#Device()} DeviceDataBytes is array of {@code byte} with {@code A} and minus one.</li>
    * </ul>
    * <p>
    * Method under test: {@link Device#getDeviceData()}
    */
   @Test
   @DisplayName("Test getDeviceData(); given Device() DeviceDataBytes is array of byte with 'A' and minus one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DeviceData Device.getDeviceData()"})
   void testGetDeviceData_givenDeviceDeviceDataBytesIsArrayOfByteWithAAndMinusOne() {
     // Arrange
     Device device = new Device();
@@ -1495,14 +696,15 @@ class DeviceDiffblueTest {
   /**
    * Test {@link Device#getDeviceData()}.
    * <ul>
-   *   <li>Given {@link Device#Device()} DeviceDataBytes is array of {@code byte}
-   * with {@link Byte#MAX_VALUE} and {@code X}.</li>
+   *   <li>Given {@link Device#Device()} DeviceDataBytes is array of {@code byte} with {@link Byte#MAX_VALUE} and {@code X}.</li>
    * </ul>
    * <p>
    * Method under test: {@link Device#getDeviceData()}
    */
   @Test
   @DisplayName("Test getDeviceData(); given Device() DeviceDataBytes is array of byte with MAX_VALUE and 'X'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DeviceData Device.getDeviceData()"})
   void testGetDeviceData_givenDeviceDeviceDataBytesIsArrayOfByteWithMax_valueAndX() {
     // Arrange
     Device device = new Device();
@@ -1515,14 +717,15 @@ class DeviceDiffblueTest {
   /**
    * Test {@link Device#getDeviceData()}.
    * <ul>
-   *   <li>Given {@link Device#Device()} DeviceDataBytes is array of {@code byte}
-   * with zero and {@code X}.</li>
+   *   <li>Given {@link Device#Device()} DeviceDataBytes is array of {@code byte} with zero and {@code X}.</li>
    * </ul>
    * <p>
    * Method under test: {@link Device#getDeviceData()}
    */
   @Test
   @DisplayName("Test getDeviceData(); given Device() DeviceDataBytes is array of byte with zero and 'X'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DeviceData Device.getDeviceData()"})
   void testGetDeviceData_givenDeviceDeviceDataBytesIsArrayOfByteWithZeroAndX() {
     // Arrange
     Device device = new Device();
@@ -1535,14 +738,15 @@ class DeviceDiffblueTest {
   /**
    * Test {@link Device#getDeviceData()}.
    * <ul>
-   *   <li>Given {@link Device#Device()} DeviceDataBytes is array of {@code byte}
-   * with zero and zero.</li>
+   *   <li>Given {@link Device#Device()} DeviceDataBytes is array of {@code byte} with zero and zero.</li>
    * </ul>
    * <p>
    * Method under test: {@link Device#getDeviceData()}
    */
   @Test
   @DisplayName("Test getDeviceData(); given Device() DeviceDataBytes is array of byte with zero and zero")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DeviceData Device.getDeviceData()"})
   void testGetDeviceData_givenDeviceDeviceDataBytesIsArrayOfByteWithZeroAndZero() {
     // Arrange
     Device device = new Device();
@@ -1555,14 +759,15 @@ class DeviceDiffblueTest {
   /**
    * Test {@link Device#getDeviceData()}.
    * <ul>
-   *   <li>Given {@link Device#Device()} DeviceDataBytes is array of {@code byte}
-   * with zero and zero.</li>
+   *   <li>Given {@link Device#Device()} DeviceDataBytes is array of {@code byte} with zero and zero.</li>
    * </ul>
    * <p>
    * Method under test: {@link Device#getDeviceData()}
    */
   @Test
   @DisplayName("Test getDeviceData(); given Device() DeviceDataBytes is array of byte with zero and zero")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DeviceData Device.getDeviceData()"})
   void testGetDeviceData_givenDeviceDeviceDataBytesIsArrayOfByteWithZeroAndZero2() {
     // Arrange
     Device device = new Device();
@@ -1575,14 +780,15 @@ class DeviceDiffblueTest {
   /**
    * Test {@link Device#getDeviceData()}.
    * <ul>
-   *   <li>Given {@link Device#Device()} DeviceDataBytes is {@code AXAXAXAX} Bytes
-   * is {@code UTF-8}.</li>
+   *   <li>Given {@link Device#Device()} DeviceDataBytes is {@code AXAXAXAX} Bytes is {@code UTF-8}.</li>
    * </ul>
    * <p>
    * Method under test: {@link Device#getDeviceData()}
    */
   @Test
   @DisplayName("Test getDeviceData(); given Device() DeviceDataBytes is 'AXAXAXAX' Bytes is 'UTF-8'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DeviceData Device.getDeviceData()"})
   void testGetDeviceData_givenDeviceDeviceDataBytesIsAxaxaxaxBytesIsUtf8() throws UnsupportedEncodingException {
     // Arrange
     Device device = new Device();
@@ -1595,14 +801,15 @@ class DeviceDiffblueTest {
   /**
    * Test {@link Device#getDeviceData()}.
    * <ul>
-   *   <li>Given {@link Device#Device()} DeviceDataBytes is empty array of
-   * {@code byte}.</li>
+   *   <li>Given {@link Device#Device()} DeviceDataBytes is empty array of {@code byte}.</li>
    * </ul>
    * <p>
    * Method under test: {@link Device#getDeviceData()}
    */
   @Test
   @DisplayName("Test getDeviceData(); given Device() DeviceDataBytes is empty array of byte")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DeviceData Device.getDeviceData()"})
   void testGetDeviceData_givenDeviceDeviceDataBytesIsEmptyArrayOfByte() {
     // Arrange
     Device device = new Device();
@@ -1615,14 +822,15 @@ class DeviceDiffblueTest {
   /**
    * Test {@link Device#getDeviceData()}.
    * <ul>
-   *   <li>Given {@link Device#Device(Device)} with device is
-   * {@link Device#Device()}.</li>
+   *   <li>Given {@link Device#Device(Device)} with device is {@link Device#Device()}.</li>
    * </ul>
    * <p>
    * Method under test: {@link Device#getDeviceData()}
    */
   @Test
   @DisplayName("Test getDeviceData(); given Device(Device) with device is Device()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DeviceData Device.getDeviceData()"})
   void testGetDeviceData_givenDeviceWithDeviceIsDevice() {
     // Arrange
     Device device = new Device(new Device(new Device()));
@@ -1634,15 +842,39 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#setDeviceData(DeviceData)}.
+   * <p>
+   * Method under test: {@link Device#setDeviceData(DeviceData)}
+   */
+  @Test
+  @DisplayName("Test setDeviceData(DeviceData)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Device.setDeviceData(DeviceData)"})
+  void testSetDeviceData() throws UnsupportedEncodingException {
+    // Arrange
+    Device device = new Device();
+    DeviceData data = new DeviceData();
+
+    // Act
+    device.setDeviceData(data);
+
+    // Assert
+    assertSame(data, device.getDeviceData());
+    byte[] expectedDeviceDataBytes = "{\"configuration\":null,\"transportConfiguration\":null}".getBytes("UTF-8");
+    assertArrayEquals(expectedDeviceDataBytes, device.getDeviceDataBytes());
+  }
+
+  /**
+   * Test {@link Device#setDeviceData(DeviceData)}.
    * <ul>
-   *   <li>Given {@link CoapDeviceTransportConfiguration} (default constructor)
-   * {@code null} is {@code Value}.</li>
+   *   <li>Given {@link CoapDeviceTransportConfiguration} (default constructor) {@code null} is {@code Value}.</li>
    * </ul>
    * <p>
    * Method under test: {@link Device#setDeviceData(DeviceData)}
    */
   @Test
   @DisplayName("Test setDeviceData(DeviceData); given CoapDeviceTransportConfiguration (default constructor) 'null' is 'Value'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Device.setDeviceData(DeviceData)"})
   void testSetDeviceData_givenCoapDeviceTransportConfigurationNullIsValue() {
     // Arrange
     Device device = new Device();
@@ -1666,15 +898,15 @@ class DeviceDiffblueTest {
    * Test {@link Device#setDeviceData(DeviceData)}.
    * <ul>
    *   <li>Given {@link DeviceConfiguration}.</li>
-   *   <li>Then {@link Device#Device()} DeviceData is {@link DeviceData} (default
-   * constructor).</li>
    * </ul>
    * <p>
    * Method under test: {@link Device#setDeviceData(DeviceData)}
    */
   @Test
-  @DisplayName("Test setDeviceData(DeviceData); given DeviceConfiguration; then Device() DeviceData is DeviceData (default constructor)")
-  void testSetDeviceData_givenDeviceConfiguration_thenDeviceDeviceDataIsDeviceData() {
+  @DisplayName("Test setDeviceData(DeviceData); given DeviceConfiguration")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Device.setDeviceData(DeviceData)"})
+  void testSetDeviceData_givenDeviceConfiguration() {
     // Arrange
     Device device = new Device();
 
@@ -1694,14 +926,15 @@ class DeviceDiffblueTest {
    * Test {@link Device#setDeviceData(DeviceData)}.
    * <ul>
    *   <li>Given {@link DeviceInfo#DeviceInfo()}.</li>
-   *   <li>Then {@link DeviceInfo#DeviceInfo()} DeviceDataBytes is
-   * {@code null}.</li>
+   *   <li>Then {@link DeviceInfo#DeviceInfo()} DeviceDataBytes is {@code null}.</li>
    * </ul>
    * <p>
    * Method under test: {@link Device#setDeviceData(DeviceData)}
    */
   @Test
   @DisplayName("Test setDeviceData(DeviceData); given DeviceInfo(); then DeviceInfo() DeviceDataBytes is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Device.setDeviceData(DeviceData)"})
   void testSetDeviceData_givenDeviceInfo_thenDeviceInfoDeviceDataBytesIsNull() {
     // Arrange
     DeviceInfo deviceInfo = new DeviceInfo();
@@ -1730,6 +963,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test setDeviceData(DeviceData); given Device(); when 'null'; then Device() DeviceData is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Device.setDeviceData(DeviceData)"})
   void testSetDeviceData_givenDevice_whenNull_thenDeviceDeviceDataIsNull() {
     // Arrange
     Device device = new Device();
@@ -1737,69 +972,9 @@ class DeviceDiffblueTest {
     // Act
     device.setDeviceData(null);
 
-    // Assert
+    // Assert that nothing has changed
     assertNull(device.getDeviceDataBytes());
     assertNull(device.getDeviceData());
-  }
-
-  /**
-   * Test {@link Device#setDeviceData(DeviceData)}.
-   * <ul>
-   *   <li>Given {@code null}.</li>
-   *   <li>Then array length is fifty-two.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link Device#setDeviceData(DeviceData)}
-   */
-  @Test
-  @DisplayName("Test setDeviceData(DeviceData); given 'null'; then array length is fifty-two")
-  void testSetDeviceData_givenNull_thenArrayLengthIsFiftyTwo() {
-    // Arrange
-    Device device = new Device();
-
-    DeviceData data = new DeviceData();
-    data.setConfiguration(null);
-    data.setTransportConfiguration(null);
-
-    // Act
-    device.setDeviceData(data);
-
-    // Assert
-    byte[] deviceDataBytes = device.getDeviceDataBytes();
-    assertEquals(52, deviceDataBytes.length);
-    assertEquals(',', deviceDataBytes[21]);
-    assertEquals(':', deviceDataBytes[46]);
-    assertEquals('C', deviceDataBytes[Integer.SIZE]);
-    assertEquals('"', deviceDataBytes[22]);
-    assertEquals('"', deviceDataBytes[45]);
-    assertEquals('a', deviceDataBytes[40]);
-    assertEquals('f', deviceDataBytes[35]);
-    assertEquals('g', deviceDataBytes[37]);
-    assertEquals('i', deviceDataBytes[36]);
-    assertEquals('i', deviceDataBytes[42]);
-    assertEquals('l', deviceDataBytes[19]);
-    assertEquals('l', deviceDataBytes[20]);
-    assertEquals('l', deviceDataBytes[49]);
-    assertEquals('l', deviceDataBytes[50]);
-    assertEquals('n', deviceDataBytes[17]);
-    assertEquals('n', deviceDataBytes[34]);
-    assertEquals('n', deviceDataBytes[44]);
-    assertEquals('n', deviceDataBytes[47]);
-    assertEquals('o', deviceDataBytes[29]);
-    assertEquals('o', deviceDataBytes[33]);
-    assertEquals('o', deviceDataBytes[43]);
-    assertEquals('p', deviceDataBytes[28]);
-    assertEquals('r', deviceDataBytes[24]);
-    assertEquals('r', deviceDataBytes[30]);
-    assertEquals('r', deviceDataBytes[39]);
-    assertEquals('s', deviceDataBytes[27]);
-    assertEquals('t', deviceDataBytes[23]);
-    assertEquals('t', deviceDataBytes[31]);
-    assertEquals('t', deviceDataBytes[41]);
-    assertEquals('u', deviceDataBytes[18]);
-    assertEquals('u', deviceDataBytes[38]);
-    assertEquals('u', deviceDataBytes[48]);
-    assertEquals('}', deviceDataBytes[51]);
   }
 
   /**
@@ -1812,6 +987,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test setDeviceData(DeviceData); then array length is eighty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Device.setDeviceData(DeviceData)"})
   void testSetDeviceData_thenArrayLengthIsEighty() {
     // Arrange
     Device device = new Device();
@@ -1824,33 +1001,7 @@ class DeviceDiffblueTest {
     device.setDeviceData(data);
 
     // Assert
-    byte[] deviceDataBytes = device.getDeviceDataBytes();
-    assertEquals(80, deviceDataBytes.length);
-    assertEquals(':', deviceDataBytes[60]);
-    assertEquals(':', deviceDataBytes[68]);
-    assertEquals('A', deviceDataBytes[73]);
-    assertEquals('D', deviceDataBytes[70]);
-    assertEquals('E', deviceDataBytes[71]);
-    assertEquals('F', deviceDataBytes[72]);
-    assertEquals('L', deviceDataBytes[75]);
-    assertEquals('T', deviceDataBytes[76]);
-    assertEquals('U', deviceDataBytes[74]);
-    assertEquals('"', deviceDataBytes[59]);
-    assertEquals('"', deviceDataBytes[62]);
-    assertEquals('"', deviceDataBytes[67]);
-    assertEquals('"', deviceDataBytes[69]);
-    assertEquals('"', deviceDataBytes[77]);
-    assertEquals('e', deviceDataBytes[66]);
-    assertEquals('i', deviceDataBytes[56]);
-    assertEquals('n', deviceDataBytes[58]);
-    assertEquals('o', deviceDataBytes[57]);
-    assertEquals('p', deviceDataBytes[65]);
-    assertEquals('t', deviceDataBytes[55]);
-    assertEquals('t', deviceDataBytes[63]);
-    assertEquals('y', deviceDataBytes[Double.SIZE]);
-    assertEquals('{', deviceDataBytes[61]);
-    assertEquals('}', deviceDataBytes[78]);
-    assertEquals('}', deviceDataBytes[79]);
+    assertEquals(80, device.getDeviceDataBytes().length);
   }
 
   /**
@@ -1863,6 +1014,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test setDeviceData(DeviceData); then array length is one hundred sixty-seven")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Device.setDeviceData(DeviceData)"})
   void testSetDeviceData_thenArrayLengthIsOneHundredSixtySeven() {
     // Arrange
     Device device = new Device();
@@ -1875,33 +1028,7 @@ class DeviceDiffblueTest {
     device.setDeviceData(data);
 
     // Assert
-    byte[] deviceDataBytes = device.getDeviceDataBytes();
-    assertEquals(167, deviceDataBytes.length);
-    assertEquals(':', deviceDataBytes[160]);
-    assertEquals('W', deviceDataBytes[153]);
-    assertEquals('"', deviceDataBytes[159]);
-    assertEquals('a', deviceDataBytes[143]);
-    assertEquals('d', deviceDataBytes[156]);
-    assertEquals('i', deviceDataBytes[147]);
-    assertEquals('i', deviceDataBytes[150]);
-    assertEquals('i', deviceDataBytes[154]);
-    assertEquals('l', deviceDataBytes[163]);
-    assertEquals('l', deviceDataBytes[164]);
-    assertEquals('m', deviceDataBytes[146]);
-    assertEquals('n', deviceDataBytes[144]);
-    assertEquals('n', deviceDataBytes[152]);
-    assertEquals('n', deviceDataBytes[155]);
-    assertEquals('n', deviceDataBytes[161]);
-    assertEquals('o', deviceDataBytes[151]);
-    assertEquals('o', deviceDataBytes[157]);
-    assertEquals('r', deviceDataBytes[142]);
-    assertEquals('s', deviceDataBytes[145]);
-    assertEquals('s', deviceDataBytes[148]);
-    assertEquals('s', deviceDataBytes[149]);
-    assertEquals('u', deviceDataBytes[162]);
-    assertEquals('w', deviceDataBytes[158]);
-    assertEquals('}', deviceDataBytes[165]);
-    assertEquals('}', deviceDataBytes[166]);
+    assertEquals(167, device.getDeviceDataBytes().length);
   }
 
   /**
@@ -1914,6 +1041,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test setDeviceData(DeviceData); then array length is three hundred thirty-three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Device.setDeviceData(DeviceData)"})
   void testSetDeviceData_thenArrayLengthIsThreeHundredThirtyThree() {
     // Arrange
     Device device = new Device();
@@ -1926,33 +1055,7 @@ class DeviceDiffblueTest {
     device.setDeviceData(data);
 
     // Assert
-    byte[] deviceDataBytes = device.getDeviceDataBytes();
-    assertEquals(333, deviceDataBytes.length);
-    assertEquals(',', deviceDataBytes[315]);
-    assertEquals(':', deviceDataBytes[310]);
-    assertEquals(':', deviceDataBytes[326]);
-    assertEquals('I', deviceDataBytes[323]);
-    assertEquals('"', deviceDataBytes[309]);
-    assertEquals('"', deviceDataBytes[316]);
-    assertEquals('"', deviceDataBytes[325]);
-    assertEquals('d', deviceDataBytes[324]);
-    assertEquals('e', deviceDataBytes[308]);
-    assertEquals('e', deviceDataBytes[317]);
-    assertEquals('e', deviceDataBytes[322]);
-    assertEquals('g', deviceDataBytes[319]);
-    assertEquals('i', deviceDataBytes[320]);
-    assertEquals('l', deviceDataBytes[313]);
-    assertEquals('l', deviceDataBytes[314]);
-    assertEquals('l', deviceDataBytes[329]);
-    assertEquals('l', deviceDataBytes[330]);
-    assertEquals('n', deviceDataBytes[311]);
-    assertEquals('n', deviceDataBytes[318]);
-    assertEquals('n', deviceDataBytes[321]);
-    assertEquals('n', deviceDataBytes[327]);
-    assertEquals('u', deviceDataBytes[312]);
-    assertEquals('u', deviceDataBytes[328]);
-    assertEquals('}', deviceDataBytes[331]);
-    assertEquals('}', deviceDataBytes[332]);
+    assertEquals(333, device.getDeviceDataBytes().length);
   }
 
   /**
@@ -1965,6 +1068,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test setDeviceData(DeviceData); then array length is two hundred fifty-seven")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Device.setDeviceData(DeviceData)"})
   void testSetDeviceData_thenArrayLengthIsTwoHundredFiftySeven() {
     // Arrange
     Device device = new Device();
@@ -1981,47 +1086,22 @@ class DeviceDiffblueTest {
     device.setDeviceData(data);
 
     // Assert
-    byte[] deviceDataBytes = device.getDeviceDataBytes();
-    assertEquals(257, deviceDataBytes.length);
-    assertEquals(':', deviceDataBytes[247]);
-    assertEquals('C', deviceDataBytes[233]);
-    assertEquals('V', deviceDataBytes[249]);
-    assertEquals('"', deviceDataBytes[246]);
-    assertEquals('"', deviceDataBytes[248]);
-    assertEquals('"', deviceDataBytes[254]);
-    assertEquals('a', deviceDataBytes[241]);
-    assertEquals('a', deviceDataBytes[250]);
-    assertEquals('e', deviceDataBytes[253]);
-    assertEquals('f', deviceDataBytes[236]);
-    assertEquals('g', deviceDataBytes[238]);
-    assertEquals('i', deviceDataBytes[237]);
-    assertEquals('i', deviceDataBytes[243]);
-    assertEquals('l', deviceDataBytes[251]);
-    assertEquals('n', deviceDataBytes[235]);
-    assertEquals('n', deviceDataBytes[245]);
-    assertEquals('o', deviceDataBytes[234]);
-    assertEquals('o', deviceDataBytes[244]);
-    assertEquals('r', deviceDataBytes[240]);
-    assertEquals('t', deviceDataBytes[232]);
-    assertEquals('t', deviceDataBytes[242]);
-    assertEquals('u', deviceDataBytes[239]);
-    assertEquals('u', deviceDataBytes[252]);
-    assertEquals('}', deviceDataBytes[255]);
-    assertEquals('}', deviceDataBytes[256]);
+    assertEquals(257, device.getDeviceDataBytes().length);
   }
 
   /**
    * Test {@link Device#setDeviceData(DeviceData)}.
    * <ul>
-   *   <li>Then {@link Device#Device()} DeviceData is {@link DeviceData} (default
-   * constructor).</li>
+   *   <li>Then {@link Device#Device()} DeviceDataBytes is {@code null}.</li>
    * </ul>
    * <p>
    * Method under test: {@link Device#setDeviceData(DeviceData)}
    */
   @Test
-  @DisplayName("Test setDeviceData(DeviceData); then Device() DeviceData is DeviceData (default constructor)")
-  void testSetDeviceData_thenDeviceDeviceDataIsDeviceData() {
+  @DisplayName("Test setDeviceData(DeviceData); then Device() DeviceDataBytes is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Device.setDeviceData(DeviceData)"})
+  void testSetDeviceData_thenDeviceDeviceDataBytesIsNull() {
     // Arrange
     Device device = new Device();
 
@@ -2040,14 +1120,15 @@ class DeviceDiffblueTest {
   /**
    * Test {@link Device#setDeviceData(DeviceData)}.
    * <ul>
-   *   <li>Then {@link Device#Device(Device)} with device is {@link Device#Device()}
-   * DeviceDataBytes is {@code null}.</li>
+   *   <li>Then {@link Device#Device(Device)} with device is {@link Device#Device()} DeviceDataBytes is {@code null}.</li>
    * </ul>
    * <p>
    * Method under test: {@link Device#setDeviceData(DeviceData)}
    */
   @Test
   @DisplayName("Test setDeviceData(DeviceData); then Device(Device) with device is Device() DeviceDataBytes is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Device.setDeviceData(DeviceData)"})
   void testSetDeviceData_thenDeviceWithDeviceIsDeviceDeviceDataBytesIsNull() {
     // Arrange
     Device device = new Device(new Device());
@@ -2067,14 +1148,15 @@ class DeviceDiffblueTest {
   /**
    * Test {@link Device#getAdditionalInfo()}.
    * <ul>
-   *   <li>Given {@link Device#Device()} DeviceDataBytes is {@code AXAXAXAX} Bytes
-   * is {@code UTF-8}.</li>
+   *   <li>Given {@link Device#Device()} DeviceDataBytes is {@code AXAXAXAX} Bytes is {@code UTF-8}.</li>
    * </ul>
    * <p>
    * Method under test: {@link Device#getAdditionalInfo()}
    */
   @Test
   @DisplayName("Test getAdditionalInfo(); given Device() DeviceDataBytes is 'AXAXAXAX' Bytes is 'UTF-8'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode Device.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenDeviceDeviceDataBytesIsAxaxaxaxBytesIsUtf8() throws UnsupportedEncodingException {
     // Arrange
     Device device = new Device();
@@ -2090,8 +1172,7 @@ class DeviceDiffblueTest {
   /**
    * Test {@link Device#getAdditionalInfo()}.
    * <ul>
-   *   <li>Given {@link Device#Device(Device)} with device is
-   * {@link Device#Device()}.</li>
+   *   <li>Given {@link Device#Device(Device)} with device is {@link Device#Device()}.</li>
    *   <li>Then return {@link NullNode#instance}.</li>
    * </ul>
    * <p>
@@ -2099,6 +1180,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test getAdditionalInfo(); given Device(Device) with device is Device(); then return instance")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode Device.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenDeviceWithDeviceIsDevice_thenReturnInstance() {
     // Arrange and Act
     JsonNode actualAdditionalInfo = (new Device(new Device())).getAdditionalInfo();
@@ -2110,8 +1193,7 @@ class DeviceDiffblueTest {
   /**
    * Test {@link Device#getAdditionalInfo()}.
    * <ul>
-   *   <li>Given {@link Device#Device(Device)} with device is
-   * {@link Device#Device(Device)}.</li>
+   *   <li>Given {@link Device#Device(Device)} with device is {@link Device#Device(Device)}.</li>
    *   <li>Then return {@link NullNode#instance}.</li>
    * </ul>
    * <p>
@@ -2119,6 +1201,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test getAdditionalInfo(); given Device(Device) with device is Device(Device); then return instance")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode Device.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenDeviceWithDeviceIsDevice_thenReturnInstance2() {
     // Arrange and Act
     JsonNode actualAdditionalInfo = (new Device(new Device(new Device()))).getAdditionalInfo();
@@ -2138,6 +1222,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test getAdditionalInfo(); given Device(); then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonNode Device.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenDevice_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull((new Device()).getAdditionalInfo());
@@ -2158,6 +1244,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Device.equals(Object)", "int Device.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     Device device = new Device();
@@ -2184,6 +1272,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Device.equals(Object)", "int Device.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     Device device = new Device();
@@ -2205,6 +1295,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Device.equals(Object)", "int Device.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     DeviceInfo deviceInfo = new DeviceInfo();
@@ -2224,6 +1316,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Device.equals(Object)", "int Device.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     Device device = new Device(new Device());
@@ -2243,6 +1337,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Device.equals(Object)", "int Device.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     Device device = new Device();
@@ -2262,23 +1358,9 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Device.equals(Object)", "int Device.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
-    // Arrange, Act and Assert
-    assertNotEquals(new Device(), mock(AdminSettings.class));
-  }
-
-  /**
-   * Test {@link Device#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link Device#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     Device device = new Device();
     device.setTenantId(TenantId.SYS_TENANT_ID);
@@ -2298,7 +1380,9 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Device.equals(Object)", "int Device.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     Device device = new Device();
     device.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
@@ -2318,7 +1402,9 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Device.equals(Object)", "int Device.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     Device device = new Device();
     device.setName("Name");
@@ -2338,7 +1424,9 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Device.equals(Object)", "int Device.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     Device device = new Device();
     device.setType("Type");
@@ -2358,7 +1446,9 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Device.equals(Object)", "int Device.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     Device device = new Device();
     device.setLabel("Label");
@@ -2378,7 +1468,9 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Device.equals(Object)", "int Device.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     Device device = new Device();
     device.setDeviceDataBytes(new byte[]{'A', 1, 'A', 1, 'A', 1, 'A', 1});
@@ -2398,7 +1490,9 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Device.equals(Object)", "int Device.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     Device device = new Device();
     device.setVersion(1L);
@@ -2418,7 +1512,9 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Device.equals(Object)", "int Device.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     Device device = new Device();
 
@@ -2440,7 +1536,9 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Device.equals(Object)", "int Device.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     Device device = new Device();
 
@@ -2462,7 +1560,9 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Device.equals(Object)", "int Device.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     Device device = new Device();
 
@@ -2484,7 +1584,9 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Device.equals(Object)", "int Device.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     Device device = new Device();
 
@@ -2506,7 +1608,9 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Device.equals(Object)", "int Device.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     Device device = new Device();
 
@@ -2528,7 +1632,9 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Device.equals(Object)", "int Device.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     Device device = new Device();
 
@@ -2550,6 +1656,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Device.equals(Object)", "int Device.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new Device(), null);
@@ -2566,6 +1674,8 @@ class DeviceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Device.equals(Object)", "int Device.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new Device(), "Different type to Device");

@@ -1,21 +1,19 @@
 package org.thingsboard.server.dao.model.sql;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.Test;
-import org.thingsboard.server.common.data.id.OAuth2ClientId;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.common.data.oauth2.OAuth2ClientInfo;
-import org.thingsboard.server.dao.model.ModelConstants;
 
 public class OAuth2ClientInfoEntityDiffblueTest {
   /**
-   * Test {@link OAuth2ClientInfoEntity#equals(Object)}, and
-   * {@link OAuth2ClientInfoEntity#hashCode()}.
+   * Test {@link OAuth2ClientInfoEntity#equals(Object)}, and {@link OAuth2ClientInfoEntity#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -28,21 +26,23 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean OAuth2ClientInfoEntity.equals(Object)", "int OAuth2ClientInfoEntity.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(1L);
-    oAuth2ClientInfoEntity.setId(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     oAuth2ClientInfoEntity.setPlatforms("Platforms");
     oAuth2ClientInfoEntity.setTitle("Dr");
-    oAuth2ClientInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity2 = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity2.setCreatedTime(1L);
-    oAuth2ClientInfoEntity2.setId(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     oAuth2ClientInfoEntity2.setPlatforms("Platforms");
     oAuth2ClientInfoEntity2.setTitle("Dr");
-    oAuth2ClientInfoEntity2.setUuid(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertEquals(oAuth2ClientInfoEntity, oAuth2ClientInfoEntity2);
@@ -51,8 +51,83 @@ public class OAuth2ClientInfoEntityDiffblueTest {
   }
 
   /**
-   * Test {@link OAuth2ClientInfoEntity#equals(Object)}, and
-   * {@link OAuth2ClientInfoEntity#hashCode()}.
+   * Test {@link OAuth2ClientInfoEntity#equals(Object)}, and {@link OAuth2ClientInfoEntity#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link OAuth2ClientInfoEntity#equals(Object)}
+   *   <li>{@link OAuth2ClientInfoEntity#hashCode()}
+   * </ul>
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean OAuth2ClientInfoEntity.equals(Object)", "int OAuth2ClientInfoEntity.hashCode()"})
+  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
+    oAuth2ClientInfoEntity.setCreatedTime(1L);
+    oAuth2ClientInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    oAuth2ClientInfoEntity.setPlatforms(null);
+    oAuth2ClientInfoEntity.setTitle("Dr");
+    oAuth2ClientInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    OAuth2ClientInfoEntity oAuth2ClientInfoEntity2 = new OAuth2ClientInfoEntity();
+    oAuth2ClientInfoEntity2.setCreatedTime(1L);
+    oAuth2ClientInfoEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    oAuth2ClientInfoEntity2.setPlatforms(null);
+    oAuth2ClientInfoEntity2.setTitle("Dr");
+    oAuth2ClientInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertEquals(oAuth2ClientInfoEntity, oAuth2ClientInfoEntity2);
+    int expectedHashCodeResult = oAuth2ClientInfoEntity.hashCode();
+    assertEquals(expectedHashCodeResult, oAuth2ClientInfoEntity2.hashCode());
+  }
+
+  /**
+   * Test {@link OAuth2ClientInfoEntity#equals(Object)}, and {@link OAuth2ClientInfoEntity#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * </ul>
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link OAuth2ClientInfoEntity#equals(Object)}
+   *   <li>{@link OAuth2ClientInfoEntity#hashCode()}
+   * </ul>
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean OAuth2ClientInfoEntity.equals(Object)", "int OAuth2ClientInfoEntity.hashCode()"})
+  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+    // Arrange
+    OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
+    oAuth2ClientInfoEntity.setCreatedTime(1L);
+    oAuth2ClientInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    oAuth2ClientInfoEntity.setPlatforms("Platforms");
+    oAuth2ClientInfoEntity.setTitle(null);
+    oAuth2ClientInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    OAuth2ClientInfoEntity oAuth2ClientInfoEntity2 = new OAuth2ClientInfoEntity();
+    oAuth2ClientInfoEntity2.setCreatedTime(1L);
+    oAuth2ClientInfoEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    oAuth2ClientInfoEntity2.setPlatforms("Platforms");
+    oAuth2ClientInfoEntity2.setTitle(null);
+    oAuth2ClientInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertEquals(oAuth2ClientInfoEntity, oAuth2ClientInfoEntity2);
+    int expectedHashCodeResult = oAuth2ClientInfoEntity.hashCode();
+    assertEquals(expectedHashCodeResult, oAuth2ClientInfoEntity2.hashCode());
+  }
+
+  /**
+   * Test {@link OAuth2ClientInfoEntity#equals(Object)}, and {@link OAuth2ClientInfoEntity#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -65,14 +140,16 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean OAuth2ClientInfoEntity.equals(Object)", "int OAuth2ClientInfoEntity.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(1L);
-    oAuth2ClientInfoEntity.setId(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     oAuth2ClientInfoEntity.setPlatforms("Platforms");
     oAuth2ClientInfoEntity.setTitle("Dr");
-    oAuth2ClientInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertEquals(oAuth2ClientInfoEntity, oAuth2ClientInfoEntity);
@@ -90,21 +167,23 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * Method under test: {@link OAuth2ClientInfoEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean OAuth2ClientInfoEntity.equals(Object)", "int OAuth2ClientInfoEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(3L);
-    oAuth2ClientInfoEntity.setId(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     oAuth2ClientInfoEntity.setPlatforms("Platforms");
     oAuth2ClientInfoEntity.setTitle("Dr");
-    oAuth2ClientInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity2 = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity2.setCreatedTime(1L);
-    oAuth2ClientInfoEntity2.setId(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     oAuth2ClientInfoEntity2.setPlatforms("Platforms");
     oAuth2ClientInfoEntity2.setTitle("Dr");
-    oAuth2ClientInfoEntity2.setUuid(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(oAuth2ClientInfoEntity, oAuth2ClientInfoEntity2);
@@ -120,21 +199,23 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * Method under test: {@link OAuth2ClientInfoEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean OAuth2ClientInfoEntity.equals(Object)", "int OAuth2ClientInfoEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(1L);
-    oAuth2ClientInfoEntity.setId(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     oAuth2ClientInfoEntity.setPlatforms("Dr");
     oAuth2ClientInfoEntity.setTitle("Dr");
-    oAuth2ClientInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity2 = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity2.setCreatedTime(1L);
-    oAuth2ClientInfoEntity2.setId(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     oAuth2ClientInfoEntity2.setPlatforms("Platforms");
     oAuth2ClientInfoEntity2.setTitle("Dr");
-    oAuth2ClientInfoEntity2.setUuid(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(oAuth2ClientInfoEntity, oAuth2ClientInfoEntity2);
@@ -150,21 +231,23 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * Method under test: {@link OAuth2ClientInfoEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean OAuth2ClientInfoEntity.equals(Object)", "int OAuth2ClientInfoEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(1L);
-    oAuth2ClientInfoEntity.setId(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     oAuth2ClientInfoEntity.setPlatforms(null);
     oAuth2ClientInfoEntity.setTitle("Dr");
-    oAuth2ClientInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity2 = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity2.setCreatedTime(1L);
-    oAuth2ClientInfoEntity2.setId(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     oAuth2ClientInfoEntity2.setPlatforms("Platforms");
     oAuth2ClientInfoEntity2.setTitle("Dr");
-    oAuth2ClientInfoEntity2.setUuid(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(oAuth2ClientInfoEntity, oAuth2ClientInfoEntity2);
@@ -180,21 +263,23 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * Method under test: {@link OAuth2ClientInfoEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean OAuth2ClientInfoEntity.equals(Object)", "int OAuth2ClientInfoEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(1L);
-    oAuth2ClientInfoEntity.setId(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     oAuth2ClientInfoEntity.setPlatforms("Platforms");
     oAuth2ClientInfoEntity.setTitle("Mr");
-    oAuth2ClientInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity2 = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity2.setCreatedTime(1L);
-    oAuth2ClientInfoEntity2.setId(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     oAuth2ClientInfoEntity2.setPlatforms("Platforms");
     oAuth2ClientInfoEntity2.setTitle("Dr");
-    oAuth2ClientInfoEntity2.setUuid(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(oAuth2ClientInfoEntity, oAuth2ClientInfoEntity2);
@@ -210,21 +295,23 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * Method under test: {@link OAuth2ClientInfoEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean OAuth2ClientInfoEntity.equals(Object)", "int OAuth2ClientInfoEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(1L);
-    oAuth2ClientInfoEntity.setId(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     oAuth2ClientInfoEntity.setPlatforms("Platforms");
     oAuth2ClientInfoEntity.setTitle(null);
-    oAuth2ClientInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity2 = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity2.setCreatedTime(1L);
-    oAuth2ClientInfoEntity2.setId(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     oAuth2ClientInfoEntity2.setPlatforms("Platforms");
     oAuth2ClientInfoEntity2.setTitle("Dr");
-    oAuth2ClientInfoEntity2.setUuid(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(oAuth2ClientInfoEntity, oAuth2ClientInfoEntity2);
@@ -240,14 +327,16 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * Method under test: {@link OAuth2ClientInfoEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean OAuth2ClientInfoEntity.equals(Object)", "int OAuth2ClientInfoEntity.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(1L);
-    oAuth2ClientInfoEntity.setId(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     oAuth2ClientInfoEntity.setPlatforms("Platforms");
     oAuth2ClientInfoEntity.setTitle("Dr");
-    oAuth2ClientInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(oAuth2ClientInfoEntity, null);
@@ -263,14 +352,16 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * Method under test: {@link OAuth2ClientInfoEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean OAuth2ClientInfoEntity.equals(Object)", "int OAuth2ClientInfoEntity.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(1L);
-    oAuth2ClientInfoEntity.setId(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     oAuth2ClientInfoEntity.setPlatforms("Platforms");
     oAuth2ClientInfoEntity.setTitle("Dr");
-    oAuth2ClientInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(oAuth2ClientInfoEntity, "Different type to OAuth2ClientInfoEntity");
@@ -290,6 +381,10 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void OAuth2ClientInfoEntity.<init>()", "String OAuth2ClientInfoEntity.getPlatforms()",
+      "String OAuth2ClientInfoEntity.getTitle()", "void OAuth2ClientInfoEntity.setPlatforms(String)",
+      "void OAuth2ClientInfoEntity.setTitle(String)", "String OAuth2ClientInfoEntity.toString()"})
   public void testGettersAndSetters() {
     // Arrange and Act
     OAuth2ClientInfoEntity actualOAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
@@ -298,24 +393,26 @@ public class OAuth2ClientInfoEntityDiffblueTest {
     String actualToStringResult = actualOAuth2ClientInfoEntity.toString();
     String actualPlatforms = actualOAuth2ClientInfoEntity.getPlatforms();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Dr", actualOAuth2ClientInfoEntity.getTitle());
     assertEquals("OAuth2ClientInfoEntity(platforms=Platforms, title=Dr)", actualToStringResult);
     assertEquals("Platforms", actualPlatforms);
+    assertNull(actualOAuth2ClientInfoEntity.getId());
+    assertNull(actualOAuth2ClientInfoEntity.getUuid());
     assertEquals(0L, actualOAuth2ClientInfoEntity.getCreatedTime());
   }
 
   /**
-   * Test
-   * {@link OAuth2ClientInfoEntity#OAuth2ClientInfoEntity(UUID, long, String, String)}.
+   * Test {@link OAuth2ClientInfoEntity#OAuth2ClientInfoEntity(UUID, long, String, String)}.
    * <p>
-   * Method under test:
-   * {@link OAuth2ClientInfoEntity#OAuth2ClientInfoEntity(UUID, long, String, String)}
+   * Method under test: {@link OAuth2ClientInfoEntity#OAuth2ClientInfoEntity(UUID, long, String, String)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void OAuth2ClientInfoEntity.<init>(UUID, long, String, String)"})
   public void testNewOAuth2ClientInfoEntity() {
     // Arrange
-    UUID id = ModelConstants.NULL_UUID;
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
     OAuth2ClientInfoEntity actualOAuth2ClientInfoEntity = new OAuth2ClientInfoEntity(id, 1L, "Platforms", "Dr");
@@ -331,20 +428,22 @@ public class OAuth2ClientInfoEntityDiffblueTest {
   /**
    * Test {@link OAuth2ClientInfoEntity#toData()}.
    * <ul>
-   *   <li>Given {@link OAuth2ClientInfoEntity#OAuth2ClientInfoEntity()} Platforms
-   * is {@code ,}.</li>
+   *   <li>Given {@link OAuth2ClientInfoEntity#OAuth2ClientInfoEntity()} Platforms is {@code ,}.</li>
    * </ul>
    * <p>
    * Method under test: {@link OAuth2ClientInfoEntity#toData()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"OAuth2ClientInfo OAuth2ClientInfoEntity.toData()"})
   public void testToData_givenOAuth2ClientInfoEntityPlatformsIsComma() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(1L);
-    oAuth2ClientInfoEntity.setId(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     oAuth2ClientInfoEntity.setTitle("Dr");
-    oAuth2ClientInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    oAuth2ClientInfoEntity.setUuid(id);
     oAuth2ClientInfoEntity.setPlatforms(",");
 
     // Act
@@ -352,32 +451,33 @@ public class OAuth2ClientInfoEntityDiffblueTest {
 
     // Assert
     UUID uuidId = actualToDataResult.getUuidId();
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", uuidId.toString());
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", uuidId.toString());
     assertEquals("Dr", actualToDataResult.getName());
     assertEquals("Dr", actualToDataResult.getTitle());
     assertEquals(1L, actualToDataResult.getCreatedTime());
-    OAuth2ClientId id = actualToDataResult.getId();
-    assertTrue(id.isNullUid());
-    assertSame(uuidId, id.getId());
+    assertSame(id, uuidId);
+    assertSame(id, actualToDataResult.getId().getId());
   }
 
   /**
    * Test {@link OAuth2ClientInfoEntity#toData()}.
    * <ul>
-   *   <li>Given {@link OAuth2ClientInfoEntity#OAuth2ClientInfoEntity()} Platforms
-   * is empty string.</li>
+   *   <li>Given {@link OAuth2ClientInfoEntity#OAuth2ClientInfoEntity()} Platforms is empty string.</li>
    * </ul>
    * <p>
    * Method under test: {@link OAuth2ClientInfoEntity#toData()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"OAuth2ClientInfo OAuth2ClientInfoEntity.toData()"})
   public void testToData_givenOAuth2ClientInfoEntityPlatformsIsEmptyString() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(1L);
-    oAuth2ClientInfoEntity.setId(ModelConstants.NULL_UUID);
+    oAuth2ClientInfoEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     oAuth2ClientInfoEntity.setTitle("Dr");
-    oAuth2ClientInfoEntity.setUuid(ModelConstants.NULL_UUID);
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    oAuth2ClientInfoEntity.setUuid(id);
     oAuth2ClientInfoEntity.setPlatforms("");
 
     // Act
@@ -385,13 +485,12 @@ public class OAuth2ClientInfoEntityDiffblueTest {
 
     // Assert
     UUID uuidId = actualToDataResult.getUuidId();
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", uuidId.toString());
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", uuidId.toString());
     assertEquals("Dr", actualToDataResult.getName());
     assertEquals("Dr", actualToDataResult.getTitle());
     assertEquals(1L, actualToDataResult.getCreatedTime());
-    OAuth2ClientId id = actualToDataResult.getId();
-    assertTrue(id.isNullUid());
-    assertSame(uuidId, id.getId());
+    assertSame(id, uuidId);
+    assertSame(id, actualToDataResult.getId().getId());
   }
 
   /**
@@ -404,6 +503,8 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * Method under test: {@link OAuth2ClientInfoEntity#toData()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"OAuth2ClientInfo OAuth2ClientInfoEntity.toData()"})
   public void testToData_givenOAuth2ClientInfoEntity_thenReturnNameIsNull() {
     // Arrange and Act
     OAuth2ClientInfo actualToDataResult = (new OAuth2ClientInfoEntity()).toData();
@@ -412,9 +513,7 @@ public class OAuth2ClientInfoEntityDiffblueTest {
     assertNull(actualToDataResult.getName());
     assertNull(actualToDataResult.getTitle());
     assertNull(actualToDataResult.getUuidId());
-    OAuth2ClientId id = actualToDataResult.getId();
-    assertNull(id.getId());
+    assertNull(actualToDataResult.getId().getId());
     assertEquals(0L, actualToDataResult.getCreatedTime());
-    assertFalse(id.isNullUid());
   }
 }

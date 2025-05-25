@@ -2,20 +2,22 @@ package org.thingsboard.server.common.data.exception;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 
 class EntityVersionMismatchExceptionDiffblueTest {
   /**
-   * Test
-   * {@link EntityVersionMismatchException#EntityVersionMismatchException(String, Throwable)}.
+   * Test {@link EntityVersionMismatchException#EntityVersionMismatchException(String, Throwable)}.
    * <p>
-   * Method under test:
-   * {@link EntityVersionMismatchException#EntityVersionMismatchException(String, Throwable)}
+   * Method under test: {@link EntityVersionMismatchException#EntityVersionMismatchException(String, Throwable)}
    */
   @Test
   @DisplayName("Test new EntityVersionMismatchException(String, Throwable)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityVersionMismatchException.<init>(String, Throwable)"})
   void testNewEntityVersionMismatchException() {
     // Arrange
     Throwable cause = new Throwable();
@@ -31,14 +33,14 @@ class EntityVersionMismatchExceptionDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EntityVersionMismatchException#EntityVersionMismatchException(EntityType, Throwable)}.
+   * Test {@link EntityVersionMismatchException#EntityVersionMismatchException(EntityType, Throwable)}.
    * <p>
-   * Method under test:
-   * {@link EntityVersionMismatchException#EntityVersionMismatchException(EntityType, Throwable)}
+   * Method under test: {@link EntityVersionMismatchException#EntityVersionMismatchException(EntityType, Throwable)}
    */
   @Test
   @DisplayName("Test new EntityVersionMismatchException(EntityType, Throwable)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityVersionMismatchException.<init>(EntityType, Throwable)"})
   void testNewEntityVersionMismatchException2() {
     // Arrange
     Throwable cause = new Throwable();
@@ -56,14 +58,14 @@ class EntityVersionMismatchExceptionDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link EntityVersionMismatchException#EntityVersionMismatchException(EntityType, Throwable)}.
+   * Test {@link EntityVersionMismatchException#EntityVersionMismatchException(EntityType, Throwable)}.
    * <p>
-   * Method under test:
-   * {@link EntityVersionMismatchException#EntityVersionMismatchException(EntityType, Throwable)}
+   * Method under test: {@link EntityVersionMismatchException#EntityVersionMismatchException(EntityType, Throwable)}
    */
   @Test
   @DisplayName("Test new EntityVersionMismatchException(EntityType, Throwable)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityVersionMismatchException.<init>(EntityType, Throwable)"})
   void testNewEntityVersionMismatchException3() {
     // Arrange
     Throwable cause = new Throwable();

@@ -4,17 +4,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.kv.Aggregation;
 import org.thingsboard.server.common.data.kv.IntervalType;
 
 class EntityHistoryCmdDiffblueTest {
   /**
-   * Test {@link EntityHistoryCmd#equals(Object)}, and
-   * {@link EntityHistoryCmd#hashCode()}.
+   * Test {@link EntityHistoryCmd#equals(Object)}, and {@link EntityHistoryCmd#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -28,6 +29,8 @@ class EntityHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityHistoryCmd.equals(Object)", "int EntityHistoryCmd.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EntityHistoryCmd entityHistoryCmd = new EntityHistoryCmd();
@@ -40,8 +43,7 @@ class EntityHistoryCmdDiffblueTest {
   }
 
   /**
-   * Test {@link EntityHistoryCmd#equals(Object)}, and
-   * {@link EntityHistoryCmd#hashCode()}.
+   * Test {@link EntityHistoryCmd#equals(Object)}, and {@link EntityHistoryCmd#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -55,6 +57,8 @@ class EntityHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityHistoryCmd.equals(Object)", "int EntityHistoryCmd.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     EntityHistoryCmd entityHistoryCmd = new EntityHistoryCmd();
@@ -70,8 +74,7 @@ class EntityHistoryCmdDiffblueTest {
   }
 
   /**
-   * Test {@link EntityHistoryCmd#equals(Object)}, and
-   * {@link EntityHistoryCmd#hashCode()}.
+   * Test {@link EntityHistoryCmd#equals(Object)}, and {@link EntityHistoryCmd#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -85,6 +88,8 @@ class EntityHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityHistoryCmd.equals(Object)", "int EntityHistoryCmd.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     EntityHistoryCmd entityHistoryCmd = new EntityHistoryCmd();
@@ -100,8 +105,7 @@ class EntityHistoryCmdDiffblueTest {
   }
 
   /**
-   * Test {@link EntityHistoryCmd#equals(Object)}, and
-   * {@link EntityHistoryCmd#hashCode()}.
+   * Test {@link EntityHistoryCmd#equals(Object)}, and {@link EntityHistoryCmd#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -115,6 +119,8 @@ class EntityHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityHistoryCmd.equals(Object)", "int EntityHistoryCmd.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     EntityHistoryCmd entityHistoryCmd = new EntityHistoryCmd();
@@ -130,8 +136,7 @@ class EntityHistoryCmdDiffblueTest {
   }
 
   /**
-   * Test {@link EntityHistoryCmd#equals(Object)}, and
-   * {@link EntityHistoryCmd#hashCode()}.
+   * Test {@link EntityHistoryCmd#equals(Object)}, and {@link EntityHistoryCmd#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -145,6 +150,8 @@ class EntityHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityHistoryCmd.equals(Object)", "int EntityHistoryCmd.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     EntityHistoryCmd entityHistoryCmd = new EntityHistoryCmd();
@@ -160,8 +167,7 @@ class EntityHistoryCmdDiffblueTest {
   }
 
   /**
-   * Test {@link EntityHistoryCmd#equals(Object)}, and
-   * {@link EntityHistoryCmd#hashCode()}.
+   * Test {@link EntityHistoryCmd#equals(Object)}, and {@link EntityHistoryCmd#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -175,6 +181,8 @@ class EntityHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityHistoryCmd.equals(Object)", "int EntityHistoryCmd.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EntityHistoryCmd entityHistoryCmd = new EntityHistoryCmd();
@@ -196,6 +204,8 @@ class EntityHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityHistoryCmd.equals(Object)", "int EntityHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EntityHistoryCmd(), 1);
@@ -212,6 +222,8 @@ class EntityHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityHistoryCmd.equals(Object)", "int EntityHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EntityHistoryCmd entityHistoryCmd = new EntityHistoryCmd();
@@ -232,6 +244,8 @@ class EntityHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityHistoryCmd.equals(Object)", "int EntityHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     EntityHistoryCmd entityHistoryCmd = new EntityHistoryCmd();
@@ -252,6 +266,8 @@ class EntityHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityHistoryCmd.equals(Object)", "int EntityHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     EntityHistoryCmd entityHistoryCmd = new EntityHistoryCmd();
@@ -272,6 +288,8 @@ class EntityHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityHistoryCmd.equals(Object)", "int EntityHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     EntityHistoryCmd entityHistoryCmd = new EntityHistoryCmd();
@@ -292,6 +310,8 @@ class EntityHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityHistoryCmd.equals(Object)", "int EntityHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     EntityHistoryCmd entityHistoryCmd = new EntityHistoryCmd();
@@ -312,6 +332,8 @@ class EntityHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityHistoryCmd.equals(Object)", "int EntityHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     EntityHistoryCmd entityHistoryCmd = new EntityHistoryCmd();
@@ -332,6 +354,8 @@ class EntityHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityHistoryCmd.equals(Object)", "int EntityHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     EntityHistoryCmd entityHistoryCmd = new EntityHistoryCmd();
@@ -352,6 +376,8 @@ class EntityHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityHistoryCmd.equals(Object)", "int EntityHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     EntityHistoryCmd entityHistoryCmd = new EntityHistoryCmd();
@@ -372,6 +398,8 @@ class EntityHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityHistoryCmd.equals(Object)", "int EntityHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     EntityHistoryCmd entityHistoryCmd = new EntityHistoryCmd();
@@ -392,6 +420,8 @@ class EntityHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityHistoryCmd.equals(Object)", "int EntityHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     EntityHistoryCmd entityHistoryCmd = new EntityHistoryCmd();
@@ -414,6 +444,8 @@ class EntityHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityHistoryCmd.equals(Object)", "int EntityHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     EntityHistoryCmd entityHistoryCmd = new EntityHistoryCmd();
@@ -436,6 +468,8 @@ class EntityHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityHistoryCmd.equals(Object)", "int EntityHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     EntityHistoryCmd entityHistoryCmd = new EntityHistoryCmd();
@@ -458,6 +492,8 @@ class EntityHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityHistoryCmd.equals(Object)", "int EntityHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     EntityHistoryCmd entityHistoryCmd = new EntityHistoryCmd();
@@ -480,6 +516,8 @@ class EntityHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityHistoryCmd.equals(Object)", "int EntityHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EntityHistoryCmd(), null);
@@ -496,6 +534,8 @@ class EntityHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean EntityHistoryCmd.equals(Object)", "int EntityHistoryCmd.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EntityHistoryCmd(), "Different type to EntityHistoryCmd");
@@ -530,6 +570,17 @@ class EntityHistoryCmdDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EntityHistoryCmd.<init>()", "Aggregation EntityHistoryCmd.getAgg()",
+      "long EntityHistoryCmd.getEndTs()", "long EntityHistoryCmd.getInterval()",
+      "IntervalType EntityHistoryCmd.getIntervalType()", "List EntityHistoryCmd.getKeys()",
+      "int EntityHistoryCmd.getLimit()", "long EntityHistoryCmd.getStartTs()",
+      "String EntityHistoryCmd.getTimeZoneId()", "boolean EntityHistoryCmd.isFetchLatestPreviousPoint()",
+      "void EntityHistoryCmd.setAgg(Aggregation)", "void EntityHistoryCmd.setEndTs(long)",
+      "void EntityHistoryCmd.setFetchLatestPreviousPoint(boolean)", "void EntityHistoryCmd.setInterval(long)",
+      "void EntityHistoryCmd.setIntervalType(IntervalType)", "void EntityHistoryCmd.setKeys(List)",
+      "void EntityHistoryCmd.setLimit(int)", "void EntityHistoryCmd.setStartTs(long)",
+      "void EntityHistoryCmd.setTimeZoneId(String)", "String EntityHistoryCmd.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     EntityHistoryCmd actualEntityHistoryCmd = new EntityHistoryCmd();
@@ -554,7 +605,7 @@ class EntityHistoryCmdDiffblueTest {
     String actualTimeZoneId = actualEntityHistoryCmd.getTimeZoneId();
     boolean actualIsFetchLatestPreviousPointResult = actualEntityHistoryCmd.isFetchLatestPreviousPoint();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("EntityHistoryCmd(keys=[], startTs=1, endTs=1, intervalType=MILLISECONDS, interval=42, timeZoneId=UTC,"
         + " limit=1, agg=MIN, fetchLatestPreviousPoint=true)", actualToStringResult);
     assertEquals("UTC", actualTimeZoneId);

@@ -2,15 +2,17 @@ package org.thingsboard.server.common.data.settings;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.EntityId;
 
 class StarredDashboardInfoDiffblueTest {
   /**
-   * Test {@link StarredDashboardInfo#equals(Object)}, and
-   * {@link StarredDashboardInfo#hashCode()}.
+   * Test {@link StarredDashboardInfo#equals(Object)}, and {@link StarredDashboardInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -24,6 +26,8 @@ class StarredDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StarredDashboardInfo.equals(Object)", "int StarredDashboardInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     StarredDashboardInfo starredDashboardInfo = new StarredDashboardInfo();
@@ -43,8 +47,7 @@ class StarredDashboardInfoDiffblueTest {
   }
 
   /**
-   * Test {@link StarredDashboardInfo#equals(Object)}, and
-   * {@link StarredDashboardInfo#hashCode()}.
+   * Test {@link StarredDashboardInfo#equals(Object)}, and {@link StarredDashboardInfo#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -58,6 +61,8 @@ class StarredDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StarredDashboardInfo.equals(Object)", "int StarredDashboardInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     StarredDashboardInfo starredDashboardInfo = new StarredDashboardInfo();
@@ -82,6 +87,8 @@ class StarredDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StarredDashboardInfo.equals(Object)", "int StarredDashboardInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     StarredDashboardInfo starredDashboardInfo = new StarredDashboardInfo();
@@ -109,6 +116,8 @@ class StarredDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StarredDashboardInfo.equals(Object)", "int StarredDashboardInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     StarredDashboardInfo starredDashboardInfo = new StarredDashboardInfo();
@@ -136,6 +145,8 @@ class StarredDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StarredDashboardInfo.equals(Object)", "int StarredDashboardInfo.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     StarredDashboardInfo starredDashboardInfo = new StarredDashboardInfo();
@@ -158,6 +169,8 @@ class StarredDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StarredDashboardInfo.equals(Object)", "int StarredDashboardInfo.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     StarredDashboardInfo starredDashboardInfo = new StarredDashboardInfo();
@@ -182,14 +195,20 @@ class StarredDashboardInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void StarredDashboardInfo.<init>()", "long StarredDashboardInfo.getStarredAt()",
+      "void StarredDashboardInfo.setStarredAt(long)", "String StarredDashboardInfo.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     StarredDashboardInfo actualStarredDashboardInfo = new StarredDashboardInfo();
     actualStarredDashboardInfo.setStarredAt(1L);
     String actualToStringResult = actualStarredDashboardInfo.toString();
+    long actualStarredAt = actualStarredDashboardInfo.getStarredAt();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("StarredDashboardInfo(starredAt=1)", actualToStringResult);
-    assertEquals(1L, actualStarredDashboardInfo.getStarredAt());
+    assertNull(actualStarredDashboardInfo.getTitle());
+    assertNull(actualStarredDashboardInfo.getId());
+    assertEquals(1L, actualStarredAt);
   }
 }

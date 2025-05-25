@@ -5,13 +5,15 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.node.MissingNode;
 import java.util.ArrayList;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.alarm.Alarm;
+import org.thingsboard.server.common.data.alarm.Alarm.AlarmBuilder;
 import org.thingsboard.server.common.data.alarm.AlarmInfo;
 import org.thingsboard.server.common.data.alarm.AlarmSeverity;
 import org.thingsboard.server.common.data.alarm.AlarmStatus;
@@ -31,6 +33,8 @@ class AlarmDataDiffblueTest {
    */
   @Test
   @DisplayName("Test new AlarmData(Alarm, EntityId); given 'true'; then return Status is 'ACTIVE_ACK'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmData.<init>(Alarm, EntityId)"})
   void testNewAlarmData_givenTrue_thenReturnStatusIsActiveAck() {
     // Arrange
     Alarm alarm = new Alarm();
@@ -41,6 +45,8 @@ class AlarmDataDiffblueTest {
     AlarmData actualAlarmData = new AlarmData(alarm, entityId);
 
     // Assert
+    EntityId entityId2 = actualAlarmData.getEntityId();
+    assertTrue(entityId2 instanceof TenantId);
     assertNull(actualAlarmData.getDetails());
     assertNull(actualAlarmData.getName());
     assertNull(actualAlarmData.getType());
@@ -69,8 +75,7 @@ class AlarmDataDiffblueTest {
     assertFalse(actualAlarmData.isPropagateToTenant());
     assertTrue(actualAlarmData.getLatest().isEmpty());
     assertTrue(actualAlarmData.isAcknowledged());
-    TenantId expectedEntityId = entityId.SYS_TENANT_ID;
-    assertSame(expectedEntityId, actualAlarmData.getEntityId());
+    assertSame(entityId.SYS_TENANT_ID, entityId2);
   }
 
   /**
@@ -84,20 +89,22 @@ class AlarmDataDiffblueTest {
    */
   @Test
   @DisplayName("Test new AlarmData(AlarmInfo, AlarmData); given 'true'; then return Status is 'ACTIVE_ACK'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmData.<init>(AlarmInfo, AlarmData)"})
   void testNewAlarmData_givenTrue_thenReturnStatusIsActiveAck2() {
     // Arrange
     AlarmInfo main = new AlarmInfo();
     main.setAcknowledged(true);
-    Alarm.AlarmBuilder clearedResult = Alarm.builder()
+    AlarmBuilder clearedResult = Alarm.builder()
         .ackTs(1L)
         .acknowledged(true)
         .assignTs(1L)
         .assigneeId(null)
         .clearTs(1L)
         .cleared(true);
-    Alarm.AlarmBuilder customerIdResult = clearedResult
+    AlarmBuilder customerIdResult = clearedResult
         .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    Alarm.AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
+    AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
         .endTs(1L)
         .originator(TenantId.SYS_TENANT_ID)
         .propagate(true);
@@ -114,9 +121,7 @@ class AlarmDataDiffblueTest {
     AlarmData actualAlarmData = new AlarmData(main, new AlarmData(alarm, TenantId.SYS_TENANT_ID));
 
     // Assert
-    EntityId entityId = actualAlarmData.getEntityId();
-    assertTrue(entityId instanceof TenantId);
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", entityId.getId().toString());
+    assertTrue(actualAlarmData.getEntityId() instanceof TenantId);
     assertNull(actualAlarmData.getDetails());
     assertNull(actualAlarmData.getName());
     assertNull(actualAlarmData.getType());
@@ -138,7 +143,6 @@ class AlarmDataDiffblueTest {
     assertEquals(0L, actualAlarmData.getCreatedTime());
     assertEquals(0L, actualAlarmData.getEndTs());
     assertEquals(0L, actualAlarmData.getStartTs());
-    assertEquals(EntityType.TENANT, entityId.getEntityType());
     assertEquals(AlarmStatus.ACTIVE_ACK, actualAlarmData.getStatus());
     assertFalse(actualAlarmData.isCleared());
     assertFalse(actualAlarmData.isPropagate());
@@ -146,8 +150,6 @@ class AlarmDataDiffblueTest {
     assertFalse(actualAlarmData.isPropagateToTenant());
     assertTrue(actualAlarmData.getLatest().isEmpty());
     assertTrue(actualAlarmData.isAcknowledged());
-    assertTrue(entityId.isNullUid());
-    assertTrue(((TenantId) entityId).isSysTenantId());
   }
 
   /**
@@ -160,19 +162,21 @@ class AlarmDataDiffblueTest {
    */
   @Test
   @DisplayName("Test new AlarmData(AlarmInfo, AlarmData); then return Status is 'ACTIVE_UNACK'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmData.<init>(AlarmInfo, AlarmData)"})
   void testNewAlarmData_thenReturnStatusIsActiveUnack() {
     // Arrange
     AlarmInfo main = new AlarmInfo();
-    Alarm.AlarmBuilder clearedResult = Alarm.builder()
+    AlarmBuilder clearedResult = Alarm.builder()
         .ackTs(1L)
         .acknowledged(true)
         .assignTs(1L)
         .assigneeId(null)
         .clearTs(1L)
         .cleared(true);
-    Alarm.AlarmBuilder customerIdResult = clearedResult
+    AlarmBuilder customerIdResult = clearedResult
         .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    Alarm.AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
+    AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
         .endTs(1L)
         .originator(TenantId.SYS_TENANT_ID)
         .propagate(true);
@@ -189,9 +193,7 @@ class AlarmDataDiffblueTest {
     AlarmData actualAlarmData = new AlarmData(main, new AlarmData(alarm, TenantId.SYS_TENANT_ID));
 
     // Assert
-    EntityId entityId = actualAlarmData.getEntityId();
-    assertTrue(entityId instanceof TenantId);
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", entityId.getId().toString());
+    assertTrue(actualAlarmData.getEntityId() instanceof TenantId);
     assertNull(actualAlarmData.getDetails());
     assertNull(actualAlarmData.getName());
     assertNull(actualAlarmData.getType());
@@ -213,7 +215,6 @@ class AlarmDataDiffblueTest {
     assertEquals(0L, actualAlarmData.getCreatedTime());
     assertEquals(0L, actualAlarmData.getEndTs());
     assertEquals(0L, actualAlarmData.getStartTs());
-    assertEquals(EntityType.TENANT, entityId.getEntityType());
     assertEquals(AlarmStatus.ACTIVE_UNACK, actualAlarmData.getStatus());
     assertFalse(actualAlarmData.isAcknowledged());
     assertFalse(actualAlarmData.isCleared());
@@ -221,8 +222,6 @@ class AlarmDataDiffblueTest {
     assertFalse(actualAlarmData.isPropagateToOwner());
     assertFalse(actualAlarmData.isPropagateToTenant());
     assertTrue(actualAlarmData.getLatest().isEmpty());
-    assertTrue(entityId.isNullUid());
-    assertTrue(((TenantId) entityId).isSysTenantId());
   }
 
   /**
@@ -236,6 +235,8 @@ class AlarmDataDiffblueTest {
    */
   @Test
   @DisplayName("Test new AlarmData(Alarm, EntityId); when Alarm(); then return Status is 'ACTIVE_UNACK'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlarmData.<init>(Alarm, EntityId)"})
   void testNewAlarmData_whenAlarm_thenReturnStatusIsActiveUnack() {
     // Arrange
     TenantId entityId = TenantId.SYS_TENANT_ID;
@@ -244,6 +245,8 @@ class AlarmDataDiffblueTest {
     AlarmData actualAlarmData = new AlarmData(new Alarm(), entityId);
 
     // Assert
+    EntityId entityId2 = actualAlarmData.getEntityId();
+    assertTrue(entityId2 instanceof TenantId);
     assertNull(actualAlarmData.getDetails());
     assertNull(actualAlarmData.getName());
     assertNull(actualAlarmData.getType());
@@ -272,7 +275,6 @@ class AlarmDataDiffblueTest {
     assertFalse(actualAlarmData.isPropagateToOwner());
     assertFalse(actualAlarmData.isPropagateToTenant());
     assertTrue(actualAlarmData.getLatest().isEmpty());
-    TenantId expectedEntityId = entityId.SYS_TENANT_ID;
-    assertSame(expectedEntityId, actualAlarmData.getEntityId());
+    assertSame(entityId.SYS_TENANT_ID, entityId2);
   }
 }

@@ -6,35 +6,48 @@ import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.UUID;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.data.repository.CrudRepository;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.dao.model.ModelConstants;
 import org.thingsboard.server.dao.sqlts.insert.sql.DedicatedEventsSqlPartitioningRepository;
 
+@RunWith(MockitoJUnitRunner.class)
 public class DedicatedJpaAuditLogDaoDiffblueTest {
+  @Mock
+  private AuditLogRepository auditLogRepository;
+
+  @InjectMocks
+  private DedicatedJpaAuditLogDao dedicatedJpaAuditLogDao;
+
   /**
    * Test {@link DedicatedJpaAuditLogDao#removeById(TenantId, UUID)}.
    * <p>
    * Method under test: {@link DedicatedJpaAuditLogDao#removeById(TenantId, UUID)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DedicatedJpaAuditLogDao.removeById(TenantId, UUID)"})
   public void testRemoveById() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    AuditLogRepository auditLogRepository = mock(AuditLogRepository.class);
     doNothing().when(auditLogRepository).flush();
     doNothing().when(auditLogRepository).deleteById(Mockito.<UUID>any());
 
     // Act
-    (new DedicatedJpaAuditLogDao(auditLogRepository, mock(DedicatedEventsSqlPartitioningRepository.class)))
-        .removeById(ModelConstants.SYSTEM_TENANT, ModelConstants.NULL_UUID);
+    dedicatedJpaAuditLogDao.removeById(ModelConstants.SYSTEM_TENANT,
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Assert
     verify(auditLogRepository).flush();
@@ -50,49 +63,16 @@ public class DedicatedJpaAuditLogDaoDiffblueTest {
    * Method under test: {@link DedicatedJpaAuditLogDao#removeAllByIds(Collection)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DedicatedJpaAuditLogDao.removeAllByIds(Collection)"})
   public void testRemoveAllByIds_thenCallsDeleteById() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    AuditLogRepository auditLogRepository = mock(AuditLogRepository.class);
     doNothing().when(auditLogRepository).deleteById(Mockito.<UUID>any());
     doNothing().when(auditLogRepository).flush();
-    DedicatedJpaAuditLogDao dedicatedJpaAuditLogDao = new DedicatedJpaAuditLogDao(auditLogRepository,
-        mock(DedicatedEventsSqlPartitioningRepository.class));
 
     ArrayList<UUID> ids = new ArrayList<>();
-    ids.add(ModelConstants.NULL_UUID);
-
-    // Act
-    dedicatedJpaAuditLogDao.removeAllByIds(ids);
-
-    // Assert
-    verify(auditLogRepository).flush();
-    verify(auditLogRepository).deleteById(isA(UUID.class));
-  }
-
-  /**
-   * Test {@link DedicatedJpaAuditLogDao#removeAllByIds(Collection)}.
-   * <ul>
-   *   <li>Then calls {@link CrudRepository#deleteById(Object)}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link DedicatedJpaAuditLogDao#removeAllByIds(Collection)}
-   */
-  @Test
-  public void testRemoveAllByIds_thenCallsDeleteById2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    AuditLogRepository auditLogRepository = mock(AuditLogRepository.class);
-    doNothing().when(auditLogRepository).deleteById(Mockito.<UUID>any());
-    doNothing().when(auditLogRepository).flush();
-    DedicatedJpaAuditLogDao dedicatedJpaAuditLogDao = new DedicatedJpaAuditLogDao(auditLogRepository,
-        mock(DedicatedEventsSqlPartitioningRepository.class));
-
-    ArrayList<UUID> ids = new ArrayList<>();
-    ids.add(ModelConstants.NULL_UUID);
-    ids.add(ModelConstants.NULL_UUID);
+    ids.add(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ids.add(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
     dedicatedJpaAuditLogDao.removeAllByIds(ids);
@@ -111,19 +91,16 @@ public class DedicatedJpaAuditLogDaoDiffblueTest {
    * Method under test: {@link DedicatedJpaAuditLogDao#removeAllByIds(Collection)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DedicatedJpaAuditLogDao.removeAllByIds(Collection)"})
   public void testRemoveAllByIds_whenArrayList() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    AuditLogRepository auditLogRepository = mock(AuditLogRepository.class);
     doNothing().when(auditLogRepository).flush();
-    DedicatedJpaAuditLogDao dedicatedJpaAuditLogDao = new DedicatedJpaAuditLogDao(auditLogRepository,
-        mock(DedicatedEventsSqlPartitioningRepository.class));
 
     // Act
     dedicatedJpaAuditLogDao.removeAllByIds(new ArrayList<>());
 
-    // Assert that nothing has changed
+    // Assert
     verify(auditLogRepository).flush();
   }
 
@@ -137,6 +114,9 @@ public class DedicatedJpaAuditLogDaoDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"EntityManager DedicatedJpaAuditLogDao.getEntityManager()",
+      "org.springframework.jdbc.core.JdbcTemplate DedicatedJpaAuditLogDao.getJdbcTemplate()"})
   public void testGettersAndSetters() {
     // Arrange
     DedicatedJpaAuditLogDao dedicatedJpaAuditLogDao = new DedicatedJpaAuditLogDao(mock(AuditLogRepository.class),

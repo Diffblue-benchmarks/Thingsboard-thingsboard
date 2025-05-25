@@ -2,8 +2,10 @@ package org.thingsboard.common.util;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.io.IOException;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.EntityId;
 
@@ -19,6 +21,8 @@ class ExceptionUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test lookupException(Throwable, Class); when IOException(String) with 'foo'; then return LocalizedMessage is 'foo'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Exception ExceptionUtil.lookupException(Throwable, Class)"})
   void testLookupException_whenIOExceptionWithFoo_thenReturnLocalizedMessageIsFoo() {
     // Arrange
     IOException source = new IOException("foo");
@@ -45,6 +49,8 @@ class ExceptionUtilDiffblueTest {
    */
   @Test
   @DisplayName("Test lookupException(Throwable, Class); when Throwable(); then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Exception ExceptionUtil.lookupException(Throwable, Class)"})
   void testLookupException_whenThrowable_thenReturnNull() {
     // Arrange
     Throwable source = new Throwable();
@@ -60,11 +66,12 @@ class ExceptionUtilDiffblueTest {
    *   <li>Then return LocalizedMessage is {@code foo}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ExceptionUtil#lookupExceptionInCause(Throwable, Class[])}
+   * Method under test: {@link ExceptionUtil#lookupExceptionInCause(Throwable, Class[])}
    */
   @Test
   @DisplayName("Test lookupExceptionInCause(Throwable, Class[]); then return LocalizedMessage is 'foo'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Exception ExceptionUtil.lookupExceptionInCause(Throwable, Class[])"})
   void testLookupExceptionInCause_thenReturnLocalizedMessageIsFoo() {
     // Arrange
     IOException source = new IOException("foo");
@@ -83,15 +90,16 @@ class ExceptionUtilDiffblueTest {
   /**
    * Test {@link ExceptionUtil#lookupExceptionInCause(Throwable, Class[])}.
    * <ul>
-   *   <li>When {@code java.lang.Exception}.</li>
+   *   <li>When {@code Exception}.</li>
    *   <li>Then return {@code null}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link ExceptionUtil#lookupExceptionInCause(Throwable, Class[])}
+   * Method under test: {@link ExceptionUtil#lookupExceptionInCause(Throwable, Class[])}
    */
   @Test
   @DisplayName("Test lookupExceptionInCause(Throwable, Class[]); when 'java.lang.Exception'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Exception ExceptionUtil.lookupExceptionInCause(Throwable, Class[])"})
   void testLookupExceptionInCause_whenJavaLangException_thenReturnNull() {
     // Arrange
     Throwable source = new Throwable();
@@ -102,14 +110,14 @@ class ExceptionUtilDiffblueTest {
   }
 
   /**
-   * Test {@link ExceptionUtil#toString(Exception, EntityId, boolean)} with
-   * {@code Exception}, {@code EntityId}, {@code boolean}.
+   * Test {@link ExceptionUtil#toString(Exception, EntityId, boolean)} with {@code Exception}, {@code EntityId}, {@code boolean}.
    * <p>
-   * Method under test:
-   * {@link ExceptionUtil#toString(Exception, EntityId, boolean)}
+   * Method under test: {@link ExceptionUtil#toString(Exception, EntityId, boolean)}
    */
   @Test
   @DisplayName("Test toString(Exception, EntityId, boolean) with 'Exception', 'EntityId', 'boolean'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"java.lang.String ExceptionUtil.toString(Exception, EntityId, boolean)"})
   void testToStringWithExceptionEntityIdBoolean() {
     // Arrange, Act and Assert
     assertEquals("Please contact system administrator", ExceptionUtil.toString(new Exception("foo"), null, false));

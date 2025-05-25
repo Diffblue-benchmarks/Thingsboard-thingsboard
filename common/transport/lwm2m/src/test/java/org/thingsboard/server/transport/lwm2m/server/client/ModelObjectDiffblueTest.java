@@ -1,17 +1,18 @@
 package org.thingsboard.server.transport.lwm2m.server.client;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.BiFunction;
 import org.eclipse.leshan.core.model.ObjectModel;
 import org.eclipse.leshan.core.node.LwM2mObjectInstance;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ModelObjectDiffblueTest {
@@ -30,6 +31,8 @@ class ModelObjectDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ModelObject.equals(Object)", "int ModelObject.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ModelObject modelObject = new ModelObject(null, new HashMap<>());
@@ -56,6 +59,8 @@ class ModelObjectDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ModelObject.equals(Object)", "int ModelObject.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ObjectModel objectModel = new ObjectModel(1, "Name", "The characteristics of someone or something", "1.0.2", true,
@@ -80,6 +85,8 @@ class ModelObjectDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ModelObject.equals(Object)", "int ModelObject.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ObjectModel objectModel = new ObjectModel(1, "Name", "The characteristics of someone or something", "1.0.2", true,
@@ -104,6 +111,8 @@ class ModelObjectDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ModelObject.equals(Object)", "int ModelObject.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ModelObject modelObject = new ModelObject(null, new HashMap<>());
@@ -125,32 +134,12 @@ class ModelObjectDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ModelObject.equals(Object)", "int ModelObject.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    ObjectModel objectModel = mock(ObjectModel.class);
-    ModelObject modelObject = new ModelObject(objectModel, new HashMap<>());
-    ObjectModel objectModel2 = new ObjectModel(1, "Name", "The characteristics of someone or something", "1.0.2", true,
-        true, new ArrayList<>());
-
-    // Act and Assert
-    assertNotEquals(modelObject, new ModelObject(objectModel2, new HashMap<>()));
-  }
-
-  /**
-   * Test {@link ModelObject#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ModelObject#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
-    // Arrange
     HashMap<Integer, LwM2mObjectInstance> instances = new HashMap<>();
-    instances.put(3, new LwM2mObjectInstance(new ArrayList<>()));
+    instances.put(0, new LwM2mObjectInstance(new ArrayList<>()));
     ModelObject modelObject = new ModelObject(null, instances);
 
     // Act and Assert
@@ -168,6 +157,8 @@ class ModelObjectDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ModelObject.equals(Object)", "int ModelObject.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     ObjectModel objectModel = new ObjectModel(1, "Name", "The characteristics of someone or something", "1.0.2", true,
@@ -188,6 +179,8 @@ class ModelObjectDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ModelObject.equals(Object)", "int ModelObject.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     ObjectModel objectModel = new ObjectModel(1, "Name", "The characteristics of someone or something", "1.0.2", true,
@@ -212,6 +205,10 @@ class ModelObjectDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ModelObject.<init>(ObjectModel, Map)", "Map ModelObject.getInstances()",
+      "ObjectModel ModelObject.getObjectModel()", "void ModelObject.setInstances(Map)",
+      "void ModelObject.setObjectModel(ObjectModel)", "String ModelObject.toString()"})
   void testGettersAndSetters() {
     // Arrange
     ObjectModel objectModel = new ObjectModel(1, "Name", "The characteristics of someone or something", "1.0.2", true,
@@ -229,7 +226,7 @@ class ModelObjectDiffblueTest {
     Map<Integer, LwM2mObjectInstance> actualInstances = actualModelObject.getInstances();
     ObjectModel actualObjectModel = actualModelObject.getObjectModel();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("ModelObject(objectModel=ObjectModel [id=1, name=Name, description=The characteristics of someone or"
         + " something, version=1.0.2, multiple=true, mandatory=true, urn=urn:oma:lwm2m:oma:1:1.0.2, lwm2mVersion=1.0,"
         + " description2=, resources={}], instances={})", actualToStringResult);
@@ -239,13 +236,18 @@ class ModelObjectDiffblueTest {
   }
 
   /**
-   * Test {@link ModelObject#clone()}.
+   * Test {@link ModelObject#removeInstance(int)}.
+   * <ul>
+   *   <li>Then return {@code false}.</li>
+   * </ul>
    * <p>
-   * Method under test: {@link ModelObject#clone()}
+   * Method under test: {@link ModelObject#removeInstance(int)}
    */
   @Test
-  @DisplayName("Test clone()")
-  void testClone() throws CloneNotSupportedException {
+  @DisplayName("Test removeInstance(int); then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ModelObject.removeInstance(int)"})
+  void testRemoveInstance_thenReturnFalse() {
     // Arrange
     ObjectModel objectModel = new ObjectModel(1, "Name", "The characteristics of someone or something", "1.0.2", true,
         true, new ArrayList<>());
@@ -253,26 +255,52 @@ class ModelObjectDiffblueTest {
     ModelObject modelObject = new ModelObject(objectModel, new HashMap<>());
 
     // Act and Assert
-    assertEquals(modelObject, modelObject.clone());
+    assertFalse(modelObject.removeInstance(1));
+    assertTrue(modelObject.getInstances().isEmpty());
+  }
+
+  /**
+   * Test {@link ModelObject#removeInstance(int)}.
+   * <ul>
+   *   <li>Then return {@code true}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link ModelObject#removeInstance(int)}
+   */
+  @Test
+  @DisplayName("Test removeInstance(int); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ModelObject.removeInstance(int)"})
+  void testRemoveInstance_thenReturnTrue() {
+    // Arrange
+    HashMap<Integer, LwM2mObjectInstance> instances = new HashMap<>();
+    instances.put(1, new LwM2mObjectInstance(new ArrayList<>()));
+    ModelObject modelObject = new ModelObject(new ObjectModel(1, "Name", "The characteristics of someone or something",
+        "1.0.2", true, true, new ArrayList<>()), instances);
+
+    // Act
+    boolean actualRemoveInstanceResult = modelObject.removeInstance(1);
+
+    // Assert
+    assertTrue(modelObject.getInstances().isEmpty());
+    assertTrue(actualRemoveInstanceResult);
   }
 
   /**
    * Test {@link ModelObject#clone()}.
-   * <ul>
-   *   <li>Given {@link HashMap#HashMap()} computeIfPresent one and
-   * {@link BiFunction}.</li>
-   * </ul>
    * <p>
    * Method under test: {@link ModelObject#clone()}
    */
   @Test
-  @DisplayName("Test clone(); given HashMap() computeIfPresent one and BiFunction")
-  void testClone_givenHashMapComputeIfPresentOneAndBiFunction() throws CloneNotSupportedException {
+  @DisplayName("Test clone()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ModelObject ModelObject.clone()"})
+  void testClone() throws CloneNotSupportedException {
     // Arrange
-    HashMap<Integer, LwM2mObjectInstance> instances = new HashMap<>();
-    instances.computeIfPresent(1, mock(BiFunction.class));
-    ModelObject modelObject = new ModelObject(new ObjectModel(1, "Name", "The characteristics of someone or something",
-        "1.0.2", true, true, new ArrayList<>()), instances);
+    ObjectModel objectModel = new ObjectModel(1, "Name", "The characteristics of someone or something", "1.0.2", true,
+        true, new ArrayList<>());
+
+    ModelObject modelObject = new ModelObject(objectModel, new HashMap<>());
 
     // Act and Assert
     assertEquals(modelObject, modelObject.clone());

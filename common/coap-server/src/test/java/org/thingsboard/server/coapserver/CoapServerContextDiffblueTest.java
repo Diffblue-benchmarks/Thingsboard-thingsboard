@@ -1,7 +1,9 @@
 package org.thingsboard.server.coapserver;
 
 import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class CoapServerContextDiffblueTest {
@@ -17,6 +19,9 @@ class CoapServerContextDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbCoapDtlsSettings CoapServerContext.getDtlsSettings()", "String CoapServerContext.getHost()",
+      "java.lang.Integer CoapServerContext.getPort()"})
   void testGettersAndSetters() {
     // Arrange
     CoapServerContext coapServerContext = new CoapServerContext();

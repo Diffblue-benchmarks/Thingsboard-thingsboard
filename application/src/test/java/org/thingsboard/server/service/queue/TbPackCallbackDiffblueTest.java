@@ -4,8 +4,10 @@ import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -15,9 +17,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.aot.DisabledInAotMode;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-@ContextConfiguration(classes = {TbPackCallback.class})
-@ExtendWith(SpringExtension.class)
+@ContextConfiguration(classes = {TbPackCallback.class, UUID.class})
 @DisabledInAotMode
+@ExtendWith(SpringExtension.class)
 class TbPackCallbackDiffblueTest {
   @Autowired
   private TbPackCallback<Object> tbPackCallback;
@@ -38,36 +40,42 @@ class TbPackCallbackDiffblueTest {
    */
   @Test
   @DisplayName("Test onSuccess(); then calls onSuccess(UUID)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbPackCallback.onSuccess()"})
   void testOnSuccess_thenCallsOnSuccess() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     TbPackProcessingContext<Object> ctx = mock(TbPackProcessingContext.class);
     doNothing().when(ctx).onSuccess(Mockito.<UUID>any());
-    TbPackCallback<Object> tbPackCallback = new TbPackCallback<>(UUID.randomUUID(), ctx);
+    TbPackCallback<Object> tbPackCallback = new TbPackCallback<>(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), ctx);
 
     // Act
     tbPackCallback.onSuccess();
 
-    // Assert that nothing has changed
+    // Assert
     verify(ctx).onSuccess(isA(UUID.class));
   }
 
   /**
    * Test {@link TbPackCallback#onFailure(Throwable)}.
+   * <ul>
+   *   <li>Then calls {@link TbPackProcessingContext#onFailure(UUID, Throwable)}.</li>
+   * </ul>
    * <p>
    * Method under test: {@link TbPackCallback#onFailure(Throwable)}
    */
   @Test
-  @DisplayName("Test onFailure(Throwable)")
-  void testOnFailure() {
+  @DisplayName("Test onFailure(Throwable); then calls onFailure(UUID, Throwable)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbPackCallback.onFailure(Throwable)"})
+  void testOnFailure_thenCallsOnFailure() {
     // Arrange
     doNothing().when(tbPackProcessingContext).onFailure(Mockito.<UUID>any(), Mockito.<Throwable>any());
 
     // Act
     tbPackCallback.onFailure(new Throwable());
 
-    // Assert that nothing has changed
+    // Assert
     verify(tbPackProcessingContext).onFailure(isA(UUID.class), isA(Throwable.class));
   }
 }

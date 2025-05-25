@@ -2,13 +2,14 @@ package org.thingsboard.server.common.data.sms.config;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class AwsSnsSmsProviderConfigurationDiffblueTest {
   /**
-   * Test {@link AwsSnsSmsProviderConfiguration#equals(Object)}, and
-   * {@link AwsSnsSmsProviderConfiguration#hashCode()}.
+   * Test {@link AwsSnsSmsProviderConfiguration#equals(Object)}, and {@link AwsSnsSmsProviderConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -22,6 +23,9 @@ class AwsSnsSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AwsSnsSmsProviderConfiguration.equals(Object)",
+      "int AwsSnsSmsProviderConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AwsSnsSmsProviderConfiguration awsSnsSmsProviderConfiguration = new AwsSnsSmsProviderConfiguration();
@@ -41,8 +45,7 @@ class AwsSnsSmsProviderConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link AwsSnsSmsProviderConfiguration#equals(Object)}, and
-   * {@link AwsSnsSmsProviderConfiguration#hashCode()}.
+   * Test {@link AwsSnsSmsProviderConfiguration#equals(Object)}, and {@link AwsSnsSmsProviderConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -56,6 +59,9 @@ class AwsSnsSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AwsSnsSmsProviderConfiguration.equals(Object)",
+      "int AwsSnsSmsProviderConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AwsSnsSmsProviderConfiguration awsSnsSmsProviderConfiguration = new AwsSnsSmsProviderConfiguration();
@@ -75,8 +81,7 @@ class AwsSnsSmsProviderConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link AwsSnsSmsProviderConfiguration#equals(Object)}, and
-   * {@link AwsSnsSmsProviderConfiguration#hashCode()}.
+   * Test {@link AwsSnsSmsProviderConfiguration#equals(Object)}, and {@link AwsSnsSmsProviderConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -90,6 +95,9 @@ class AwsSnsSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AwsSnsSmsProviderConfiguration.equals(Object)",
+      "int AwsSnsSmsProviderConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     AwsSnsSmsProviderConfiguration awsSnsSmsProviderConfiguration = new AwsSnsSmsProviderConfiguration();
@@ -109,8 +117,7 @@ class AwsSnsSmsProviderConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link AwsSnsSmsProviderConfiguration#equals(Object)}, and
-   * {@link AwsSnsSmsProviderConfiguration#hashCode()}.
+   * Test {@link AwsSnsSmsProviderConfiguration#equals(Object)}, and {@link AwsSnsSmsProviderConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -124,6 +131,9 @@ class AwsSnsSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AwsSnsSmsProviderConfiguration.equals(Object)",
+      "int AwsSnsSmsProviderConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     AwsSnsSmsProviderConfiguration awsSnsSmsProviderConfiguration = new AwsSnsSmsProviderConfiguration();
@@ -143,8 +153,7 @@ class AwsSnsSmsProviderConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link AwsSnsSmsProviderConfiguration#equals(Object)}, and
-   * {@link AwsSnsSmsProviderConfiguration#hashCode()}.
+   * Test {@link AwsSnsSmsProviderConfiguration#equals(Object)}, and {@link AwsSnsSmsProviderConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -158,6 +167,9 @@ class AwsSnsSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AwsSnsSmsProviderConfiguration.equals(Object)",
+      "int AwsSnsSmsProviderConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AwsSnsSmsProviderConfiguration awsSnsSmsProviderConfiguration = new AwsSnsSmsProviderConfiguration();
@@ -182,6 +194,9 @@ class AwsSnsSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AwsSnsSmsProviderConfiguration.equals(Object)",
+      "int AwsSnsSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AwsSnsSmsProviderConfiguration awsSnsSmsProviderConfiguration = new AwsSnsSmsProviderConfiguration();
@@ -209,6 +224,9 @@ class AwsSnsSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AwsSnsSmsProviderConfiguration.equals(Object)",
+      "int AwsSnsSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AwsSnsSmsProviderConfiguration awsSnsSmsProviderConfiguration = new AwsSnsSmsProviderConfiguration();
@@ -236,6 +254,9 @@ class AwsSnsSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AwsSnsSmsProviderConfiguration.equals(Object)",
+      "int AwsSnsSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AwsSnsSmsProviderConfiguration awsSnsSmsProviderConfiguration = new AwsSnsSmsProviderConfiguration();
@@ -263,6 +284,9 @@ class AwsSnsSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AwsSnsSmsProviderConfiguration.equals(Object)",
+      "int AwsSnsSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AwsSnsSmsProviderConfiguration awsSnsSmsProviderConfiguration = new AwsSnsSmsProviderConfiguration();
@@ -290,6 +314,9 @@ class AwsSnsSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AwsSnsSmsProviderConfiguration.equals(Object)",
+      "int AwsSnsSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     AwsSnsSmsProviderConfiguration awsSnsSmsProviderConfiguration = new AwsSnsSmsProviderConfiguration();
@@ -317,6 +344,9 @@ class AwsSnsSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AwsSnsSmsProviderConfiguration.equals(Object)",
+      "int AwsSnsSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AwsSnsSmsProviderConfiguration awsSnsSmsProviderConfiguration = new AwsSnsSmsProviderConfiguration();
@@ -344,6 +374,9 @@ class AwsSnsSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AwsSnsSmsProviderConfiguration.equals(Object)",
+      "int AwsSnsSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     AwsSnsSmsProviderConfiguration awsSnsSmsProviderConfiguration = new AwsSnsSmsProviderConfiguration();
@@ -366,6 +399,9 @@ class AwsSnsSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AwsSnsSmsProviderConfiguration.equals(Object)",
+      "int AwsSnsSmsProviderConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     AwsSnsSmsProviderConfiguration awsSnsSmsProviderConfiguration = new AwsSnsSmsProviderConfiguration();
@@ -382,8 +418,7 @@ class AwsSnsSmsProviderConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link AwsSnsSmsProviderConfiguration}
+   *   <li>default or parameterless constructor of {@link AwsSnsSmsProviderConfiguration}
    *   <li>{@link AwsSnsSmsProviderConfiguration#setAccessKeyId(String)}
    *   <li>{@link AwsSnsSmsProviderConfiguration#setRegion(String)}
    *   <li>{@link AwsSnsSmsProviderConfiguration#setSecretAccessKey(String)}
@@ -396,6 +431,15 @@ class AwsSnsSmsProviderConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AwsSnsSmsProviderConfiguration.<init>()",
+      "String AwsSnsSmsProviderConfiguration.getAccessKeyId()", "String AwsSnsSmsProviderConfiguration.getRegion()",
+      "String AwsSnsSmsProviderConfiguration.getSecretAccessKey()",
+      "SmsProviderType AwsSnsSmsProviderConfiguration.getType()",
+      "void AwsSnsSmsProviderConfiguration.setAccessKeyId(String)",
+      "void AwsSnsSmsProviderConfiguration.setRegion(String)",
+      "void AwsSnsSmsProviderConfiguration.setSecretAccessKey(String)",
+      "String AwsSnsSmsProviderConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     AwsSnsSmsProviderConfiguration actualAwsSnsSmsProviderConfiguration = new AwsSnsSmsProviderConfiguration();
@@ -407,7 +451,7 @@ class AwsSnsSmsProviderConfigurationDiffblueTest {
     String actualRegion = actualAwsSnsSmsProviderConfiguration.getRegion();
     String actualSecretAccessKey = actualAwsSnsSmsProviderConfiguration.getSecretAccessKey();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "AwsSnsSmsProviderConfiguration(accessKeyId=EXAMPLEakiAIOSFODNN7, secretAccessKey=EXAMPLEakiAIOSFODNN7,"
             + " region=us-east-2)",

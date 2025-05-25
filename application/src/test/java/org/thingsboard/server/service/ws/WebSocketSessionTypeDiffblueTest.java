@@ -3,8 +3,10 @@ package org.thingsboard.server.service.ws;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Optional;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class WebSocketSessionTypeDiffblueTest {
@@ -19,6 +21,8 @@ class WebSocketSessionTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test forName(String); when 'Name'; then return not Present")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Optional WebSocketSessionType.forName(String)"})
   void testForName_whenName_thenReturnNotPresent() {
     // Arrange and Act
     Optional<WebSocketSessionType> actualForNameResult = WebSocketSessionType.forName("Name");
@@ -38,6 +42,8 @@ class WebSocketSessionTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test forName(String); when 'notifications'; then return get() is 'NOTIFICATIONS'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Optional WebSocketSessionType.forName(String)"})
   void testForName_whenNotifications_thenReturnGetIsNotifications() {
     // Arrange and Act
     Optional<WebSocketSessionType> actualForNameResult = WebSocketSessionType.forName("notifications");
@@ -58,6 +64,8 @@ class WebSocketSessionTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test forName(String); when 'NOTIFICATIONS'; then return not Present")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Optional WebSocketSessionType.forName(String)"})
   void testForName_whenNotifications_thenReturnNotPresent() {
     // Arrange and Act
     Optional<WebSocketSessionType> actualForNameResult = WebSocketSessionType.forName("NOTIFICATIONS");

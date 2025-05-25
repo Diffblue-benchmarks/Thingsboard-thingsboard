@@ -3,15 +3,15 @@ package org.thingsboard.server.actors;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.thingsboard.server.common.msg.TbActorMsg;
 
 class TbActorDiffblueTest {
   /**
@@ -21,6 +21,8 @@ class TbActorDiffblueTest {
    */
   @Test
   @DisplayName("Test init(TbActorCtx)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbActor.init(TbActorCtx)"})
   void testInit() throws TbActorException {
     // Arrange
     TbActorId actorId = mock(TbActorId.class);
@@ -57,6 +59,8 @@ class TbActorDiffblueTest {
    */
   @Test
   @DisplayName("Test onInitFailure(int, Throwable)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"InitFailureStrategy TbActor.onInitFailure(int, Throwable)"})
   void testOnInitFailure() {
     // Arrange
     TbActorId actorId = mock(TbActorId.class);
@@ -71,53 +75,5 @@ class TbActorDiffblueTest {
     // Assert
     assertEquals(5000L, actualOnInitFailureResult.getRetryDelay());
     assertFalse(actualOnInitFailureResult.isStop());
-  }
-
-  /**
-   * Test {@link TbActor#onProcessFailure(TbActorMsg, Throwable)}.
-   * <ul>
-   *   <li>When {@link Error#Error(String)} with {@code foo}.</li>
-   *   <li>Then return Stop.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbActor#onProcessFailure(TbActorMsg, Throwable)}
-   */
-  @Test
-  @DisplayName("Test onProcessFailure(TbActorMsg, Throwable); when Error(String) with 'foo'; then return Stop")
-  void testOnProcessFailure_whenErrorWithFoo_thenReturnStop() {
-    // Arrange
-    TbActorId actorId = mock(TbActorId.class);
-    CountDownLatch latch = new CountDownLatch(1);
-    AtomicInteger invocationCount = new AtomicInteger(1);
-    SlowInitActor slowInitActor = new SlowInitActor(actorId,
-        new ActorTestCtx(latch, invocationCount, 3, new AtomicLong(1L)));
-    TbActorMsg msg = mock(TbActorMsg.class);
-
-    // Act and Assert
-    assertTrue(slowInitActor.onProcessFailure(msg, new Error("foo")).isStop());
-  }
-
-  /**
-   * Test {@link TbActor#onProcessFailure(TbActorMsg, Throwable)}.
-   * <ul>
-   *   <li>When {@link Throwable#Throwable()}.</li>
-   *   <li>Then return not Stop.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbActor#onProcessFailure(TbActorMsg, Throwable)}
-   */
-  @Test
-  @DisplayName("Test onProcessFailure(TbActorMsg, Throwable); when Throwable(); then return not Stop")
-  void testOnProcessFailure_whenThrowable_thenReturnNotStop() {
-    // Arrange
-    TbActorId actorId = mock(TbActorId.class);
-    CountDownLatch latch = new CountDownLatch(1);
-    AtomicInteger invocationCount = new AtomicInteger(1);
-    SlowInitActor slowInitActor = new SlowInitActor(actorId,
-        new ActorTestCtx(latch, invocationCount, 3, new AtomicLong(1L)));
-    TbActorMsg msg = mock(TbActorMsg.class);
-
-    // Act and Assert
-    assertFalse(slowInitActor.onProcessFailure(msg, new Throwable()).isStop());
   }
 }

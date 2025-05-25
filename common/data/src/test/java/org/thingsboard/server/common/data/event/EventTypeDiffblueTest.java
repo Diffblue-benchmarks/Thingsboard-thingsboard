@@ -2,7 +2,9 @@ package org.thingsboard.server.common.data.event;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class EventTypeDiffblueTest {
@@ -18,6 +20,8 @@ class EventTypeDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String EventType.getOldName()", "String EventType.getTable()", "boolean EventType.isDebug()"})
   void testGettersAndSetters() {
     // Arrange
     EventType valueOfResult = EventType.valueOf("ERROR");

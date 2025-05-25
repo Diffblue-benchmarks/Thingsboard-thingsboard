@@ -4,21 +4,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.anyBoolean;
-import static org.mockito.Mockito.anyLong;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 class UserDashboardsInfoDiffblueTest {
   /**
-   * Test {@link UserDashboardsInfo#equals(Object)}, and
-   * {@link UserDashboardsInfo#hashCode()}.
+   * Test {@link UserDashboardsInfo#equals(Object)}, and {@link UserDashboardsInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -32,6 +28,8 @@ class UserDashboardsInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UserDashboardsInfo.equals(Object)", "int UserDashboardsInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     UserDashboardsInfo userDashboardsInfo = UserDashboardsInfo.EMPTY;
@@ -44,8 +42,7 @@ class UserDashboardsInfoDiffblueTest {
   }
 
   /**
-   * Test {@link UserDashboardsInfo#equals(Object)}, and
-   * {@link UserDashboardsInfo#hashCode()}.
+   * Test {@link UserDashboardsInfo#equals(Object)}, and {@link UserDashboardsInfo#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -59,6 +56,8 @@ class UserDashboardsInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UserDashboardsInfo.equals(Object)", "int UserDashboardsInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     UserDashboardsInfo userDashboardsInfo = new UserDashboardsInfo();
@@ -71,8 +70,7 @@ class UserDashboardsInfoDiffblueTest {
   }
 
   /**
-   * Test {@link UserDashboardsInfo#equals(Object)}, and
-   * {@link UserDashboardsInfo#hashCode()}.
+   * Test {@link UserDashboardsInfo#equals(Object)}, and {@link UserDashboardsInfo#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -86,6 +84,8 @@ class UserDashboardsInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UserDashboardsInfo.equals(Object)", "int UserDashboardsInfo.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     UserDashboardsInfo userDashboardsInfo = UserDashboardsInfo.EMPTY;
@@ -107,6 +107,8 @@ class UserDashboardsInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UserDashboardsInfo.equals(Object)", "int UserDashboardsInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(UserDashboardsInfo.EMPTY, 1);
@@ -123,6 +125,8 @@ class UserDashboardsInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UserDashboardsInfo.equals(Object)", "int UserDashboardsInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     LastVisitedDashboardInfo lastVisitedDashboardInfo = new LastVisitedDashboardInfo();
@@ -149,23 +153,20 @@ class UserDashboardsInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UserDashboardsInfo.equals(Object)", "int UserDashboardsInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    LastVisitedDashboardInfo lastVisitedDashboardInfo = mock(LastVisitedDashboardInfo.class);
-    doNothing().when(lastVisitedDashboardInfo).setId(Mockito.<UUID>any());
-    doNothing().when(lastVisitedDashboardInfo).setTitle(Mockito.<String>any());
-    doNothing().when(lastVisitedDashboardInfo).setLastVisited(anyLong());
-    doNothing().when(lastVisitedDashboardInfo).setStarred(anyBoolean());
-    lastVisitedDashboardInfo.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    lastVisitedDashboardInfo.setLastVisited(1L);
-    lastVisitedDashboardInfo.setStarred(true);
-    lastVisitedDashboardInfo.setTitle("Dr");
+    StarredDashboardInfo starredDashboardInfo = new StarredDashboardInfo();
+    starredDashboardInfo.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    starredDashboardInfo.setStarredAt(1L);
+    starredDashboardInfo.setTitle("Dr");
 
-    ArrayList<LastVisitedDashboardInfo> last = new ArrayList<>();
-    last.add(lastVisitedDashboardInfo);
+    ArrayList<StarredDashboardInfo> starred = new ArrayList<>();
+    starred.add(starredDashboardInfo);
 
     // Act and Assert
-    assertNotEquals(new UserDashboardsInfo(last, new ArrayList<>()), UserDashboardsInfo.EMPTY);
+    assertNotEquals(new UserDashboardsInfo(new ArrayList<>(), starred), UserDashboardsInfo.EMPTY);
   }
 
   /**
@@ -179,6 +180,8 @@ class UserDashboardsInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UserDashboardsInfo.equals(Object)", "int UserDashboardsInfo.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(UserDashboardsInfo.EMPTY, null);
@@ -195,6 +198,8 @@ class UserDashboardsInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean UserDashboardsInfo.equals(Object)", "int UserDashboardsInfo.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(UserDashboardsInfo.EMPTY, "Different type to UserDashboardsInfo");
@@ -215,6 +220,11 @@ class UserDashboardsInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void UserDashboardsInfo.<init>()", "void UserDashboardsInfo.<init>(List, List)",
+      "List UserDashboardsInfo.getLast()", "List UserDashboardsInfo.getStarred()",
+      "void UserDashboardsInfo.setLast(List)", "void UserDashboardsInfo.setStarred(List)",
+      "String UserDashboardsInfo.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     UserDashboardsInfo actualUserDashboardsInfo = new UserDashboardsInfo();
@@ -226,7 +236,7 @@ class UserDashboardsInfoDiffblueTest {
     List<LastVisitedDashboardInfo> actualLast = actualUserDashboardsInfo.getLast();
     List<StarredDashboardInfo> actualStarred = actualUserDashboardsInfo.getStarred();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("UserDashboardsInfo(last=[], starred=[])", actualToStringResult);
     assertTrue(actualLast.isEmpty());
     assertTrue(actualStarred.isEmpty());
@@ -252,6 +262,11 @@ class UserDashboardsInfoDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when ArrayList()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void UserDashboardsInfo.<init>()", "void UserDashboardsInfo.<init>(List, List)",
+      "List UserDashboardsInfo.getLast()", "List UserDashboardsInfo.getStarred()",
+      "void UserDashboardsInfo.setLast(List)", "void UserDashboardsInfo.setStarred(List)",
+      "String UserDashboardsInfo.toString()"})
   void testGettersAndSetters_whenArrayList() {
     // Arrange
     ArrayList<LastVisitedDashboardInfo> last = new ArrayList<>();
@@ -266,7 +281,7 @@ class UserDashboardsInfoDiffblueTest {
     List<LastVisitedDashboardInfo> actualLast = actualUserDashboardsInfo.getLast();
     List<StarredDashboardInfo> actualStarred = actualUserDashboardsInfo.getStarred();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("UserDashboardsInfo(last=[], starred=[])", actualToStringResult);
     assertTrue(actualLast.isEmpty());
     assertTrue(actualStarred.isEmpty());

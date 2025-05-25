@@ -5,10 +5,11 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,25 +21,23 @@ import org.thingsboard.server.service.notification.channels.TeamsAdaptiveCard.At
 import org.thingsboard.server.service.notification.channels.TeamsAdaptiveCard.BackgroundImage;
 import org.thingsboard.server.service.notification.channels.TeamsAdaptiveCard.TextBlock;
 
-@ContextConfiguration(classes = {TeamsAdaptiveCard.ActionOpenUrl.class, TeamsAdaptiveCard.AdaptiveCard.class,
-    TeamsAdaptiveCard.BackgroundImage.class, TeamsAdaptiveCard.TextBlock.class})
+@ContextConfiguration(classes = {TextBlock.class, BackgroundImage.class, AdaptiveCard.class, ActionOpenUrl.class})
 @ExtendWith(SpringExtension.class)
 class TeamsAdaptiveCardDiffblueTest {
   @Autowired
-  private TeamsAdaptiveCard.TextBlock textBlock;
+  private ActionOpenUrl actionOpenUrl;
 
   @Autowired
-  private TeamsAdaptiveCard.BackgroundImage backgroundImage;
+  private AdaptiveCard adaptiveCard;
 
   @Autowired
-  private TeamsAdaptiveCard.AdaptiveCard adaptiveCard;
+  private BackgroundImage backgroundImage;
 
   @Autowired
-  private TeamsAdaptiveCard.ActionOpenUrl actionOpenUrl;
+  private TextBlock textBlock;
 
   /**
-   * Test ActionOpenUrl {@link ActionOpenUrl#equals(Object)}, and
-   * {@link ActionOpenUrl#hashCode()}.
+   * Test ActionOpenUrl {@link ActionOpenUrl#equals(Object)}, and {@link ActionOpenUrl#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -46,18 +45,18 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.ActionOpenUrl#equals(Object)}
-   *   <li>{@link TeamsAdaptiveCard.ActionOpenUrl#hashCode()}
+   *   <li>{@link ActionOpenUrl#equals(Object)}
+   *   <li>{@link ActionOpenUrl#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test ActionOpenUrl equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActionOpenUrl.equals(Object)", "int ActionOpenUrl.hashCode()"})
   void testActionOpenUrlEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TeamsAdaptiveCard.ActionOpenUrl actionOpenUrl = new TeamsAdaptiveCard.ActionOpenUrl("Dr",
-        "https://example.org/example");
-    TeamsAdaptiveCard.ActionOpenUrl actionOpenUrl2 = new TeamsAdaptiveCard.ActionOpenUrl("Dr",
-        "https://example.org/example");
+    ActionOpenUrl actionOpenUrl = new ActionOpenUrl("Dr", "https://example.org/example");
+    ActionOpenUrl actionOpenUrl2 = new ActionOpenUrl("Dr", "https://example.org/example");
 
     // Act and Assert
     assertEquals(actionOpenUrl, actionOpenUrl2);
@@ -66,8 +65,7 @@ class TeamsAdaptiveCardDiffblueTest {
   }
 
   /**
-   * Test ActionOpenUrl {@link ActionOpenUrl#equals(Object)}, and
-   * {@link ActionOpenUrl#hashCode()}.
+   * Test ActionOpenUrl {@link ActionOpenUrl#equals(Object)}, and {@link ActionOpenUrl#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -75,18 +73,18 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.ActionOpenUrl#equals(Object)}
-   *   <li>{@link TeamsAdaptiveCard.ActionOpenUrl#hashCode()}
+   *   <li>{@link ActionOpenUrl#equals(Object)}
+   *   <li>{@link ActionOpenUrl#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test ActionOpenUrl equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActionOpenUrl.equals(Object)", "int ActionOpenUrl.hashCode()"})
   void testActionOpenUrlEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    TeamsAdaptiveCard.ActionOpenUrl actionOpenUrl = new TeamsAdaptiveCard.ActionOpenUrl(null,
-        "https://example.org/example");
-    TeamsAdaptiveCard.ActionOpenUrl actionOpenUrl2 = new TeamsAdaptiveCard.ActionOpenUrl(null,
-        "https://example.org/example");
+    ActionOpenUrl actionOpenUrl = new ActionOpenUrl(null, "https://example.org/example");
+    ActionOpenUrl actionOpenUrl2 = new ActionOpenUrl(null, "https://example.org/example");
 
     // Act and Assert
     assertEquals(actionOpenUrl, actionOpenUrl2);
@@ -95,8 +93,7 @@ class TeamsAdaptiveCardDiffblueTest {
   }
 
   /**
-   * Test ActionOpenUrl {@link ActionOpenUrl#equals(Object)}, and
-   * {@link ActionOpenUrl#hashCode()}.
+   * Test ActionOpenUrl {@link ActionOpenUrl#equals(Object)}, and {@link ActionOpenUrl#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -104,16 +101,18 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.ActionOpenUrl#equals(Object)}
-   *   <li>{@link TeamsAdaptiveCard.ActionOpenUrl#hashCode()}
+   *   <li>{@link ActionOpenUrl#equals(Object)}
+   *   <li>{@link ActionOpenUrl#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test ActionOpenUrl equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActionOpenUrl.equals(Object)", "int ActionOpenUrl.hashCode()"})
   void testActionOpenUrlEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    TeamsAdaptiveCard.ActionOpenUrl actionOpenUrl = new TeamsAdaptiveCard.ActionOpenUrl("Dr", null);
-    TeamsAdaptiveCard.ActionOpenUrl actionOpenUrl2 = new TeamsAdaptiveCard.ActionOpenUrl("Dr", null);
+    ActionOpenUrl actionOpenUrl = new ActionOpenUrl("Dr", null);
+    ActionOpenUrl actionOpenUrl2 = new ActionOpenUrl("Dr", null);
 
     // Act and Assert
     assertEquals(actionOpenUrl, actionOpenUrl2);
@@ -122,8 +121,7 @@ class TeamsAdaptiveCardDiffblueTest {
   }
 
   /**
-   * Test ActionOpenUrl {@link ActionOpenUrl#equals(Object)}, and
-   * {@link ActionOpenUrl#hashCode()}.
+   * Test ActionOpenUrl {@link ActionOpenUrl#equals(Object)}, and {@link ActionOpenUrl#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -131,16 +129,17 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.ActionOpenUrl#equals(Object)}
-   *   <li>{@link TeamsAdaptiveCard.ActionOpenUrl#hashCode()}
+   *   <li>{@link ActionOpenUrl#equals(Object)}
+   *   <li>{@link ActionOpenUrl#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test ActionOpenUrl equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActionOpenUrl.equals(Object)", "int ActionOpenUrl.hashCode()"})
   void testActionOpenUrlEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TeamsAdaptiveCard.ActionOpenUrl actionOpenUrl = new TeamsAdaptiveCard.ActionOpenUrl("Dr",
-        "https://example.org/example");
+    ActionOpenUrl actionOpenUrl = new ActionOpenUrl("Dr", "https://example.org/example");
 
     // Act and Assert
     assertEquals(actionOpenUrl, actionOpenUrl);
@@ -155,17 +154,18 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.ActionOpenUrl#equals(Object)}
+   * Method under test: {@link ActionOpenUrl#equals(Object)}
    */
   @Test
   @DisplayName("Test ActionOpenUrl equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActionOpenUrl.equals(Object)", "int ActionOpenUrl.hashCode()"})
   void testActionOpenUrlEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    TeamsAdaptiveCard.ActionOpenUrl actionOpenUrl = new TeamsAdaptiveCard.ActionOpenUrl("Mr",
-        "https://example.org/example");
+    ActionOpenUrl actionOpenUrl = new ActionOpenUrl("Mr", "https://example.org/example");
 
     // Act and Assert
-    assertNotEquals(actionOpenUrl, new TeamsAdaptiveCard.ActionOpenUrl("Dr", "https://example.org/example"));
+    assertNotEquals(actionOpenUrl, new ActionOpenUrl("Dr", "https://example.org/example"));
   }
 
   /**
@@ -175,17 +175,18 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.ActionOpenUrl#equals(Object)}
+   * Method under test: {@link ActionOpenUrl#equals(Object)}
    */
   @Test
   @DisplayName("Test ActionOpenUrl equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActionOpenUrl.equals(Object)", "int ActionOpenUrl.hashCode()"})
   void testActionOpenUrlEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TeamsAdaptiveCard.ActionOpenUrl actionOpenUrl = new TeamsAdaptiveCard.ActionOpenUrl(null,
-        "https://example.org/example");
+    ActionOpenUrl actionOpenUrl = new ActionOpenUrl(null, "https://example.org/example");
 
     // Act and Assert
-    assertNotEquals(actionOpenUrl, new TeamsAdaptiveCard.ActionOpenUrl("Dr", "https://example.org/example"));
+    assertNotEquals(actionOpenUrl, new ActionOpenUrl("Dr", "https://example.org/example"));
   }
 
   /**
@@ -195,16 +196,18 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.ActionOpenUrl#equals(Object)}
+   * Method under test: {@link ActionOpenUrl#equals(Object)}
    */
   @Test
   @DisplayName("Test ActionOpenUrl equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActionOpenUrl.equals(Object)", "int ActionOpenUrl.hashCode()"})
   void testActionOpenUrlEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TeamsAdaptiveCard.ActionOpenUrl actionOpenUrl = new TeamsAdaptiveCard.ActionOpenUrl("Dr", "Action.OpenUrl");
+    ActionOpenUrl actionOpenUrl = new ActionOpenUrl("Dr", "Action.OpenUrl");
 
     // Act and Assert
-    assertNotEquals(actionOpenUrl, new TeamsAdaptiveCard.ActionOpenUrl("Dr", "https://example.org/example"));
+    assertNotEquals(actionOpenUrl, new ActionOpenUrl("Dr", "https://example.org/example"));
   }
 
   /**
@@ -214,16 +217,18 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.ActionOpenUrl#equals(Object)}
+   * Method under test: {@link ActionOpenUrl#equals(Object)}
    */
   @Test
   @DisplayName("Test ActionOpenUrl equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActionOpenUrl.equals(Object)", "int ActionOpenUrl.hashCode()"})
   void testActionOpenUrlEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    TeamsAdaptiveCard.ActionOpenUrl actionOpenUrl = new TeamsAdaptiveCard.ActionOpenUrl("Dr", null);
+    ActionOpenUrl actionOpenUrl = new ActionOpenUrl("Dr", null);
 
     // Act and Assert
-    assertNotEquals(actionOpenUrl, new TeamsAdaptiveCard.ActionOpenUrl("Dr", "https://example.org/example"));
+    assertNotEquals(actionOpenUrl, new ActionOpenUrl("Dr", "https://example.org/example"));
   }
 
   /**
@@ -233,13 +238,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.ActionOpenUrl#equals(Object)}
+   * Method under test: {@link ActionOpenUrl#equals(Object)}
    */
   @Test
   @DisplayName("Test ActionOpenUrl equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActionOpenUrl.equals(Object)", "int ActionOpenUrl.hashCode()"})
   void testActionOpenUrlEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TeamsAdaptiveCard.ActionOpenUrl("Dr", "https://example.org/example"), null);
+    assertNotEquals(new ActionOpenUrl("Dr", "https://example.org/example"), null);
   }
 
   /**
@@ -249,23 +256,26 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.ActionOpenUrl#equals(Object)}
+   * Method under test: {@link ActionOpenUrl#equals(Object)}
    */
   @Test
   @DisplayName("Test ActionOpenUrl equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean ActionOpenUrl.equals(Object)", "int ActionOpenUrl.hashCode()"})
   void testActionOpenUrlEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TeamsAdaptiveCard.ActionOpenUrl("Dr", "https://example.org/example"),
-        "Different type to ActionOpenUrl");
+    assertNotEquals(new ActionOpenUrl("Dr", "https://example.org/example"), "Different type to ActionOpenUrl");
   }
 
   /**
    * Test ActionOpenUrl {@link ActionOpenUrl#getType()}.
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.ActionOpenUrl#getType()}
+   * Method under test: {@link ActionOpenUrl#getType()}
    */
   @Test
   @DisplayName("Test ActionOpenUrl getType()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String ActionOpenUrl.getType()"})
   void testActionOpenUrlGetType() {
     // Arrange, Act and Assert
     assertEquals("Action.OpenUrl", actionOpenUrl.getType());
@@ -276,25 +286,29 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.ActionOpenUrl#ActionOpenUrl()}
-   *   <li>{@link TeamsAdaptiveCard.ActionOpenUrl#setTitle(String)}
-   *   <li>{@link TeamsAdaptiveCard.ActionOpenUrl#setUrl(String)}
-   *   <li>{@link TeamsAdaptiveCard.ActionOpenUrl#toString()}
-   *   <li>{@link TeamsAdaptiveCard.ActionOpenUrl#getTitle()}
-   *   <li>{@link TeamsAdaptiveCard.ActionOpenUrl#getUrl()}
+   *   <li>{@link ActionOpenUrl#ActionOpenUrl()}
+   *   <li>{@link ActionOpenUrl#setTitle(String)}
+   *   <li>{@link ActionOpenUrl#setUrl(String)}
+   *   <li>{@link ActionOpenUrl#toString()}
+   *   <li>{@link ActionOpenUrl#getTitle()}
+   *   <li>{@link ActionOpenUrl#getUrl()}
    * </ul>
    */
   @Test
   @DisplayName("Test ActionOpenUrl getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ActionOpenUrl.<init>()", "void ActionOpenUrl.<init>(String, String)",
+      "String ActionOpenUrl.getTitle()", "String ActionOpenUrl.getUrl()", "void ActionOpenUrl.setTitle(String)",
+      "void ActionOpenUrl.setUrl(String)", "String ActionOpenUrl.toString()"})
   void testActionOpenUrlGettersAndSetters() {
     // Arrange and Act
-    TeamsAdaptiveCard.ActionOpenUrl actualActionOpenUrl = new TeamsAdaptiveCard.ActionOpenUrl();
+    ActionOpenUrl actualActionOpenUrl = new ActionOpenUrl();
     actualActionOpenUrl.setTitle("Dr");
     actualActionOpenUrl.setUrl("https://example.org/example");
     String actualToStringResult = actualActionOpenUrl.toString();
     String actualTitle = actualActionOpenUrl.getTitle();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Dr", actualTitle);
     assertEquals("TeamsAdaptiveCard.ActionOpenUrl(type=Action.OpenUrl, title=Dr, url=https://example.org/example)",
         actualToStringResult);
@@ -309,26 +323,29 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.ActionOpenUrl#ActionOpenUrl(String, String)}
-   *   <li>{@link TeamsAdaptiveCard.ActionOpenUrl#setTitle(String)}
-   *   <li>{@link TeamsAdaptiveCard.ActionOpenUrl#setUrl(String)}
-   *   <li>{@link TeamsAdaptiveCard.ActionOpenUrl#toString()}
-   *   <li>{@link TeamsAdaptiveCard.ActionOpenUrl#getTitle()}
-   *   <li>{@link TeamsAdaptiveCard.ActionOpenUrl#getUrl()}
+   *   <li>{@link ActionOpenUrl#ActionOpenUrl(String, String)}
+   *   <li>{@link ActionOpenUrl#setTitle(String)}
+   *   <li>{@link ActionOpenUrl#setUrl(String)}
+   *   <li>{@link ActionOpenUrl#toString()}
+   *   <li>{@link ActionOpenUrl#getTitle()}
+   *   <li>{@link ActionOpenUrl#getUrl()}
    * </ul>
    */
   @Test
   @DisplayName("Test ActionOpenUrl getters and setters; when 'Dr'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ActionOpenUrl.<init>()", "void ActionOpenUrl.<init>(String, String)",
+      "String ActionOpenUrl.getTitle()", "String ActionOpenUrl.getUrl()", "void ActionOpenUrl.setTitle(String)",
+      "void ActionOpenUrl.setUrl(String)", "String ActionOpenUrl.toString()"})
   void testActionOpenUrlGettersAndSetters_whenDr() {
     // Arrange and Act
-    TeamsAdaptiveCard.ActionOpenUrl actualActionOpenUrl = new TeamsAdaptiveCard.ActionOpenUrl("Dr",
-        "https://example.org/example");
+    ActionOpenUrl actualActionOpenUrl = new ActionOpenUrl("Dr", "https://example.org/example");
     actualActionOpenUrl.setTitle("Dr");
     actualActionOpenUrl.setUrl("https://example.org/example");
     String actualToStringResult = actualActionOpenUrl.toString();
     String actualTitle = actualActionOpenUrl.getTitle();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Dr", actualTitle);
     assertEquals("TeamsAdaptiveCard.ActionOpenUrl(type=Action.OpenUrl, title=Dr, url=https://example.org/example)",
         actualToStringResult);
@@ -336,8 +353,7 @@ class TeamsAdaptiveCardDiffblueTest {
   }
 
   /**
-   * Test AdaptiveCard {@link AdaptiveCard#equals(Object)}, and
-   * {@link AdaptiveCard#hashCode()}.
+   * Test AdaptiveCard {@link AdaptiveCard#equals(Object)}, and {@link AdaptiveCard#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -345,16 +361,18 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.AdaptiveCard#equals(Object)}
-   *   <li>{@link TeamsAdaptiveCard.AdaptiveCard#hashCode()}
+   *   <li>{@link AdaptiveCard#equals(Object)}
+   *   <li>{@link AdaptiveCard#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test AdaptiveCard equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AdaptiveCard.equals(Object)", "int AdaptiveCard.hashCode()"})
   void testAdaptiveCardEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TeamsAdaptiveCard.AdaptiveCard adaptiveCard = new TeamsAdaptiveCard.AdaptiveCard();
-    TeamsAdaptiveCard.AdaptiveCard adaptiveCard2 = new TeamsAdaptiveCard.AdaptiveCard();
+    AdaptiveCard adaptiveCard = new AdaptiveCard();
+    AdaptiveCard adaptiveCard2 = new AdaptiveCard();
 
     // Act and Assert
     assertEquals(adaptiveCard, adaptiveCard2);
@@ -363,8 +381,7 @@ class TeamsAdaptiveCardDiffblueTest {
   }
 
   /**
-   * Test AdaptiveCard {@link AdaptiveCard#equals(Object)}, and
-   * {@link AdaptiveCard#hashCode()}.
+   * Test AdaptiveCard {@link AdaptiveCard#equals(Object)}, and {@link AdaptiveCard#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -372,22 +389,22 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.AdaptiveCard#equals(Object)}
-   *   <li>{@link TeamsAdaptiveCard.AdaptiveCard#hashCode()}
+   *   <li>{@link AdaptiveCard#equals(Object)}
+   *   <li>{@link AdaptiveCard#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test AdaptiveCard equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AdaptiveCard.equals(Object)", "int AdaptiveCard.hashCode()"})
   void testAdaptiveCardEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    TeamsAdaptiveCard.BackgroundImage backgroundImage = new TeamsAdaptiveCard.BackgroundImage("Color");
-    ArrayList<TeamsAdaptiveCard.TextBlock> textBlocks = new ArrayList<>();
-    TeamsAdaptiveCard.AdaptiveCard adaptiveCard = new TeamsAdaptiveCard.AdaptiveCard(backgroundImage, textBlocks,
-        new ArrayList<>());
-    TeamsAdaptiveCard.BackgroundImage backgroundImage2 = new TeamsAdaptiveCard.BackgroundImage("Color");
-    ArrayList<TeamsAdaptiveCard.TextBlock> textBlocks2 = new ArrayList<>();
-    TeamsAdaptiveCard.AdaptiveCard adaptiveCard2 = new TeamsAdaptiveCard.AdaptiveCard(backgroundImage2, textBlocks2,
-        new ArrayList<>());
+    BackgroundImage backgroundImage = new BackgroundImage("http://adaptivecards.io/schemas/adaptive-card.json");
+    ArrayList<TextBlock> textBlocks = new ArrayList<>();
+    AdaptiveCard adaptiveCard = new AdaptiveCard(backgroundImage, textBlocks, new ArrayList<>());
+    BackgroundImage backgroundImage2 = new BackgroundImage("http://adaptivecards.io/schemas/adaptive-card.json");
+    ArrayList<TextBlock> textBlocks2 = new ArrayList<>();
+    AdaptiveCard adaptiveCard2 = new AdaptiveCard(backgroundImage2, textBlocks2, new ArrayList<>());
 
     // Act and Assert
     assertEquals(adaptiveCard, adaptiveCard2);
@@ -396,8 +413,7 @@ class TeamsAdaptiveCardDiffblueTest {
   }
 
   /**
-   * Test AdaptiveCard {@link AdaptiveCard#equals(Object)}, and
-   * {@link AdaptiveCard#hashCode()}.
+   * Test AdaptiveCard {@link AdaptiveCard#equals(Object)}, and {@link AdaptiveCard#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -405,15 +421,17 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.AdaptiveCard#equals(Object)}
-   *   <li>{@link TeamsAdaptiveCard.AdaptiveCard#hashCode()}
+   *   <li>{@link AdaptiveCard#equals(Object)}
+   *   <li>{@link AdaptiveCard#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test AdaptiveCard equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AdaptiveCard.equals(Object)", "int AdaptiveCard.hashCode()"})
   void testAdaptiveCardEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TeamsAdaptiveCard.AdaptiveCard adaptiveCard = new TeamsAdaptiveCard.AdaptiveCard();
+    AdaptiveCard adaptiveCard = new AdaptiveCard();
 
     // Act and Assert
     assertEquals(adaptiveCard, adaptiveCard);
@@ -428,19 +446,20 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.AdaptiveCard#equals(Object)}
+   * Method under test: {@link AdaptiveCard#equals(Object)}
    */
   @Test
   @DisplayName("Test AdaptiveCard equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AdaptiveCard.equals(Object)", "int AdaptiveCard.hashCode()"})
   void testAdaptiveCardEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    TeamsAdaptiveCard.BackgroundImage backgroundImage = new TeamsAdaptiveCard.BackgroundImage("Color");
-    ArrayList<TeamsAdaptiveCard.TextBlock> textBlocks = new ArrayList<>();
-    TeamsAdaptiveCard.AdaptiveCard adaptiveCard = new TeamsAdaptiveCard.AdaptiveCard(backgroundImage, textBlocks,
-        new ArrayList<>());
+    BackgroundImage backgroundImage = new BackgroundImage("http://adaptivecards.io/schemas/adaptive-card.json");
+    ArrayList<TextBlock> textBlocks = new ArrayList<>();
+    AdaptiveCard adaptiveCard = new AdaptiveCard(backgroundImage, textBlocks, new ArrayList<>());
 
     // Act and Assert
-    assertNotEquals(adaptiveCard, new TeamsAdaptiveCard.AdaptiveCard());
+    assertNotEquals(adaptiveCard, new AdaptiveCard());
   }
 
   /**
@@ -450,18 +469,20 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.AdaptiveCard#equals(Object)}
+   * Method under test: {@link AdaptiveCard#equals(Object)}
    */
   @Test
   @DisplayName("Test AdaptiveCard equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AdaptiveCard.equals(Object)", "int AdaptiveCard.hashCode()"})
   void testAdaptiveCardEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TeamsAdaptiveCard.AdaptiveCard adaptiveCard = new TeamsAdaptiveCard.AdaptiveCard();
-    TeamsAdaptiveCard.BackgroundImage backgroundImage = new TeamsAdaptiveCard.BackgroundImage("Color");
-    ArrayList<TeamsAdaptiveCard.TextBlock> textBlocks = new ArrayList<>();
+    AdaptiveCard adaptiveCard = new AdaptiveCard();
+    BackgroundImage backgroundImage = new BackgroundImage("http://adaptivecards.io/schemas/adaptive-card.json");
+    ArrayList<TextBlock> textBlocks = new ArrayList<>();
 
     // Act and Assert
-    assertNotEquals(adaptiveCard, new TeamsAdaptiveCard.AdaptiveCard(backgroundImage, textBlocks, new ArrayList<>()));
+    assertNotEquals(adaptiveCard, new AdaptiveCard(backgroundImage, textBlocks, new ArrayList<>()));
   }
 
   /**
@@ -471,46 +492,25 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.AdaptiveCard#equals(Object)}
+   * Method under test: {@link AdaptiveCard#equals(Object)}
    */
   @Test
   @DisplayName("Test AdaptiveCard equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AdaptiveCard.equals(Object)", "int AdaptiveCard.hashCode()"})
   void testAdaptiveCardEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TeamsAdaptiveCard.BackgroundImage backgroundImage = mock(TeamsAdaptiveCard.BackgroundImage.class);
-    ArrayList<TeamsAdaptiveCard.TextBlock> textBlocks = new ArrayList<>();
-    TeamsAdaptiveCard.AdaptiveCard adaptiveCard = new TeamsAdaptiveCard.AdaptiveCard(backgroundImage, textBlocks,
-        new ArrayList<>());
-
-    // Act and Assert
-    assertNotEquals(adaptiveCard, new TeamsAdaptiveCard.AdaptiveCard());
-  }
-
-  /**
-   * Test AdaptiveCard {@link AdaptiveCard#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TeamsAdaptiveCard.AdaptiveCard#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test AdaptiveCard equals(Object); when other is different; then return not equal")
-  void testAdaptiveCardEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
-    // Arrange
-    ArrayList<TeamsAdaptiveCard.TextBlock> textBlocks = new ArrayList<>();
-    textBlocks.add(new TeamsAdaptiveCard.TextBlock("http://adaptivecards.io/schemas/adaptive-card.json",
+    ArrayList<TextBlock> textBlocks = new ArrayList<>();
+    textBlocks.add(new TextBlock("http://adaptivecards.io/schemas/adaptive-card.json",
         "http://adaptivecards.io/schemas/adaptive-card.json", "http://adaptivecards.io/schemas/adaptive-card.json",
         "http://adaptivecards.io/schemas/adaptive-card.json", "http://adaptivecards.io/schemas/adaptive-card.json"));
-    TeamsAdaptiveCard.BackgroundImage backgroundImage = new TeamsAdaptiveCard.BackgroundImage("Color");
-    TeamsAdaptiveCard.AdaptiveCard adaptiveCard = new TeamsAdaptiveCard.AdaptiveCard(backgroundImage, textBlocks,
-        new ArrayList<>());
-    TeamsAdaptiveCard.BackgroundImage backgroundImage2 = new TeamsAdaptiveCard.BackgroundImage("Color");
-    ArrayList<TeamsAdaptiveCard.TextBlock> textBlocks2 = new ArrayList<>();
+    BackgroundImage backgroundImage = new BackgroundImage("http://adaptivecards.io/schemas/adaptive-card.json");
+    AdaptiveCard adaptiveCard = new AdaptiveCard(backgroundImage, textBlocks, new ArrayList<>());
+    BackgroundImage backgroundImage2 = new BackgroundImage("http://adaptivecards.io/schemas/adaptive-card.json");
+    ArrayList<TextBlock> textBlocks2 = new ArrayList<>();
 
     // Act and Assert
-    assertNotEquals(adaptiveCard, new TeamsAdaptiveCard.AdaptiveCard(backgroundImage2, textBlocks2, new ArrayList<>()));
+    assertNotEquals(adaptiveCard, new AdaptiveCard(backgroundImage2, textBlocks2, new ArrayList<>()));
   }
 
   /**
@@ -520,22 +520,23 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.AdaptiveCard#equals(Object)}
+   * Method under test: {@link AdaptiveCard#equals(Object)}
    */
   @Test
   @DisplayName("Test AdaptiveCard equals(Object); when other is different; then return not equal")
-  void testAdaptiveCardEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AdaptiveCard.equals(Object)", "int AdaptiveCard.hashCode()"})
+  void testAdaptiveCardEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    ArrayList<TeamsAdaptiveCard.ActionOpenUrl> actions = new ArrayList<>();
-    actions.add(new TeamsAdaptiveCard.ActionOpenUrl("Dr", "https://example.org/example"));
-    TeamsAdaptiveCard.BackgroundImage backgroundImage = new TeamsAdaptiveCard.BackgroundImage("Color");
-    TeamsAdaptiveCard.AdaptiveCard adaptiveCard = new TeamsAdaptiveCard.AdaptiveCard(backgroundImage, new ArrayList<>(),
-        actions);
-    TeamsAdaptiveCard.BackgroundImage backgroundImage2 = new TeamsAdaptiveCard.BackgroundImage("Color");
-    ArrayList<TeamsAdaptiveCard.TextBlock> textBlocks = new ArrayList<>();
+    ArrayList<ActionOpenUrl> actions = new ArrayList<>();
+    actions.add(new ActionOpenUrl("Dr", "https://example.org/example"));
+    BackgroundImage backgroundImage = new BackgroundImage("http://adaptivecards.io/schemas/adaptive-card.json");
+    AdaptiveCard adaptiveCard = new AdaptiveCard(backgroundImage, new ArrayList<>(), actions);
+    BackgroundImage backgroundImage2 = new BackgroundImage("http://adaptivecards.io/schemas/adaptive-card.json");
+    ArrayList<TextBlock> textBlocks = new ArrayList<>();
 
     // Act and Assert
-    assertNotEquals(adaptiveCard, new TeamsAdaptiveCard.AdaptiveCard(backgroundImage2, textBlocks, new ArrayList<>()));
+    assertNotEquals(adaptiveCard, new AdaptiveCard(backgroundImage2, textBlocks, new ArrayList<>()));
   }
 
   /**
@@ -545,13 +546,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.AdaptiveCard#equals(Object)}
+   * Method under test: {@link AdaptiveCard#equals(Object)}
    */
   @Test
   @DisplayName("Test AdaptiveCard equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AdaptiveCard.equals(Object)", "int AdaptiveCard.hashCode()"})
   void testAdaptiveCardEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TeamsAdaptiveCard.AdaptiveCard(), null);
+    assertNotEquals(new AdaptiveCard(), null);
   }
 
   /**
@@ -561,22 +564,26 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.AdaptiveCard#equals(Object)}
+   * Method under test: {@link AdaptiveCard#equals(Object)}
    */
   @Test
   @DisplayName("Test AdaptiveCard equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean AdaptiveCard.equals(Object)", "int AdaptiveCard.hashCode()"})
   void testAdaptiveCardEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TeamsAdaptiveCard.AdaptiveCard(), "Different type to AdaptiveCard");
+    assertNotEquals(new AdaptiveCard(), "Different type to AdaptiveCard");
   }
 
   /**
    * Test AdaptiveCard {@link AdaptiveCard#getSchema()}.
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.AdaptiveCard#getSchema()}
+   * Method under test: {@link AdaptiveCard#getSchema()}
    */
   @Test
   @DisplayName("Test AdaptiveCard getSchema()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String AdaptiveCard.getSchema()"})
   void testAdaptiveCardGetSchema() {
     // Arrange, Act and Assert
     assertEquals("http://adaptivecards.io/schemas/adaptive-card.json", adaptiveCard.getSchema());
@@ -585,10 +592,12 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test AdaptiveCard {@link AdaptiveCard#getType()}.
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.AdaptiveCard#getType()}
+   * Method under test: {@link AdaptiveCard#getType()}
    */
   @Test
   @DisplayName("Test AdaptiveCard getType()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String AdaptiveCard.getType()"})
   void testAdaptiveCardGetType() {
     // Arrange, Act and Assert
     assertEquals("AdaptiveCard", adaptiveCard.getType());
@@ -599,34 +608,39 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.AdaptiveCard#AdaptiveCard()}
-   *   <li>{@link TeamsAdaptiveCard.AdaptiveCard#setActions(List)}
-   *   <li>
-   * {@link TeamsAdaptiveCard.AdaptiveCard#setBackgroundImage(TeamsAdaptiveCard.BackgroundImage)}
-   *   <li>{@link TeamsAdaptiveCard.AdaptiveCard#setTextBlocks(List)}
-   *   <li>{@link TeamsAdaptiveCard.AdaptiveCard#toString()}
-   *   <li>{@link TeamsAdaptiveCard.AdaptiveCard#getActions()}
-   *   <li>{@link TeamsAdaptiveCard.AdaptiveCard#getBackgroundImage()}
-   *   <li>{@link TeamsAdaptiveCard.AdaptiveCard#getTextBlocks()}
+   *   <li>{@link AdaptiveCard#AdaptiveCard()}
+   *   <li>{@link AdaptiveCard#setActions(List)}
+   *   <li>{@link AdaptiveCard#setBackgroundImage(BackgroundImage)}
+   *   <li>{@link AdaptiveCard#setTextBlocks(List)}
+   *   <li>{@link AdaptiveCard#toString()}
+   *   <li>{@link AdaptiveCard#getActions()}
+   *   <li>{@link AdaptiveCard#getBackgroundImage()}
+   *   <li>{@link AdaptiveCard#getTextBlocks()}
    * </ul>
    */
   @Test
   @DisplayName("Test AdaptiveCard getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AdaptiveCard.<init>()", "void AdaptiveCard.<init>(BackgroundImage, List, List)",
+      "List AdaptiveCard.getActions()", "BackgroundImage AdaptiveCard.getBackgroundImage()",
+      "List AdaptiveCard.getTextBlocks()", "void AdaptiveCard.setActions(List)",
+      "void AdaptiveCard.setBackgroundImage(BackgroundImage)", "void AdaptiveCard.setTextBlocks(List)",
+      "String AdaptiveCard.toString()"})
   void testAdaptiveCardGettersAndSetters() {
     // Arrange and Act
-    TeamsAdaptiveCard.AdaptiveCard actualAdaptiveCard = new TeamsAdaptiveCard.AdaptiveCard();
-    ArrayList<TeamsAdaptiveCard.ActionOpenUrl> actions = new ArrayList<>();
+    AdaptiveCard actualAdaptiveCard = new AdaptiveCard();
+    ArrayList<ActionOpenUrl> actions = new ArrayList<>();
     actualAdaptiveCard.setActions(actions);
-    TeamsAdaptiveCard.BackgroundImage backgroundImage = new TeamsAdaptiveCard.BackgroundImage("Color");
+    BackgroundImage backgroundImage = new BackgroundImage("Color");
     actualAdaptiveCard.setBackgroundImage(backgroundImage);
-    ArrayList<TeamsAdaptiveCard.TextBlock> textBlocks = new ArrayList<>();
+    ArrayList<TextBlock> textBlocks = new ArrayList<>();
     actualAdaptiveCard.setTextBlocks(textBlocks);
     String actualToStringResult = actualAdaptiveCard.toString();
-    List<TeamsAdaptiveCard.ActionOpenUrl> actualActions = actualAdaptiveCard.getActions();
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = actualAdaptiveCard.getBackgroundImage();
-    List<TeamsAdaptiveCard.TextBlock> actualTextBlocks = actualAdaptiveCard.getTextBlocks();
+    List<ActionOpenUrl> actualActions = actualAdaptiveCard.getActions();
+    BackgroundImage actualBackgroundImage = actualAdaptiveCard.getBackgroundImage();
+    List<TextBlock> actualTextBlocks = actualAdaptiveCard.getTextBlocks();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "TeamsAdaptiveCard.AdaptiveCard(schema=http://adaptivecards.io/schemas/adaptive-card.json, type=AdaptiveCard,"
             + " backgroundImage=TeamsAdaptiveCard.BackgroundImage(url=null, fillMode=repeat), textBlocks=[],"
@@ -642,46 +656,48 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test AdaptiveCard getters and setters.
    * <ul>
-   *   <li>When {@link BackgroundImage#BackgroundImage(String)} with
-   * {@code Color}.</li>
+   *   <li>When {@link BackgroundImage#BackgroundImage(String)} with {@code Color}.</li>
    * </ul>
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link TeamsAdaptiveCard.AdaptiveCard#AdaptiveCard(TeamsAdaptiveCard.BackgroundImage, List, List)}
-   *   <li>{@link TeamsAdaptiveCard.AdaptiveCard#setActions(List)}
-   *   <li>
-   * {@link TeamsAdaptiveCard.AdaptiveCard#setBackgroundImage(TeamsAdaptiveCard.BackgroundImage)}
-   *   <li>{@link TeamsAdaptiveCard.AdaptiveCard#setTextBlocks(List)}
-   *   <li>{@link TeamsAdaptiveCard.AdaptiveCard#toString()}
-   *   <li>{@link TeamsAdaptiveCard.AdaptiveCard#getActions()}
-   *   <li>{@link TeamsAdaptiveCard.AdaptiveCard#getBackgroundImage()}
-   *   <li>{@link TeamsAdaptiveCard.AdaptiveCard#getTextBlocks()}
+   *   <li>{@link AdaptiveCard#AdaptiveCard(BackgroundImage, List, List)}
+   *   <li>{@link AdaptiveCard#setActions(List)}
+   *   <li>{@link AdaptiveCard#setBackgroundImage(BackgroundImage)}
+   *   <li>{@link AdaptiveCard#setTextBlocks(List)}
+   *   <li>{@link AdaptiveCard#toString()}
+   *   <li>{@link AdaptiveCard#getActions()}
+   *   <li>{@link AdaptiveCard#getBackgroundImage()}
+   *   <li>{@link AdaptiveCard#getTextBlocks()}
    * </ul>
    */
   @Test
   @DisplayName("Test AdaptiveCard getters and setters; when BackgroundImage(String) with 'Color'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AdaptiveCard.<init>()", "void AdaptiveCard.<init>(BackgroundImage, List, List)",
+      "List AdaptiveCard.getActions()", "BackgroundImage AdaptiveCard.getBackgroundImage()",
+      "List AdaptiveCard.getTextBlocks()", "void AdaptiveCard.setActions(List)",
+      "void AdaptiveCard.setBackgroundImage(BackgroundImage)", "void AdaptiveCard.setTextBlocks(List)",
+      "String AdaptiveCard.toString()"})
   void testAdaptiveCardGettersAndSetters_whenBackgroundImageWithColor() {
     // Arrange
-    TeamsAdaptiveCard.BackgroundImage backgroundImage = new TeamsAdaptiveCard.BackgroundImage("Color");
-    ArrayList<TeamsAdaptiveCard.TextBlock> textBlocks = new ArrayList<>();
+    BackgroundImage backgroundImage = new BackgroundImage("Color");
+    ArrayList<TextBlock> textBlocks = new ArrayList<>();
 
     // Act
-    TeamsAdaptiveCard.AdaptiveCard actualAdaptiveCard = new TeamsAdaptiveCard.AdaptiveCard(backgroundImage, textBlocks,
-        new ArrayList<>());
-    ArrayList<TeamsAdaptiveCard.ActionOpenUrl> actions = new ArrayList<>();
+    AdaptiveCard actualAdaptiveCard = new AdaptiveCard(backgroundImage, textBlocks, new ArrayList<>());
+    ArrayList<ActionOpenUrl> actions = new ArrayList<>();
     actualAdaptiveCard.setActions(actions);
-    TeamsAdaptiveCard.BackgroundImage backgroundImage2 = new TeamsAdaptiveCard.BackgroundImage("Color");
+    BackgroundImage backgroundImage2 = new BackgroundImage("Color");
     actualAdaptiveCard.setBackgroundImage(backgroundImage2);
-    ArrayList<TeamsAdaptiveCard.TextBlock> textBlocks2 = new ArrayList<>();
+    ArrayList<TextBlock> textBlocks2 = new ArrayList<>();
     actualAdaptiveCard.setTextBlocks(textBlocks2);
     String actualToStringResult = actualAdaptiveCard.toString();
-    List<TeamsAdaptiveCard.ActionOpenUrl> actualActions = actualAdaptiveCard.getActions();
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = actualAdaptiveCard.getBackgroundImage();
-    List<TeamsAdaptiveCard.TextBlock> actualTextBlocks = actualAdaptiveCard.getTextBlocks();
+    List<ActionOpenUrl> actualActions = actualAdaptiveCard.getActions();
+    BackgroundImage actualBackgroundImage = actualAdaptiveCard.getBackgroundImage();
+    List<TextBlock> actualTextBlocks = actualAdaptiveCard.getTextBlocks();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(
         "TeamsAdaptiveCard.AdaptiveCard(schema=http://adaptivecards.io/schemas/adaptive-card.json, type=AdaptiveCard,"
             + " backgroundImage=TeamsAdaptiveCard.BackgroundImage(url=null, fillMode=repeat), textBlocks=[],"
@@ -695,8 +711,7 @@ class TeamsAdaptiveCardDiffblueTest {
   }
 
   /**
-   * Test Attachment {@link Attachment#equals(Object)}, and
-   * {@link Attachment#hashCode()}.
+   * Test Attachment {@link Attachment#equals(Object)}, and {@link Attachment#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -704,16 +719,18 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.Attachment#equals(Object)}
-   *   <li>{@link TeamsAdaptiveCard.Attachment#hashCode()}
+   *   <li>{@link Attachment#equals(Object)}
+   *   <li>{@link Attachment#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Attachment equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Attachment.equals(Object)", "int Attachment.hashCode()"})
   void testAttachmentEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TeamsAdaptiveCard.Attachment attachment = new TeamsAdaptiveCard.Attachment();
-    TeamsAdaptiveCard.Attachment attachment2 = new TeamsAdaptiveCard.Attachment();
+    Attachment attachment = new Attachment();
+    Attachment attachment2 = new Attachment();
 
     // Act and Assert
     assertEquals(attachment, attachment2);
@@ -722,8 +739,7 @@ class TeamsAdaptiveCardDiffblueTest {
   }
 
   /**
-   * Test Attachment {@link Attachment#equals(Object)}, and
-   * {@link Attachment#hashCode()}.
+   * Test Attachment {@link Attachment#equals(Object)}, and {@link Attachment#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -731,18 +747,18 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.Attachment#equals(Object)}
-   *   <li>{@link TeamsAdaptiveCard.Attachment#hashCode()}
+   *   <li>{@link Attachment#equals(Object)}
+   *   <li>{@link Attachment#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Attachment equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Attachment.equals(Object)", "int Attachment.hashCode()"})
   void testAttachmentEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    TeamsAdaptiveCard.Attachment attachment = new TeamsAdaptiveCard.Attachment("text/plain",
-        new TeamsAdaptiveCard.AdaptiveCard());
-    TeamsAdaptiveCard.Attachment attachment2 = new TeamsAdaptiveCard.Attachment("text/plain",
-        new TeamsAdaptiveCard.AdaptiveCard());
+    Attachment attachment = new Attachment("text/plain", new AdaptiveCard());
+    Attachment attachment2 = new Attachment("text/plain", new AdaptiveCard());
 
     // Act and Assert
     assertEquals(attachment, attachment2);
@@ -751,8 +767,7 @@ class TeamsAdaptiveCardDiffblueTest {
   }
 
   /**
-   * Test Attachment {@link Attachment#equals(Object)}, and
-   * {@link Attachment#hashCode()}.
+   * Test Attachment {@link Attachment#equals(Object)}, and {@link Attachment#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -760,15 +775,17 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.Attachment#equals(Object)}
-   *   <li>{@link TeamsAdaptiveCard.Attachment#hashCode()}
+   *   <li>{@link Attachment#equals(Object)}
+   *   <li>{@link Attachment#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Attachment equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Attachment.equals(Object)", "int Attachment.hashCode()"})
   void testAttachmentEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TeamsAdaptiveCard.Attachment attachment = new TeamsAdaptiveCard.Attachment();
+    Attachment attachment = new Attachment();
 
     // Act and Assert
     assertEquals(attachment, attachment);
@@ -783,17 +800,18 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.Attachment#equals(Object)}
+   * Method under test: {@link Attachment#equals(Object)}
    */
   @Test
   @DisplayName("Test Attachment equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Attachment.equals(Object)", "int Attachment.hashCode()"})
   void testAttachmentEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    TeamsAdaptiveCard.Attachment attachment = new TeamsAdaptiveCard.Attachment("text/plain",
-        new TeamsAdaptiveCard.AdaptiveCard());
+    Attachment attachment = new Attachment("text/plain", new AdaptiveCard());
 
     // Act and Assert
-    assertNotEquals(attachment, new TeamsAdaptiveCard.Attachment());
+    assertNotEquals(attachment, new Attachment());
   }
 
   /**
@@ -803,17 +821,19 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.Attachment#equals(Object)}
+   * Method under test: {@link Attachment#equals(Object)}
    */
   @Test
   @DisplayName("Test Attachment equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Attachment.equals(Object)", "int Attachment.hashCode()"})
   void testAttachmentEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TeamsAdaptiveCard.Attachment attachment = new TeamsAdaptiveCard.Attachment();
-    attachment.setContent(new TeamsAdaptiveCard.AdaptiveCard());
+    Attachment attachment = new Attachment();
+    attachment.setContent(new AdaptiveCard());
 
     // Act and Assert
-    assertNotEquals(attachment, new TeamsAdaptiveCard.Attachment());
+    assertNotEquals(attachment, new Attachment());
   }
 
   /**
@@ -823,17 +843,18 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.Attachment#equals(Object)}
+   * Method under test: {@link Attachment#equals(Object)}
    */
   @Test
   @DisplayName("Test Attachment equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Attachment.equals(Object)", "int Attachment.hashCode()"})
   void testAttachmentEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TeamsAdaptiveCard.Attachment attachment = new TeamsAdaptiveCard.Attachment(null,
-        new TeamsAdaptiveCard.AdaptiveCard());
+    Attachment attachment = new Attachment(null, new AdaptiveCard());
 
     // Act and Assert
-    assertNotEquals(attachment, new TeamsAdaptiveCard.Attachment());
+    assertNotEquals(attachment, new Attachment());
   }
 
   /**
@@ -843,36 +864,18 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.Attachment#equals(Object)}
+   * Method under test: {@link Attachment#equals(Object)}
    */
   @Test
   @DisplayName("Test Attachment equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Attachment.equals(Object)", "int Attachment.hashCode()"})
   void testAttachmentEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    TeamsAdaptiveCard.Attachment attachment = new TeamsAdaptiveCard.Attachment("text/plain",
-        mock(TeamsAdaptiveCard.AdaptiveCard.class));
+    Attachment attachment = new Attachment();
 
-    // Act and Assert
-    assertNotEquals(attachment, new TeamsAdaptiveCard.Attachment());
-  }
-
-  /**
-   * Test Attachment {@link Attachment#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TeamsAdaptiveCard.Attachment#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test Attachment equals(Object); when other is different; then return not equal")
-  void testAttachmentEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
-    // Arrange
-    TeamsAdaptiveCard.Attachment attachment = new TeamsAdaptiveCard.Attachment();
-
-    TeamsAdaptiveCard.Attachment attachment2 = new TeamsAdaptiveCard.Attachment();
-    attachment2.setContent(new TeamsAdaptiveCard.AdaptiveCard());
+    Attachment attachment2 = new Attachment();
+    attachment2.setContent(new AdaptiveCard());
 
     // Act and Assert
     assertNotEquals(attachment, attachment2);
@@ -885,13 +888,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.Attachment#equals(Object)}
+   * Method under test: {@link Attachment#equals(Object)}
    */
   @Test
   @DisplayName("Test Attachment equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Attachment.equals(Object)", "int Attachment.hashCode()"})
   void testAttachmentEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TeamsAdaptiveCard.Attachment(), null);
+    assertNotEquals(new Attachment(), null);
   }
 
   /**
@@ -901,13 +906,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.Attachment#equals(Object)}
+   * Method under test: {@link Attachment#equals(Object)}
    */
   @Test
   @DisplayName("Test Attachment equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Attachment.equals(Object)", "int Attachment.hashCode()"})
   void testAttachmentEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TeamsAdaptiveCard.Attachment(), "Different type to Attachment");
+    assertNotEquals(new Attachment(), "Different type to Attachment");
   }
 
   /**
@@ -915,27 +922,31 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.Attachment#Attachment()}
-   *   <li>
-   * {@link TeamsAdaptiveCard.Attachment#setContent(TeamsAdaptiveCard.AdaptiveCard)}
-   *   <li>{@link TeamsAdaptiveCard.Attachment#setContentType(String)}
-   *   <li>{@link TeamsAdaptiveCard.Attachment#toString()}
-   *   <li>{@link TeamsAdaptiveCard.Attachment#getContent()}
-   *   <li>{@link TeamsAdaptiveCard.Attachment#getContentType()}
+   *   <li>{@link Attachment#Attachment()}
+   *   <li>{@link Attachment#setContent(AdaptiveCard)}
+   *   <li>{@link Attachment#setContentType(String)}
+   *   <li>{@link Attachment#toString()}
+   *   <li>{@link Attachment#getContent()}
+   *   <li>{@link Attachment#getContentType()}
    * </ul>
    */
   @Test
   @DisplayName("Test Attachment getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Attachment.<init>()", "void Attachment.<init>(String, AdaptiveCard)",
+      "AdaptiveCard Attachment.getContent()", "String Attachment.getContentType()",
+      "void Attachment.setContent(AdaptiveCard)", "void Attachment.setContentType(String)",
+      "String Attachment.toString()"})
   void testAttachmentGettersAndSetters() {
     // Arrange and Act
-    TeamsAdaptiveCard.Attachment actualAttachment = new TeamsAdaptiveCard.Attachment();
-    TeamsAdaptiveCard.AdaptiveCard content = new TeamsAdaptiveCard.AdaptiveCard();
+    Attachment actualAttachment = new Attachment();
+    AdaptiveCard content = new AdaptiveCard();
     actualAttachment.setContent(content);
     actualAttachment.setContentType("text/plain");
     String actualToStringResult = actualAttachment.toString();
-    TeamsAdaptiveCard.AdaptiveCard actualContent = actualAttachment.getContent();
+    AdaptiveCard actualContent = actualAttachment.getContent();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("TeamsAdaptiveCard.Attachment(contentType=text/plain, content=TeamsAdaptiveCard.AdaptiveCard(schema"
         + "=http://adaptivecards.io/schemas/adaptive-card.json, type=AdaptiveCard, backgroundImage=null,"
         + " textBlocks=[], actions=[]))", actualToStringResult);
@@ -951,29 +962,31 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link TeamsAdaptiveCard.Attachment#Attachment(String, TeamsAdaptiveCard.AdaptiveCard)}
-   *   <li>
-   * {@link TeamsAdaptiveCard.Attachment#setContent(TeamsAdaptiveCard.AdaptiveCard)}
-   *   <li>{@link TeamsAdaptiveCard.Attachment#setContentType(String)}
-   *   <li>{@link TeamsAdaptiveCard.Attachment#toString()}
-   *   <li>{@link TeamsAdaptiveCard.Attachment#getContent()}
-   *   <li>{@link TeamsAdaptiveCard.Attachment#getContentType()}
+   *   <li>{@link Attachment#Attachment(String, AdaptiveCard)}
+   *   <li>{@link Attachment#setContent(AdaptiveCard)}
+   *   <li>{@link Attachment#setContentType(String)}
+   *   <li>{@link Attachment#toString()}
+   *   <li>{@link Attachment#getContent()}
+   *   <li>{@link Attachment#getContentType()}
    * </ul>
    */
   @Test
   @DisplayName("Test Attachment getters and setters; when 'text/plain'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Attachment.<init>()", "void Attachment.<init>(String, AdaptiveCard)",
+      "AdaptiveCard Attachment.getContent()", "String Attachment.getContentType()",
+      "void Attachment.setContent(AdaptiveCard)", "void Attachment.setContentType(String)",
+      "String Attachment.toString()"})
   void testAttachmentGettersAndSetters_whenTextPlain() {
     // Arrange and Act
-    TeamsAdaptiveCard.Attachment actualAttachment = new TeamsAdaptiveCard.Attachment("text/plain",
-        new TeamsAdaptiveCard.AdaptiveCard());
-    TeamsAdaptiveCard.AdaptiveCard content = new TeamsAdaptiveCard.AdaptiveCard();
+    Attachment actualAttachment = new Attachment("text/plain", new AdaptiveCard());
+    AdaptiveCard content = new AdaptiveCard();
     actualAttachment.setContent(content);
     actualAttachment.setContentType("text/plain");
     String actualToStringResult = actualAttachment.toString();
-    TeamsAdaptiveCard.AdaptiveCard actualContent = actualAttachment.getContent();
+    AdaptiveCard actualContent = actualAttachment.getContent();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("TeamsAdaptiveCard.Attachment(contentType=text/plain, content=TeamsAdaptiveCard.AdaptiveCard(schema"
         + "=http://adaptivecards.io/schemas/adaptive-card.json, type=AdaptiveCard, backgroundImage=null,"
         + " textBlocks=[], actions=[]))", actualToStringResult);
@@ -982,8 +995,7 @@ class TeamsAdaptiveCardDiffblueTest {
   }
 
   /**
-   * Test BackgroundImage {@link BackgroundImage#equals(Object)}, and
-   * {@link BackgroundImage#hashCode()}.
+   * Test BackgroundImage {@link BackgroundImage#equals(Object)}, and {@link BackgroundImage#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -991,16 +1003,18 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.BackgroundImage#equals(Object)}
-   *   <li>{@link TeamsAdaptiveCard.BackgroundImage#hashCode()}
+   *   <li>{@link BackgroundImage#equals(Object)}
+   *   <li>{@link BackgroundImage#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test BackgroundImage equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BackgroundImage.equals(Object)", "int BackgroundImage.hashCode()"})
   void testBackgroundImageEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TeamsAdaptiveCard.BackgroundImage backgroundImage = new TeamsAdaptiveCard.BackgroundImage("Color");
-    TeamsAdaptiveCard.BackgroundImage backgroundImage2 = new TeamsAdaptiveCard.BackgroundImage("Color");
+    BackgroundImage backgroundImage = new BackgroundImage("Color");
+    BackgroundImage backgroundImage2 = new BackgroundImage("Color");
 
     // Act and Assert
     assertEquals(backgroundImage, backgroundImage2);
@@ -1009,8 +1023,7 @@ class TeamsAdaptiveCardDiffblueTest {
   }
 
   /**
-   * Test BackgroundImage {@link BackgroundImage#equals(Object)}, and
-   * {@link BackgroundImage#hashCode()}.
+   * Test BackgroundImage {@link BackgroundImage#equals(Object)}, and {@link BackgroundImage#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -1018,18 +1031,20 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.BackgroundImage#equals(Object)}
-   *   <li>{@link TeamsAdaptiveCard.BackgroundImage#hashCode()}
+   *   <li>{@link BackgroundImage#equals(Object)}
+   *   <li>{@link BackgroundImage#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test BackgroundImage equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BackgroundImage.equals(Object)", "int BackgroundImage.hashCode()"})
   void testBackgroundImageEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    TeamsAdaptiveCard.BackgroundImage backgroundImage = new TeamsAdaptiveCard.BackgroundImage("Color");
+    BackgroundImage backgroundImage = new BackgroundImage("Color");
     backgroundImage.setUrl("https://example.org/example");
 
-    TeamsAdaptiveCard.BackgroundImage backgroundImage2 = new TeamsAdaptiveCard.BackgroundImage("Color");
+    BackgroundImage backgroundImage2 = new BackgroundImage("Color");
     backgroundImage2.setUrl("https://example.org/example");
 
     // Act and Assert
@@ -1039,8 +1054,7 @@ class TeamsAdaptiveCardDiffblueTest {
   }
 
   /**
-   * Test BackgroundImage {@link BackgroundImage#equals(Object)}, and
-   * {@link BackgroundImage#hashCode()}.
+   * Test BackgroundImage {@link BackgroundImage#equals(Object)}, and {@link BackgroundImage#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -1048,15 +1062,17 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.BackgroundImage#equals(Object)}
-   *   <li>{@link TeamsAdaptiveCard.BackgroundImage#hashCode()}
+   *   <li>{@link BackgroundImage#equals(Object)}
+   *   <li>{@link BackgroundImage#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test BackgroundImage equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BackgroundImage.equals(Object)", "int BackgroundImage.hashCode()"})
   void testBackgroundImageEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TeamsAdaptiveCard.BackgroundImage backgroundImage = new TeamsAdaptiveCard.BackgroundImage("Color");
+    BackgroundImage backgroundImage = new BackgroundImage("Color");
 
     // Act and Assert
     assertEquals(backgroundImage, backgroundImage);
@@ -1071,13 +1087,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.BackgroundImage#equals(Object)}
+   * Method under test: {@link BackgroundImage#equals(Object)}
    */
   @Test
   @DisplayName("Test BackgroundImage equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BackgroundImage.equals(Object)", "int BackgroundImage.hashCode()"})
   void testBackgroundImageEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TeamsAdaptiveCard.BackgroundImage("Color"), 1);
+    assertNotEquals(new BackgroundImage("Color"), 1);
   }
 
   /**
@@ -1087,17 +1105,19 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.BackgroundImage#equals(Object)}
+   * Method under test: {@link BackgroundImage#equals(Object)}
    */
   @Test
   @DisplayName("Test BackgroundImage equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BackgroundImage.equals(Object)", "int BackgroundImage.hashCode()"})
   void testBackgroundImageEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TeamsAdaptiveCard.BackgroundImage backgroundImage = new TeamsAdaptiveCard.BackgroundImage("Color");
+    BackgroundImage backgroundImage = new BackgroundImage("Color");
     backgroundImage.setUrl("https://example.org/example");
 
     // Act and Assert
-    assertNotEquals(backgroundImage, new TeamsAdaptiveCard.BackgroundImage("Color"));
+    assertNotEquals(backgroundImage, new BackgroundImage("Color"));
   }
 
   /**
@@ -1107,15 +1127,17 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.BackgroundImage#equals(Object)}
+   * Method under test: {@link BackgroundImage#equals(Object)}
    */
   @Test
   @DisplayName("Test BackgroundImage equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BackgroundImage.equals(Object)", "int BackgroundImage.hashCode()"})
   void testBackgroundImageEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TeamsAdaptiveCard.BackgroundImage backgroundImage = new TeamsAdaptiveCard.BackgroundImage("Color");
+    BackgroundImage backgroundImage = new BackgroundImage("Color");
 
-    TeamsAdaptiveCard.BackgroundImage backgroundImage2 = new TeamsAdaptiveCard.BackgroundImage("Color");
+    BackgroundImage backgroundImage2 = new BackgroundImage("Color");
     backgroundImage2.setUrl("https://example.org/example");
 
     // Act and Assert
@@ -1129,13 +1151,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.BackgroundImage#equals(Object)}
+   * Method under test: {@link BackgroundImage#equals(Object)}
    */
   @Test
   @DisplayName("Test BackgroundImage equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BackgroundImage.equals(Object)", "int BackgroundImage.hashCode()"})
   void testBackgroundImageEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TeamsAdaptiveCard.BackgroundImage("Color"), null);
+    assertNotEquals(new BackgroundImage("Color"), null);
   }
 
   /**
@@ -1145,22 +1169,26 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.BackgroundImage#equals(Object)}
+   * Method under test: {@link BackgroundImage#equals(Object)}
    */
   @Test
   @DisplayName("Test BackgroundImage equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BackgroundImage.equals(Object)", "int BackgroundImage.hashCode()"})
   void testBackgroundImageEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TeamsAdaptiveCard.BackgroundImage("Color"), "Different type to BackgroundImage");
+    assertNotEquals(new BackgroundImage("Color"), "Different type to BackgroundImage");
   }
 
   /**
    * Test BackgroundImage {@link BackgroundImage#getFillMode()}.
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.BackgroundImage#getFillMode()}
+   * Method under test: {@link BackgroundImage#getFillMode()}
    */
   @Test
   @DisplayName("Test BackgroundImage getFillMode()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String BackgroundImage.getFillMode()"})
   void testBackgroundImageGetFillMode() {
     // Arrange, Act and Assert
     assertEquals("repeat", backgroundImage.getFillMode());
@@ -1171,21 +1199,24 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage()}
-   *   <li>{@link TeamsAdaptiveCard.BackgroundImage#setUrl(String)}
-   *   <li>{@link TeamsAdaptiveCard.BackgroundImage#toString()}
-   *   <li>{@link TeamsAdaptiveCard.BackgroundImage#getUrl()}
+   *   <li>{@link BackgroundImage#BackgroundImage()}
+   *   <li>{@link BackgroundImage#setUrl(String)}
+   *   <li>{@link BackgroundImage#toString()}
+   *   <li>{@link BackgroundImage#getUrl()}
    * </ul>
    */
   @Test
   @DisplayName("Test BackgroundImage getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>()", "String BackgroundImage.getUrl()",
+      "void BackgroundImage.setUrl(String)", "String BackgroundImage.toString()"})
   void testBackgroundImageGettersAndSetters() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage();
+    BackgroundImage actualBackgroundImage = new BackgroundImage();
     actualBackgroundImage.setUrl("https://example.org/example");
     String actualToStringResult = actualBackgroundImage.toString();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("TeamsAdaptiveCard.BackgroundImage(url=https://example.org/example, fillMode=repeat)",
         actualToStringResult);
     assertEquals("https://example.org/example", actualBackgroundImage.getUrl());
@@ -1194,15 +1225,15 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "rgbFailed to generate embedded image for color: {}");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbFailed to generate embedded image for color: {}");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -1212,14 +1243,15 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage2() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
+    BackgroundImage actualBackgroundImage = new BackgroundImage(
         "rgborg.thingsboard.server.service.notification.channels.TeamsAdaptiveCard$BackgroundImage");
 
     // Assert
@@ -1230,15 +1262,15 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage3() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "hslFailed to generate embedded image for color: {}");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("hslFailed to generate embedded image for color: {}");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -1248,14 +1280,15 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage4() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
+    BackgroundImage actualBackgroundImage = new BackgroundImage(
         "hslorg.thingsboard.server.service.notification.channels.TeamsAdaptiveCard$BackgroundImage");
 
     // Assert
@@ -1266,14 +1299,15 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage5() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
+    BackgroundImage actualBackgroundImage = new BackgroundImage(
         "rgbrepeatFailed to generate embedded image for color: {}");
 
     // Assert
@@ -1284,14 +1318,15 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage6() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
+    BackgroundImage actualBackgroundImage = new BackgroundImage(
         "rgbrepeatorg.thingsboard.server.service.notification.channels.TeamsAdaptiveCard$BackgroundImage");
 
     // Assert
@@ -1302,15 +1337,15 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage7() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "rgb#Failed to generate embedded image for color: {}");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgb#Failed to generate embedded image for color: {}");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -1320,14 +1355,15 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage8() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
+    BackgroundImage actualBackgroundImage = new BackgroundImage(
         "rgb#org.thingsboard.server.service.notification.channels.TeamsAdaptiveCard$BackgroundImage");
 
     // Assert
@@ -1338,14 +1374,15 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage9() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
+    BackgroundImage actualBackgroundImage = new BackgroundImage(
         "rgbrgbFailed to generate embedded image for color: {}");
 
     // Assert
@@ -1356,14 +1393,15 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage10() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
+    BackgroundImage actualBackgroundImage = new BackgroundImage(
         "rgbrgborg.thingsboard.server.service.notification.channels.TeamsAdaptiveCard$BackgroundImage");
 
     // Assert
@@ -1374,14 +1412,15 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage11() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
+    BackgroundImage actualBackgroundImage = new BackgroundImage(
         "rgbhslFailed to generate embedded image for color: {}");
 
     // Assert
@@ -1392,14 +1431,15 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage12() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
+    BackgroundImage actualBackgroundImage = new BackgroundImage(
         "rgbhslorg.thingsboard.server.service.notification.channels.TeamsAdaptiveCard$BackgroundImage");
 
     // Assert
@@ -1410,14 +1450,15 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage13() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
+    BackgroundImage actualBackgroundImage = new BackgroundImage(
         "rgbFailed to generate embedded image for color: {}repeat");
 
     // Assert
@@ -1428,15 +1469,15 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage14() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "rgbFailed to generate embedded image for color: {}#");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbFailed to generate embedded image for color: {}#");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -1446,14 +1487,15 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage15() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
+    BackgroundImage actualBackgroundImage = new BackgroundImage(
         "rgbFailed to generate embedded image for color: {}rgb");
 
     // Assert
@@ -1464,14 +1506,15 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage16() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
+    BackgroundImage actualBackgroundImage = new BackgroundImage(
         "rgbFailed to generate embedded image for color: {}hsl");
 
     // Assert
@@ -1482,14 +1525,15 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage17() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
+    BackgroundImage actualBackgroundImage = new BackgroundImage(
         "rgbFailed to generate embedded image for color: {}Failed to generate embedded image for color: {}");
 
     // Assert
@@ -1500,14 +1544,15 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage18() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
+    BackgroundImage actualBackgroundImage = new BackgroundImage(
         "rgbFailed to generate embedded image for color: {}Color");
 
     // Assert
@@ -1518,15 +1563,15 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage19() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "rgbFailed to generate embedded image for color: {}42");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbFailed to generate embedded image for color: {}42");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -1536,14 +1581,15 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage20() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
+    BackgroundImage actualBackgroundImage = new BackgroundImage(
         "rgbColorFailed to generate embedded image for color: {}");
 
     // Assert
@@ -1554,14 +1600,15 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage21() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
+    BackgroundImage actualBackgroundImage = new BackgroundImage(
         "rgbColororg.thingsboard.server.service.notification.channels.TeamsAdaptiveCard$BackgroundImage");
 
     // Assert
@@ -1571,499 +1618,20 @@ class TeamsAdaptiveCardDiffblueTest {
 
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String)")
-  void testBackgroundImageNewBackgroundImage22() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "rgborg.thingsboard.server.service.notification.channels.TeamsAdaptiveCard$BackgroundImagerepeat");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String)")
-  void testBackgroundImageNewBackgroundImage23() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "rgborg.thingsboard.server.service.notification.channels.TeamsAdaptiveCard$BackgroundImage#");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String)")
-  void testBackgroundImageNewBackgroundImage24() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "rgborg.thingsboard.server.service.notification.channels.TeamsAdaptiveCard$BackgroundImagergb");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String)")
-  void testBackgroundImageNewBackgroundImage25() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "rgborg.thingsboard.server.service.notification.channels.TeamsAdaptiveCard$BackgroundImagehsl");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String)")
-  void testBackgroundImageNewBackgroundImage26() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "rgborg.thingsboard.server.service.notification.channels.TeamsAdaptiveCard$BackgroundImageColor");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String)")
-  void testBackgroundImageNewBackgroundImage27() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "rgborg.thingsboard.server.service.notification.channels.TeamsAdaptiveCard$BackgroundImage42");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String)")
-  void testBackgroundImageNewBackgroundImage28() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "rgb42Failed to generate embedded image for color: {}");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String)")
-  void testBackgroundImageNewBackgroundImage29() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "rgb42org.thingsboard.server.service.notification.channels.TeamsAdaptiveCard$BackgroundImage");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String)")
-  void testBackgroundImageNewBackgroundImage30() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "hslrepeatFailed to generate embedded image for color: {}");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String)")
-  void testBackgroundImageNewBackgroundImage31() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "hslrepeatorg.thingsboard.server.service.notification.channels.TeamsAdaptiveCard$BackgroundImage");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String)")
-  void testBackgroundImageNewBackgroundImage32() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "hsl#Failed to generate embedded image for color: {}");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String)")
-  void testBackgroundImageNewBackgroundImage33() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "hsl#org.thingsboard.server.service.notification.channels.TeamsAdaptiveCard$BackgroundImage");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String)")
-  void testBackgroundImageNewBackgroundImage34() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "hslrgbFailed to generate embedded image for color: {}");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String)")
-  void testBackgroundImageNewBackgroundImage35() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "hslrgborg.thingsboard.server.service.notification.channels.TeamsAdaptiveCard$BackgroundImage");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String)")
-  void testBackgroundImageNewBackgroundImage36() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "hslhslFailed to generate embedded image for color: {}");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String)")
-  void testBackgroundImageNewBackgroundImage37() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "hslhslorg.thingsboard.server.service.notification.channels.TeamsAdaptiveCard$BackgroundImage");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String)")
-  void testBackgroundImageNewBackgroundImage38() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "hslFailed to generate embedded image for color: {}repeat");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String)")
-  void testBackgroundImageNewBackgroundImage39() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "hslFailed to generate embedded image for color: {}#");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String)")
-  void testBackgroundImageNewBackgroundImage40() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "hslFailed to generate embedded image for color: {}rgb");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String)")
-  void testBackgroundImageNewBackgroundImage41() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "hslFailed to generate embedded image for color: {}hsl");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String)")
-  void testBackgroundImageNewBackgroundImage42() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "hslFailed to generate embedded image for color: {}Failed to generate embedded image for color: {}");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String)")
-  void testBackgroundImageNewBackgroundImage43() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "hslFailed to generate embedded image for color: {}Color");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String)")
-  void testBackgroundImageNewBackgroundImage44() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "hslFailed to generate embedded image for color: {}42");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <ul>
    *   <li>When a string.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when a string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenAString() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
+    BackgroundImage actualBackgroundImage = new BackgroundImage(
         "rgbFailed to generate embedded image for color: {}org.thingsboard.server.service.notification.channels"
-            + ".TeamsAdaptiveCard$BackgroundImage");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When a string.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when a string")
-  void testBackgroundImageNewBackgroundImage_whenAString2() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "rgborg.thingsboard.server.service.notification.channels.TeamsAdaptiveCard$BackgroundImageFailed to"
-            + " generate embedded image for color: {}");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When a string.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when a string")
-  void testBackgroundImageNewBackgroundImage_whenAString3() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "rgborg.thingsboard.server.service.notification.channels.TeamsAdaptiveCard$BackgroundImageorg.thingsboard"
-            + ".server.service.notification.channels.TeamsAdaptiveCard$BackgroundImage");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When a string.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when a string")
-  void testBackgroundImageNewBackgroundImage_whenAString4() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage(
-        "hslFailed to generate embedded image for color: {}org.thingsboard.server.service.notification.channels"
             + ".TeamsAdaptiveCard$BackgroundImage");
 
     // Assert
@@ -2077,14 +1645,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code Color}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'Color'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenColor() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("Color");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("Color");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -2097,14 +1666,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code hsl}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hsl'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenHsl() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hsl");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("hsl");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -2117,14 +1687,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code hsl#}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hsl#'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenHsl2() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hsl#");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("hsl#");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -2134,17 +1705,39 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <ul>
-   *   <li>When {@code hsl##}.</li>
+   *   <li>When {@code hsl,}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hsl##'")
+  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hsl,'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenHsl3() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hsl##");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("hsl,");
+
+    // Assert
+    assertEquals("repeat", actualBackgroundImage.getFillMode());
+    assertNull(actualBackgroundImage.getUrl());
+  }
+
+  /**
+   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
+   * <ul>
+   *   <li>When {@code hsl[^0-9.,]}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
+   */
+  @Test
+  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hsl[^0-9.,]'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
+  void testBackgroundImageNewBackgroundImage_whenHsl09() {
+    // Arrange and Act
+    BackgroundImage actualBackgroundImage = new BackgroundImage("hsl[^0-9.,]");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -2157,14 +1750,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code hsl42}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hsl42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenHsl42() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hsl42");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("hsl42");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -2174,17 +1768,18 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <ul>
-   *   <li>When {@code hsl#42}.</li>
+   *   <li>When {@code hsl[^0-9,]}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hsl#42'")
-  void testBackgroundImageNewBackgroundImage_whenHsl422() {
+  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hsl[^0-9,]'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
+  void testBackgroundImageNewBackgroundImage_whenHsl092() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hsl#42");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("hsl[^0-9,]");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -2197,14 +1792,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code hslColor}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslColor'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenHslColor() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslColor");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("hslColor");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -2214,157 +1810,18 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <ul>
-   *   <li>When {@code hsl#Color}.</li>
+   *   <li>When {@code hslU}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hsl#Color'")
-  void testBackgroundImageNewBackgroundImage_whenHslColor2() {
+  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslU'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
+  void testBackgroundImageNewBackgroundImage_whenHslU() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hsl#Color");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hslColor#}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslColor#'")
-  void testBackgroundImageNewBackgroundImage_whenHslColor3() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslColor#");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hslColorhsl}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslColorhsl'")
-  void testBackgroundImageNewBackgroundImage_whenHslColorhsl() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslColorhsl");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hslColorrepeat}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslColorrepeat'")
-  void testBackgroundImageNewBackgroundImage_whenHslColorrepeat() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslColorrepeat");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hslColorrgb}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslColorrgb'")
-  void testBackgroundImageNewBackgroundImage_whenHslColorrgb() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslColorrgb");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hsl#hsl}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hsl#hsl'")
-  void testBackgroundImageNewBackgroundImage_whenHslHsl() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hsl#hsl");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hsl#repeat}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hsl#repeat'")
-  void testBackgroundImageNewBackgroundImage_whenHslRepeat() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hsl#repeat");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hsl#rgb}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hsl#rgb'")
-  void testBackgroundImageNewBackgroundImage_whenHslRgb() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hsl#rgb");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("hslU");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -2377,134 +1834,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code hslhsl}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslhsl'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenHslhsl() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslhsl");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hslhsl#}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslhsl#'")
-  void testBackgroundImageNewBackgroundImage_whenHslhsl2() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslhsl#");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hslhsl42}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslhsl42'")
-  void testBackgroundImageNewBackgroundImage_whenHslhsl42() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslhsl42");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hslhslColor}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslhslColor'")
-  void testBackgroundImageNewBackgroundImage_whenHslhslColor() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslhslColor");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hslhslhsl}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslhslhsl'")
-  void testBackgroundImageNewBackgroundImage_whenHslhslhsl() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslhslhsl");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hslhslrepeat}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslhslrepeat'")
-  void testBackgroundImageNewBackgroundImage_whenHslhslrepeat() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslhslrepeat");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hslhslrgb}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslhslrgb'")
-  void testBackgroundImageNewBackgroundImage_whenHslhslrgb() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslhslrgb");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("hslhsl");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -2517,134 +1855,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code hslrepeat}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslrepeat'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenHslrepeat() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslrepeat");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hslrepeat#}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslrepeat#'")
-  void testBackgroundImageNewBackgroundImage_whenHslrepeat2() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslrepeat#");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hslrepeat42}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslrepeat42'")
-  void testBackgroundImageNewBackgroundImage_whenHslrepeat42() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslrepeat42");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hslrepeatColor}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslrepeatColor'")
-  void testBackgroundImageNewBackgroundImage_whenHslrepeatColor() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslrepeatColor");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hslrepeathsl}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslrepeathsl'")
-  void testBackgroundImageNewBackgroundImage_whenHslrepeathsl() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslrepeathsl");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hslrepeatrepeat}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslrepeatrepeat'")
-  void testBackgroundImageNewBackgroundImage_whenHslrepeatrepeat() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslrepeatrepeat");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hslrepeatrgb}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslrepeatrgb'")
-  void testBackgroundImageNewBackgroundImage_whenHslrepeatrgb() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslrepeatrgb");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("hslrepeat");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -2657,134 +1876,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code hslrgb}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslrgb'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenHslrgb() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslrgb");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hslrgb#}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslrgb#'")
-  void testBackgroundImageNewBackgroundImage_whenHslrgb2() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslrgb#");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hslrgb42}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslrgb42'")
-  void testBackgroundImageNewBackgroundImage_whenHslrgb42() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslrgb42");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hslrgbColor}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslrgbColor'")
-  void testBackgroundImageNewBackgroundImage_whenHslrgbColor() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslrgbColor");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hslrgbhsl}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslrgbhsl'")
-  void testBackgroundImageNewBackgroundImage_whenHslrgbhsl() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslrgbhsl");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hslrgbrepeat}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslrgbrepeat'")
-  void testBackgroundImageNewBackgroundImage_whenHslrgbrepeat() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslrgbrepeat");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code hslrgbrgb}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'hslrgbrgb'")
-  void testBackgroundImageNewBackgroundImage_whenHslrgbrgb() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("hslrgbrgb");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("hslrgb");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -2797,14 +1897,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code #}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when '#'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenNumberSign() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("#");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("#");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -2817,14 +1918,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgb}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgb'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgb() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgb");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgb");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -2837,14 +1939,36 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgb#}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgb#'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgb2() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgb#");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgb#");
+
+    // Assert
+    assertEquals("repeat", actualBackgroundImage.getFillMode());
+    assertNull(actualBackgroundImage.getUrl());
+  }
+
+  /**
+   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
+   * <ul>
+   *   <li>When {@code rgb,}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
+   */
+  @Test
+  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgb,'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
+  void testBackgroundImageNewBackgroundImage_whenRgb3() {
+    // Arrange and Act
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgb,");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -2857,14 +1981,36 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgb##}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgb##'")
-  void testBackgroundImageNewBackgroundImage_whenRgb3() {
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
+  void testBackgroundImageNewBackgroundImage_whenRgb4() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgb##");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgb##");
+
+    // Assert
+    assertEquals("repeat", actualBackgroundImage.getFillMode());
+    assertNull(actualBackgroundImage.getUrl());
+  }
+
+  /**
+   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
+   * <ul>
+   *   <li>When {@code rgb[^0-9,]}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
+   */
+  @Test
+  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgb[^0-9,]'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
+  void testBackgroundImageNewBackgroundImage_whenRgb09() {
+    // Arrange and Act
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgb[^0-9,]");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -2877,14 +2023,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgb42}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgb42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgb42() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgb42");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgb42");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -2894,77 +2041,18 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
    * <ul>
-   *   <li>When {@code rgb42Color}.</li>
+   *   <li>When {@code rgb[^0-9.,]}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgb42Color'")
-  void testBackgroundImageNewBackgroundImage_whenRgb42Color() {
+  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgb[^0-9.,]'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
+  void testBackgroundImageNewBackgroundImage_whenRgb092() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgb42Color");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code rgb42hsl}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgb42hsl'")
-  void testBackgroundImageNewBackgroundImage_whenRgb42hsl() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgb42hsl");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code rgb42repeat}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgb42repeat'")
-  void testBackgroundImageNewBackgroundImage_whenRgb42repeat() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgb42repeat");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code rgb42rgb}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgb42rgb'")
-  void testBackgroundImageNewBackgroundImage_whenRgb42rgb() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgb42rgb");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgb[^0-9.,]");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -2977,54 +2065,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgb#42}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgb#42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgb422() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgb#42");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code rgb42#}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgb42#'")
-  void testBackgroundImageNewBackgroundImage_whenRgb423() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgb42#");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code rgb4242}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgb4242'")
-  void testBackgroundImageNewBackgroundImage_whenRgb4242() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgb4242");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgb#42");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3037,14 +2086,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbColor}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbColor'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbColor() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbColor");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbColor");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3057,14 +2107,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgb#Color}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgb#Color'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbColor2() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgb#Color");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgb#Color");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3077,34 +2128,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbColor#}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbColor#'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbColor3() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbColor#");
-
-    // Assert
-    assertEquals("repeat", actualBackgroundImage.getFillMode());
-    assertNull(actualBackgroundImage.getUrl());
-  }
-
-  /**
-   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
-   * <ul>
-   *   <li>When {@code rgbColor42}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
-   */
-  @Test
-  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbColor42'")
-  void testBackgroundImageNewBackgroundImage_whenRgbColor42() {
-    // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbColor42");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbColor#");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3117,14 +2149,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbColorColor}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbColorColor'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbColorColor() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbColorColor");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbColorColor");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3137,14 +2170,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbColorhsl}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbColorhsl'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbColorhsl() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbColorhsl");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbColorhsl");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3157,14 +2191,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbColorrepeat}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbColorrepeat'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbColorrepeat() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbColorrepeat");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbColorrepeat");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3177,14 +2212,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbColorrgb}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbColorrgb'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbColorrgb() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbColorrgb");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbColorrgb");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3197,14 +2233,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgb#hsl}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgb#hsl'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbHsl() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgb#hsl");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgb#hsl");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3217,14 +2254,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgb#repeat}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgb#repeat'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbRepeat() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgb#repeat");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgb#repeat");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3237,14 +2275,36 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgb#rgb}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgb#rgb'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbRgb() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgb#rgb");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgb#rgb");
+
+    // Assert
+    assertEquals("repeat", actualBackgroundImage.getFillMode());
+    assertNull(actualBackgroundImage.getUrl());
+  }
+
+  /**
+   * Test BackgroundImage {@link BackgroundImage#BackgroundImage(String)}.
+   * <ul>
+   *   <li>When {@code rgbU}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
+   */
+  @Test
+  @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbU'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
+  void testBackgroundImageNewBackgroundImage_whenRgbU() {
+    // Arrange and Act
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbU");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3257,14 +2317,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbhsl}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbhsl'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbhsl() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbhsl");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbhsl");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3277,14 +2338,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbhsl#}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbhsl#'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbhsl2() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbhsl#");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbhsl#");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3297,14 +2359,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbhsl42}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbhsl42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbhsl42() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbhsl42");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbhsl42");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3317,14 +2380,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbhslColor}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbhslColor'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbhslColor() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbhslColor");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbhslColor");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3337,14 +2401,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbhslhsl}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbhslhsl'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbhslhsl() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbhslhsl");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbhslhsl");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3357,14 +2422,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbhslrepeat}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbhslrepeat'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbhslrepeat() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbhslrepeat");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbhslrepeat");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3377,14 +2443,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbhslrgb}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbhslrgb'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbhslrgb() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbhslrgb");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbhslrgb");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3397,14 +2464,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbrepeat}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbrepeat'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbrepeat() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbrepeat");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbrepeat");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3417,14 +2485,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbrepeat#}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbrepeat#'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbrepeat2() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbrepeat#");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbrepeat#");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3437,14 +2506,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbrepeat42}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbrepeat42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbrepeat42() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbrepeat42");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbrepeat42");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3457,14 +2527,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbrepeatColor}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbrepeatColor'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbrepeatColor() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbrepeatColor");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbrepeatColor");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3477,14 +2548,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbrepeathsl}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbrepeathsl'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbrepeathsl() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbrepeathsl");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbrepeathsl");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3497,14 +2569,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbrepeatrepeat}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbrepeatrepeat'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbrepeatrepeat() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbrepeatrepeat");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbrepeatrepeat");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3517,14 +2590,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbrepeatrgb}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbrepeatrgb'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbrepeatrgb() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbrepeatrgb");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbrepeatrgb");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3537,14 +2611,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbrgb}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbrgb'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbrgb() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbrgb");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbrgb");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3557,14 +2632,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbrgb#}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbrgb#'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbrgb2() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbrgb#");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbrgb#");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3577,14 +2653,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbrgb42}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbrgb42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbrgb42() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbrgb42");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbrgb42");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3597,14 +2674,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbrgbColor}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbrgbColor'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbrgbColor() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbrgbColor");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbrgbColor");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3617,14 +2695,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbrgbhsl}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbrgbhsl'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbrgbhsl() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbrgbhsl");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbrgbhsl");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3637,14 +2716,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbrgbrepeat}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbrgbrepeat'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbrgbrepeat() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbrgbrepeat");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbrgbrepeat");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3657,14 +2737,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>When {@code rgbrgbrgb}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TeamsAdaptiveCard.BackgroundImage#BackgroundImage(String)}
+   * Method under test: {@link BackgroundImage#BackgroundImage(String)}
    */
   @Test
   @DisplayName("Test BackgroundImage new BackgroundImage(String); when 'rgbrgbrgb'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BackgroundImage.<init>(String)"})
   void testBackgroundImageNewBackgroundImage_whenRgbrgbrgb() {
     // Arrange and Act
-    TeamsAdaptiveCard.BackgroundImage actualBackgroundImage = new TeamsAdaptiveCard.BackgroundImage("rgbrgbrgb");
+    BackgroundImage actualBackgroundImage = new BackgroundImage("rgbrgbrgb");
 
     // Assert
     assertEquals("repeat", actualBackgroundImage.getFillMode());
@@ -3672,8 +2753,7 @@ class TeamsAdaptiveCardDiffblueTest {
   }
 
   /**
-   * Test {@link TeamsAdaptiveCard#equals(Object)}, and
-   * {@link TeamsAdaptiveCard#hashCode()}.
+   * Test {@link TeamsAdaptiveCard#equals(Object)}, and {@link TeamsAdaptiveCard#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -3687,6 +2767,8 @@ class TeamsAdaptiveCardDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TeamsAdaptiveCard.equals(Object)", "int TeamsAdaptiveCard.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TeamsAdaptiveCard teamsAdaptiveCard = new TeamsAdaptiveCard();
@@ -3699,8 +2781,7 @@ class TeamsAdaptiveCardDiffblueTest {
   }
 
   /**
-   * Test {@link TeamsAdaptiveCard#equals(Object)}, and
-   * {@link TeamsAdaptiveCard#hashCode()}.
+   * Test {@link TeamsAdaptiveCard#equals(Object)}, and {@link TeamsAdaptiveCard#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -3714,6 +2795,8 @@ class TeamsAdaptiveCardDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TeamsAdaptiveCard.equals(Object)", "int TeamsAdaptiveCard.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TeamsAdaptiveCard teamsAdaptiveCard = new TeamsAdaptiveCard("message", new ArrayList<>());
@@ -3726,8 +2809,7 @@ class TeamsAdaptiveCardDiffblueTest {
   }
 
   /**
-   * Test {@link TeamsAdaptiveCard#equals(Object)}, and
-   * {@link TeamsAdaptiveCard#hashCode()}.
+   * Test {@link TeamsAdaptiveCard#equals(Object)}, and {@link TeamsAdaptiveCard#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -3741,6 +2823,8 @@ class TeamsAdaptiveCardDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TeamsAdaptiveCard.equals(Object)", "int TeamsAdaptiveCard.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TeamsAdaptiveCard teamsAdaptiveCard = new TeamsAdaptiveCard();
@@ -3762,6 +2846,8 @@ class TeamsAdaptiveCardDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TeamsAdaptiveCard.equals(Object)", "int TeamsAdaptiveCard.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TeamsAdaptiveCard teamsAdaptiveCard = new TeamsAdaptiveCard("message", new ArrayList<>());
@@ -3781,6 +2867,8 @@ class TeamsAdaptiveCardDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TeamsAdaptiveCard.equals(Object)", "int TeamsAdaptiveCard.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TeamsAdaptiveCard teamsAdaptiveCard = new TeamsAdaptiveCard();
@@ -3800,6 +2888,8 @@ class TeamsAdaptiveCardDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TeamsAdaptiveCard.equals(Object)", "int TeamsAdaptiveCard.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TeamsAdaptiveCard teamsAdaptiveCard = new TeamsAdaptiveCard("Type", new ArrayList<>());
@@ -3819,30 +2909,11 @@ class TeamsAdaptiveCardDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TeamsAdaptiveCard.equals(Object)", "int TeamsAdaptiveCard.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TeamsAdaptiveCard teamsAdaptiveCard = new TeamsAdaptiveCard(null, new ArrayList<>());
-
-    // Act and Assert
-    assertNotEquals(teamsAdaptiveCard, new TeamsAdaptiveCard());
-  }
-
-  /**
-   * Test {@link TeamsAdaptiveCard#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TeamsAdaptiveCard#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
-    // Arrange
-    ArrayList<TeamsAdaptiveCard.Attachment> attachments = new ArrayList<>();
-    attachments.add(mock(TeamsAdaptiveCard.Attachment.class));
-    TeamsAdaptiveCard teamsAdaptiveCard = new TeamsAdaptiveCard("message", attachments);
 
     // Act and Assert
     assertNotEquals(teamsAdaptiveCard, new TeamsAdaptiveCard());
@@ -3859,6 +2930,8 @@ class TeamsAdaptiveCardDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TeamsAdaptiveCard.equals(Object)", "int TeamsAdaptiveCard.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TeamsAdaptiveCard(), null);
@@ -3875,6 +2948,8 @@ class TeamsAdaptiveCardDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TeamsAdaptiveCard.equals(Object)", "int TeamsAdaptiveCard.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TeamsAdaptiveCard(), "Different type to TeamsAdaptiveCard");
@@ -3895,16 +2970,21 @@ class TeamsAdaptiveCardDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TeamsAdaptiveCard.<init>()", "void TeamsAdaptiveCard.<init>(String, List)",
+      "List TeamsAdaptiveCard.getAttachments()", "String TeamsAdaptiveCard.getType()",
+      "void TeamsAdaptiveCard.setAttachments(List)", "void TeamsAdaptiveCard.setType(String)",
+      "String TeamsAdaptiveCard.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TeamsAdaptiveCard actualTeamsAdaptiveCard = new TeamsAdaptiveCard();
-    ArrayList<TeamsAdaptiveCard.Attachment> attachments = new ArrayList<>();
+    ArrayList<Attachment> attachments = new ArrayList<>();
     actualTeamsAdaptiveCard.setAttachments(attachments);
     actualTeamsAdaptiveCard.setType("Type");
     String actualToStringResult = actualTeamsAdaptiveCard.toString();
-    List<TeamsAdaptiveCard.Attachment> actualAttachments = actualTeamsAdaptiveCard.getAttachments();
+    List<Attachment> actualAttachments = actualTeamsAdaptiveCard.getAttachments();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("TeamsAdaptiveCard(type=Type, attachments=[])", actualToStringResult);
     assertEquals("Type", actualTeamsAdaptiveCard.getType());
     assertTrue(actualAttachments.isEmpty());
@@ -3929,16 +3009,21 @@ class TeamsAdaptiveCardDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when 'Type'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TeamsAdaptiveCard.<init>()", "void TeamsAdaptiveCard.<init>(String, List)",
+      "List TeamsAdaptiveCard.getAttachments()", "String TeamsAdaptiveCard.getType()",
+      "void TeamsAdaptiveCard.setAttachments(List)", "void TeamsAdaptiveCard.setType(String)",
+      "String TeamsAdaptiveCard.toString()"})
   void testGettersAndSetters_whenType() {
     // Arrange and Act
     TeamsAdaptiveCard actualTeamsAdaptiveCard = new TeamsAdaptiveCard("Type", new ArrayList<>());
-    ArrayList<TeamsAdaptiveCard.Attachment> attachments = new ArrayList<>();
+    ArrayList<Attachment> attachments = new ArrayList<>();
     actualTeamsAdaptiveCard.setAttachments(attachments);
     actualTeamsAdaptiveCard.setType("Type");
     String actualToStringResult = actualTeamsAdaptiveCard.toString();
-    List<TeamsAdaptiveCard.Attachment> actualAttachments = actualTeamsAdaptiveCard.getAttachments();
+    List<Attachment> actualAttachments = actualTeamsAdaptiveCard.getAttachments();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("TeamsAdaptiveCard(type=Type, attachments=[])", actualToStringResult);
     assertEquals("Type", actualTeamsAdaptiveCard.getType());
     assertTrue(actualAttachments.isEmpty());
@@ -3946,8 +3031,7 @@ class TeamsAdaptiveCardDiffblueTest {
   }
 
   /**
-   * Test TextBlock {@link TextBlock#equals(Object)}, and
-   * {@link TextBlock#hashCode()}.
+   * Test TextBlock {@link TextBlock#equals(Object)}, and {@link TextBlock#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -3955,18 +3039,18 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#equals(Object)}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#hashCode()}
+   *   <li>{@link TextBlock#equals(Object)}
+   *   <li>{@link TextBlock#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test TextBlock equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TextBlock.equals(Object)", "int TextBlock.hashCode()"})
   void testTextBlockEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TeamsAdaptiveCard.TextBlock textBlock = new TeamsAdaptiveCard.TextBlock("Text", "Weight", "Size", "Spacing",
-        "Color");
-    TeamsAdaptiveCard.TextBlock textBlock2 = new TeamsAdaptiveCard.TextBlock("Text", "Weight", "Size", "Spacing",
-        "Color");
+    TextBlock textBlock = new TextBlock("Text", "Weight", "Size", "Spacing", "Color");
+    TextBlock textBlock2 = new TextBlock("Text", "Weight", "Size", "Spacing", "Color");
 
     // Act and Assert
     assertEquals(textBlock, textBlock2);
@@ -3975,8 +3059,7 @@ class TeamsAdaptiveCardDiffblueTest {
   }
 
   /**
-   * Test TextBlock {@link TextBlock#equals(Object)}, and
-   * {@link TextBlock#hashCode()}.
+   * Test TextBlock {@link TextBlock#equals(Object)}, and {@link TextBlock#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -3984,17 +3067,18 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#equals(Object)}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#hashCode()}
+   *   <li>{@link TextBlock#equals(Object)}
+   *   <li>{@link TextBlock#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test TextBlock equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TextBlock.equals(Object)", "int TextBlock.hashCode()"})
   void testTextBlockEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    TeamsAdaptiveCard.TextBlock textBlock = new TeamsAdaptiveCard.TextBlock(null, "Weight", "Size", "Spacing", "Color");
-    TeamsAdaptiveCard.TextBlock textBlock2 = new TeamsAdaptiveCard.TextBlock(null, "Weight", "Size", "Spacing",
-        "Color");
+    TextBlock textBlock = new TextBlock(null, "Weight", "Size", "Spacing", "Color");
+    TextBlock textBlock2 = new TextBlock(null, "Weight", "Size", "Spacing", "Color");
 
     // Act and Assert
     assertEquals(textBlock, textBlock2);
@@ -4003,8 +3087,7 @@ class TeamsAdaptiveCardDiffblueTest {
   }
 
   /**
-   * Test TextBlock {@link TextBlock#equals(Object)}, and
-   * {@link TextBlock#hashCode()}.
+   * Test TextBlock {@link TextBlock#equals(Object)}, and {@link TextBlock#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -4012,16 +3095,18 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#equals(Object)}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#hashCode()}
+   *   <li>{@link TextBlock#equals(Object)}
+   *   <li>{@link TextBlock#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test TextBlock equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TextBlock.equals(Object)", "int TextBlock.hashCode()"})
   void testTextBlockEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    TeamsAdaptiveCard.TextBlock textBlock = new TeamsAdaptiveCard.TextBlock("Text", null, "Size", "Spacing", "Color");
-    TeamsAdaptiveCard.TextBlock textBlock2 = new TeamsAdaptiveCard.TextBlock("Text", null, "Size", "Spacing", "Color");
+    TextBlock textBlock = new TextBlock("Text", null, "Size", "Spacing", "Color");
+    TextBlock textBlock2 = new TextBlock("Text", null, "Size", "Spacing", "Color");
 
     // Act and Assert
     assertEquals(textBlock, textBlock2);
@@ -4030,8 +3115,7 @@ class TeamsAdaptiveCardDiffblueTest {
   }
 
   /**
-   * Test TextBlock {@link TextBlock#equals(Object)}, and
-   * {@link TextBlock#hashCode()}.
+   * Test TextBlock {@link TextBlock#equals(Object)}, and {@link TextBlock#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -4039,17 +3123,18 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#equals(Object)}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#hashCode()}
+   *   <li>{@link TextBlock#equals(Object)}
+   *   <li>{@link TextBlock#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test TextBlock equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TextBlock.equals(Object)", "int TextBlock.hashCode()"})
   void testTextBlockEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
-    TeamsAdaptiveCard.TextBlock textBlock = new TeamsAdaptiveCard.TextBlock("Text", "Weight", null, "Spacing", "Color");
-    TeamsAdaptiveCard.TextBlock textBlock2 = new TeamsAdaptiveCard.TextBlock("Text", "Weight", null, "Spacing",
-        "Color");
+    TextBlock textBlock = new TextBlock("Text", "Weight", null, "Spacing", "Color");
+    TextBlock textBlock2 = new TextBlock("Text", "Weight", null, "Spacing", "Color");
 
     // Act and Assert
     assertEquals(textBlock, textBlock2);
@@ -4058,8 +3143,7 @@ class TeamsAdaptiveCardDiffblueTest {
   }
 
   /**
-   * Test TextBlock {@link TextBlock#equals(Object)}, and
-   * {@link TextBlock#hashCode()}.
+   * Test TextBlock {@link TextBlock#equals(Object)}, and {@link TextBlock#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -4067,16 +3151,17 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#equals(Object)}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#hashCode()}
+   *   <li>{@link TextBlock#equals(Object)}
+   *   <li>{@link TextBlock#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test TextBlock equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TextBlock.equals(Object)", "int TextBlock.hashCode()"})
   void testTextBlockEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TeamsAdaptiveCard.TextBlock textBlock = new TeamsAdaptiveCard.TextBlock("Text", "Weight", "Size", "Spacing",
-        "Color");
+    TextBlock textBlock = new TextBlock("Text", "Weight", "Size", "Spacing", "Color");
 
     // Act and Assert
     assertEquals(textBlock, textBlock);
@@ -4091,17 +3176,18 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.TextBlock#equals(Object)}
+   * Method under test: {@link TextBlock#equals(Object)}
    */
   @Test
   @DisplayName("Test TextBlock equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TextBlock.equals(Object)", "int TextBlock.hashCode()"})
   void testTextBlockEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    TeamsAdaptiveCard.TextBlock textBlock = new TeamsAdaptiveCard.TextBlock("TextBlock", "Weight", "Size", "Spacing",
-        "Color");
+    TextBlock textBlock = new TextBlock("TextBlock", "Weight", "Size", "Spacing", "Color");
 
     // Act and Assert
-    assertNotEquals(textBlock, new TeamsAdaptiveCard.TextBlock("Text", "Weight", "Size", "Spacing", "Color"));
+    assertNotEquals(textBlock, new TextBlock("Text", "Weight", "Size", "Spacing", "Color"));
   }
 
   /**
@@ -4111,16 +3197,18 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.TextBlock#equals(Object)}
+   * Method under test: {@link TextBlock#equals(Object)}
    */
   @Test
   @DisplayName("Test TextBlock equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TextBlock.equals(Object)", "int TextBlock.hashCode()"})
   void testTextBlockEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TeamsAdaptiveCard.TextBlock textBlock = new TeamsAdaptiveCard.TextBlock(null, "Weight", "Size", "Spacing", "Color");
+    TextBlock textBlock = new TextBlock(null, "Weight", "Size", "Spacing", "Color");
 
     // Act and Assert
-    assertNotEquals(textBlock, new TeamsAdaptiveCard.TextBlock("Text", "Weight", "Size", "Spacing", "Color"));
+    assertNotEquals(textBlock, new TextBlock("Text", "Weight", "Size", "Spacing", "Color"));
   }
 
   /**
@@ -4130,17 +3218,18 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.TextBlock#equals(Object)}
+   * Method under test: {@link TextBlock#equals(Object)}
    */
   @Test
   @DisplayName("Test TextBlock equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TextBlock.equals(Object)", "int TextBlock.hashCode()"})
   void testTextBlockEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TeamsAdaptiveCard.TextBlock textBlock = new TeamsAdaptiveCard.TextBlock("Text", "TextBlock", "Size", "Spacing",
-        "Color");
+    TextBlock textBlock = new TextBlock("Text", "TextBlock", "Size", "Spacing", "Color");
 
     // Act and Assert
-    assertNotEquals(textBlock, new TeamsAdaptiveCard.TextBlock("Text", "Weight", "Size", "Spacing", "Color"));
+    assertNotEquals(textBlock, new TextBlock("Text", "Weight", "Size", "Spacing", "Color"));
   }
 
   /**
@@ -4150,16 +3239,18 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.TextBlock#equals(Object)}
+   * Method under test: {@link TextBlock#equals(Object)}
    */
   @Test
   @DisplayName("Test TextBlock equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TextBlock.equals(Object)", "int TextBlock.hashCode()"})
   void testTextBlockEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    TeamsAdaptiveCard.TextBlock textBlock = new TeamsAdaptiveCard.TextBlock("Text", null, "Size", "Spacing", "Color");
+    TextBlock textBlock = new TextBlock("Text", null, "Size", "Spacing", "Color");
 
     // Act and Assert
-    assertNotEquals(textBlock, new TeamsAdaptiveCard.TextBlock("Text", "Weight", "Size", "Spacing", "Color"));
+    assertNotEquals(textBlock, new TextBlock("Text", "Weight", "Size", "Spacing", "Color"));
   }
 
   /**
@@ -4169,17 +3260,18 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.TextBlock#equals(Object)}
+   * Method under test: {@link TextBlock#equals(Object)}
    */
   @Test
   @DisplayName("Test TextBlock equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TextBlock.equals(Object)", "int TextBlock.hashCode()"})
   void testTextBlockEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    TeamsAdaptiveCard.TextBlock textBlock = new TeamsAdaptiveCard.TextBlock("Text", "Weight", "TextBlock", "Spacing",
-        "Color");
+    TextBlock textBlock = new TextBlock("Text", "Weight", "TextBlock", "Spacing", "Color");
 
     // Act and Assert
-    assertNotEquals(textBlock, new TeamsAdaptiveCard.TextBlock("Text", "Weight", "Size", "Spacing", "Color"));
+    assertNotEquals(textBlock, new TextBlock("Text", "Weight", "Size", "Spacing", "Color"));
   }
 
   /**
@@ -4189,16 +3281,18 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.TextBlock#equals(Object)}
+   * Method under test: {@link TextBlock#equals(Object)}
    */
   @Test
   @DisplayName("Test TextBlock equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TextBlock.equals(Object)", "int TextBlock.hashCode()"})
   void testTextBlockEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    TeamsAdaptiveCard.TextBlock textBlock = new TeamsAdaptiveCard.TextBlock("Text", "Weight", null, "Spacing", "Color");
+    TextBlock textBlock = new TextBlock("Text", "Weight", null, "Spacing", "Color");
 
     // Act and Assert
-    assertNotEquals(textBlock, new TeamsAdaptiveCard.TextBlock("Text", "Weight", "Size", "Spacing", "Color"));
+    assertNotEquals(textBlock, new TextBlock("Text", "Weight", "Size", "Spacing", "Color"));
   }
 
   /**
@@ -4208,17 +3302,18 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.TextBlock#equals(Object)}
+   * Method under test: {@link TextBlock#equals(Object)}
    */
   @Test
   @DisplayName("Test TextBlock equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TextBlock.equals(Object)", "int TextBlock.hashCode()"})
   void testTextBlockEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    TeamsAdaptiveCard.TextBlock textBlock = new TeamsAdaptiveCard.TextBlock("Text", "Weight", "Size", "TextBlock",
-        "Color");
+    TextBlock textBlock = new TextBlock("Text", "Weight", "Size", "TextBlock", "Color");
 
     // Act and Assert
-    assertNotEquals(textBlock, new TeamsAdaptiveCard.TextBlock("Text", "Weight", "Size", "Spacing", "Color"));
+    assertNotEquals(textBlock, new TextBlock("Text", "Weight", "Size", "Spacing", "Color"));
   }
 
   /**
@@ -4228,16 +3323,18 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.TextBlock#equals(Object)}
+   * Method under test: {@link TextBlock#equals(Object)}
    */
   @Test
   @DisplayName("Test TextBlock equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TextBlock.equals(Object)", "int TextBlock.hashCode()"})
   void testTextBlockEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
-    TeamsAdaptiveCard.TextBlock textBlock = new TeamsAdaptiveCard.TextBlock("Text", "Weight", "Size", null, "Color");
+    TextBlock textBlock = new TextBlock("Text", "Weight", "Size", null, "Color");
 
     // Act and Assert
-    assertNotEquals(textBlock, new TeamsAdaptiveCard.TextBlock("Text", "Weight", "Size", "Spacing", "Color"));
+    assertNotEquals(textBlock, new TextBlock("Text", "Weight", "Size", "Spacing", "Color"));
   }
 
   /**
@@ -4247,17 +3344,18 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.TextBlock#equals(Object)}
+   * Method under test: {@link TextBlock#equals(Object)}
    */
   @Test
   @DisplayName("Test TextBlock equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TextBlock.equals(Object)", "int TextBlock.hashCode()"})
   void testTextBlockEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
-    TeamsAdaptiveCard.TextBlock textBlock = new TeamsAdaptiveCard.TextBlock("Text", "Weight", "Size", "Spacing",
-        "TextBlock");
+    TextBlock textBlock = new TextBlock("Text", "Weight", "Size", "Spacing", "TextBlock");
 
     // Act and Assert
-    assertNotEquals(textBlock, new TeamsAdaptiveCard.TextBlock("Text", "Weight", "Size", "Spacing", "Color"));
+    assertNotEquals(textBlock, new TextBlock("Text", "Weight", "Size", "Spacing", "Color"));
   }
 
   /**
@@ -4267,16 +3365,18 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.TextBlock#equals(Object)}
+   * Method under test: {@link TextBlock#equals(Object)}
    */
   @Test
   @DisplayName("Test TextBlock equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TextBlock.equals(Object)", "int TextBlock.hashCode()"})
   void testTextBlockEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
-    TeamsAdaptiveCard.TextBlock textBlock = new TeamsAdaptiveCard.TextBlock("Text", "Weight", "Size", "Spacing", null);
+    TextBlock textBlock = new TextBlock("Text", "Weight", "Size", "Spacing", null);
 
     // Act and Assert
-    assertNotEquals(textBlock, new TeamsAdaptiveCard.TextBlock("Text", "Weight", "Size", "Spacing", "Color"));
+    assertNotEquals(textBlock, new TextBlock("Text", "Weight", "Size", "Spacing", "Color"));
   }
 
   /**
@@ -4286,13 +3386,15 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.TextBlock#equals(Object)}
+   * Method under test: {@link TextBlock#equals(Object)}
    */
   @Test
   @DisplayName("Test TextBlock equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TextBlock.equals(Object)", "int TextBlock.hashCode()"})
   void testTextBlockEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TeamsAdaptiveCard.TextBlock("Text", "Weight", "Size", "Spacing", "Color"), null);
+    assertNotEquals(new TextBlock("Text", "Weight", "Size", "Spacing", "Color"), null);
   }
 
   /**
@@ -4302,23 +3404,26 @@ class TeamsAdaptiveCardDiffblueTest {
    *   <li>Then return not equal.</li>
    * </ul>
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.TextBlock#equals(Object)}
+   * Method under test: {@link TextBlock#equals(Object)}
    */
   @Test
   @DisplayName("Test TextBlock equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TextBlock.equals(Object)", "int TextBlock.hashCode()"})
   void testTextBlockEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TeamsAdaptiveCard.TextBlock("Text", "Weight", "Size", "Spacing", "Color"),
-        "Different type to TextBlock");
+    assertNotEquals(new TextBlock("Text", "Weight", "Size", "Spacing", "Color"), "Different type to TextBlock");
   }
 
   /**
    * Test TextBlock {@link TextBlock#getType()}.
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.TextBlock#getType()}
+   * Method under test: {@link TextBlock#getType()}
    */
   @Test
   @DisplayName("Test TextBlock getType()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String TextBlock.getType()"})
   void testTextBlockGetType() {
     // Arrange, Act and Assert
     assertEquals("TextBlock", textBlock.getType());
@@ -4329,25 +3434,31 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#TextBlock()}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#setColor(String)}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#setSize(String)}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#setSpacing(String)}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#setText(String)}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#setWeight(String)}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#toString()}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#getColor()}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#getSize()}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#getSpacing()}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#getText()}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#getWeight()}
+   *   <li>{@link TextBlock#TextBlock()}
+   *   <li>{@link TextBlock#setColor(String)}
+   *   <li>{@link TextBlock#setSize(String)}
+   *   <li>{@link TextBlock#setSpacing(String)}
+   *   <li>{@link TextBlock#setText(String)}
+   *   <li>{@link TextBlock#setWeight(String)}
+   *   <li>{@link TextBlock#toString()}
+   *   <li>{@link TextBlock#getColor()}
+   *   <li>{@link TextBlock#getSize()}
+   *   <li>{@link TextBlock#getSpacing()}
+   *   <li>{@link TextBlock#getText()}
+   *   <li>{@link TextBlock#getWeight()}
    * </ul>
    */
   @Test
   @DisplayName("Test TextBlock getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TextBlock.<init>()", "void TextBlock.<init>(String, String, String, String, String)",
+      "String TextBlock.getColor()", "String TextBlock.getSize()", "String TextBlock.getSpacing()",
+      "String TextBlock.getText()", "String TextBlock.getWeight()", "void TextBlock.setColor(String)",
+      "void TextBlock.setSize(String)", "void TextBlock.setSpacing(String)", "void TextBlock.setText(String)",
+      "void TextBlock.setWeight(String)", "String TextBlock.toString()"})
   void testTextBlockGettersAndSetters() {
     // Arrange and Act
-    TeamsAdaptiveCard.TextBlock actualTextBlock = new TeamsAdaptiveCard.TextBlock();
+    TextBlock actualTextBlock = new TextBlock();
     actualTextBlock.setColor("Color");
     actualTextBlock.setSize("Size");
     actualTextBlock.setSpacing("Spacing");
@@ -4359,7 +3470,7 @@ class TeamsAdaptiveCardDiffblueTest {
     String actualSpacing = actualTextBlock.getSpacing();
     String actualText = actualTextBlock.getText();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Color", actualColor);
     assertEquals("Size", actualSize);
     assertEquals("Spacing", actualSpacing);
@@ -4377,27 +3488,31 @@ class TeamsAdaptiveCardDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>
-   * {@link TeamsAdaptiveCard.TextBlock#TextBlock(String, String, String, String, String)}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#setColor(String)}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#setSize(String)}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#setSpacing(String)}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#setText(String)}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#setWeight(String)}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#toString()}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#getColor()}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#getSize()}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#getSpacing()}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#getText()}
-   *   <li>{@link TeamsAdaptiveCard.TextBlock#getWeight()}
+   *   <li>{@link TextBlock#TextBlock(String, String, String, String, String)}
+   *   <li>{@link TextBlock#setColor(String)}
+   *   <li>{@link TextBlock#setSize(String)}
+   *   <li>{@link TextBlock#setSpacing(String)}
+   *   <li>{@link TextBlock#setText(String)}
+   *   <li>{@link TextBlock#setWeight(String)}
+   *   <li>{@link TextBlock#toString()}
+   *   <li>{@link TextBlock#getColor()}
+   *   <li>{@link TextBlock#getSize()}
+   *   <li>{@link TextBlock#getSpacing()}
+   *   <li>{@link TextBlock#getText()}
+   *   <li>{@link TextBlock#getWeight()}
    * </ul>
    */
   @Test
   @DisplayName("Test TextBlock getters and setters; when 'Text'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TextBlock.<init>()", "void TextBlock.<init>(String, String, String, String, String)",
+      "String TextBlock.getColor()", "String TextBlock.getSize()", "String TextBlock.getSpacing()",
+      "String TextBlock.getText()", "String TextBlock.getWeight()", "void TextBlock.setColor(String)",
+      "void TextBlock.setSize(String)", "void TextBlock.setSpacing(String)", "void TextBlock.setText(String)",
+      "void TextBlock.setWeight(String)", "String TextBlock.toString()"})
   void testTextBlockGettersAndSetters_whenText() {
     // Arrange and Act
-    TeamsAdaptiveCard.TextBlock actualTextBlock = new TeamsAdaptiveCard.TextBlock("Text", "Weight", "Size", "Spacing",
-        "Color");
+    TextBlock actualTextBlock = new TextBlock("Text", "Weight", "Size", "Spacing", "Color");
     actualTextBlock.setColor("Color");
     actualTextBlock.setSize("Size");
     actualTextBlock.setSpacing("Spacing");
@@ -4409,7 +3524,7 @@ class TeamsAdaptiveCardDiffblueTest {
     String actualSpacing = actualTextBlock.getSpacing();
     String actualText = actualTextBlock.getText();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Color", actualColor);
     assertEquals("Size", actualSize);
     assertEquals("Spacing", actualSpacing);
@@ -4422,10 +3537,12 @@ class TeamsAdaptiveCardDiffblueTest {
   /**
    * Test TextBlock {@link TextBlock#isWrap()}.
    * <p>
-   * Method under test: {@link TeamsAdaptiveCard.TextBlock#isWrap()}
+   * Method under test: {@link TextBlock#isWrap()}
    */
   @Test
   @DisplayName("Test TextBlock isWrap()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TextBlock.isWrap()"})
   void testTextBlockIsWrap() {
     // Arrange, Act and Assert
     assertTrue(textBlock.isWrap());

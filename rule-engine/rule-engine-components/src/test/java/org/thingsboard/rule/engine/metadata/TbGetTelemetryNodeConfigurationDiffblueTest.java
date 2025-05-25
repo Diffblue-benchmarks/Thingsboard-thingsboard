@@ -5,22 +5,26 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.kv.Aggregation;
 import org.thingsboard.server.common.data.page.SortOrder;
+import org.thingsboard.server.common.data.page.SortOrder.Direction;
 
 class TbGetTelemetryNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbGetTelemetryNodeConfiguration#defaultConfiguration()}.
    * <p>
-   * Method under test:
-   * {@link TbGetTelemetryNodeConfiguration#defaultConfiguration()}
+   * Method under test: {@link TbGetTelemetryNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbGetTelemetryNodeConfiguration TbGetTelemetryNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
     // Arrange and Act
     TbGetTelemetryNodeConfiguration actualDefaultConfigurationResult = (new TbGetTelemetryNodeConfiguration())
@@ -35,15 +39,14 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
     assertEquals(2, actualDefaultConfigurationResult.getStartInterval());
     assertEquals(FetchMode.FIRST, actualDefaultConfigurationResult.getFetchMode());
     assertEquals(Aggregation.NONE, actualDefaultConfigurationResult.getAggregation());
-    assertEquals(SortOrder.Direction.ASC, actualDefaultConfigurationResult.getOrderBy());
+    assertEquals(Direction.ASC, actualDefaultConfigurationResult.getOrderBy());
     assertFalse(actualDefaultConfigurationResult.isUseMetadataIntervalPatterns());
     assertTrue(actualDefaultConfigurationResult.getLatestTsKeyNames().isEmpty());
     assertEquals(TbGetTelemetryNodeConfiguration.MAX_FETCH_SIZE, actualDefaultConfigurationResult.getLimit());
   }
 
   /**
-   * Test {@link TbGetTelemetryNodeConfiguration#equals(Object)}, and
-   * {@link TbGetTelemetryNodeConfiguration#hashCode()}.
+   * Test {@link TbGetTelemetryNodeConfiguration#equals(Object)}, and {@link TbGetTelemetryNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -57,6 +60,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -69,8 +75,7 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGetTelemetryNodeConfiguration#equals(Object)}, and
-   * {@link TbGetTelemetryNodeConfiguration#hashCode()}.
+   * Test {@link TbGetTelemetryNodeConfiguration#equals(Object)}, and {@link TbGetTelemetryNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -84,6 +89,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -99,8 +107,7 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGetTelemetryNodeConfiguration#equals(Object)}, and
-   * {@link TbGetTelemetryNodeConfiguration#hashCode()}.
+   * Test {@link TbGetTelemetryNodeConfiguration#equals(Object)}, and {@link TbGetTelemetryNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -114,6 +121,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -129,8 +139,7 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGetTelemetryNodeConfiguration#equals(Object)}, and
-   * {@link TbGetTelemetryNodeConfiguration#hashCode()}.
+   * Test {@link TbGetTelemetryNodeConfiguration#equals(Object)}, and {@link TbGetTelemetryNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -144,6 +153,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -159,8 +171,7 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGetTelemetryNodeConfiguration#equals(Object)}, and
-   * {@link TbGetTelemetryNodeConfiguration#hashCode()}.
+   * Test {@link TbGetTelemetryNodeConfiguration#equals(Object)}, and {@link TbGetTelemetryNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -174,6 +185,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -189,8 +203,7 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGetTelemetryNodeConfiguration#equals(Object)}, and
-   * {@link TbGetTelemetryNodeConfiguration#hashCode()}.
+   * Test {@link TbGetTelemetryNodeConfiguration#equals(Object)}, and {@link TbGetTelemetryNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -204,6 +217,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual6() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -219,8 +235,7 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGetTelemetryNodeConfiguration#equals(Object)}, and
-   * {@link TbGetTelemetryNodeConfiguration#hashCode()}.
+   * Test {@link TbGetTelemetryNodeConfiguration#equals(Object)}, and {@link TbGetTelemetryNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -234,13 +249,16 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual7() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
-    tbGetTelemetryNodeConfiguration.setOrderBy(SortOrder.Direction.ASC);
+    tbGetTelemetryNodeConfiguration.setOrderBy(Direction.ASC);
 
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration2 = new TbGetTelemetryNodeConfiguration();
-    tbGetTelemetryNodeConfiguration2.setOrderBy(SortOrder.Direction.ASC);
+    tbGetTelemetryNodeConfiguration2.setOrderBy(Direction.ASC);
 
     // Act and Assert
     assertEquals(tbGetTelemetryNodeConfiguration, tbGetTelemetryNodeConfiguration2);
@@ -249,8 +267,7 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGetTelemetryNodeConfiguration#equals(Object)}, and
-   * {@link TbGetTelemetryNodeConfiguration#hashCode()}.
+   * Test {@link TbGetTelemetryNodeConfiguration#equals(Object)}, and {@link TbGetTelemetryNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -264,6 +281,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual8() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -279,8 +299,7 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGetTelemetryNodeConfiguration#equals(Object)}, and
-   * {@link TbGetTelemetryNodeConfiguration#hashCode()}.
+   * Test {@link TbGetTelemetryNodeConfiguration#equals(Object)}, and {@link TbGetTelemetryNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
@@ -294,6 +313,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual9() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -309,8 +331,7 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGetTelemetryNodeConfiguration#equals(Object)}, and
-   * {@link TbGetTelemetryNodeConfiguration#hashCode()}.
+   * Test {@link TbGetTelemetryNodeConfiguration#equals(Object)}, and {@link TbGetTelemetryNodeConfiguration#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
@@ -324,6 +345,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -345,6 +369,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbGetTelemetryNodeConfiguration(), 1);
@@ -361,6 +388,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -381,6 +411,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -401,6 +434,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -421,6 +457,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -441,6 +480,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -461,6 +503,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -481,6 +526,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -501,6 +549,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -521,10 +572,13 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
-    tbGetTelemetryNodeConfiguration.setOrderBy(SortOrder.Direction.ASC);
+    tbGetTelemetryNodeConfiguration.setOrderBy(Direction.ASC);
 
     // Act and Assert
     assertNotEquals(tbGetTelemetryNodeConfiguration, new TbGetTelemetryNodeConfiguration());
@@ -541,6 +595,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -561,6 +618,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -581,6 +641,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -601,6 +664,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -623,6 +689,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -645,6 +714,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -667,6 +739,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -689,6 +764,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -711,12 +789,15 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
 
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration2 = new TbGetTelemetryNodeConfiguration();
-    tbGetTelemetryNodeConfiguration2.setOrderBy(SortOrder.Direction.ASC);
+    tbGetTelemetryNodeConfiguration2.setOrderBy(Direction.ASC);
 
     // Act and Assert
     assertNotEquals(tbGetTelemetryNodeConfiguration, tbGetTelemetryNodeConfiguration2);
@@ -733,6 +814,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -755,6 +839,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     TbGetTelemetryNodeConfiguration tbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -777,6 +864,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbGetTelemetryNodeConfiguration(), null);
@@ -793,6 +883,9 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean TbGetTelemetryNodeConfiguration.equals(Object)",
+      "int TbGetTelemetryNodeConfiguration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbGetTelemetryNodeConfiguration(), "Different type to TbGetTelemetryNodeConfiguration");
@@ -803,8 +896,7 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    * <p>
    * Methods under test:
    * <ul>
-   *   <li>default or parameterless constructor of
-   * {@link TbGetTelemetryNodeConfiguration}
+   *   <li>default or parameterless constructor of {@link TbGetTelemetryNodeConfiguration}
    *   <li>{@link TbGetTelemetryNodeConfiguration#setAggregation(Aggregation)}
    *   <li>{@link TbGetTelemetryNodeConfiguration#setEndInterval(int)}
    *   <li>{@link TbGetTelemetryNodeConfiguration#setEndIntervalPattern(String)}
@@ -816,8 +908,7 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    *   <li>{@link TbGetTelemetryNodeConfiguration#setStartInterval(int)}
    *   <li>{@link TbGetTelemetryNodeConfiguration#setStartIntervalPattern(String)}
    *   <li>{@link TbGetTelemetryNodeConfiguration#setStartIntervalTimeUnit(String)}
-   *   <li>
-   * {@link TbGetTelemetryNodeConfiguration#setUseMetadataIntervalPatterns(boolean)}
+   *   <li>{@link TbGetTelemetryNodeConfiguration#setUseMetadataIntervalPatterns(boolean)}
    *   <li>{@link TbGetTelemetryNodeConfiguration#toString()}
    *   <li>{@link TbGetTelemetryNodeConfiguration#getAggregation()}
    *   <li>{@link TbGetTelemetryNodeConfiguration#getEndInterval()}
@@ -835,6 +926,32 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbGetTelemetryNodeConfiguration.<init>()",
+      "Aggregation TbGetTelemetryNodeConfiguration.getAggregation()",
+      "int TbGetTelemetryNodeConfiguration.getEndInterval()",
+      "String TbGetTelemetryNodeConfiguration.getEndIntervalPattern()",
+      "String TbGetTelemetryNodeConfiguration.getEndIntervalTimeUnit()",
+      "FetchMode TbGetTelemetryNodeConfiguration.getFetchMode()",
+      "List TbGetTelemetryNodeConfiguration.getLatestTsKeyNames()", "int TbGetTelemetryNodeConfiguration.getLimit()",
+      "SortOrder.Direction TbGetTelemetryNodeConfiguration.getOrderBy()",
+      "int TbGetTelemetryNodeConfiguration.getStartInterval()",
+      "String TbGetTelemetryNodeConfiguration.getStartIntervalPattern()",
+      "String TbGetTelemetryNodeConfiguration.getStartIntervalTimeUnit()",
+      "boolean TbGetTelemetryNodeConfiguration.isUseMetadataIntervalPatterns()",
+      "void TbGetTelemetryNodeConfiguration.setAggregation(Aggregation)",
+      "void TbGetTelemetryNodeConfiguration.setEndInterval(int)",
+      "void TbGetTelemetryNodeConfiguration.setEndIntervalPattern(String)",
+      "void TbGetTelemetryNodeConfiguration.setEndIntervalTimeUnit(String)",
+      "void TbGetTelemetryNodeConfiguration.setFetchMode(FetchMode)",
+      "void TbGetTelemetryNodeConfiguration.setLatestTsKeyNames(List)",
+      "void TbGetTelemetryNodeConfiguration.setLimit(int)",
+      "void TbGetTelemetryNodeConfiguration.setOrderBy(SortOrder.Direction)",
+      "void TbGetTelemetryNodeConfiguration.setStartInterval(int)",
+      "void TbGetTelemetryNodeConfiguration.setStartIntervalPattern(String)",
+      "void TbGetTelemetryNodeConfiguration.setStartIntervalTimeUnit(String)",
+      "void TbGetTelemetryNodeConfiguration.setUseMetadataIntervalPatterns(boolean)",
+      "String TbGetTelemetryNodeConfiguration.toString()"})
   void testGettersAndSetters() {
     // Arrange and Act
     TbGetTelemetryNodeConfiguration actualTbGetTelemetryNodeConfiguration = new TbGetTelemetryNodeConfiguration();
@@ -846,7 +963,7 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
     ArrayList<String> latestTsKeyNames = new ArrayList<>();
     actualTbGetTelemetryNodeConfiguration.setLatestTsKeyNames(latestTsKeyNames);
     actualTbGetTelemetryNodeConfiguration.setLimit(1);
-    actualTbGetTelemetryNodeConfiguration.setOrderBy(SortOrder.Direction.ASC);
+    actualTbGetTelemetryNodeConfiguration.setOrderBy(Direction.ASC);
     actualTbGetTelemetryNodeConfiguration.setStartInterval(1);
     actualTbGetTelemetryNodeConfiguration.setStartIntervalPattern("Start Interval Pattern");
     actualTbGetTelemetryNodeConfiguration.setStartIntervalTimeUnit("Start Interval Time Unit");
@@ -859,14 +976,14 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
     FetchMode actualFetchMode = actualTbGetTelemetryNodeConfiguration.getFetchMode();
     List<String> actualLatestTsKeyNames = actualTbGetTelemetryNodeConfiguration.getLatestTsKeyNames();
     int actualLimit = actualTbGetTelemetryNodeConfiguration.getLimit();
-    SortOrder.Direction actualOrderBy = actualTbGetTelemetryNodeConfiguration.getOrderBy();
+    Direction actualOrderBy = actualTbGetTelemetryNodeConfiguration.getOrderBy();
     int actualStartInterval = actualTbGetTelemetryNodeConfiguration.getStartInterval();
     String actualStartIntervalPattern = actualTbGetTelemetryNodeConfiguration.getStartIntervalPattern();
     String actualStartIntervalTimeUnit = actualTbGetTelemetryNodeConfiguration.getStartIntervalTimeUnit();
     boolean actualIsUseMetadataIntervalPatternsResult = actualTbGetTelemetryNodeConfiguration
         .isUseMetadataIntervalPatterns();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("End Interval Pattern", actualEndIntervalPattern);
     assertEquals("End Interval Time Unit", actualEndIntervalTimeUnit);
     assertEquals("Start Interval Pattern", actualStartIntervalPattern);
@@ -880,7 +997,7 @@ class TbGetTelemetryNodeConfigurationDiffblueTest {
     assertEquals(3, actualEndInterval);
     assertEquals(FetchMode.FIRST, actualFetchMode);
     assertEquals(Aggregation.MIN, actualAggregation);
-    assertEquals(SortOrder.Direction.ASC, actualOrderBy);
+    assertEquals(Direction.ASC, actualOrderBy);
     assertTrue(actualLatestTsKeyNames.isEmpty());
     assertTrue(actualIsUseMetadataIntervalPatternsResult);
     assertSame(latestTsKeyNames, actualLatestTsKeyNames);

@@ -5,11 +5,13 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import java.util.function.BiConsumer;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.EntityId;
 import org.thingsboard.server.common.data.id.TenantId;
@@ -17,23 +19,22 @@ import org.thingsboard.server.service.ws.telemetry.sub.TelemetrySubscriptionUpda
 
 class TbAttributeSubscriptionDiffblueTest {
   /**
-   * Test
-   * {@link TbAttributeSubscription#TbAttributeSubscription(String, String, int, TenantId, EntityId, BiConsumer, long, boolean, Map, TbAttributeSubscriptionScope)}.
+   * Test {@link TbAttributeSubscription#TbAttributeSubscription(String, String, int, TenantId, EntityId, BiConsumer, long, boolean, Map, TbAttributeSubscriptionScope)}.
    * <ul>
    *   <li>When {@code null}.</li>
    *   <li>Then return ServiceId is {@code 42}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link TbAttributeSubscription#TbAttributeSubscription(String, String, int, TenantId, EntityId, BiConsumer, long, boolean, Map, TbAttributeSubscriptionScope)}
+   * Method under test: {@link TbAttributeSubscription#TbAttributeSubscription(String, String, int, TenantId, EntityId, BiConsumer, long, boolean, Map, TbAttributeSubscriptionScope)}
    */
   @Test
   @DisplayName("Test new TbAttributeSubscription(String, String, int, TenantId, EntityId, BiConsumer, long, boolean, Map, TbAttributeSubscriptionScope); when 'null'; then return ServiceId is '42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+      "void TbAttributeSubscription.<init>(String, String, int, TenantId, EntityId, BiConsumer, long, boolean, Map, TbAttributeSubscriptionScope)"})
   void testNewTbAttributeSubscription_whenNull_thenReturnServiceIdIs42() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    TenantId tenantId = new TenantId(UUID.randomUUID());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     BiConsumer<TbSubscription<TelemetrySubscriptionUpdate>, TelemetrySubscriptionUpdate> updateProcessor = mock(
         BiConsumer.class);
 
